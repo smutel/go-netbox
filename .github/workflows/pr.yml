@@ -1,0 +1,54 @@
+---
+name: PR
+
+on:
+  pull_request:
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Check conventional commits in PR
+        uses: Namchee/conventional-pr@v0.4.1
+        with:
+          access_token: ${{ secrets.github_token }}
+          label: "no-conventional-commits"
+          close: false
+          template: "Thank you for your contribution attempt in this repository!\n\nUnfortunately, this pull request doesn't meet our standards by reason we stated below.\nFor future pull requests, please use conventional commits.\nPlease update the commits in this PR with conventional commits rules."
+          strict: false
+
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Unshallow
+        run: git fetch --prune --unshallow
+
+      - name: Setup env
+        run: |
+          echo "GOPATH=$(dirname $GITHUB_WORKSPACE)" >> $GITHUB_ENV
+          echo "$(dirname $GITHUB_WORKSPACE)/bin" >> $GITHUB_PATH
+          mkdir -p "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel"
+          ln -sf "$GITHUB_WORKSPACE/" "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox"
+        shell: bash
+
+      - name: Swagger and patchs
+        run: |
+          NETBOX_MAJOR_VERSION=$(cat netbox_major_version)
+          echo "NETBOX_MAJOR_VERSION=${NETBOX_MAJOR_VERSION}"
+          LAST_NETBOX_VERSION="$(./utils/netbox_get_last_version ${NETBOX_MAJOR_VERSION})"
+          echo "LAST_NETBOX_VERSION=${LAST_NETBOX_VERSION}"
+          export VERSION=${LAST_NETBOX_VERSION}
+          git clone https://github.com/netbox-community/netbox-docker.git
+          cd netbox-docker
+          mv docker-compose.override.yml.example docker-compose.override.yml
+          docker-compose up -d
+          cd ..
+          while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1; done
+          curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.27.0/swagger_linux_amd64 -o swagger
+          chmod 755 swagger
+          rm -rf netbox && mkdir netbox && touch netbox/.gitkeep
+          ./swagger generate client -f swagger.json -A go-netbox -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
+          find patchs -type f -name "*.patch" | xargs patch -p0
+        shell: bash
