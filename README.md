@@ -22,7 +22,7 @@ configurations you likely need while connecting to NetBox. `NewNetboxAt` allows 
 
 ```go
 import (
-    "github.com/netbox-community/go-netbox/netbox"
+    "github.com/smutel/go-netbox/netbox"
 )
 ...
     c := netbox.NewNetboxAt("your.netbox.host:8000")
@@ -44,8 +44,8 @@ import (
 	"os"
 
 	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/netbox-community/go-netbox/netbox/client"
-	"github.com/netbox-community/go-netbox/netbox/client/dcim"
+	"github.com/smutel/go-netbox/netbox/client"
+	"github.com/smutel/go-netbox/netbox/client/dcim"
 
 	log "github.com/sirupsen/logrus"
 )
