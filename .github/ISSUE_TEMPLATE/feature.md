@@ -5,22 +5,14 @@ title: "[Main title for your issue here]"
 labels: enhancement
 assignees: smutel
 ---
-<!--- Verify first that this feature is not already implemented in the master branch -->
-<!--- Complete most of sections below as described -->
+<!-- Verify first that this feature is not already implemented in the master branch -->
+<!-- Complete most of sections below as described -->
 
 ## Summary
-<!--- Describe here with one sentence what the new feature or the enhancement is -->
+<!-- Describe here with one sentence what the new feature or the enhancement is -->
 
 ## Example
+<!-- Example of code using this new feature -->
 
-### Usage
-<!--- Describe here a use case for this new feature/enhancement -->
-
-### Terraform code
-<!--- Put here the terraform code to use this new feature -->
-```hcl
-
-```
-
-### Tasks executed by this terraform code
-<!--- Explain here what actions are done by this new feature when executing this code -->
+## Usage
+<!-- Describe here a use case for this new feature/enhancement -->

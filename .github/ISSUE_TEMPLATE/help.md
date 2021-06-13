@@ -27,14 +27,8 @@ assignees: smutel
 
 ```
 
-### Terraform version
-<!--- Enter below the result of "terraform -v" -->
-```paste below
-
-```
-
-### Provider version
-<!--- Enter below the version of terraform-provider-netbox -->
+### go-netbox version
+<!-- Enter below the version of go-netbox -->
 ```paste below
 
 ```
