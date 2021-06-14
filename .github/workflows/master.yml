@@ -49,7 +49,7 @@ jobs:
           chmod 755 swagger
           rm -rf netbox && mkdir netbox && touch netbox/.gitkeep
           ./swagger generate client -f swagger.json -A go-netbox -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox"
-          find patchs -type f -exec patch -p0 < {} \;
+          find patchs -type f -name "*.patch" | xargs patch -p0
         shell: bash
 
       - name: Commit library
