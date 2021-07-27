@@ -53,7 +53,7 @@ jobs:
         shell: bash
 
       - name: Commit library
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v7.2.1
         with:
           add: 'netbox'
           author_name: smutel
