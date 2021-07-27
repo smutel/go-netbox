@@ -59,4 +59,3 @@ jobs:
           author_name: smutel
           default_author: github_actor
           message: 'ci: Autogeneration of go-netbox library'
-          pull_strategy: '--rebase'
