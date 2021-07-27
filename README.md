@@ -1,8 +1,8 @@
 # go-netbox
 
-[![Lisence](https://img.shields.io/badge/license-ISC-informational?style=flat-square)](https://github.com/smutel/go-netbox/blob/master/LICENSE)
+[![Lisence](https://img.shields.io/badge/license-ISC-informational?style=flat-square)](https://github.com/smutel/go-netbox/blob/main/LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-informational.svg?style=flat-square&logo=git)](https://conventionalcommits.org)
-[![Build Status](https://img.shields.io/github/workflow/status/smutel/go-netbox/Master/master?style=flat-square&logo=github-actions)](https://github.com/smutel/go-netbox/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/smutel/go-netbox/Main/main?style=flat-square&logo=github-actions)](https://github.com/smutel/go-netbox/actions)
 
 Go library to interact with NetBox IPAM and DCIM service. 
 
