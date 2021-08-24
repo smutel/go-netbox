@@ -598,12 +598,12 @@ type FrontPortType struct {
 
 	// label
 	// Required: true
-	// Enum: [8P8C 8P6C 8P4C 8P2C GG45 TERA 4P TERA 2P TERA 1P 110 Punch BNC F Connector N Connector MRJ21 FC LC LC/APC LSH LSH/APC MPO MTRJ SC SC/APC ST CS SN Splice]
+	// Enum: [8P8C 8P6C 8P4C 8P2C 6P6C 6P4C 6P2C 4P4C 4P2C GG45 TERA 4P TERA 2P TERA 1P 110 Punch BNC F Connector N Connector MRJ21 FC LC LC/APC LSH LSH/APC MPO MTRJ SC SC/APC ST CS SN Splice]
 	Label *string `json:"label"`
 
 	// value
 	// Required: true
-	// Enum: [8p8c 8p6c 8p4c 8p2c gg45 tera-4p tera-2p tera-1p 110-punch bnc f n mrj21 fc lc lc-apc lsh lsh-apc mpo mtrj sc sc-apc st cs sn splice]
+	// Enum: [8p8c 8p6c 8p4c 8p2c 6p6c 6p4c 6p2c 4p4c 4p2c gg45 tera-4p tera-2p tera-1p 110-punch bnc f n mrj21 fc lc lc-apc lsh lsh-apc mpo mtrj sc sc-apc st cs sn splice]
 	Value *string `json:"value"`
 }
 
@@ -629,7 +629,7 @@ var frontPortTypeTypeLabelPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["8P8C","8P6C","8P4C","8P2C","GG45","TERA 4P","TERA 2P","TERA 1P","110 Punch","BNC","F Connector","N Connector","MRJ21","FC","LC","LC/APC","LSH","LSH/APC","MPO","MTRJ","SC","SC/APC","ST","CS","SN","Splice"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["8P8C","8P6C","8P4C","8P2C","6P6C","6P4C","6P2C","4P4C","4P2C","GG45","TERA 4P","TERA 2P","TERA 1P","110 Punch","BNC","F Connector","N Connector","MRJ21","FC","LC","LC/APC","LSH","LSH/APC","MPO","MTRJ","SC","SC/APC","ST","CS","SN","Splice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -650,6 +650,21 @@ const (
 
 	// FrontPortTypeLabelNr8P2C captures enum value "8P2C"
 	FrontPortTypeLabelNr8P2C string = "8P2C"
+
+	// FrontPortTypeLabelNr6P6C captures enum value "6P6C"
+	FrontPortTypeLabelNr6P6C string = "6P6C"
+
+	// FrontPortTypeLabelNr6P4C captures enum value "6P4C"
+	FrontPortTypeLabelNr6P4C string = "6P4C"
+
+	// FrontPortTypeLabelNr6P2C captures enum value "6P2C"
+	FrontPortTypeLabelNr6P2C string = "6P2C"
+
+	// FrontPortTypeLabelNr4P4C captures enum value "4P4C"
+	FrontPortTypeLabelNr4P4C string = "4P4C"
+
+	// FrontPortTypeLabelNr4P2C captures enum value "4P2C"
+	FrontPortTypeLabelNr4P2C string = "4P2C"
 
 	// FrontPortTypeLabelGG45 captures enum value "GG45"
 	FrontPortTypeLabelGG45 string = "GG45"
@@ -744,7 +759,7 @@ var frontPortTypeTypeValuePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["8p8c","8p6c","8p4c","8p2c","gg45","tera-4p","tera-2p","tera-1p","110-punch","bnc","f","n","mrj21","fc","lc","lc-apc","lsh","lsh-apc","mpo","mtrj","sc","sc-apc","st","cs","sn","splice"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["8p8c","8p6c","8p4c","8p2c","6p6c","6p4c","6p2c","4p4c","4p2c","gg45","tera-4p","tera-2p","tera-1p","110-punch","bnc","f","n","mrj21","fc","lc","lc-apc","lsh","lsh-apc","mpo","mtrj","sc","sc-apc","st","cs","sn","splice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -765,6 +780,21 @@ const (
 
 	// FrontPortTypeValueNr8p2c captures enum value "8p2c"
 	FrontPortTypeValueNr8p2c string = "8p2c"
+
+	// FrontPortTypeValueNr6p6c captures enum value "6p6c"
+	FrontPortTypeValueNr6p6c string = "6p6c"
+
+	// FrontPortTypeValueNr6p4c captures enum value "6p4c"
+	FrontPortTypeValueNr6p4c string = "6p4c"
+
+	// FrontPortTypeValueNr6p2c captures enum value "6p2c"
+	FrontPortTypeValueNr6p2c string = "6p2c"
+
+	// FrontPortTypeValueNr4p4c captures enum value "4p4c"
+	FrontPortTypeValueNr4p4c string = "4p4c"
+
+	// FrontPortTypeValueNr4p2c captures enum value "4p2c"
+	FrontPortTypeValueNr4p2c string = "4p2c"
 
 	// FrontPortTypeValueGg45 captures enum value "gg45"
 	FrontPortTypeValueGg45 string = "gg45"

@@ -80,7 +80,7 @@ type WritableRearPortTemplate struct {
 
 	// Type
 	// Required: true
-	// Enum: [8p8c 8p6c 8p4c 8p2c gg45 tera-4p tera-2p tera-1p 110-punch bnc f n mrj21 fc lc lc-apc lsh lsh-apc mpo mtrj sc sc-apc st cs sn splice]
+	// Enum: [8p8c 8p6c 8p4c 8p2c 6p6c 6p4c 6p2c 4p4c 4p2c gg45 tera-4p tera-2p tera-1p 110-punch bnc f n mrj21 fc lc lc-apc lsh lsh-apc mpo mtrj sc sc-apc st cs sn splice]
 	Type *string `json:"type"`
 
 	// Url
@@ -229,7 +229,7 @@ var writableRearPortTemplateTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["8p8c","8p6c","8p4c","8p2c","gg45","tera-4p","tera-2p","tera-1p","110-punch","bnc","f","n","mrj21","fc","lc","lc-apc","lsh","lsh-apc","mpo","mtrj","sc","sc-apc","st","cs","sn","splice"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["8p8c","8p6c","8p4c","8p2c","6p6c","6p4c","6p2c","4p4c","4p2c","gg45","tera-4p","tera-2p","tera-1p","110-punch","bnc","f","n","mrj21","fc","lc","lc-apc","lsh","lsh-apc","mpo","mtrj","sc","sc-apc","st","cs","sn","splice"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -250,6 +250,21 @@ const (
 
 	// WritableRearPortTemplateTypeNr8p2c captures enum value "8p2c"
 	WritableRearPortTemplateTypeNr8p2c string = "8p2c"
+
+	// WritableRearPortTemplateTypeNr6p6c captures enum value "6p6c"
+	WritableRearPortTemplateTypeNr6p6c string = "6p6c"
+
+	// WritableRearPortTemplateTypeNr6p4c captures enum value "6p4c"
+	WritableRearPortTemplateTypeNr6p4c string = "6p4c"
+
+	// WritableRearPortTemplateTypeNr6p2c captures enum value "6p2c"
+	WritableRearPortTemplateTypeNr6p2c string = "6p2c"
+
+	// WritableRearPortTemplateTypeNr4p4c captures enum value "4p4c"
+	WritableRearPortTemplateTypeNr4p4c string = "4p4c"
+
+	// WritableRearPortTemplateTypeNr4p2c captures enum value "4p2c"
+	WritableRearPortTemplateTypeNr4p2c string = "4p2c"
 
 	// WritableRearPortTemplateTypeGg45 captures enum value "gg45"
 	WritableRearPortTemplateTypeGg45 string = "gg45"
