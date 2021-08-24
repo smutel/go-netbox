@@ -51,4 +51,5 @@ jobs:
           rm -rf netbox && mkdir netbox && touch netbox/.gitkeep
           ./swagger generate client -f swagger.json -A go-netbox -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
           find patchs -type f -name "*.patch" | xargs patch -p0
+          cp swagger.json "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-v${VERSION}.json"
         shell: bash
