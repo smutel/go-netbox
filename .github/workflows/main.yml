@@ -32,25 +32,11 @@ jobs:
           ln -sf "$GITHUB_WORKSPACE/" "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox"
         shell: bash
 
-      - name: Swagger and patchs
+      - name: Generate netbox client
         run: |
-          NETBOX_MAJOR_VERSION=$(cat netbox_major_version)
-          echo "NETBOX_MAJOR_VERSION=${NETBOX_MAJOR_VERSION}"
-          LAST_NETBOX_VERSION="$(./utils/netbox_get_last_version ${NETBOX_MAJOR_VERSION})"
-          echo "LAST_NETBOX_VERSION=${LAST_NETBOX_VERSION}"
-          export VERSION=${LAST_NETBOX_VERSION}
-          git clone https://github.com/netbox-community/netbox-docker.git
-          cd netbox-docker
-          mv docker-compose.override.yml.example docker-compose.override.yml
-          docker-compose up -d
-          cd ..
-          while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1; done
-          curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.27.0/swagger_linux_amd64 -o swagger
-          chmod 755 swagger
-          rm -rf netbox && mkdir netbox && touch netbox/.gitkeep
-          ./swagger generate client -f swagger.json -A go-netbox -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
-          find patchs -type f -name "*.patch" | xargs patch -p0
-          cp swagger.json "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
+          sudo apt-get -q install python3-demjson
+          cd "$GITHUB_WORKSPACE/utils"
+          ./netbox_generate_client
         shell: bash
 
       - name: Commit library
