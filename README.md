@@ -98,34 +98,12 @@ func main() {
 $ mkdir -p ~/go/src/github.com/smutel
 $ cd ~/go/src/github.com/smutel
 $ git clone git@github.com:smutel/go-netbox.git
-```
-
-### Starting netbox and getting the swagger definitions
-
-You can do this by executing the commands below:
-```sh
-$ cd ~/go/src/github.com/smutel/go-netbox
-$ NETBOX_MAJOR_VERSION=$(cat netbox_major_version)
-$ LAST_NETBOX_VERSION="$(./utils/netbox_get_last_version ${NETBOX_MAJOR_VERSION})"
-$ export VERSION=${LAST_NETBOX_VERSION}
-$ cd <path to netbox-docker>
-$ mv docker-compose.override.yml.example docker-compose.override.yml
-$ docker-compose up -d
-$ while ! curl -s http://127.0.0.1:8000/api/swagger.json -o /tmp/swagger.json 2> /dev/null; do sleep 1; done
+$ export GITHUB_WORKSPACE=~/go/src/github.com/smutel/go-netbox 
 ```
 
 ### Regenerating the library
 
 ```sh
-$ cd ~/go/src/github.com/smutel/go-netbox
-$ rm -rf netbox && mkdir netbox && touch netbox/.gitkeep
-$ swagger generate client -f /tmp/swagger.json -A go-netbox -t ~/src/github.com/smutel/go-netbox/netbox
+$ cd ~/go/src/github.com/smutel/go-netbox/utils
+$ ./netbox_generate_client
 ```
-
-### Trying to apply patchs
-
-```sh
-$ cd ~/go/src/github.com/smutel/go-netbox
-$ for p in patchs/*; do patch -p0 < $p; done
-```
-

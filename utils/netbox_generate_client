@@ -1,0 +1,79 @@
+#!/bin/bash
+
+get_last_netbox_version() {
+  version=$1
+  tags=""
+  tags_list=""
+  NEXT=""
+  max=0
+
+  while [ "$NEXT" != "null" ]
+  do
+     i=$((i+1))
+     JSON=$(curl https://registry.hub.docker.com/v2/repositories/netboxcommunity/netbox/tags/?page=$i 2>/dev/null)
+     tags="$tags $(echo $JSON | jq '."results"[]["name"]')"
+     NEXT=$(echo $JSON | jq '."next"')
+  done
+
+  for t in $tags; do
+    tag="$(echo $t | xargs)"
+    if [ "$(echo $tag | grep "$version")" == "$tag" -a "$(echo $tag | grep -v "ldap")" == "$tag" -a "$(echo $tag | grep -v "develop")" == "$tag" ]; then
+      tags_list="$tags_list $tag"
+    fi
+  done
+
+  for t in $tags_list; do
+    MAJOR=$(echo $t | cut -d"." -f3)
+    if [ "$MAJOR" != "" ]; then
+      if [ $MAJOR -gt $max ]; then
+        max=$MAJOR
+      fi
+    fi
+  done
+
+  echo "$version.$max"
+}
+
+NETBOX_MAJOR_VERSION=$(cat netbox_major_version)
+echo "NETBOX_MAJOR_VERSION=${NETBOX_MAJOR_VERSION}"
+
+LAST_NETBOX_VERSION="$(get_last_netbox_version ${NETBOX_MAJOR_VERSION})"
+echo "LAST_NETBOX_VERSION=${LAST_NETBOX_VERSION}"
+
+echo "Get github project netbox-docker ..."
+rm -rf netbox-docker
+export VERSION=${LAST_NETBOX_VERSION}
+git clone https://github.com/netbox-community/netbox-docker.git -q
+cd netbox-docker
+mv docker-compose.override.yml.example docker-compose.override.yml
+docker-compose up -d --quiet-pull
+cd ..
+
+echo "Purge old lib generated ..."
+rm -rf "$GITHUB_WORKSPACE/netbox" && mkdir "$GITHUB_WORKSPACE/netbox" && touch "$GITHUB_WORKSPACE/netbox/.gitkeep"
+
+echo "Get swagger from netbox docker ..."
+while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
+jsonlint -qf --indent 2 -o "$GITHUB_WORKSPACE/netbox/swagger-${VERSION}.json" swagger.json
+
+echo "Check swagger definition ..."
+jsonlint "$GITHUB_WORKSPACE/netbox/swagger-${VERSION}.json"
+
+echo "Get go-swagger and generate lib ..."
+curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.27.0/swagger_linux_amd64 -o swagger
+chmod 755 swagger
+./swagger -q generate client -f "$GITHUB_WORKSPACE/netbox/swagger-${VERSION}.json" -A go-netbox -t "$GITHUB_WORKSPACE/netbox" --copyright-file="$GITHUB_WORKSPACE/LICENSE"
+
+echo "Patch library ..."
+cd ..
+find patchs -type f -name "*.patch" | xargs patch -p0
+
+echo "Destroy docker containers ..."
+cd utils/netbox-docker
+docker-compose down
+cd ..
+
+echo "Cleaning ..."
+rm -rf netbox-docker
+rm -f swagger
+rm -f swagger.json
