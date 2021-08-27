@@ -50,19 +50,19 @@ docker-compose up -d --quiet-pull
 cd ..
 
 echo "Purge old lib generated ..."
-rm -rf "$GITHUB_WORKSPACE/netbox" && mkdir "$GITHUB_WORKSPACE/netbox" && touch "$GITHUB_WORKSPACE/netbox/.gitkeep"
+rm -rf "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" && mkdir "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" && touch "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/.gitkeep"
 
 echo "Get swagger from netbox docker ..."
 while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
-jsonlint -qf --indent 2 -o "$GITHUB_WORKSPACE/netbox/swagger-${VERSION}.json" swagger.json
+jsonlint -qf --indent 2 -o "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" swagger.json
 
 echo "Check swagger definition ..."
-jsonlint "$GITHUB_WORKSPACE/netbox/swagger-${VERSION}.json"
+jsonlint "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
 
 echo "Get go-swagger and generate lib ..."
 curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.27.0/swagger_linux_amd64 -o swagger
 chmod 755 swagger
-./swagger -q generate client -f "$GITHUB_WORKSPACE/netbox/swagger-${VERSION}.json" -A go-netbox -t "$GITHUB_WORKSPACE/netbox" --copyright-file="$GITHUB_WORKSPACE/LICENSE"
+./swagger generate client -f "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" -A go-netbox -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
 
 echo "Patch library ..."
 cd ..
