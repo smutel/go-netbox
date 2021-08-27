@@ -98,7 +98,7 @@ func main() {
 $ mkdir -p ~/go/src/github.com/smutel
 $ cd ~/go/src/github.com/smutel
 $ git clone git@github.com:smutel/go-netbox.git
-$ export GITHUB_WORKSPACE=~/go/src/github.com/smutel/go-netbox 
+$ export GITHUB_WORKSPACE=~/go/src
 ```
 
 ### Regenerating the library
