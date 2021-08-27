@@ -56,6 +56,11 @@ echo "Get swagger from netbox docker ..."
 while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
 jsonlint -qf --indent 2 -o "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" swagger.json
 
+echo "Patch swagger definition ..."
+cd ../patchs
+find . -type f -name "swagger-${VERSION}-*.patch" -exec patch -u ../netbox/swagger-${VERSION}.json -i {} \;
+cd ../utils
+
 echo "Check swagger definition ..."
 jsonlint "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
 
@@ -64,12 +69,8 @@ curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.27.0/swag
 chmod 755 swagger
 ./swagger generate client -f "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" -A go-netbox -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
 
-echo "Patch library ..."
-cd ..
-find patchs -type f -name "*.patch" | xargs patch -p0
-
 echo "Destroy docker containers ..."
-cd utils/netbox-docker
+cd netbox-docker
 docker-compose down
 cd ..
 
