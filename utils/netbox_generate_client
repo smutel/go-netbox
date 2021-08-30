@@ -67,7 +67,7 @@ jsonlint "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/sw
 echo "Get go-swagger and generate lib ..."
 curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.27.0/swagger_linux_amd64 -o swagger
 chmod 755 swagger
-./swagger generate client -f "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" -A go-netbox -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
+./swagger generate client -f "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
 
 echo "Destroy docker containers ..."
 cd netbox-docker
