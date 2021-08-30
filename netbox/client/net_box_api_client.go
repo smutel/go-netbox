@@ -36,7 +36,7 @@ import (
 	"github.com/smutel/go-netbox/netbox/client/virtualization"
 )
 
-// Default go netbox HTTP client.
+// Default net box API HTTP client.
 var Default = NewHTTPClient(nil)
 
 const (
@@ -51,14 +51,14 @@ const (
 // DefaultSchemes are the default schemes found in Meta (info) section of spec file
 var DefaultSchemes = []string{"http"}
 
-// NewHTTPClient creates a new go netbox HTTP client.
-func NewHTTPClient(formats strfmt.Registry) *GoNetbox {
+// NewHTTPClient creates a new net box API HTTP client.
+func NewHTTPClient(formats strfmt.Registry) *NetBoxAPI {
 	return NewHTTPClientWithConfig(formats, nil)
 }
 
-// NewHTTPClientWithConfig creates a new go netbox HTTP client,
+// NewHTTPClientWithConfig creates a new net box API HTTP client,
 // using a customizable transport config.
-func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *GoNetbox {
+func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *NetBoxAPI {
 	// ensure nullable parameters have default
 	if cfg == nil {
 		cfg = DefaultTransportConfig()
@@ -69,14 +69,14 @@ func NewHTTPClientWithConfig(formats strfmt.Registry, cfg *TransportConfig) *GoN
 	return New(transport, formats)
 }
 
-// New creates a new go netbox client
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *GoNetbox {
+// New creates a new net box API client
+func New(transport runtime.ClientTransport, formats strfmt.Registry) *NetBoxAPI {
 	// ensure nullable parameters have default
 	if formats == nil {
 		formats = strfmt.Default
 	}
 
-	cli := new(GoNetbox)
+	cli := new(NetBoxAPI)
 	cli.Transport = transport
 	cli.Circuits = circuits.New(transport, formats)
 	cli.Dcim = dcim.New(transport, formats)
@@ -129,8 +129,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 	return cfg
 }
 
-// GoNetbox is a client for go netbox
-type GoNetbox struct {
+// NetBoxAPI is a client for net box API
+type NetBoxAPI struct {
 	Circuits circuits.ClientService
 
 	Dcim dcim.ClientService
@@ -153,7 +153,7 @@ type GoNetbox struct {
 }
 
 // SetTransport changes the transport on the client and all its subresources
-func (c *GoNetbox) SetTransport(transport runtime.ClientTransport) {
+func (c *NetBoxAPI) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
 	c.Circuits.SetTransport(transport)
 	c.Dcim.SetTransport(transport)
