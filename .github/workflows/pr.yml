@@ -39,3 +39,8 @@ jobs:
           cd "$GITHUB_WORKSPACE/utils"
           ./netbox_generate_client
         shell: bash
+
+      - name: Show git diff
+        run: |
+          git diff
+        shell: bash
