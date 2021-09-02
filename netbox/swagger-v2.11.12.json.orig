@@ -12745,6 +12745,10 @@
                   "type" : "string"
                 },
               "assigned_object" : { 
+                  "additionalProperties" : { 
+                      "type" : "string",
+                      "x-nullable" : true
+                    },
                   "readOnly" : true,
                   "title" : "Assigned object",
                   "type" : "object"
