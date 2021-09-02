@@ -45,6 +45,8 @@ rm -rf netbox-docker
 export VERSION=${LAST_NETBOX_VERSION}
 git clone https://github.com/netbox-community/netbox-docker.git -q
 cd netbox-docker
+git config advice.detachedHead false
+git checkout 1.2.0
 mv docker-compose.override.yml.example docker-compose.override.yml
 docker-compose up -d --quiet-pull
 cd ..
