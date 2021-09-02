@@ -80,3 +80,4 @@ echo "Cleaning ..."
 rm -rf netbox-docker
 rm -f swagger
 rm -f swagger.json
+rm -f ../netbox/swagger-${VERSION}.json.*
