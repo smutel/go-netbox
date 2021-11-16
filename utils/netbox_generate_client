@@ -67,7 +67,7 @@ echo "Check swagger definition ..."
 jsonlint "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
 
 echo "Get go-swagger and generate lib ..."
-curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.27.0/swagger_linux_amd64 -o swagger
+curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.28.0/swagger_linux_amd64 -o swagger
 chmod 755 swagger
 ./swagger generate client -f "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
 
