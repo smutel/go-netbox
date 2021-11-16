@@ -26,7 +26,7 @@ jobs:
         run: ./utils/getChangelogRelease CHANGELOG.md ${{ steps.tag.outputs.tag }} > /tmp/RELEASE_CHANGELOG.md
 
       - name: Release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v1.1.4
         with:
           draft: true
           prerelease: false
