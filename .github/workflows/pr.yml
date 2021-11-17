@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Check conventional commits in PR
-        uses: Namchee/conventional-pr@v0.4.1
+        uses: Namchee/conventional-pr@v0.6.0
         with:
           access_token: ${{ secrets.github_token }}
           label: "no-conventional-commits"
@@ -20,7 +20,7 @@ jobs:
           strict: false
 
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.4.0
 
       - name: Unshallow
         run: git fetch --prune --unshallow
