@@ -196,6 +196,8 @@ func (m *VLAN) validateGroup(formats strfmt.Registry) error {
 		if err := m.Group.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -242,6 +244,8 @@ func (m *VLAN) validateRole(formats strfmt.Registry) error {
 		if err := m.Role.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -259,6 +263,8 @@ func (m *VLAN) validateSite(formats strfmt.Registry) error {
 		if err := m.Site.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -276,6 +282,8 @@ func (m *VLAN) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -298,6 +306,8 @@ func (m *VLAN) validateTags(formats strfmt.Registry) error {
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -317,6 +327,8 @@ func (m *VLAN) validateTenant(formats strfmt.Registry) error {
 		if err := m.Tenant.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tenant")
 			}
 			return err
 		}
@@ -449,6 +461,8 @@ func (m *VLAN) contextValidateGroup(ctx context.Context, formats strfmt.Registry
 		if err := m.Group.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -490,6 +504,8 @@ func (m *VLAN) contextValidateRole(ctx context.Context, formats strfmt.Registry)
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -504,6 +520,8 @@ func (m *VLAN) contextValidateSite(ctx context.Context, formats strfmt.Registry)
 		if err := m.Site.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -518,6 +536,8 @@ func (m *VLAN) contextValidateStatus(ctx context.Context, formats strfmt.Registr
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -534,6 +554,8 @@ func (m *VLAN) contextValidateTags(ctx context.Context, formats strfmt.Registry)
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -550,6 +572,8 @@ func (m *VLAN) contextValidateTenant(ctx context.Context, formats strfmt.Registr
 		if err := m.Tenant.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tenant")
 			}
 			return err
 		}

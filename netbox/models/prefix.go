@@ -205,6 +205,8 @@ func (m *Prefix) validateFamily(formats strfmt.Registry) error {
 		if err := m.Family.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("family")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("family")
 			}
 			return err
 		}
@@ -243,6 +245,8 @@ func (m *Prefix) validateRole(formats strfmt.Registry) error {
 		if err := m.Role.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -260,6 +264,8 @@ func (m *Prefix) validateSite(formats strfmt.Registry) error {
 		if err := m.Site.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -277,6 +283,8 @@ func (m *Prefix) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -299,6 +307,8 @@ func (m *Prefix) validateTags(formats strfmt.Registry) error {
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -318,6 +328,8 @@ func (m *Prefix) validateTenant(formats strfmt.Registry) error {
 		if err := m.Tenant.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tenant")
 			}
 			return err
 		}
@@ -347,6 +359,8 @@ func (m *Prefix) validateVlan(formats strfmt.Registry) error {
 		if err := m.Vlan.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vlan")
 			}
 			return err
 		}
@@ -364,6 +378,8 @@ func (m *Prefix) validateVrf(formats strfmt.Registry) error {
 		if err := m.Vrf.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vrf")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vrf")
 			}
 			return err
 		}
@@ -484,6 +500,8 @@ func (m *Prefix) contextValidateFamily(ctx context.Context, formats strfmt.Regis
 		if err := m.Family.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("family")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("family")
 			}
 			return err
 		}
@@ -516,6 +534,8 @@ func (m *Prefix) contextValidateRole(ctx context.Context, formats strfmt.Registr
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -530,6 +550,8 @@ func (m *Prefix) contextValidateSite(ctx context.Context, formats strfmt.Registr
 		if err := m.Site.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -544,6 +566,8 @@ func (m *Prefix) contextValidateStatus(ctx context.Context, formats strfmt.Regis
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -560,6 +584,8 @@ func (m *Prefix) contextValidateTags(ctx context.Context, formats strfmt.Registr
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -576,6 +602,8 @@ func (m *Prefix) contextValidateTenant(ctx context.Context, formats strfmt.Regis
 		if err := m.Tenant.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("tenant")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("tenant")
 			}
 			return err
 		}
@@ -599,6 +627,8 @@ func (m *Prefix) contextValidateVlan(ctx context.Context, formats strfmt.Registr
 		if err := m.Vlan.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vlan")
 			}
 			return err
 		}
@@ -613,6 +643,8 @@ func (m *Prefix) contextValidateVrf(ctx context.Context, formats strfmt.Registry
 		if err := m.Vrf.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("vrf")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("vrf")
 			}
 			return err
 		}

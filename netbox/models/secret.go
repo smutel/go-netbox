@@ -244,6 +244,8 @@ func (m *Secret) validateRole(formats strfmt.Registry) error {
 		if err := m.Role.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -266,6 +268,8 @@ func (m *Secret) validateTags(formats strfmt.Registry) error {
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -390,6 +394,8 @@ func (m *Secret) contextValidateRole(ctx context.Context, formats strfmt.Registr
 		if err := m.Role.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("role")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("role")
 			}
 			return err
 		}
@@ -406,6 +412,8 @@ func (m *Secret) contextValidateTags(ctx context.Context, formats strfmt.Registr
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

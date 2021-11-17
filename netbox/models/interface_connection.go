@@ -73,6 +73,8 @@ func (m *InterfaceConnection) validateInterfacea(formats strfmt.Registry) error 
 		if err := m.Interfacea.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("interface_a")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interface_a")
 			}
 			return err
 		}
@@ -91,6 +93,8 @@ func (m *InterfaceConnection) validateInterfaceb(formats strfmt.Registry) error 
 		if err := m.Interfaceb.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("interface_b")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interface_b")
 			}
 			return err
 		}
@@ -136,6 +140,8 @@ func (m *InterfaceConnection) contextValidateInterfacea(ctx context.Context, for
 		if err := m.Interfacea.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("interface_a")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interface_a")
 			}
 			return err
 		}
@@ -150,6 +156,8 @@ func (m *InterfaceConnection) contextValidateInterfaceb(ctx context.Context, for
 		if err := m.Interfaceb.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("interface_b")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interface_b")
 			}
 			return err
 		}

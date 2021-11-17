@@ -182,6 +182,8 @@ func (o *DcimInterfaceConnectionsListOKBody) validateResults(formats strfmt.Regi
 			if err := o.Results[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dcimInterfaceConnectionsListOK" + "." + "results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dcimInterfaceConnectionsListOK" + "." + "results" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -214,6 +216,8 @@ func (o *DcimInterfaceConnectionsListOKBody) contextValidateResults(ctx context.
 			if err := o.Results[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dcimInterfaceConnectionsListOK" + "." + "results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dcimInterfaceConnectionsListOK" + "." + "results" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

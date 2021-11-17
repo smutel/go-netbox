@@ -123,7 +123,8 @@ type WritableVirtualMachineWithConfigContext struct {
 	URL strfmt.URI `json:"url,omitempty"`
 
 	// VCPUs
-	Vcpus *string `json:"vcpus,omitempty"`
+	// Required: true
+	Vcpus *string `json:"vcpus"`
 }
 
 // Validate validates this writable virtual machine with config context
@@ -163,6 +164,10 @@ func (m *WritableVirtualMachineWithConfigContext) Validate(formats strfmt.Regist
 	}
 
 	if err := m.validateURL(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVcpus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -322,6 +327,8 @@ func (m *WritableVirtualMachineWithConfigContext) validateTags(formats strfmt.Re
 			if err := m.Tags[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -338,6 +345,15 @@ func (m *WritableVirtualMachineWithConfigContext) validateURL(formats strfmt.Reg
 	}
 
 	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WritableVirtualMachineWithConfigContext) validateVcpus(formats strfmt.Registry) error {
+
+	if err := validate.Required("vcpus", "body", m.Vcpus); err != nil {
 		return err
 	}
 
@@ -457,6 +473,8 @@ func (m *WritableVirtualMachineWithConfigContext) contextValidateTags(ctx contex
 			if err := m.Tags[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tags" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tags" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
