@@ -129,7 +129,7 @@ type WritableConsoleServerPort struct {
 	// Type
 	//
 	// Physical port type
-	// Enum: [de-9 db-25 rj-11 rj-12 rj-45 usb-a usb-b usb-c usb-mini-a usb-mini-b usb-micro-a usb-micro-b other]
+	// Enum: [de-9 db-25 rj-11 rj-12 rj-45 mini-din-8 usb-a usb-b usb-c usb-mini-a usb-mini-b usb-micro-a usb-micro-b usb-micro-ab other]
 	Type string `json:"type,omitempty"`
 
 	// Url
@@ -348,7 +348,7 @@ var writableConsoleServerPortTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["de-9","db-25","rj-11","rj-12","rj-45","usb-a","usb-b","usb-c","usb-mini-a","usb-mini-b","usb-micro-a","usb-micro-b","other"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["de-9","db-25","rj-11","rj-12","rj-45","mini-din-8","usb-a","usb-b","usb-c","usb-mini-a","usb-mini-b","usb-micro-a","usb-micro-b","usb-micro-ab","other"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -373,6 +373,9 @@ const (
 	// WritableConsoleServerPortTypeRjDash45 captures enum value "rj-45"
 	WritableConsoleServerPortTypeRjDash45 string = "rj-45"
 
+	// WritableConsoleServerPortTypeMiniDashDinDash8 captures enum value "mini-din-8"
+	WritableConsoleServerPortTypeMiniDashDinDash8 string = "mini-din-8"
+
 	// WritableConsoleServerPortTypeUsbDasha captures enum value "usb-a"
 	WritableConsoleServerPortTypeUsbDasha string = "usb-a"
 
@@ -393,6 +396,9 @@ const (
 
 	// WritableConsoleServerPortTypeUsbDashMicroDashb captures enum value "usb-micro-b"
 	WritableConsoleServerPortTypeUsbDashMicroDashb string = "usb-micro-b"
+
+	// WritableConsoleServerPortTypeUsbDashMicroDashAb captures enum value "usb-micro-ab"
+	WritableConsoleServerPortTypeUsbDashMicroDashAb string = "usb-micro-ab"
 
 	// WritableConsoleServerPortTypeOther captures enum value "other"
 	WritableConsoleServerPortTypeOther string = "other"

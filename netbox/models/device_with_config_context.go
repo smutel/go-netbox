@@ -72,10 +72,6 @@ type DeviceWithConfigContext struct {
 	// Read Only: true
 	Display string `json:"display,omitempty"`
 
-	// Display name
-	// Read Only: true
-	DisplayName string `json:"display_name,omitempty"`
-
 	// face
 	Face *DeviceWithConfigContextFace `json:"face,omitempty"`
 
@@ -731,10 +727,6 @@ func (m *DeviceWithConfigContext) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateDisplayName(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateFace(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -870,15 +862,6 @@ func (m *DeviceWithConfigContext) contextValidateDeviceType(ctx context.Context,
 func (m *DeviceWithConfigContext) contextValidateDisplay(ctx context.Context, formats strfmt.Registry) error {
 
 	if err := validate.ReadOnly(ctx, "display", "body", string(m.Display)); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *DeviceWithConfigContext) contextValidateDisplayName(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.ReadOnly(ctx, "display_name", "body", string(m.DisplayName)); err != nil {
 		return err
 	}
 
