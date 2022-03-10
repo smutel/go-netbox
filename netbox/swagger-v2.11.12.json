@@ -15879,8 +15879,7 @@
             },
           "required" : [ 
               "name",
-              "cluster",
-              "vcpus"
+              "cluster"
             ],
           "type" : "object"
         },

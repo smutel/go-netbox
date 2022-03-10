@@ -123,8 +123,7 @@ type WritableVirtualMachineWithConfigContext struct {
 	URL strfmt.URI `json:"url,omitempty"`
 
 	// VCPUs
-	// Required: true
-	Vcpus *string `json:"vcpus"`
+	Vcpus *string `json:"vcpus,omitempty"`
 }
 
 // Validate validates this writable virtual machine with config context
@@ -164,10 +163,6 @@ func (m *WritableVirtualMachineWithConfigContext) Validate(formats strfmt.Regist
 	}
 
 	if err := m.validateURL(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateVcpus(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -345,15 +340,6 @@ func (m *WritableVirtualMachineWithConfigContext) validateURL(formats strfmt.Reg
 	}
 
 	if err := validate.FormatOf("url", "body", "uri", m.URL.String(), formats); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *WritableVirtualMachineWithConfigContext) validateVcpus(formats strfmt.Registry) error {
-
-	if err := validate.Required("vcpus", "body", m.Vcpus); err != nil {
 		return err
 	}
 
