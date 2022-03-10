@@ -42,5 +42,6 @@ jobs:
 
       - name: Show git diff
         run: |
+          git add -N .
           git diff
         shell: bash

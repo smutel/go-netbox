@@ -23,10 +23,12 @@ get_last_netbox_version() {
   done
 
   for t in $tags_list; do
-    MAJOR=$(echo $t | cut -d"." -f3)
-    if [ "$MAJOR" != "" ]; then
-      if [ $MAJOR -gt $max ]; then
-        max=$MAJOR
+    if [[ $t =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+      MAJOR=$(echo $t | cut -d"." -f3)
+      if [ "$MAJOR" != "" ]; then
+        if [ $MAJOR -gt $max ]; then
+          max=$MAJOR
+        fi
       fi
     fi
   done
@@ -57,6 +59,7 @@ rm -rf "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" && 
 echo "Get swagger from netbox docker ..."
 while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
 jsonlint -qf --indent 2 -o "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" swagger.json
+cp "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/swagger/swagger-${VERSION}.json"
 
 echo "Patch swagger definition ..."
 cd ../patchs
