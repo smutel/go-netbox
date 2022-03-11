@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/smutel/go-netbox/compare/v2.11.0...v3.0.0) (2022-03-11)
+
+
+### Features
+
+* Add patch to vcpus required ([41d2380](https://github.com/smutel/go-netbox/commit/41d2380bdfbe7a7771562663f3abfdec0f7b0018))
+* Update from Netbox 3.0 swagger ([7744a95](https://github.com/smutel/go-netbox/commit/7744a95bfa8136640b2f4c86531fc43f0370f754))
+* Update go-swagger to v0.28.0 ([ea5160b](https://github.com/smutel/go-netbox/commit/ea5160bfbbc26cd780d17f643e2dbaa62ab02f87))
+
+
+### Bug Fixes
+
+* Rollback on vcpus patch ([8ac0c3c](https://github.com/smutel/go-netbox/commit/8ac0c3c91ff2e66ea159609c883b540365b8406c))
+
 ## 2.11.0 (2021-09-23)
 
 
