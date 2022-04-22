@@ -11,7 +11,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Check conventional commits in PR
-        uses: Namchee/conventional-pr@v0.10.0
+        uses: Namchee/conventional-pr@v0.10.1
         with:
           access_token: ${{ secrets.github_token }}
           label: "no-conventional-commits"
