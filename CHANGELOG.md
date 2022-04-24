@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/smutel/go-netbox/compare/v3.0.0...v3.0.1) (2022-04-24)
+
+
+### Bug Fixes
+
+* local_context_data and config_context as JSON objects ([9d3b627](https://github.com/smutel/go-netbox/commit/9d3b62739a002df6ce6a69c68baebc30023f1be2)), closes [#25](https://github.com/smutel/go-netbox/issues/25)
+
 ## [3.0.0](https://github.com/smutel/go-netbox/compare/v2.11.0...v3.0.0) (2022-03-11)
 
 
