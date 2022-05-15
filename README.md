@@ -95,6 +95,8 @@ func main() {
 ### Installing the go-netbox
 
 ```sh
+$ # Install jsonlint
+$ apt-get install python3-demjson
 $ mkdir -p ~/go/src/github.com/smutel
 $ cd ~/go/src/github.com/smutel
 $ git clone git@github.com:smutel/go-netbox.git
