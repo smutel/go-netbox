@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/smutel/go-netbox/compare/v3.1.0...v3.1.1) (2022-06-07)
+
+
+### Bug Fixes
+
+* Object as JSON objects in contact assignment ([9d7758d](https://github.com/smutel/go-netbox/commit/9d7758d392cb519d67b4aee3058f71d321f6a243))
+
 ## [3.1.0](https://github.com/smutel/go-netbox/compare/v3.0.1...v3.1.0) (2022-05-17)
 
 
