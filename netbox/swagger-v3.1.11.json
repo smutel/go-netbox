@@ -1756,10 +1756,6 @@
                   "type" : "string"
                 },
               "object" : { 
-                  "additionalProperties" : { 
-                      "type" : "string",
-                      "x-nullable" : true
-                    },
                   "readOnly" : true,
                   "title" : "Object",
                   "type" : "object"
