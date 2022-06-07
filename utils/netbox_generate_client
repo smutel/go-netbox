@@ -63,7 +63,7 @@ cp "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-
 
 echo "Patch swagger definition ..."
 cd ../patchs
-find . -type f -name "swagger-${VERSION}-*.patch" -exec patch -u ../netbox/swagger-${VERSION}.json -i {} \;
+find . -type f -name "swagger-${VERSION}-*.patch" -exec echo "Using path {}" \; -exec patch -u ../netbox/swagger-${VERSION}.json -i {} \;
 cd ../utils
 
 echo "Check swagger definition ..."
