@@ -11649,7 +11649,7 @@
               "scope" : { 
                   "readOnly" : true,
                   "title" : "Scope",
-                  "type" : "string"
+                  "type" : "object"
                 },
               "scope_id" : { 
                   "title" : "Scope id",
