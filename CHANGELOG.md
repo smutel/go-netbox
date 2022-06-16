@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.2](https://github.com/smutel/go-netbox/compare/v3.1.1...v3.1.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* Scope as object in vlangroup ([4b65d2a](https://github.com/smutel/go-netbox/commit/4b65d2ad4ef61d51236fb491c33af9fab5a351e2))
+
 ### [3.1.1](https://github.com/smutel/go-netbox/compare/v3.1.0...v3.1.1) (2022-06-07)
 
 
