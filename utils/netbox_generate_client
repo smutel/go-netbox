@@ -23,24 +23,30 @@ get_last_netbox_version() {
   done
 
   for t in $tags_list; do
-    if [[ $t =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-      MAJOR=$(echo $t | cut -d"." -f3)
+    if [[ $t =~ ^v[0-9]+\.[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+      MAJOR=$(echo $t | cut -d"-" -f1 | cut -d"." -f3)
       if [ "$MAJOR" != "" ]; then
         if [ $MAJOR -gt $max ]; then
           max=$MAJOR
+          docker="$(echo $t | cut -d"-" -f2)"
         fi
       fi
     fi
   done
 
-  echo "$version.$max"
+  echo "$version.$max-$docker"
 }
 
 NETBOX_MAJOR_VERSION=$(cat netbox_major_version)
 echo "NETBOX_MAJOR_VERSION=${NETBOX_MAJOR_VERSION}"
 
-LAST_NETBOX_VERSION="$(get_last_netbox_version ${NETBOX_MAJOR_VERSION})"
+DOCKER_RESULT="$(get_last_netbox_version ${NETBOX_MAJOR_VERSION})"
+
+LAST_NETBOX_VERSION="$(echo ${DOCKER_RESULT} | cut -d"-" -f1)"
 echo "LAST_NETBOX_VERSION=${LAST_NETBOX_VERSION}"
+
+DOCKER_VERSION="$(echo ${DOCKER_RESULT} | cut -d"-" -f2)"
+echo "DOCKER_VERSION=${DOCKER_VERSION}"
 
 echo "Get github project netbox-docker ..."
 rm -rf netbox-docker
@@ -48,8 +54,11 @@ export VERSION=${LAST_NETBOX_VERSION}
 git clone https://github.com/netbox-community/netbox-docker.git -q
 cd netbox-docker
 git config advice.detachedHead false
-git checkout 1.6.0
+git checkout ${DOCKER_VERSION}
 mv docker-compose.override.yml.example docker-compose.override.yml
+sed -i 's/netbox-media-files/gonetbox-media-files/g' docker-compose.yml
+sed -i 's/netbox-postgres-data/gonetbox-postgres-data/g' docker-compose.yml
+sed -i 's/netbox-redis-data/gonetbox-redis-data/g' docker-compose.yml
 docker-compose up -d --quiet-pull
 cd ..
 
@@ -66,6 +75,9 @@ cd ../patchs
 find . -type f -name "swagger-${VERSION}-*.patch" -exec echo "Using path {}" \; -exec patch -u ../netbox/swagger-${VERSION}.json -i {} \;
 cd ../utils
 
+echo "Apply ack for int64 ..."
+sed -i 's/9223372036854775807/2147483647/g' "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
+
 echo "Check swagger definition ..."
 jsonlint "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
 
@@ -76,7 +88,7 @@ chmod 755 swagger
 
 echo "Destroy docker containers ..."
 cd netbox-docker
-docker-compose down
+docker-compose down -v
 cd ..
 
 echo "Cleaning ..."

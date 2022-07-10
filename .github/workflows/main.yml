@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
 
       - name: Lint
-        uses: reviewdog/action-golangci-lint@v2.1.3
+        uses: reviewdog/action-golangci-lint@v2.1.5
         with:
           github_token: ${{ secrets.github_token }}
           golangci_lint_flags: "--config=.golangci.yml"
@@ -39,7 +39,7 @@ jobs:
         shell: bash
 
       - name: Commit library
-        uses: EndBug/add-and-commit@v9.0.0
+        uses: EndBug/add-and-commit@v9.0.1
         with:
           add: 'netbox swagger'
           author_name: smutel
