@@ -9,28 +9,17 @@ get_last_netbox_version() {
 
   while [ "$NEXT" != "null" ]
   do
-     i=$((i+1))
-     JSON=$(curl https://registry.hub.docker.com/v2/repositories/netboxcommunity/netbox/tags/?page=$i 2>/dev/null)
-     tags="$tags $(echo $JSON | jq '."results"[]["name"]')"
-     NEXT=$(echo $JSON | jq '."next"')
+    i=$((i+1))
+    JSON=$(curl https://registry.hub.docker.com/v2/repositories/netboxcommunity/netbox/tags/?page=$i\&page_size=1000 2>/dev/null)
+    tags="$tags $(echo $JSON | jq -r '."results"[]["name"]' | grep $version | grep -E "^v[0-9]+\.[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$")"
+    NEXT=$(echo $JSON | jq '."next"')
   done
 
   for t in $tags; do
-    tag="$(echo $t | xargs)"
-    if [ "$(echo $tag | grep "$version")" == "$tag" -a "$(echo $tag | grep -v "ldap")" == "$tag" -a "$(echo $tag | grep -v "develop")" == "$tag" ]; then
-      tags_list="$tags_list $tag"
-    fi
-  done
-
-  for t in $tags_list; do
-    if [[ $t =~ ^v[0-9]+\.[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-      MAJOR=$(echo $t | cut -d"-" -f1 | cut -d"." -f3)
-      if [ "$MAJOR" != "" ]; then
-        if [ $MAJOR -gt $max ]; then
-          max=$MAJOR
-          docker="$(echo $t | cut -d"-" -f2)"
-        fi
-      fi
+    MAJOR=$(echo $t | cut -d"-" -f1 | cut -d"." -f3)
+    if [ "$MAJOR" != "" -a $MAJOR -gt $max ]; then
+      max=$MAJOR
+      docker="$(echo $t | cut -d"-" -f2)"
     fi
   done
 
