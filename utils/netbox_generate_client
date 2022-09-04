@@ -80,6 +80,10 @@ cd netbox-docker
 docker-compose down -v
 cd ..
 
+cd ..
+go mod tidy
+cd ../utils
+
 echo "Cleaning ..."
 rm -rf netbox-docker
 rm -f swagger
