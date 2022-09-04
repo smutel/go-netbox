@@ -75,8 +75,8 @@ cd ../patchs
 find . -type f -name "swagger-${VERSION}-*.patch" -exec echo "Using path {}" \; -exec patch -u ../netbox/swagger-${VERSION}.json -i {} \;
 cd ../utils
 
-echo "Apply ack for int64 ..."
-sed -i 's/9223372036854775807/2147483647/g' "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
+echo "Apply hack for int64 ..."
+sed -i 's/922337203685477580/214748364/g' "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
 
 echo "Check swagger definition ..."
 jsonlint "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
