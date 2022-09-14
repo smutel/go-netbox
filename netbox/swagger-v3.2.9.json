@@ -15378,12 +15378,14 @@
               "primary_ip4" : { 
                   "title" : "Primary IPv4",
                   "type" : "integer",
-                  "x-nullable" : true
+                  "x-nullable" : true,
+                  "x-omitempty" : false
                 },
               "primary_ip6" : { 
                   "title" : "Primary IPv6",
                   "type" : "integer",
-                  "x-nullable" : true
+                  "x-nullable" : true,
+                  "x-omitempty" : false
                 },
               "rack" : { 
                   "title" : "Rack",
@@ -20566,12 +20568,14 @@
               "primary_ip4" : { 
                   "title" : "Primary IPv4",
                   "type" : "integer",
-                  "x-nullable" : true
+                  "x-nullable" : true,
+                  "x-omitempty" : false
                 },
               "primary_ip6" : { 
                   "title" : "Primary IPv6",
                   "type" : "integer",
-                  "x-nullable" : true
+                  "x-nullable" : true,
+                  "x-omitempty" : false
                 },
               "role" : { 
                   "title" : "Role",

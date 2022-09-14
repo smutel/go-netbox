@@ -95,10 +95,10 @@ type WritableVirtualMachineWithConfigContext struct {
 	PrimaryIP string `json:"primary_ip,omitempty"`
 
 	// Primary IPv4
-	PrimaryIp4 *int64 `json:"primary_ip4,omitempty"`
+	PrimaryIp4 *int64 `json:"primary_ip4"`
 
 	// Primary IPv6
-	PrimaryIp6 *int64 `json:"primary_ip6,omitempty"`
+	PrimaryIp6 *int64 `json:"primary_ip6"`
 
 	// Role
 	Role *int64 `json:"role,omitempty"`
