@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/smutel/go-netbox/compare/v3.2.0...v3.2.1) (2022-09-14)
+
+
+### Features
+
+* Add go.mod and go.sum ([58e500f](https://github.com/smutel/go-netbox/commit/58e500f651fcc42b9260f2c00ec8b2e6c8507366))
+* Add patch to remove primary IP ([e02f45b](https://github.com/smutel/go-netbox/commit/e02f45b1aa2bc88e0a84f3ef82e1cf6ebb4be037))
+* Allow Create functions for available prefix/ip to be used ([ef3c365](https://github.com/smutel/go-netbox/commit/ef3c36530a1cae76f6cdebd1e60d08bfc69d0c40))
+* Call go mod tidy after build ([98a4273](https://github.com/smutel/go-netbox/commit/98a42730ae22a1199dd620265dacfdd051552b30))
+
 ## [3.2.0](https://github.com/smutel/go-netbox/compare/v3.1.2...v3.2.0) (2022-08-26)
 
 
