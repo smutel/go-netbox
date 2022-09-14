@@ -78,7 +78,7 @@ func NewIpamPrefixesAvailablePrefixesCreateParamsWithHTTPClient(client *http.Cli
 type IpamPrefixesAvailablePrefixesCreateParams struct {
 
 	// Data.
-	Data *models.PrefixLength
+	Data []*models.PrefixLength
 
 	/* ID.
 
@@ -140,13 +140,13 @@ func (o *IpamPrefixesAvailablePrefixesCreateParams) SetHTTPClient(client *http.C
 }
 
 // WithData adds the data to the ipam prefixes available prefixes create params
-func (o *IpamPrefixesAvailablePrefixesCreateParams) WithData(data *models.PrefixLength) *IpamPrefixesAvailablePrefixesCreateParams {
+func (o *IpamPrefixesAvailablePrefixesCreateParams) WithData(data []*models.PrefixLength) *IpamPrefixesAvailablePrefixesCreateParams {
 	o.SetData(data)
 	return o
 }
 
 // SetData adds the data to the ipam prefixes available prefixes create params
-func (o *IpamPrefixesAvailablePrefixesCreateParams) SetData(data *models.PrefixLength) {
+func (o *IpamPrefixesAvailablePrefixesCreateParams) SetData(data []*models.PrefixLength) {
 	o.Data = data
 }
 
