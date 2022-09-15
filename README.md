@@ -16,13 +16,13 @@ Example:
 
 ## Using the client
 
-The `github.com/smutel/go-netbox/netbox` package has some convenience functions for creating clients with the most common
+The `github.com/smutel/go-netbox/v3/netbox` package has some convenience functions for creating clients with the most common
 configurations you likely need while connecting to NetBox. `NewNetboxAt` allows you to specify a hostname
 (including port, if you need it), and `NewNetboxWithAPIKey` allows you to specify both a hostname:port and API token.
 
 ```go
 import (
-    "github.com/smutel/go-netbox/netbox"
+    "github.com/smutel/go-netbox/v3/netbox"
 )
 ...
     c := netbox.NewNetboxAt("your.netbox.host:8000")
@@ -44,8 +44,8 @@ import (
 	"os"
 
 	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/smutel/go-netbox/netbox/client"
-	"github.com/smutel/go-netbox/netbox/client/dcim"
+	"github.com/smutel/go-netbox/v3/netbox/client"
+	"github.com/smutel/go-netbox/v3/netbox/client/dcim"
 
 	log "github.com/sirupsen/logrus"
 )
