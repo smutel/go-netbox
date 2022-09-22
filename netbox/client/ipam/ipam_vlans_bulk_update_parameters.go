@@ -30,7 +30,7 @@ import (
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/smutel/go-netbox/netbox/models"
+	"github.com/smutel/go-netbox/v3/netbox/models"
 )
 
 // NewIpamVlansBulkUpdateParams creates a new IpamVlansBulkUpdateParams object,

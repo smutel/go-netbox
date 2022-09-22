@@ -31,7 +31,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/smutel/go-netbox/netbox/models"
+	"github.com/smutel/go-netbox/v3/netbox/models"
 )
 
 // NewDcimDeviceBayTemplatesUpdateParams creates a new DcimDeviceBayTemplatesUpdateParams object,

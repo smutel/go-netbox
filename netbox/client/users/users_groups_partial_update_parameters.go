@@ -31,7 +31,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/smutel/go-netbox/netbox/models"
+	"github.com/smutel/go-netbox/v3/netbox/models"
 )
 
 // NewUsersGroupsPartialUpdateParams creates a new UsersGroupsPartialUpdateParams object,

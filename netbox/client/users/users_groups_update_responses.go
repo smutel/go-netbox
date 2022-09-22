@@ -27,7 +27,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/smutel/go-netbox/netbox/models"
+	"github.com/smutel/go-netbox/v3/netbox/models"
 )
 
 // UsersGroupsUpdateReader is a Reader for the UsersGroupsUpdate structure.

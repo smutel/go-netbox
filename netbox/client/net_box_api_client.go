@@ -25,15 +25,15 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/smutel/go-netbox/netbox/client/circuits"
-	"github.com/smutel/go-netbox/netbox/client/dcim"
-	"github.com/smutel/go-netbox/netbox/client/extras"
-	"github.com/smutel/go-netbox/netbox/client/ipam"
-	"github.com/smutel/go-netbox/netbox/client/status"
-	"github.com/smutel/go-netbox/netbox/client/tenancy"
-	"github.com/smutel/go-netbox/netbox/client/users"
-	"github.com/smutel/go-netbox/netbox/client/virtualization"
-	"github.com/smutel/go-netbox/netbox/client/wireless"
+	"github.com/smutel/go-netbox/v3/netbox/client/circuits"
+	"github.com/smutel/go-netbox/v3/netbox/client/dcim"
+	"github.com/smutel/go-netbox/v3/netbox/client/extras"
+	"github.com/smutel/go-netbox/v3/netbox/client/ipam"
+	"github.com/smutel/go-netbox/v3/netbox/client/status"
+	"github.com/smutel/go-netbox/v3/netbox/client/tenancy"
+	"github.com/smutel/go-netbox/v3/netbox/client/users"
+	"github.com/smutel/go-netbox/v3/netbox/client/virtualization"
+	"github.com/smutel/go-netbox/v3/netbox/client/wireless"
 )
 
 // Default net box API HTTP client.
