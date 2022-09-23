@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.2](https://github.com/smutel/go-netbox/compare/v3.2.1...v3.2.2) (2022-09-23)
+
+
+### Bug Fixes
+
+* Library version missing in go.mod ([9d5df44](https://github.com/smutel/go-netbox/commit/9d5df442ac55d1cba69b9b2f2783fbbb8ad6556d))
+
 ### [3.2.1](https://github.com/smutel/go-netbox/compare/v3.2.0...v3.2.1) (2022-09-14)
 
 
