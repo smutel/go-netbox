@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.3](https://github.com/smutel/go-netbox/compare/v3.2.2...v3.2.3) (2022-10-22)
+
+
+### Features
+
+* Remove patch for primary IP ([08c16b7](https://github.com/smutel/go-netbox/commit/08c16b7bb58c032bfafba310c1daa999094e07e4))
+
 ### [3.2.2](https://github.com/smutel/go-netbox/compare/v3.2.1...v3.2.2) (2022-09-23)
 
 
