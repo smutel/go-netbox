@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/smutel/go-netbox/compare/v3.2.3...v3.3.0) (2023-01-09)
+
+
+### Features
+
+* Update from Netbox 3.3 swagger ([6dba05d](https://github.com/smutel/go-netbox/commit/6dba05dfda4a018f4f2d143c031dc05a31731db6))
+
 ### [3.2.3](https://github.com/smutel/go-netbox/compare/v3.2.2...v3.2.3) (2022-10-22)
 
 
