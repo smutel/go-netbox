@@ -1,0 +1,14 @@
+--- ../netbox/swagger-v3.4.7.json.orig	2023-04-13 23:56:29.228430974 +0200
++++ ../netbox/swagger-v3.4.7.json	2023-04-13 23:56:55.832066469 +0200
+@@ -66787,10 +66787,7 @@
+                   } ],
+               "responses" : { "201" : { 
+                       "description" : "",
+-                      "schema" : { 
+-                          "items" : { "$ref" : "#/definitions/IPAddress" },
+-                          "type" : "array"
+-                        }
++                      "schema" : { "$ref" : "#/definitions/IPAddress" }
+                     } },
+               "tags" : [ "ipam" ]
+             }

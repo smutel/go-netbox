@@ -1,0 +1,38 @@
+--- swagger-v3.3.10.json.ori	2023-01-09 09:09:15.547864594 +0100
++++ swagger-v3.3.10.json	2023-01-09 09:12:53.698816281 +0100
+@@ -60861,7 +60861,10 @@
+                     "in" : "body",
+                     "name" : "data",
+                     "required" : true,
+-                    "schema" : { "$ref" : "#/definitions/WritableAvailableIP" }
++                    "schema" : {
++                        "items" : { "$ref" : "#/definitions/WritableAvailableIP" },
++                        "type" : "array"
++                      }
+                   } ],
+               "responses" : { "201" : {
+                       "description" : "",
+@@ -62988,7 +62991,10 @@
+                     "in" : "body",
+                     "name" : "data",
+                     "required" : true,
+-                    "schema" : { "$ref" : "#/definitions/WritableAvailableIP" }
++                    "schema" : {
++                        "items" : { "$ref" : "#/definitions/WritableAvailableIP" },
++                        "type" : "array"
++                      }
+                   } ],
+               "responses" : { "201" : {
+                       "description" : "",
+@@ -63028,7 +63034,10 @@
+                     "in" : "body",
+                     "name" : "data",
+                     "required" : true,
+-                    "schema" : { "$ref" : "#/definitions/PrefixLength" }
++                    "schema" : {
++                        "items" : { "$ref" : "#/definitions/PrefixLength" },
++                        "type" : "array"
++                      }
+                   } ],
+               "responses" : { "201" : {
+                       "description" : "",

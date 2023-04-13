@@ -60,7 +60,7 @@ IpamPrefixesAvailableIpsCreateCreated describes a response with status code 201,
 IpamPrefixesAvailableIpsCreateCreated ipam prefixes available ips create created
 */
 type IpamPrefixesAvailableIpsCreateCreated struct {
-	Payload []*models.IPAddress
+	Payload *models.IPAddress
 }
 
 // IsSuccess returns true when this ipam prefixes available ips create created response has a 2xx status code
@@ -96,14 +96,16 @@ func (o *IpamPrefixesAvailableIpsCreateCreated) String() string {
 	return fmt.Sprintf("[POST /ipam/prefixes/{id}/available-ips/][%d] ipamPrefixesAvailableIpsCreateCreated  %+v", 201, o.Payload)
 }
 
-func (o *IpamPrefixesAvailableIpsCreateCreated) GetPayload() []*models.IPAddress {
+func (o *IpamPrefixesAvailableIpsCreateCreated) GetPayload() *models.IPAddress {
 	return o.Payload
 }
 
 func (o *IpamPrefixesAvailableIpsCreateCreated) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
+	o.Payload = new(models.IPAddress)
+
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 
