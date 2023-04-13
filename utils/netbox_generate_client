@@ -1,12 +1,16 @@
 #!/bin/bash
 
+set -xeu
+
+PROJECT_ROOT=${PROJECT_ROOT:-"$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox"}
+
 get_last_netbox_version() {
   version=$1
   tags=""
   tags_list=""
   NEXT=""
   max=0
-
+  i=0
   while [ "$NEXT" != "null" ]
   do
     i=$((i+1))
@@ -36,28 +40,34 @@ echo "LAST_NETBOX_VERSION=${LAST_NETBOX_VERSION}"
 
 DOCKER_VERSION="$(echo ${DOCKER_RESULT} | cut -d"-" -f2)"
 echo "DOCKER_VERSION=${DOCKER_VERSION}"
-
-echo "Get github project netbox-docker ..."
-rm -rf netbox-docker
 export VERSION=${LAST_NETBOX_VERSION}
-git clone https://github.com/netbox-community/netbox-docker.git -q
-cd netbox-docker
-git config advice.detachedHead false
-git checkout ${DOCKER_VERSION}
-mv docker-compose.override.yml.example docker-compose.override.yml
-sed -i 's/netbox-media-files/gonetbox-media-files/g' docker-compose.yml
-sed -i 's/netbox-postgres-data/gonetbox-postgres-data/g' docker-compose.yml
-sed -i 's/netbox-redis-data/gonetbox-redis-data/g' docker-compose.yml
-docker-compose up -d --quiet-pull
-cd ..
 
 echo "Purge old lib generated ..."
-rm -rf "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" && mkdir "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" && touch "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/.gitkeep"
+rm -rf "${PROJECT_ROOT}/netbox" && mkdir "${PROJECT_ROOT}/netbox" && touch "${PROJECT_ROOT}/netbox/.gitkeep"
 
-echo "Get swagger from netbox docker ..."
-while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
-jsonlint -qf --indent 2 -o "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" swagger.json
-cp "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/swagger/swagger-${VERSION}.json"
+if [ ! "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" ]; then
+  echo "Get github project netbox-docker ..."
+  rm -rf netbox-docker
+  git clone https://github.com/netbox-community/netbox-docker.git -q
+  cd netbox-docker
+  git config advice.detachedHead false
+  git checkout ${DOCKER_VERSION}
+  mv docker-compose.override.yml.example docker-compose.override.yml
+  sed -i 's/netbox-media-files/gonetbox-media-files/g' docker-compose.yml
+  sed -i 's/netbox-postgres-data/gonetbox-postgres-data/g' docker-compose.yml
+  sed -i 's/netbox-redis-data/gonetbox-redis-data/g' docker-compose.yml
+  docker-compose up -d --quiet-pull
+  cd ..
+
+  echo "Get swagger from netbox docker ..."
+  while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
+  jsonlint -S -qf --indent 2 -o "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json" swagger.json
+  cp "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json" "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json"
+else
+  echo "Get swagger from archive directory ..."
+  cp "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json"
+fi
+
 
 echo "Patch swagger definition ..."
 cd ../patchs
@@ -65,20 +75,19 @@ find . -type f -name "swagger-${VERSION}-*.patch" -exec echo "Using path {}" \; 
 cd ../utils
 
 echo "Apply hack for int64 ..."
-sed -i 's/922337203685477580/214748364/g' "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
+sed -i 's/922337203685477580/214748364/g' "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json"
 
 echo "Check swagger definition ..."
-jsonlint "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json"
+jsonlint "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json"
 
-echo "Get go-swagger and generate lib ..."
-curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.30.3/swagger_linux_amd64 -o swagger
-chmod 755 swagger
-./swagger generate client -f "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox/swagger-${VERSION}.json" -t "$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/netbox" --copyright-file="$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox/LICENSE"
+./generate_code
 
-echo "Destroy docker containers ..."
-cd netbox-docker
-docker-compose down -v
-cd ..
+if [ -d netbox-docker ]; then
+  echo "Destroy docker containers ..."
+  cd netbox-docker
+  docker-compose down -v
+  cd ..
+fi
 
 echo "Execute go mod tidy ... "
 cd ..
