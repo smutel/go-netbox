@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PROJECT_ROOT=${PROJECT_ROOT:-"$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox"}
+
+echo "Get go-swagger and generate lib ..."
+curl -sL https://github.com/go-swagger/go-swagger/releases/download/v0.30.3/swagger_linux_amd64 -o swagger
+chmod 755 swagger
+./swagger generate client -f "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json" -t "${PROJECT_ROOT}/netbox" --copyright-file="${PROJECT_ROOT}/LICENSE"
