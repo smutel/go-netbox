@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -xeu
+set -eu
 
 PROJECT_ROOT=${PROJECT_ROOT:-"$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox"}
 
@@ -45,7 +45,7 @@ export VERSION=${LAST_NETBOX_VERSION}
 echo "Purge old lib generated ..."
 rm -rf "${PROJECT_ROOT}/netbox" && mkdir "${PROJECT_ROOT}/netbox" && touch "${PROJECT_ROOT}/netbox/.gitkeep"
 
-if [ ! "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" ]; then
+if [ ! -f "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" ]; then
   echo "Get github project netbox-docker ..."
   rm -rf netbox-docker
   git clone https://github.com/netbox-community/netbox-docker.git -q
@@ -56,7 +56,10 @@ if [ ! "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" ]; then
   sed -i 's/netbox-media-files/gonetbox-media-files/g' docker-compose.yml
   sed -i 's/netbox-postgres-data/gonetbox-postgres-data/g' docker-compose.yml
   sed -i 's/netbox-redis-data/gonetbox-redis-data/g' docker-compose.yml
-  docker-compose up -d --quiet-pull
+  sed -i 's/netbox-redis-cache-data/gonetbox-redis-cache-data/g' docker-compose.yml
+  sed -i 's/start_period: 60s/start_period: 600s/g' docker-compose.yml
+  docker compose down -v
+  docker compose up -d --quiet-pull
   cd ..
 
   echo "Get swagger from netbox docker ..."
@@ -85,7 +88,7 @@ jsonlint "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json"
 if [ -d netbox-docker ]; then
   echo "Destroy docker containers ..."
   cd netbox-docker
-  docker-compose down -v
+  docker compose down -v
   cd ..
 fi
 
