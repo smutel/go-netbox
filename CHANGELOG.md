@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.4.1] (2025-01-23)
+
+* Backport [fix](https://github.com/fbreckle/go-netbox/pull/41) from e-breuninger/terraform-provider-netbox for OpenAPI 3 schema changes in Netbox v4.x 
+
+
+### Features
+
+* Update from Netbox 3.4 swagger ([ec98310](https://github.com/smutel/go-netbox/commit/ec98310e2ebcaaf3b43ac6c7f14de8ea112b37e6))
+
 ## [3.4.0](https://github.com/smutel/go-netbox/compare/v3.3.0...v3.4.0) (2023-06-12)
 
 
