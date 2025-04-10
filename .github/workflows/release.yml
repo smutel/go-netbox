@@ -13,19 +13,19 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.0.2
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
         with:
           fetch-depth: 0
 
       - name: Get tag
         id: tag
-        uses: dawidd6/action-get-tag@v1.1.0
+        uses: dawidd6/action-get-tag@727a6f0a561be04e09013531e73a3983a65e3479  # v1.1.0
 
       - name: Generate CHANGELOG for this version
         run: ./utils/getChangelogRelease CHANGELOG.md ${{ steps.tag.outputs.tag }} > /tmp/RELEASE_CHANGELOG.md
 
       - name: Release
-        uses: actions/create-release@v1.1.4
+        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e  # v1.1.4
         with:
           draft: true
           prerelease: false
