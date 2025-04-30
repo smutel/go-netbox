@@ -2,12 +2,11 @@
 
 set -eu
 
-PROJECT_ROOT=${PROJECT_ROOT:-"$(dirname $GITHUB_WORKSPACE)/src/github.com/smutel/go-netbox"}
+PROJECT_ROOT=${PROJECT_ROOT:-"$(dirname "$GITHUB_WORKSPACE")/src/github.com/smutel/go-netbox"}
 
 get_last_netbox_version() {
   version=$1
   tags=""
-  tags_list=""
   NEXT=""
   max=0
   i=0
@@ -15,15 +14,15 @@ get_last_netbox_version() {
   do
     i=$((i+1))
     JSON=$(curl https://registry.hub.docker.com/v2/repositories/netboxcommunity/netbox/tags/?page=$i\&page_size=1000 2>/dev/null)
-    tags="$tags $(echo $JSON | jq -r '."results"[]["name"]' | grep $version | grep -E "^v[0-9]+\.[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$")"
-    NEXT=$(echo $JSON | jq '."next"')
+    tags="$tags $(echo "$JSON" | jq -r '."results"[]["name"]' | grep "$version" | grep -E "^v[0-9]+\.[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$")"
+    NEXT=$(echo "$JSON" | jq '."next"')
   done
 
   for t in $tags; do
-    MAJOR=$(echo $t | cut -d"-" -f1 | cut -d"." -f3)
-    if [ "$MAJOR" != "" -a $MAJOR -gt $max ]; then
+    MAJOR=$(echo "$t" | cut -d"-" -f1 | cut -d"." -f3)
+    if [ "$MAJOR" != "" ] && [ "$MAJOR" -gt "$max" ]; then
       max=$MAJOR
-      docker="$(echo $t | cut -d"-" -f2)"
+      docker="$(echo "$t" | cut -d"-" -f2)"
     fi
   done
 
@@ -33,25 +32,32 @@ get_last_netbox_version() {
 NETBOX_MAJOR_VERSION=$(cat netbox_major_version)
 echo "NETBOX_MAJOR_VERSION=${NETBOX_MAJOR_VERSION}"
 
-DOCKER_RESULT="$(get_last_netbox_version ${NETBOX_MAJOR_VERSION})"
+DOCKER_RESULT="$(get_last_netbox_version "${NETBOX_MAJOR_VERSION}")"
 
-LAST_NETBOX_VERSION="$(echo ${DOCKER_RESULT} | cut -d"-" -f1)"
+LAST_NETBOX_VERSION="$(echo "${DOCKER_RESULT}" | cut -d"-" -f1)"
 echo "LAST_NETBOX_VERSION=${LAST_NETBOX_VERSION}"
 
-DOCKER_VERSION="$(echo ${DOCKER_RESULT} | cut -d"-" -f2)"
+DOCKER_VERSION="$(echo "${DOCKER_RESULT}" | cut -d"-" -f2)"
 echo "DOCKER_VERSION=${DOCKER_VERSION}"
 export VERSION=${LAST_NETBOX_VERSION}
 
 echo "Purge old lib generated ..."
-rm -rf "${PROJECT_ROOT}/netbox" && mkdir "${PROJECT_ROOT}/netbox" && touch "${PROJECT_ROOT}/netbox/.gitkeep"
+if [ -f "${PROJECT_ROOT}/.openapi-generator/files" ]; then
+  while read -r file; do
+    rm -f "${PROJECT_ROOT}/$file"
+  done < "${PROJECT_ROOT}"/.openapi-generator/files
+fi
 
-if [ ! -f "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" ]; then
+rm -rf "${PROJECT_ROOT}/api" && mkdir -p "${PROJECT_ROOT}/api" \
+  && touch "${PROJECT_ROOT}/api/.gitkeep"
+
+if [ ! -f "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml" ]; then
   echo "Get github project netbox-docker ..."
   rm -rf netbox-docker
   git clone https://github.com/netbox-community/netbox-docker.git -q
   cd netbox-docker
   git config advice.detachedHead false
-  git checkout ${DOCKER_VERSION}
+  git checkout "${DOCKER_VERSION}"
   mv docker-compose.override.yml.example docker-compose.override.yml
   sed -i 's/netbox-media-files/gonetbox-media-files/g' docker-compose.yml
   sed -i 's/netbox-postgres-data/gonetbox-postgres-data/g' docker-compose.yml
@@ -60,37 +66,33 @@ if [ ! -f "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" ]; then
   sed -i 's/start_period: 60s/start_period: 600s/g' docker-compose.yml
   docker compose down -v
   docker compose up -d --quiet-pull
-  cd ..
 
-  echo "Get swagger from netbox docker ..."
-  while ! curl -s http://127.0.0.1:8000/api/swagger.json -o swagger.json 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
-  jsonlint -S -qf --indent 2 -o "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json" swagger.json
-  cp "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json" "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json"
-else
-  echo "Get swagger from archive directory ..."
-  cp "${PROJECT_ROOT}/swagger/swagger-${VERSION}.json" "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json"
-fi
-
-
-echo "Patch swagger definition ..."
-cd ../patchs
-find . -type f -name "swagger-${VERSION}-*.patch" -exec echo "Using path {}" \; -exec patch -u ../netbox/swagger-${VERSION}.json -i {} \;
-cd ../utils
-
-echo "Apply hack for int64 ..."
-sed -i 's/922337203685477580/214748364/g' "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json"
-
-echo "Check swagger definition ..."
-jsonlint "${PROJECT_ROOT}/netbox/swagger-${VERSION}.json"
-
-./generate_code
-
-if [ -d netbox-docker ]; then
-  echo "Destroy docker containers ..."
-  cd netbox-docker
+  echo "Get openapi from netbox docker ..."
+  while ! curl -s http://localhost:8000/api/schema/ -o openapi.yaml 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
+  cp openapi.yaml "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml"
+  rm openapi.yaml
   docker compose down -v
   cd ..
 fi
+
+cp "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml" "${PROJECT_ROOT}/api/openapi.yaml"
+cp -r "${PROJECT_ROOT}"/utils/.openapi-generator* "${PROJECT_ROOT}"
+
+echo "Patch openapi definition ..."
+cd "${PROJECT_ROOT}"/utils
+./fix-spec.py
+
+# Generate library
+docker run --rm --env JAVA_OPTS=-DmaxYamlCodePoints=9999999 -v "${PROJECT_ROOT}:/local" openapitools/openapi-generator-cli:v7.9.0 \
+    generate \
+    --config /local/.openapi-generator/config.yaml \
+    --input-spec /local/api/openapi.yaml \
+    --output /local \
+    --inline-schema-options RESOLVE_INLINE_ENUMS=true \
+    --http-user-agent go-netbox/"$(cat ../utils/netbox_major_version)"
+
+echo "Apply patches manually ..."
+sudo cp "${PROJECT_ROOT}"/patches/* "${PROJECT_ROOT}"
 
 echo "Execute go mod tidy ... "
 cd ..
@@ -101,4 +103,4 @@ echo "Cleaning ..."
 rm -rf netbox-docker
 rm -f swagger
 rm -f swagger.json
-rm -f ../netbox/swagger-${VERSION}.json.*
+rm -f ../netbox/openapi-"${VERSION}".yaml.*
