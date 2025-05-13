@@ -1,11 +1,11 @@
-module github.com/smutel/go-netbox/v3
+module github.com/smutel/go-netbox/v4
 
-go 1.16
+go 1.18
+
+require github.com/stretchr/testify v1.10.0
 
 require (
-	github.com/go-openapi/errors v0.20.3
-	github.com/go-openapi/runtime v0.24.1
-	github.com/go-openapi/strfmt v0.21.3
-	github.com/go-openapi/swag v0.22.3
-	github.com/go-openapi/validate v0.22.0
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
