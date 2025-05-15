@@ -83,7 +83,7 @@ cd "${PROJECT_ROOT}"/utils
 ./fix-spec.py
 
 # Generate library
-docker run --rm --env JAVA_OPTS=-DmaxYamlCodePoints=9999999 -v "${PROJECT_ROOT}:/local" openapitools/openapi-generator-cli:v7.9.0 \
+docker run --rm --env JAVA_OPTS=-DmaxYamlCodePoints=9999999 -v "${PROJECT_ROOT}:/local" openapitools/openapi-generator-cli:v7.13.0 \
     generate \
     --config /local/.openapi-generator/config.yaml \
     --input-spec /local/api/openapi.yaml \
