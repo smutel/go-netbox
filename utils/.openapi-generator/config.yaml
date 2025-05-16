@@ -15,5 +15,7 @@ globalProperty:
 
 additionalProperties:
   disallowAdditionalPropertiesIfNotPresent: "false"
-  packageVersion: "3"
-  enumClassPrefix: true
+  generateInterfaces: "true"
+  packageVersion: "4"
+  enumClassPrefix: "true"
+  useDefaultValuesForRequiredVars: "true"
