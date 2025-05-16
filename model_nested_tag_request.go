@@ -71,6 +71,7 @@ func (o *NestedTagRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *NestedTagRequest) GetSlug() string {
 	if o == nil {
@@ -94,6 +95,7 @@ func (o *NestedTagRequest) GetSlugOk() (*string, bool) {
 func (o *NestedTagRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *NestedTagRequest) GetColor() string {
@@ -159,6 +161,11 @@ func (o *NestedTagRequest) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -168,11 +175,23 @@ func (o *NestedTagRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varNestedTagRequest := _NestedTagRequest{}
 
 	err = json.Unmarshal(data, &varNestedTagRequest)

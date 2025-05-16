@@ -88,6 +88,7 @@ func (o *RIR) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *RIR) GetUrl() string {
 	if o == nil {
@@ -111,6 +112,7 @@ func (o *RIR) GetUrlOk() (*string, bool) {
 func (o *RIR) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *RIR) GetDisplay() string {
@@ -136,6 +138,7 @@ func (o *RIR) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *RIR) GetName() string {
 	if o == nil {
@@ -160,6 +163,7 @@ func (o *RIR) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *RIR) GetSlug() string {
 	if o == nil {
@@ -183,6 +187,7 @@ func (o *RIR) GetSlugOk() (*string, bool) {
 func (o *RIR) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetIsPrivate returns the IsPrivate field value if set, zero value otherwise.
 func (o *RIR) GetIsPrivate() bool {
@@ -338,6 +343,7 @@ func (o *RIR) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *RIR) GetLastUpdated() time.Time {
@@ -364,6 +370,7 @@ func (o *RIR) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetAggregateCount returns the AggregateCount field value
 func (o *RIR) GetAggregateCount() int64 {
 	if o == nil {
@@ -387,6 +394,7 @@ func (o *RIR) GetAggregateCountOk() (*int64, bool) {
 func (o *RIR) SetAggregateCount(v int64) {
 	o.AggregateCount = v
 }
+
 
 func (o RIR) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -441,6 +449,11 @@ func (o *RIR) UnmarshalJSON(data []byte) (err error) {
 		"aggregate_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -450,11 +463,23 @@ func (o *RIR) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRIR := _RIR{}
 
 	err = json.Unmarshal(data, &varRIR)

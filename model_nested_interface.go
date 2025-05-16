@@ -79,6 +79,7 @@ func (o *NestedInterface) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *NestedInterface) GetUrl() string {
 	if o == nil {
@@ -102,6 +103,7 @@ func (o *NestedInterface) GetUrlOk() (*string, bool) {
 func (o *NestedInterface) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *NestedInterface) GetDisplay() string {
@@ -127,6 +129,7 @@ func (o *NestedInterface) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *NestedInterface) GetDevice() NestedDevice {
 	if o == nil {
@@ -151,6 +154,7 @@ func (o *NestedInterface) SetDevice(v NestedDevice) {
 	o.Device = v
 }
 
+
 // GetName returns the Name field value
 func (o *NestedInterface) GetName() string {
 	if o == nil {
@@ -174,6 +178,7 @@ func (o *NestedInterface) GetNameOk() (*string, bool) {
 func (o *NestedInterface) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetCable returns the Cable field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NestedInterface) GetCable() int32 {
@@ -241,6 +246,7 @@ func (o *NestedInterface) SetOccupied(v bool) {
 	o.Occupied = v
 }
 
+
 func (o NestedInterface) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -281,6 +287,11 @@ func (o *NestedInterface) UnmarshalJSON(data []byte) (err error) {
 		"_occupied",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -290,11 +301,23 @@ func (o *NestedInterface) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varNestedInterface := _NestedInterface{}
 
 	err = json.Unmarshal(data, &varNestedInterface)

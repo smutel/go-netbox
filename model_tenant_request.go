@@ -75,6 +75,7 @@ func (o *TenantRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *TenantRequest) GetSlug() string {
 	if o == nil {
@@ -98,6 +99,7 @@ func (o *TenantRequest) GetSlugOk() (*string, bool) {
 func (o *TenantRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TenantRequest) GetGroup() BriefTenantGroupRequest {
@@ -313,6 +315,11 @@ func (o *TenantRequest) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -322,11 +329,23 @@ func (o *TenantRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varTenantRequest := _TenantRequest{}
 
 	err = json.Unmarshal(data, &varTenantRequest)

@@ -78,6 +78,7 @@ func (o *IPSecProfileRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IPSecProfileRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -134,6 +135,7 @@ func (o *IPSecProfileRequest) SetMode(v IPSecProfileModeValue) {
 	o.Mode = v
 }
 
+
 // GetIkePolicy returns the IkePolicy field value
 func (o *IPSecProfileRequest) GetIkePolicy() BriefIKEPolicyRequest {
 	if o == nil {
@@ -158,6 +160,7 @@ func (o *IPSecProfileRequest) SetIkePolicy(v BriefIKEPolicyRequest) {
 	o.IkePolicy = v
 }
 
+
 // GetIpsecPolicy returns the IpsecPolicy field value
 func (o *IPSecProfileRequest) GetIpsecPolicy() BriefIPSecPolicyRequest {
 	if o == nil {
@@ -181,6 +184,7 @@ func (o *IPSecProfileRequest) GetIpsecPolicyOk() (*BriefIPSecPolicyRequest, bool
 func (o *IPSecProfileRequest) SetIpsecPolicy(v BriefIPSecPolicyRequest) {
 	o.IpsecPolicy = v
 }
+
 
 // GetComments returns the Comments field value if set, zero value otherwise.
 func (o *IPSecProfileRequest) GetComments() string {
@@ -323,6 +327,11 @@ func (o *IPSecProfileRequest) UnmarshalJSON(data []byte) (err error) {
 		"ipsec_policy",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -332,11 +341,23 @@ func (o *IPSecProfileRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varIPSecProfileRequest := _IPSecProfileRequest{}
 
 	err = json.Unmarshal(data, &varIPSecProfileRequest)

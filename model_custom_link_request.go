@@ -83,6 +83,7 @@ func (o *CustomLinkRequest) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
+
 // GetName returns the Name field value
 func (o *CustomLinkRequest) GetName() string {
 	if o == nil {
@@ -106,6 +107,7 @@ func (o *CustomLinkRequest) GetNameOk() (*string, bool) {
 func (o *CustomLinkRequest) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *CustomLinkRequest) GetEnabled() bool {
@@ -163,6 +165,7 @@ func (o *CustomLinkRequest) SetLinkText(v string) {
 	o.LinkText = v
 }
 
+
 // GetLinkUrl returns the LinkUrl field value
 func (o *CustomLinkRequest) GetLinkUrl() string {
 	if o == nil {
@@ -186,6 +189,7 @@ func (o *CustomLinkRequest) GetLinkUrlOk() (*string, bool) {
 func (o *CustomLinkRequest) SetLinkUrl(v string) {
 	o.LinkUrl = v
 }
+
 
 // GetWeight returns the Weight field value if set, zero value otherwise.
 func (o *CustomLinkRequest) GetWeight() int32 {
@@ -363,6 +367,11 @@ func (o *CustomLinkRequest) UnmarshalJSON(data []byte) (err error) {
 		"link_url",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -372,11 +381,23 @@ func (o *CustomLinkRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCustomLinkRequest := _CustomLinkRequest{}
 
 	err = json.Unmarshal(data, &varCustomLinkRequest)

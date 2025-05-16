@@ -80,6 +80,7 @@ func (o *IPRangeRequest) SetStartAddress(v string) {
 	o.StartAddress = v
 }
 
+
 // GetEndAddress returns the EndAddress field value
 func (o *IPRangeRequest) GetEndAddress() string {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *IPRangeRequest) GetEndAddressOk() (*string, bool) {
 func (o *IPRangeRequest) SetEndAddress(v string) {
 	o.EndAddress = v
 }
+
 
 // GetVrf returns the Vrf field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IPRangeRequest) GetVrf() BriefVRFRequest {
@@ -478,6 +480,11 @@ func (o *IPRangeRequest) UnmarshalJSON(data []byte) (err error) {
 		"end_address",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -487,11 +494,23 @@ func (o *IPRangeRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varIPRangeRequest := _IPRangeRequest{}
 
 	err = json.Unmarshal(data, &varIPRangeRequest)

@@ -89,6 +89,7 @@ func (o *ModuleBay) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *ModuleBay) GetUrl() string {
 	if o == nil {
@@ -112,6 +113,7 @@ func (o *ModuleBay) GetUrlOk() (*string, bool) {
 func (o *ModuleBay) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *ModuleBay) GetDisplay() string {
@@ -137,6 +139,7 @@ func (o *ModuleBay) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *ModuleBay) GetDevice() BriefDevice {
 	if o == nil {
@@ -161,6 +164,7 @@ func (o *ModuleBay) SetDevice(v BriefDevice) {
 	o.Device = v
 }
 
+
 // GetName returns the Name field value
 func (o *ModuleBay) GetName() string {
 	if o == nil {
@@ -184,6 +188,7 @@ func (o *ModuleBay) GetNameOk() (*string, bool) {
 func (o *ModuleBay) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetInstalledModule returns the InstalledModule field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ModuleBay) GetInstalledModule() BriefModule {
@@ -413,6 +418,7 @@ func (o *ModuleBay) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ModuleBay) GetLastUpdated() time.Time {
@@ -438,6 +444,7 @@ func (o *ModuleBay) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *ModuleBay) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o ModuleBay) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -496,6 +503,11 @@ func (o *ModuleBay) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -505,11 +517,23 @@ func (o *ModuleBay) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varModuleBay := _ModuleBay{}
 
 	err = json.Unmarshal(data, &varModuleBay)

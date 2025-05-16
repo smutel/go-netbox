@@ -19,12 +19,29 @@ import (
 )
 
 
+type StatusAPI interface {
+
+	/*
+	StatusRetrieve Method for StatusRetrieve
+
+	A lightweight read-only endpoint for conveying NetBox's current operational status.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStatusRetrieveRequest
+	*/
+	StatusRetrieve(ctx context.Context) ApiStatusRetrieveRequest
+
+	// StatusRetrieveExecute executes the request
+	//  @return map[string]interface{}
+	StatusRetrieveExecute(r ApiStatusRetrieveRequest) (map[string]interface{}, *http.Response, error)
+}
+
 // StatusAPIService StatusAPI service
 type StatusAPIService service
 
 type ApiStatusRetrieveRequest struct {
 	ctx context.Context
-	ApiService *StatusAPIService
+	ApiService StatusAPI
 }
 
 func (r ApiStatusRetrieveRequest) Execute() (map[string]interface{}, *http.Response, error) {

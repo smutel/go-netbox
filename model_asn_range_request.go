@@ -80,6 +80,7 @@ func (o *ASNRangeRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *ASNRangeRequest) GetSlug() string {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *ASNRangeRequest) GetSlugOk() (*string, bool) {
 func (o *ASNRangeRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetRir returns the Rir field value
 func (o *ASNRangeRequest) GetRir() BriefRIRRequest {
@@ -128,6 +130,7 @@ func (o *ASNRangeRequest) SetRir(v BriefRIRRequest) {
 	o.Rir = v
 }
 
+
 // GetStart returns the Start field value
 func (o *ASNRangeRequest) GetStart() int64 {
 	if o == nil {
@@ -152,6 +155,7 @@ func (o *ASNRangeRequest) SetStart(v int64) {
 	o.Start = v
 }
 
+
 // GetEnd returns the End field value
 func (o *ASNRangeRequest) GetEnd() int64 {
 	if o == nil {
@@ -175,6 +179,7 @@ func (o *ASNRangeRequest) GetEndOk() (*int64, bool) {
 func (o *ASNRangeRequest) SetEnd(v int64) {
 	o.End = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ASNRangeRequest) GetTenant() BriefTenantRequest {
@@ -361,6 +366,11 @@ func (o *ASNRangeRequest) UnmarshalJSON(data []byte) (err error) {
 		"end",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -370,11 +380,23 @@ func (o *ASNRangeRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varASNRangeRequest := _ASNRangeRequest{}
 
 	err = json.Unmarshal(data, &varASNRangeRequest)

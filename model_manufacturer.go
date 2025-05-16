@@ -90,6 +90,7 @@ func (o *Manufacturer) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Manufacturer) GetUrl() string {
 	if o == nil {
@@ -113,6 +114,7 @@ func (o *Manufacturer) GetUrlOk() (*string, bool) {
 func (o *Manufacturer) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Manufacturer) GetDisplay() string {
@@ -138,6 +140,7 @@ func (o *Manufacturer) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *Manufacturer) GetName() string {
 	if o == nil {
@@ -162,6 +165,7 @@ func (o *Manufacturer) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *Manufacturer) GetSlug() string {
 	if o == nil {
@@ -185,6 +189,7 @@ func (o *Manufacturer) GetSlugOk() (*string, bool) {
 func (o *Manufacturer) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *Manufacturer) GetDescription() string {
@@ -308,6 +313,7 @@ func (o *Manufacturer) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Manufacturer) GetLastUpdated() time.Time {
@@ -334,6 +340,7 @@ func (o *Manufacturer) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetDevicetypeCount returns the DevicetypeCount field value
 func (o *Manufacturer) GetDevicetypeCount() int64 {
 	if o == nil {
@@ -357,6 +364,7 @@ func (o *Manufacturer) GetDevicetypeCountOk() (*int64, bool) {
 func (o *Manufacturer) SetDevicetypeCount(v int64) {
 	o.DevicetypeCount = v
 }
+
 
 // GetInventoryitemCount returns the InventoryitemCount field value
 func (o *Manufacturer) GetInventoryitemCount() int64 {
@@ -382,6 +390,7 @@ func (o *Manufacturer) SetInventoryitemCount(v int64) {
 	o.InventoryitemCount = v
 }
 
+
 // GetPlatformCount returns the PlatformCount field value
 func (o *Manufacturer) GetPlatformCount() int64 {
 	if o == nil {
@@ -405,6 +414,7 @@ func (o *Manufacturer) GetPlatformCountOk() (*int64, bool) {
 func (o *Manufacturer) SetPlatformCount(v int64) {
 	o.PlatformCount = v
 }
+
 
 func (o Manufacturer) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -460,6 +470,11 @@ func (o *Manufacturer) UnmarshalJSON(data []byte) (err error) {
 		"platform_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -469,11 +484,23 @@ func (o *Manufacturer) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varManufacturer := _Manufacturer{}
 
 	err = json.Unmarshal(data, &varManufacturer)

@@ -85,6 +85,7 @@ func (o *TokenProvision) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *TokenProvision) GetUrl() string {
 	if o == nil {
@@ -108,6 +109,7 @@ func (o *TokenProvision) GetUrlOk() (*string, bool) {
 func (o *TokenProvision) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *TokenProvision) GetDisplay() string {
@@ -133,6 +135,7 @@ func (o *TokenProvision) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetUser returns the User field value
 func (o *TokenProvision) GetUser() BriefUser {
 	if o == nil {
@@ -157,6 +160,7 @@ func (o *TokenProvision) SetUser(v BriefUser) {
 	o.User = v
 }
 
+
 // GetCreated returns the Created field value
 func (o *TokenProvision) GetCreated() time.Time {
 	if o == nil {
@@ -180,6 +184,7 @@ func (o *TokenProvision) GetCreatedOk() (*time.Time, bool) {
 func (o *TokenProvision) SetCreated(v time.Time) {
 	o.Created = v
 }
+
 
 // GetExpires returns the Expires field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TokenProvision) GetExpires() time.Time {
@@ -247,6 +252,7 @@ func (o *TokenProvision) SetLastUsed(v time.Time) {
 	o.LastUsed = v
 }
 
+
 // GetKey returns the Key field value
 func (o *TokenProvision) GetKey() string {
 	if o == nil {
@@ -270,6 +276,7 @@ func (o *TokenProvision) GetKeyOk() (*string, bool) {
 func (o *TokenProvision) SetKey(v string) {
 	o.Key = v
 }
+
 
 // GetWriteEnabled returns the WriteEnabled field value if set, zero value otherwise.
 func (o *TokenProvision) GetWriteEnabled() bool {
@@ -383,6 +390,11 @@ func (o *TokenProvision) UnmarshalJSON(data []byte) (err error) {
 		"key",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -392,11 +404,23 @@ func (o *TokenProvision) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varTokenProvision := _TokenProvision{}
 
 	err = json.Unmarshal(data, &varTokenProvision)

@@ -75,6 +75,7 @@ func (o *BriefVirtualMachine) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefVirtualMachine) GetUrl() string {
 	if o == nil {
@@ -98,6 +99,7 @@ func (o *BriefVirtualMachine) GetUrlOk() (*string, bool) {
 func (o *BriefVirtualMachine) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefVirtualMachine) GetDisplay() string {
@@ -123,6 +125,7 @@ func (o *BriefVirtualMachine) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefVirtualMachine) GetName() string {
 	if o == nil {
@@ -146,6 +149,7 @@ func (o *BriefVirtualMachine) GetNameOk() (*string, bool) {
 func (o *BriefVirtualMachine) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefVirtualMachine) GetDescription() string {
@@ -215,6 +219,11 @@ func (o *BriefVirtualMachine) UnmarshalJSON(data []byte) (err error) {
 		"name",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -224,11 +233,23 @@ func (o *BriefVirtualMachine) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefVirtualMachine := _BriefVirtualMachine{}
 
 	err = json.Unmarshal(data, &varBriefVirtualMachine)

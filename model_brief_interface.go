@@ -81,6 +81,7 @@ func (o *BriefInterface) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefInterface) GetUrl() string {
 	if o == nil {
@@ -104,6 +105,7 @@ func (o *BriefInterface) GetUrlOk() (*string, bool) {
 func (o *BriefInterface) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefInterface) GetDisplay() string {
@@ -129,6 +131,7 @@ func (o *BriefInterface) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *BriefInterface) GetDevice() BriefDevice {
 	if o == nil {
@@ -153,6 +156,7 @@ func (o *BriefInterface) SetDevice(v BriefDevice) {
 	o.Device = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefInterface) GetName() string {
 	if o == nil {
@@ -176,6 +180,7 @@ func (o *BriefInterface) GetNameOk() (*string, bool) {
 func (o *BriefInterface) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefInterface) GetDescription() string {
@@ -235,6 +240,7 @@ func (o *BriefInterface) SetCable(v BriefCable) {
 	o.Cable.Set(&v)
 }
 
+
 // GetOccupied returns the Occupied field value
 func (o *BriefInterface) GetOccupied() bool {
 	if o == nil {
@@ -258,6 +264,7 @@ func (o *BriefInterface) GetOccupiedOk() (*bool, bool) {
 func (o *BriefInterface) SetOccupied(v bool) {
 	o.Occupied = v
 }
+
 
 func (o BriefInterface) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -301,6 +308,11 @@ func (o *BriefInterface) UnmarshalJSON(data []byte) (err error) {
 		"_occupied",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -310,11 +322,23 @@ func (o *BriefInterface) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefInterface := _BriefInterface{}
 
 	err = json.Unmarshal(data, &varBriefInterface)

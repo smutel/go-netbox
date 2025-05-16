@@ -86,6 +86,7 @@ func (o *ServiceTemplate) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *ServiceTemplate) GetUrl() string {
 	if o == nil {
@@ -109,6 +110,7 @@ func (o *ServiceTemplate) GetUrlOk() (*string, bool) {
 func (o *ServiceTemplate) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *ServiceTemplate) GetDisplay() string {
@@ -134,6 +136,7 @@ func (o *ServiceTemplate) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *ServiceTemplate) GetName() string {
 	if o == nil {
@@ -157,6 +160,7 @@ func (o *ServiceTemplate) GetNameOk() (*string, bool) {
 func (o *ServiceTemplate) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetProtocol returns the Protocol field value if set, zero value otherwise.
 func (o *ServiceTemplate) GetProtocol() ServiceProtocol {
@@ -213,6 +217,7 @@ func (o *ServiceTemplate) GetPortsOk() ([]int32, bool) {
 func (o *ServiceTemplate) SetPorts(v []int32) {
 	o.Ports = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ServiceTemplate) GetDescription() string {
@@ -368,6 +373,7 @@ func (o *ServiceTemplate) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ServiceTemplate) GetLastUpdated() time.Time {
@@ -393,6 +399,7 @@ func (o *ServiceTemplate) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *ServiceTemplate) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o ServiceTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -448,6 +455,11 @@ func (o *ServiceTemplate) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -457,11 +469,23 @@ func (o *ServiceTemplate) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varServiceTemplate := _ServiceTemplate{}
 
 	err = json.Unmarshal(data, &varServiceTemplate)

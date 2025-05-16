@@ -84,6 +84,7 @@ func (o *Script) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Script) GetUrl() string {
 	if o == nil {
@@ -107,6 +108,7 @@ func (o *Script) GetUrlOk() (*string, bool) {
 func (o *Script) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetModule returns the Module field value
 func (o *Script) GetModule() int32 {
@@ -132,6 +134,7 @@ func (o *Script) SetModule(v int32) {
 	o.Module = v
 }
 
+
 // GetName returns the Name field value
 func (o *Script) GetName() string {
 	if o == nil {
@@ -155,6 +158,7 @@ func (o *Script) GetNameOk() (*string, bool) {
 func (o *Script) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetDescription returns the Description field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -182,6 +186,7 @@ func (o *Script) SetDescription(v string) {
 	o.Description.Set(&v)
 }
 
+
 // GetVars returns the Vars field value
 // If the value is explicit nil, the zero value for interface{} will be returned
 func (o *Script) GetVars() interface{} {
@@ -208,6 +213,7 @@ func (o *Script) SetVars(v interface{}) {
 	o.Vars = v
 }
 
+
 // GetResult returns the Result field value
 func (o *Script) GetResult() BriefJob {
 	if o == nil {
@@ -231,6 +237,7 @@ func (o *Script) GetResultOk() (*BriefJob, bool) {
 func (o *Script) SetResult(v BriefJob) {
 	o.Result = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Script) GetDisplay() string {
@@ -256,6 +263,7 @@ func (o *Script) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetIsExecutable returns the IsExecutable field value
 func (o *Script) GetIsExecutable() bool {
 	if o == nil {
@@ -279,6 +287,7 @@ func (o *Script) GetIsExecutableOk() (*bool, bool) {
 func (o *Script) SetIsExecutable(v bool) {
 	o.IsExecutable = v
 }
+
 
 func (o Script) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -325,6 +334,11 @@ func (o *Script) UnmarshalJSON(data []byte) (err error) {
 		"is_executable",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -334,11 +348,23 @@ func (o *Script) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varScript := _Script{}
 
 	err = json.Unmarshal(data, &varScript)

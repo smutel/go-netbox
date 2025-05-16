@@ -72,6 +72,7 @@ func (o *GenericObject) SetObjectType(v string) {
 	o.ObjectType = v
 }
 
+
 // GetObjectId returns the ObjectId field value
 func (o *GenericObject) GetObjectId() int32 {
 	if o == nil {
@@ -95,6 +96,7 @@ func (o *GenericObject) GetObjectIdOk() (*int32, bool) {
 func (o *GenericObject) SetObjectId(v int32) {
 	o.ObjectId = v
 }
+
 
 // GetObject returns the Object field value
 // If the value is explicit nil, the zero value for interface{} will be returned
@@ -121,6 +123,7 @@ func (o *GenericObject) GetObjectOk() (*interface{}, bool) {
 func (o *GenericObject) SetObject(v interface{}) {
 	o.Object = v
 }
+
 
 func (o GenericObject) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -155,6 +158,11 @@ func (o *GenericObject) UnmarshalJSON(data []byte) (err error) {
 		"object",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -164,11 +172,23 @@ func (o *GenericObject) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varGenericObject := _GenericObject{}
 
 	err = json.Unmarshal(data, &varGenericObject)

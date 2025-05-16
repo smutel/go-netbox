@@ -104,6 +104,7 @@ func (o *EventRule) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *EventRule) GetUrl() string {
 	if o == nil {
@@ -127,6 +128,7 @@ func (o *EventRule) GetUrlOk() (*string, bool) {
 func (o *EventRule) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *EventRule) GetDisplay() string {
@@ -152,6 +154,7 @@ func (o *EventRule) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetObjectTypes returns the ObjectTypes field value
 func (o *EventRule) GetObjectTypes() []string {
 	if o == nil {
@@ -176,6 +179,7 @@ func (o *EventRule) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
+
 // GetName returns the Name field value
 func (o *EventRule) GetName() string {
 	if o == nil {
@@ -199,6 +203,7 @@ func (o *EventRule) GetNameOk() (*string, bool) {
 func (o *EventRule) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetTypeCreate returns the TypeCreate field value if set, zero value otherwise.
 func (o *EventRule) GetTypeCreate() bool {
@@ -449,6 +454,7 @@ func (o *EventRule) SetActionType(v EventRuleActionType) {
 	o.ActionType = v
 }
 
+
 // GetActionObjectType returns the ActionObjectType field value
 func (o *EventRule) GetActionObjectType() string {
 	if o == nil {
@@ -472,6 +478,7 @@ func (o *EventRule) GetActionObjectTypeOk() (*string, bool) {
 func (o *EventRule) SetActionObjectType(v string) {
 	o.ActionObjectType = v
 }
+
 
 // GetActionObjectId returns the ActionObjectId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventRule) GetActionObjectId() int64 {
@@ -538,6 +545,7 @@ func (o *EventRule) GetActionObjectOk() (map[string]interface{}, bool) {
 func (o *EventRule) SetActionObject(v map[string]interface{}) {
 	o.ActionObject = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *EventRule) GetDescription() string {
@@ -661,6 +669,7 @@ func (o *EventRule) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *EventRule) GetLastUpdated() time.Time {
@@ -686,6 +695,7 @@ func (o *EventRule) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *EventRule) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o EventRule) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -765,6 +775,11 @@ func (o *EventRule) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -774,11 +789,23 @@ func (o *EventRule) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varEventRule := _EventRule{}
 
 	err = json.Unmarshal(data, &varEventRule)

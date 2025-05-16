@@ -77,6 +77,7 @@ func (o *BriefIPAddress) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefIPAddress) GetUrl() string {
 	if o == nil {
@@ -100,6 +101,7 @@ func (o *BriefIPAddress) GetUrlOk() (*string, bool) {
 func (o *BriefIPAddress) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefIPAddress) GetDisplay() string {
@@ -125,6 +127,7 @@ func (o *BriefIPAddress) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetFamily returns the Family field value
 func (o *BriefIPAddress) GetFamily() AggregateFamily {
 	if o == nil {
@@ -149,6 +152,7 @@ func (o *BriefIPAddress) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
 
+
 // GetAddress returns the Address field value
 func (o *BriefIPAddress) GetAddress() string {
 	if o == nil {
@@ -172,6 +176,7 @@ func (o *BriefIPAddress) GetAddressOk() (*string, bool) {
 func (o *BriefIPAddress) SetAddress(v string) {
 	o.Address = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefIPAddress) GetDescription() string {
@@ -243,6 +248,11 @@ func (o *BriefIPAddress) UnmarshalJSON(data []byte) (err error) {
 		"address",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -252,11 +262,23 @@ func (o *BriefIPAddress) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefIPAddress := _BriefIPAddress{}
 
 	err = json.Unmarshal(data, &varBriefIPAddress)

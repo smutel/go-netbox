@@ -94,6 +94,7 @@ func (o *CustomLink) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *CustomLink) GetUrl() string {
 	if o == nil {
@@ -117,6 +118,7 @@ func (o *CustomLink) GetUrlOk() (*string, bool) {
 func (o *CustomLink) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *CustomLink) GetDisplay() string {
@@ -142,6 +144,7 @@ func (o *CustomLink) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetObjectTypes returns the ObjectTypes field value
 func (o *CustomLink) GetObjectTypes() []string {
 	if o == nil {
@@ -166,6 +169,7 @@ func (o *CustomLink) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
+
 // GetName returns the Name field value
 func (o *CustomLink) GetName() string {
 	if o == nil {
@@ -189,6 +193,7 @@ func (o *CustomLink) GetNameOk() (*string, bool) {
 func (o *CustomLink) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *CustomLink) GetEnabled() bool {
@@ -246,6 +251,7 @@ func (o *CustomLink) SetLinkText(v string) {
 	o.LinkText = v
 }
 
+
 // GetLinkUrl returns the LinkUrl field value
 func (o *CustomLink) GetLinkUrl() string {
 	if o == nil {
@@ -269,6 +275,7 @@ func (o *CustomLink) GetLinkUrlOk() (*string, bool) {
 func (o *CustomLink) SetLinkUrl(v string) {
 	o.LinkUrl = v
 }
+
 
 // GetWeight returns the Weight field value if set, zero value otherwise.
 func (o *CustomLink) GetWeight() int32 {
@@ -424,6 +431,7 @@ func (o *CustomLink) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *CustomLink) GetLastUpdated() time.Time {
@@ -449,6 +457,7 @@ func (o *CustomLink) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *CustomLink) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o CustomLink) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -508,6 +517,11 @@ func (o *CustomLink) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -517,11 +531,23 @@ func (o *CustomLink) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCustomLink := _CustomLink{}
 
 	err = json.Unmarshal(data, &varCustomLink)

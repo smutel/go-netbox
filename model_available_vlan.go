@@ -70,6 +70,7 @@ func (o *AvailableVLAN) SetVid(v int32) {
 	o.Vid = v
 }
 
+
 // GetGroup returns the Group field value
 // If the value is explicit nil, the zero value for BriefVLANGroup will be returned
 func (o *AvailableVLAN) GetGroup() BriefVLANGroup {
@@ -95,6 +96,7 @@ func (o *AvailableVLAN) GetGroupOk() (*BriefVLANGroup, bool) {
 func (o *AvailableVLAN) SetGroup(v BriefVLANGroup) {
 	o.Group.Set(&v)
 }
+
 
 func (o AvailableVLAN) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -125,6 +127,11 @@ func (o *AvailableVLAN) UnmarshalJSON(data []byte) (err error) {
 		"group",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -134,11 +141,23 @@ func (o *AvailableVLAN) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varAvailableVLAN := _AvailableVLAN{}
 
 	err = json.Unmarshal(data, &varAvailableVLAN)

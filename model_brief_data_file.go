@@ -75,6 +75,7 @@ func (o *BriefDataFile) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefDataFile) GetUrl() string {
 	if o == nil {
@@ -98,6 +99,7 @@ func (o *BriefDataFile) GetUrlOk() (*string, bool) {
 func (o *BriefDataFile) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefDataFile) GetDisplay() string {
@@ -123,6 +125,7 @@ func (o *BriefDataFile) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetPath returns the Path field value
 func (o *BriefDataFile) GetPath() string {
 	if o == nil {
@@ -146,6 +149,7 @@ func (o *BriefDataFile) GetPathOk() (*string, bool) {
 func (o *BriefDataFile) SetPath(v string) {
 	o.Path = v
 }
+
 
 func (o BriefDataFile) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -180,6 +184,11 @@ func (o *BriefDataFile) UnmarshalJSON(data []byte) (err error) {
 		"path",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -189,11 +198,23 @@ func (o *BriefDataFile) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefDataFile := _BriefDataFile{}
 
 	err = json.Unmarshal(data, &varBriefDataFile)

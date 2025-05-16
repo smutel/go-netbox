@@ -70,6 +70,7 @@ func (o *BriefModuleRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
+
 // GetModuleBay returns the ModuleBay field value
 func (o *BriefModuleRequest) GetModuleBay() NestedModuleBayRequest {
 	if o == nil {
@@ -93,6 +94,7 @@ func (o *BriefModuleRequest) GetModuleBayOk() (*NestedModuleBayRequest, bool) {
 func (o *BriefModuleRequest) SetModuleBay(v NestedModuleBayRequest) {
 	o.ModuleBay = v
 }
+
 
 func (o BriefModuleRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -123,6 +125,11 @@ func (o *BriefModuleRequest) UnmarshalJSON(data []byte) (err error) {
 		"module_bay",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -132,11 +139,23 @@ func (o *BriefModuleRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefModuleRequest := _BriefModuleRequest{}
 
 	err = json.Unmarshal(data, &varBriefModuleRequest)

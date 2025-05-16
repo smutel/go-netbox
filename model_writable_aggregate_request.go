@@ -76,6 +76,7 @@ func (o *WritableAggregateRequest) SetPrefix(v string) {
 	o.Prefix = v
 }
 
+
 // GetRir returns the Rir field value
 func (o *WritableAggregateRequest) GetRir() BriefRIRRequest {
 	if o == nil {
@@ -99,6 +100,7 @@ func (o *WritableAggregateRequest) GetRirOk() (*BriefRIRRequest, bool) {
 func (o *WritableAggregateRequest) SetRir(v BriefRIRRequest) {
 	o.Rir = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableAggregateRequest) GetTenant() BriefTenantRequest {
@@ -359,6 +361,11 @@ func (o *WritableAggregateRequest) UnmarshalJSON(data []byte) (err error) {
 		"rir",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -368,11 +375,23 @@ func (o *WritableAggregateRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableAggregateRequest := _WritableAggregateRequest{}
 
 	err = json.Unmarshal(data, &varWritableAggregateRequest)

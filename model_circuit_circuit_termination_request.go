@@ -79,6 +79,7 @@ func (o *CircuitCircuitTerminationRequest) SetSite(v BriefSiteRequest) {
 	o.Site.Set(&v)
 }
 
+
 // GetProviderNetwork returns the ProviderNetwork field value
 // If the value is explicit nil, the zero value for BriefProviderNetworkRequest will be returned
 func (o *CircuitCircuitTerminationRequest) GetProviderNetwork() BriefProviderNetworkRequest {
@@ -104,6 +105,7 @@ func (o *CircuitCircuitTerminationRequest) GetProviderNetworkOk() (*BriefProvide
 func (o *CircuitCircuitTerminationRequest) SetProviderNetwork(v BriefProviderNetworkRequest) {
 	o.ProviderNetwork.Set(&v)
 }
+
 
 // GetPortSpeed returns the PortSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitCircuitTerminationRequest) GetPortSpeed() int32 {
@@ -294,6 +296,11 @@ func (o *CircuitCircuitTerminationRequest) UnmarshalJSON(data []byte) (err error
 		"provider_network",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -303,11 +310,23 @@ func (o *CircuitCircuitTerminationRequest) UnmarshalJSON(data []byte) (err error
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCircuitCircuitTerminationRequest := _CircuitCircuitTerminationRequest{}
 
 	err = json.Unmarshal(data, &varCircuitCircuitTerminationRequest)

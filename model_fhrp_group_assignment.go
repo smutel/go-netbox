@@ -87,6 +87,7 @@ func (o *FHRPGroupAssignment) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *FHRPGroupAssignment) GetUrl() string {
 	if o == nil {
@@ -110,6 +111,7 @@ func (o *FHRPGroupAssignment) GetUrlOk() (*string, bool) {
 func (o *FHRPGroupAssignment) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *FHRPGroupAssignment) GetDisplay() string {
@@ -135,6 +137,7 @@ func (o *FHRPGroupAssignment) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetGroup returns the Group field value
 func (o *FHRPGroupAssignment) GetGroup() BriefFHRPGroup {
 	if o == nil {
@@ -158,6 +161,7 @@ func (o *FHRPGroupAssignment) GetGroupOk() (*BriefFHRPGroup, bool) {
 func (o *FHRPGroupAssignment) SetGroup(v BriefFHRPGroup) {
 	o.Group = v
 }
+
 
 // GetInterfaceType returns the InterfaceType field value
 func (o *FHRPGroupAssignment) GetInterfaceType() string {
@@ -183,6 +187,7 @@ func (o *FHRPGroupAssignment) SetInterfaceType(v string) {
 	o.InterfaceType = v
 }
 
+
 // GetInterfaceId returns the InterfaceId field value
 func (o *FHRPGroupAssignment) GetInterfaceId() int64 {
 	if o == nil {
@@ -206,6 +211,7 @@ func (o *FHRPGroupAssignment) GetInterfaceIdOk() (*int64, bool) {
 func (o *FHRPGroupAssignment) SetInterfaceId(v int64) {
 	o.InterfaceId = v
 }
+
 
 // GetInterface returns the Interface field value
 // If the value is explicit nil, the zero value for interface{} will be returned
@@ -233,6 +239,7 @@ func (o *FHRPGroupAssignment) SetInterface(v interface{}) {
 	o.Interface = v
 }
 
+
 // GetPriority returns the Priority field value
 func (o *FHRPGroupAssignment) GetPriority() int32 {
 	if o == nil {
@@ -256,6 +263,7 @@ func (o *FHRPGroupAssignment) GetPriorityOk() (*int32, bool) {
 func (o *FHRPGroupAssignment) SetPriority(v int32) {
 	o.Priority = v
 }
+
 
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -283,6 +291,7 @@ func (o *FHRPGroupAssignment) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *FHRPGroupAssignment) GetLastUpdated() time.Time {
@@ -308,6 +317,7 @@ func (o *FHRPGroupAssignment) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *FHRPGroupAssignment) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o FHRPGroupAssignment) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -356,6 +366,11 @@ func (o *FHRPGroupAssignment) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -365,11 +380,23 @@ func (o *FHRPGroupAssignment) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varFHRPGroupAssignment := _FHRPGroupAssignment{}
 
 	err = json.Unmarshal(data, &varFHRPGroupAssignment)

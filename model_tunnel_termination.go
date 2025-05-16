@@ -90,6 +90,7 @@ func (o *TunnelTermination) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *TunnelTermination) GetUrl() string {
 	if o == nil {
@@ -113,6 +114,7 @@ func (o *TunnelTermination) GetUrlOk() (*string, bool) {
 func (o *TunnelTermination) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *TunnelTermination) GetDisplay() string {
@@ -138,6 +140,7 @@ func (o *TunnelTermination) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetTunnel returns the Tunnel field value
 func (o *TunnelTermination) GetTunnel() BriefTunnel {
 	if o == nil {
@@ -161,6 +164,7 @@ func (o *TunnelTermination) GetTunnelOk() (*BriefTunnel, bool) {
 func (o *TunnelTermination) SetTunnel(v BriefTunnel) {
 	o.Tunnel = v
 }
+
 
 // GetRole returns the Role field value
 func (o *TunnelTermination) GetRole() TunnelTerminationRole {
@@ -186,6 +190,7 @@ func (o *TunnelTermination) SetRole(v TunnelTerminationRole) {
 	o.Role = v
 }
 
+
 // GetTerminationType returns the TerminationType field value
 func (o *TunnelTermination) GetTerminationType() string {
 	if o == nil {
@@ -209,6 +214,7 @@ func (o *TunnelTermination) GetTerminationTypeOk() (*string, bool) {
 func (o *TunnelTermination) SetTerminationType(v string) {
 	o.TerminationType = v
 }
+
 
 // GetTerminationId returns the TerminationId field value
 // If the value is explicit nil, the zero value for int64 will be returned
@@ -236,6 +242,7 @@ func (o *TunnelTermination) SetTerminationId(v int64) {
 	o.TerminationId.Set(&v)
 }
 
+
 // GetTermination returns the Termination field value
 // If the value is explicit nil, the zero value for interface{} will be returned
 func (o *TunnelTermination) GetTermination() interface{} {
@@ -261,6 +268,7 @@ func (o *TunnelTermination) GetTerminationOk() (*interface{}, bool) {
 func (o *TunnelTermination) SetTermination(v interface{}) {
 	o.Termination = v
 }
+
 
 // GetOutsideIp returns the OutsideIp field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TunnelTermination) GetOutsideIp() BriefIPAddress {
@@ -394,6 +402,7 @@ func (o *TunnelTermination) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TunnelTermination) GetLastUpdated() time.Time {
@@ -419,6 +428,7 @@ func (o *TunnelTermination) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *TunnelTermination) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o TunnelTermination) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -476,6 +486,11 @@ func (o *TunnelTermination) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -485,11 +500,23 @@ func (o *TunnelTermination) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varTunnelTermination := _TunnelTermination{}
 
 	err = json.Unmarshal(data, &varTunnelTermination)

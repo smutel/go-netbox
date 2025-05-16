@@ -90,6 +90,7 @@ func (o *PowerPortTemplate) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *PowerPortTemplate) GetUrl() string {
 	if o == nil {
@@ -114,6 +115,7 @@ func (o *PowerPortTemplate) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *PowerPortTemplate) GetDisplay() string {
 	if o == nil {
@@ -137,6 +139,7 @@ func (o *PowerPortTemplate) GetDisplayOk() (*string, bool) {
 func (o *PowerPortTemplate) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetDeviceType returns the DeviceType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerPortTemplate) GetDeviceType() BriefDeviceType {
@@ -245,6 +248,7 @@ func (o *PowerPortTemplate) GetNameOk() (*string, bool) {
 func (o *PowerPortTemplate) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *PowerPortTemplate) GetLabel() string {
@@ -462,6 +466,7 @@ func (o *PowerPortTemplate) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *PowerPortTemplate) GetLastUpdated() time.Time {
@@ -487,6 +492,7 @@ func (o *PowerPortTemplate) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *PowerPortTemplate) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o PowerPortTemplate) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -546,6 +552,11 @@ func (o *PowerPortTemplate) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -555,11 +566,23 @@ func (o *PowerPortTemplate) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varPowerPortTemplate := _PowerPortTemplate{}
 
 	err = json.Unmarshal(data, &varPowerPortTemplate)

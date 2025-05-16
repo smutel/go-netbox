@@ -89,6 +89,7 @@ func (o *TenantGroup) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *TenantGroup) GetUrl() string {
 	if o == nil {
@@ -112,6 +113,7 @@ func (o *TenantGroup) GetUrlOk() (*string, bool) {
 func (o *TenantGroup) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *TenantGroup) GetDisplay() string {
@@ -137,6 +139,7 @@ func (o *TenantGroup) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *TenantGroup) GetName() string {
 	if o == nil {
@@ -161,6 +164,7 @@ func (o *TenantGroup) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *TenantGroup) GetSlug() string {
 	if o == nil {
@@ -184,6 +188,7 @@ func (o *TenantGroup) GetSlugOk() (*string, bool) {
 func (o *TenantGroup) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TenantGroup) GetParent() NestedTenantGroup {
@@ -349,6 +354,7 @@ func (o *TenantGroup) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *TenantGroup) GetLastUpdated() time.Time {
@@ -375,6 +381,7 @@ func (o *TenantGroup) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetTenantCount returns the TenantCount field value
 func (o *TenantGroup) GetTenantCount() int32 {
 	if o == nil {
@@ -399,6 +406,7 @@ func (o *TenantGroup) SetTenantCount(v int32) {
 	o.TenantCount = v
 }
 
+
 // GetDepth returns the Depth field value
 func (o *TenantGroup) GetDepth() int32 {
 	if o == nil {
@@ -422,6 +430,7 @@ func (o *TenantGroup) GetDepthOk() (*int32, bool) {
 func (o *TenantGroup) SetDepth(v int32) {
 	o.Depth = v
 }
+
 
 func (o TenantGroup) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -478,6 +487,11 @@ func (o *TenantGroup) UnmarshalJSON(data []byte) (err error) {
 		"_depth",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -487,11 +501,23 @@ func (o *TenantGroup) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varTenantGroup := _TenantGroup{}
 
 	err = json.Unmarshal(data, &varTenantGroup)

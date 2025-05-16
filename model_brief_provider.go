@@ -80,6 +80,7 @@ func (o *BriefProvider) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefProvider) GetUrl() string {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *BriefProvider) GetUrlOk() (*string, bool) {
 func (o *BriefProvider) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefProvider) GetDisplay() string {
@@ -128,6 +130,7 @@ func (o *BriefProvider) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefProvider) GetName() string {
 	if o == nil {
@@ -152,6 +155,7 @@ func (o *BriefProvider) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefProvider) GetSlug() string {
 	if o == nil {
@@ -175,6 +179,7 @@ func (o *BriefProvider) GetSlugOk() (*string, bool) {
 func (o *BriefProvider) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefProvider) GetDescription() string {
@@ -232,6 +237,7 @@ func (o *BriefProvider) SetCircuitCount(v int64) {
 	o.CircuitCount = v
 }
 
+
 func (o BriefProvider) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -272,6 +278,11 @@ func (o *BriefProvider) UnmarshalJSON(data []byte) (err error) {
 		"circuit_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -281,11 +292,23 @@ func (o *BriefProvider) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefProvider := _BriefProvider{}
 
 	err = json.Unmarshal(data, &varBriefProvider)

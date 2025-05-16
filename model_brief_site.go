@@ -78,6 +78,7 @@ func (o *BriefSite) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefSite) GetUrl() string {
 	if o == nil {
@@ -101,6 +102,7 @@ func (o *BriefSite) GetUrlOk() (*string, bool) {
 func (o *BriefSite) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefSite) GetDisplay() string {
@@ -126,6 +128,7 @@ func (o *BriefSite) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefSite) GetName() string {
 	if o == nil {
@@ -150,6 +153,7 @@ func (o *BriefSite) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefSite) GetSlug() string {
 	if o == nil {
@@ -173,6 +177,7 @@ func (o *BriefSite) GetSlugOk() (*string, bool) {
 func (o *BriefSite) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefSite) GetDescription() string {
@@ -244,6 +249,11 @@ func (o *BriefSite) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -253,11 +263,23 @@ func (o *BriefSite) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefSite := _BriefSite{}
 
 	err = json.Unmarshal(data, &varBriefSite)

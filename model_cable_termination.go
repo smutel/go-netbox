@@ -87,6 +87,7 @@ func (o *CableTermination) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *CableTermination) GetUrl() string {
 	if o == nil {
@@ -110,6 +111,7 @@ func (o *CableTermination) GetUrlOk() (*string, bool) {
 func (o *CableTermination) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *CableTermination) GetDisplay() string {
@@ -135,6 +137,7 @@ func (o *CableTermination) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetCable returns the Cable field value
 func (o *CableTermination) GetCable() int32 {
 	if o == nil {
@@ -158,6 +161,7 @@ func (o *CableTermination) GetCableOk() (*int32, bool) {
 func (o *CableTermination) SetCable(v int32) {
 	o.Cable = v
 }
+
 
 // GetCableEnd returns the CableEnd field value
 func (o *CableTermination) GetCableEnd() End1 {
@@ -183,6 +187,7 @@ func (o *CableTermination) SetCableEnd(v End1) {
 	o.CableEnd = v
 }
 
+
 // GetTerminationType returns the TerminationType field value
 func (o *CableTermination) GetTerminationType() string {
 	if o == nil {
@@ -207,6 +212,7 @@ func (o *CableTermination) SetTerminationType(v string) {
 	o.TerminationType = v
 }
 
+
 // GetTerminationId returns the TerminationId field value
 func (o *CableTermination) GetTerminationId() int64 {
 	if o == nil {
@@ -230,6 +236,7 @@ func (o *CableTermination) GetTerminationIdOk() (*int64, bool) {
 func (o *CableTermination) SetTerminationId(v int64) {
 	o.TerminationId = v
 }
+
 
 // GetTermination returns the Termination field value
 // If the value is explicit nil, the zero value for interface{} will be returned
@@ -257,6 +264,7 @@ func (o *CableTermination) SetTermination(v interface{}) {
 	o.Termination = v
 }
 
+
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *CableTermination) GetCreated() time.Time {
@@ -283,6 +291,7 @@ func (o *CableTermination) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *CableTermination) GetLastUpdated() time.Time {
@@ -308,6 +317,7 @@ func (o *CableTermination) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *CableTermination) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o CableTermination) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -356,6 +366,11 @@ func (o *CableTermination) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -365,11 +380,23 @@ func (o *CableTermination) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCableTermination := _CableTermination{}
 
 	err = json.Unmarshal(data, &varCableTermination)

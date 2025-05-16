@@ -107,6 +107,7 @@ func (o *CircuitTermination) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *CircuitTermination) GetUrl() string {
 	if o == nil {
@@ -130,6 +131,7 @@ func (o *CircuitTermination) GetUrlOk() (*string, bool) {
 func (o *CircuitTermination) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *CircuitTermination) GetDisplay() string {
@@ -155,6 +157,7 @@ func (o *CircuitTermination) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetCircuit returns the Circuit field value
 func (o *CircuitTermination) GetCircuit() BriefCircuit {
 	if o == nil {
@@ -179,6 +182,7 @@ func (o *CircuitTermination) SetCircuit(v BriefCircuit) {
 	o.Circuit = v
 }
 
+
 // GetTermSide returns the TermSide field value
 func (o *CircuitTermination) GetTermSide() Termination1 {
 	if o == nil {
@@ -202,6 +206,7 @@ func (o *CircuitTermination) GetTermSideOk() (*Termination1, bool) {
 func (o *CircuitTermination) SetTermSide(v Termination1) {
 	o.TermSide = v
 }
+
 
 // GetSite returns the Site field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitTermination) GetSite() BriefSite {
@@ -525,6 +530,7 @@ func (o *CircuitTermination) SetCable(v BriefCable) {
 	o.Cable.Set(&v)
 }
 
+
 // GetCableEnd returns the CableEnd field value
 func (o *CircuitTermination) GetCableEnd() string {
 	if o == nil {
@@ -549,6 +555,7 @@ func (o *CircuitTermination) SetCableEnd(v string) {
 	o.CableEnd = v
 }
 
+
 // GetLinkPeers returns the LinkPeers field value
 func (o *CircuitTermination) GetLinkPeers() []interface{} {
 	if o == nil {
@@ -572,6 +579,7 @@ func (o *CircuitTermination) GetLinkPeersOk() ([]interface{}, bool) {
 func (o *CircuitTermination) SetLinkPeers(v []interface{}) {
 	o.LinkPeers = v
 }
+
 
 // GetLinkPeersType returns the LinkPeersType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -598,6 +606,7 @@ func (o *CircuitTermination) GetLinkPeersTypeOk() (*string, bool) {
 func (o *CircuitTermination) SetLinkPeersType(v string) {
 	o.LinkPeersType.Set(&v)
 }
+
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *CircuitTermination) GetTags() []NestedTag {
@@ -689,6 +698,7 @@ func (o *CircuitTermination) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *CircuitTermination) GetLastUpdated() time.Time {
@@ -715,6 +725,7 @@ func (o *CircuitTermination) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetOccupied returns the Occupied field value
 func (o *CircuitTermination) GetOccupied() bool {
 	if o == nil {
@@ -738,6 +749,7 @@ func (o *CircuitTermination) GetOccupiedOk() (*bool, bool) {
 func (o *CircuitTermination) SetOccupied(v bool) {
 	o.Occupied = v
 }
+
 
 func (o CircuitTermination) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -818,6 +830,11 @@ func (o *CircuitTermination) UnmarshalJSON(data []byte) (err error) {
 		"_occupied",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -827,11 +844,23 @@ func (o *CircuitTermination) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCircuitTermination := _CircuitTermination{}
 
 	err = json.Unmarshal(data, &varCircuitTermination)

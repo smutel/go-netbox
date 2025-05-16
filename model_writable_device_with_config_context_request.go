@@ -147,6 +147,7 @@ func (o *WritableDeviceWithConfigContextRequest) SetDeviceType(v BriefDeviceType
 	o.DeviceType = v
 }
 
+
 // GetRole returns the Role field value
 func (o *WritableDeviceWithConfigContextRequest) GetRole() BriefDeviceRoleRequest {
 	if o == nil {
@@ -170,6 +171,7 @@ func (o *WritableDeviceWithConfigContextRequest) GetRoleOk() (*BriefDeviceRoleRe
 func (o *WritableDeviceWithConfigContextRequest) SetRole(v BriefDeviceRoleRequest) {
 	o.Role = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableDeviceWithConfigContextRequest) GetTenant() BriefTenantRequest {
@@ -353,6 +355,7 @@ func (o *WritableDeviceWithConfigContextRequest) SetSite(v BriefSiteRequest) {
 	o.Site = v
 }
 
+
 // GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableDeviceWithConfigContextRequest) GetLocation() BriefLocationRequest {
 	if o == nil || IsNil(o.Location.Get()) {
@@ -502,6 +505,7 @@ func (o *WritableDeviceWithConfigContextRequest) GetFaceOk() (*RackFace1, bool) 
 func (o *WritableDeviceWithConfigContextRequest) SetFace(v RackFace1) {
 	o.Face = v
 }
+
 
 // GetLatitude returns the Latitude field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableDeviceWithConfigContextRequest) GetLatitude() float64 {
@@ -1256,6 +1260,11 @@ func (o *WritableDeviceWithConfigContextRequest) UnmarshalJSON(data []byte) (err
 		"face",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1265,11 +1274,23 @@ func (o *WritableDeviceWithConfigContextRequest) UnmarshalJSON(data []byte) (err
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableDeviceWithConfigContextRequest := _WritableDeviceWithConfigContextRequest{}
 
 	err = json.Unmarshal(data, &varWritableDeviceWithConfigContextRequest)

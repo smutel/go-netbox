@@ -105,6 +105,7 @@ func (o *RearPort) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *RearPort) GetUrl() string {
 	if o == nil {
@@ -128,6 +129,7 @@ func (o *RearPort) GetUrlOk() (*string, bool) {
 func (o *RearPort) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *RearPort) GetDisplay() string {
@@ -153,6 +155,7 @@ func (o *RearPort) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *RearPort) GetDevice() BriefDevice {
 	if o == nil {
@@ -176,6 +179,7 @@ func (o *RearPort) GetDeviceOk() (*BriefDevice, bool) {
 func (o *RearPort) SetDevice(v BriefDevice) {
 	o.Device = v
 }
+
 
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RearPort) GetModule() BriefModule {
@@ -243,6 +247,7 @@ func (o *RearPort) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *RearPort) GetLabel() string {
 	if o == nil || IsNil(o.Label) {
@@ -298,6 +303,7 @@ func (o *RearPort) GetTypeOk() (*FrontPortType, bool) {
 func (o *RearPort) SetType(v FrontPortType) {
 	o.Type = v
 }
+
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *RearPort) GetColor() string {
@@ -453,6 +459,7 @@ func (o *RearPort) SetCable(v BriefCable) {
 	o.Cable.Set(&v)
 }
 
+
 // GetCableEnd returns the CableEnd field value
 func (o *RearPort) GetCableEnd() string {
 	if o == nil {
@@ -477,6 +484,7 @@ func (o *RearPort) SetCableEnd(v string) {
 	o.CableEnd = v
 }
 
+
 // GetLinkPeers returns the LinkPeers field value
 func (o *RearPort) GetLinkPeers() []interface{} {
 	if o == nil {
@@ -500,6 +508,7 @@ func (o *RearPort) GetLinkPeersOk() ([]interface{}, bool) {
 func (o *RearPort) SetLinkPeers(v []interface{}) {
 	o.LinkPeers = v
 }
+
 
 // GetLinkPeersType returns the LinkPeersType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -526,6 +535,7 @@ func (o *RearPort) GetLinkPeersTypeOk() (*string, bool) {
 func (o *RearPort) SetLinkPeersType(v string) {
 	o.LinkPeersType.Set(&v)
 }
+
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *RearPort) GetTags() []NestedTag {
@@ -617,6 +627,7 @@ func (o *RearPort) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *RearPort) GetLastUpdated() time.Time {
@@ -643,6 +654,7 @@ func (o *RearPort) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetOccupied returns the Occupied field value
 func (o *RearPort) GetOccupied() bool {
 	if o == nil {
@@ -666,6 +678,7 @@ func (o *RearPort) GetOccupiedOk() (*bool, bool) {
 func (o *RearPort) SetOccupied(v bool) {
 	o.Occupied = v
 }
+
 
 func (o RearPort) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -742,6 +755,11 @@ func (o *RearPort) UnmarshalJSON(data []byte) (err error) {
 		"_occupied",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -751,11 +769,23 @@ func (o *RearPort) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRearPort := _RearPort{}
 
 	err = json.Unmarshal(data, &varRearPort)

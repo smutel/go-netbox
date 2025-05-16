@@ -79,6 +79,7 @@ func (o *BriefL2VPN) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefL2VPN) GetUrl() string {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *BriefL2VPN) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *BriefL2VPN) GetDisplay() string {
 	if o == nil {
@@ -126,6 +128,7 @@ func (o *BriefL2VPN) GetDisplayOk() (*string, bool) {
 func (o *BriefL2VPN) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefL2VPN) GetIdentifier() int64 {
@@ -193,6 +196,7 @@ func (o *BriefL2VPN) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefL2VPN) GetSlug() string {
 	if o == nil {
@@ -216,6 +220,7 @@ func (o *BriefL2VPN) GetSlugOk() (*string, bool) {
 func (o *BriefL2VPN) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *BriefL2VPN) GetType() BriefL2VPNType {
@@ -325,6 +330,11 @@ func (o *BriefL2VPN) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -334,11 +344,23 @@ func (o *BriefL2VPN) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefL2VPN := _BriefL2VPN{}
 
 	err = json.Unmarshal(data, &varBriefL2VPN)

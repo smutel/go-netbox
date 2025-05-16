@@ -79,6 +79,7 @@ func (o *ProviderAccountRequest) SetProvider(v BriefProviderRequest) {
 	o.Provider = v
 }
 
+
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ProviderAccountRequest) GetName() string {
 	if o == nil || IsNil(o.Name) {
@@ -134,6 +135,7 @@ func (o *ProviderAccountRequest) GetAccountOk() (*string, bool) {
 func (o *ProviderAccountRequest) SetAccount(v string) {
 	o.Account = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ProviderAccountRequest) GetDescription() string {
@@ -307,6 +309,11 @@ func (o *ProviderAccountRequest) UnmarshalJSON(data []byte) (err error) {
 		"account",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -316,11 +323,23 @@ func (o *ProviderAccountRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varProviderAccountRequest := _ProviderAccountRequest{}
 
 	err = json.Unmarshal(data, &varProviderAccountRequest)

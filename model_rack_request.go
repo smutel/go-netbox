@@ -101,6 +101,7 @@ func (o *RackRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetFacilityId returns the FacilityId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RackRequest) GetFacilityId() string {
 	if o == nil || IsNil(o.FacilityId.Get()) {
@@ -166,6 +167,7 @@ func (o *RackRequest) GetSiteOk() (*BriefSiteRequest, bool) {
 func (o *RackRequest) SetSite(v BriefSiteRequest) {
 	o.Site = v
 }
+
 
 // GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RackRequest) GetLocation() BriefLocationRequest {
@@ -1089,6 +1091,11 @@ func (o *RackRequest) UnmarshalJSON(data []byte) (err error) {
 		"site",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1098,11 +1105,23 @@ func (o *RackRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRackRequest := _RackRequest{}
 
 	err = json.Unmarshal(data, &varRackRequest)

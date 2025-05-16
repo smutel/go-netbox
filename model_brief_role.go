@@ -79,6 +79,7 @@ func (o *BriefRole) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefRole) GetUrl() string {
 	if o == nil {
@@ -102,6 +103,7 @@ func (o *BriefRole) GetUrlOk() (*string, bool) {
 func (o *BriefRole) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefRole) GetDisplay() string {
@@ -127,6 +129,7 @@ func (o *BriefRole) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefRole) GetName() string {
 	if o == nil {
@@ -151,6 +154,7 @@ func (o *BriefRole) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefRole) GetSlug() string {
 	if o == nil {
@@ -174,6 +178,7 @@ func (o *BriefRole) GetSlugOk() (*string, bool) {
 func (o *BriefRole) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefRole) GetDescription() string {
@@ -315,6 +320,11 @@ func (o *BriefRole) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -324,11 +334,23 @@ func (o *BriefRole) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefRole := _BriefRole{}
 
 	err = json.Unmarshal(data, &varBriefRole)

@@ -82,6 +82,7 @@ func (o *WritableIPAddressRequest) SetAddress(v string) {
 	o.Address = v
 }
 
+
 // GetVrf returns the Vrf field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableIPAddressRequest) GetVrf() BriefVRFRequest {
 	if o == nil || IsNil(o.Vrf.Get()) {
@@ -579,6 +580,11 @@ func (o *WritableIPAddressRequest) UnmarshalJSON(data []byte) (err error) {
 		"address",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -588,11 +594,23 @@ func (o *WritableIPAddressRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableIPAddressRequest := _WritableIPAddressRequest{}
 
 	err = json.Unmarshal(data, &varWritableIPAddressRequest)

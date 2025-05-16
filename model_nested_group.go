@@ -74,6 +74,7 @@ func (o *NestedGroup) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *NestedGroup) GetUrl() string {
 	if o == nil {
@@ -97,6 +98,7 @@ func (o *NestedGroup) GetUrlOk() (*string, bool) {
 func (o *NestedGroup) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *NestedGroup) GetDisplay() string {
@@ -122,6 +124,7 @@ func (o *NestedGroup) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *NestedGroup) GetName() string {
 	if o == nil {
@@ -145,6 +148,7 @@ func (o *NestedGroup) GetNameOk() (*string, bool) {
 func (o *NestedGroup) SetName(v string) {
 	o.Name = v
 }
+
 
 func (o NestedGroup) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -179,6 +183,11 @@ func (o *NestedGroup) UnmarshalJSON(data []byte) (err error) {
 		"name",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -188,11 +197,23 @@ func (o *NestedGroup) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varNestedGroup := _NestedGroup{}
 
 	err = json.Unmarshal(data, &varNestedGroup)

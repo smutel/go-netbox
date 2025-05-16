@@ -87,6 +87,7 @@ func (o *InventoryItemRole) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *InventoryItemRole) GetUrl() string {
 	if o == nil {
@@ -110,6 +111,7 @@ func (o *InventoryItemRole) GetUrlOk() (*string, bool) {
 func (o *InventoryItemRole) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *InventoryItemRole) GetDisplay() string {
@@ -135,6 +137,7 @@ func (o *InventoryItemRole) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *InventoryItemRole) GetName() string {
 	if o == nil {
@@ -159,6 +162,7 @@ func (o *InventoryItemRole) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *InventoryItemRole) GetSlug() string {
 	if o == nil {
@@ -182,6 +186,7 @@ func (o *InventoryItemRole) GetSlugOk() (*string, bool) {
 func (o *InventoryItemRole) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *InventoryItemRole) GetColor() string {
@@ -337,6 +342,7 @@ func (o *InventoryItemRole) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *InventoryItemRole) GetLastUpdated() time.Time {
@@ -363,6 +369,7 @@ func (o *InventoryItemRole) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetInventoryitemCount returns the InventoryitemCount field value
 func (o *InventoryItemRole) GetInventoryitemCount() int64 {
 	if o == nil {
@@ -386,6 +393,7 @@ func (o *InventoryItemRole) GetInventoryitemCountOk() (*int64, bool) {
 func (o *InventoryItemRole) SetInventoryitemCount(v int64) {
 	o.InventoryitemCount = v
 }
+
 
 func (o InventoryItemRole) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -440,6 +448,11 @@ func (o *InventoryItemRole) UnmarshalJSON(data []byte) (err error) {
 		"inventoryitem_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -449,11 +462,23 @@ func (o *InventoryItemRole) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varInventoryItemRole := _InventoryItemRole{}
 
 	err = json.Unmarshal(data, &varInventoryItemRole)

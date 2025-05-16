@@ -89,6 +89,7 @@ func (o *WritableFrontPortRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
+
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableFrontPortRequest) GetModule() BriefModuleRequest {
 	if o == nil || IsNil(o.Module.Get()) {
@@ -155,6 +156,7 @@ func (o *WritableFrontPortRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *WritableFrontPortRequest) GetLabel() string {
 	if o == nil || IsNil(o.Label) {
@@ -211,6 +213,7 @@ func (o *WritableFrontPortRequest) SetType(v FrontPortTypeValue) {
 	o.Type = v
 }
 
+
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *WritableFrontPortRequest) GetColor() string {
 	if o == nil || IsNil(o.Color) {
@@ -266,6 +269,7 @@ func (o *WritableFrontPortRequest) GetRearPortOk() (*int32, bool) {
 func (o *WritableFrontPortRequest) SetRearPort(v int32) {
 	o.RearPort = v
 }
+
 
 // GetRearPortPosition returns the RearPortPosition field value if set, zero value otherwise.
 func (o *WritableFrontPortRequest) GetRearPortPosition() int32 {
@@ -484,6 +488,11 @@ func (o *WritableFrontPortRequest) UnmarshalJSON(data []byte) (err error) {
 		"rear_port",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -493,11 +502,23 @@ func (o *WritableFrontPortRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableFrontPortRequest := _WritableFrontPortRequest{}
 
 	err = json.Unmarshal(data, &varWritableFrontPortRequest)

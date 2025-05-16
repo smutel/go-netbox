@@ -74,6 +74,7 @@ func (o *ImageAttachmentRequest) SetObjectType(v string) {
 	o.ObjectType = v
 }
 
+
 // GetObjectId returns the ObjectId field value
 func (o *ImageAttachmentRequest) GetObjectId() int64 {
 	if o == nil {
@@ -97,6 +98,7 @@ func (o *ImageAttachmentRequest) GetObjectIdOk() (*int64, bool) {
 func (o *ImageAttachmentRequest) SetObjectId(v int64) {
 	o.ObjectId = v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *ImageAttachmentRequest) GetName() string {
@@ -154,6 +156,7 @@ func (o *ImageAttachmentRequest) SetImage(v *os.File) {
 	o.Image = v
 }
 
+
 func (o ImageAttachmentRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -188,6 +191,11 @@ func (o *ImageAttachmentRequest) UnmarshalJSON(data []byte) (err error) {
 		"image",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -197,11 +205,23 @@ func (o *ImageAttachmentRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varImageAttachmentRequest := _ImageAttachmentRequest{}
 
 	err = json.Unmarshal(data, &varImageAttachmentRequest)

@@ -116,6 +116,7 @@ func (o *Rack) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Rack) GetUrl() string {
 	if o == nil {
@@ -139,6 +140,7 @@ func (o *Rack) GetUrlOk() (*string, bool) {
 func (o *Rack) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Rack) GetDisplay() string {
@@ -164,6 +166,7 @@ func (o *Rack) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *Rack) GetName() string {
 	if o == nil {
@@ -187,6 +190,7 @@ func (o *Rack) GetNameOk() (*string, bool) {
 func (o *Rack) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetFacilityId returns the FacilityId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Rack) GetFacilityId() string {
@@ -253,6 +257,7 @@ func (o *Rack) GetSiteOk() (*BriefSite, bool) {
 func (o *Rack) SetSite(v BriefSite) {
 	o.Site = v
 }
+
 
 // GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Rack) GetLocation() BriefLocation {
@@ -1104,6 +1109,7 @@ func (o *Rack) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Rack) GetLastUpdated() time.Time {
@@ -1130,6 +1136,7 @@ func (o *Rack) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetDeviceCount returns the DeviceCount field value
 func (o *Rack) GetDeviceCount() int64 {
 	if o == nil {
@@ -1154,6 +1161,7 @@ func (o *Rack) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
 
+
 // GetPowerfeedCount returns the PowerfeedCount field value
 func (o *Rack) GetPowerfeedCount() int64 {
 	if o == nil {
@@ -1177,6 +1185,7 @@ func (o *Rack) GetPowerfeedCountOk() (*int64, bool) {
 func (o *Rack) SetPowerfeedCount(v int64) {
 	o.PowerfeedCount = v
 }
+
 
 func (o Rack) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -1290,6 +1299,11 @@ func (o *Rack) UnmarshalJSON(data []byte) (err error) {
 		"powerfeed_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1299,11 +1313,23 @@ func (o *Rack) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRack := _Rack{}
 
 	err = json.Unmarshal(data, &varRack)

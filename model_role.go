@@ -89,6 +89,7 @@ func (o *Role) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Role) GetUrl() string {
 	if o == nil {
@@ -112,6 +113,7 @@ func (o *Role) GetUrlOk() (*string, bool) {
 func (o *Role) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Role) GetDisplay() string {
@@ -137,6 +139,7 @@ func (o *Role) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *Role) GetName() string {
 	if o == nil {
@@ -161,6 +164,7 @@ func (o *Role) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *Role) GetSlug() string {
 	if o == nil {
@@ -184,6 +188,7 @@ func (o *Role) GetSlugOk() (*string, bool) {
 func (o *Role) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetWeight returns the Weight field value if set, zero value otherwise.
 func (o *Role) GetWeight() int32 {
@@ -339,6 +344,7 @@ func (o *Role) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Role) GetLastUpdated() time.Time {
@@ -365,6 +371,7 @@ func (o *Role) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetPrefixCount returns the PrefixCount field value
 func (o *Role) GetPrefixCount() int64 {
 	if o == nil {
@@ -389,6 +396,7 @@ func (o *Role) SetPrefixCount(v int64) {
 	o.PrefixCount = v
 }
 
+
 // GetVlanCount returns the VlanCount field value
 func (o *Role) GetVlanCount() int64 {
 	if o == nil {
@@ -412,6 +420,7 @@ func (o *Role) GetVlanCountOk() (*int64, bool) {
 func (o *Role) SetVlanCount(v int64) {
 	o.VlanCount = v
 }
+
 
 func (o Role) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -468,6 +477,11 @@ func (o *Role) UnmarshalJSON(data []byte) (err error) {
 		"vlan_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -477,11 +491,23 @@ func (o *Role) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRole := _Role{}
 
 	err = json.Unmarshal(data, &varRole)

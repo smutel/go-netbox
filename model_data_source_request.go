@@ -79,6 +79,7 @@ func (o *DataSourceRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetType returns the Type field value
 func (o *DataSourceRequest) GetType() DataSourceTypeValue {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *DataSourceRequest) SetType(v DataSourceTypeValue) {
 	o.Type = v
 }
 
+
 // GetSourceUrl returns the SourceUrl field value
 func (o *DataSourceRequest) GetSourceUrl() string {
 	if o == nil {
@@ -126,6 +128,7 @@ func (o *DataSourceRequest) GetSourceUrlOk() (*string, bool) {
 func (o *DataSourceRequest) SetSourceUrl(v string) {
 	o.SourceUrl = v
 }
+
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *DataSourceRequest) GetEnabled() bool {
@@ -369,6 +372,11 @@ func (o *DataSourceRequest) UnmarshalJSON(data []byte) (err error) {
 		"source_url",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -378,11 +386,23 @@ func (o *DataSourceRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varDataSourceRequest := _DataSourceRequest{}
 
 	err = json.Unmarshal(data, &varDataSourceRequest)

@@ -78,6 +78,7 @@ func (o *NestedSiteGroup) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *NestedSiteGroup) GetUrl() string {
 	if o == nil {
@@ -101,6 +102,7 @@ func (o *NestedSiteGroup) GetUrlOk() (*string, bool) {
 func (o *NestedSiteGroup) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *NestedSiteGroup) GetDisplay() string {
@@ -126,6 +128,7 @@ func (o *NestedSiteGroup) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *NestedSiteGroup) GetName() string {
 	if o == nil {
@@ -149,6 +152,7 @@ func (o *NestedSiteGroup) GetNameOk() (*string, bool) {
 func (o *NestedSiteGroup) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetSlug returns the Slug field value
 func (o *NestedSiteGroup) GetSlug() string {
@@ -174,6 +178,7 @@ func (o *NestedSiteGroup) SetSlug(v string) {
 	o.Slug = v
 }
 
+
 // GetDepth returns the Depth field value
 func (o *NestedSiteGroup) GetDepth() int32 {
 	if o == nil {
@@ -197,6 +202,7 @@ func (o *NestedSiteGroup) GetDepthOk() (*int32, bool) {
 func (o *NestedSiteGroup) SetDepth(v int32) {
 	o.Depth = v
 }
+
 
 func (o NestedSiteGroup) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -235,6 +241,11 @@ func (o *NestedSiteGroup) UnmarshalJSON(data []byte) (err error) {
 		"_depth",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -244,11 +255,23 @@ func (o *NestedSiteGroup) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varNestedSiteGroup := _NestedSiteGroup{}
 
 	err = json.Unmarshal(data, &varNestedSiteGroup)

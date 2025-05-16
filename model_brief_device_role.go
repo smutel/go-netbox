@@ -79,6 +79,7 @@ func (o *BriefDeviceRole) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefDeviceRole) GetUrl() string {
 	if o == nil {
@@ -102,6 +103,7 @@ func (o *BriefDeviceRole) GetUrlOk() (*string, bool) {
 func (o *BriefDeviceRole) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefDeviceRole) GetDisplay() string {
@@ -127,6 +129,7 @@ func (o *BriefDeviceRole) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefDeviceRole) GetName() string {
 	if o == nil {
@@ -151,6 +154,7 @@ func (o *BriefDeviceRole) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefDeviceRole) GetSlug() string {
 	if o == nil {
@@ -174,6 +178,7 @@ func (o *BriefDeviceRole) GetSlugOk() (*string, bool) {
 func (o *BriefDeviceRole) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefDeviceRole) GetDescription() string {
@@ -315,6 +320,11 @@ func (o *BriefDeviceRole) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -324,11 +334,23 @@ func (o *BriefDeviceRole) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefDeviceRole := _BriefDeviceRole{}
 
 	err = json.Unmarshal(data, &varBriefDeviceRole)

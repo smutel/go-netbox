@@ -99,6 +99,7 @@ func (o *Circuit) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Circuit) GetUrl() string {
 	if o == nil {
@@ -122,6 +123,7 @@ func (o *Circuit) GetUrlOk() (*string, bool) {
 func (o *Circuit) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Circuit) GetDisplay() string {
@@ -147,6 +149,7 @@ func (o *Circuit) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetCid returns the Cid field value
 func (o *Circuit) GetCid() string {
 	if o == nil {
@@ -171,6 +174,7 @@ func (o *Circuit) SetCid(v string) {
 	o.Cid = v
 }
 
+
 // GetProvider returns the Provider field value
 func (o *Circuit) GetProvider() BriefProvider {
 	if o == nil {
@@ -194,6 +198,7 @@ func (o *Circuit) GetProviderOk() (*BriefProvider, bool) {
 func (o *Circuit) SetProvider(v BriefProvider) {
 	o.Provider = v
 }
+
 
 // GetProviderAccount returns the ProviderAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Circuit) GetProviderAccount() BriefProviderAccount {
@@ -260,6 +265,7 @@ func (o *Circuit) GetTypeOk() (*BriefCircuitType, bool) {
 func (o *Circuit) SetType(v BriefCircuitType) {
 	o.Type = v
 }
+
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *Circuit) GetStatus() CircuitStatus {
@@ -519,6 +525,7 @@ func (o *Circuit) SetTerminationA(v CircuitCircuitTermination) {
 	o.TerminationA.Set(&v)
 }
 
+
 // GetTerminationZ returns the TerminationZ field value
 // If the value is explicit nil, the zero value for CircuitCircuitTermination will be returned
 func (o *Circuit) GetTerminationZ() CircuitCircuitTermination {
@@ -544,6 +551,7 @@ func (o *Circuit) GetTerminationZOk() (*CircuitCircuitTermination, bool) {
 func (o *Circuit) SetTerminationZ(v CircuitCircuitTermination) {
 	o.TerminationZ.Set(&v)
 }
+
 
 // GetComments returns the Comments field value if set, zero value otherwise.
 func (o *Circuit) GetComments() string {
@@ -667,6 +675,7 @@ func (o *Circuit) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Circuit) GetLastUpdated() time.Time {
@@ -692,6 +701,7 @@ func (o *Circuit) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *Circuit) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o Circuit) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -768,6 +778,11 @@ func (o *Circuit) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -777,11 +792,23 @@ func (o *Circuit) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCircuit := _Circuit{}
 
 	err = json.Unmarshal(data, &varCircuit)

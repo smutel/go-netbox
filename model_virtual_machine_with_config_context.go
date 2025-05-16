@@ -106,6 +106,7 @@ func (o *VirtualMachineWithConfigContext) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *VirtualMachineWithConfigContext) GetUrl() string {
 	if o == nil {
@@ -129,6 +130,7 @@ func (o *VirtualMachineWithConfigContext) GetUrlOk() (*string, bool) {
 func (o *VirtualMachineWithConfigContext) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *VirtualMachineWithConfigContext) GetDisplay() string {
@@ -154,6 +156,7 @@ func (o *VirtualMachineWithConfigContext) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *VirtualMachineWithConfigContext) GetName() string {
 	if o == nil {
@@ -177,6 +180,7 @@ func (o *VirtualMachineWithConfigContext) GetNameOk() (*string, bool) {
 func (o *VirtualMachineWithConfigContext) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *VirtualMachineWithConfigContext) GetStatus() ModuleStatus {
@@ -487,6 +491,7 @@ func (o *VirtualMachineWithConfigContext) GetPrimaryIpOk() (*BriefIPAddress, boo
 func (o *VirtualMachineWithConfigContext) SetPrimaryIp(v BriefIPAddress) {
 	o.PrimaryIp.Set(&v)
 }
+
 
 // GetPrimaryIp4 returns the PrimaryIp4 field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VirtualMachineWithConfigContext) GetPrimaryIp4() BriefIPAddress {
@@ -927,6 +932,7 @@ func (o *VirtualMachineWithConfigContext) SetConfigContext(v interface{}) {
 	o.ConfigContext = v
 }
 
+
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VirtualMachineWithConfigContext) GetCreated() time.Time {
@@ -952,6 +958,7 @@ func (o *VirtualMachineWithConfigContext) GetCreatedOk() (*time.Time, bool) {
 func (o *VirtualMachineWithConfigContext) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
+
 
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -979,6 +986,7 @@ func (o *VirtualMachineWithConfigContext) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetInterfaceCount returns the InterfaceCount field value
 func (o *VirtualMachineWithConfigContext) GetInterfaceCount() int32 {
 	if o == nil {
@@ -1003,6 +1011,7 @@ func (o *VirtualMachineWithConfigContext) SetInterfaceCount(v int32) {
 	o.InterfaceCount = v
 }
 
+
 // GetVirtualDiskCount returns the VirtualDiskCount field value
 func (o *VirtualMachineWithConfigContext) GetVirtualDiskCount() int32 {
 	if o == nil {
@@ -1026,6 +1035,7 @@ func (o *VirtualMachineWithConfigContext) GetVirtualDiskCountOk() (*int32, bool)
 func (o *VirtualMachineWithConfigContext) SetVirtualDiskCount(v int32) {
 	o.VirtualDiskCount = v
 }
+
 
 func (o VirtualMachineWithConfigContext) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -1128,6 +1138,11 @@ func (o *VirtualMachineWithConfigContext) UnmarshalJSON(data []byte) (err error)
 		"virtual_disk_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1137,11 +1152,23 @@ func (o *VirtualMachineWithConfigContext) UnmarshalJSON(data []byte) (err error)
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varVirtualMachineWithConfigContext := _VirtualMachineWithConfigContext{}
 
 	err = json.Unmarshal(data, &varVirtualMachineWithConfigContext)

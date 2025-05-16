@@ -81,6 +81,7 @@ func (o *IKEProposalRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IKEProposalRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -137,6 +138,7 @@ func (o *IKEProposalRequest) SetAuthenticationMethod(v IKEProposalAuthentication
 	o.AuthenticationMethod = v
 }
 
+
 // GetEncryptionAlgorithm returns the EncryptionAlgorithm field value
 func (o *IKEProposalRequest) GetEncryptionAlgorithm() IKEProposalEncryptionAlgorithmValue {
 	if o == nil {
@@ -160,6 +162,7 @@ func (o *IKEProposalRequest) GetEncryptionAlgorithmOk() (*IKEProposalEncryptionA
 func (o *IKEProposalRequest) SetEncryptionAlgorithm(v IKEProposalEncryptionAlgorithmValue) {
 	o.EncryptionAlgorithm = v
 }
+
 
 // GetAuthenticationAlgorithm returns the AuthenticationAlgorithm field value if set, zero value otherwise.
 func (o *IKEProposalRequest) GetAuthenticationAlgorithm() IKEProposalAuthenticationAlgorithmValue {
@@ -216,6 +219,7 @@ func (o *IKEProposalRequest) GetGroupOk() (*IKEProposalGroupValue, bool) {
 func (o *IKEProposalRequest) SetGroup(v IKEProposalGroupValue) {
 	o.Group = v
 }
+
 
 // GetSaLifetime returns the SaLifetime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IKEProposalRequest) GetSaLifetime() int32 {
@@ -406,6 +410,11 @@ func (o *IKEProposalRequest) UnmarshalJSON(data []byte) (err error) {
 		"group",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -415,11 +424,23 @@ func (o *IKEProposalRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varIKEProposalRequest := _IKEProposalRequest{}
 
 	err = json.Unmarshal(data, &varIKEProposalRequest)

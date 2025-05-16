@@ -68,6 +68,7 @@ func (o *BriefL2VPNTerminationRequest) SetL2vpn(v BriefL2VPNRequest) {
 	o.L2vpn = v
 }
 
+
 func (o BriefL2VPNTerminationRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -95,6 +96,11 @@ func (o *BriefL2VPNTerminationRequest) UnmarshalJSON(data []byte) (err error) {
 		"l2vpn",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -104,11 +110,23 @@ func (o *BriefL2VPNTerminationRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefL2VPNTerminationRequest := _BriefL2VPNTerminationRequest{}
 
 	err = json.Unmarshal(data, &varBriefL2VPNTerminationRequest)

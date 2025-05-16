@@ -78,6 +78,7 @@ func (o *RackReservationRequest) SetRack(v BriefRackRequest) {
 	o.Rack = v
 }
 
+
 // GetUnits returns the Units field value
 func (o *RackReservationRequest) GetUnits() []int32 {
 	if o == nil {
@@ -102,6 +103,7 @@ func (o *RackReservationRequest) SetUnits(v []int32) {
 	o.Units = v
 }
 
+
 // GetUser returns the User field value
 func (o *RackReservationRequest) GetUser() BriefUserRequest {
 	if o == nil {
@@ -125,6 +127,7 @@ func (o *RackReservationRequest) GetUserOk() (*BriefUserRequest, bool) {
 func (o *RackReservationRequest) SetUser(v BriefUserRequest) {
 	o.User = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RackReservationRequest) GetTenant() BriefTenantRequest {
@@ -191,6 +194,7 @@ func (o *RackReservationRequest) GetDescriptionOk() (*string, bool) {
 func (o *RackReservationRequest) SetDescription(v string) {
 	o.Description = v
 }
+
 
 // GetComments returns the Comments field value if set, zero value otherwise.
 func (o *RackReservationRequest) GetComments() string {
@@ -333,6 +337,11 @@ func (o *RackReservationRequest) UnmarshalJSON(data []byte) (err error) {
 		"description",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -342,11 +351,23 @@ func (o *RackReservationRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRackReservationRequest := _RackReservationRequest{}
 
 	err = json.Unmarshal(data, &varRackReservationRequest)

@@ -81,6 +81,7 @@ func (o *BriefWirelessLANGroup) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefWirelessLANGroup) GetUrl() string {
 	if o == nil {
@@ -104,6 +105,7 @@ func (o *BriefWirelessLANGroup) GetUrlOk() (*string, bool) {
 func (o *BriefWirelessLANGroup) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefWirelessLANGroup) GetDisplay() string {
@@ -129,6 +131,7 @@ func (o *BriefWirelessLANGroup) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefWirelessLANGroup) GetName() string {
 	if o == nil {
@@ -153,6 +156,7 @@ func (o *BriefWirelessLANGroup) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefWirelessLANGroup) GetSlug() string {
 	if o == nil {
@@ -176,6 +180,7 @@ func (o *BriefWirelessLANGroup) GetSlugOk() (*string, bool) {
 func (o *BriefWirelessLANGroup) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefWirelessLANGroup) GetDescription() string {
@@ -233,6 +238,7 @@ func (o *BriefWirelessLANGroup) SetWirelesslanCount(v int32) {
 	o.WirelesslanCount = v
 }
 
+
 // GetDepth returns the Depth field value
 func (o *BriefWirelessLANGroup) GetDepth() int32 {
 	if o == nil {
@@ -256,6 +262,7 @@ func (o *BriefWirelessLANGroup) GetDepthOk() (*int32, bool) {
 func (o *BriefWirelessLANGroup) SetDepth(v int32) {
 	o.Depth = v
 }
+
 
 func (o BriefWirelessLANGroup) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -299,6 +306,11 @@ func (o *BriefWirelessLANGroup) UnmarshalJSON(data []byte) (err error) {
 		"_depth",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -308,11 +320,23 @@ func (o *BriefWirelessLANGroup) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefWirelessLANGroup := _BriefWirelessLANGroup{}
 
 	err = json.Unmarshal(data, &varBriefWirelessLANGroup)

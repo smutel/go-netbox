@@ -88,6 +88,7 @@ func (o *IKEPolicy) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *IKEPolicy) GetUrl() string {
 	if o == nil {
@@ -111,6 +112,7 @@ func (o *IKEPolicy) GetUrlOk() (*string, bool) {
 func (o *IKEPolicy) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *IKEPolicy) GetDisplay() string {
@@ -136,6 +138,7 @@ func (o *IKEPolicy) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *IKEPolicy) GetName() string {
 	if o == nil {
@@ -159,6 +162,7 @@ func (o *IKEPolicy) GetNameOk() (*string, bool) {
 func (o *IKEPolicy) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IKEPolicy) GetDescription() string {
@@ -215,6 +219,7 @@ func (o *IKEPolicy) GetVersionOk() (*IKEPolicyVersion, bool) {
 func (o *IKEPolicy) SetVersion(v IKEPolicyVersion) {
 	o.Version = v
 }
+
 
 // GetMode returns the Mode field value if set, zero value otherwise.
 func (o *IKEPolicy) GetMode() IKEPolicyMode {
@@ -434,6 +439,7 @@ func (o *IKEPolicy) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *IKEPolicy) GetLastUpdated() time.Time {
@@ -459,6 +465,7 @@ func (o *IKEPolicy) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *IKEPolicy) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o IKEPolicy) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -520,6 +527,11 @@ func (o *IKEPolicy) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -529,11 +541,23 @@ func (o *IKEPolicy) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varIKEPolicy := _IKEPolicy{}
 
 	err = json.Unmarshal(data, &varIKEPolicy)

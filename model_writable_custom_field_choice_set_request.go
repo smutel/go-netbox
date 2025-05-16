@@ -74,6 +74,7 @@ func (o *WritableCustomFieldChoiceSetRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WritableCustomFieldChoiceSetRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -162,6 +163,7 @@ func (o *WritableCustomFieldChoiceSetRequest) SetExtraChoices(v [][]interface{})
 	o.ExtraChoices = v
 }
 
+
 // GetOrderAlphabetically returns the OrderAlphabetically field value if set, zero value otherwise.
 func (o *WritableCustomFieldChoiceSetRequest) GetOrderAlphabetically() bool {
 	if o == nil || IsNil(o.OrderAlphabetically) {
@@ -232,6 +234,11 @@ func (o *WritableCustomFieldChoiceSetRequest) UnmarshalJSON(data []byte) (err er
 		"extra_choices",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -241,11 +248,23 @@ func (o *WritableCustomFieldChoiceSetRequest) UnmarshalJSON(data []byte) (err er
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableCustomFieldChoiceSetRequest := _WritableCustomFieldChoiceSetRequest{}
 
 	err = json.Unmarshal(data, &varWritableCustomFieldChoiceSetRequest)

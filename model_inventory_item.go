@@ -102,6 +102,7 @@ func (o *InventoryItem) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *InventoryItem) GetUrl() string {
 	if o == nil {
@@ -125,6 +126,7 @@ func (o *InventoryItem) GetUrlOk() (*string, bool) {
 func (o *InventoryItem) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *InventoryItem) GetDisplay() string {
@@ -150,6 +152,7 @@ func (o *InventoryItem) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *InventoryItem) GetDevice() BriefDevice {
 	if o == nil {
@@ -173,6 +176,7 @@ func (o *InventoryItem) GetDeviceOk() (*BriefDevice, bool) {
 func (o *InventoryItem) SetDevice(v BriefDevice) {
 	o.Device = v
 }
+
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *InventoryItem) GetParent() int32 {
@@ -239,6 +243,7 @@ func (o *InventoryItem) GetNameOk() (*string, bool) {
 func (o *InventoryItem) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *InventoryItem) GetLabel() string {
@@ -636,6 +641,7 @@ func (o *InventoryItem) SetComponent(v interface{}) {
 	o.Component = v
 }
 
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *InventoryItem) GetTags() []NestedTag {
 	if o == nil || IsNil(o.Tags) {
@@ -726,6 +732,7 @@ func (o *InventoryItem) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *InventoryItem) GetLastUpdated() time.Time {
@@ -752,6 +759,7 @@ func (o *InventoryItem) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetDepth returns the Depth field value
 func (o *InventoryItem) GetDepth() int32 {
 	if o == nil {
@@ -775,6 +783,7 @@ func (o *InventoryItem) GetDepthOk() (*int32, bool) {
 func (o *InventoryItem) SetDepth(v int32) {
 	o.Depth = v
 }
+
 
 func (o InventoryItem) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -860,6 +869,11 @@ func (o *InventoryItem) UnmarshalJSON(data []byte) (err error) {
 		"_depth",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -869,11 +883,23 @@ func (o *InventoryItem) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varInventoryItem := _InventoryItem{}
 
 	err = json.Unmarshal(data, &varInventoryItem)

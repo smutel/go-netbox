@@ -92,6 +92,7 @@ func (o *DeviceRole) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *DeviceRole) GetUrl() string {
 	if o == nil {
@@ -115,6 +116,7 @@ func (o *DeviceRole) GetUrlOk() (*string, bool) {
 func (o *DeviceRole) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *DeviceRole) GetDisplay() string {
@@ -140,6 +142,7 @@ func (o *DeviceRole) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *DeviceRole) GetName() string {
 	if o == nil {
@@ -164,6 +167,7 @@ func (o *DeviceRole) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *DeviceRole) GetSlug() string {
 	if o == nil {
@@ -187,6 +191,7 @@ func (o *DeviceRole) GetSlugOk() (*string, bool) {
 func (o *DeviceRole) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *DeviceRole) GetColor() string {
@@ -416,6 +421,7 @@ func (o *DeviceRole) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DeviceRole) GetLastUpdated() time.Time {
@@ -442,6 +448,7 @@ func (o *DeviceRole) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetDeviceCount returns the DeviceCount field value
 func (o *DeviceRole) GetDeviceCount() int64 {
 	if o == nil {
@@ -466,6 +473,7 @@ func (o *DeviceRole) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
 
+
 // GetVirtualmachineCount returns the VirtualmachineCount field value
 func (o *DeviceRole) GetVirtualmachineCount() int64 {
 	if o == nil {
@@ -489,6 +497,7 @@ func (o *DeviceRole) GetVirtualmachineCountOk() (*int64, bool) {
 func (o *DeviceRole) SetVirtualmachineCount(v int64) {
 	o.VirtualmachineCount = v
 }
+
 
 func (o DeviceRole) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -551,6 +560,11 @@ func (o *DeviceRole) UnmarshalJSON(data []byte) (err error) {
 		"virtualmachine_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -560,11 +574,23 @@ func (o *DeviceRole) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varDeviceRole := _DeviceRole{}
 
 	err = json.Unmarshal(data, &varDeviceRole)

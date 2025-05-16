@@ -78,6 +78,7 @@ func (o *BriefVirtualChassis) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefVirtualChassis) GetUrl() string {
 	if o == nil {
@@ -101,6 +102,7 @@ func (o *BriefVirtualChassis) GetUrlOk() (*string, bool) {
 func (o *BriefVirtualChassis) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefVirtualChassis) GetDisplay() string {
@@ -126,6 +128,7 @@ func (o *BriefVirtualChassis) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefVirtualChassis) GetName() string {
 	if o == nil {
@@ -149,6 +152,7 @@ func (o *BriefVirtualChassis) GetNameOk() (*string, bool) {
 func (o *BriefVirtualChassis) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetMaster returns the Master field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefVirtualChassis) GetMaster() NestedDevice {
@@ -248,6 +252,7 @@ func (o *BriefVirtualChassis) SetMemberCount(v int32) {
 	o.MemberCount = v
 }
 
+
 func (o BriefVirtualChassis) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -289,6 +294,11 @@ func (o *BriefVirtualChassis) UnmarshalJSON(data []byte) (err error) {
 		"member_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -298,11 +308,23 @@ func (o *BriefVirtualChassis) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefVirtualChassis := _BriefVirtualChassis{}
 
 	err = json.Unmarshal(data, &varBriefVirtualChassis)

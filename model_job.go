@@ -94,6 +94,7 @@ func (o *Job) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Job) GetUrl() string {
 	if o == nil {
@@ -117,6 +118,7 @@ func (o *Job) GetUrlOk() (*string, bool) {
 func (o *Job) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Job) GetDisplay() string {
@@ -142,6 +144,7 @@ func (o *Job) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetObjectType returns the ObjectType field value
 func (o *Job) GetObjectType() string {
 	if o == nil {
@@ -165,6 +168,7 @@ func (o *Job) GetObjectTypeOk() (*string, bool) {
 func (o *Job) SetObjectType(v string) {
 	o.ObjectType = v
 }
+
 
 // GetObjectId returns the ObjectId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Job) GetObjectId() int64 {
@@ -232,6 +236,7 @@ func (o *Job) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetStatus returns the Status field value
 func (o *Job) GetStatus() BriefJobStatus {
 	if o == nil {
@@ -256,6 +261,7 @@ func (o *Job) SetStatus(v BriefJobStatus) {
 	o.Status = v
 }
 
+
 // GetCreated returns the Created field value
 func (o *Job) GetCreated() time.Time {
 	if o == nil {
@@ -279,6 +285,7 @@ func (o *Job) GetCreatedOk() (*time.Time, bool) {
 func (o *Job) SetCreated(v time.Time) {
 	o.Created = v
 }
+
 
 // GetScheduled returns the Scheduled field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Job) GetScheduled() time.Time {
@@ -472,6 +479,7 @@ func (o *Job) SetUser(v BriefUser) {
 	o.User = v
 }
 
+
 // GetData returns the Data field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Job) GetData() interface{} {
 	if o == nil {
@@ -529,6 +537,7 @@ func (o *Job) SetError(v string) {
 	o.Error = v
 }
 
+
 // GetJobId returns the JobId field value
 func (o *Job) GetJobId() string {
 	if o == nil {
@@ -552,6 +561,7 @@ func (o *Job) GetJobIdOk() (*string, bool) {
 func (o *Job) SetJobId(v string) {
 	o.JobId = v
 }
+
 
 func (o Job) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -616,6 +626,11 @@ func (o *Job) UnmarshalJSON(data []byte) (err error) {
 		"job_id",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -625,11 +640,23 @@ func (o *Job) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varJob := _Job{}
 
 	err = json.Unmarshal(data, &varJob)

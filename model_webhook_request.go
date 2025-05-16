@@ -87,6 +87,7 @@ func (o *WebhookRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WebhookRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -142,6 +143,7 @@ func (o *WebhookRequest) GetPayloadUrlOk() (*string, bool) {
 func (o *WebhookRequest) SetPayloadUrl(v string) {
 	o.PayloadUrl = v
 }
+
 
 // GetHttpMethod returns the HttpMethod field value if set, zero value otherwise.
 func (o *WebhookRequest) GetHttpMethod() PatchedWebhookRequestHttpMethod {
@@ -500,6 +502,11 @@ func (o *WebhookRequest) UnmarshalJSON(data []byte) (err error) {
 		"payload_url",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -509,11 +516,23 @@ func (o *WebhookRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWebhookRequest := _WebhookRequest{}
 
 	err = json.Unmarshal(data, &varWebhookRequest)

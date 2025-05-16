@@ -97,6 +97,7 @@ func (o *Location) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Location) GetUrl() string {
 	if o == nil {
@@ -120,6 +121,7 @@ func (o *Location) GetUrlOk() (*string, bool) {
 func (o *Location) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Location) GetDisplay() string {
@@ -145,6 +147,7 @@ func (o *Location) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *Location) GetName() string {
 	if o == nil {
@@ -168,6 +171,7 @@ func (o *Location) GetNameOk() (*string, bool) {
 func (o *Location) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetSlug returns the Slug field value
 func (o *Location) GetSlug() string {
@@ -193,6 +197,7 @@ func (o *Location) SetSlug(v string) {
 	o.Slug = v
 }
 
+
 // GetSite returns the Site field value
 func (o *Location) GetSite() BriefSite {
 	if o == nil {
@@ -216,6 +221,7 @@ func (o *Location) GetSiteOk() (*BriefSite, bool) {
 func (o *Location) SetSite(v BriefSite) {
 	o.Site = v
 }
+
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetParent() NestedLocation {
@@ -487,6 +493,7 @@ func (o *Location) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Location) GetLastUpdated() time.Time {
@@ -513,6 +520,7 @@ func (o *Location) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetRackCount returns the RackCount field value
 func (o *Location) GetRackCount() int32 {
 	if o == nil {
@@ -536,6 +544,7 @@ func (o *Location) GetRackCountOk() (*int32, bool) {
 func (o *Location) SetRackCount(v int32) {
 	o.RackCount = v
 }
+
 
 // GetDeviceCount returns the DeviceCount field value
 func (o *Location) GetDeviceCount() int32 {
@@ -561,6 +570,7 @@ func (o *Location) SetDeviceCount(v int32) {
 	o.DeviceCount = v
 }
 
+
 // GetDepth returns the Depth field value
 func (o *Location) GetDepth() int32 {
 	if o == nil {
@@ -584,6 +594,7 @@ func (o *Location) GetDepthOk() (*int32, bool) {
 func (o *Location) SetDepth(v int32) {
 	o.Depth = v
 }
+
 
 func (o Location) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -653,6 +664,11 @@ func (o *Location) UnmarshalJSON(data []byte) (err error) {
 		"_depth",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -662,11 +678,23 @@ func (o *Location) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varLocation := _Location{}
 
 	err = json.Unmarshal(data, &varLocation)

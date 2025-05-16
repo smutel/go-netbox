@@ -77,6 +77,7 @@ func (o *BriefCustomFieldChoiceSet) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefCustomFieldChoiceSet) GetUrl() string {
 	if o == nil {
@@ -100,6 +101,7 @@ func (o *BriefCustomFieldChoiceSet) GetUrlOk() (*string, bool) {
 func (o *BriefCustomFieldChoiceSet) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefCustomFieldChoiceSet) GetDisplay() string {
@@ -125,6 +127,7 @@ func (o *BriefCustomFieldChoiceSet) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefCustomFieldChoiceSet) GetName() string {
 	if o == nil {
@@ -148,6 +151,7 @@ func (o *BriefCustomFieldChoiceSet) GetNameOk() (*string, bool) {
 func (o *BriefCustomFieldChoiceSet) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefCustomFieldChoiceSet) GetDescription() string {
@@ -205,6 +209,7 @@ func (o *BriefCustomFieldChoiceSet) SetChoicesCount(v int32) {
 	o.ChoicesCount = v
 }
 
+
 func (o BriefCustomFieldChoiceSet) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -243,6 +248,11 @@ func (o *BriefCustomFieldChoiceSet) UnmarshalJSON(data []byte) (err error) {
 		"choices_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -252,11 +262,23 @@ func (o *BriefCustomFieldChoiceSet) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefCustomFieldChoiceSet := _BriefCustomFieldChoiceSet{}
 
 	err = json.Unmarshal(data, &varBriefCustomFieldChoiceSet)

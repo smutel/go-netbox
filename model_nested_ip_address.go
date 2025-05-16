@@ -76,6 +76,7 @@ func (o *NestedIPAddress) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *NestedIPAddress) GetUrl() string {
 	if o == nil {
@@ -99,6 +100,7 @@ func (o *NestedIPAddress) GetUrlOk() (*string, bool) {
 func (o *NestedIPAddress) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *NestedIPAddress) GetDisplay() string {
@@ -124,6 +126,7 @@ func (o *NestedIPAddress) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetFamily returns the Family field value
 func (o *NestedIPAddress) GetFamily() int32 {
 	if o == nil {
@@ -148,6 +151,7 @@ func (o *NestedIPAddress) SetFamily(v int32) {
 	o.Family = v
 }
 
+
 // GetAddress returns the Address field value
 func (o *NestedIPAddress) GetAddress() string {
 	if o == nil {
@@ -171,6 +175,7 @@ func (o *NestedIPAddress) GetAddressOk() (*string, bool) {
 func (o *NestedIPAddress) SetAddress(v string) {
 	o.Address = v
 }
+
 
 func (o NestedIPAddress) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -207,6 +212,11 @@ func (o *NestedIPAddress) UnmarshalJSON(data []byte) (err error) {
 		"address",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -216,11 +226,23 @@ func (o *NestedIPAddress) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varNestedIPAddress := _NestedIPAddress{}
 
 	err = json.Unmarshal(data, &varNestedIPAddress)

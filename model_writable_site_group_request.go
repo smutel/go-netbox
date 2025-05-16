@@ -75,6 +75,7 @@ func (o *WritableSiteGroupRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *WritableSiteGroupRequest) GetSlug() string {
 	if o == nil {
@@ -98,6 +99,7 @@ func (o *WritableSiteGroupRequest) GetSlugOk() (*string, bool) {
 func (o *WritableSiteGroupRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetParent returns the Parent field value
 // If the value is explicit nil, the zero value for int32 will be returned
@@ -124,6 +126,7 @@ func (o *WritableSiteGroupRequest) GetParentOk() (*int32, bool) {
 func (o *WritableSiteGroupRequest) SetParent(v int32) {
 	o.Parent.Set(&v)
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WritableSiteGroupRequest) GetDescription() string {
@@ -261,6 +264,11 @@ func (o *WritableSiteGroupRequest) UnmarshalJSON(data []byte) (err error) {
 		"parent",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -270,11 +278,23 @@ func (o *WritableSiteGroupRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableSiteGroupRequest := _WritableSiteGroupRequest{}
 
 	err = json.Unmarshal(data, &varWritableSiteGroupRequest)

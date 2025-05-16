@@ -78,6 +78,7 @@ func (o *BriefVRF) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefVRF) GetUrl() string {
 	if o == nil {
@@ -101,6 +102,7 @@ func (o *BriefVRF) GetUrlOk() (*string, bool) {
 func (o *BriefVRF) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefVRF) GetDisplay() string {
@@ -126,6 +128,7 @@ func (o *BriefVRF) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefVRF) GetName() string {
 	if o == nil {
@@ -149,6 +152,7 @@ func (o *BriefVRF) GetNameOk() (*string, bool) {
 func (o *BriefVRF) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetRd returns the Rd field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefVRF) GetRd() string {
@@ -298,6 +302,11 @@ func (o *BriefVRF) UnmarshalJSON(data []byte) (err error) {
 		"name",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -307,11 +316,23 @@ func (o *BriefVRF) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefVRF := _BriefVRF{}
 
 	err = json.Unmarshal(data, &varBriefVRF)

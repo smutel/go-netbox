@@ -78,6 +78,7 @@ func (o *RackUnit) SetId(v float64) {
 	o.Id = v
 }
 
+
 // GetName returns the Name field value
 func (o *RackUnit) GetName() string {
 	if o == nil {
@@ -101,6 +102,7 @@ func (o *RackUnit) GetNameOk() (*string, bool) {
 func (o *RackUnit) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetFace returns the Face field value
 func (o *RackUnit) GetFace() RackUnitFace {
@@ -126,6 +128,7 @@ func (o *RackUnit) SetFace(v RackUnitFace) {
 	o.Face = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *RackUnit) GetDevice() BriefDevice {
 	if o == nil {
@@ -149,6 +152,7 @@ func (o *RackUnit) GetDeviceOk() (*BriefDevice, bool) {
 func (o *RackUnit) SetDevice(v BriefDevice) {
 	o.Device = v
 }
+
 
 // GetOccupied returns the Occupied field value
 func (o *RackUnit) GetOccupied() bool {
@@ -174,6 +178,7 @@ func (o *RackUnit) SetOccupied(v bool) {
 	o.Occupied = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *RackUnit) GetDisplay() string {
 	if o == nil {
@@ -197,6 +202,7 @@ func (o *RackUnit) GetDisplayOk() (*string, bool) {
 func (o *RackUnit) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 func (o RackUnit) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -235,6 +241,11 @@ func (o *RackUnit) UnmarshalJSON(data []byte) (err error) {
 		"display",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -244,11 +255,23 @@ func (o *RackUnit) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRackUnit := _RackUnit{}
 
 	err = json.Unmarshal(data, &varRackUnit)

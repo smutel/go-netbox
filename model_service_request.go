@@ -162,6 +162,7 @@ func (o *ServiceRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetProtocol returns the Protocol field value if set, zero value otherwise.
 func (o *ServiceRequest) GetProtocol() PatchedWritableServiceRequestProtocol {
 	if o == nil || IsNil(o.Protocol) {
@@ -217,6 +218,7 @@ func (o *ServiceRequest) GetPortsOk() ([]int32, bool) {
 func (o *ServiceRequest) SetPorts(v []int32) {
 	o.Ports = v
 }
+
 
 // GetIpaddresses returns the Ipaddresses field value if set, zero value otherwise.
 func (o *ServiceRequest) GetIpaddresses() []int32 {
@@ -431,6 +433,11 @@ func (o *ServiceRequest) UnmarshalJSON(data []byte) (err error) {
 		"ports",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -440,11 +447,23 @@ func (o *ServiceRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varServiceRequest := _ServiceRequest{}
 
 	err = json.Unmarshal(data, &varServiceRequest)

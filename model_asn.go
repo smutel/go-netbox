@@ -86,6 +86,7 @@ func (o *ASN) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *ASN) GetUrl() string {
 	if o == nil {
@@ -109,6 +110,7 @@ func (o *ASN) GetUrlOk() (*string, bool) {
 func (o *ASN) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *ASN) GetDisplay() string {
@@ -134,6 +136,7 @@ func (o *ASN) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetAsn returns the Asn field value
 func (o *ASN) GetAsn() int64 {
 	if o == nil {
@@ -157,6 +160,7 @@ func (o *ASN) GetAsnOk() (*int64, bool) {
 func (o *ASN) SetAsn(v int64) {
 	o.Asn = v
 }
+
 
 // GetRir returns the Rir field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ASN) GetRir() BriefRIR {
@@ -581,6 +585,11 @@ func (o *ASN) UnmarshalJSON(data []byte) (err error) {
 		"asn",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -590,11 +599,23 @@ func (o *ASN) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varASN := _ASN{}
 
 	err = json.Unmarshal(data, &varASN)

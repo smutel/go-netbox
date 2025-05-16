@@ -76,6 +76,7 @@ func (o *AggregateRequest) SetPrefix(v string) {
 	o.Prefix = v
 }
 
+
 // GetRir returns the Rir field value
 func (o *AggregateRequest) GetRir() BriefRIRRequest {
 	if o == nil {
@@ -99,6 +100,7 @@ func (o *AggregateRequest) GetRirOk() (*BriefRIRRequest, bool) {
 func (o *AggregateRequest) SetRir(v BriefRIRRequest) {
 	o.Rir = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *AggregateRequest) GetTenant() BriefTenantRequest {
@@ -359,6 +361,11 @@ func (o *AggregateRequest) UnmarshalJSON(data []byte) (err error) {
 		"rir",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -368,11 +375,23 @@ func (o *AggregateRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varAggregateRequest := _AggregateRequest{}
 
 	err = json.Unmarshal(data, &varAggregateRequest)

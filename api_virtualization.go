@@ -21,12 +21,798 @@ import (
 )
 
 
+type VirtualizationAPI interface {
+
+	/*
+	VirtualizationClusterGroupsBulkDestroy Method for VirtualizationClusterGroupsBulkDestroy
+
+	Delete a list of cluster group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterGroupsBulkDestroyRequest
+	*/
+	VirtualizationClusterGroupsBulkDestroy(ctx context.Context) ApiVirtualizationClusterGroupsBulkDestroyRequest
+
+	// VirtualizationClusterGroupsBulkDestroyExecute executes the request
+	VirtualizationClusterGroupsBulkDestroyExecute(r ApiVirtualizationClusterGroupsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsBulkPartialUpdate Method for VirtualizationClusterGroupsBulkPartialUpdate
+
+	Patch a list of cluster group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterGroupsBulkPartialUpdateRequest
+	*/
+	VirtualizationClusterGroupsBulkPartialUpdate(ctx context.Context) ApiVirtualizationClusterGroupsBulkPartialUpdateRequest
+
+	// VirtualizationClusterGroupsBulkPartialUpdateExecute executes the request
+	//  @return []ClusterGroup
+	VirtualizationClusterGroupsBulkPartialUpdateExecute(r ApiVirtualizationClusterGroupsBulkPartialUpdateRequest) ([]ClusterGroup, *http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsBulkUpdate Method for VirtualizationClusterGroupsBulkUpdate
+
+	Put a list of cluster group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterGroupsBulkUpdateRequest
+	*/
+	VirtualizationClusterGroupsBulkUpdate(ctx context.Context) ApiVirtualizationClusterGroupsBulkUpdateRequest
+
+	// VirtualizationClusterGroupsBulkUpdateExecute executes the request
+	//  @return []ClusterGroup
+	VirtualizationClusterGroupsBulkUpdateExecute(r ApiVirtualizationClusterGroupsBulkUpdateRequest) ([]ClusterGroup, *http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsCreate Method for VirtualizationClusterGroupsCreate
+
+	Post a list of cluster group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterGroupsCreateRequest
+	*/
+	VirtualizationClusterGroupsCreate(ctx context.Context) ApiVirtualizationClusterGroupsCreateRequest
+
+	// VirtualizationClusterGroupsCreateExecute executes the request
+	//  @return ClusterGroup
+	VirtualizationClusterGroupsCreateExecute(r ApiVirtualizationClusterGroupsCreateRequest) (*ClusterGroup, *http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsDestroy Method for VirtualizationClusterGroupsDestroy
+
+	Delete a cluster group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster group.
+	@return ApiVirtualizationClusterGroupsDestroyRequest
+	*/
+	VirtualizationClusterGroupsDestroy(ctx context.Context, id int32) ApiVirtualizationClusterGroupsDestroyRequest
+
+	// VirtualizationClusterGroupsDestroyExecute executes the request
+	VirtualizationClusterGroupsDestroyExecute(r ApiVirtualizationClusterGroupsDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsList Method for VirtualizationClusterGroupsList
+
+	Get a list of cluster group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterGroupsListRequest
+	*/
+	VirtualizationClusterGroupsList(ctx context.Context) ApiVirtualizationClusterGroupsListRequest
+
+	// VirtualizationClusterGroupsListExecute executes the request
+	//  @return PaginatedClusterGroupList
+	VirtualizationClusterGroupsListExecute(r ApiVirtualizationClusterGroupsListRequest) (*PaginatedClusterGroupList, *http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsPartialUpdate Method for VirtualizationClusterGroupsPartialUpdate
+
+	Patch a cluster group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster group.
+	@return ApiVirtualizationClusterGroupsPartialUpdateRequest
+	*/
+	VirtualizationClusterGroupsPartialUpdate(ctx context.Context, id int32) ApiVirtualizationClusterGroupsPartialUpdateRequest
+
+	// VirtualizationClusterGroupsPartialUpdateExecute executes the request
+	//  @return ClusterGroup
+	VirtualizationClusterGroupsPartialUpdateExecute(r ApiVirtualizationClusterGroupsPartialUpdateRequest) (*ClusterGroup, *http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsRetrieve Method for VirtualizationClusterGroupsRetrieve
+
+	Get a cluster group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster group.
+	@return ApiVirtualizationClusterGroupsRetrieveRequest
+	*/
+	VirtualizationClusterGroupsRetrieve(ctx context.Context, id int32) ApiVirtualizationClusterGroupsRetrieveRequest
+
+	// VirtualizationClusterGroupsRetrieveExecute executes the request
+	//  @return ClusterGroup
+	VirtualizationClusterGroupsRetrieveExecute(r ApiVirtualizationClusterGroupsRetrieveRequest) (*ClusterGroup, *http.Response, error)
+
+	/*
+	VirtualizationClusterGroupsUpdate Method for VirtualizationClusterGroupsUpdate
+
+	Put a cluster group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster group.
+	@return ApiVirtualizationClusterGroupsUpdateRequest
+	*/
+	VirtualizationClusterGroupsUpdate(ctx context.Context, id int32) ApiVirtualizationClusterGroupsUpdateRequest
+
+	// VirtualizationClusterGroupsUpdateExecute executes the request
+	//  @return ClusterGroup
+	VirtualizationClusterGroupsUpdateExecute(r ApiVirtualizationClusterGroupsUpdateRequest) (*ClusterGroup, *http.Response, error)
+
+	/*
+	VirtualizationClusterTypesBulkDestroy Method for VirtualizationClusterTypesBulkDestroy
+
+	Delete a list of cluster type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterTypesBulkDestroyRequest
+	*/
+	VirtualizationClusterTypesBulkDestroy(ctx context.Context) ApiVirtualizationClusterTypesBulkDestroyRequest
+
+	// VirtualizationClusterTypesBulkDestroyExecute executes the request
+	VirtualizationClusterTypesBulkDestroyExecute(r ApiVirtualizationClusterTypesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationClusterTypesBulkPartialUpdate Method for VirtualizationClusterTypesBulkPartialUpdate
+
+	Patch a list of cluster type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterTypesBulkPartialUpdateRequest
+	*/
+	VirtualizationClusterTypesBulkPartialUpdate(ctx context.Context) ApiVirtualizationClusterTypesBulkPartialUpdateRequest
+
+	// VirtualizationClusterTypesBulkPartialUpdateExecute executes the request
+	//  @return []ClusterType
+	VirtualizationClusterTypesBulkPartialUpdateExecute(r ApiVirtualizationClusterTypesBulkPartialUpdateRequest) ([]ClusterType, *http.Response, error)
+
+	/*
+	VirtualizationClusterTypesBulkUpdate Method for VirtualizationClusterTypesBulkUpdate
+
+	Put a list of cluster type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterTypesBulkUpdateRequest
+	*/
+	VirtualizationClusterTypesBulkUpdate(ctx context.Context) ApiVirtualizationClusterTypesBulkUpdateRequest
+
+	// VirtualizationClusterTypesBulkUpdateExecute executes the request
+	//  @return []ClusterType
+	VirtualizationClusterTypesBulkUpdateExecute(r ApiVirtualizationClusterTypesBulkUpdateRequest) ([]ClusterType, *http.Response, error)
+
+	/*
+	VirtualizationClusterTypesCreate Method for VirtualizationClusterTypesCreate
+
+	Post a list of cluster type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterTypesCreateRequest
+	*/
+	VirtualizationClusterTypesCreate(ctx context.Context) ApiVirtualizationClusterTypesCreateRequest
+
+	// VirtualizationClusterTypesCreateExecute executes the request
+	//  @return ClusterType
+	VirtualizationClusterTypesCreateExecute(r ApiVirtualizationClusterTypesCreateRequest) (*ClusterType, *http.Response, error)
+
+	/*
+	VirtualizationClusterTypesDestroy Method for VirtualizationClusterTypesDestroy
+
+	Delete a cluster type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster type.
+	@return ApiVirtualizationClusterTypesDestroyRequest
+	*/
+	VirtualizationClusterTypesDestroy(ctx context.Context, id int32) ApiVirtualizationClusterTypesDestroyRequest
+
+	// VirtualizationClusterTypesDestroyExecute executes the request
+	VirtualizationClusterTypesDestroyExecute(r ApiVirtualizationClusterTypesDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationClusterTypesList Method for VirtualizationClusterTypesList
+
+	Get a list of cluster type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClusterTypesListRequest
+	*/
+	VirtualizationClusterTypesList(ctx context.Context) ApiVirtualizationClusterTypesListRequest
+
+	// VirtualizationClusterTypesListExecute executes the request
+	//  @return PaginatedClusterTypeList
+	VirtualizationClusterTypesListExecute(r ApiVirtualizationClusterTypesListRequest) (*PaginatedClusterTypeList, *http.Response, error)
+
+	/*
+	VirtualizationClusterTypesPartialUpdate Method for VirtualizationClusterTypesPartialUpdate
+
+	Patch a cluster type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster type.
+	@return ApiVirtualizationClusterTypesPartialUpdateRequest
+	*/
+	VirtualizationClusterTypesPartialUpdate(ctx context.Context, id int32) ApiVirtualizationClusterTypesPartialUpdateRequest
+
+	// VirtualizationClusterTypesPartialUpdateExecute executes the request
+	//  @return ClusterType
+	VirtualizationClusterTypesPartialUpdateExecute(r ApiVirtualizationClusterTypesPartialUpdateRequest) (*ClusterType, *http.Response, error)
+
+	/*
+	VirtualizationClusterTypesRetrieve Method for VirtualizationClusterTypesRetrieve
+
+	Get a cluster type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster type.
+	@return ApiVirtualizationClusterTypesRetrieveRequest
+	*/
+	VirtualizationClusterTypesRetrieve(ctx context.Context, id int32) ApiVirtualizationClusterTypesRetrieveRequest
+
+	// VirtualizationClusterTypesRetrieveExecute executes the request
+	//  @return ClusterType
+	VirtualizationClusterTypesRetrieveExecute(r ApiVirtualizationClusterTypesRetrieveRequest) (*ClusterType, *http.Response, error)
+
+	/*
+	VirtualizationClusterTypesUpdate Method for VirtualizationClusterTypesUpdate
+
+	Put a cluster type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster type.
+	@return ApiVirtualizationClusterTypesUpdateRequest
+	*/
+	VirtualizationClusterTypesUpdate(ctx context.Context, id int32) ApiVirtualizationClusterTypesUpdateRequest
+
+	// VirtualizationClusterTypesUpdateExecute executes the request
+	//  @return ClusterType
+	VirtualizationClusterTypesUpdateExecute(r ApiVirtualizationClusterTypesUpdateRequest) (*ClusterType, *http.Response, error)
+
+	/*
+	VirtualizationClustersBulkDestroy Method for VirtualizationClustersBulkDestroy
+
+	Delete a list of cluster objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClustersBulkDestroyRequest
+	*/
+	VirtualizationClustersBulkDestroy(ctx context.Context) ApiVirtualizationClustersBulkDestroyRequest
+
+	// VirtualizationClustersBulkDestroyExecute executes the request
+	VirtualizationClustersBulkDestroyExecute(r ApiVirtualizationClustersBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationClustersBulkPartialUpdate Method for VirtualizationClustersBulkPartialUpdate
+
+	Patch a list of cluster objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClustersBulkPartialUpdateRequest
+	*/
+	VirtualizationClustersBulkPartialUpdate(ctx context.Context) ApiVirtualizationClustersBulkPartialUpdateRequest
+
+	// VirtualizationClustersBulkPartialUpdateExecute executes the request
+	//  @return []Cluster
+	VirtualizationClustersBulkPartialUpdateExecute(r ApiVirtualizationClustersBulkPartialUpdateRequest) ([]Cluster, *http.Response, error)
+
+	/*
+	VirtualizationClustersBulkUpdate Method for VirtualizationClustersBulkUpdate
+
+	Put a list of cluster objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClustersBulkUpdateRequest
+	*/
+	VirtualizationClustersBulkUpdate(ctx context.Context) ApiVirtualizationClustersBulkUpdateRequest
+
+	// VirtualizationClustersBulkUpdateExecute executes the request
+	//  @return []Cluster
+	VirtualizationClustersBulkUpdateExecute(r ApiVirtualizationClustersBulkUpdateRequest) ([]Cluster, *http.Response, error)
+
+	/*
+	VirtualizationClustersCreate Method for VirtualizationClustersCreate
+
+	Post a list of cluster objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClustersCreateRequest
+	*/
+	VirtualizationClustersCreate(ctx context.Context) ApiVirtualizationClustersCreateRequest
+
+	// VirtualizationClustersCreateExecute executes the request
+	//  @return Cluster
+	VirtualizationClustersCreateExecute(r ApiVirtualizationClustersCreateRequest) (*Cluster, *http.Response, error)
+
+	/*
+	VirtualizationClustersDestroy Method for VirtualizationClustersDestroy
+
+	Delete a cluster object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster.
+	@return ApiVirtualizationClustersDestroyRequest
+	*/
+	VirtualizationClustersDestroy(ctx context.Context, id int32) ApiVirtualizationClustersDestroyRequest
+
+	// VirtualizationClustersDestroyExecute executes the request
+	VirtualizationClustersDestroyExecute(r ApiVirtualizationClustersDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationClustersList Method for VirtualizationClustersList
+
+	Get a list of cluster objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationClustersListRequest
+	*/
+	VirtualizationClustersList(ctx context.Context) ApiVirtualizationClustersListRequest
+
+	// VirtualizationClustersListExecute executes the request
+	//  @return PaginatedClusterList
+	VirtualizationClustersListExecute(r ApiVirtualizationClustersListRequest) (*PaginatedClusterList, *http.Response, error)
+
+	/*
+	VirtualizationClustersPartialUpdate Method for VirtualizationClustersPartialUpdate
+
+	Patch a cluster object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster.
+	@return ApiVirtualizationClustersPartialUpdateRequest
+	*/
+	VirtualizationClustersPartialUpdate(ctx context.Context, id int32) ApiVirtualizationClustersPartialUpdateRequest
+
+	// VirtualizationClustersPartialUpdateExecute executes the request
+	//  @return Cluster
+	VirtualizationClustersPartialUpdateExecute(r ApiVirtualizationClustersPartialUpdateRequest) (*Cluster, *http.Response, error)
+
+	/*
+	VirtualizationClustersRetrieve Method for VirtualizationClustersRetrieve
+
+	Get a cluster object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster.
+	@return ApiVirtualizationClustersRetrieveRequest
+	*/
+	VirtualizationClustersRetrieve(ctx context.Context, id int32) ApiVirtualizationClustersRetrieveRequest
+
+	// VirtualizationClustersRetrieveExecute executes the request
+	//  @return Cluster
+	VirtualizationClustersRetrieveExecute(r ApiVirtualizationClustersRetrieveRequest) (*Cluster, *http.Response, error)
+
+	/*
+	VirtualizationClustersUpdate Method for VirtualizationClustersUpdate
+
+	Put a cluster object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cluster.
+	@return ApiVirtualizationClustersUpdateRequest
+	*/
+	VirtualizationClustersUpdate(ctx context.Context, id int32) ApiVirtualizationClustersUpdateRequest
+
+	// VirtualizationClustersUpdateExecute executes the request
+	//  @return Cluster
+	VirtualizationClustersUpdateExecute(r ApiVirtualizationClustersUpdateRequest) (*Cluster, *http.Response, error)
+
+	/*
+	VirtualizationInterfacesBulkDestroy Method for VirtualizationInterfacesBulkDestroy
+
+	Delete a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationInterfacesBulkDestroyRequest
+	*/
+	VirtualizationInterfacesBulkDestroy(ctx context.Context) ApiVirtualizationInterfacesBulkDestroyRequest
+
+	// VirtualizationInterfacesBulkDestroyExecute executes the request
+	VirtualizationInterfacesBulkDestroyExecute(r ApiVirtualizationInterfacesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationInterfacesBulkPartialUpdate Method for VirtualizationInterfacesBulkPartialUpdate
+
+	Patch a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationInterfacesBulkPartialUpdateRequest
+	*/
+	VirtualizationInterfacesBulkPartialUpdate(ctx context.Context) ApiVirtualizationInterfacesBulkPartialUpdateRequest
+
+	// VirtualizationInterfacesBulkPartialUpdateExecute executes the request
+	//  @return []VMInterface
+	VirtualizationInterfacesBulkPartialUpdateExecute(r ApiVirtualizationInterfacesBulkPartialUpdateRequest) ([]VMInterface, *http.Response, error)
+
+	/*
+	VirtualizationInterfacesBulkUpdate Method for VirtualizationInterfacesBulkUpdate
+
+	Put a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationInterfacesBulkUpdateRequest
+	*/
+	VirtualizationInterfacesBulkUpdate(ctx context.Context) ApiVirtualizationInterfacesBulkUpdateRequest
+
+	// VirtualizationInterfacesBulkUpdateExecute executes the request
+	//  @return []VMInterface
+	VirtualizationInterfacesBulkUpdateExecute(r ApiVirtualizationInterfacesBulkUpdateRequest) ([]VMInterface, *http.Response, error)
+
+	/*
+	VirtualizationInterfacesCreate Method for VirtualizationInterfacesCreate
+
+	Post a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationInterfacesCreateRequest
+	*/
+	VirtualizationInterfacesCreate(ctx context.Context) ApiVirtualizationInterfacesCreateRequest
+
+	// VirtualizationInterfacesCreateExecute executes the request
+	//  @return VMInterface
+	VirtualizationInterfacesCreateExecute(r ApiVirtualizationInterfacesCreateRequest) (*VMInterface, *http.Response, error)
+
+	/*
+	VirtualizationInterfacesDestroy Method for VirtualizationInterfacesDestroy
+
+	Delete a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiVirtualizationInterfacesDestroyRequest
+	*/
+	VirtualizationInterfacesDestroy(ctx context.Context, id int32) ApiVirtualizationInterfacesDestroyRequest
+
+	// VirtualizationInterfacesDestroyExecute executes the request
+	VirtualizationInterfacesDestroyExecute(r ApiVirtualizationInterfacesDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationInterfacesList Method for VirtualizationInterfacesList
+
+	Get a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationInterfacesListRequest
+	*/
+	VirtualizationInterfacesList(ctx context.Context) ApiVirtualizationInterfacesListRequest
+
+	// VirtualizationInterfacesListExecute executes the request
+	//  @return PaginatedVMInterfaceList
+	VirtualizationInterfacesListExecute(r ApiVirtualizationInterfacesListRequest) (*PaginatedVMInterfaceList, *http.Response, error)
+
+	/*
+	VirtualizationInterfacesPartialUpdate Method for VirtualizationInterfacesPartialUpdate
+
+	Patch a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiVirtualizationInterfacesPartialUpdateRequest
+	*/
+	VirtualizationInterfacesPartialUpdate(ctx context.Context, id int32) ApiVirtualizationInterfacesPartialUpdateRequest
+
+	// VirtualizationInterfacesPartialUpdateExecute executes the request
+	//  @return VMInterface
+	VirtualizationInterfacesPartialUpdateExecute(r ApiVirtualizationInterfacesPartialUpdateRequest) (*VMInterface, *http.Response, error)
+
+	/*
+	VirtualizationInterfacesRetrieve Method for VirtualizationInterfacesRetrieve
+
+	Get a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiVirtualizationInterfacesRetrieveRequest
+	*/
+	VirtualizationInterfacesRetrieve(ctx context.Context, id int32) ApiVirtualizationInterfacesRetrieveRequest
+
+	// VirtualizationInterfacesRetrieveExecute executes the request
+	//  @return VMInterface
+	VirtualizationInterfacesRetrieveExecute(r ApiVirtualizationInterfacesRetrieveRequest) (*VMInterface, *http.Response, error)
+
+	/*
+	VirtualizationInterfacesUpdate Method for VirtualizationInterfacesUpdate
+
+	Put a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiVirtualizationInterfacesUpdateRequest
+	*/
+	VirtualizationInterfacesUpdate(ctx context.Context, id int32) ApiVirtualizationInterfacesUpdateRequest
+
+	// VirtualizationInterfacesUpdateExecute executes the request
+	//  @return VMInterface
+	VirtualizationInterfacesUpdateExecute(r ApiVirtualizationInterfacesUpdateRequest) (*VMInterface, *http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksBulkDestroy Method for VirtualizationVirtualDisksBulkDestroy
+
+	Delete a list of virtual disk objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualDisksBulkDestroyRequest
+	*/
+	VirtualizationVirtualDisksBulkDestroy(ctx context.Context) ApiVirtualizationVirtualDisksBulkDestroyRequest
+
+	// VirtualizationVirtualDisksBulkDestroyExecute executes the request
+	VirtualizationVirtualDisksBulkDestroyExecute(r ApiVirtualizationVirtualDisksBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksBulkPartialUpdate Method for VirtualizationVirtualDisksBulkPartialUpdate
+
+	Patch a list of virtual disk objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualDisksBulkPartialUpdateRequest
+	*/
+	VirtualizationVirtualDisksBulkPartialUpdate(ctx context.Context) ApiVirtualizationVirtualDisksBulkPartialUpdateRequest
+
+	// VirtualizationVirtualDisksBulkPartialUpdateExecute executes the request
+	//  @return []VirtualDisk
+	VirtualizationVirtualDisksBulkPartialUpdateExecute(r ApiVirtualizationVirtualDisksBulkPartialUpdateRequest) ([]VirtualDisk, *http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksBulkUpdate Method for VirtualizationVirtualDisksBulkUpdate
+
+	Put a list of virtual disk objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualDisksBulkUpdateRequest
+	*/
+	VirtualizationVirtualDisksBulkUpdate(ctx context.Context) ApiVirtualizationVirtualDisksBulkUpdateRequest
+
+	// VirtualizationVirtualDisksBulkUpdateExecute executes the request
+	//  @return []VirtualDisk
+	VirtualizationVirtualDisksBulkUpdateExecute(r ApiVirtualizationVirtualDisksBulkUpdateRequest) ([]VirtualDisk, *http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksCreate Method for VirtualizationVirtualDisksCreate
+
+	Post a list of virtual disk objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualDisksCreateRequest
+	*/
+	VirtualizationVirtualDisksCreate(ctx context.Context) ApiVirtualizationVirtualDisksCreateRequest
+
+	// VirtualizationVirtualDisksCreateExecute executes the request
+	//  @return VirtualDisk
+	VirtualizationVirtualDisksCreateExecute(r ApiVirtualizationVirtualDisksCreateRequest) (*VirtualDisk, *http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksDestroy Method for VirtualizationVirtualDisksDestroy
+
+	Delete a virtual disk object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual disk.
+	@return ApiVirtualizationVirtualDisksDestroyRequest
+	*/
+	VirtualizationVirtualDisksDestroy(ctx context.Context, id int32) ApiVirtualizationVirtualDisksDestroyRequest
+
+	// VirtualizationVirtualDisksDestroyExecute executes the request
+	VirtualizationVirtualDisksDestroyExecute(r ApiVirtualizationVirtualDisksDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksList Method for VirtualizationVirtualDisksList
+
+	Get a list of virtual disk objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualDisksListRequest
+	*/
+	VirtualizationVirtualDisksList(ctx context.Context) ApiVirtualizationVirtualDisksListRequest
+
+	// VirtualizationVirtualDisksListExecute executes the request
+	//  @return PaginatedVirtualDiskList
+	VirtualizationVirtualDisksListExecute(r ApiVirtualizationVirtualDisksListRequest) (*PaginatedVirtualDiskList, *http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksPartialUpdate Method for VirtualizationVirtualDisksPartialUpdate
+
+	Patch a virtual disk object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual disk.
+	@return ApiVirtualizationVirtualDisksPartialUpdateRequest
+	*/
+	VirtualizationVirtualDisksPartialUpdate(ctx context.Context, id int32) ApiVirtualizationVirtualDisksPartialUpdateRequest
+
+	// VirtualizationVirtualDisksPartialUpdateExecute executes the request
+	//  @return VirtualDisk
+	VirtualizationVirtualDisksPartialUpdateExecute(r ApiVirtualizationVirtualDisksPartialUpdateRequest) (*VirtualDisk, *http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksRetrieve Method for VirtualizationVirtualDisksRetrieve
+
+	Get a virtual disk object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual disk.
+	@return ApiVirtualizationVirtualDisksRetrieveRequest
+	*/
+	VirtualizationVirtualDisksRetrieve(ctx context.Context, id int32) ApiVirtualizationVirtualDisksRetrieveRequest
+
+	// VirtualizationVirtualDisksRetrieveExecute executes the request
+	//  @return VirtualDisk
+	VirtualizationVirtualDisksRetrieveExecute(r ApiVirtualizationVirtualDisksRetrieveRequest) (*VirtualDisk, *http.Response, error)
+
+	/*
+	VirtualizationVirtualDisksUpdate Method for VirtualizationVirtualDisksUpdate
+
+	Put a virtual disk object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual disk.
+	@return ApiVirtualizationVirtualDisksUpdateRequest
+	*/
+	VirtualizationVirtualDisksUpdate(ctx context.Context, id int32) ApiVirtualizationVirtualDisksUpdateRequest
+
+	// VirtualizationVirtualDisksUpdateExecute executes the request
+	//  @return VirtualDisk
+	VirtualizationVirtualDisksUpdateExecute(r ApiVirtualizationVirtualDisksUpdateRequest) (*VirtualDisk, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesBulkDestroy Method for VirtualizationVirtualMachinesBulkDestroy
+
+	Delete a list of virtual machine objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualMachinesBulkDestroyRequest
+	*/
+	VirtualizationVirtualMachinesBulkDestroy(ctx context.Context) ApiVirtualizationVirtualMachinesBulkDestroyRequest
+
+	// VirtualizationVirtualMachinesBulkDestroyExecute executes the request
+	VirtualizationVirtualMachinesBulkDestroyExecute(r ApiVirtualizationVirtualMachinesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesBulkPartialUpdate Method for VirtualizationVirtualMachinesBulkPartialUpdate
+
+	Patch a list of virtual machine objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualMachinesBulkPartialUpdateRequest
+	*/
+	VirtualizationVirtualMachinesBulkPartialUpdate(ctx context.Context) ApiVirtualizationVirtualMachinesBulkPartialUpdateRequest
+
+	// VirtualizationVirtualMachinesBulkPartialUpdateExecute executes the request
+	//  @return []VirtualMachineWithConfigContext
+	VirtualizationVirtualMachinesBulkPartialUpdateExecute(r ApiVirtualizationVirtualMachinesBulkPartialUpdateRequest) ([]VirtualMachineWithConfigContext, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesBulkUpdate Method for VirtualizationVirtualMachinesBulkUpdate
+
+	Put a list of virtual machine objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualMachinesBulkUpdateRequest
+	*/
+	VirtualizationVirtualMachinesBulkUpdate(ctx context.Context) ApiVirtualizationVirtualMachinesBulkUpdateRequest
+
+	// VirtualizationVirtualMachinesBulkUpdateExecute executes the request
+	//  @return []VirtualMachineWithConfigContext
+	VirtualizationVirtualMachinesBulkUpdateExecute(r ApiVirtualizationVirtualMachinesBulkUpdateRequest) ([]VirtualMachineWithConfigContext, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesCreate Method for VirtualizationVirtualMachinesCreate
+
+	Post a list of virtual machine objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualMachinesCreateRequest
+	*/
+	VirtualizationVirtualMachinesCreate(ctx context.Context) ApiVirtualizationVirtualMachinesCreateRequest
+
+	// VirtualizationVirtualMachinesCreateExecute executes the request
+	//  @return VirtualMachineWithConfigContext
+	VirtualizationVirtualMachinesCreateExecute(r ApiVirtualizationVirtualMachinesCreateRequest) (*VirtualMachineWithConfigContext, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesDestroy Method for VirtualizationVirtualMachinesDestroy
+
+	Delete a virtual machine object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual machine.
+	@return ApiVirtualizationVirtualMachinesDestroyRequest
+	*/
+	VirtualizationVirtualMachinesDestroy(ctx context.Context, id int32) ApiVirtualizationVirtualMachinesDestroyRequest
+
+	// VirtualizationVirtualMachinesDestroyExecute executes the request
+	VirtualizationVirtualMachinesDestroyExecute(r ApiVirtualizationVirtualMachinesDestroyRequest) (*http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesList Method for VirtualizationVirtualMachinesList
+
+	Get a list of virtual machine objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiVirtualizationVirtualMachinesListRequest
+	*/
+	VirtualizationVirtualMachinesList(ctx context.Context) ApiVirtualizationVirtualMachinesListRequest
+
+	// VirtualizationVirtualMachinesListExecute executes the request
+	//  @return PaginatedVirtualMachineWithConfigContextList
+	VirtualizationVirtualMachinesListExecute(r ApiVirtualizationVirtualMachinesListRequest) (*PaginatedVirtualMachineWithConfigContextList, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesPartialUpdate Method for VirtualizationVirtualMachinesPartialUpdate
+
+	Patch a virtual machine object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual machine.
+	@return ApiVirtualizationVirtualMachinesPartialUpdateRequest
+	*/
+	VirtualizationVirtualMachinesPartialUpdate(ctx context.Context, id int32) ApiVirtualizationVirtualMachinesPartialUpdateRequest
+
+	// VirtualizationVirtualMachinesPartialUpdateExecute executes the request
+	//  @return VirtualMachineWithConfigContext
+	VirtualizationVirtualMachinesPartialUpdateExecute(r ApiVirtualizationVirtualMachinesPartialUpdateRequest) (*VirtualMachineWithConfigContext, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesRenderConfigCreate Method for VirtualizationVirtualMachinesRenderConfigCreate
+
+	Resolve and render the preferred ConfigTemplate for this Device.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual machine.
+	@return ApiVirtualizationVirtualMachinesRenderConfigCreateRequest
+	*/
+	VirtualizationVirtualMachinesRenderConfigCreate(ctx context.Context, id int32) ApiVirtualizationVirtualMachinesRenderConfigCreateRequest
+
+	// VirtualizationVirtualMachinesRenderConfigCreateExecute executes the request
+	//  @return VirtualMachineWithConfigContext
+	VirtualizationVirtualMachinesRenderConfigCreateExecute(r ApiVirtualizationVirtualMachinesRenderConfigCreateRequest) (*VirtualMachineWithConfigContext, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesRetrieve Method for VirtualizationVirtualMachinesRetrieve
+
+	Get a virtual machine object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual machine.
+	@return ApiVirtualizationVirtualMachinesRetrieveRequest
+	*/
+	VirtualizationVirtualMachinesRetrieve(ctx context.Context, id int32) ApiVirtualizationVirtualMachinesRetrieveRequest
+
+	// VirtualizationVirtualMachinesRetrieveExecute executes the request
+	//  @return VirtualMachineWithConfigContext
+	VirtualizationVirtualMachinesRetrieveExecute(r ApiVirtualizationVirtualMachinesRetrieveRequest) (*VirtualMachineWithConfigContext, *http.Response, error)
+
+	/*
+	VirtualizationVirtualMachinesUpdate Method for VirtualizationVirtualMachinesUpdate
+
+	Put a virtual machine object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual machine.
+	@return ApiVirtualizationVirtualMachinesUpdateRequest
+	*/
+	VirtualizationVirtualMachinesUpdate(ctx context.Context, id int32) ApiVirtualizationVirtualMachinesUpdateRequest
+
+	// VirtualizationVirtualMachinesUpdateExecute executes the request
+	//  @return VirtualMachineWithConfigContext
+	VirtualizationVirtualMachinesUpdateExecute(r ApiVirtualizationVirtualMachinesUpdateRequest) (*VirtualMachineWithConfigContext, *http.Response, error)
+}
+
 // VirtualizationAPIService VirtualizationAPI service
 type VirtualizationAPIService service
 
 type ApiVirtualizationClusterGroupsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterGroupRequest *[]ClusterGroupRequest
 }
 
@@ -139,7 +925,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsBulkDestroyExecute
 
 type ApiVirtualizationClusterGroupsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterGroupRequest *[]ClusterGroupRequest
 }
 
@@ -263,7 +1049,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsBulkPartialUpdateE
 
 type ApiVirtualizationClusterGroupsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterGroupRequest *[]ClusterGroupRequest
 }
 
@@ -387,7 +1173,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsBulkUpdateExecute(
 
 type ApiVirtualizationClusterGroupsCreateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterGroupRequest *ClusterGroupRequest
 }
 
@@ -511,7 +1297,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsCreateExecute(r Ap
 
 type ApiVirtualizationClusterGroupsDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -617,7 +1403,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsDestroyExecute(r A
 
 type ApiVirtualizationClusterGroupsListRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	contact *[]int32
 	contactN *[]int32
 	contactGroup *[]string
@@ -1823,7 +2609,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsListExecute(r ApiV
 
 type ApiVirtualizationClusterGroupsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	patchedClusterGroupRequest *PatchedClusterGroupRequest
 }
@@ -1948,7 +2734,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsPartialUpdateExecu
 
 type ApiVirtualizationClusterGroupsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -2065,7 +2851,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsRetrieveExecute(r 
 
 type ApiVirtualizationClusterGroupsUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	clusterGroupRequest *ClusterGroupRequest
 }
@@ -2193,7 +2979,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterGroupsUpdateExecute(r Ap
 
 type ApiVirtualizationClusterTypesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterTypeRequest *[]ClusterTypeRequest
 }
 
@@ -2306,7 +3092,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesBulkDestroyExecute(
 
 type ApiVirtualizationClusterTypesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterTypeRequest *[]ClusterTypeRequest
 }
 
@@ -2430,7 +3216,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesBulkPartialUpdateEx
 
 type ApiVirtualizationClusterTypesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterTypeRequest *[]ClusterTypeRequest
 }
 
@@ -2554,7 +3340,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesBulkUpdateExecute(r
 
 type ApiVirtualizationClusterTypesCreateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterTypeRequest *ClusterTypeRequest
 }
 
@@ -2678,7 +3464,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesCreateExecute(r Api
 
 type ApiVirtualizationClusterTypesDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -2784,7 +3570,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesDestroyExecute(r Ap
 
 type ApiVirtualizationClusterTypesListRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -3884,7 +4670,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesListExecute(r ApiVi
 
 type ApiVirtualizationClusterTypesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	patchedClusterTypeRequest *PatchedClusterTypeRequest
 }
@@ -4009,7 +4795,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesPartialUpdateExecut
 
 type ApiVirtualizationClusterTypesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -4126,7 +4912,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesRetrieveExecute(r A
 
 type ApiVirtualizationClusterTypesUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	clusterTypeRequest *ClusterTypeRequest
 }
@@ -4254,7 +5040,7 @@ func (a *VirtualizationAPIService) VirtualizationClusterTypesUpdateExecute(r Api
 
 type ApiVirtualizationClustersBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterRequest *[]ClusterRequest
 }
 
@@ -4367,7 +5153,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersBulkDestroyExecute(r Ap
 
 type ApiVirtualizationClustersBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterRequest *[]ClusterRequest
 }
 
@@ -4491,7 +5277,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersBulkPartialUpdateExecut
 
 type ApiVirtualizationClustersBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	clusterRequest *[]ClusterRequest
 }
 
@@ -4615,7 +5401,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersBulkUpdateExecute(r Api
 
 type ApiVirtualizationClustersCreateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	writableClusterRequest *WritableClusterRequest
 }
 
@@ -4739,7 +5525,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersCreateExecute(r ApiVirt
 
 type ApiVirtualizationClustersDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -4845,7 +5631,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersDestroyExecute(r ApiVir
 
 type ApiVirtualizationClustersListRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	contact *[]int32
 	contactN *[]int32
 	contactGroup *[]string
@@ -6398,7 +7184,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersListExecute(r ApiVirtua
 
 type ApiVirtualizationClustersPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	patchedWritableClusterRequest *PatchedWritableClusterRequest
 }
@@ -6523,7 +7309,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersPartialUpdateExecute(r 
 
 type ApiVirtualizationClustersRetrieveRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -6640,7 +7426,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersRetrieveExecute(r ApiVi
 
 type ApiVirtualizationClustersUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	writableClusterRequest *WritableClusterRequest
 }
@@ -6768,7 +7554,7 @@ func (a *VirtualizationAPIService) VirtualizationClustersUpdateExecute(r ApiVirt
 
 type ApiVirtualizationInterfacesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	vMInterfaceRequest *[]VMInterfaceRequest
 }
 
@@ -6881,7 +7667,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesBulkDestroyExecute(r 
 
 type ApiVirtualizationInterfacesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	vMInterfaceRequest *[]VMInterfaceRequest
 }
 
@@ -7005,7 +7791,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesBulkPartialUpdateExec
 
 type ApiVirtualizationInterfacesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	vMInterfaceRequest *[]VMInterfaceRequest
 }
 
@@ -7129,7 +7915,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesBulkUpdateExecute(r A
 
 type ApiVirtualizationInterfacesCreateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	writableVMInterfaceRequest *WritableVMInterfaceRequest
 }
 
@@ -7253,7 +8039,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesCreateExecute(r ApiVi
 
 type ApiVirtualizationInterfacesDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -7359,7 +8145,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesDestroyExecute(r ApiV
 
 type ApiVirtualizationInterfacesListRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	bridgeId *[]int32
 	bridgeIdN *[]int32
 	cluster *[]string
@@ -8970,7 +9756,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesListExecute(r ApiVirt
 
 type ApiVirtualizationInterfacesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	patchedWritableVMInterfaceRequest *PatchedWritableVMInterfaceRequest
 }
@@ -9095,7 +9881,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesPartialUpdateExecute(
 
 type ApiVirtualizationInterfacesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -9212,7 +9998,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesRetrieveExecute(r Api
 
 type ApiVirtualizationInterfacesUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	writableVMInterfaceRequest *WritableVMInterfaceRequest
 }
@@ -9340,7 +10126,7 @@ func (a *VirtualizationAPIService) VirtualizationInterfacesUpdateExecute(r ApiVi
 
 type ApiVirtualizationVirtualDisksBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	virtualDiskRequest *[]VirtualDiskRequest
 }
 
@@ -9453,7 +10239,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksBulkDestroyExecute(
 
 type ApiVirtualizationVirtualDisksBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	virtualDiskRequest *[]VirtualDiskRequest
 }
 
@@ -9577,7 +10363,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksBulkPartialUpdateEx
 
 type ApiVirtualizationVirtualDisksBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	virtualDiskRequest *[]VirtualDiskRequest
 }
 
@@ -9701,7 +10487,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksBulkUpdateExecute(r
 
 type ApiVirtualizationVirtualDisksCreateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	virtualDiskRequest *VirtualDiskRequest
 }
 
@@ -9825,7 +10611,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksCreateExecute(r Api
 
 type ApiVirtualizationVirtualDisksDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -9931,7 +10717,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksDestroyExecute(r Ap
 
 type ApiVirtualizationVirtualDisksListRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -11035,7 +11821,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksListExecute(r ApiVi
 
 type ApiVirtualizationVirtualDisksPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	patchedVirtualDiskRequest *PatchedVirtualDiskRequest
 }
@@ -11160,7 +11946,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksPartialUpdateExecut
 
 type ApiVirtualizationVirtualDisksRetrieveRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -11277,7 +12063,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksRetrieveExecute(r A
 
 type ApiVirtualizationVirtualDisksUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	virtualDiskRequest *VirtualDiskRequest
 }
@@ -11405,7 +12191,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualDisksUpdateExecute(r Api
 
 type ApiVirtualizationVirtualMachinesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	virtualMachineWithConfigContextRequest *[]VirtualMachineWithConfigContextRequest
 }
 
@@ -11518,7 +12304,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesBulkDestroyExecu
 
 type ApiVirtualizationVirtualMachinesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	virtualMachineWithConfigContextRequest *[]VirtualMachineWithConfigContextRequest
 }
 
@@ -11642,7 +12428,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesBulkPartialUpdat
 
 type ApiVirtualizationVirtualMachinesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	virtualMachineWithConfigContextRequest *[]VirtualMachineWithConfigContextRequest
 }
 
@@ -11766,7 +12552,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesBulkUpdateExecut
 
 type ApiVirtualizationVirtualMachinesCreateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	writableVirtualMachineWithConfigContextRequest *WritableVirtualMachineWithConfigContextRequest
 }
 
@@ -11890,7 +12676,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesCreateExecute(r 
 
 type ApiVirtualizationVirtualMachinesDestroyRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -11996,7 +12782,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesDestroyExecute(r
 
 type ApiVirtualizationVirtualMachinesListRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	cluster *[]string
 	clusterN *[]string
 	clusterGroup *[]string
@@ -14690,7 +15476,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesListExecute(r Ap
 
 type ApiVirtualizationVirtualMachinesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	patchedWritableVirtualMachineWithConfigContextRequest *PatchedWritableVirtualMachineWithConfigContextRequest
 }
@@ -14815,7 +15601,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesPartialUpdateExe
 
 type ApiVirtualizationVirtualMachinesRenderConfigCreateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	writableVirtualMachineWithConfigContextRequest *WritableVirtualMachineWithConfigContextRequest
 	format *DcimDevicesRenderConfigCreateFormatParameter
@@ -14952,7 +15738,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesRenderConfigCrea
 
 type ApiVirtualizationVirtualMachinesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 }
 
@@ -15069,7 +15855,7 @@ func (a *VirtualizationAPIService) VirtualizationVirtualMachinesRetrieveExecute(
 
 type ApiVirtualizationVirtualMachinesUpdateRequest struct {
 	ctx context.Context
-	ApiService *VirtualizationAPIService
+	ApiService VirtualizationAPI
 	id int32
 	writableVirtualMachineWithConfigContextRequest *WritableVirtualMachineWithConfigContextRequest
 }

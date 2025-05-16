@@ -142,6 +142,7 @@ func (o *Interface) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Interface) GetUrl() string {
 	if o == nil {
@@ -165,6 +166,7 @@ func (o *Interface) GetUrlOk() (*string, bool) {
 func (o *Interface) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Interface) GetDisplay() string {
@@ -190,6 +192,7 @@ func (o *Interface) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *Interface) GetDevice() BriefDevice {
 	if o == nil {
@@ -213,6 +216,7 @@ func (o *Interface) GetDeviceOk() (*BriefDevice, bool) {
 func (o *Interface) SetDevice(v BriefDevice) {
 	o.Device = v
 }
+
 
 // GetVdcs returns the Vdcs field value if set, zero value otherwise.
 func (o *Interface) GetVdcs() []VirtualDeviceContext {
@@ -312,6 +316,7 @@ func (o *Interface) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *Interface) GetLabel() string {
 	if o == nil || IsNil(o.Label) {
@@ -367,6 +372,7 @@ func (o *Interface) GetTypeOk() (*InterfaceType, bool) {
 func (o *Interface) SetType(v InterfaceType) {
 	o.Type = v
 }
+
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *Interface) GetEnabled() bool {
@@ -1218,6 +1224,7 @@ func (o *Interface) SetCable(v BriefCable) {
 	o.Cable.Set(&v)
 }
 
+
 // GetCableEnd returns the CableEnd field value
 func (o *Interface) GetCableEnd() string {
 	if o == nil {
@@ -1241,6 +1248,7 @@ func (o *Interface) GetCableEndOk() (*string, bool) {
 func (o *Interface) SetCableEnd(v string) {
 	o.CableEnd = v
 }
+
 
 // GetWirelessLink returns the WirelessLink field value
 // If the value is explicit nil, the zero value for NestedWirelessLink will be returned
@@ -1268,6 +1276,7 @@ func (o *Interface) SetWirelessLink(v NestedWirelessLink) {
 	o.WirelessLink.Set(&v)
 }
 
+
 // GetLinkPeers returns the LinkPeers field value
 func (o *Interface) GetLinkPeers() []interface{} {
 	if o == nil {
@@ -1291,6 +1300,7 @@ func (o *Interface) GetLinkPeersOk() ([]interface{}, bool) {
 func (o *Interface) SetLinkPeers(v []interface{}) {
 	o.LinkPeers = v
 }
+
 
 // GetLinkPeersType returns the LinkPeersType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -1317,6 +1327,7 @@ func (o *Interface) GetLinkPeersTypeOk() (*string, bool) {
 func (o *Interface) SetLinkPeersType(v string) {
 	o.LinkPeersType.Set(&v)
 }
+
 
 // GetWirelessLans returns the WirelessLans field value if set, zero value otherwise.
 func (o *Interface) GetWirelessLans() []WirelessLAN {
@@ -1418,6 +1429,7 @@ func (o *Interface) SetL2vpnTermination(v BriefL2VPNTermination) {
 	o.L2vpnTermination.Set(&v)
 }
 
+
 // GetConnectedEndpoints returns the ConnectedEndpoints field value
 // If the value is explicit nil, the zero value for []interface{} will be returned
 func (o *Interface) GetConnectedEndpoints() []interface{} {
@@ -1443,6 +1455,7 @@ func (o *Interface) GetConnectedEndpointsOk() ([]interface{}, bool) {
 func (o *Interface) SetConnectedEndpoints(v []interface{}) {
 	o.ConnectedEndpoints = v
 }
+
 
 // GetConnectedEndpointsType returns the ConnectedEndpointsType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -1470,6 +1483,7 @@ func (o *Interface) SetConnectedEndpointsType(v string) {
 	o.ConnectedEndpointsType.Set(&v)
 }
 
+
 // GetConnectedEndpointsReachable returns the ConnectedEndpointsReachable field value
 func (o *Interface) GetConnectedEndpointsReachable() bool {
 	if o == nil {
@@ -1493,6 +1507,7 @@ func (o *Interface) GetConnectedEndpointsReachableOk() (*bool, bool) {
 func (o *Interface) SetConnectedEndpointsReachable(v bool) {
 	o.ConnectedEndpointsReachable = v
 }
+
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *Interface) GetTags() []NestedTag {
@@ -1584,6 +1599,7 @@ func (o *Interface) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Interface) GetLastUpdated() time.Time {
@@ -1610,6 +1626,7 @@ func (o *Interface) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetCountIpaddresses returns the CountIpaddresses field value
 func (o *Interface) GetCountIpaddresses() int32 {
 	if o == nil {
@@ -1633,6 +1650,7 @@ func (o *Interface) GetCountIpaddressesOk() (*int32, bool) {
 func (o *Interface) SetCountIpaddresses(v int32) {
 	o.CountIpaddresses = v
 }
+
 
 // GetCountFhrpGroups returns the CountFhrpGroups field value
 func (o *Interface) GetCountFhrpGroups() int32 {
@@ -1658,6 +1676,7 @@ func (o *Interface) SetCountFhrpGroups(v int32) {
 	o.CountFhrpGroups = v
 }
 
+
 // GetOccupied returns the Occupied field value
 func (o *Interface) GetOccupied() bool {
 	if o == nil {
@@ -1681,6 +1700,7 @@ func (o *Interface) GetOccupiedOk() (*bool, bool) {
 func (o *Interface) SetOccupied(v bool) {
 	o.Occupied = v
 }
+
 
 func (o Interface) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -1836,6 +1856,11 @@ func (o *Interface) UnmarshalJSON(data []byte) (err error) {
 		"_occupied",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1845,11 +1870,23 @@ func (o *Interface) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varInterface := _Interface{}
 
 	err = json.Unmarshal(data, &varInterface)

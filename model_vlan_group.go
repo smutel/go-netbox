@@ -96,6 +96,7 @@ func (o *VLANGroup) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *VLANGroup) GetUrl() string {
 	if o == nil {
@@ -119,6 +120,7 @@ func (o *VLANGroup) GetUrlOk() (*string, bool) {
 func (o *VLANGroup) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *VLANGroup) GetDisplay() string {
@@ -144,6 +146,7 @@ func (o *VLANGroup) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *VLANGroup) GetName() string {
 	if o == nil {
@@ -168,6 +171,7 @@ func (o *VLANGroup) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *VLANGroup) GetSlug() string {
 	if o == nil {
@@ -191,6 +195,7 @@ func (o *VLANGroup) GetSlugOk() (*string, bool) {
 func (o *VLANGroup) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetScopeType returns the ScopeType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLANGroup) GetScopeType() string {
@@ -301,6 +306,7 @@ func (o *VLANGroup) GetScopeOk() (*interface{}, bool) {
 func (o *VLANGroup) SetScope(v interface{}) {
 	o.Scope = v
 }
+
 
 // GetMinVid returns the MinVid field value if set, zero value otherwise.
 func (o *VLANGroup) GetMinVid() int32 {
@@ -488,6 +494,7 @@ func (o *VLANGroup) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VLANGroup) GetLastUpdated() time.Time {
@@ -514,6 +521,7 @@ func (o *VLANGroup) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetVlanCount returns the VlanCount field value
 func (o *VLANGroup) GetVlanCount() int64 {
 	if o == nil {
@@ -538,6 +546,7 @@ func (o *VLANGroup) SetVlanCount(v int64) {
 	o.VlanCount = v
 }
 
+
 // GetUtilization returns the Utilization field value
 func (o *VLANGroup) GetUtilization() string {
 	if o == nil {
@@ -561,6 +570,7 @@ func (o *VLANGroup) GetUtilizationOk() (*string, bool) {
 func (o *VLANGroup) SetUtilization(v string) {
 	o.Utilization = v
 }
+
 
 func (o VLANGroup) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -630,6 +640,11 @@ func (o *VLANGroup) UnmarshalJSON(data []byte) (err error) {
 		"utilization",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -639,11 +654,23 @@ func (o *VLANGroup) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varVLANGroup := _VLANGroup{}
 
 	err = json.Unmarshal(data, &varVLANGroup)

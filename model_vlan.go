@@ -91,6 +91,7 @@ func (o *VLAN) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *VLAN) GetUrl() string {
 	if o == nil {
@@ -115,6 +116,7 @@ func (o *VLAN) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *VLAN) GetDisplay() string {
 	if o == nil {
@@ -138,6 +140,7 @@ func (o *VLAN) GetDisplayOk() (*string, bool) {
 func (o *VLAN) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetSite returns the Site field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLAN) GetSite() BriefSite {
@@ -247,6 +250,7 @@ func (o *VLAN) SetVid(v int32) {
 	o.Vid = v
 }
 
+
 // GetName returns the Name field value
 func (o *VLAN) GetName() string {
 	if o == nil {
@@ -270,6 +274,7 @@ func (o *VLAN) GetNameOk() (*string, bool) {
 func (o *VLAN) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLAN) GetTenant() BriefTenant {
@@ -747,6 +752,11 @@ func (o *VLAN) UnmarshalJSON(data []byte) (err error) {
 		"name",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -756,11 +766,23 @@ func (o *VLAN) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varVLAN := _VLAN{}
 
 	err = json.Unmarshal(data, &varVLAN)

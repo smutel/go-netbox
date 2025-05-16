@@ -21,12 +21,783 @@ import (
 )
 
 
+type TenancyAPI interface {
+
+	/*
+	TenancyContactAssignmentsBulkDestroy Method for TenancyContactAssignmentsBulkDestroy
+
+	Delete a list of contact assignment objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactAssignmentsBulkDestroyRequest
+	*/
+	TenancyContactAssignmentsBulkDestroy(ctx context.Context) ApiTenancyContactAssignmentsBulkDestroyRequest
+
+	// TenancyContactAssignmentsBulkDestroyExecute executes the request
+	TenancyContactAssignmentsBulkDestroyExecute(r ApiTenancyContactAssignmentsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactAssignmentsBulkPartialUpdate Method for TenancyContactAssignmentsBulkPartialUpdate
+
+	Patch a list of contact assignment objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactAssignmentsBulkPartialUpdateRequest
+	*/
+	TenancyContactAssignmentsBulkPartialUpdate(ctx context.Context) ApiTenancyContactAssignmentsBulkPartialUpdateRequest
+
+	// TenancyContactAssignmentsBulkPartialUpdateExecute executes the request
+	//  @return []ContactAssignment
+	TenancyContactAssignmentsBulkPartialUpdateExecute(r ApiTenancyContactAssignmentsBulkPartialUpdateRequest) ([]ContactAssignment, *http.Response, error)
+
+	/*
+	TenancyContactAssignmentsBulkUpdate Method for TenancyContactAssignmentsBulkUpdate
+
+	Put a list of contact assignment objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactAssignmentsBulkUpdateRequest
+	*/
+	TenancyContactAssignmentsBulkUpdate(ctx context.Context) ApiTenancyContactAssignmentsBulkUpdateRequest
+
+	// TenancyContactAssignmentsBulkUpdateExecute executes the request
+	//  @return []ContactAssignment
+	TenancyContactAssignmentsBulkUpdateExecute(r ApiTenancyContactAssignmentsBulkUpdateRequest) ([]ContactAssignment, *http.Response, error)
+
+	/*
+	TenancyContactAssignmentsCreate Method for TenancyContactAssignmentsCreate
+
+	Post a list of contact assignment objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactAssignmentsCreateRequest
+	*/
+	TenancyContactAssignmentsCreate(ctx context.Context) ApiTenancyContactAssignmentsCreateRequest
+
+	// TenancyContactAssignmentsCreateExecute executes the request
+	//  @return ContactAssignment
+	TenancyContactAssignmentsCreateExecute(r ApiTenancyContactAssignmentsCreateRequest) (*ContactAssignment, *http.Response, error)
+
+	/*
+	TenancyContactAssignmentsDestroy Method for TenancyContactAssignmentsDestroy
+
+	Delete a contact assignment object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact assignment.
+	@return ApiTenancyContactAssignmentsDestroyRequest
+	*/
+	TenancyContactAssignmentsDestroy(ctx context.Context, id int32) ApiTenancyContactAssignmentsDestroyRequest
+
+	// TenancyContactAssignmentsDestroyExecute executes the request
+	TenancyContactAssignmentsDestroyExecute(r ApiTenancyContactAssignmentsDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactAssignmentsList Method for TenancyContactAssignmentsList
+
+	Get a list of contact assignment objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactAssignmentsListRequest
+	*/
+	TenancyContactAssignmentsList(ctx context.Context) ApiTenancyContactAssignmentsListRequest
+
+	// TenancyContactAssignmentsListExecute executes the request
+	//  @return PaginatedContactAssignmentList
+	TenancyContactAssignmentsListExecute(r ApiTenancyContactAssignmentsListRequest) (*PaginatedContactAssignmentList, *http.Response, error)
+
+	/*
+	TenancyContactAssignmentsPartialUpdate Method for TenancyContactAssignmentsPartialUpdate
+
+	Patch a contact assignment object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact assignment.
+	@return ApiTenancyContactAssignmentsPartialUpdateRequest
+	*/
+	TenancyContactAssignmentsPartialUpdate(ctx context.Context, id int32) ApiTenancyContactAssignmentsPartialUpdateRequest
+
+	// TenancyContactAssignmentsPartialUpdateExecute executes the request
+	//  @return ContactAssignment
+	TenancyContactAssignmentsPartialUpdateExecute(r ApiTenancyContactAssignmentsPartialUpdateRequest) (*ContactAssignment, *http.Response, error)
+
+	/*
+	TenancyContactAssignmentsRetrieve Method for TenancyContactAssignmentsRetrieve
+
+	Get a contact assignment object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact assignment.
+	@return ApiTenancyContactAssignmentsRetrieveRequest
+	*/
+	TenancyContactAssignmentsRetrieve(ctx context.Context, id int32) ApiTenancyContactAssignmentsRetrieveRequest
+
+	// TenancyContactAssignmentsRetrieveExecute executes the request
+	//  @return ContactAssignment
+	TenancyContactAssignmentsRetrieveExecute(r ApiTenancyContactAssignmentsRetrieveRequest) (*ContactAssignment, *http.Response, error)
+
+	/*
+	TenancyContactAssignmentsUpdate Method for TenancyContactAssignmentsUpdate
+
+	Put a contact assignment object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact assignment.
+	@return ApiTenancyContactAssignmentsUpdateRequest
+	*/
+	TenancyContactAssignmentsUpdate(ctx context.Context, id int32) ApiTenancyContactAssignmentsUpdateRequest
+
+	// TenancyContactAssignmentsUpdateExecute executes the request
+	//  @return ContactAssignment
+	TenancyContactAssignmentsUpdateExecute(r ApiTenancyContactAssignmentsUpdateRequest) (*ContactAssignment, *http.Response, error)
+
+	/*
+	TenancyContactGroupsBulkDestroy Method for TenancyContactGroupsBulkDestroy
+
+	Delete a list of contact group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactGroupsBulkDestroyRequest
+	*/
+	TenancyContactGroupsBulkDestroy(ctx context.Context) ApiTenancyContactGroupsBulkDestroyRequest
+
+	// TenancyContactGroupsBulkDestroyExecute executes the request
+	TenancyContactGroupsBulkDestroyExecute(r ApiTenancyContactGroupsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactGroupsBulkPartialUpdate Method for TenancyContactGroupsBulkPartialUpdate
+
+	Patch a list of contact group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactGroupsBulkPartialUpdateRequest
+	*/
+	TenancyContactGroupsBulkPartialUpdate(ctx context.Context) ApiTenancyContactGroupsBulkPartialUpdateRequest
+
+	// TenancyContactGroupsBulkPartialUpdateExecute executes the request
+	//  @return []ContactGroup
+	TenancyContactGroupsBulkPartialUpdateExecute(r ApiTenancyContactGroupsBulkPartialUpdateRequest) ([]ContactGroup, *http.Response, error)
+
+	/*
+	TenancyContactGroupsBulkUpdate Method for TenancyContactGroupsBulkUpdate
+
+	Put a list of contact group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactGroupsBulkUpdateRequest
+	*/
+	TenancyContactGroupsBulkUpdate(ctx context.Context) ApiTenancyContactGroupsBulkUpdateRequest
+
+	// TenancyContactGroupsBulkUpdateExecute executes the request
+	//  @return []ContactGroup
+	TenancyContactGroupsBulkUpdateExecute(r ApiTenancyContactGroupsBulkUpdateRequest) ([]ContactGroup, *http.Response, error)
+
+	/*
+	TenancyContactGroupsCreate Method for TenancyContactGroupsCreate
+
+	Post a list of contact group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactGroupsCreateRequest
+	*/
+	TenancyContactGroupsCreate(ctx context.Context) ApiTenancyContactGroupsCreateRequest
+
+	// TenancyContactGroupsCreateExecute executes the request
+	//  @return ContactGroup
+	TenancyContactGroupsCreateExecute(r ApiTenancyContactGroupsCreateRequest) (*ContactGroup, *http.Response, error)
+
+	/*
+	TenancyContactGroupsDestroy Method for TenancyContactGroupsDestroy
+
+	Delete a contact group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact group.
+	@return ApiTenancyContactGroupsDestroyRequest
+	*/
+	TenancyContactGroupsDestroy(ctx context.Context, id int32) ApiTenancyContactGroupsDestroyRequest
+
+	// TenancyContactGroupsDestroyExecute executes the request
+	TenancyContactGroupsDestroyExecute(r ApiTenancyContactGroupsDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactGroupsList Method for TenancyContactGroupsList
+
+	Get a list of contact group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactGroupsListRequest
+	*/
+	TenancyContactGroupsList(ctx context.Context) ApiTenancyContactGroupsListRequest
+
+	// TenancyContactGroupsListExecute executes the request
+	//  @return PaginatedContactGroupList
+	TenancyContactGroupsListExecute(r ApiTenancyContactGroupsListRequest) (*PaginatedContactGroupList, *http.Response, error)
+
+	/*
+	TenancyContactGroupsPartialUpdate Method for TenancyContactGroupsPartialUpdate
+
+	Patch a contact group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact group.
+	@return ApiTenancyContactGroupsPartialUpdateRequest
+	*/
+	TenancyContactGroupsPartialUpdate(ctx context.Context, id int32) ApiTenancyContactGroupsPartialUpdateRequest
+
+	// TenancyContactGroupsPartialUpdateExecute executes the request
+	//  @return ContactGroup
+	TenancyContactGroupsPartialUpdateExecute(r ApiTenancyContactGroupsPartialUpdateRequest) (*ContactGroup, *http.Response, error)
+
+	/*
+	TenancyContactGroupsRetrieve Method for TenancyContactGroupsRetrieve
+
+	Get a contact group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact group.
+	@return ApiTenancyContactGroupsRetrieveRequest
+	*/
+	TenancyContactGroupsRetrieve(ctx context.Context, id int32) ApiTenancyContactGroupsRetrieveRequest
+
+	// TenancyContactGroupsRetrieveExecute executes the request
+	//  @return ContactGroup
+	TenancyContactGroupsRetrieveExecute(r ApiTenancyContactGroupsRetrieveRequest) (*ContactGroup, *http.Response, error)
+
+	/*
+	TenancyContactGroupsUpdate Method for TenancyContactGroupsUpdate
+
+	Put a contact group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact group.
+	@return ApiTenancyContactGroupsUpdateRequest
+	*/
+	TenancyContactGroupsUpdate(ctx context.Context, id int32) ApiTenancyContactGroupsUpdateRequest
+
+	// TenancyContactGroupsUpdateExecute executes the request
+	//  @return ContactGroup
+	TenancyContactGroupsUpdateExecute(r ApiTenancyContactGroupsUpdateRequest) (*ContactGroup, *http.Response, error)
+
+	/*
+	TenancyContactRolesBulkDestroy Method for TenancyContactRolesBulkDestroy
+
+	Delete a list of contact role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactRolesBulkDestroyRequest
+	*/
+	TenancyContactRolesBulkDestroy(ctx context.Context) ApiTenancyContactRolesBulkDestroyRequest
+
+	// TenancyContactRolesBulkDestroyExecute executes the request
+	TenancyContactRolesBulkDestroyExecute(r ApiTenancyContactRolesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactRolesBulkPartialUpdate Method for TenancyContactRolesBulkPartialUpdate
+
+	Patch a list of contact role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactRolesBulkPartialUpdateRequest
+	*/
+	TenancyContactRolesBulkPartialUpdate(ctx context.Context) ApiTenancyContactRolesBulkPartialUpdateRequest
+
+	// TenancyContactRolesBulkPartialUpdateExecute executes the request
+	//  @return []ContactRole
+	TenancyContactRolesBulkPartialUpdateExecute(r ApiTenancyContactRolesBulkPartialUpdateRequest) ([]ContactRole, *http.Response, error)
+
+	/*
+	TenancyContactRolesBulkUpdate Method for TenancyContactRolesBulkUpdate
+
+	Put a list of contact role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactRolesBulkUpdateRequest
+	*/
+	TenancyContactRolesBulkUpdate(ctx context.Context) ApiTenancyContactRolesBulkUpdateRequest
+
+	// TenancyContactRolesBulkUpdateExecute executes the request
+	//  @return []ContactRole
+	TenancyContactRolesBulkUpdateExecute(r ApiTenancyContactRolesBulkUpdateRequest) ([]ContactRole, *http.Response, error)
+
+	/*
+	TenancyContactRolesCreate Method for TenancyContactRolesCreate
+
+	Post a list of contact role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactRolesCreateRequest
+	*/
+	TenancyContactRolesCreate(ctx context.Context) ApiTenancyContactRolesCreateRequest
+
+	// TenancyContactRolesCreateExecute executes the request
+	//  @return ContactRole
+	TenancyContactRolesCreateExecute(r ApiTenancyContactRolesCreateRequest) (*ContactRole, *http.Response, error)
+
+	/*
+	TenancyContactRolesDestroy Method for TenancyContactRolesDestroy
+
+	Delete a contact role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact role.
+	@return ApiTenancyContactRolesDestroyRequest
+	*/
+	TenancyContactRolesDestroy(ctx context.Context, id int32) ApiTenancyContactRolesDestroyRequest
+
+	// TenancyContactRolesDestroyExecute executes the request
+	TenancyContactRolesDestroyExecute(r ApiTenancyContactRolesDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactRolesList Method for TenancyContactRolesList
+
+	Get a list of contact role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactRolesListRequest
+	*/
+	TenancyContactRolesList(ctx context.Context) ApiTenancyContactRolesListRequest
+
+	// TenancyContactRolesListExecute executes the request
+	//  @return PaginatedContactRoleList
+	TenancyContactRolesListExecute(r ApiTenancyContactRolesListRequest) (*PaginatedContactRoleList, *http.Response, error)
+
+	/*
+	TenancyContactRolesPartialUpdate Method for TenancyContactRolesPartialUpdate
+
+	Patch a contact role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact role.
+	@return ApiTenancyContactRolesPartialUpdateRequest
+	*/
+	TenancyContactRolesPartialUpdate(ctx context.Context, id int32) ApiTenancyContactRolesPartialUpdateRequest
+
+	// TenancyContactRolesPartialUpdateExecute executes the request
+	//  @return ContactRole
+	TenancyContactRolesPartialUpdateExecute(r ApiTenancyContactRolesPartialUpdateRequest) (*ContactRole, *http.Response, error)
+
+	/*
+	TenancyContactRolesRetrieve Method for TenancyContactRolesRetrieve
+
+	Get a contact role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact role.
+	@return ApiTenancyContactRolesRetrieveRequest
+	*/
+	TenancyContactRolesRetrieve(ctx context.Context, id int32) ApiTenancyContactRolesRetrieveRequest
+
+	// TenancyContactRolesRetrieveExecute executes the request
+	//  @return ContactRole
+	TenancyContactRolesRetrieveExecute(r ApiTenancyContactRolesRetrieveRequest) (*ContactRole, *http.Response, error)
+
+	/*
+	TenancyContactRolesUpdate Method for TenancyContactRolesUpdate
+
+	Put a contact role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact role.
+	@return ApiTenancyContactRolesUpdateRequest
+	*/
+	TenancyContactRolesUpdate(ctx context.Context, id int32) ApiTenancyContactRolesUpdateRequest
+
+	// TenancyContactRolesUpdateExecute executes the request
+	//  @return ContactRole
+	TenancyContactRolesUpdateExecute(r ApiTenancyContactRolesUpdateRequest) (*ContactRole, *http.Response, error)
+
+	/*
+	TenancyContactsBulkDestroy Method for TenancyContactsBulkDestroy
+
+	Delete a list of contact objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactsBulkDestroyRequest
+	*/
+	TenancyContactsBulkDestroy(ctx context.Context) ApiTenancyContactsBulkDestroyRequest
+
+	// TenancyContactsBulkDestroyExecute executes the request
+	TenancyContactsBulkDestroyExecute(r ApiTenancyContactsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactsBulkPartialUpdate Method for TenancyContactsBulkPartialUpdate
+
+	Patch a list of contact objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactsBulkPartialUpdateRequest
+	*/
+	TenancyContactsBulkPartialUpdate(ctx context.Context) ApiTenancyContactsBulkPartialUpdateRequest
+
+	// TenancyContactsBulkPartialUpdateExecute executes the request
+	//  @return []Contact
+	TenancyContactsBulkPartialUpdateExecute(r ApiTenancyContactsBulkPartialUpdateRequest) ([]Contact, *http.Response, error)
+
+	/*
+	TenancyContactsBulkUpdate Method for TenancyContactsBulkUpdate
+
+	Put a list of contact objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactsBulkUpdateRequest
+	*/
+	TenancyContactsBulkUpdate(ctx context.Context) ApiTenancyContactsBulkUpdateRequest
+
+	// TenancyContactsBulkUpdateExecute executes the request
+	//  @return []Contact
+	TenancyContactsBulkUpdateExecute(r ApiTenancyContactsBulkUpdateRequest) ([]Contact, *http.Response, error)
+
+	/*
+	TenancyContactsCreate Method for TenancyContactsCreate
+
+	Post a list of contact objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactsCreateRequest
+	*/
+	TenancyContactsCreate(ctx context.Context) ApiTenancyContactsCreateRequest
+
+	// TenancyContactsCreateExecute executes the request
+	//  @return Contact
+	TenancyContactsCreateExecute(r ApiTenancyContactsCreateRequest) (*Contact, *http.Response, error)
+
+	/*
+	TenancyContactsDestroy Method for TenancyContactsDestroy
+
+	Delete a contact object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact.
+	@return ApiTenancyContactsDestroyRequest
+	*/
+	TenancyContactsDestroy(ctx context.Context, id int32) ApiTenancyContactsDestroyRequest
+
+	// TenancyContactsDestroyExecute executes the request
+	TenancyContactsDestroyExecute(r ApiTenancyContactsDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyContactsList Method for TenancyContactsList
+
+	Get a list of contact objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyContactsListRequest
+	*/
+	TenancyContactsList(ctx context.Context) ApiTenancyContactsListRequest
+
+	// TenancyContactsListExecute executes the request
+	//  @return PaginatedContactList
+	TenancyContactsListExecute(r ApiTenancyContactsListRequest) (*PaginatedContactList, *http.Response, error)
+
+	/*
+	TenancyContactsPartialUpdate Method for TenancyContactsPartialUpdate
+
+	Patch a contact object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact.
+	@return ApiTenancyContactsPartialUpdateRequest
+	*/
+	TenancyContactsPartialUpdate(ctx context.Context, id int32) ApiTenancyContactsPartialUpdateRequest
+
+	// TenancyContactsPartialUpdateExecute executes the request
+	//  @return Contact
+	TenancyContactsPartialUpdateExecute(r ApiTenancyContactsPartialUpdateRequest) (*Contact, *http.Response, error)
+
+	/*
+	TenancyContactsRetrieve Method for TenancyContactsRetrieve
+
+	Get a contact object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact.
+	@return ApiTenancyContactsRetrieveRequest
+	*/
+	TenancyContactsRetrieve(ctx context.Context, id int32) ApiTenancyContactsRetrieveRequest
+
+	// TenancyContactsRetrieveExecute executes the request
+	//  @return Contact
+	TenancyContactsRetrieveExecute(r ApiTenancyContactsRetrieveRequest) (*Contact, *http.Response, error)
+
+	/*
+	TenancyContactsUpdate Method for TenancyContactsUpdate
+
+	Put a contact object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this contact.
+	@return ApiTenancyContactsUpdateRequest
+	*/
+	TenancyContactsUpdate(ctx context.Context, id int32) ApiTenancyContactsUpdateRequest
+
+	// TenancyContactsUpdateExecute executes the request
+	//  @return Contact
+	TenancyContactsUpdateExecute(r ApiTenancyContactsUpdateRequest) (*Contact, *http.Response, error)
+
+	/*
+	TenancyTenantGroupsBulkDestroy Method for TenancyTenantGroupsBulkDestroy
+
+	Delete a list of tenant group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantGroupsBulkDestroyRequest
+	*/
+	TenancyTenantGroupsBulkDestroy(ctx context.Context) ApiTenancyTenantGroupsBulkDestroyRequest
+
+	// TenancyTenantGroupsBulkDestroyExecute executes the request
+	TenancyTenantGroupsBulkDestroyExecute(r ApiTenancyTenantGroupsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyTenantGroupsBulkPartialUpdate Method for TenancyTenantGroupsBulkPartialUpdate
+
+	Patch a list of tenant group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantGroupsBulkPartialUpdateRequest
+	*/
+	TenancyTenantGroupsBulkPartialUpdate(ctx context.Context) ApiTenancyTenantGroupsBulkPartialUpdateRequest
+
+	// TenancyTenantGroupsBulkPartialUpdateExecute executes the request
+	//  @return []TenantGroup
+	TenancyTenantGroupsBulkPartialUpdateExecute(r ApiTenancyTenantGroupsBulkPartialUpdateRequest) ([]TenantGroup, *http.Response, error)
+
+	/*
+	TenancyTenantGroupsBulkUpdate Method for TenancyTenantGroupsBulkUpdate
+
+	Put a list of tenant group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantGroupsBulkUpdateRequest
+	*/
+	TenancyTenantGroupsBulkUpdate(ctx context.Context) ApiTenancyTenantGroupsBulkUpdateRequest
+
+	// TenancyTenantGroupsBulkUpdateExecute executes the request
+	//  @return []TenantGroup
+	TenancyTenantGroupsBulkUpdateExecute(r ApiTenancyTenantGroupsBulkUpdateRequest) ([]TenantGroup, *http.Response, error)
+
+	/*
+	TenancyTenantGroupsCreate Method for TenancyTenantGroupsCreate
+
+	Post a list of tenant group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantGroupsCreateRequest
+	*/
+	TenancyTenantGroupsCreate(ctx context.Context) ApiTenancyTenantGroupsCreateRequest
+
+	// TenancyTenantGroupsCreateExecute executes the request
+	//  @return TenantGroup
+	TenancyTenantGroupsCreateExecute(r ApiTenancyTenantGroupsCreateRequest) (*TenantGroup, *http.Response, error)
+
+	/*
+	TenancyTenantGroupsDestroy Method for TenancyTenantGroupsDestroy
+
+	Delete a tenant group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant group.
+	@return ApiTenancyTenantGroupsDestroyRequest
+	*/
+	TenancyTenantGroupsDestroy(ctx context.Context, id int32) ApiTenancyTenantGroupsDestroyRequest
+
+	// TenancyTenantGroupsDestroyExecute executes the request
+	TenancyTenantGroupsDestroyExecute(r ApiTenancyTenantGroupsDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyTenantGroupsList Method for TenancyTenantGroupsList
+
+	Get a list of tenant group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantGroupsListRequest
+	*/
+	TenancyTenantGroupsList(ctx context.Context) ApiTenancyTenantGroupsListRequest
+
+	// TenancyTenantGroupsListExecute executes the request
+	//  @return PaginatedTenantGroupList
+	TenancyTenantGroupsListExecute(r ApiTenancyTenantGroupsListRequest) (*PaginatedTenantGroupList, *http.Response, error)
+
+	/*
+	TenancyTenantGroupsPartialUpdate Method for TenancyTenantGroupsPartialUpdate
+
+	Patch a tenant group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant group.
+	@return ApiTenancyTenantGroupsPartialUpdateRequest
+	*/
+	TenancyTenantGroupsPartialUpdate(ctx context.Context, id int32) ApiTenancyTenantGroupsPartialUpdateRequest
+
+	// TenancyTenantGroupsPartialUpdateExecute executes the request
+	//  @return TenantGroup
+	TenancyTenantGroupsPartialUpdateExecute(r ApiTenancyTenantGroupsPartialUpdateRequest) (*TenantGroup, *http.Response, error)
+
+	/*
+	TenancyTenantGroupsRetrieve Method for TenancyTenantGroupsRetrieve
+
+	Get a tenant group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant group.
+	@return ApiTenancyTenantGroupsRetrieveRequest
+	*/
+	TenancyTenantGroupsRetrieve(ctx context.Context, id int32) ApiTenancyTenantGroupsRetrieveRequest
+
+	// TenancyTenantGroupsRetrieveExecute executes the request
+	//  @return TenantGroup
+	TenancyTenantGroupsRetrieveExecute(r ApiTenancyTenantGroupsRetrieveRequest) (*TenantGroup, *http.Response, error)
+
+	/*
+	TenancyTenantGroupsUpdate Method for TenancyTenantGroupsUpdate
+
+	Put a tenant group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant group.
+	@return ApiTenancyTenantGroupsUpdateRequest
+	*/
+	TenancyTenantGroupsUpdate(ctx context.Context, id int32) ApiTenancyTenantGroupsUpdateRequest
+
+	// TenancyTenantGroupsUpdateExecute executes the request
+	//  @return TenantGroup
+	TenancyTenantGroupsUpdateExecute(r ApiTenancyTenantGroupsUpdateRequest) (*TenantGroup, *http.Response, error)
+
+	/*
+	TenancyTenantsBulkDestroy Method for TenancyTenantsBulkDestroy
+
+	Delete a list of tenant objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantsBulkDestroyRequest
+	*/
+	TenancyTenantsBulkDestroy(ctx context.Context) ApiTenancyTenantsBulkDestroyRequest
+
+	// TenancyTenantsBulkDestroyExecute executes the request
+	TenancyTenantsBulkDestroyExecute(r ApiTenancyTenantsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyTenantsBulkPartialUpdate Method for TenancyTenantsBulkPartialUpdate
+
+	Patch a list of tenant objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantsBulkPartialUpdateRequest
+	*/
+	TenancyTenantsBulkPartialUpdate(ctx context.Context) ApiTenancyTenantsBulkPartialUpdateRequest
+
+	// TenancyTenantsBulkPartialUpdateExecute executes the request
+	//  @return []Tenant
+	TenancyTenantsBulkPartialUpdateExecute(r ApiTenancyTenantsBulkPartialUpdateRequest) ([]Tenant, *http.Response, error)
+
+	/*
+	TenancyTenantsBulkUpdate Method for TenancyTenantsBulkUpdate
+
+	Put a list of tenant objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantsBulkUpdateRequest
+	*/
+	TenancyTenantsBulkUpdate(ctx context.Context) ApiTenancyTenantsBulkUpdateRequest
+
+	// TenancyTenantsBulkUpdateExecute executes the request
+	//  @return []Tenant
+	TenancyTenantsBulkUpdateExecute(r ApiTenancyTenantsBulkUpdateRequest) ([]Tenant, *http.Response, error)
+
+	/*
+	TenancyTenantsCreate Method for TenancyTenantsCreate
+
+	Post a list of tenant objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantsCreateRequest
+	*/
+	TenancyTenantsCreate(ctx context.Context) ApiTenancyTenantsCreateRequest
+
+	// TenancyTenantsCreateExecute executes the request
+	//  @return Tenant
+	TenancyTenantsCreateExecute(r ApiTenancyTenantsCreateRequest) (*Tenant, *http.Response, error)
+
+	/*
+	TenancyTenantsDestroy Method for TenancyTenantsDestroy
+
+	Delete a tenant object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant.
+	@return ApiTenancyTenantsDestroyRequest
+	*/
+	TenancyTenantsDestroy(ctx context.Context, id int32) ApiTenancyTenantsDestroyRequest
+
+	// TenancyTenantsDestroyExecute executes the request
+	TenancyTenantsDestroyExecute(r ApiTenancyTenantsDestroyRequest) (*http.Response, error)
+
+	/*
+	TenancyTenantsList Method for TenancyTenantsList
+
+	Get a list of tenant objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiTenancyTenantsListRequest
+	*/
+	TenancyTenantsList(ctx context.Context) ApiTenancyTenantsListRequest
+
+	// TenancyTenantsListExecute executes the request
+	//  @return PaginatedTenantList
+	TenancyTenantsListExecute(r ApiTenancyTenantsListRequest) (*PaginatedTenantList, *http.Response, error)
+
+	/*
+	TenancyTenantsPartialUpdate Method for TenancyTenantsPartialUpdate
+
+	Patch a tenant object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant.
+	@return ApiTenancyTenantsPartialUpdateRequest
+	*/
+	TenancyTenantsPartialUpdate(ctx context.Context, id int32) ApiTenancyTenantsPartialUpdateRequest
+
+	// TenancyTenantsPartialUpdateExecute executes the request
+	//  @return Tenant
+	TenancyTenantsPartialUpdateExecute(r ApiTenancyTenantsPartialUpdateRequest) (*Tenant, *http.Response, error)
+
+	/*
+	TenancyTenantsRetrieve Method for TenancyTenantsRetrieve
+
+	Get a tenant object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant.
+	@return ApiTenancyTenantsRetrieveRequest
+	*/
+	TenancyTenantsRetrieve(ctx context.Context, id int32) ApiTenancyTenantsRetrieveRequest
+
+	// TenancyTenantsRetrieveExecute executes the request
+	//  @return Tenant
+	TenancyTenantsRetrieveExecute(r ApiTenancyTenantsRetrieveRequest) (*Tenant, *http.Response, error)
+
+	/*
+	TenancyTenantsUpdate Method for TenancyTenantsUpdate
+
+	Put a tenant object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this tenant.
+	@return ApiTenancyTenantsUpdateRequest
+	*/
+	TenancyTenantsUpdate(ctx context.Context, id int32) ApiTenancyTenantsUpdateRequest
+
+	// TenancyTenantsUpdateExecute executes the request
+	//  @return Tenant
+	TenancyTenantsUpdateExecute(r ApiTenancyTenantsUpdateRequest) (*Tenant, *http.Response, error)
+}
+
 // TenancyAPIService TenancyAPI service
 type TenancyAPIService service
 
 type ApiTenancyContactAssignmentsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactAssignmentRequest *[]ContactAssignmentRequest
 }
 
@@ -139,7 +910,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsBulkDestroyExecute(r ApiTen
 
 type ApiTenancyContactAssignmentsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactAssignmentRequest *[]ContactAssignmentRequest
 }
 
@@ -263,7 +1034,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsBulkPartialUpdateExecute(r 
 
 type ApiTenancyContactAssignmentsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactAssignmentRequest *[]ContactAssignmentRequest
 }
 
@@ -387,7 +1158,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsBulkUpdateExecute(r ApiTena
 
 type ApiTenancyContactAssignmentsCreateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	writableContactAssignmentRequest *WritableContactAssignmentRequest
 }
 
@@ -511,7 +1282,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsCreateExecute(r ApiTenancyC
 
 type ApiTenancyContactAssignmentsDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -617,7 +1388,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsDestroyExecute(r ApiTenancy
 
 type ApiTenancyContactAssignmentsListRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactId *[]int32
 	contactIdN *[]int32
 	created *[]time.Time
@@ -1523,7 +2294,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsListExecute(r ApiTenancyCon
 
 type ApiTenancyContactAssignmentsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	patchedWritableContactAssignmentRequest *PatchedWritableContactAssignmentRequest
 }
@@ -1648,7 +2419,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsPartialUpdateExecute(r ApiT
 
 type ApiTenancyContactAssignmentsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -1765,7 +2536,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsRetrieveExecute(r ApiTenanc
 
 type ApiTenancyContactAssignmentsUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	writableContactAssignmentRequest *WritableContactAssignmentRequest
 }
@@ -1893,7 +2664,7 @@ func (a *TenancyAPIService) TenancyContactAssignmentsUpdateExecute(r ApiTenancyC
 
 type ApiTenancyContactGroupsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactGroupRequest *[]ContactGroupRequest
 }
 
@@ -2006,7 +2777,7 @@ func (a *TenancyAPIService) TenancyContactGroupsBulkDestroyExecute(r ApiTenancyC
 
 type ApiTenancyContactGroupsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactGroupRequest *[]ContactGroupRequest
 }
 
@@ -2130,7 +2901,7 @@ func (a *TenancyAPIService) TenancyContactGroupsBulkPartialUpdateExecute(r ApiTe
 
 type ApiTenancyContactGroupsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactGroupRequest *[]ContactGroupRequest
 }
 
@@ -2254,7 +3025,7 @@ func (a *TenancyAPIService) TenancyContactGroupsBulkUpdateExecute(r ApiTenancyCo
 
 type ApiTenancyContactGroupsCreateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	writableContactGroupRequest *WritableContactGroupRequest
 }
 
@@ -2378,7 +3149,7 @@ func (a *TenancyAPIService) TenancyContactGroupsCreateExecute(r ApiTenancyContac
 
 type ApiTenancyContactGroupsDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -2484,7 +3255,7 @@ func (a *TenancyAPIService) TenancyContactGroupsDestroyExecute(r ApiTenancyConta
 
 type ApiTenancyContactGroupsListRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	ancestor *[]string
 	ancestorN *[]string
 	ancestorId *[]string
@@ -3724,7 +4495,7 @@ func (a *TenancyAPIService) TenancyContactGroupsListExecute(r ApiTenancyContactG
 
 type ApiTenancyContactGroupsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	patchedWritableContactGroupRequest *PatchedWritableContactGroupRequest
 }
@@ -3849,7 +4620,7 @@ func (a *TenancyAPIService) TenancyContactGroupsPartialUpdateExecute(r ApiTenanc
 
 type ApiTenancyContactGroupsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -3966,7 +4737,7 @@ func (a *TenancyAPIService) TenancyContactGroupsRetrieveExecute(r ApiTenancyCont
 
 type ApiTenancyContactGroupsUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	writableContactGroupRequest *WritableContactGroupRequest
 }
@@ -4094,7 +4865,7 @@ func (a *TenancyAPIService) TenancyContactGroupsUpdateExecute(r ApiTenancyContac
 
 type ApiTenancyContactRolesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRoleRequest *[]ContactRoleRequest
 }
 
@@ -4207,7 +4978,7 @@ func (a *TenancyAPIService) TenancyContactRolesBulkDestroyExecute(r ApiTenancyCo
 
 type ApiTenancyContactRolesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRoleRequest *[]ContactRoleRequest
 }
 
@@ -4331,7 +5102,7 @@ func (a *TenancyAPIService) TenancyContactRolesBulkPartialUpdateExecute(r ApiTen
 
 type ApiTenancyContactRolesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRoleRequest *[]ContactRoleRequest
 }
 
@@ -4455,7 +5226,7 @@ func (a *TenancyAPIService) TenancyContactRolesBulkUpdateExecute(r ApiTenancyCon
 
 type ApiTenancyContactRolesCreateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRoleRequest *ContactRoleRequest
 }
 
@@ -4579,7 +5350,7 @@ func (a *TenancyAPIService) TenancyContactRolesCreateExecute(r ApiTenancyContact
 
 type ApiTenancyContactRolesDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -4685,7 +5456,7 @@ func (a *TenancyAPIService) TenancyContactRolesDestroyExecute(r ApiTenancyContac
 
 type ApiTenancyContactRolesListRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -5785,7 +6556,7 @@ func (a *TenancyAPIService) TenancyContactRolesListExecute(r ApiTenancyContactRo
 
 type ApiTenancyContactRolesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	patchedContactRoleRequest *PatchedContactRoleRequest
 }
@@ -5910,7 +6681,7 @@ func (a *TenancyAPIService) TenancyContactRolesPartialUpdateExecute(r ApiTenancy
 
 type ApiTenancyContactRolesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -6027,7 +6798,7 @@ func (a *TenancyAPIService) TenancyContactRolesRetrieveExecute(r ApiTenancyConta
 
 type ApiTenancyContactRolesUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	contactRoleRequest *ContactRoleRequest
 }
@@ -6155,7 +6926,7 @@ func (a *TenancyAPIService) TenancyContactRolesUpdateExecute(r ApiTenancyContact
 
 type ApiTenancyContactsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRequest *[]ContactRequest
 }
 
@@ -6268,7 +7039,7 @@ func (a *TenancyAPIService) TenancyContactsBulkDestroyExecute(r ApiTenancyContac
 
 type ApiTenancyContactsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRequest *[]ContactRequest
 }
 
@@ -6392,7 +7163,7 @@ func (a *TenancyAPIService) TenancyContactsBulkPartialUpdateExecute(r ApiTenancy
 
 type ApiTenancyContactsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRequest *[]ContactRequest
 }
 
@@ -6516,7 +7287,7 @@ func (a *TenancyAPIService) TenancyContactsBulkUpdateExecute(r ApiTenancyContact
 
 type ApiTenancyContactsCreateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contactRequest *ContactRequest
 }
 
@@ -6640,7 +7411,7 @@ func (a *TenancyAPIService) TenancyContactsCreateExecute(r ApiTenancyContactsCre
 
 type ApiTenancyContactsDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -6746,7 +7517,7 @@ func (a *TenancyAPIService) TenancyContactsDestroyExecute(r ApiTenancyContactsDe
 
 type ApiTenancyContactsListRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	address *[]string
 	addressEmpty *bool
 	addressIc *[]string
@@ -8630,7 +9401,7 @@ func (a *TenancyAPIService) TenancyContactsListExecute(r ApiTenancyContactsListR
 
 type ApiTenancyContactsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	patchedContactRequest *PatchedContactRequest
 }
@@ -8755,7 +9526,7 @@ func (a *TenancyAPIService) TenancyContactsPartialUpdateExecute(r ApiTenancyCont
 
 type ApiTenancyContactsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -8872,7 +9643,7 @@ func (a *TenancyAPIService) TenancyContactsRetrieveExecute(r ApiTenancyContactsR
 
 type ApiTenancyContactsUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	contactRequest *ContactRequest
 }
@@ -9000,7 +9771,7 @@ func (a *TenancyAPIService) TenancyContactsUpdateExecute(r ApiTenancyContactsUpd
 
 type ApiTenancyTenantGroupsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	tenantGroupRequest *[]TenantGroupRequest
 }
 
@@ -9113,7 +9884,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsBulkDestroyExecute(r ApiTenancyTe
 
 type ApiTenancyTenantGroupsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	tenantGroupRequest *[]TenantGroupRequest
 }
 
@@ -9237,7 +10008,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsBulkPartialUpdateExecute(r ApiTen
 
 type ApiTenancyTenantGroupsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	tenantGroupRequest *[]TenantGroupRequest
 }
 
@@ -9361,7 +10132,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsBulkUpdateExecute(r ApiTenancyTen
 
 type ApiTenancyTenantGroupsCreateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	writableTenantGroupRequest *WritableTenantGroupRequest
 }
 
@@ -9485,7 +10256,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsCreateExecute(r ApiTenancyTenantG
 
 type ApiTenancyTenantGroupsDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -9591,7 +10362,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsDestroyExecute(r ApiTenancyTenant
 
 type ApiTenancyTenantGroupsListRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	ancestor *[]string
 	ancestorN *[]string
 	ancestorId *[]string
@@ -10831,7 +11602,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsListExecute(r ApiTenancyTenantGro
 
 type ApiTenancyTenantGroupsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	patchedWritableTenantGroupRequest *PatchedWritableTenantGroupRequest
 }
@@ -10956,7 +11727,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsPartialUpdateExecute(r ApiTenancy
 
 type ApiTenancyTenantGroupsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -11073,7 +11844,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsRetrieveExecute(r ApiTenancyTenan
 
 type ApiTenancyTenantGroupsUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	writableTenantGroupRequest *WritableTenantGroupRequest
 }
@@ -11201,7 +11972,7 @@ func (a *TenancyAPIService) TenancyTenantGroupsUpdateExecute(r ApiTenancyTenantG
 
 type ApiTenancyTenantsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	tenantRequest *[]TenantRequest
 }
 
@@ -11314,7 +12085,7 @@ func (a *TenancyAPIService) TenancyTenantsBulkDestroyExecute(r ApiTenancyTenants
 
 type ApiTenancyTenantsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	tenantRequest *[]TenantRequest
 }
 
@@ -11438,7 +12209,7 @@ func (a *TenancyAPIService) TenancyTenantsBulkPartialUpdateExecute(r ApiTenancyT
 
 type ApiTenancyTenantsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	tenantRequest *[]TenantRequest
 }
 
@@ -11562,7 +12333,7 @@ func (a *TenancyAPIService) TenancyTenantsBulkUpdateExecute(r ApiTenancyTenantsB
 
 type ApiTenancyTenantsCreateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	tenantRequest *TenantRequest
 }
 
@@ -11686,7 +12457,7 @@ func (a *TenancyAPIService) TenancyTenantsCreateExecute(r ApiTenancyTenantsCreat
 
 type ApiTenancyTenantsDestroyRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -11792,7 +12563,7 @@ func (a *TenancyAPIService) TenancyTenantsDestroyExecute(r ApiTenancyTenantsDest
 
 type ApiTenancyTenantsListRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	contact *[]int32
 	contactN *[]int32
 	contactGroup *[]string
@@ -13066,7 +13837,7 @@ func (a *TenancyAPIService) TenancyTenantsListExecute(r ApiTenancyTenantsListReq
 
 type ApiTenancyTenantsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	patchedTenantRequest *PatchedTenantRequest
 }
@@ -13191,7 +13962,7 @@ func (a *TenancyAPIService) TenancyTenantsPartialUpdateExecute(r ApiTenancyTenan
 
 type ApiTenancyTenantsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 }
 
@@ -13308,7 +14079,7 @@ func (a *TenancyAPIService) TenancyTenantsRetrieveExecute(r ApiTenancyTenantsRet
 
 type ApiTenancyTenantsUpdateRequest struct {
 	ctx context.Context
-	ApiService *TenancyAPIService
+	ApiService TenancyAPI
 	id int32
 	tenantRequest *TenantRequest
 }

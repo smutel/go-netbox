@@ -93,6 +93,7 @@ func (o *ObjectChange) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *ObjectChange) GetUrl() string {
 	if o == nil {
@@ -116,6 +117,7 @@ func (o *ObjectChange) GetUrlOk() (*string, bool) {
 func (o *ObjectChange) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *ObjectChange) GetDisplay() string {
@@ -141,6 +143,7 @@ func (o *ObjectChange) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetTime returns the Time field value
 func (o *ObjectChange) GetTime() time.Time {
 	if o == nil {
@@ -164,6 +167,7 @@ func (o *ObjectChange) GetTimeOk() (*time.Time, bool) {
 func (o *ObjectChange) SetTime(v time.Time) {
 	o.Time = v
 }
+
 
 // GetUser returns the User field value
 func (o *ObjectChange) GetUser() BriefUser {
@@ -189,6 +193,7 @@ func (o *ObjectChange) SetUser(v BriefUser) {
 	o.User = v
 }
 
+
 // GetUserName returns the UserName field value
 func (o *ObjectChange) GetUserName() string {
 	if o == nil {
@@ -212,6 +217,7 @@ func (o *ObjectChange) GetUserNameOk() (*string, bool) {
 func (o *ObjectChange) SetUserName(v string) {
 	o.UserName = v
 }
+
 
 // GetRequestId returns the RequestId field value
 func (o *ObjectChange) GetRequestId() string {
@@ -237,6 +243,7 @@ func (o *ObjectChange) SetRequestId(v string) {
 	o.RequestId = v
 }
 
+
 // GetAction returns the Action field value
 func (o *ObjectChange) GetAction() ObjectChangeAction {
 	if o == nil {
@@ -260,6 +267,7 @@ func (o *ObjectChange) GetActionOk() (*ObjectChangeAction, bool) {
 func (o *ObjectChange) SetAction(v ObjectChangeAction) {
 	o.Action = v
 }
+
 
 // GetChangedObjectType returns the ChangedObjectType field value
 func (o *ObjectChange) GetChangedObjectType() string {
@@ -285,6 +293,7 @@ func (o *ObjectChange) SetChangedObjectType(v string) {
 	o.ChangedObjectType = v
 }
 
+
 // GetChangedObjectId returns the ChangedObjectId field value
 func (o *ObjectChange) GetChangedObjectId() int64 {
 	if o == nil {
@@ -308,6 +317,7 @@ func (o *ObjectChange) GetChangedObjectIdOk() (*int64, bool) {
 func (o *ObjectChange) SetChangedObjectId(v int64) {
 	o.ChangedObjectId = v
 }
+
 
 // GetChangedObject returns the ChangedObject field value
 // If the value is explicit nil, the zero value for interface{} will be returned
@@ -335,6 +345,7 @@ func (o *ObjectChange) SetChangedObject(v interface{}) {
 	o.ChangedObject = v
 }
 
+
 // GetPrechangeData returns the PrechangeData field value
 // If the value is explicit nil, the zero value for interface{} will be returned
 func (o *ObjectChange) GetPrechangeData() interface{} {
@@ -361,6 +372,7 @@ func (o *ObjectChange) SetPrechangeData(v interface{}) {
 	o.PrechangeData = v
 }
 
+
 // GetPostchangeData returns the PostchangeData field value
 // If the value is explicit nil, the zero value for interface{} will be returned
 func (o *ObjectChange) GetPostchangeData() interface{} {
@@ -386,6 +398,7 @@ func (o *ObjectChange) GetPostchangeDataOk() (*interface{}, bool) {
 func (o *ObjectChange) SetPostchangeData(v interface{}) {
 	o.PostchangeData = v
 }
+
 
 func (o ObjectChange) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -444,6 +457,11 @@ func (o *ObjectChange) UnmarshalJSON(data []byte) (err error) {
 		"postchange_data",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -453,11 +471,23 @@ func (o *ObjectChange) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varObjectChange := _ObjectChange{}
 
 	err = json.Unmarshal(data, &varObjectChange)

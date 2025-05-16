@@ -89,6 +89,7 @@ func (o *RackReservation) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *RackReservation) GetUrl() string {
 	if o == nil {
@@ -112,6 +113,7 @@ func (o *RackReservation) GetUrlOk() (*string, bool) {
 func (o *RackReservation) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *RackReservation) GetDisplay() string {
@@ -137,6 +139,7 @@ func (o *RackReservation) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetRack returns the Rack field value
 func (o *RackReservation) GetRack() BriefRack {
 	if o == nil {
@@ -161,6 +164,7 @@ func (o *RackReservation) SetRack(v BriefRack) {
 	o.Rack = v
 }
 
+
 // GetUnits returns the Units field value
 func (o *RackReservation) GetUnits() []int32 {
 	if o == nil {
@@ -184,6 +188,7 @@ func (o *RackReservation) GetUnitsOk() ([]int32, bool) {
 func (o *RackReservation) SetUnits(v []int32) {
 	o.Units = v
 }
+
 
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -211,6 +216,7 @@ func (o *RackReservation) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *RackReservation) GetLastUpdated() time.Time {
@@ -237,6 +243,7 @@ func (o *RackReservation) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetUser returns the User field value
 func (o *RackReservation) GetUser() BriefUser {
 	if o == nil {
@@ -260,6 +267,7 @@ func (o *RackReservation) GetUserOk() (*BriefUser, bool) {
 func (o *RackReservation) SetUser(v BriefUser) {
 	o.User = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RackReservation) GetTenant() BriefTenant {
@@ -326,6 +334,7 @@ func (o *RackReservation) GetDescriptionOk() (*string, bool) {
 func (o *RackReservation) SetDescription(v string) {
 	o.Description = v
 }
+
 
 // GetComments returns the Comments field value if set, zero value otherwise.
 func (o *RackReservation) GetComments() string {
@@ -478,6 +487,11 @@ func (o *RackReservation) UnmarshalJSON(data []byte) (err error) {
 		"description",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -487,11 +501,23 @@ func (o *RackReservation) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varRackReservation := _RackReservation{}
 
 	err = json.Unmarshal(data, &varRackReservation)

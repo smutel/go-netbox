@@ -83,6 +83,7 @@ func (o *CircuitCircuitTermination) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *CircuitCircuitTermination) GetUrl() string {
 	if o == nil {
@@ -107,6 +108,7 @@ func (o *CircuitCircuitTermination) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *CircuitCircuitTermination) GetDisplay() string {
 	if o == nil {
@@ -130,6 +132,7 @@ func (o *CircuitCircuitTermination) GetDisplayOk() (*string, bool) {
 func (o *CircuitCircuitTermination) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetSite returns the Site field value
 // If the value is explicit nil, the zero value for BriefSite will be returned
@@ -157,6 +160,7 @@ func (o *CircuitCircuitTermination) SetSite(v BriefSite) {
 	o.Site.Set(&v)
 }
 
+
 // GetProviderNetwork returns the ProviderNetwork field value
 // If the value is explicit nil, the zero value for BriefProviderNetwork will be returned
 func (o *CircuitCircuitTermination) GetProviderNetwork() BriefProviderNetwork {
@@ -182,6 +186,7 @@ func (o *CircuitCircuitTermination) GetProviderNetworkOk() (*BriefProviderNetwor
 func (o *CircuitCircuitTermination) SetProviderNetwork(v BriefProviderNetwork) {
 	o.ProviderNetwork.Set(&v)
 }
+
 
 // GetPortSpeed returns the PortSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitCircuitTermination) GetPortSpeed() int32 {
@@ -378,6 +383,11 @@ func (o *CircuitCircuitTermination) UnmarshalJSON(data []byte) (err error) {
 		"provider_network",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -387,11 +397,23 @@ func (o *CircuitCircuitTermination) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCircuitCircuitTermination := _CircuitCircuitTermination{}
 
 	err = json.Unmarshal(data, &varCircuitCircuitTermination)

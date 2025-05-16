@@ -84,6 +84,7 @@ func (o *CircuitRequest) SetCid(v string) {
 	o.Cid = v
 }
 
+
 // GetProvider returns the Provider field value
 func (o *CircuitRequest) GetProvider() BriefProviderRequest {
 	if o == nil {
@@ -107,6 +108,7 @@ func (o *CircuitRequest) GetProviderOk() (*BriefProviderRequest, bool) {
 func (o *CircuitRequest) SetProvider(v BriefProviderRequest) {
 	o.Provider = v
 }
+
 
 // GetProviderAccount returns the ProviderAccount field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitRequest) GetProviderAccount() BriefProviderAccountRequest {
@@ -173,6 +175,7 @@ func (o *CircuitRequest) GetTypeOk() (*BriefCircuitTypeRequest, bool) {
 func (o *CircuitRequest) SetType(v BriefCircuitTypeRequest) {
 	o.Type = v
 }
+
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *CircuitRequest) GetStatus() CircuitStatusValue {
@@ -563,6 +566,11 @@ func (o *CircuitRequest) UnmarshalJSON(data []byte) (err error) {
 		"type",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -572,11 +580,23 @@ func (o *CircuitRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCircuitRequest := _CircuitRequest{}
 
 	err = json.Unmarshal(data, &varCircuitRequest)

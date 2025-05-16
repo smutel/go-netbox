@@ -86,6 +86,7 @@ func (o *ClusterType) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *ClusterType) GetUrl() string {
 	if o == nil {
@@ -109,6 +110,7 @@ func (o *ClusterType) GetUrlOk() (*string, bool) {
 func (o *ClusterType) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *ClusterType) GetDisplay() string {
@@ -134,6 +136,7 @@ func (o *ClusterType) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *ClusterType) GetName() string {
 	if o == nil {
@@ -158,6 +161,7 @@ func (o *ClusterType) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *ClusterType) GetSlug() string {
 	if o == nil {
@@ -181,6 +185,7 @@ func (o *ClusterType) GetSlugOk() (*string, bool) {
 func (o *ClusterType) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ClusterType) GetDescription() string {
@@ -304,6 +309,7 @@ func (o *ClusterType) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ClusterType) GetLastUpdated() time.Time {
@@ -330,6 +336,7 @@ func (o *ClusterType) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetClusterCount returns the ClusterCount field value
 func (o *ClusterType) GetClusterCount() int64 {
 	if o == nil {
@@ -353,6 +360,7 @@ func (o *ClusterType) GetClusterCountOk() (*int64, bool) {
 func (o *ClusterType) SetClusterCount(v int64) {
 	o.ClusterCount = v
 }
+
 
 func (o ClusterType) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -404,6 +412,11 @@ func (o *ClusterType) UnmarshalJSON(data []byte) (err error) {
 		"cluster_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -413,11 +426,23 @@ func (o *ClusterType) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varClusterType := _ClusterType{}
 
 	err = json.Unmarshal(data, &varClusterType)

@@ -90,6 +90,7 @@ func (o *WirelessLAN) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *WirelessLAN) GetUrl() string {
 	if o == nil {
@@ -113,6 +114,7 @@ func (o *WirelessLAN) GetUrlOk() (*string, bool) {
 func (o *WirelessLAN) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *WirelessLAN) GetDisplay() string {
@@ -138,6 +140,7 @@ func (o *WirelessLAN) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetSsid returns the Ssid field value
 func (o *WirelessLAN) GetSsid() string {
 	if o == nil {
@@ -161,6 +164,7 @@ func (o *WirelessLAN) GetSsidOk() (*string, bool) {
 func (o *WirelessLAN) SetSsid(v string) {
 	o.Ssid = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WirelessLAN) GetDescription() string {
@@ -570,6 +574,7 @@ func (o *WirelessLAN) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *WirelessLAN) GetLastUpdated() time.Time {
@@ -595,6 +600,7 @@ func (o *WirelessLAN) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *WirelessLAN) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o WirelessLAN) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -666,6 +672,11 @@ func (o *WirelessLAN) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -675,11 +686,23 @@ func (o *WirelessLAN) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWirelessLAN := _WirelessLAN{}
 
 	err = json.Unmarshal(data, &varWirelessLAN)

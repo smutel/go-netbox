@@ -79,6 +79,7 @@ func (o *SavedFilterRequest) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
+
 // GetName returns the Name field value
 func (o *SavedFilterRequest) GetName() string {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *SavedFilterRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *SavedFilterRequest) GetSlug() string {
 	if o == nil {
@@ -126,6 +128,7 @@ func (o *SavedFilterRequest) GetSlugOk() (*string, bool) {
 func (o *SavedFilterRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *SavedFilterRequest) GetDescription() string {
@@ -323,6 +326,7 @@ func (o *SavedFilterRequest) SetParameters(v interface{}) {
 	o.Parameters = v
 }
 
+
 func (o SavedFilterRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -373,6 +377,11 @@ func (o *SavedFilterRequest) UnmarshalJSON(data []byte) (err error) {
 		"parameters",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -382,11 +391,23 @@ func (o *SavedFilterRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varSavedFilterRequest := _SavedFilterRequest{}
 
 	err = json.Unmarshal(data, &varSavedFilterRequest)

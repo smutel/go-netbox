@@ -76,6 +76,7 @@ func (o *BriefCircuit) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefCircuit) GetUrl() string {
 	if o == nil {
@@ -99,6 +100,7 @@ func (o *BriefCircuit) GetUrlOk() (*string, bool) {
 func (o *BriefCircuit) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefCircuit) GetDisplay() string {
@@ -124,6 +126,7 @@ func (o *BriefCircuit) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetCid returns the Cid field value
 func (o *BriefCircuit) GetCid() string {
 	if o == nil {
@@ -147,6 +150,7 @@ func (o *BriefCircuit) GetCidOk() (*string, bool) {
 func (o *BriefCircuit) SetCid(v string) {
 	o.Cid = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefCircuit) GetDescription() string {
@@ -216,6 +220,11 @@ func (o *BriefCircuit) UnmarshalJSON(data []byte) (err error) {
 		"cid",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -225,11 +234,23 @@ func (o *BriefCircuit) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefCircuit := _BriefCircuit{}
 
 	err = json.Unmarshal(data, &varBriefCircuit)

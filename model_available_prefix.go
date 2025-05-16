@@ -72,6 +72,7 @@ func (o *AvailablePrefix) SetFamily(v int32) {
 	o.Family = v
 }
 
+
 // GetPrefix returns the Prefix field value
 func (o *AvailablePrefix) GetPrefix() string {
 	if o == nil {
@@ -95,6 +96,7 @@ func (o *AvailablePrefix) GetPrefixOk() (*string, bool) {
 func (o *AvailablePrefix) SetPrefix(v string) {
 	o.Prefix = v
 }
+
 
 // GetVrf returns the Vrf field value
 // If the value is explicit nil, the zero value for BriefVRF will be returned
@@ -121,6 +123,7 @@ func (o *AvailablePrefix) GetVrfOk() (*BriefVRF, bool) {
 func (o *AvailablePrefix) SetVrf(v BriefVRF) {
 	o.Vrf.Set(&v)
 }
+
 
 func (o AvailablePrefix) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -153,6 +156,11 @@ func (o *AvailablePrefix) UnmarshalJSON(data []byte) (err error) {
 		"vrf",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -162,11 +170,23 @@ func (o *AvailablePrefix) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varAvailablePrefix := _AvailablePrefix{}
 
 	err = json.Unmarshal(data, &varAvailablePrefix)

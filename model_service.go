@@ -89,6 +89,7 @@ func (o *Service) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Service) GetUrl() string {
 	if o == nil {
@@ -113,6 +114,7 @@ func (o *Service) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *Service) GetDisplay() string {
 	if o == nil {
@@ -136,6 +138,7 @@ func (o *Service) GetDisplayOk() (*string, bool) {
 func (o *Service) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetDevice returns the Device field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Service) GetDevice() BriefDevice {
@@ -245,6 +248,7 @@ func (o *Service) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetProtocol returns the Protocol field value if set, zero value otherwise.
 func (o *Service) GetProtocol() ServiceProtocol {
 	if o == nil || IsNil(o.Protocol) {
@@ -300,6 +304,7 @@ func (o *Service) GetPortsOk() ([]int32, bool) {
 func (o *Service) SetPorts(v []int32) {
 	o.Ports = v
 }
+
 
 // GetIpaddresses returns the Ipaddresses field value if set, zero value otherwise.
 func (o *Service) GetIpaddresses() []IPAddress {
@@ -487,6 +492,7 @@ func (o *Service) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Service) GetLastUpdated() time.Time {
@@ -512,6 +518,7 @@ func (o *Service) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *Service) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o Service) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -576,6 +583,11 @@ func (o *Service) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -585,11 +597,23 @@ func (o *Service) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varService := _Service{}
 
 	err = json.Unmarshal(data, &varService)

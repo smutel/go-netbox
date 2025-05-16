@@ -71,6 +71,7 @@ func (o *BriefWirelessLANGroupRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefWirelessLANGroupRequest) GetSlug() string {
 	if o == nil {
@@ -94,6 +95,7 @@ func (o *BriefWirelessLANGroupRequest) GetSlugOk() (*string, bool) {
 func (o *BriefWirelessLANGroupRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefWirelessLANGroupRequest) GetDescription() string {
@@ -159,6 +161,11 @@ func (o *BriefWirelessLANGroupRequest) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -168,11 +175,23 @@ func (o *BriefWirelessLANGroupRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefWirelessLANGroupRequest := _BriefWirelessLANGroupRequest{}
 
 	err = json.Unmarshal(data, &varBriefWirelessLANGroupRequest)

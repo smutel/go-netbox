@@ -87,6 +87,7 @@ func (o *DeviceBay) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *DeviceBay) GetUrl() string {
 	if o == nil {
@@ -110,6 +111,7 @@ func (o *DeviceBay) GetUrlOk() (*string, bool) {
 func (o *DeviceBay) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *DeviceBay) GetDisplay() string {
@@ -135,6 +137,7 @@ func (o *DeviceBay) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *DeviceBay) GetDevice() BriefDevice {
 	if o == nil {
@@ -159,6 +162,7 @@ func (o *DeviceBay) SetDevice(v BriefDevice) {
 	o.Device = v
 }
 
+
 // GetName returns the Name field value
 func (o *DeviceBay) GetName() string {
 	if o == nil {
@@ -182,6 +186,7 @@ func (o *DeviceBay) GetNameOk() (*string, bool) {
 func (o *DeviceBay) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *DeviceBay) GetLabel() string {
@@ -379,6 +384,7 @@ func (o *DeviceBay) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DeviceBay) GetLastUpdated() time.Time {
@@ -404,6 +410,7 @@ func (o *DeviceBay) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *DeviceBay) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o DeviceBay) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -459,6 +466,11 @@ func (o *DeviceBay) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -468,11 +480,23 @@ func (o *DeviceBay) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varDeviceBay := _DeviceBay{}
 
 	err = json.Unmarshal(data, &varDeviceBay)

@@ -91,6 +91,7 @@ func (o *WirelessLink) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *WirelessLink) GetUrl() string {
 	if o == nil {
@@ -114,6 +115,7 @@ func (o *WirelessLink) GetUrlOk() (*string, bool) {
 func (o *WirelessLink) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *WirelessLink) GetDisplay() string {
@@ -139,6 +141,7 @@ func (o *WirelessLink) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetInterfaceA returns the InterfaceA field value
 func (o *WirelessLink) GetInterfaceA() BriefInterface {
 	if o == nil {
@@ -163,6 +166,7 @@ func (o *WirelessLink) SetInterfaceA(v BriefInterface) {
 	o.InterfaceA = v
 }
 
+
 // GetInterfaceB returns the InterfaceB field value
 func (o *WirelessLink) GetInterfaceB() BriefInterface {
 	if o == nil {
@@ -186,6 +190,7 @@ func (o *WirelessLink) GetInterfaceBOk() (*BriefInterface, bool) {
 func (o *WirelessLink) SetInterfaceB(v BriefInterface) {
 	o.InterfaceB = v
 }
+
 
 // GetSsid returns the Ssid field value if set, zero value otherwise.
 func (o *WirelessLink) GetSsid() string {
@@ -543,6 +548,7 @@ func (o *WirelessLink) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *WirelessLink) GetLastUpdated() time.Time {
@@ -568,6 +574,7 @@ func (o *WirelessLink) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *WirelessLink) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o WirelessLink) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -638,6 +645,11 @@ func (o *WirelessLink) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -647,11 +659,23 @@ func (o *WirelessLink) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWirelessLink := _WirelessLink{}
 
 	err = json.Unmarshal(data, &varWirelessLink)

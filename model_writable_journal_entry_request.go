@@ -76,6 +76,7 @@ func (o *WritableJournalEntryRequest) SetAssignedObjectType(v string) {
 	o.AssignedObjectType = v
 }
 
+
 // GetAssignedObjectId returns the AssignedObjectId field value
 func (o *WritableJournalEntryRequest) GetAssignedObjectId() int64 {
 	if o == nil {
@@ -99,6 +100,7 @@ func (o *WritableJournalEntryRequest) GetAssignedObjectIdOk() (*int64, bool) {
 func (o *WritableJournalEntryRequest) SetAssignedObjectId(v int64) {
 	o.AssignedObjectId = v
 }
+
 
 // GetCreatedBy returns the CreatedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableJournalEntryRequest) GetCreatedBy() int32 {
@@ -197,6 +199,7 @@ func (o *WritableJournalEntryRequest) GetCommentsOk() (*string, bool) {
 func (o *WritableJournalEntryRequest) SetComments(v string) {
 	o.Comments = v
 }
+
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *WritableJournalEntryRequest) GetTags() []NestedTagRequest {
@@ -305,6 +308,11 @@ func (o *WritableJournalEntryRequest) UnmarshalJSON(data []byte) (err error) {
 		"comments",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -314,11 +322,23 @@ func (o *WritableJournalEntryRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableJournalEntryRequest := _WritableJournalEntryRequest{}
 
 	err = json.Unmarshal(data, &varWritableJournalEntryRequest)

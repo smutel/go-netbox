@@ -76,6 +76,7 @@ func (o *BriefJob) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetStatus returns the Status field value
 func (o *BriefJob) GetStatus() BriefJobStatus {
 	if o == nil {
@@ -100,6 +101,7 @@ func (o *BriefJob) SetStatus(v BriefJobStatus) {
 	o.Status = v
 }
 
+
 // GetCreated returns the Created field value
 func (o *BriefJob) GetCreated() time.Time {
 	if o == nil {
@@ -123,6 +125,7 @@ func (o *BriefJob) GetCreatedOk() (*time.Time, bool) {
 func (o *BriefJob) SetCreated(v time.Time) {
 	o.Created = v
 }
+
 
 // GetCompleted returns the Completed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefJob) GetCompleted() time.Time {
@@ -190,6 +193,7 @@ func (o *BriefJob) SetUser(v BriefUser) {
 	o.User = v
 }
 
+
 func (o BriefJob) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -226,6 +230,11 @@ func (o *BriefJob) UnmarshalJSON(data []byte) (err error) {
 		"user",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -235,11 +244,23 @@ func (o *BriefJob) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefJob := _BriefJob{}
 
 	err = json.Unmarshal(data, &varBriefJob)

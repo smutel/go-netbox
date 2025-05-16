@@ -98,6 +98,7 @@ func (o *IPAddress) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *IPAddress) GetUrl() string {
 	if o == nil {
@@ -121,6 +122,7 @@ func (o *IPAddress) GetUrlOk() (*string, bool) {
 func (o *IPAddress) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *IPAddress) GetDisplay() string {
@@ -146,6 +148,7 @@ func (o *IPAddress) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetFamily returns the Family field value
 func (o *IPAddress) GetFamily() AggregateFamily {
 	if o == nil {
@@ -170,6 +173,7 @@ func (o *IPAddress) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
 
+
 // GetAddress returns the Address field value
 func (o *IPAddress) GetAddress() string {
 	if o == nil {
@@ -193,6 +197,7 @@ func (o *IPAddress) GetAddressOk() (*string, bool) {
 func (o *IPAddress) SetAddress(v string) {
 	o.Address = v
 }
+
 
 // GetVrf returns the Vrf field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IPAddress) GetVrf() BriefVRF {
@@ -452,6 +457,7 @@ func (o *IPAddress) SetAssignedObject(v interface{}) {
 	o.AssignedObject = v
 }
 
+
 // GetNatInside returns the NatInside field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IPAddress) GetNatInside() NestedIPAddress {
 	if o == nil || IsNil(o.NatInside.Get()) {
@@ -517,6 +523,7 @@ func (o *IPAddress) GetNatOutsideOk() ([]NestedIPAddress, bool) {
 func (o *IPAddress) SetNatOutside(v []NestedIPAddress) {
 	o.NatOutside = v
 }
+
 
 // GetDnsName returns the DnsName field value if set, zero value otherwise.
 func (o *IPAddress) GetDnsName() string {
@@ -704,6 +711,7 @@ func (o *IPAddress) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *IPAddress) GetLastUpdated() time.Time {
@@ -729,6 +737,7 @@ func (o *IPAddress) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *IPAddress) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o IPAddress) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -811,6 +820,11 @@ func (o *IPAddress) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -820,11 +834,23 @@ func (o *IPAddress) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varIPAddress := _IPAddress{}
 
 	err = json.Unmarshal(data, &varIPAddress)

@@ -72,6 +72,7 @@ func (o *BookmarkRequest) SetObjectType(v string) {
 	o.ObjectType = v
 }
 
+
 // GetObjectId returns the ObjectId field value
 func (o *BookmarkRequest) GetObjectId() int64 {
 	if o == nil {
@@ -96,6 +97,7 @@ func (o *BookmarkRequest) SetObjectId(v int64) {
 	o.ObjectId = v
 }
 
+
 // GetUser returns the User field value
 func (o *BookmarkRequest) GetUser() BriefUserRequest {
 	if o == nil {
@@ -119,6 +121,7 @@ func (o *BookmarkRequest) GetUserOk() (*BriefUserRequest, bool) {
 func (o *BookmarkRequest) SetUser(v BriefUserRequest) {
 	o.User = v
 }
+
 
 func (o BookmarkRequest) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -151,6 +154,11 @@ func (o *BookmarkRequest) UnmarshalJSON(data []byte) (err error) {
 		"user",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -160,11 +168,23 @@ func (o *BookmarkRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBookmarkRequest := _BookmarkRequest{}
 
 	err = json.Unmarshal(data, &varBookmarkRequest)

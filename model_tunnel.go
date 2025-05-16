@@ -93,6 +93,7 @@ func (o *Tunnel) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Tunnel) GetUrl() string {
 	if o == nil {
@@ -116,6 +117,7 @@ func (o *Tunnel) GetUrlOk() (*string, bool) {
 func (o *Tunnel) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Tunnel) GetDisplay() string {
@@ -141,6 +143,7 @@ func (o *Tunnel) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *Tunnel) GetName() string {
 	if o == nil {
@@ -165,6 +168,7 @@ func (o *Tunnel) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetStatus returns the Status field value
 func (o *Tunnel) GetStatus() TunnelStatus {
 	if o == nil {
@@ -188,6 +192,7 @@ func (o *Tunnel) GetStatusOk() (*TunnelStatus, bool) {
 func (o *Tunnel) SetStatus(v TunnelStatus) {
 	o.Status = v
 }
+
 
 // GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Tunnel) GetGroup() BriefTunnelGroup {
@@ -254,6 +259,7 @@ func (o *Tunnel) GetEncapsulationOk() (*TunnelEncapsulation, bool) {
 func (o *Tunnel) SetEncapsulation(v TunnelEncapsulation) {
 	o.Encapsulation = v
 }
+
 
 // GetIpsecProfile returns the IpsecProfile field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Tunnel) GetIpsecProfile() BriefIPSecProfile {
@@ -535,6 +541,7 @@ func (o *Tunnel) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Tunnel) GetLastUpdated() time.Time {
@@ -561,6 +568,7 @@ func (o *Tunnel) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetTerminationsCount returns the TerminationsCount field value
 func (o *Tunnel) GetTerminationsCount() int64 {
 	if o == nil {
@@ -584,6 +592,7 @@ func (o *Tunnel) GetTerminationsCountOk() (*int64, bool) {
 func (o *Tunnel) SetTerminationsCount(v int64) {
 	o.TerminationsCount = v
 }
+
 
 func (o Tunnel) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -652,6 +661,11 @@ func (o *Tunnel) UnmarshalJSON(data []byte) (err error) {
 		"terminations_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -661,11 +675,23 @@ func (o *Tunnel) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varTunnel := _Tunnel{}
 
 	err = json.Unmarshal(data, &varTunnel)

@@ -91,6 +91,7 @@ func (o *EventRuleRequest) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
+
 // GetName returns the Name field value
 func (o *EventRuleRequest) GetName() string {
 	if o == nil {
@@ -114,6 +115,7 @@ func (o *EventRuleRequest) GetNameOk() (*string, bool) {
 func (o *EventRuleRequest) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetTypeCreate returns the TypeCreate field value if set, zero value otherwise.
 func (o *EventRuleRequest) GetTypeCreate() bool {
@@ -364,6 +366,7 @@ func (o *EventRuleRequest) SetActionType(v EventRuleActionTypeValue) {
 	o.ActionType = v
 }
 
+
 // GetActionObjectType returns the ActionObjectType field value
 func (o *EventRuleRequest) GetActionObjectType() string {
 	if o == nil {
@@ -387,6 +390,7 @@ func (o *EventRuleRequest) GetActionObjectTypeOk() (*string, bool) {
 func (o *EventRuleRequest) SetActionObjectType(v string) {
 	o.ActionObjectType = v
 }
+
 
 // GetActionObjectId returns the ActionObjectId field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *EventRuleRequest) GetActionObjectId() int64 {
@@ -592,6 +596,11 @@ func (o *EventRuleRequest) UnmarshalJSON(data []byte) (err error) {
 		"action_object_type",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -601,11 +610,23 @@ func (o *EventRuleRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varEventRuleRequest := _EventRuleRequest{}
 
 	err = json.Unmarshal(data, &varEventRuleRequest)

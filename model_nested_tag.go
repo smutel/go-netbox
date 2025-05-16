@@ -77,6 +77,7 @@ func (o *NestedTag) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *NestedTag) GetUrl() string {
 	if o == nil {
@@ -100,6 +101,7 @@ func (o *NestedTag) GetUrlOk() (*string, bool) {
 func (o *NestedTag) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *NestedTag) GetDisplay() string {
@@ -125,6 +127,7 @@ func (o *NestedTag) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *NestedTag) GetName() string {
 	if o == nil {
@@ -149,6 +152,7 @@ func (o *NestedTag) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *NestedTag) GetSlug() string {
 	if o == nil {
@@ -172,6 +176,7 @@ func (o *NestedTag) GetSlugOk() (*string, bool) {
 func (o *NestedTag) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *NestedTag) GetColor() string {
@@ -243,6 +248,11 @@ func (o *NestedTag) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -252,11 +262,23 @@ func (o *NestedTag) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varNestedTag := _NestedTag{}
 
 	err = json.Unmarshal(data, &varNestedTag)

@@ -99,6 +99,7 @@ func (o *VMInterface) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *VMInterface) GetUrl() string {
 	if o == nil {
@@ -122,6 +123,7 @@ func (o *VMInterface) GetUrlOk() (*string, bool) {
 func (o *VMInterface) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *VMInterface) GetDisplay() string {
@@ -147,6 +149,7 @@ func (o *VMInterface) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetVirtualMachine returns the VirtualMachine field value
 func (o *VMInterface) GetVirtualMachine() BriefVirtualMachine {
 	if o == nil {
@@ -171,6 +174,7 @@ func (o *VMInterface) SetVirtualMachine(v BriefVirtualMachine) {
 	o.VirtualMachine = v
 }
 
+
 // GetName returns the Name field value
 func (o *VMInterface) GetName() string {
 	if o == nil {
@@ -194,6 +198,7 @@ func (o *VMInterface) GetNameOk() (*string, bool) {
 func (o *VMInterface) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *VMInterface) GetEnabled() bool {
@@ -601,6 +606,7 @@ func (o *VMInterface) SetL2vpnTermination(v BriefL2VPNTermination) {
 	o.L2vpnTermination.Set(&v)
 }
 
+
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *VMInterface) GetTags() []NestedTag {
 	if o == nil || IsNil(o.Tags) {
@@ -691,6 +697,7 @@ func (o *VMInterface) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VMInterface) GetLastUpdated() time.Time {
@@ -717,6 +724,7 @@ func (o *VMInterface) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetCountIpaddresses returns the CountIpaddresses field value
 func (o *VMInterface) GetCountIpaddresses() int32 {
 	if o == nil {
@@ -741,6 +749,7 @@ func (o *VMInterface) SetCountIpaddresses(v int32) {
 	o.CountIpaddresses = v
 }
 
+
 // GetCountFhrpGroups returns the CountFhrpGroups field value
 func (o *VMInterface) GetCountFhrpGroups() int32 {
 	if o == nil {
@@ -764,6 +773,7 @@ func (o *VMInterface) GetCountFhrpGroupsOk() (*int32, bool) {
 func (o *VMInterface) SetCountFhrpGroups(v int32) {
 	o.CountFhrpGroups = v
 }
+
 
 func (o VMInterface) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -846,6 +856,11 @@ func (o *VMInterface) UnmarshalJSON(data []byte) (err error) {
 		"count_fhrp_groups",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -855,11 +870,23 @@ func (o *VMInterface) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varVMInterface := _VMInterface{}
 
 	err = json.Unmarshal(data, &varVMInterface)

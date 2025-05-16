@@ -80,6 +80,7 @@ func (o *WritableModuleRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
+
 // GetModuleBay returns the ModuleBay field value
 func (o *WritableModuleRequest) GetModuleBay() int32 {
 	if o == nil {
@@ -104,6 +105,7 @@ func (o *WritableModuleRequest) SetModuleBay(v int32) {
 	o.ModuleBay = v
 }
 
+
 // GetModuleType returns the ModuleType field value
 func (o *WritableModuleRequest) GetModuleType() BriefModuleTypeRequest {
 	if o == nil {
@@ -127,6 +129,7 @@ func (o *WritableModuleRequest) GetModuleTypeOk() (*BriefModuleTypeRequest, bool
 func (o *WritableModuleRequest) SetModuleType(v BriefModuleTypeRequest) {
 	o.ModuleType = v
 }
+
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *WritableModuleRequest) GetStatus() ModuleStatusValue {
@@ -414,6 +417,11 @@ func (o *WritableModuleRequest) UnmarshalJSON(data []byte) (err error) {
 		"module_type",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -423,11 +431,23 @@ func (o *WritableModuleRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableModuleRequest := _WritableModuleRequest{}
 
 	err = json.Unmarshal(data, &varWritableModuleRequest)

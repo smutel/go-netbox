@@ -111,6 +111,7 @@ func (o *PowerPort) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *PowerPort) GetUrl() string {
 	if o == nil {
@@ -134,6 +135,7 @@ func (o *PowerPort) GetUrlOk() (*string, bool) {
 func (o *PowerPort) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *PowerPort) GetDisplay() string {
@@ -159,6 +161,7 @@ func (o *PowerPort) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *PowerPort) GetDevice() BriefDevice {
 	if o == nil {
@@ -182,6 +185,7 @@ func (o *PowerPort) GetDeviceOk() (*BriefDevice, bool) {
 func (o *PowerPort) SetDevice(v BriefDevice) {
 	o.Device = v
 }
+
 
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerPort) GetModule() BriefModule {
@@ -248,6 +252,7 @@ func (o *PowerPort) GetNameOk() (*string, bool) {
 func (o *PowerPort) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *PowerPort) GetLabel() string {
@@ -497,6 +502,7 @@ func (o *PowerPort) SetCable(v BriefCable) {
 	o.Cable.Set(&v)
 }
 
+
 // GetCableEnd returns the CableEnd field value
 func (o *PowerPort) GetCableEnd() string {
 	if o == nil {
@@ -521,6 +527,7 @@ func (o *PowerPort) SetCableEnd(v string) {
 	o.CableEnd = v
 }
 
+
 // GetLinkPeers returns the LinkPeers field value
 func (o *PowerPort) GetLinkPeers() []interface{} {
 	if o == nil {
@@ -544,6 +551,7 @@ func (o *PowerPort) GetLinkPeersOk() ([]interface{}, bool) {
 func (o *PowerPort) SetLinkPeers(v []interface{}) {
 	o.LinkPeers = v
 }
+
 
 // GetLinkPeersType returns the LinkPeersType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -571,6 +579,7 @@ func (o *PowerPort) SetLinkPeersType(v string) {
 	o.LinkPeersType.Set(&v)
 }
 
+
 // GetConnectedEndpoints returns the ConnectedEndpoints field value
 // If the value is explicit nil, the zero value for []interface{} will be returned
 func (o *PowerPort) GetConnectedEndpoints() []interface{} {
@@ -596,6 +605,7 @@ func (o *PowerPort) GetConnectedEndpointsOk() ([]interface{}, bool) {
 func (o *PowerPort) SetConnectedEndpoints(v []interface{}) {
 	o.ConnectedEndpoints = v
 }
+
 
 // GetConnectedEndpointsType returns the ConnectedEndpointsType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -623,6 +633,7 @@ func (o *PowerPort) SetConnectedEndpointsType(v string) {
 	o.ConnectedEndpointsType.Set(&v)
 }
 
+
 // GetConnectedEndpointsReachable returns the ConnectedEndpointsReachable field value
 func (o *PowerPort) GetConnectedEndpointsReachable() bool {
 	if o == nil {
@@ -646,6 +657,7 @@ func (o *PowerPort) GetConnectedEndpointsReachableOk() (*bool, bool) {
 func (o *PowerPort) SetConnectedEndpointsReachable(v bool) {
 	o.ConnectedEndpointsReachable = v
 }
+
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *PowerPort) GetTags() []NestedTag {
@@ -737,6 +749,7 @@ func (o *PowerPort) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *PowerPort) GetLastUpdated() time.Time {
@@ -763,6 +776,7 @@ func (o *PowerPort) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetOccupied returns the Occupied field value
 func (o *PowerPort) GetOccupied() bool {
 	if o == nil {
@@ -786,6 +800,7 @@ func (o *PowerPort) GetOccupiedOk() (*bool, bool) {
 func (o *PowerPort) SetOccupied(v bool) {
 	o.Occupied = v
 }
+
 
 func (o PowerPort) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -871,6 +886,11 @@ func (o *PowerPort) UnmarshalJSON(data []byte) (err error) {
 		"_occupied",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -880,11 +900,23 @@ func (o *PowerPort) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varPowerPort := _PowerPort{}
 
 	err = json.Unmarshal(data, &varPowerPort)

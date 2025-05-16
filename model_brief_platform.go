@@ -79,6 +79,7 @@ func (o *BriefPlatform) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefPlatform) GetUrl() string {
 	if o == nil {
@@ -102,6 +103,7 @@ func (o *BriefPlatform) GetUrlOk() (*string, bool) {
 func (o *BriefPlatform) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefPlatform) GetDisplay() string {
@@ -127,6 +129,7 @@ func (o *BriefPlatform) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *BriefPlatform) GetName() string {
 	if o == nil {
@@ -151,6 +154,7 @@ func (o *BriefPlatform) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *BriefPlatform) GetSlug() string {
 	if o == nil {
@@ -174,6 +178,7 @@ func (o *BriefPlatform) GetSlugOk() (*string, bool) {
 func (o *BriefPlatform) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefPlatform) GetDescription() string {
@@ -315,6 +320,11 @@ func (o *BriefPlatform) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -324,11 +334,23 @@ func (o *BriefPlatform) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefPlatform := _BriefPlatform{}
 
 	err = json.Unmarshal(data, &varBriefPlatform)

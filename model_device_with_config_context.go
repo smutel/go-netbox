@@ -141,6 +141,7 @@ func (o *DeviceWithConfigContext) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *DeviceWithConfigContext) GetUrl() string {
 	if o == nil {
@@ -165,6 +166,7 @@ func (o *DeviceWithConfigContext) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *DeviceWithConfigContext) GetDisplay() string {
 	if o == nil {
@@ -188,6 +190,7 @@ func (o *DeviceWithConfigContext) GetDisplayOk() (*string, bool) {
 func (o *DeviceWithConfigContext) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceWithConfigContext) GetName() string {
@@ -255,6 +258,7 @@ func (o *DeviceWithConfigContext) SetDeviceType(v BriefDeviceType) {
 	o.DeviceType = v
 }
 
+
 // GetRole returns the Role field value
 func (o *DeviceWithConfigContext) GetRole() BriefDeviceRole {
 	if o == nil {
@@ -278,6 +282,7 @@ func (o *DeviceWithConfigContext) GetRoleOk() (*BriefDeviceRole, bool) {
 func (o *DeviceWithConfigContext) SetRole(v BriefDeviceRole) {
 	o.Role = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceWithConfigContext) GetTenant() BriefTenant {
@@ -460,6 +465,7 @@ func (o *DeviceWithConfigContext) GetSiteOk() (*BriefSite, bool) {
 func (o *DeviceWithConfigContext) SetSite(v BriefSite) {
 	o.Site = v
 }
+
 
 // GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceWithConfigContext) GetLocation() BriefLocation {
@@ -729,6 +735,7 @@ func (o *DeviceWithConfigContext) SetParentDevice(v NestedDevice) {
 	o.ParentDevice.Set(&v)
 }
 
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *DeviceWithConfigContext) GetStatus() DeviceStatus {
 	if o == nil || IsNil(o.Status) {
@@ -818,6 +825,7 @@ func (o *DeviceWithConfigContext) GetPrimaryIpOk() (*BriefIPAddress, bool) {
 func (o *DeviceWithConfigContext) SetPrimaryIp(v BriefIPAddress) {
 	o.PrimaryIp.Set(&v)
 }
+
 
 // GetPrimaryIp4 returns the PrimaryIp4 field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceWithConfigContext) GetPrimaryIp4() BriefIPAddress {
@@ -1245,6 +1253,7 @@ func (o *DeviceWithConfigContext) SetConfigContext(v interface{}) {
 	o.ConfigContext = v
 }
 
+
 // GetLocalContextData returns the LocalContextData field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceWithConfigContext) GetLocalContextData() interface{} {
 	if o == nil {
@@ -1368,6 +1377,7 @@ func (o *DeviceWithConfigContext) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DeviceWithConfigContext) GetLastUpdated() time.Time {
@@ -1394,6 +1404,7 @@ func (o *DeviceWithConfigContext) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetConsolePortCount returns the ConsolePortCount field value
 func (o *DeviceWithConfigContext) GetConsolePortCount() int32 {
 	if o == nil {
@@ -1417,6 +1428,7 @@ func (o *DeviceWithConfigContext) GetConsolePortCountOk() (*int32, bool) {
 func (o *DeviceWithConfigContext) SetConsolePortCount(v int32) {
 	o.ConsolePortCount = v
 }
+
 
 // GetConsoleServerPortCount returns the ConsoleServerPortCount field value
 func (o *DeviceWithConfigContext) GetConsoleServerPortCount() int32 {
@@ -1442,6 +1454,7 @@ func (o *DeviceWithConfigContext) SetConsoleServerPortCount(v int32) {
 	o.ConsoleServerPortCount = v
 }
 
+
 // GetPowerPortCount returns the PowerPortCount field value
 func (o *DeviceWithConfigContext) GetPowerPortCount() int32 {
 	if o == nil {
@@ -1465,6 +1478,7 @@ func (o *DeviceWithConfigContext) GetPowerPortCountOk() (*int32, bool) {
 func (o *DeviceWithConfigContext) SetPowerPortCount(v int32) {
 	o.PowerPortCount = v
 }
+
 
 // GetPowerOutletCount returns the PowerOutletCount field value
 func (o *DeviceWithConfigContext) GetPowerOutletCount() int32 {
@@ -1490,6 +1504,7 @@ func (o *DeviceWithConfigContext) SetPowerOutletCount(v int32) {
 	o.PowerOutletCount = v
 }
 
+
 // GetInterfaceCount returns the InterfaceCount field value
 func (o *DeviceWithConfigContext) GetInterfaceCount() int32 {
 	if o == nil {
@@ -1513,6 +1528,7 @@ func (o *DeviceWithConfigContext) GetInterfaceCountOk() (*int32, bool) {
 func (o *DeviceWithConfigContext) SetInterfaceCount(v int32) {
 	o.InterfaceCount = v
 }
+
 
 // GetFrontPortCount returns the FrontPortCount field value
 func (o *DeviceWithConfigContext) GetFrontPortCount() int32 {
@@ -1538,6 +1554,7 @@ func (o *DeviceWithConfigContext) SetFrontPortCount(v int32) {
 	o.FrontPortCount = v
 }
 
+
 // GetRearPortCount returns the RearPortCount field value
 func (o *DeviceWithConfigContext) GetRearPortCount() int32 {
 	if o == nil {
@@ -1561,6 +1578,7 @@ func (o *DeviceWithConfigContext) GetRearPortCountOk() (*int32, bool) {
 func (o *DeviceWithConfigContext) SetRearPortCount(v int32) {
 	o.RearPortCount = v
 }
+
 
 // GetDeviceBayCount returns the DeviceBayCount field value
 func (o *DeviceWithConfigContext) GetDeviceBayCount() int32 {
@@ -1586,6 +1604,7 @@ func (o *DeviceWithConfigContext) SetDeviceBayCount(v int32) {
 	o.DeviceBayCount = v
 }
 
+
 // GetModuleBayCount returns the ModuleBayCount field value
 func (o *DeviceWithConfigContext) GetModuleBayCount() int32 {
 	if o == nil {
@@ -1610,6 +1629,7 @@ func (o *DeviceWithConfigContext) SetModuleBayCount(v int32) {
 	o.ModuleBayCount = v
 }
 
+
 // GetInventoryItemCount returns the InventoryItemCount field value
 func (o *DeviceWithConfigContext) GetInventoryItemCount() int32 {
 	if o == nil {
@@ -1633,6 +1653,7 @@ func (o *DeviceWithConfigContext) GetInventoryItemCountOk() (*int32, bool) {
 func (o *DeviceWithConfigContext) SetInventoryItemCount(v int32) {
 	o.InventoryItemCount = v
 }
+
 
 func (o DeviceWithConfigContext) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -1781,6 +1802,11 @@ func (o *DeviceWithConfigContext) UnmarshalJSON(data []byte) (err error) {
 		"inventory_item_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1790,11 +1816,23 @@ func (o *DeviceWithConfigContext) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varDeviceWithConfigContext := _DeviceWithConfigContext{}
 
 	err = json.Unmarshal(data, &varDeviceWithConfigContext)

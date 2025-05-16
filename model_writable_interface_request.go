@@ -106,6 +106,7 @@ func (o *WritableInterfaceRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
+
 // GetVdcs returns the Vdcs field value if set, zero value otherwise.
 func (o *WritableInterfaceRequest) GetVdcs() []int32 {
 	if o == nil || IsNil(o.Vdcs) {
@@ -204,6 +205,7 @@ func (o *WritableInterfaceRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *WritableInterfaceRequest) GetLabel() string {
 	if o == nil || IsNil(o.Label) {
@@ -259,6 +261,7 @@ func (o *WritableInterfaceRequest) GetTypeOk() (*InterfaceTypeValue, bool) {
 func (o *WritableInterfaceRequest) SetType(v InterfaceTypeValue) {
 	o.Type = v
 }
+
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *WritableInterfaceRequest) GetEnabled() bool {
@@ -1340,6 +1343,11 @@ func (o *WritableInterfaceRequest) UnmarshalJSON(data []byte) (err error) {
 		"type",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1349,11 +1357,23 @@ func (o *WritableInterfaceRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableInterfaceRequest := _WritableInterfaceRequest{}
 
 	err = json.Unmarshal(data, &varWritableInterfaceRequest)

@@ -89,6 +89,7 @@ func (o *Aggregate) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Aggregate) GetUrl() string {
 	if o == nil {
@@ -112,6 +113,7 @@ func (o *Aggregate) GetUrlOk() (*string, bool) {
 func (o *Aggregate) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Aggregate) GetDisplay() string {
@@ -137,6 +139,7 @@ func (o *Aggregate) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetFamily returns the Family field value
 func (o *Aggregate) GetFamily() AggregateFamily {
 	if o == nil {
@@ -160,6 +163,7 @@ func (o *Aggregate) GetFamilyOk() (*AggregateFamily, bool) {
 func (o *Aggregate) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
+
 
 // GetPrefix returns the Prefix field value
 func (o *Aggregate) GetPrefix() string {
@@ -185,6 +189,7 @@ func (o *Aggregate) SetPrefix(v string) {
 	o.Prefix = v
 }
 
+
 // GetRir returns the Rir field value
 func (o *Aggregate) GetRir() BriefRIR {
 	if o == nil {
@@ -208,6 +213,7 @@ func (o *Aggregate) GetRirOk() (*BriefRIR, bool) {
 func (o *Aggregate) SetRir(v BriefRIR) {
 	o.Rir = v
 }
+
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Aggregate) GetTenant() BriefTenant {
@@ -447,6 +453,7 @@ func (o *Aggregate) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Aggregate) GetLastUpdated() time.Time {
@@ -472,6 +479,7 @@ func (o *Aggregate) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *Aggregate) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o Aggregate) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -532,6 +540,11 @@ func (o *Aggregate) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -541,11 +554,23 @@ func (o *Aggregate) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varAggregate := _Aggregate{}
 
 	err = json.Unmarshal(data, &varAggregate)

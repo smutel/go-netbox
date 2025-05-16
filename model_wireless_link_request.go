@@ -80,6 +80,7 @@ func (o *WirelessLinkRequest) SetInterfaceA(v BriefInterfaceRequest) {
 	o.InterfaceA = v
 }
 
+
 // GetInterfaceB returns the InterfaceB field value
 func (o *WirelessLinkRequest) GetInterfaceB() BriefInterfaceRequest {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *WirelessLinkRequest) GetInterfaceBOk() (*BriefInterfaceRequest, bool) {
 func (o *WirelessLinkRequest) SetInterfaceB(v BriefInterfaceRequest) {
 	o.InterfaceB = v
 }
+
 
 // GetSsid returns the Ssid field value if set, zero value otherwise.
 func (o *WirelessLinkRequest) GetSsid() string {
@@ -493,6 +495,11 @@ func (o *WirelessLinkRequest) UnmarshalJSON(data []byte) (err error) {
 		"interface_b",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -502,11 +509,23 @@ func (o *WirelessLinkRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWirelessLinkRequest := _WirelessLinkRequest{}
 
 	err = json.Unmarshal(data, &varWirelessLinkRequest)

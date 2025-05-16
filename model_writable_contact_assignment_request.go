@@ -76,6 +76,7 @@ func (o *WritableContactAssignmentRequest) SetObjectType(v string) {
 	o.ObjectType = v
 }
 
+
 // GetObjectId returns the ObjectId field value
 func (o *WritableContactAssignmentRequest) GetObjectId() int64 {
 	if o == nil {
@@ -100,6 +101,7 @@ func (o *WritableContactAssignmentRequest) SetObjectId(v int64) {
 	o.ObjectId = v
 }
 
+
 // GetContact returns the Contact field value
 func (o *WritableContactAssignmentRequest) GetContact() BriefContactRequest {
 	if o == nil {
@@ -123,6 +125,7 @@ func (o *WritableContactAssignmentRequest) GetContactOk() (*BriefContactRequest,
 func (o *WritableContactAssignmentRequest) SetContact(v BriefContactRequest) {
 	o.Contact = v
 }
+
 
 // GetRole returns the Role field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableContactAssignmentRequest) GetRole() BriefContactRoleRequest {
@@ -305,6 +308,11 @@ func (o *WritableContactAssignmentRequest) UnmarshalJSON(data []byte) (err error
 		"contact",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -314,11 +322,23 @@ func (o *WritableContactAssignmentRequest) UnmarshalJSON(data []byte) (err error
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableContactAssignmentRequest := _WritableContactAssignmentRequest{}
 
 	err = json.Unmarshal(data, &varWritableContactAssignmentRequest)

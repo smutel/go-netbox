@@ -89,6 +89,7 @@ func (o *VirtualChassis) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *VirtualChassis) GetUrl() string {
 	if o == nil {
@@ -112,6 +113,7 @@ func (o *VirtualChassis) GetUrlOk() (*string, bool) {
 func (o *VirtualChassis) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *VirtualChassis) GetDisplay() string {
@@ -137,6 +139,7 @@ func (o *VirtualChassis) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *VirtualChassis) GetName() string {
 	if o == nil {
@@ -160,6 +163,7 @@ func (o *VirtualChassis) GetNameOk() (*string, bool) {
 func (o *VirtualChassis) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetDomain returns the Domain field value if set, zero value otherwise.
 func (o *VirtualChassis) GetDomain() string {
@@ -389,6 +393,7 @@ func (o *VirtualChassis) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VirtualChassis) GetLastUpdated() time.Time {
@@ -415,6 +420,7 @@ func (o *VirtualChassis) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetMemberCount returns the MemberCount field value
 func (o *VirtualChassis) GetMemberCount() int32 {
 	if o == nil {
@@ -439,6 +445,7 @@ func (o *VirtualChassis) SetMemberCount(v int32) {
 	o.MemberCount = v
 }
 
+
 // GetMembers returns the Members field value
 func (o *VirtualChassis) GetMembers() []NestedDevice {
 	if o == nil {
@@ -462,6 +469,7 @@ func (o *VirtualChassis) GetMembersOk() ([]NestedDevice, bool) {
 func (o *VirtualChassis) SetMembers(v []NestedDevice) {
 	o.Members = v
 }
+
 
 func (o VirtualChassis) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -522,6 +530,11 @@ func (o *VirtualChassis) UnmarshalJSON(data []byte) (err error) {
 		"members",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -531,11 +544,23 @@ func (o *VirtualChassis) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varVirtualChassis := _VirtualChassis{}
 
 	err = json.Unmarshal(data, &varVirtualChassis)

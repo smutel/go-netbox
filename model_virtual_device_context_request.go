@@ -80,6 +80,7 @@ func (o *VirtualDeviceContextRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *VirtualDeviceContextRequest) GetDevice() BriefDeviceRequest {
 	if o == nil {
@@ -103,6 +104,7 @@ func (o *VirtualDeviceContextRequest) GetDeviceOk() (*BriefDeviceRequest, bool) 
 func (o *VirtualDeviceContextRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
+
 
 // GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VirtualDeviceContextRequest) GetIdentifier() int32 {
@@ -296,6 +298,7 @@ func (o *VirtualDeviceContextRequest) SetStatus(v PatchedWritableVirtualDeviceCo
 	o.Status = v
 }
 
+
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *VirtualDeviceContextRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -479,6 +482,11 @@ func (o *VirtualDeviceContextRequest) UnmarshalJSON(data []byte) (err error) {
 		"status",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -488,11 +496,23 @@ func (o *VirtualDeviceContextRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varVirtualDeviceContextRequest := _VirtualDeviceContextRequest{}
 
 	err = json.Unmarshal(data, &varVirtualDeviceContextRequest)

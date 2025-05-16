@@ -77,6 +77,7 @@ func (o *BriefModuleType) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefModuleType) GetUrl() string {
 	if o == nil {
@@ -100,6 +101,7 @@ func (o *BriefModuleType) GetUrlOk() (*string, bool) {
 func (o *BriefModuleType) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefModuleType) GetDisplay() string {
@@ -125,6 +127,7 @@ func (o *BriefModuleType) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetManufacturer returns the Manufacturer field value
 func (o *BriefModuleType) GetManufacturer() BriefManufacturer {
 	if o == nil {
@@ -149,6 +152,7 @@ func (o *BriefModuleType) SetManufacturer(v BriefManufacturer) {
 	o.Manufacturer = v
 }
 
+
 // GetModel returns the Model field value
 func (o *BriefModuleType) GetModel() string {
 	if o == nil {
@@ -172,6 +176,7 @@ func (o *BriefModuleType) GetModelOk() (*string, bool) {
 func (o *BriefModuleType) SetModel(v string) {
 	o.Model = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefModuleType) GetDescription() string {
@@ -243,6 +248,11 @@ func (o *BriefModuleType) UnmarshalJSON(data []byte) (err error) {
 		"model",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -252,11 +262,23 @@ func (o *BriefModuleType) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefModuleType := _BriefModuleType{}
 
 	err = json.Unmarshal(data, &varBriefModuleType)

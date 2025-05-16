@@ -92,6 +92,7 @@ func (o *IKEProposal) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *IKEProposal) GetUrl() string {
 	if o == nil {
@@ -115,6 +116,7 @@ func (o *IKEProposal) GetUrlOk() (*string, bool) {
 func (o *IKEProposal) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *IKEProposal) GetDisplay() string {
@@ -140,6 +142,7 @@ func (o *IKEProposal) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *IKEProposal) GetName() string {
 	if o == nil {
@@ -163,6 +166,7 @@ func (o *IKEProposal) GetNameOk() (*string, bool) {
 func (o *IKEProposal) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IKEProposal) GetDescription() string {
@@ -220,6 +224,7 @@ func (o *IKEProposal) SetAuthenticationMethod(v IKEProposalAuthenticationMethod)
 	o.AuthenticationMethod = v
 }
 
+
 // GetEncryptionAlgorithm returns the EncryptionAlgorithm field value
 func (o *IKEProposal) GetEncryptionAlgorithm() IKEProposalEncryptionAlgorithm {
 	if o == nil {
@@ -243,6 +248,7 @@ func (o *IKEProposal) GetEncryptionAlgorithmOk() (*IKEProposalEncryptionAlgorith
 func (o *IKEProposal) SetEncryptionAlgorithm(v IKEProposalEncryptionAlgorithm) {
 	o.EncryptionAlgorithm = v
 }
+
 
 // GetAuthenticationAlgorithm returns the AuthenticationAlgorithm field value if set, zero value otherwise.
 func (o *IKEProposal) GetAuthenticationAlgorithm() IKEProposalAuthenticationAlgorithm {
@@ -299,6 +305,7 @@ func (o *IKEProposal) GetGroupOk() (*IKEProposalGroup, bool) {
 func (o *IKEProposal) SetGroup(v IKEProposalGroup) {
 	o.Group = v
 }
+
 
 // GetSaLifetime returns the SaLifetime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IKEProposal) GetSaLifetime() int32 {
@@ -464,6 +471,7 @@ func (o *IKEProposal) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *IKEProposal) GetLastUpdated() time.Time {
@@ -489,6 +497,7 @@ func (o *IKEProposal) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *IKEProposal) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o IKEProposal) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -551,6 +560,11 @@ func (o *IKEProposal) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -560,11 +574,23 @@ func (o *IKEProposal) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varIKEProposal := _IKEProposal{}
 
 	err = json.Unmarshal(data, &varIKEProposal)

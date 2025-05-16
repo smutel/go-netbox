@@ -79,6 +79,7 @@ func (o *WritableTunnelRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *WritableTunnelRequest) GetStatus() PatchedWritableTunnelRequestStatus {
 	if o == nil || IsNil(o.Status) {
@@ -176,6 +177,7 @@ func (o *WritableTunnelRequest) GetEncapsulationOk() (*PatchedWritableTunnelRequ
 func (o *WritableTunnelRequest) SetEncapsulation(v PatchedWritableTunnelRequestEncapsulation) {
 	o.Encapsulation = v
 }
+
 
 // GetIpsecProfile returns the IpsecProfile field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableTunnelRequest) GetIpsecProfile() BriefIPSecProfileRequest {
@@ -487,6 +489,11 @@ func (o *WritableTunnelRequest) UnmarshalJSON(data []byte) (err error) {
 		"encapsulation",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -496,11 +503,23 @@ func (o *WritableTunnelRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableTunnelRequest := _WritableTunnelRequest{}
 
 	err = json.Unmarshal(data, &varWritableTunnelRequest)

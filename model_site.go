@@ -114,6 +114,7 @@ func (o *Site) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Site) GetUrl() string {
 	if o == nil {
@@ -137,6 +138,7 @@ func (o *Site) GetUrlOk() (*string, bool) {
 func (o *Site) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Site) GetDisplay() string {
@@ -162,6 +164,7 @@ func (o *Site) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *Site) GetName() string {
 	if o == nil {
@@ -186,6 +189,7 @@ func (o *Site) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *Site) GetSlug() string {
 	if o == nil {
@@ -209,6 +213,7 @@ func (o *Site) GetSlugOk() (*string, bool) {
 func (o *Site) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *Site) GetStatus() LocationStatus {
@@ -776,6 +781,7 @@ func (o *Site) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Site) GetLastUpdated() time.Time {
@@ -802,6 +808,7 @@ func (o *Site) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetCircuitCount returns the CircuitCount field value
 func (o *Site) GetCircuitCount() int64 {
 	if o == nil {
@@ -825,6 +832,7 @@ func (o *Site) GetCircuitCountOk() (*int64, bool) {
 func (o *Site) SetCircuitCount(v int64) {
 	o.CircuitCount = v
 }
+
 
 // GetDeviceCount returns the DeviceCount field value
 func (o *Site) GetDeviceCount() int64 {
@@ -850,6 +858,7 @@ func (o *Site) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
 
+
 // GetPrefixCount returns the PrefixCount field value
 func (o *Site) GetPrefixCount() int64 {
 	if o == nil {
@@ -873,6 +882,7 @@ func (o *Site) GetPrefixCountOk() (*int64, bool) {
 func (o *Site) SetPrefixCount(v int64) {
 	o.PrefixCount = v
 }
+
 
 // GetRackCount returns the RackCount field value
 func (o *Site) GetRackCount() int64 {
@@ -898,6 +908,7 @@ func (o *Site) SetRackCount(v int64) {
 	o.RackCount = v
 }
 
+
 // GetVirtualmachineCount returns the VirtualmachineCount field value
 func (o *Site) GetVirtualmachineCount() int64 {
 	if o == nil {
@@ -922,6 +933,7 @@ func (o *Site) SetVirtualmachineCount(v int64) {
 	o.VirtualmachineCount = v
 }
 
+
 // GetVlanCount returns the VlanCount field value
 func (o *Site) GetVlanCount() int64 {
 	if o == nil {
@@ -945,6 +957,7 @@ func (o *Site) GetVlanCountOk() (*int64, bool) {
 func (o *Site) SetVlanCount(v int64) {
 	o.VlanCount = v
 }
+
 
 func (o Site) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -1042,6 +1055,11 @@ func (o *Site) UnmarshalJSON(data []byte) (err error) {
 		"vlan_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1051,11 +1069,23 @@ func (o *Site) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varSite := _Site{}
 
 	err = json.Unmarshal(data, &varSite)

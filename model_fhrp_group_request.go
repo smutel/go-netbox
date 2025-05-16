@@ -109,6 +109,7 @@ func (o *FHRPGroupRequest) SetProtocol(v BriefFHRPGroupProtocol) {
 	o.Protocol = v
 }
 
+
 // GetGroupId returns the GroupId field value
 func (o *FHRPGroupRequest) GetGroupId() int32 {
 	if o == nil {
@@ -132,6 +133,7 @@ func (o *FHRPGroupRequest) GetGroupIdOk() (*int32, bool) {
 func (o *FHRPGroupRequest) SetGroupId(v int32) {
 	o.GroupId = v
 }
+
 
 // GetAuthType returns the AuthType field value if set, zero value otherwise.
 func (o *FHRPGroupRequest) GetAuthType() AuthenticationType {
@@ -375,6 +377,11 @@ func (o *FHRPGroupRequest) UnmarshalJSON(data []byte) (err error) {
 		"group_id",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -384,11 +391,23 @@ func (o *FHRPGroupRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varFHRPGroupRequest := _FHRPGroupRequest{}
 
 	err = json.Unmarshal(data, &varFHRPGroupRequest)

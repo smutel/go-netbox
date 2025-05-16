@@ -90,6 +90,7 @@ func (o *L2VPN) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *L2VPN) GetUrl() string {
 	if o == nil {
@@ -114,6 +115,7 @@ func (o *L2VPN) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *L2VPN) GetDisplay() string {
 	if o == nil {
@@ -137,6 +139,7 @@ func (o *L2VPN) GetDisplayOk() (*string, bool) {
 func (o *L2VPN) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *L2VPN) GetIdentifier() int64 {
@@ -204,6 +207,7 @@ func (o *L2VPN) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *L2VPN) GetSlug() string {
 	if o == nil {
@@ -227,6 +231,7 @@ func (o *L2VPN) GetSlugOk() (*string, bool) {
 func (o *L2VPN) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *L2VPN) GetType() BriefL2VPNType {
@@ -520,6 +525,7 @@ func (o *L2VPN) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *L2VPN) GetLastUpdated() time.Time {
@@ -545,6 +551,7 @@ func (o *L2VPN) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *L2VPN) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 
 func (o L2VPN) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -612,6 +619,11 @@ func (o *L2VPN) UnmarshalJSON(data []byte) (err error) {
 		"last_updated",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -621,11 +633,23 @@ func (o *L2VPN) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varL2VPN := _L2VPN{}
 
 	err = json.Unmarshal(data, &varL2VPN)

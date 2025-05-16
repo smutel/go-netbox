@@ -83,6 +83,7 @@ func (o *Bookmark) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Bookmark) GetUrl() string {
 	if o == nil {
@@ -106,6 +107,7 @@ func (o *Bookmark) GetUrlOk() (*string, bool) {
 func (o *Bookmark) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Bookmark) GetDisplay() string {
@@ -131,6 +133,7 @@ func (o *Bookmark) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetObjectType returns the ObjectType field value
 func (o *Bookmark) GetObjectType() string {
 	if o == nil {
@@ -155,6 +158,7 @@ func (o *Bookmark) SetObjectType(v string) {
 	o.ObjectType = v
 }
 
+
 // GetObjectId returns the ObjectId field value
 func (o *Bookmark) GetObjectId() int64 {
 	if o == nil {
@@ -178,6 +182,7 @@ func (o *Bookmark) GetObjectIdOk() (*int64, bool) {
 func (o *Bookmark) SetObjectId(v int64) {
 	o.ObjectId = v
 }
+
 
 // GetObject returns the Object field value
 // If the value is explicit nil, the zero value for interface{} will be returned
@@ -205,6 +210,7 @@ func (o *Bookmark) SetObject(v interface{}) {
 	o.Object = v
 }
 
+
 // GetUser returns the User field value
 func (o *Bookmark) GetUser() BriefUser {
 	if o == nil {
@@ -229,6 +235,7 @@ func (o *Bookmark) SetUser(v BriefUser) {
 	o.User = v
 }
 
+
 // GetCreated returns the Created field value
 func (o *Bookmark) GetCreated() time.Time {
 	if o == nil {
@@ -252,6 +259,7 @@ func (o *Bookmark) GetCreatedOk() (*time.Time, bool) {
 func (o *Bookmark) SetCreated(v time.Time) {
 	o.Created = v
 }
+
 
 func (o Bookmark) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -296,6 +304,11 @@ func (o *Bookmark) UnmarshalJSON(data []byte) (err error) {
 		"created",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -305,11 +318,23 @@ func (o *Bookmark) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBookmark := _Bookmark{}
 
 	err = json.Unmarshal(data, &varBookmark)

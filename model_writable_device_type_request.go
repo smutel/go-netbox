@@ -95,6 +95,7 @@ func (o *WritableDeviceTypeRequest) SetManufacturer(v BriefManufacturerRequest) 
 	o.Manufacturer = v
 }
 
+
 // GetDefaultPlatform returns the DefaultPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableDeviceTypeRequest) GetDefaultPlatform() BriefPlatformRequest {
 	if o == nil || IsNil(o.DefaultPlatform.Get()) {
@@ -161,6 +162,7 @@ func (o *WritableDeviceTypeRequest) SetModel(v string) {
 	o.Model = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *WritableDeviceTypeRequest) GetSlug() string {
 	if o == nil {
@@ -184,6 +186,7 @@ func (o *WritableDeviceTypeRequest) GetSlugOk() (*string, bool) {
 func (o *WritableDeviceTypeRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetPartNumber returns the PartNumber field value if set, zero value otherwise.
 func (o *WritableDeviceTypeRequest) GetPartNumber() string {
@@ -719,6 +722,11 @@ func (o *WritableDeviceTypeRequest) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -728,11 +736,23 @@ func (o *WritableDeviceTypeRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableDeviceTypeRequest := _WritableDeviceTypeRequest{}
 
 	err = json.Unmarshal(data, &varWritableDeviceTypeRequest)

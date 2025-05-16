@@ -74,6 +74,7 @@ func (o *SiteGroupRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *SiteGroupRequest) GetSlug() string {
 	if o == nil {
@@ -97,6 +98,7 @@ func (o *SiteGroupRequest) GetSlugOk() (*string, bool) {
 func (o *SiteGroupRequest) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *SiteGroupRequest) GetParent() NestedSiteGroupRequest {
@@ -277,6 +279,11 @@ func (o *SiteGroupRequest) UnmarshalJSON(data []byte) (err error) {
 		"slug",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -286,11 +293,23 @@ func (o *SiteGroupRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varSiteGroupRequest := _SiteGroupRequest{}
 
 	err = json.Unmarshal(data, &varSiteGroupRequest)

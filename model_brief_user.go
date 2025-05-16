@@ -75,6 +75,7 @@ func (o *BriefUser) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefUser) GetUrl() string {
 	if o == nil {
@@ -98,6 +99,7 @@ func (o *BriefUser) GetUrlOk() (*string, bool) {
 func (o *BriefUser) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *BriefUser) GetDisplay() string {
@@ -123,6 +125,7 @@ func (o *BriefUser) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetUsername returns the Username field value
 func (o *BriefUser) GetUsername() string {
 	if o == nil {
@@ -146,6 +149,7 @@ func (o *BriefUser) GetUsernameOk() (*string, bool) {
 func (o *BriefUser) SetUsername(v string) {
 	o.Username = v
 }
+
 
 func (o BriefUser) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -180,6 +184,11 @@ func (o *BriefUser) UnmarshalJSON(data []byte) (err error) {
 		"username",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -189,11 +198,23 @@ func (o *BriefUser) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefUser := _BriefUser{}
 
 	err = json.Unmarshal(data, &varBriefUser)

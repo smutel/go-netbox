@@ -80,6 +80,7 @@ func (o *WritableConsolePortRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
+
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableConsolePortRequest) GetModule() BriefModuleRequest {
 	if o == nil || IsNil(o.Module.Get()) {
@@ -145,6 +146,7 @@ func (o *WritableConsolePortRequest) GetNameOk() (*string, bool) {
 func (o *WritableConsolePortRequest) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *WritableConsolePortRequest) GetLabel() string {
@@ -433,6 +435,11 @@ func (o *WritableConsolePortRequest) UnmarshalJSON(data []byte) (err error) {
 		"name",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -442,11 +449,23 @@ func (o *WritableConsolePortRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableConsolePortRequest := _WritableConsolePortRequest{}
 
 	err = json.Unmarshal(data, &varWritableConsolePortRequest)

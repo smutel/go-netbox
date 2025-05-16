@@ -90,6 +90,7 @@ func (o *Provider) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Provider) GetUrl() string {
 	if o == nil {
@@ -113,6 +114,7 @@ func (o *Provider) GetUrlOk() (*string, bool) {
 func (o *Provider) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Provider) GetDisplay() string {
@@ -138,6 +140,7 @@ func (o *Provider) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *Provider) GetName() string {
 	if o == nil {
@@ -162,6 +165,7 @@ func (o *Provider) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *Provider) GetSlug() string {
 	if o == nil {
@@ -185,6 +189,7 @@ func (o *Provider) GetSlugOk() (*string, bool) {
 func (o *Provider) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetAccounts returns the Accounts field value if set, zero value otherwise.
 func (o *Provider) GetAccounts() []NestedProviderAccount {
@@ -404,6 +409,7 @@ func (o *Provider) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Provider) GetLastUpdated() time.Time {
@@ -430,6 +436,7 @@ func (o *Provider) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetCircuitCount returns the CircuitCount field value
 func (o *Provider) GetCircuitCount() int64 {
 	if o == nil {
@@ -453,6 +460,7 @@ func (o *Provider) GetCircuitCountOk() (*int64, bool) {
 func (o *Provider) SetCircuitCount(v int64) {
 	o.CircuitCount = v
 }
+
 
 func (o Provider) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -513,6 +521,11 @@ func (o *Provider) UnmarshalJSON(data []byte) (err error) {
 		"circuit_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -522,11 +535,23 @@ func (o *Provider) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varProvider := _Provider{}
 
 	err = json.Unmarshal(data, &varProvider)

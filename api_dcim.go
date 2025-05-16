@@ -21,12 +21,5432 @@ import (
 )
 
 
+type DcimAPI interface {
+
+	/*
+	DcimCableTerminationsBulkDestroy Method for DcimCableTerminationsBulkDestroy
+
+	Delete a list of cable termination objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCableTerminationsBulkDestroyRequest
+	*/
+	DcimCableTerminationsBulkDestroy(ctx context.Context) ApiDcimCableTerminationsBulkDestroyRequest
+
+	// DcimCableTerminationsBulkDestroyExecute executes the request
+	DcimCableTerminationsBulkDestroyExecute(r ApiDcimCableTerminationsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimCableTerminationsBulkPartialUpdate Method for DcimCableTerminationsBulkPartialUpdate
+
+	Patch a list of cable termination objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCableTerminationsBulkPartialUpdateRequest
+	*/
+	DcimCableTerminationsBulkPartialUpdate(ctx context.Context) ApiDcimCableTerminationsBulkPartialUpdateRequest
+
+	// DcimCableTerminationsBulkPartialUpdateExecute executes the request
+	//  @return []CableTermination
+	DcimCableTerminationsBulkPartialUpdateExecute(r ApiDcimCableTerminationsBulkPartialUpdateRequest) ([]CableTermination, *http.Response, error)
+
+	/*
+	DcimCableTerminationsBulkUpdate Method for DcimCableTerminationsBulkUpdate
+
+	Put a list of cable termination objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCableTerminationsBulkUpdateRequest
+	*/
+	DcimCableTerminationsBulkUpdate(ctx context.Context) ApiDcimCableTerminationsBulkUpdateRequest
+
+	// DcimCableTerminationsBulkUpdateExecute executes the request
+	//  @return []CableTermination
+	DcimCableTerminationsBulkUpdateExecute(r ApiDcimCableTerminationsBulkUpdateRequest) ([]CableTermination, *http.Response, error)
+
+	/*
+	DcimCableTerminationsCreate Method for DcimCableTerminationsCreate
+
+	Post a list of cable termination objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCableTerminationsCreateRequest
+	*/
+	DcimCableTerminationsCreate(ctx context.Context) ApiDcimCableTerminationsCreateRequest
+
+	// DcimCableTerminationsCreateExecute executes the request
+	//  @return CableTermination
+	DcimCableTerminationsCreateExecute(r ApiDcimCableTerminationsCreateRequest) (*CableTermination, *http.Response, error)
+
+	/*
+	DcimCableTerminationsDestroy Method for DcimCableTerminationsDestroy
+
+	Delete a cable termination object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable termination.
+	@return ApiDcimCableTerminationsDestroyRequest
+	*/
+	DcimCableTerminationsDestroy(ctx context.Context, id int32) ApiDcimCableTerminationsDestroyRequest
+
+	// DcimCableTerminationsDestroyExecute executes the request
+	DcimCableTerminationsDestroyExecute(r ApiDcimCableTerminationsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimCableTerminationsList Method for DcimCableTerminationsList
+
+	Get a list of cable termination objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCableTerminationsListRequest
+	*/
+	DcimCableTerminationsList(ctx context.Context) ApiDcimCableTerminationsListRequest
+
+	// DcimCableTerminationsListExecute executes the request
+	//  @return PaginatedCableTerminationList
+	DcimCableTerminationsListExecute(r ApiDcimCableTerminationsListRequest) (*PaginatedCableTerminationList, *http.Response, error)
+
+	/*
+	DcimCableTerminationsPartialUpdate Method for DcimCableTerminationsPartialUpdate
+
+	Patch a cable termination object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable termination.
+	@return ApiDcimCableTerminationsPartialUpdateRequest
+	*/
+	DcimCableTerminationsPartialUpdate(ctx context.Context, id int32) ApiDcimCableTerminationsPartialUpdateRequest
+
+	// DcimCableTerminationsPartialUpdateExecute executes the request
+	//  @return CableTermination
+	DcimCableTerminationsPartialUpdateExecute(r ApiDcimCableTerminationsPartialUpdateRequest) (*CableTermination, *http.Response, error)
+
+	/*
+	DcimCableTerminationsRetrieve Method for DcimCableTerminationsRetrieve
+
+	Get a cable termination object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable termination.
+	@return ApiDcimCableTerminationsRetrieveRequest
+	*/
+	DcimCableTerminationsRetrieve(ctx context.Context, id int32) ApiDcimCableTerminationsRetrieveRequest
+
+	// DcimCableTerminationsRetrieveExecute executes the request
+	//  @return CableTermination
+	DcimCableTerminationsRetrieveExecute(r ApiDcimCableTerminationsRetrieveRequest) (*CableTermination, *http.Response, error)
+
+	/*
+	DcimCableTerminationsUpdate Method for DcimCableTerminationsUpdate
+
+	Put a cable termination object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable termination.
+	@return ApiDcimCableTerminationsUpdateRequest
+	*/
+	DcimCableTerminationsUpdate(ctx context.Context, id int32) ApiDcimCableTerminationsUpdateRequest
+
+	// DcimCableTerminationsUpdateExecute executes the request
+	//  @return CableTermination
+	DcimCableTerminationsUpdateExecute(r ApiDcimCableTerminationsUpdateRequest) (*CableTermination, *http.Response, error)
+
+	/*
+	DcimCablesBulkDestroy Method for DcimCablesBulkDestroy
+
+	Delete a list of cable objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCablesBulkDestroyRequest
+	*/
+	DcimCablesBulkDestroy(ctx context.Context) ApiDcimCablesBulkDestroyRequest
+
+	// DcimCablesBulkDestroyExecute executes the request
+	DcimCablesBulkDestroyExecute(r ApiDcimCablesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimCablesBulkPartialUpdate Method for DcimCablesBulkPartialUpdate
+
+	Patch a list of cable objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCablesBulkPartialUpdateRequest
+	*/
+	DcimCablesBulkPartialUpdate(ctx context.Context) ApiDcimCablesBulkPartialUpdateRequest
+
+	// DcimCablesBulkPartialUpdateExecute executes the request
+	//  @return []Cable
+	DcimCablesBulkPartialUpdateExecute(r ApiDcimCablesBulkPartialUpdateRequest) ([]Cable, *http.Response, error)
+
+	/*
+	DcimCablesBulkUpdate Method for DcimCablesBulkUpdate
+
+	Put a list of cable objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCablesBulkUpdateRequest
+	*/
+	DcimCablesBulkUpdate(ctx context.Context) ApiDcimCablesBulkUpdateRequest
+
+	// DcimCablesBulkUpdateExecute executes the request
+	//  @return []Cable
+	DcimCablesBulkUpdateExecute(r ApiDcimCablesBulkUpdateRequest) ([]Cable, *http.Response, error)
+
+	/*
+	DcimCablesCreate Method for DcimCablesCreate
+
+	Post a list of cable objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCablesCreateRequest
+	*/
+	DcimCablesCreate(ctx context.Context) ApiDcimCablesCreateRequest
+
+	// DcimCablesCreateExecute executes the request
+	//  @return Cable
+	DcimCablesCreateExecute(r ApiDcimCablesCreateRequest) (*Cable, *http.Response, error)
+
+	/*
+	DcimCablesDestroy Method for DcimCablesDestroy
+
+	Delete a cable object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable.
+	@return ApiDcimCablesDestroyRequest
+	*/
+	DcimCablesDestroy(ctx context.Context, id int32) ApiDcimCablesDestroyRequest
+
+	// DcimCablesDestroyExecute executes the request
+	DcimCablesDestroyExecute(r ApiDcimCablesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimCablesList Method for DcimCablesList
+
+	Get a list of cable objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimCablesListRequest
+	*/
+	DcimCablesList(ctx context.Context) ApiDcimCablesListRequest
+
+	// DcimCablesListExecute executes the request
+	//  @return PaginatedCableList
+	DcimCablesListExecute(r ApiDcimCablesListRequest) (*PaginatedCableList, *http.Response, error)
+
+	/*
+	DcimCablesPartialUpdate Method for DcimCablesPartialUpdate
+
+	Patch a cable object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable.
+	@return ApiDcimCablesPartialUpdateRequest
+	*/
+	DcimCablesPartialUpdate(ctx context.Context, id int32) ApiDcimCablesPartialUpdateRequest
+
+	// DcimCablesPartialUpdateExecute executes the request
+	//  @return Cable
+	DcimCablesPartialUpdateExecute(r ApiDcimCablesPartialUpdateRequest) (*Cable, *http.Response, error)
+
+	/*
+	DcimCablesRetrieve Method for DcimCablesRetrieve
+
+	Get a cable object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable.
+	@return ApiDcimCablesRetrieveRequest
+	*/
+	DcimCablesRetrieve(ctx context.Context, id int32) ApiDcimCablesRetrieveRequest
+
+	// DcimCablesRetrieveExecute executes the request
+	//  @return Cable
+	DcimCablesRetrieveExecute(r ApiDcimCablesRetrieveRequest) (*Cable, *http.Response, error)
+
+	/*
+	DcimCablesUpdate Method for DcimCablesUpdate
+
+	Put a cable object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this cable.
+	@return ApiDcimCablesUpdateRequest
+	*/
+	DcimCablesUpdate(ctx context.Context, id int32) ApiDcimCablesUpdateRequest
+
+	// DcimCablesUpdateExecute executes the request
+	//  @return Cable
+	DcimCablesUpdateExecute(r ApiDcimCablesUpdateRequest) (*Cable, *http.Response, error)
+
+	/*
+	DcimConnectedDeviceList Method for DcimConnectedDeviceList
+
+	This endpoint allows a user to determine what device (if any) is connected to a given peer device and peer
+interface. This is useful in a situation where a device boots with no configuration, but can detect its neighbors
+via a protocol such as LLDP. Two query parameters must be included in the request:
+
+* `peer_device`: The name of the peer device
+* `peer_interface`: The name of the peer interface
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConnectedDeviceListRequest
+	*/
+	DcimConnectedDeviceList(ctx context.Context) ApiDcimConnectedDeviceListRequest
+
+	// DcimConnectedDeviceListExecute executes the request
+	//  @return []Device
+	DcimConnectedDeviceListExecute(r ApiDcimConnectedDeviceListRequest) ([]Device, *http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesBulkDestroy Method for DcimConsolePortTemplatesBulkDestroy
+
+	Delete a list of console port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortTemplatesBulkDestroyRequest
+	*/
+	DcimConsolePortTemplatesBulkDestroy(ctx context.Context) ApiDcimConsolePortTemplatesBulkDestroyRequest
+
+	// DcimConsolePortTemplatesBulkDestroyExecute executes the request
+	DcimConsolePortTemplatesBulkDestroyExecute(r ApiDcimConsolePortTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesBulkPartialUpdate Method for DcimConsolePortTemplatesBulkPartialUpdate
+
+	Patch a list of console port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortTemplatesBulkPartialUpdateRequest
+	*/
+	DcimConsolePortTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimConsolePortTemplatesBulkPartialUpdateRequest
+
+	// DcimConsolePortTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []ConsolePortTemplate
+	DcimConsolePortTemplatesBulkPartialUpdateExecute(r ApiDcimConsolePortTemplatesBulkPartialUpdateRequest) ([]ConsolePortTemplate, *http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesBulkUpdate Method for DcimConsolePortTemplatesBulkUpdate
+
+	Put a list of console port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortTemplatesBulkUpdateRequest
+	*/
+	DcimConsolePortTemplatesBulkUpdate(ctx context.Context) ApiDcimConsolePortTemplatesBulkUpdateRequest
+
+	// DcimConsolePortTemplatesBulkUpdateExecute executes the request
+	//  @return []ConsolePortTemplate
+	DcimConsolePortTemplatesBulkUpdateExecute(r ApiDcimConsolePortTemplatesBulkUpdateRequest) ([]ConsolePortTemplate, *http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesCreate Method for DcimConsolePortTemplatesCreate
+
+	Post a list of console port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortTemplatesCreateRequest
+	*/
+	DcimConsolePortTemplatesCreate(ctx context.Context) ApiDcimConsolePortTemplatesCreateRequest
+
+	// DcimConsolePortTemplatesCreateExecute executes the request
+	//  @return ConsolePortTemplate
+	DcimConsolePortTemplatesCreateExecute(r ApiDcimConsolePortTemplatesCreateRequest) (*ConsolePortTemplate, *http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesDestroy Method for DcimConsolePortTemplatesDestroy
+
+	Delete a console port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port template.
+	@return ApiDcimConsolePortTemplatesDestroyRequest
+	*/
+	DcimConsolePortTemplatesDestroy(ctx context.Context, id int32) ApiDcimConsolePortTemplatesDestroyRequest
+
+	// DcimConsolePortTemplatesDestroyExecute executes the request
+	DcimConsolePortTemplatesDestroyExecute(r ApiDcimConsolePortTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesList Method for DcimConsolePortTemplatesList
+
+	Get a list of console port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortTemplatesListRequest
+	*/
+	DcimConsolePortTemplatesList(ctx context.Context) ApiDcimConsolePortTemplatesListRequest
+
+	// DcimConsolePortTemplatesListExecute executes the request
+	//  @return PaginatedConsolePortTemplateList
+	DcimConsolePortTemplatesListExecute(r ApiDcimConsolePortTemplatesListRequest) (*PaginatedConsolePortTemplateList, *http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesPartialUpdate Method for DcimConsolePortTemplatesPartialUpdate
+
+	Patch a console port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port template.
+	@return ApiDcimConsolePortTemplatesPartialUpdateRequest
+	*/
+	DcimConsolePortTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimConsolePortTemplatesPartialUpdateRequest
+
+	// DcimConsolePortTemplatesPartialUpdateExecute executes the request
+	//  @return ConsolePortTemplate
+	DcimConsolePortTemplatesPartialUpdateExecute(r ApiDcimConsolePortTemplatesPartialUpdateRequest) (*ConsolePortTemplate, *http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesRetrieve Method for DcimConsolePortTemplatesRetrieve
+
+	Get a console port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port template.
+	@return ApiDcimConsolePortTemplatesRetrieveRequest
+	*/
+	DcimConsolePortTemplatesRetrieve(ctx context.Context, id int32) ApiDcimConsolePortTemplatesRetrieveRequest
+
+	// DcimConsolePortTemplatesRetrieveExecute executes the request
+	//  @return ConsolePortTemplate
+	DcimConsolePortTemplatesRetrieveExecute(r ApiDcimConsolePortTemplatesRetrieveRequest) (*ConsolePortTemplate, *http.Response, error)
+
+	/*
+	DcimConsolePortTemplatesUpdate Method for DcimConsolePortTemplatesUpdate
+
+	Put a console port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port template.
+	@return ApiDcimConsolePortTemplatesUpdateRequest
+	*/
+	DcimConsolePortTemplatesUpdate(ctx context.Context, id int32) ApiDcimConsolePortTemplatesUpdateRequest
+
+	// DcimConsolePortTemplatesUpdateExecute executes the request
+	//  @return ConsolePortTemplate
+	DcimConsolePortTemplatesUpdateExecute(r ApiDcimConsolePortTemplatesUpdateRequest) (*ConsolePortTemplate, *http.Response, error)
+
+	/*
+	DcimConsolePortsBulkDestroy Method for DcimConsolePortsBulkDestroy
+
+	Delete a list of console port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortsBulkDestroyRequest
+	*/
+	DcimConsolePortsBulkDestroy(ctx context.Context) ApiDcimConsolePortsBulkDestroyRequest
+
+	// DcimConsolePortsBulkDestroyExecute executes the request
+	DcimConsolePortsBulkDestroyExecute(r ApiDcimConsolePortsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsolePortsBulkPartialUpdate Method for DcimConsolePortsBulkPartialUpdate
+
+	Patch a list of console port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortsBulkPartialUpdateRequest
+	*/
+	DcimConsolePortsBulkPartialUpdate(ctx context.Context) ApiDcimConsolePortsBulkPartialUpdateRequest
+
+	// DcimConsolePortsBulkPartialUpdateExecute executes the request
+	//  @return []ConsolePort
+	DcimConsolePortsBulkPartialUpdateExecute(r ApiDcimConsolePortsBulkPartialUpdateRequest) ([]ConsolePort, *http.Response, error)
+
+	/*
+	DcimConsolePortsBulkUpdate Method for DcimConsolePortsBulkUpdate
+
+	Put a list of console port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortsBulkUpdateRequest
+	*/
+	DcimConsolePortsBulkUpdate(ctx context.Context) ApiDcimConsolePortsBulkUpdateRequest
+
+	// DcimConsolePortsBulkUpdateExecute executes the request
+	//  @return []ConsolePort
+	DcimConsolePortsBulkUpdateExecute(r ApiDcimConsolePortsBulkUpdateRequest) ([]ConsolePort, *http.Response, error)
+
+	/*
+	DcimConsolePortsCreate Method for DcimConsolePortsCreate
+
+	Post a list of console port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortsCreateRequest
+	*/
+	DcimConsolePortsCreate(ctx context.Context) ApiDcimConsolePortsCreateRequest
+
+	// DcimConsolePortsCreateExecute executes the request
+	//  @return ConsolePort
+	DcimConsolePortsCreateExecute(r ApiDcimConsolePortsCreateRequest) (*ConsolePort, *http.Response, error)
+
+	/*
+	DcimConsolePortsDestroy Method for DcimConsolePortsDestroy
+
+	Delete a console port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port.
+	@return ApiDcimConsolePortsDestroyRequest
+	*/
+	DcimConsolePortsDestroy(ctx context.Context, id int32) ApiDcimConsolePortsDestroyRequest
+
+	// DcimConsolePortsDestroyExecute executes the request
+	DcimConsolePortsDestroyExecute(r ApiDcimConsolePortsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsolePortsList Method for DcimConsolePortsList
+
+	Get a list of console port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsolePortsListRequest
+	*/
+	DcimConsolePortsList(ctx context.Context) ApiDcimConsolePortsListRequest
+
+	// DcimConsolePortsListExecute executes the request
+	//  @return PaginatedConsolePortList
+	DcimConsolePortsListExecute(r ApiDcimConsolePortsListRequest) (*PaginatedConsolePortList, *http.Response, error)
+
+	/*
+	DcimConsolePortsPartialUpdate Method for DcimConsolePortsPartialUpdate
+
+	Patch a console port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port.
+	@return ApiDcimConsolePortsPartialUpdateRequest
+	*/
+	DcimConsolePortsPartialUpdate(ctx context.Context, id int32) ApiDcimConsolePortsPartialUpdateRequest
+
+	// DcimConsolePortsPartialUpdateExecute executes the request
+	//  @return ConsolePort
+	DcimConsolePortsPartialUpdateExecute(r ApiDcimConsolePortsPartialUpdateRequest) (*ConsolePort, *http.Response, error)
+
+	/*
+	DcimConsolePortsRetrieve Method for DcimConsolePortsRetrieve
+
+	Get a console port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port.
+	@return ApiDcimConsolePortsRetrieveRequest
+	*/
+	DcimConsolePortsRetrieve(ctx context.Context, id int32) ApiDcimConsolePortsRetrieveRequest
+
+	// DcimConsolePortsRetrieveExecute executes the request
+	//  @return ConsolePort
+	DcimConsolePortsRetrieveExecute(r ApiDcimConsolePortsRetrieveRequest) (*ConsolePort, *http.Response, error)
+
+	/*
+	DcimConsolePortsTraceRetrieve Method for DcimConsolePortsTraceRetrieve
+
+	Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port.
+	@return ApiDcimConsolePortsTraceRetrieveRequest
+	*/
+	DcimConsolePortsTraceRetrieve(ctx context.Context, id int32) ApiDcimConsolePortsTraceRetrieveRequest
+
+	// DcimConsolePortsTraceRetrieveExecute executes the request
+	//  @return ConsolePort
+	DcimConsolePortsTraceRetrieveExecute(r ApiDcimConsolePortsTraceRetrieveRequest) (*ConsolePort, *http.Response, error)
+
+	/*
+	DcimConsolePortsUpdate Method for DcimConsolePortsUpdate
+
+	Put a console port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console port.
+	@return ApiDcimConsolePortsUpdateRequest
+	*/
+	DcimConsolePortsUpdate(ctx context.Context, id int32) ApiDcimConsolePortsUpdateRequest
+
+	// DcimConsolePortsUpdateExecute executes the request
+	//  @return ConsolePort
+	DcimConsolePortsUpdateExecute(r ApiDcimConsolePortsUpdateRequest) (*ConsolePort, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesBulkDestroy Method for DcimConsoleServerPortTemplatesBulkDestroy
+
+	Delete a list of console server port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortTemplatesBulkDestroyRequest
+	*/
+	DcimConsoleServerPortTemplatesBulkDestroy(ctx context.Context) ApiDcimConsoleServerPortTemplatesBulkDestroyRequest
+
+	// DcimConsoleServerPortTemplatesBulkDestroyExecute executes the request
+	DcimConsoleServerPortTemplatesBulkDestroyExecute(r ApiDcimConsoleServerPortTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesBulkPartialUpdate Method for DcimConsoleServerPortTemplatesBulkPartialUpdate
+
+	Patch a list of console server port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortTemplatesBulkPartialUpdateRequest
+	*/
+	DcimConsoleServerPortTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimConsoleServerPortTemplatesBulkPartialUpdateRequest
+
+	// DcimConsoleServerPortTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []ConsoleServerPortTemplate
+	DcimConsoleServerPortTemplatesBulkPartialUpdateExecute(r ApiDcimConsoleServerPortTemplatesBulkPartialUpdateRequest) ([]ConsoleServerPortTemplate, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesBulkUpdate Method for DcimConsoleServerPortTemplatesBulkUpdate
+
+	Put a list of console server port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortTemplatesBulkUpdateRequest
+	*/
+	DcimConsoleServerPortTemplatesBulkUpdate(ctx context.Context) ApiDcimConsoleServerPortTemplatesBulkUpdateRequest
+
+	// DcimConsoleServerPortTemplatesBulkUpdateExecute executes the request
+	//  @return []ConsoleServerPortTemplate
+	DcimConsoleServerPortTemplatesBulkUpdateExecute(r ApiDcimConsoleServerPortTemplatesBulkUpdateRequest) ([]ConsoleServerPortTemplate, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesCreate Method for DcimConsoleServerPortTemplatesCreate
+
+	Post a list of console server port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortTemplatesCreateRequest
+	*/
+	DcimConsoleServerPortTemplatesCreate(ctx context.Context) ApiDcimConsoleServerPortTemplatesCreateRequest
+
+	// DcimConsoleServerPortTemplatesCreateExecute executes the request
+	//  @return ConsoleServerPortTemplate
+	DcimConsoleServerPortTemplatesCreateExecute(r ApiDcimConsoleServerPortTemplatesCreateRequest) (*ConsoleServerPortTemplate, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesDestroy Method for DcimConsoleServerPortTemplatesDestroy
+
+	Delete a console server port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port template.
+	@return ApiDcimConsoleServerPortTemplatesDestroyRequest
+	*/
+	DcimConsoleServerPortTemplatesDestroy(ctx context.Context, id int32) ApiDcimConsoleServerPortTemplatesDestroyRequest
+
+	// DcimConsoleServerPortTemplatesDestroyExecute executes the request
+	DcimConsoleServerPortTemplatesDestroyExecute(r ApiDcimConsoleServerPortTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesList Method for DcimConsoleServerPortTemplatesList
+
+	Get a list of console server port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortTemplatesListRequest
+	*/
+	DcimConsoleServerPortTemplatesList(ctx context.Context) ApiDcimConsoleServerPortTemplatesListRequest
+
+	// DcimConsoleServerPortTemplatesListExecute executes the request
+	//  @return PaginatedConsoleServerPortTemplateList
+	DcimConsoleServerPortTemplatesListExecute(r ApiDcimConsoleServerPortTemplatesListRequest) (*PaginatedConsoleServerPortTemplateList, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesPartialUpdate Method for DcimConsoleServerPortTemplatesPartialUpdate
+
+	Patch a console server port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port template.
+	@return ApiDcimConsoleServerPortTemplatesPartialUpdateRequest
+	*/
+	DcimConsoleServerPortTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimConsoleServerPortTemplatesPartialUpdateRequest
+
+	// DcimConsoleServerPortTemplatesPartialUpdateExecute executes the request
+	//  @return ConsoleServerPortTemplate
+	DcimConsoleServerPortTemplatesPartialUpdateExecute(r ApiDcimConsoleServerPortTemplatesPartialUpdateRequest) (*ConsoleServerPortTemplate, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesRetrieve Method for DcimConsoleServerPortTemplatesRetrieve
+
+	Get a console server port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port template.
+	@return ApiDcimConsoleServerPortTemplatesRetrieveRequest
+	*/
+	DcimConsoleServerPortTemplatesRetrieve(ctx context.Context, id int32) ApiDcimConsoleServerPortTemplatesRetrieveRequest
+
+	// DcimConsoleServerPortTemplatesRetrieveExecute executes the request
+	//  @return ConsoleServerPortTemplate
+	DcimConsoleServerPortTemplatesRetrieveExecute(r ApiDcimConsoleServerPortTemplatesRetrieveRequest) (*ConsoleServerPortTemplate, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortTemplatesUpdate Method for DcimConsoleServerPortTemplatesUpdate
+
+	Put a console server port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port template.
+	@return ApiDcimConsoleServerPortTemplatesUpdateRequest
+	*/
+	DcimConsoleServerPortTemplatesUpdate(ctx context.Context, id int32) ApiDcimConsoleServerPortTemplatesUpdateRequest
+
+	// DcimConsoleServerPortTemplatesUpdateExecute executes the request
+	//  @return ConsoleServerPortTemplate
+	DcimConsoleServerPortTemplatesUpdateExecute(r ApiDcimConsoleServerPortTemplatesUpdateRequest) (*ConsoleServerPortTemplate, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsBulkDestroy Method for DcimConsoleServerPortsBulkDestroy
+
+	Delete a list of console server port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortsBulkDestroyRequest
+	*/
+	DcimConsoleServerPortsBulkDestroy(ctx context.Context) ApiDcimConsoleServerPortsBulkDestroyRequest
+
+	// DcimConsoleServerPortsBulkDestroyExecute executes the request
+	DcimConsoleServerPortsBulkDestroyExecute(r ApiDcimConsoleServerPortsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsoleServerPortsBulkPartialUpdate Method for DcimConsoleServerPortsBulkPartialUpdate
+
+	Patch a list of console server port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortsBulkPartialUpdateRequest
+	*/
+	DcimConsoleServerPortsBulkPartialUpdate(ctx context.Context) ApiDcimConsoleServerPortsBulkPartialUpdateRequest
+
+	// DcimConsoleServerPortsBulkPartialUpdateExecute executes the request
+	//  @return []ConsoleServerPort
+	DcimConsoleServerPortsBulkPartialUpdateExecute(r ApiDcimConsoleServerPortsBulkPartialUpdateRequest) ([]ConsoleServerPort, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsBulkUpdate Method for DcimConsoleServerPortsBulkUpdate
+
+	Put a list of console server port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortsBulkUpdateRequest
+	*/
+	DcimConsoleServerPortsBulkUpdate(ctx context.Context) ApiDcimConsoleServerPortsBulkUpdateRequest
+
+	// DcimConsoleServerPortsBulkUpdateExecute executes the request
+	//  @return []ConsoleServerPort
+	DcimConsoleServerPortsBulkUpdateExecute(r ApiDcimConsoleServerPortsBulkUpdateRequest) ([]ConsoleServerPort, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsCreate Method for DcimConsoleServerPortsCreate
+
+	Post a list of console server port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortsCreateRequest
+	*/
+	DcimConsoleServerPortsCreate(ctx context.Context) ApiDcimConsoleServerPortsCreateRequest
+
+	// DcimConsoleServerPortsCreateExecute executes the request
+	//  @return ConsoleServerPort
+	DcimConsoleServerPortsCreateExecute(r ApiDcimConsoleServerPortsCreateRequest) (*ConsoleServerPort, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsDestroy Method for DcimConsoleServerPortsDestroy
+
+	Delete a console server port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port.
+	@return ApiDcimConsoleServerPortsDestroyRequest
+	*/
+	DcimConsoleServerPortsDestroy(ctx context.Context, id int32) ApiDcimConsoleServerPortsDestroyRequest
+
+	// DcimConsoleServerPortsDestroyExecute executes the request
+	DcimConsoleServerPortsDestroyExecute(r ApiDcimConsoleServerPortsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimConsoleServerPortsList Method for DcimConsoleServerPortsList
+
+	Get a list of console server port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimConsoleServerPortsListRequest
+	*/
+	DcimConsoleServerPortsList(ctx context.Context) ApiDcimConsoleServerPortsListRequest
+
+	// DcimConsoleServerPortsListExecute executes the request
+	//  @return PaginatedConsoleServerPortList
+	DcimConsoleServerPortsListExecute(r ApiDcimConsoleServerPortsListRequest) (*PaginatedConsoleServerPortList, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsPartialUpdate Method for DcimConsoleServerPortsPartialUpdate
+
+	Patch a console server port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port.
+	@return ApiDcimConsoleServerPortsPartialUpdateRequest
+	*/
+	DcimConsoleServerPortsPartialUpdate(ctx context.Context, id int32) ApiDcimConsoleServerPortsPartialUpdateRequest
+
+	// DcimConsoleServerPortsPartialUpdateExecute executes the request
+	//  @return ConsoleServerPort
+	DcimConsoleServerPortsPartialUpdateExecute(r ApiDcimConsoleServerPortsPartialUpdateRequest) (*ConsoleServerPort, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsRetrieve Method for DcimConsoleServerPortsRetrieve
+
+	Get a console server port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port.
+	@return ApiDcimConsoleServerPortsRetrieveRequest
+	*/
+	DcimConsoleServerPortsRetrieve(ctx context.Context, id int32) ApiDcimConsoleServerPortsRetrieveRequest
+
+	// DcimConsoleServerPortsRetrieveExecute executes the request
+	//  @return ConsoleServerPort
+	DcimConsoleServerPortsRetrieveExecute(r ApiDcimConsoleServerPortsRetrieveRequest) (*ConsoleServerPort, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsTraceRetrieve Method for DcimConsoleServerPortsTraceRetrieve
+
+	Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port.
+	@return ApiDcimConsoleServerPortsTraceRetrieveRequest
+	*/
+	DcimConsoleServerPortsTraceRetrieve(ctx context.Context, id int32) ApiDcimConsoleServerPortsTraceRetrieveRequest
+
+	// DcimConsoleServerPortsTraceRetrieveExecute executes the request
+	//  @return ConsoleServerPort
+	DcimConsoleServerPortsTraceRetrieveExecute(r ApiDcimConsoleServerPortsTraceRetrieveRequest) (*ConsoleServerPort, *http.Response, error)
+
+	/*
+	DcimConsoleServerPortsUpdate Method for DcimConsoleServerPortsUpdate
+
+	Put a console server port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this console server port.
+	@return ApiDcimConsoleServerPortsUpdateRequest
+	*/
+	DcimConsoleServerPortsUpdate(ctx context.Context, id int32) ApiDcimConsoleServerPortsUpdateRequest
+
+	// DcimConsoleServerPortsUpdateExecute executes the request
+	//  @return ConsoleServerPort
+	DcimConsoleServerPortsUpdateExecute(r ApiDcimConsoleServerPortsUpdateRequest) (*ConsoleServerPort, *http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesBulkDestroy Method for DcimDeviceBayTemplatesBulkDestroy
+
+	Delete a list of device bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBayTemplatesBulkDestroyRequest
+	*/
+	DcimDeviceBayTemplatesBulkDestroy(ctx context.Context) ApiDcimDeviceBayTemplatesBulkDestroyRequest
+
+	// DcimDeviceBayTemplatesBulkDestroyExecute executes the request
+	DcimDeviceBayTemplatesBulkDestroyExecute(r ApiDcimDeviceBayTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesBulkPartialUpdate Method for DcimDeviceBayTemplatesBulkPartialUpdate
+
+	Patch a list of device bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBayTemplatesBulkPartialUpdateRequest
+	*/
+	DcimDeviceBayTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimDeviceBayTemplatesBulkPartialUpdateRequest
+
+	// DcimDeviceBayTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []DeviceBayTemplate
+	DcimDeviceBayTemplatesBulkPartialUpdateExecute(r ApiDcimDeviceBayTemplatesBulkPartialUpdateRequest) ([]DeviceBayTemplate, *http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesBulkUpdate Method for DcimDeviceBayTemplatesBulkUpdate
+
+	Put a list of device bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBayTemplatesBulkUpdateRequest
+	*/
+	DcimDeviceBayTemplatesBulkUpdate(ctx context.Context) ApiDcimDeviceBayTemplatesBulkUpdateRequest
+
+	// DcimDeviceBayTemplatesBulkUpdateExecute executes the request
+	//  @return []DeviceBayTemplate
+	DcimDeviceBayTemplatesBulkUpdateExecute(r ApiDcimDeviceBayTemplatesBulkUpdateRequest) ([]DeviceBayTemplate, *http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesCreate Method for DcimDeviceBayTemplatesCreate
+
+	Post a list of device bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBayTemplatesCreateRequest
+	*/
+	DcimDeviceBayTemplatesCreate(ctx context.Context) ApiDcimDeviceBayTemplatesCreateRequest
+
+	// DcimDeviceBayTemplatesCreateExecute executes the request
+	//  @return DeviceBayTemplate
+	DcimDeviceBayTemplatesCreateExecute(r ApiDcimDeviceBayTemplatesCreateRequest) (*DeviceBayTemplate, *http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesDestroy Method for DcimDeviceBayTemplatesDestroy
+
+	Delete a device bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay template.
+	@return ApiDcimDeviceBayTemplatesDestroyRequest
+	*/
+	DcimDeviceBayTemplatesDestroy(ctx context.Context, id int32) ApiDcimDeviceBayTemplatesDestroyRequest
+
+	// DcimDeviceBayTemplatesDestroyExecute executes the request
+	DcimDeviceBayTemplatesDestroyExecute(r ApiDcimDeviceBayTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesList Method for DcimDeviceBayTemplatesList
+
+	Get a list of device bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBayTemplatesListRequest
+	*/
+	DcimDeviceBayTemplatesList(ctx context.Context) ApiDcimDeviceBayTemplatesListRequest
+
+	// DcimDeviceBayTemplatesListExecute executes the request
+	//  @return PaginatedDeviceBayTemplateList
+	DcimDeviceBayTemplatesListExecute(r ApiDcimDeviceBayTemplatesListRequest) (*PaginatedDeviceBayTemplateList, *http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesPartialUpdate Method for DcimDeviceBayTemplatesPartialUpdate
+
+	Patch a device bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay template.
+	@return ApiDcimDeviceBayTemplatesPartialUpdateRequest
+	*/
+	DcimDeviceBayTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimDeviceBayTemplatesPartialUpdateRequest
+
+	// DcimDeviceBayTemplatesPartialUpdateExecute executes the request
+	//  @return DeviceBayTemplate
+	DcimDeviceBayTemplatesPartialUpdateExecute(r ApiDcimDeviceBayTemplatesPartialUpdateRequest) (*DeviceBayTemplate, *http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesRetrieve Method for DcimDeviceBayTemplatesRetrieve
+
+	Get a device bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay template.
+	@return ApiDcimDeviceBayTemplatesRetrieveRequest
+	*/
+	DcimDeviceBayTemplatesRetrieve(ctx context.Context, id int32) ApiDcimDeviceBayTemplatesRetrieveRequest
+
+	// DcimDeviceBayTemplatesRetrieveExecute executes the request
+	//  @return DeviceBayTemplate
+	DcimDeviceBayTemplatesRetrieveExecute(r ApiDcimDeviceBayTemplatesRetrieveRequest) (*DeviceBayTemplate, *http.Response, error)
+
+	/*
+	DcimDeviceBayTemplatesUpdate Method for DcimDeviceBayTemplatesUpdate
+
+	Put a device bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay template.
+	@return ApiDcimDeviceBayTemplatesUpdateRequest
+	*/
+	DcimDeviceBayTemplatesUpdate(ctx context.Context, id int32) ApiDcimDeviceBayTemplatesUpdateRequest
+
+	// DcimDeviceBayTemplatesUpdateExecute executes the request
+	//  @return DeviceBayTemplate
+	DcimDeviceBayTemplatesUpdateExecute(r ApiDcimDeviceBayTemplatesUpdateRequest) (*DeviceBayTemplate, *http.Response, error)
+
+	/*
+	DcimDeviceBaysBulkDestroy Method for DcimDeviceBaysBulkDestroy
+
+	Delete a list of device bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBaysBulkDestroyRequest
+	*/
+	DcimDeviceBaysBulkDestroy(ctx context.Context) ApiDcimDeviceBaysBulkDestroyRequest
+
+	// DcimDeviceBaysBulkDestroyExecute executes the request
+	DcimDeviceBaysBulkDestroyExecute(r ApiDcimDeviceBaysBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceBaysBulkPartialUpdate Method for DcimDeviceBaysBulkPartialUpdate
+
+	Patch a list of device bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBaysBulkPartialUpdateRequest
+	*/
+	DcimDeviceBaysBulkPartialUpdate(ctx context.Context) ApiDcimDeviceBaysBulkPartialUpdateRequest
+
+	// DcimDeviceBaysBulkPartialUpdateExecute executes the request
+	//  @return []DeviceBay
+	DcimDeviceBaysBulkPartialUpdateExecute(r ApiDcimDeviceBaysBulkPartialUpdateRequest) ([]DeviceBay, *http.Response, error)
+
+	/*
+	DcimDeviceBaysBulkUpdate Method for DcimDeviceBaysBulkUpdate
+
+	Put a list of device bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBaysBulkUpdateRequest
+	*/
+	DcimDeviceBaysBulkUpdate(ctx context.Context) ApiDcimDeviceBaysBulkUpdateRequest
+
+	// DcimDeviceBaysBulkUpdateExecute executes the request
+	//  @return []DeviceBay
+	DcimDeviceBaysBulkUpdateExecute(r ApiDcimDeviceBaysBulkUpdateRequest) ([]DeviceBay, *http.Response, error)
+
+	/*
+	DcimDeviceBaysCreate Method for DcimDeviceBaysCreate
+
+	Post a list of device bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBaysCreateRequest
+	*/
+	DcimDeviceBaysCreate(ctx context.Context) ApiDcimDeviceBaysCreateRequest
+
+	// DcimDeviceBaysCreateExecute executes the request
+	//  @return DeviceBay
+	DcimDeviceBaysCreateExecute(r ApiDcimDeviceBaysCreateRequest) (*DeviceBay, *http.Response, error)
+
+	/*
+	DcimDeviceBaysDestroy Method for DcimDeviceBaysDestroy
+
+	Delete a device bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay.
+	@return ApiDcimDeviceBaysDestroyRequest
+	*/
+	DcimDeviceBaysDestroy(ctx context.Context, id int32) ApiDcimDeviceBaysDestroyRequest
+
+	// DcimDeviceBaysDestroyExecute executes the request
+	DcimDeviceBaysDestroyExecute(r ApiDcimDeviceBaysDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceBaysList Method for DcimDeviceBaysList
+
+	Get a list of device bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceBaysListRequest
+	*/
+	DcimDeviceBaysList(ctx context.Context) ApiDcimDeviceBaysListRequest
+
+	// DcimDeviceBaysListExecute executes the request
+	//  @return PaginatedDeviceBayList
+	DcimDeviceBaysListExecute(r ApiDcimDeviceBaysListRequest) (*PaginatedDeviceBayList, *http.Response, error)
+
+	/*
+	DcimDeviceBaysPartialUpdate Method for DcimDeviceBaysPartialUpdate
+
+	Patch a device bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay.
+	@return ApiDcimDeviceBaysPartialUpdateRequest
+	*/
+	DcimDeviceBaysPartialUpdate(ctx context.Context, id int32) ApiDcimDeviceBaysPartialUpdateRequest
+
+	// DcimDeviceBaysPartialUpdateExecute executes the request
+	//  @return DeviceBay
+	DcimDeviceBaysPartialUpdateExecute(r ApiDcimDeviceBaysPartialUpdateRequest) (*DeviceBay, *http.Response, error)
+
+	/*
+	DcimDeviceBaysRetrieve Method for DcimDeviceBaysRetrieve
+
+	Get a device bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay.
+	@return ApiDcimDeviceBaysRetrieveRequest
+	*/
+	DcimDeviceBaysRetrieve(ctx context.Context, id int32) ApiDcimDeviceBaysRetrieveRequest
+
+	// DcimDeviceBaysRetrieveExecute executes the request
+	//  @return DeviceBay
+	DcimDeviceBaysRetrieveExecute(r ApiDcimDeviceBaysRetrieveRequest) (*DeviceBay, *http.Response, error)
+
+	/*
+	DcimDeviceBaysUpdate Method for DcimDeviceBaysUpdate
+
+	Put a device bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device bay.
+	@return ApiDcimDeviceBaysUpdateRequest
+	*/
+	DcimDeviceBaysUpdate(ctx context.Context, id int32) ApiDcimDeviceBaysUpdateRequest
+
+	// DcimDeviceBaysUpdateExecute executes the request
+	//  @return DeviceBay
+	DcimDeviceBaysUpdateExecute(r ApiDcimDeviceBaysUpdateRequest) (*DeviceBay, *http.Response, error)
+
+	/*
+	DcimDeviceRolesBulkDestroy Method for DcimDeviceRolesBulkDestroy
+
+	Delete a list of device role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceRolesBulkDestroyRequest
+	*/
+	DcimDeviceRolesBulkDestroy(ctx context.Context) ApiDcimDeviceRolesBulkDestroyRequest
+
+	// DcimDeviceRolesBulkDestroyExecute executes the request
+	DcimDeviceRolesBulkDestroyExecute(r ApiDcimDeviceRolesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceRolesBulkPartialUpdate Method for DcimDeviceRolesBulkPartialUpdate
+
+	Patch a list of device role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceRolesBulkPartialUpdateRequest
+	*/
+	DcimDeviceRolesBulkPartialUpdate(ctx context.Context) ApiDcimDeviceRolesBulkPartialUpdateRequest
+
+	// DcimDeviceRolesBulkPartialUpdateExecute executes the request
+	//  @return []DeviceRole
+	DcimDeviceRolesBulkPartialUpdateExecute(r ApiDcimDeviceRolesBulkPartialUpdateRequest) ([]DeviceRole, *http.Response, error)
+
+	/*
+	DcimDeviceRolesBulkUpdate Method for DcimDeviceRolesBulkUpdate
+
+	Put a list of device role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceRolesBulkUpdateRequest
+	*/
+	DcimDeviceRolesBulkUpdate(ctx context.Context) ApiDcimDeviceRolesBulkUpdateRequest
+
+	// DcimDeviceRolesBulkUpdateExecute executes the request
+	//  @return []DeviceRole
+	DcimDeviceRolesBulkUpdateExecute(r ApiDcimDeviceRolesBulkUpdateRequest) ([]DeviceRole, *http.Response, error)
+
+	/*
+	DcimDeviceRolesCreate Method for DcimDeviceRolesCreate
+
+	Post a list of device role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceRolesCreateRequest
+	*/
+	DcimDeviceRolesCreate(ctx context.Context) ApiDcimDeviceRolesCreateRequest
+
+	// DcimDeviceRolesCreateExecute executes the request
+	//  @return DeviceRole
+	DcimDeviceRolesCreateExecute(r ApiDcimDeviceRolesCreateRequest) (*DeviceRole, *http.Response, error)
+
+	/*
+	DcimDeviceRolesDestroy Method for DcimDeviceRolesDestroy
+
+	Delete a device role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device role.
+	@return ApiDcimDeviceRolesDestroyRequest
+	*/
+	DcimDeviceRolesDestroy(ctx context.Context, id int32) ApiDcimDeviceRolesDestroyRequest
+
+	// DcimDeviceRolesDestroyExecute executes the request
+	DcimDeviceRolesDestroyExecute(r ApiDcimDeviceRolesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceRolesList Method for DcimDeviceRolesList
+
+	Get a list of device role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceRolesListRequest
+	*/
+	DcimDeviceRolesList(ctx context.Context) ApiDcimDeviceRolesListRequest
+
+	// DcimDeviceRolesListExecute executes the request
+	//  @return PaginatedDeviceRoleList
+	DcimDeviceRolesListExecute(r ApiDcimDeviceRolesListRequest) (*PaginatedDeviceRoleList, *http.Response, error)
+
+	/*
+	DcimDeviceRolesPartialUpdate Method for DcimDeviceRolesPartialUpdate
+
+	Patch a device role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device role.
+	@return ApiDcimDeviceRolesPartialUpdateRequest
+	*/
+	DcimDeviceRolesPartialUpdate(ctx context.Context, id int32) ApiDcimDeviceRolesPartialUpdateRequest
+
+	// DcimDeviceRolesPartialUpdateExecute executes the request
+	//  @return DeviceRole
+	DcimDeviceRolesPartialUpdateExecute(r ApiDcimDeviceRolesPartialUpdateRequest) (*DeviceRole, *http.Response, error)
+
+	/*
+	DcimDeviceRolesRetrieve Method for DcimDeviceRolesRetrieve
+
+	Get a device role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device role.
+	@return ApiDcimDeviceRolesRetrieveRequest
+	*/
+	DcimDeviceRolesRetrieve(ctx context.Context, id int32) ApiDcimDeviceRolesRetrieveRequest
+
+	// DcimDeviceRolesRetrieveExecute executes the request
+	//  @return DeviceRole
+	DcimDeviceRolesRetrieveExecute(r ApiDcimDeviceRolesRetrieveRequest) (*DeviceRole, *http.Response, error)
+
+	/*
+	DcimDeviceRolesUpdate Method for DcimDeviceRolesUpdate
+
+	Put a device role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device role.
+	@return ApiDcimDeviceRolesUpdateRequest
+	*/
+	DcimDeviceRolesUpdate(ctx context.Context, id int32) ApiDcimDeviceRolesUpdateRequest
+
+	// DcimDeviceRolesUpdateExecute executes the request
+	//  @return DeviceRole
+	DcimDeviceRolesUpdateExecute(r ApiDcimDeviceRolesUpdateRequest) (*DeviceRole, *http.Response, error)
+
+	/*
+	DcimDeviceTypesBulkDestroy Method for DcimDeviceTypesBulkDestroy
+
+	Delete a list of device type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceTypesBulkDestroyRequest
+	*/
+	DcimDeviceTypesBulkDestroy(ctx context.Context) ApiDcimDeviceTypesBulkDestroyRequest
+
+	// DcimDeviceTypesBulkDestroyExecute executes the request
+	DcimDeviceTypesBulkDestroyExecute(r ApiDcimDeviceTypesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceTypesBulkPartialUpdate Method for DcimDeviceTypesBulkPartialUpdate
+
+	Patch a list of device type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceTypesBulkPartialUpdateRequest
+	*/
+	DcimDeviceTypesBulkPartialUpdate(ctx context.Context) ApiDcimDeviceTypesBulkPartialUpdateRequest
+
+	// DcimDeviceTypesBulkPartialUpdateExecute executes the request
+	//  @return []DeviceType
+	DcimDeviceTypesBulkPartialUpdateExecute(r ApiDcimDeviceTypesBulkPartialUpdateRequest) ([]DeviceType, *http.Response, error)
+
+	/*
+	DcimDeviceTypesBulkUpdate Method for DcimDeviceTypesBulkUpdate
+
+	Put a list of device type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceTypesBulkUpdateRequest
+	*/
+	DcimDeviceTypesBulkUpdate(ctx context.Context) ApiDcimDeviceTypesBulkUpdateRequest
+
+	// DcimDeviceTypesBulkUpdateExecute executes the request
+	//  @return []DeviceType
+	DcimDeviceTypesBulkUpdateExecute(r ApiDcimDeviceTypesBulkUpdateRequest) ([]DeviceType, *http.Response, error)
+
+	/*
+	DcimDeviceTypesCreate Method for DcimDeviceTypesCreate
+
+	Post a list of device type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceTypesCreateRequest
+	*/
+	DcimDeviceTypesCreate(ctx context.Context) ApiDcimDeviceTypesCreateRequest
+
+	// DcimDeviceTypesCreateExecute executes the request
+	//  @return DeviceType
+	DcimDeviceTypesCreateExecute(r ApiDcimDeviceTypesCreateRequest) (*DeviceType, *http.Response, error)
+
+	/*
+	DcimDeviceTypesDestroy Method for DcimDeviceTypesDestroy
+
+	Delete a device type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device type.
+	@return ApiDcimDeviceTypesDestroyRequest
+	*/
+	DcimDeviceTypesDestroy(ctx context.Context, id int32) ApiDcimDeviceTypesDestroyRequest
+
+	// DcimDeviceTypesDestroyExecute executes the request
+	DcimDeviceTypesDestroyExecute(r ApiDcimDeviceTypesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDeviceTypesList Method for DcimDeviceTypesList
+
+	Get a list of device type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDeviceTypesListRequest
+	*/
+	DcimDeviceTypesList(ctx context.Context) ApiDcimDeviceTypesListRequest
+
+	// DcimDeviceTypesListExecute executes the request
+	//  @return PaginatedDeviceTypeList
+	DcimDeviceTypesListExecute(r ApiDcimDeviceTypesListRequest) (*PaginatedDeviceTypeList, *http.Response, error)
+
+	/*
+	DcimDeviceTypesPartialUpdate Method for DcimDeviceTypesPartialUpdate
+
+	Patch a device type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device type.
+	@return ApiDcimDeviceTypesPartialUpdateRequest
+	*/
+	DcimDeviceTypesPartialUpdate(ctx context.Context, id int32) ApiDcimDeviceTypesPartialUpdateRequest
+
+	// DcimDeviceTypesPartialUpdateExecute executes the request
+	//  @return DeviceType
+	DcimDeviceTypesPartialUpdateExecute(r ApiDcimDeviceTypesPartialUpdateRequest) (*DeviceType, *http.Response, error)
+
+	/*
+	DcimDeviceTypesRetrieve Method for DcimDeviceTypesRetrieve
+
+	Get a device type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device type.
+	@return ApiDcimDeviceTypesRetrieveRequest
+	*/
+	DcimDeviceTypesRetrieve(ctx context.Context, id int32) ApiDcimDeviceTypesRetrieveRequest
+
+	// DcimDeviceTypesRetrieveExecute executes the request
+	//  @return DeviceType
+	DcimDeviceTypesRetrieveExecute(r ApiDcimDeviceTypesRetrieveRequest) (*DeviceType, *http.Response, error)
+
+	/*
+	DcimDeviceTypesUpdate Method for DcimDeviceTypesUpdate
+
+	Put a device type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device type.
+	@return ApiDcimDeviceTypesUpdateRequest
+	*/
+	DcimDeviceTypesUpdate(ctx context.Context, id int32) ApiDcimDeviceTypesUpdateRequest
+
+	// DcimDeviceTypesUpdateExecute executes the request
+	//  @return DeviceType
+	DcimDeviceTypesUpdateExecute(r ApiDcimDeviceTypesUpdateRequest) (*DeviceType, *http.Response, error)
+
+	/*
+	DcimDevicesBulkDestroy Method for DcimDevicesBulkDestroy
+
+	Delete a list of device objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDevicesBulkDestroyRequest
+	*/
+	DcimDevicesBulkDestroy(ctx context.Context) ApiDcimDevicesBulkDestroyRequest
+
+	// DcimDevicesBulkDestroyExecute executes the request
+	DcimDevicesBulkDestroyExecute(r ApiDcimDevicesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDevicesBulkPartialUpdate Method for DcimDevicesBulkPartialUpdate
+
+	Patch a list of device objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDevicesBulkPartialUpdateRequest
+	*/
+	DcimDevicesBulkPartialUpdate(ctx context.Context) ApiDcimDevicesBulkPartialUpdateRequest
+
+	// DcimDevicesBulkPartialUpdateExecute executes the request
+	//  @return []DeviceWithConfigContext
+	DcimDevicesBulkPartialUpdateExecute(r ApiDcimDevicesBulkPartialUpdateRequest) ([]DeviceWithConfigContext, *http.Response, error)
+
+	/*
+	DcimDevicesBulkUpdate Method for DcimDevicesBulkUpdate
+
+	Put a list of device objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDevicesBulkUpdateRequest
+	*/
+	DcimDevicesBulkUpdate(ctx context.Context) ApiDcimDevicesBulkUpdateRequest
+
+	// DcimDevicesBulkUpdateExecute executes the request
+	//  @return []DeviceWithConfigContext
+	DcimDevicesBulkUpdateExecute(r ApiDcimDevicesBulkUpdateRequest) ([]DeviceWithConfigContext, *http.Response, error)
+
+	/*
+	DcimDevicesCreate Method for DcimDevicesCreate
+
+	Post a list of device objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDevicesCreateRequest
+	*/
+	DcimDevicesCreate(ctx context.Context) ApiDcimDevicesCreateRequest
+
+	// DcimDevicesCreateExecute executes the request
+	//  @return DeviceWithConfigContext
+	DcimDevicesCreateExecute(r ApiDcimDevicesCreateRequest) (*DeviceWithConfigContext, *http.Response, error)
+
+	/*
+	DcimDevicesDestroy Method for DcimDevicesDestroy
+
+	Delete a device object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device.
+	@return ApiDcimDevicesDestroyRequest
+	*/
+	DcimDevicesDestroy(ctx context.Context, id int32) ApiDcimDevicesDestroyRequest
+
+	// DcimDevicesDestroyExecute executes the request
+	DcimDevicesDestroyExecute(r ApiDcimDevicesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimDevicesList Method for DcimDevicesList
+
+	Get a list of device objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimDevicesListRequest
+	*/
+	DcimDevicesList(ctx context.Context) ApiDcimDevicesListRequest
+
+	// DcimDevicesListExecute executes the request
+	//  @return PaginatedDeviceWithConfigContextList
+	DcimDevicesListExecute(r ApiDcimDevicesListRequest) (*PaginatedDeviceWithConfigContextList, *http.Response, error)
+
+	/*
+	DcimDevicesPartialUpdate Method for DcimDevicesPartialUpdate
+
+	Patch a device object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device.
+	@return ApiDcimDevicesPartialUpdateRequest
+	*/
+	DcimDevicesPartialUpdate(ctx context.Context, id int32) ApiDcimDevicesPartialUpdateRequest
+
+	// DcimDevicesPartialUpdateExecute executes the request
+	//  @return DeviceWithConfigContext
+	DcimDevicesPartialUpdateExecute(r ApiDcimDevicesPartialUpdateRequest) (*DeviceWithConfigContext, *http.Response, error)
+
+	/*
+	DcimDevicesRenderConfigCreate Method for DcimDevicesRenderConfigCreate
+
+	Resolve and render the preferred ConfigTemplate for this Device.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device.
+	@return ApiDcimDevicesRenderConfigCreateRequest
+	*/
+	DcimDevicesRenderConfigCreate(ctx context.Context, id int32) ApiDcimDevicesRenderConfigCreateRequest
+
+	// DcimDevicesRenderConfigCreateExecute executes the request
+	//  @return DeviceWithConfigContext
+	DcimDevicesRenderConfigCreateExecute(r ApiDcimDevicesRenderConfigCreateRequest) (*DeviceWithConfigContext, *http.Response, error)
+
+	/*
+	DcimDevicesRetrieve Method for DcimDevicesRetrieve
+
+	Get a device object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device.
+	@return ApiDcimDevicesRetrieveRequest
+	*/
+	DcimDevicesRetrieve(ctx context.Context, id int32) ApiDcimDevicesRetrieveRequest
+
+	// DcimDevicesRetrieveExecute executes the request
+	//  @return DeviceWithConfigContext
+	DcimDevicesRetrieveExecute(r ApiDcimDevicesRetrieveRequest) (*DeviceWithConfigContext, *http.Response, error)
+
+	/*
+	DcimDevicesUpdate Method for DcimDevicesUpdate
+
+	Put a device object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this device.
+	@return ApiDcimDevicesUpdateRequest
+	*/
+	DcimDevicesUpdate(ctx context.Context, id int32) ApiDcimDevicesUpdateRequest
+
+	// DcimDevicesUpdateExecute executes the request
+	//  @return DeviceWithConfigContext
+	DcimDevicesUpdateExecute(r ApiDcimDevicesUpdateRequest) (*DeviceWithConfigContext, *http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesBulkDestroy Method for DcimFrontPortTemplatesBulkDestroy
+
+	Delete a list of front port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortTemplatesBulkDestroyRequest
+	*/
+	DcimFrontPortTemplatesBulkDestroy(ctx context.Context) ApiDcimFrontPortTemplatesBulkDestroyRequest
+
+	// DcimFrontPortTemplatesBulkDestroyExecute executes the request
+	DcimFrontPortTemplatesBulkDestroyExecute(r ApiDcimFrontPortTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesBulkPartialUpdate Method for DcimFrontPortTemplatesBulkPartialUpdate
+
+	Patch a list of front port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortTemplatesBulkPartialUpdateRequest
+	*/
+	DcimFrontPortTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimFrontPortTemplatesBulkPartialUpdateRequest
+
+	// DcimFrontPortTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []FrontPortTemplate
+	DcimFrontPortTemplatesBulkPartialUpdateExecute(r ApiDcimFrontPortTemplatesBulkPartialUpdateRequest) ([]FrontPortTemplate, *http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesBulkUpdate Method for DcimFrontPortTemplatesBulkUpdate
+
+	Put a list of front port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortTemplatesBulkUpdateRequest
+	*/
+	DcimFrontPortTemplatesBulkUpdate(ctx context.Context) ApiDcimFrontPortTemplatesBulkUpdateRequest
+
+	// DcimFrontPortTemplatesBulkUpdateExecute executes the request
+	//  @return []FrontPortTemplate
+	DcimFrontPortTemplatesBulkUpdateExecute(r ApiDcimFrontPortTemplatesBulkUpdateRequest) ([]FrontPortTemplate, *http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesCreate Method for DcimFrontPortTemplatesCreate
+
+	Post a list of front port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortTemplatesCreateRequest
+	*/
+	DcimFrontPortTemplatesCreate(ctx context.Context) ApiDcimFrontPortTemplatesCreateRequest
+
+	// DcimFrontPortTemplatesCreateExecute executes the request
+	//  @return FrontPortTemplate
+	DcimFrontPortTemplatesCreateExecute(r ApiDcimFrontPortTemplatesCreateRequest) (*FrontPortTemplate, *http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesDestroy Method for DcimFrontPortTemplatesDestroy
+
+	Delete a front port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port template.
+	@return ApiDcimFrontPortTemplatesDestroyRequest
+	*/
+	DcimFrontPortTemplatesDestroy(ctx context.Context, id int32) ApiDcimFrontPortTemplatesDestroyRequest
+
+	// DcimFrontPortTemplatesDestroyExecute executes the request
+	DcimFrontPortTemplatesDestroyExecute(r ApiDcimFrontPortTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesList Method for DcimFrontPortTemplatesList
+
+	Get a list of front port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortTemplatesListRequest
+	*/
+	DcimFrontPortTemplatesList(ctx context.Context) ApiDcimFrontPortTemplatesListRequest
+
+	// DcimFrontPortTemplatesListExecute executes the request
+	//  @return PaginatedFrontPortTemplateList
+	DcimFrontPortTemplatesListExecute(r ApiDcimFrontPortTemplatesListRequest) (*PaginatedFrontPortTemplateList, *http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesPartialUpdate Method for DcimFrontPortTemplatesPartialUpdate
+
+	Patch a front port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port template.
+	@return ApiDcimFrontPortTemplatesPartialUpdateRequest
+	*/
+	DcimFrontPortTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimFrontPortTemplatesPartialUpdateRequest
+
+	// DcimFrontPortTemplatesPartialUpdateExecute executes the request
+	//  @return FrontPortTemplate
+	DcimFrontPortTemplatesPartialUpdateExecute(r ApiDcimFrontPortTemplatesPartialUpdateRequest) (*FrontPortTemplate, *http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesRetrieve Method for DcimFrontPortTemplatesRetrieve
+
+	Get a front port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port template.
+	@return ApiDcimFrontPortTemplatesRetrieveRequest
+	*/
+	DcimFrontPortTemplatesRetrieve(ctx context.Context, id int32) ApiDcimFrontPortTemplatesRetrieveRequest
+
+	// DcimFrontPortTemplatesRetrieveExecute executes the request
+	//  @return FrontPortTemplate
+	DcimFrontPortTemplatesRetrieveExecute(r ApiDcimFrontPortTemplatesRetrieveRequest) (*FrontPortTemplate, *http.Response, error)
+
+	/*
+	DcimFrontPortTemplatesUpdate Method for DcimFrontPortTemplatesUpdate
+
+	Put a front port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port template.
+	@return ApiDcimFrontPortTemplatesUpdateRequest
+	*/
+	DcimFrontPortTemplatesUpdate(ctx context.Context, id int32) ApiDcimFrontPortTemplatesUpdateRequest
+
+	// DcimFrontPortTemplatesUpdateExecute executes the request
+	//  @return FrontPortTemplate
+	DcimFrontPortTemplatesUpdateExecute(r ApiDcimFrontPortTemplatesUpdateRequest) (*FrontPortTemplate, *http.Response, error)
+
+	/*
+	DcimFrontPortsBulkDestroy Method for DcimFrontPortsBulkDestroy
+
+	Delete a list of front port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortsBulkDestroyRequest
+	*/
+	DcimFrontPortsBulkDestroy(ctx context.Context) ApiDcimFrontPortsBulkDestroyRequest
+
+	// DcimFrontPortsBulkDestroyExecute executes the request
+	DcimFrontPortsBulkDestroyExecute(r ApiDcimFrontPortsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimFrontPortsBulkPartialUpdate Method for DcimFrontPortsBulkPartialUpdate
+
+	Patch a list of front port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortsBulkPartialUpdateRequest
+	*/
+	DcimFrontPortsBulkPartialUpdate(ctx context.Context) ApiDcimFrontPortsBulkPartialUpdateRequest
+
+	// DcimFrontPortsBulkPartialUpdateExecute executes the request
+	//  @return []FrontPort
+	DcimFrontPortsBulkPartialUpdateExecute(r ApiDcimFrontPortsBulkPartialUpdateRequest) ([]FrontPort, *http.Response, error)
+
+	/*
+	DcimFrontPortsBulkUpdate Method for DcimFrontPortsBulkUpdate
+
+	Put a list of front port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortsBulkUpdateRequest
+	*/
+	DcimFrontPortsBulkUpdate(ctx context.Context) ApiDcimFrontPortsBulkUpdateRequest
+
+	// DcimFrontPortsBulkUpdateExecute executes the request
+	//  @return []FrontPort
+	DcimFrontPortsBulkUpdateExecute(r ApiDcimFrontPortsBulkUpdateRequest) ([]FrontPort, *http.Response, error)
+
+	/*
+	DcimFrontPortsCreate Method for DcimFrontPortsCreate
+
+	Post a list of front port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortsCreateRequest
+	*/
+	DcimFrontPortsCreate(ctx context.Context) ApiDcimFrontPortsCreateRequest
+
+	// DcimFrontPortsCreateExecute executes the request
+	//  @return FrontPort
+	DcimFrontPortsCreateExecute(r ApiDcimFrontPortsCreateRequest) (*FrontPort, *http.Response, error)
+
+	/*
+	DcimFrontPortsDestroy Method for DcimFrontPortsDestroy
+
+	Delete a front port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port.
+	@return ApiDcimFrontPortsDestroyRequest
+	*/
+	DcimFrontPortsDestroy(ctx context.Context, id int32) ApiDcimFrontPortsDestroyRequest
+
+	// DcimFrontPortsDestroyExecute executes the request
+	DcimFrontPortsDestroyExecute(r ApiDcimFrontPortsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimFrontPortsList Method for DcimFrontPortsList
+
+	Get a list of front port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimFrontPortsListRequest
+	*/
+	DcimFrontPortsList(ctx context.Context) ApiDcimFrontPortsListRequest
+
+	// DcimFrontPortsListExecute executes the request
+	//  @return PaginatedFrontPortList
+	DcimFrontPortsListExecute(r ApiDcimFrontPortsListRequest) (*PaginatedFrontPortList, *http.Response, error)
+
+	/*
+	DcimFrontPortsPartialUpdate Method for DcimFrontPortsPartialUpdate
+
+	Patch a front port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port.
+	@return ApiDcimFrontPortsPartialUpdateRequest
+	*/
+	DcimFrontPortsPartialUpdate(ctx context.Context, id int32) ApiDcimFrontPortsPartialUpdateRequest
+
+	// DcimFrontPortsPartialUpdateExecute executes the request
+	//  @return FrontPort
+	DcimFrontPortsPartialUpdateExecute(r ApiDcimFrontPortsPartialUpdateRequest) (*FrontPort, *http.Response, error)
+
+	/*
+	DcimFrontPortsPathsRetrieve Method for DcimFrontPortsPathsRetrieve
+
+	Return all CablePaths which traverse a given pass-through port.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port.
+	@return ApiDcimFrontPortsPathsRetrieveRequest
+	*/
+	DcimFrontPortsPathsRetrieve(ctx context.Context, id int32) ApiDcimFrontPortsPathsRetrieveRequest
+
+	// DcimFrontPortsPathsRetrieveExecute executes the request
+	//  @return FrontPort
+	DcimFrontPortsPathsRetrieveExecute(r ApiDcimFrontPortsPathsRetrieveRequest) (*FrontPort, *http.Response, error)
+
+	/*
+	DcimFrontPortsRetrieve Method for DcimFrontPortsRetrieve
+
+	Get a front port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port.
+	@return ApiDcimFrontPortsRetrieveRequest
+	*/
+	DcimFrontPortsRetrieve(ctx context.Context, id int32) ApiDcimFrontPortsRetrieveRequest
+
+	// DcimFrontPortsRetrieveExecute executes the request
+	//  @return FrontPort
+	DcimFrontPortsRetrieveExecute(r ApiDcimFrontPortsRetrieveRequest) (*FrontPort, *http.Response, error)
+
+	/*
+	DcimFrontPortsUpdate Method for DcimFrontPortsUpdate
+
+	Put a front port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this front port.
+	@return ApiDcimFrontPortsUpdateRequest
+	*/
+	DcimFrontPortsUpdate(ctx context.Context, id int32) ApiDcimFrontPortsUpdateRequest
+
+	// DcimFrontPortsUpdateExecute executes the request
+	//  @return FrontPort
+	DcimFrontPortsUpdateExecute(r ApiDcimFrontPortsUpdateRequest) (*FrontPort, *http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesBulkDestroy Method for DcimInterfaceTemplatesBulkDestroy
+
+	Delete a list of interface template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfaceTemplatesBulkDestroyRequest
+	*/
+	DcimInterfaceTemplatesBulkDestroy(ctx context.Context) ApiDcimInterfaceTemplatesBulkDestroyRequest
+
+	// DcimInterfaceTemplatesBulkDestroyExecute executes the request
+	DcimInterfaceTemplatesBulkDestroyExecute(r ApiDcimInterfaceTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesBulkPartialUpdate Method for DcimInterfaceTemplatesBulkPartialUpdate
+
+	Patch a list of interface template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfaceTemplatesBulkPartialUpdateRequest
+	*/
+	DcimInterfaceTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimInterfaceTemplatesBulkPartialUpdateRequest
+
+	// DcimInterfaceTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []InterfaceTemplate
+	DcimInterfaceTemplatesBulkPartialUpdateExecute(r ApiDcimInterfaceTemplatesBulkPartialUpdateRequest) ([]InterfaceTemplate, *http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesBulkUpdate Method for DcimInterfaceTemplatesBulkUpdate
+
+	Put a list of interface template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfaceTemplatesBulkUpdateRequest
+	*/
+	DcimInterfaceTemplatesBulkUpdate(ctx context.Context) ApiDcimInterfaceTemplatesBulkUpdateRequest
+
+	// DcimInterfaceTemplatesBulkUpdateExecute executes the request
+	//  @return []InterfaceTemplate
+	DcimInterfaceTemplatesBulkUpdateExecute(r ApiDcimInterfaceTemplatesBulkUpdateRequest) ([]InterfaceTemplate, *http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesCreate Method for DcimInterfaceTemplatesCreate
+
+	Post a list of interface template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfaceTemplatesCreateRequest
+	*/
+	DcimInterfaceTemplatesCreate(ctx context.Context) ApiDcimInterfaceTemplatesCreateRequest
+
+	// DcimInterfaceTemplatesCreateExecute executes the request
+	//  @return InterfaceTemplate
+	DcimInterfaceTemplatesCreateExecute(r ApiDcimInterfaceTemplatesCreateRequest) (*InterfaceTemplate, *http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesDestroy Method for DcimInterfaceTemplatesDestroy
+
+	Delete a interface template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface template.
+	@return ApiDcimInterfaceTemplatesDestroyRequest
+	*/
+	DcimInterfaceTemplatesDestroy(ctx context.Context, id int32) ApiDcimInterfaceTemplatesDestroyRequest
+
+	// DcimInterfaceTemplatesDestroyExecute executes the request
+	DcimInterfaceTemplatesDestroyExecute(r ApiDcimInterfaceTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesList Method for DcimInterfaceTemplatesList
+
+	Get a list of interface template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfaceTemplatesListRequest
+	*/
+	DcimInterfaceTemplatesList(ctx context.Context) ApiDcimInterfaceTemplatesListRequest
+
+	// DcimInterfaceTemplatesListExecute executes the request
+	//  @return PaginatedInterfaceTemplateList
+	DcimInterfaceTemplatesListExecute(r ApiDcimInterfaceTemplatesListRequest) (*PaginatedInterfaceTemplateList, *http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesPartialUpdate Method for DcimInterfaceTemplatesPartialUpdate
+
+	Patch a interface template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface template.
+	@return ApiDcimInterfaceTemplatesPartialUpdateRequest
+	*/
+	DcimInterfaceTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimInterfaceTemplatesPartialUpdateRequest
+
+	// DcimInterfaceTemplatesPartialUpdateExecute executes the request
+	//  @return InterfaceTemplate
+	DcimInterfaceTemplatesPartialUpdateExecute(r ApiDcimInterfaceTemplatesPartialUpdateRequest) (*InterfaceTemplate, *http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesRetrieve Method for DcimInterfaceTemplatesRetrieve
+
+	Get a interface template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface template.
+	@return ApiDcimInterfaceTemplatesRetrieveRequest
+	*/
+	DcimInterfaceTemplatesRetrieve(ctx context.Context, id int32) ApiDcimInterfaceTemplatesRetrieveRequest
+
+	// DcimInterfaceTemplatesRetrieveExecute executes the request
+	//  @return InterfaceTemplate
+	DcimInterfaceTemplatesRetrieveExecute(r ApiDcimInterfaceTemplatesRetrieveRequest) (*InterfaceTemplate, *http.Response, error)
+
+	/*
+	DcimInterfaceTemplatesUpdate Method for DcimInterfaceTemplatesUpdate
+
+	Put a interface template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface template.
+	@return ApiDcimInterfaceTemplatesUpdateRequest
+	*/
+	DcimInterfaceTemplatesUpdate(ctx context.Context, id int32) ApiDcimInterfaceTemplatesUpdateRequest
+
+	// DcimInterfaceTemplatesUpdateExecute executes the request
+	//  @return InterfaceTemplate
+	DcimInterfaceTemplatesUpdateExecute(r ApiDcimInterfaceTemplatesUpdateRequest) (*InterfaceTemplate, *http.Response, error)
+
+	/*
+	DcimInterfacesBulkDestroy Method for DcimInterfacesBulkDestroy
+
+	Delete a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfacesBulkDestroyRequest
+	*/
+	DcimInterfacesBulkDestroy(ctx context.Context) ApiDcimInterfacesBulkDestroyRequest
+
+	// DcimInterfacesBulkDestroyExecute executes the request
+	DcimInterfacesBulkDestroyExecute(r ApiDcimInterfacesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInterfacesBulkPartialUpdate Method for DcimInterfacesBulkPartialUpdate
+
+	Patch a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfacesBulkPartialUpdateRequest
+	*/
+	DcimInterfacesBulkPartialUpdate(ctx context.Context) ApiDcimInterfacesBulkPartialUpdateRequest
+
+	// DcimInterfacesBulkPartialUpdateExecute executes the request
+	//  @return []Interface
+	DcimInterfacesBulkPartialUpdateExecute(r ApiDcimInterfacesBulkPartialUpdateRequest) ([]Interface, *http.Response, error)
+
+	/*
+	DcimInterfacesBulkUpdate Method for DcimInterfacesBulkUpdate
+
+	Put a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfacesBulkUpdateRequest
+	*/
+	DcimInterfacesBulkUpdate(ctx context.Context) ApiDcimInterfacesBulkUpdateRequest
+
+	// DcimInterfacesBulkUpdateExecute executes the request
+	//  @return []Interface
+	DcimInterfacesBulkUpdateExecute(r ApiDcimInterfacesBulkUpdateRequest) ([]Interface, *http.Response, error)
+
+	/*
+	DcimInterfacesCreate Method for DcimInterfacesCreate
+
+	Post a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfacesCreateRequest
+	*/
+	DcimInterfacesCreate(ctx context.Context) ApiDcimInterfacesCreateRequest
+
+	// DcimInterfacesCreateExecute executes the request
+	//  @return Interface
+	DcimInterfacesCreateExecute(r ApiDcimInterfacesCreateRequest) (*Interface, *http.Response, error)
+
+	/*
+	DcimInterfacesDestroy Method for DcimInterfacesDestroy
+
+	Delete a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiDcimInterfacesDestroyRequest
+	*/
+	DcimInterfacesDestroy(ctx context.Context, id int32) ApiDcimInterfacesDestroyRequest
+
+	// DcimInterfacesDestroyExecute executes the request
+	DcimInterfacesDestroyExecute(r ApiDcimInterfacesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInterfacesList Method for DcimInterfacesList
+
+	Get a list of interface objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInterfacesListRequest
+	*/
+	DcimInterfacesList(ctx context.Context) ApiDcimInterfacesListRequest
+
+	// DcimInterfacesListExecute executes the request
+	//  @return PaginatedInterfaceList
+	DcimInterfacesListExecute(r ApiDcimInterfacesListRequest) (*PaginatedInterfaceList, *http.Response, error)
+
+	/*
+	DcimInterfacesPartialUpdate Method for DcimInterfacesPartialUpdate
+
+	Patch a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiDcimInterfacesPartialUpdateRequest
+	*/
+	DcimInterfacesPartialUpdate(ctx context.Context, id int32) ApiDcimInterfacesPartialUpdateRequest
+
+	// DcimInterfacesPartialUpdateExecute executes the request
+	//  @return Interface
+	DcimInterfacesPartialUpdateExecute(r ApiDcimInterfacesPartialUpdateRequest) (*Interface, *http.Response, error)
+
+	/*
+	DcimInterfacesRetrieve Method for DcimInterfacesRetrieve
+
+	Get a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiDcimInterfacesRetrieveRequest
+	*/
+	DcimInterfacesRetrieve(ctx context.Context, id int32) ApiDcimInterfacesRetrieveRequest
+
+	// DcimInterfacesRetrieveExecute executes the request
+	//  @return Interface
+	DcimInterfacesRetrieveExecute(r ApiDcimInterfacesRetrieveRequest) (*Interface, *http.Response, error)
+
+	/*
+	DcimInterfacesTraceRetrieve Method for DcimInterfacesTraceRetrieve
+
+	Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiDcimInterfacesTraceRetrieveRequest
+	*/
+	DcimInterfacesTraceRetrieve(ctx context.Context, id int32) ApiDcimInterfacesTraceRetrieveRequest
+
+	// DcimInterfacesTraceRetrieveExecute executes the request
+	//  @return Interface
+	DcimInterfacesTraceRetrieveExecute(r ApiDcimInterfacesTraceRetrieveRequest) (*Interface, *http.Response, error)
+
+	/*
+	DcimInterfacesUpdate Method for DcimInterfacesUpdate
+
+	Put a interface object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this interface.
+	@return ApiDcimInterfacesUpdateRequest
+	*/
+	DcimInterfacesUpdate(ctx context.Context, id int32) ApiDcimInterfacesUpdateRequest
+
+	// DcimInterfacesUpdateExecute executes the request
+	//  @return Interface
+	DcimInterfacesUpdateExecute(r ApiDcimInterfacesUpdateRequest) (*Interface, *http.Response, error)
+
+	/*
+	DcimInventoryItemRolesBulkDestroy Method for DcimInventoryItemRolesBulkDestroy
+
+	Delete a list of inventory item role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemRolesBulkDestroyRequest
+	*/
+	DcimInventoryItemRolesBulkDestroy(ctx context.Context) ApiDcimInventoryItemRolesBulkDestroyRequest
+
+	// DcimInventoryItemRolesBulkDestroyExecute executes the request
+	DcimInventoryItemRolesBulkDestroyExecute(r ApiDcimInventoryItemRolesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInventoryItemRolesBulkPartialUpdate Method for DcimInventoryItemRolesBulkPartialUpdate
+
+	Patch a list of inventory item role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemRolesBulkPartialUpdateRequest
+	*/
+	DcimInventoryItemRolesBulkPartialUpdate(ctx context.Context) ApiDcimInventoryItemRolesBulkPartialUpdateRequest
+
+	// DcimInventoryItemRolesBulkPartialUpdateExecute executes the request
+	//  @return []InventoryItemRole
+	DcimInventoryItemRolesBulkPartialUpdateExecute(r ApiDcimInventoryItemRolesBulkPartialUpdateRequest) ([]InventoryItemRole, *http.Response, error)
+
+	/*
+	DcimInventoryItemRolesBulkUpdate Method for DcimInventoryItemRolesBulkUpdate
+
+	Put a list of inventory item role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemRolesBulkUpdateRequest
+	*/
+	DcimInventoryItemRolesBulkUpdate(ctx context.Context) ApiDcimInventoryItemRolesBulkUpdateRequest
+
+	// DcimInventoryItemRolesBulkUpdateExecute executes the request
+	//  @return []InventoryItemRole
+	DcimInventoryItemRolesBulkUpdateExecute(r ApiDcimInventoryItemRolesBulkUpdateRequest) ([]InventoryItemRole, *http.Response, error)
+
+	/*
+	DcimInventoryItemRolesCreate Method for DcimInventoryItemRolesCreate
+
+	Post a list of inventory item role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemRolesCreateRequest
+	*/
+	DcimInventoryItemRolesCreate(ctx context.Context) ApiDcimInventoryItemRolesCreateRequest
+
+	// DcimInventoryItemRolesCreateExecute executes the request
+	//  @return InventoryItemRole
+	DcimInventoryItemRolesCreateExecute(r ApiDcimInventoryItemRolesCreateRequest) (*InventoryItemRole, *http.Response, error)
+
+	/*
+	DcimInventoryItemRolesDestroy Method for DcimInventoryItemRolesDestroy
+
+	Delete a inventory item role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item role.
+	@return ApiDcimInventoryItemRolesDestroyRequest
+	*/
+	DcimInventoryItemRolesDestroy(ctx context.Context, id int32) ApiDcimInventoryItemRolesDestroyRequest
+
+	// DcimInventoryItemRolesDestroyExecute executes the request
+	DcimInventoryItemRolesDestroyExecute(r ApiDcimInventoryItemRolesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInventoryItemRolesList Method for DcimInventoryItemRolesList
+
+	Get a list of inventory item role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemRolesListRequest
+	*/
+	DcimInventoryItemRolesList(ctx context.Context) ApiDcimInventoryItemRolesListRequest
+
+	// DcimInventoryItemRolesListExecute executes the request
+	//  @return PaginatedInventoryItemRoleList
+	DcimInventoryItemRolesListExecute(r ApiDcimInventoryItemRolesListRequest) (*PaginatedInventoryItemRoleList, *http.Response, error)
+
+	/*
+	DcimInventoryItemRolesPartialUpdate Method for DcimInventoryItemRolesPartialUpdate
+
+	Patch a inventory item role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item role.
+	@return ApiDcimInventoryItemRolesPartialUpdateRequest
+	*/
+	DcimInventoryItemRolesPartialUpdate(ctx context.Context, id int32) ApiDcimInventoryItemRolesPartialUpdateRequest
+
+	// DcimInventoryItemRolesPartialUpdateExecute executes the request
+	//  @return InventoryItemRole
+	DcimInventoryItemRolesPartialUpdateExecute(r ApiDcimInventoryItemRolesPartialUpdateRequest) (*InventoryItemRole, *http.Response, error)
+
+	/*
+	DcimInventoryItemRolesRetrieve Method for DcimInventoryItemRolesRetrieve
+
+	Get a inventory item role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item role.
+	@return ApiDcimInventoryItemRolesRetrieveRequest
+	*/
+	DcimInventoryItemRolesRetrieve(ctx context.Context, id int32) ApiDcimInventoryItemRolesRetrieveRequest
+
+	// DcimInventoryItemRolesRetrieveExecute executes the request
+	//  @return InventoryItemRole
+	DcimInventoryItemRolesRetrieveExecute(r ApiDcimInventoryItemRolesRetrieveRequest) (*InventoryItemRole, *http.Response, error)
+
+	/*
+	DcimInventoryItemRolesUpdate Method for DcimInventoryItemRolesUpdate
+
+	Put a inventory item role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item role.
+	@return ApiDcimInventoryItemRolesUpdateRequest
+	*/
+	DcimInventoryItemRolesUpdate(ctx context.Context, id int32) ApiDcimInventoryItemRolesUpdateRequest
+
+	// DcimInventoryItemRolesUpdateExecute executes the request
+	//  @return InventoryItemRole
+	DcimInventoryItemRolesUpdateExecute(r ApiDcimInventoryItemRolesUpdateRequest) (*InventoryItemRole, *http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesBulkDestroy Method for DcimInventoryItemTemplatesBulkDestroy
+
+	Delete a list of inventory item template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemTemplatesBulkDestroyRequest
+	*/
+	DcimInventoryItemTemplatesBulkDestroy(ctx context.Context) ApiDcimInventoryItemTemplatesBulkDestroyRequest
+
+	// DcimInventoryItemTemplatesBulkDestroyExecute executes the request
+	DcimInventoryItemTemplatesBulkDestroyExecute(r ApiDcimInventoryItemTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesBulkPartialUpdate Method for DcimInventoryItemTemplatesBulkPartialUpdate
+
+	Patch a list of inventory item template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemTemplatesBulkPartialUpdateRequest
+	*/
+	DcimInventoryItemTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimInventoryItemTemplatesBulkPartialUpdateRequest
+
+	// DcimInventoryItemTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []InventoryItemTemplate
+	DcimInventoryItemTemplatesBulkPartialUpdateExecute(r ApiDcimInventoryItemTemplatesBulkPartialUpdateRequest) ([]InventoryItemTemplate, *http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesBulkUpdate Method for DcimInventoryItemTemplatesBulkUpdate
+
+	Put a list of inventory item template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemTemplatesBulkUpdateRequest
+	*/
+	DcimInventoryItemTemplatesBulkUpdate(ctx context.Context) ApiDcimInventoryItemTemplatesBulkUpdateRequest
+
+	// DcimInventoryItemTemplatesBulkUpdateExecute executes the request
+	//  @return []InventoryItemTemplate
+	DcimInventoryItemTemplatesBulkUpdateExecute(r ApiDcimInventoryItemTemplatesBulkUpdateRequest) ([]InventoryItemTemplate, *http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesCreate Method for DcimInventoryItemTemplatesCreate
+
+	Post a list of inventory item template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemTemplatesCreateRequest
+	*/
+	DcimInventoryItemTemplatesCreate(ctx context.Context) ApiDcimInventoryItemTemplatesCreateRequest
+
+	// DcimInventoryItemTemplatesCreateExecute executes the request
+	//  @return InventoryItemTemplate
+	DcimInventoryItemTemplatesCreateExecute(r ApiDcimInventoryItemTemplatesCreateRequest) (*InventoryItemTemplate, *http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesDestroy Method for DcimInventoryItemTemplatesDestroy
+
+	Delete a inventory item template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item template.
+	@return ApiDcimInventoryItemTemplatesDestroyRequest
+	*/
+	DcimInventoryItemTemplatesDestroy(ctx context.Context, id int32) ApiDcimInventoryItemTemplatesDestroyRequest
+
+	// DcimInventoryItemTemplatesDestroyExecute executes the request
+	DcimInventoryItemTemplatesDestroyExecute(r ApiDcimInventoryItemTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesList Method for DcimInventoryItemTemplatesList
+
+	Get a list of inventory item template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemTemplatesListRequest
+	*/
+	DcimInventoryItemTemplatesList(ctx context.Context) ApiDcimInventoryItemTemplatesListRequest
+
+	// DcimInventoryItemTemplatesListExecute executes the request
+	//  @return PaginatedInventoryItemTemplateList
+	DcimInventoryItemTemplatesListExecute(r ApiDcimInventoryItemTemplatesListRequest) (*PaginatedInventoryItemTemplateList, *http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesPartialUpdate Method for DcimInventoryItemTemplatesPartialUpdate
+
+	Patch a inventory item template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item template.
+	@return ApiDcimInventoryItemTemplatesPartialUpdateRequest
+	*/
+	DcimInventoryItemTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimInventoryItemTemplatesPartialUpdateRequest
+
+	// DcimInventoryItemTemplatesPartialUpdateExecute executes the request
+	//  @return InventoryItemTemplate
+	DcimInventoryItemTemplatesPartialUpdateExecute(r ApiDcimInventoryItemTemplatesPartialUpdateRequest) (*InventoryItemTemplate, *http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesRetrieve Method for DcimInventoryItemTemplatesRetrieve
+
+	Get a inventory item template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item template.
+	@return ApiDcimInventoryItemTemplatesRetrieveRequest
+	*/
+	DcimInventoryItemTemplatesRetrieve(ctx context.Context, id int32) ApiDcimInventoryItemTemplatesRetrieveRequest
+
+	// DcimInventoryItemTemplatesRetrieveExecute executes the request
+	//  @return InventoryItemTemplate
+	DcimInventoryItemTemplatesRetrieveExecute(r ApiDcimInventoryItemTemplatesRetrieveRequest) (*InventoryItemTemplate, *http.Response, error)
+
+	/*
+	DcimInventoryItemTemplatesUpdate Method for DcimInventoryItemTemplatesUpdate
+
+	Put a inventory item template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item template.
+	@return ApiDcimInventoryItemTemplatesUpdateRequest
+	*/
+	DcimInventoryItemTemplatesUpdate(ctx context.Context, id int32) ApiDcimInventoryItemTemplatesUpdateRequest
+
+	// DcimInventoryItemTemplatesUpdateExecute executes the request
+	//  @return InventoryItemTemplate
+	DcimInventoryItemTemplatesUpdateExecute(r ApiDcimInventoryItemTemplatesUpdateRequest) (*InventoryItemTemplate, *http.Response, error)
+
+	/*
+	DcimInventoryItemsBulkDestroy Method for DcimInventoryItemsBulkDestroy
+
+	Delete a list of inventory item objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemsBulkDestroyRequest
+	*/
+	DcimInventoryItemsBulkDestroy(ctx context.Context) ApiDcimInventoryItemsBulkDestroyRequest
+
+	// DcimInventoryItemsBulkDestroyExecute executes the request
+	DcimInventoryItemsBulkDestroyExecute(r ApiDcimInventoryItemsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInventoryItemsBulkPartialUpdate Method for DcimInventoryItemsBulkPartialUpdate
+
+	Patch a list of inventory item objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemsBulkPartialUpdateRequest
+	*/
+	DcimInventoryItemsBulkPartialUpdate(ctx context.Context) ApiDcimInventoryItemsBulkPartialUpdateRequest
+
+	// DcimInventoryItemsBulkPartialUpdateExecute executes the request
+	//  @return []InventoryItem
+	DcimInventoryItemsBulkPartialUpdateExecute(r ApiDcimInventoryItemsBulkPartialUpdateRequest) ([]InventoryItem, *http.Response, error)
+
+	/*
+	DcimInventoryItemsBulkUpdate Method for DcimInventoryItemsBulkUpdate
+
+	Put a list of inventory item objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemsBulkUpdateRequest
+	*/
+	DcimInventoryItemsBulkUpdate(ctx context.Context) ApiDcimInventoryItemsBulkUpdateRequest
+
+	// DcimInventoryItemsBulkUpdateExecute executes the request
+	//  @return []InventoryItem
+	DcimInventoryItemsBulkUpdateExecute(r ApiDcimInventoryItemsBulkUpdateRequest) ([]InventoryItem, *http.Response, error)
+
+	/*
+	DcimInventoryItemsCreate Method for DcimInventoryItemsCreate
+
+	Post a list of inventory item objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemsCreateRequest
+	*/
+	DcimInventoryItemsCreate(ctx context.Context) ApiDcimInventoryItemsCreateRequest
+
+	// DcimInventoryItemsCreateExecute executes the request
+	//  @return InventoryItem
+	DcimInventoryItemsCreateExecute(r ApiDcimInventoryItemsCreateRequest) (*InventoryItem, *http.Response, error)
+
+	/*
+	DcimInventoryItemsDestroy Method for DcimInventoryItemsDestroy
+
+	Delete a inventory item object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item.
+	@return ApiDcimInventoryItemsDestroyRequest
+	*/
+	DcimInventoryItemsDestroy(ctx context.Context, id int32) ApiDcimInventoryItemsDestroyRequest
+
+	// DcimInventoryItemsDestroyExecute executes the request
+	DcimInventoryItemsDestroyExecute(r ApiDcimInventoryItemsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimInventoryItemsList Method for DcimInventoryItemsList
+
+	Get a list of inventory item objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimInventoryItemsListRequest
+	*/
+	DcimInventoryItemsList(ctx context.Context) ApiDcimInventoryItemsListRequest
+
+	// DcimInventoryItemsListExecute executes the request
+	//  @return PaginatedInventoryItemList
+	DcimInventoryItemsListExecute(r ApiDcimInventoryItemsListRequest) (*PaginatedInventoryItemList, *http.Response, error)
+
+	/*
+	DcimInventoryItemsPartialUpdate Method for DcimInventoryItemsPartialUpdate
+
+	Patch a inventory item object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item.
+	@return ApiDcimInventoryItemsPartialUpdateRequest
+	*/
+	DcimInventoryItemsPartialUpdate(ctx context.Context, id int32) ApiDcimInventoryItemsPartialUpdateRequest
+
+	// DcimInventoryItemsPartialUpdateExecute executes the request
+	//  @return InventoryItem
+	DcimInventoryItemsPartialUpdateExecute(r ApiDcimInventoryItemsPartialUpdateRequest) (*InventoryItem, *http.Response, error)
+
+	/*
+	DcimInventoryItemsRetrieve Method for DcimInventoryItemsRetrieve
+
+	Get a inventory item object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item.
+	@return ApiDcimInventoryItemsRetrieveRequest
+	*/
+	DcimInventoryItemsRetrieve(ctx context.Context, id int32) ApiDcimInventoryItemsRetrieveRequest
+
+	// DcimInventoryItemsRetrieveExecute executes the request
+	//  @return InventoryItem
+	DcimInventoryItemsRetrieveExecute(r ApiDcimInventoryItemsRetrieveRequest) (*InventoryItem, *http.Response, error)
+
+	/*
+	DcimInventoryItemsUpdate Method for DcimInventoryItemsUpdate
+
+	Put a inventory item object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this inventory item.
+	@return ApiDcimInventoryItemsUpdateRequest
+	*/
+	DcimInventoryItemsUpdate(ctx context.Context, id int32) ApiDcimInventoryItemsUpdateRequest
+
+	// DcimInventoryItemsUpdateExecute executes the request
+	//  @return InventoryItem
+	DcimInventoryItemsUpdateExecute(r ApiDcimInventoryItemsUpdateRequest) (*InventoryItem, *http.Response, error)
+
+	/*
+	DcimLocationsBulkDestroy Method for DcimLocationsBulkDestroy
+
+	Delete a list of location objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimLocationsBulkDestroyRequest
+	*/
+	DcimLocationsBulkDestroy(ctx context.Context) ApiDcimLocationsBulkDestroyRequest
+
+	// DcimLocationsBulkDestroyExecute executes the request
+	DcimLocationsBulkDestroyExecute(r ApiDcimLocationsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimLocationsBulkPartialUpdate Method for DcimLocationsBulkPartialUpdate
+
+	Patch a list of location objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimLocationsBulkPartialUpdateRequest
+	*/
+	DcimLocationsBulkPartialUpdate(ctx context.Context) ApiDcimLocationsBulkPartialUpdateRequest
+
+	// DcimLocationsBulkPartialUpdateExecute executes the request
+	//  @return []Location
+	DcimLocationsBulkPartialUpdateExecute(r ApiDcimLocationsBulkPartialUpdateRequest) ([]Location, *http.Response, error)
+
+	/*
+	DcimLocationsBulkUpdate Method for DcimLocationsBulkUpdate
+
+	Put a list of location objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimLocationsBulkUpdateRequest
+	*/
+	DcimLocationsBulkUpdate(ctx context.Context) ApiDcimLocationsBulkUpdateRequest
+
+	// DcimLocationsBulkUpdateExecute executes the request
+	//  @return []Location
+	DcimLocationsBulkUpdateExecute(r ApiDcimLocationsBulkUpdateRequest) ([]Location, *http.Response, error)
+
+	/*
+	DcimLocationsCreate Method for DcimLocationsCreate
+
+	Post a list of location objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimLocationsCreateRequest
+	*/
+	DcimLocationsCreate(ctx context.Context) ApiDcimLocationsCreateRequest
+
+	// DcimLocationsCreateExecute executes the request
+	//  @return Location
+	DcimLocationsCreateExecute(r ApiDcimLocationsCreateRequest) (*Location, *http.Response, error)
+
+	/*
+	DcimLocationsDestroy Method for DcimLocationsDestroy
+
+	Delete a location object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this location.
+	@return ApiDcimLocationsDestroyRequest
+	*/
+	DcimLocationsDestroy(ctx context.Context, id int32) ApiDcimLocationsDestroyRequest
+
+	// DcimLocationsDestroyExecute executes the request
+	DcimLocationsDestroyExecute(r ApiDcimLocationsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimLocationsList Method for DcimLocationsList
+
+	Get a list of location objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimLocationsListRequest
+	*/
+	DcimLocationsList(ctx context.Context) ApiDcimLocationsListRequest
+
+	// DcimLocationsListExecute executes the request
+	//  @return PaginatedLocationList
+	DcimLocationsListExecute(r ApiDcimLocationsListRequest) (*PaginatedLocationList, *http.Response, error)
+
+	/*
+	DcimLocationsPartialUpdate Method for DcimLocationsPartialUpdate
+
+	Patch a location object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this location.
+	@return ApiDcimLocationsPartialUpdateRequest
+	*/
+	DcimLocationsPartialUpdate(ctx context.Context, id int32) ApiDcimLocationsPartialUpdateRequest
+
+	// DcimLocationsPartialUpdateExecute executes the request
+	//  @return Location
+	DcimLocationsPartialUpdateExecute(r ApiDcimLocationsPartialUpdateRequest) (*Location, *http.Response, error)
+
+	/*
+	DcimLocationsRetrieve Method for DcimLocationsRetrieve
+
+	Get a location object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this location.
+	@return ApiDcimLocationsRetrieveRequest
+	*/
+	DcimLocationsRetrieve(ctx context.Context, id int32) ApiDcimLocationsRetrieveRequest
+
+	// DcimLocationsRetrieveExecute executes the request
+	//  @return Location
+	DcimLocationsRetrieveExecute(r ApiDcimLocationsRetrieveRequest) (*Location, *http.Response, error)
+
+	/*
+	DcimLocationsUpdate Method for DcimLocationsUpdate
+
+	Put a location object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this location.
+	@return ApiDcimLocationsUpdateRequest
+	*/
+	DcimLocationsUpdate(ctx context.Context, id int32) ApiDcimLocationsUpdateRequest
+
+	// DcimLocationsUpdateExecute executes the request
+	//  @return Location
+	DcimLocationsUpdateExecute(r ApiDcimLocationsUpdateRequest) (*Location, *http.Response, error)
+
+	/*
+	DcimManufacturersBulkDestroy Method for DcimManufacturersBulkDestroy
+
+	Delete a list of manufacturer objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimManufacturersBulkDestroyRequest
+	*/
+	DcimManufacturersBulkDestroy(ctx context.Context) ApiDcimManufacturersBulkDestroyRequest
+
+	// DcimManufacturersBulkDestroyExecute executes the request
+	DcimManufacturersBulkDestroyExecute(r ApiDcimManufacturersBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimManufacturersBulkPartialUpdate Method for DcimManufacturersBulkPartialUpdate
+
+	Patch a list of manufacturer objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimManufacturersBulkPartialUpdateRequest
+	*/
+	DcimManufacturersBulkPartialUpdate(ctx context.Context) ApiDcimManufacturersBulkPartialUpdateRequest
+
+	// DcimManufacturersBulkPartialUpdateExecute executes the request
+	//  @return []Manufacturer
+	DcimManufacturersBulkPartialUpdateExecute(r ApiDcimManufacturersBulkPartialUpdateRequest) ([]Manufacturer, *http.Response, error)
+
+	/*
+	DcimManufacturersBulkUpdate Method for DcimManufacturersBulkUpdate
+
+	Put a list of manufacturer objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimManufacturersBulkUpdateRequest
+	*/
+	DcimManufacturersBulkUpdate(ctx context.Context) ApiDcimManufacturersBulkUpdateRequest
+
+	// DcimManufacturersBulkUpdateExecute executes the request
+	//  @return []Manufacturer
+	DcimManufacturersBulkUpdateExecute(r ApiDcimManufacturersBulkUpdateRequest) ([]Manufacturer, *http.Response, error)
+
+	/*
+	DcimManufacturersCreate Method for DcimManufacturersCreate
+
+	Post a list of manufacturer objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimManufacturersCreateRequest
+	*/
+	DcimManufacturersCreate(ctx context.Context) ApiDcimManufacturersCreateRequest
+
+	// DcimManufacturersCreateExecute executes the request
+	//  @return Manufacturer
+	DcimManufacturersCreateExecute(r ApiDcimManufacturersCreateRequest) (*Manufacturer, *http.Response, error)
+
+	/*
+	DcimManufacturersDestroy Method for DcimManufacturersDestroy
+
+	Delete a manufacturer object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this manufacturer.
+	@return ApiDcimManufacturersDestroyRequest
+	*/
+	DcimManufacturersDestroy(ctx context.Context, id int32) ApiDcimManufacturersDestroyRequest
+
+	// DcimManufacturersDestroyExecute executes the request
+	DcimManufacturersDestroyExecute(r ApiDcimManufacturersDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimManufacturersList Method for DcimManufacturersList
+
+	Get a list of manufacturer objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimManufacturersListRequest
+	*/
+	DcimManufacturersList(ctx context.Context) ApiDcimManufacturersListRequest
+
+	// DcimManufacturersListExecute executes the request
+	//  @return PaginatedManufacturerList
+	DcimManufacturersListExecute(r ApiDcimManufacturersListRequest) (*PaginatedManufacturerList, *http.Response, error)
+
+	/*
+	DcimManufacturersPartialUpdate Method for DcimManufacturersPartialUpdate
+
+	Patch a manufacturer object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this manufacturer.
+	@return ApiDcimManufacturersPartialUpdateRequest
+	*/
+	DcimManufacturersPartialUpdate(ctx context.Context, id int32) ApiDcimManufacturersPartialUpdateRequest
+
+	// DcimManufacturersPartialUpdateExecute executes the request
+	//  @return Manufacturer
+	DcimManufacturersPartialUpdateExecute(r ApiDcimManufacturersPartialUpdateRequest) (*Manufacturer, *http.Response, error)
+
+	/*
+	DcimManufacturersRetrieve Method for DcimManufacturersRetrieve
+
+	Get a manufacturer object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this manufacturer.
+	@return ApiDcimManufacturersRetrieveRequest
+	*/
+	DcimManufacturersRetrieve(ctx context.Context, id int32) ApiDcimManufacturersRetrieveRequest
+
+	// DcimManufacturersRetrieveExecute executes the request
+	//  @return Manufacturer
+	DcimManufacturersRetrieveExecute(r ApiDcimManufacturersRetrieveRequest) (*Manufacturer, *http.Response, error)
+
+	/*
+	DcimManufacturersUpdate Method for DcimManufacturersUpdate
+
+	Put a manufacturer object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this manufacturer.
+	@return ApiDcimManufacturersUpdateRequest
+	*/
+	DcimManufacturersUpdate(ctx context.Context, id int32) ApiDcimManufacturersUpdateRequest
+
+	// DcimManufacturersUpdateExecute executes the request
+	//  @return Manufacturer
+	DcimManufacturersUpdateExecute(r ApiDcimManufacturersUpdateRequest) (*Manufacturer, *http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesBulkDestroy Method for DcimModuleBayTemplatesBulkDestroy
+
+	Delete a list of module bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBayTemplatesBulkDestroyRequest
+	*/
+	DcimModuleBayTemplatesBulkDestroy(ctx context.Context) ApiDcimModuleBayTemplatesBulkDestroyRequest
+
+	// DcimModuleBayTemplatesBulkDestroyExecute executes the request
+	DcimModuleBayTemplatesBulkDestroyExecute(r ApiDcimModuleBayTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesBulkPartialUpdate Method for DcimModuleBayTemplatesBulkPartialUpdate
+
+	Patch a list of module bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBayTemplatesBulkPartialUpdateRequest
+	*/
+	DcimModuleBayTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimModuleBayTemplatesBulkPartialUpdateRequest
+
+	// DcimModuleBayTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []ModuleBayTemplate
+	DcimModuleBayTemplatesBulkPartialUpdateExecute(r ApiDcimModuleBayTemplatesBulkPartialUpdateRequest) ([]ModuleBayTemplate, *http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesBulkUpdate Method for DcimModuleBayTemplatesBulkUpdate
+
+	Put a list of module bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBayTemplatesBulkUpdateRequest
+	*/
+	DcimModuleBayTemplatesBulkUpdate(ctx context.Context) ApiDcimModuleBayTemplatesBulkUpdateRequest
+
+	// DcimModuleBayTemplatesBulkUpdateExecute executes the request
+	//  @return []ModuleBayTemplate
+	DcimModuleBayTemplatesBulkUpdateExecute(r ApiDcimModuleBayTemplatesBulkUpdateRequest) ([]ModuleBayTemplate, *http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesCreate Method for DcimModuleBayTemplatesCreate
+
+	Post a list of module bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBayTemplatesCreateRequest
+	*/
+	DcimModuleBayTemplatesCreate(ctx context.Context) ApiDcimModuleBayTemplatesCreateRequest
+
+	// DcimModuleBayTemplatesCreateExecute executes the request
+	//  @return ModuleBayTemplate
+	DcimModuleBayTemplatesCreateExecute(r ApiDcimModuleBayTemplatesCreateRequest) (*ModuleBayTemplate, *http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesDestroy Method for DcimModuleBayTemplatesDestroy
+
+	Delete a module bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay template.
+	@return ApiDcimModuleBayTemplatesDestroyRequest
+	*/
+	DcimModuleBayTemplatesDestroy(ctx context.Context, id int32) ApiDcimModuleBayTemplatesDestroyRequest
+
+	// DcimModuleBayTemplatesDestroyExecute executes the request
+	DcimModuleBayTemplatesDestroyExecute(r ApiDcimModuleBayTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesList Method for DcimModuleBayTemplatesList
+
+	Get a list of module bay template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBayTemplatesListRequest
+	*/
+	DcimModuleBayTemplatesList(ctx context.Context) ApiDcimModuleBayTemplatesListRequest
+
+	// DcimModuleBayTemplatesListExecute executes the request
+	//  @return PaginatedModuleBayTemplateList
+	DcimModuleBayTemplatesListExecute(r ApiDcimModuleBayTemplatesListRequest) (*PaginatedModuleBayTemplateList, *http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesPartialUpdate Method for DcimModuleBayTemplatesPartialUpdate
+
+	Patch a module bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay template.
+	@return ApiDcimModuleBayTemplatesPartialUpdateRequest
+	*/
+	DcimModuleBayTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimModuleBayTemplatesPartialUpdateRequest
+
+	// DcimModuleBayTemplatesPartialUpdateExecute executes the request
+	//  @return ModuleBayTemplate
+	DcimModuleBayTemplatesPartialUpdateExecute(r ApiDcimModuleBayTemplatesPartialUpdateRequest) (*ModuleBayTemplate, *http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesRetrieve Method for DcimModuleBayTemplatesRetrieve
+
+	Get a module bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay template.
+	@return ApiDcimModuleBayTemplatesRetrieveRequest
+	*/
+	DcimModuleBayTemplatesRetrieve(ctx context.Context, id int32) ApiDcimModuleBayTemplatesRetrieveRequest
+
+	// DcimModuleBayTemplatesRetrieveExecute executes the request
+	//  @return ModuleBayTemplate
+	DcimModuleBayTemplatesRetrieveExecute(r ApiDcimModuleBayTemplatesRetrieveRequest) (*ModuleBayTemplate, *http.Response, error)
+
+	/*
+	DcimModuleBayTemplatesUpdate Method for DcimModuleBayTemplatesUpdate
+
+	Put a module bay template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay template.
+	@return ApiDcimModuleBayTemplatesUpdateRequest
+	*/
+	DcimModuleBayTemplatesUpdate(ctx context.Context, id int32) ApiDcimModuleBayTemplatesUpdateRequest
+
+	// DcimModuleBayTemplatesUpdateExecute executes the request
+	//  @return ModuleBayTemplate
+	DcimModuleBayTemplatesUpdateExecute(r ApiDcimModuleBayTemplatesUpdateRequest) (*ModuleBayTemplate, *http.Response, error)
+
+	/*
+	DcimModuleBaysBulkDestroy Method for DcimModuleBaysBulkDestroy
+
+	Delete a list of module bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBaysBulkDestroyRequest
+	*/
+	DcimModuleBaysBulkDestroy(ctx context.Context) ApiDcimModuleBaysBulkDestroyRequest
+
+	// DcimModuleBaysBulkDestroyExecute executes the request
+	DcimModuleBaysBulkDestroyExecute(r ApiDcimModuleBaysBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModuleBaysBulkPartialUpdate Method for DcimModuleBaysBulkPartialUpdate
+
+	Patch a list of module bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBaysBulkPartialUpdateRequest
+	*/
+	DcimModuleBaysBulkPartialUpdate(ctx context.Context) ApiDcimModuleBaysBulkPartialUpdateRequest
+
+	// DcimModuleBaysBulkPartialUpdateExecute executes the request
+	//  @return []ModuleBay
+	DcimModuleBaysBulkPartialUpdateExecute(r ApiDcimModuleBaysBulkPartialUpdateRequest) ([]ModuleBay, *http.Response, error)
+
+	/*
+	DcimModuleBaysBulkUpdate Method for DcimModuleBaysBulkUpdate
+
+	Put a list of module bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBaysBulkUpdateRequest
+	*/
+	DcimModuleBaysBulkUpdate(ctx context.Context) ApiDcimModuleBaysBulkUpdateRequest
+
+	// DcimModuleBaysBulkUpdateExecute executes the request
+	//  @return []ModuleBay
+	DcimModuleBaysBulkUpdateExecute(r ApiDcimModuleBaysBulkUpdateRequest) ([]ModuleBay, *http.Response, error)
+
+	/*
+	DcimModuleBaysCreate Method for DcimModuleBaysCreate
+
+	Post a list of module bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBaysCreateRequest
+	*/
+	DcimModuleBaysCreate(ctx context.Context) ApiDcimModuleBaysCreateRequest
+
+	// DcimModuleBaysCreateExecute executes the request
+	//  @return ModuleBay
+	DcimModuleBaysCreateExecute(r ApiDcimModuleBaysCreateRequest) (*ModuleBay, *http.Response, error)
+
+	/*
+	DcimModuleBaysDestroy Method for DcimModuleBaysDestroy
+
+	Delete a module bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay.
+	@return ApiDcimModuleBaysDestroyRequest
+	*/
+	DcimModuleBaysDestroy(ctx context.Context, id int32) ApiDcimModuleBaysDestroyRequest
+
+	// DcimModuleBaysDestroyExecute executes the request
+	DcimModuleBaysDestroyExecute(r ApiDcimModuleBaysDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModuleBaysList Method for DcimModuleBaysList
+
+	Get a list of module bay objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleBaysListRequest
+	*/
+	DcimModuleBaysList(ctx context.Context) ApiDcimModuleBaysListRequest
+
+	// DcimModuleBaysListExecute executes the request
+	//  @return PaginatedModuleBayList
+	DcimModuleBaysListExecute(r ApiDcimModuleBaysListRequest) (*PaginatedModuleBayList, *http.Response, error)
+
+	/*
+	DcimModuleBaysPartialUpdate Method for DcimModuleBaysPartialUpdate
+
+	Patch a module bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay.
+	@return ApiDcimModuleBaysPartialUpdateRequest
+	*/
+	DcimModuleBaysPartialUpdate(ctx context.Context, id int32) ApiDcimModuleBaysPartialUpdateRequest
+
+	// DcimModuleBaysPartialUpdateExecute executes the request
+	//  @return ModuleBay
+	DcimModuleBaysPartialUpdateExecute(r ApiDcimModuleBaysPartialUpdateRequest) (*ModuleBay, *http.Response, error)
+
+	/*
+	DcimModuleBaysRetrieve Method for DcimModuleBaysRetrieve
+
+	Get a module bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay.
+	@return ApiDcimModuleBaysRetrieveRequest
+	*/
+	DcimModuleBaysRetrieve(ctx context.Context, id int32) ApiDcimModuleBaysRetrieveRequest
+
+	// DcimModuleBaysRetrieveExecute executes the request
+	//  @return ModuleBay
+	DcimModuleBaysRetrieveExecute(r ApiDcimModuleBaysRetrieveRequest) (*ModuleBay, *http.Response, error)
+
+	/*
+	DcimModuleBaysUpdate Method for DcimModuleBaysUpdate
+
+	Put a module bay object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module bay.
+	@return ApiDcimModuleBaysUpdateRequest
+	*/
+	DcimModuleBaysUpdate(ctx context.Context, id int32) ApiDcimModuleBaysUpdateRequest
+
+	// DcimModuleBaysUpdateExecute executes the request
+	//  @return ModuleBay
+	DcimModuleBaysUpdateExecute(r ApiDcimModuleBaysUpdateRequest) (*ModuleBay, *http.Response, error)
+
+	/*
+	DcimModuleTypesBulkDestroy Method for DcimModuleTypesBulkDestroy
+
+	Delete a list of module type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleTypesBulkDestroyRequest
+	*/
+	DcimModuleTypesBulkDestroy(ctx context.Context) ApiDcimModuleTypesBulkDestroyRequest
+
+	// DcimModuleTypesBulkDestroyExecute executes the request
+	DcimModuleTypesBulkDestroyExecute(r ApiDcimModuleTypesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModuleTypesBulkPartialUpdate Method for DcimModuleTypesBulkPartialUpdate
+
+	Patch a list of module type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleTypesBulkPartialUpdateRequest
+	*/
+	DcimModuleTypesBulkPartialUpdate(ctx context.Context) ApiDcimModuleTypesBulkPartialUpdateRequest
+
+	// DcimModuleTypesBulkPartialUpdateExecute executes the request
+	//  @return []ModuleType
+	DcimModuleTypesBulkPartialUpdateExecute(r ApiDcimModuleTypesBulkPartialUpdateRequest) ([]ModuleType, *http.Response, error)
+
+	/*
+	DcimModuleTypesBulkUpdate Method for DcimModuleTypesBulkUpdate
+
+	Put a list of module type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleTypesBulkUpdateRequest
+	*/
+	DcimModuleTypesBulkUpdate(ctx context.Context) ApiDcimModuleTypesBulkUpdateRequest
+
+	// DcimModuleTypesBulkUpdateExecute executes the request
+	//  @return []ModuleType
+	DcimModuleTypesBulkUpdateExecute(r ApiDcimModuleTypesBulkUpdateRequest) ([]ModuleType, *http.Response, error)
+
+	/*
+	DcimModuleTypesCreate Method for DcimModuleTypesCreate
+
+	Post a list of module type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleTypesCreateRequest
+	*/
+	DcimModuleTypesCreate(ctx context.Context) ApiDcimModuleTypesCreateRequest
+
+	// DcimModuleTypesCreateExecute executes the request
+	//  @return ModuleType
+	DcimModuleTypesCreateExecute(r ApiDcimModuleTypesCreateRequest) (*ModuleType, *http.Response, error)
+
+	/*
+	DcimModuleTypesDestroy Method for DcimModuleTypesDestroy
+
+	Delete a module type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module type.
+	@return ApiDcimModuleTypesDestroyRequest
+	*/
+	DcimModuleTypesDestroy(ctx context.Context, id int32) ApiDcimModuleTypesDestroyRequest
+
+	// DcimModuleTypesDestroyExecute executes the request
+	DcimModuleTypesDestroyExecute(r ApiDcimModuleTypesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModuleTypesList Method for DcimModuleTypesList
+
+	Get a list of module type objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModuleTypesListRequest
+	*/
+	DcimModuleTypesList(ctx context.Context) ApiDcimModuleTypesListRequest
+
+	// DcimModuleTypesListExecute executes the request
+	//  @return PaginatedModuleTypeList
+	DcimModuleTypesListExecute(r ApiDcimModuleTypesListRequest) (*PaginatedModuleTypeList, *http.Response, error)
+
+	/*
+	DcimModuleTypesPartialUpdate Method for DcimModuleTypesPartialUpdate
+
+	Patch a module type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module type.
+	@return ApiDcimModuleTypesPartialUpdateRequest
+	*/
+	DcimModuleTypesPartialUpdate(ctx context.Context, id int32) ApiDcimModuleTypesPartialUpdateRequest
+
+	// DcimModuleTypesPartialUpdateExecute executes the request
+	//  @return ModuleType
+	DcimModuleTypesPartialUpdateExecute(r ApiDcimModuleTypesPartialUpdateRequest) (*ModuleType, *http.Response, error)
+
+	/*
+	DcimModuleTypesRetrieve Method for DcimModuleTypesRetrieve
+
+	Get a module type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module type.
+	@return ApiDcimModuleTypesRetrieveRequest
+	*/
+	DcimModuleTypesRetrieve(ctx context.Context, id int32) ApiDcimModuleTypesRetrieveRequest
+
+	// DcimModuleTypesRetrieveExecute executes the request
+	//  @return ModuleType
+	DcimModuleTypesRetrieveExecute(r ApiDcimModuleTypesRetrieveRequest) (*ModuleType, *http.Response, error)
+
+	/*
+	DcimModuleTypesUpdate Method for DcimModuleTypesUpdate
+
+	Put a module type object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module type.
+	@return ApiDcimModuleTypesUpdateRequest
+	*/
+	DcimModuleTypesUpdate(ctx context.Context, id int32) ApiDcimModuleTypesUpdateRequest
+
+	// DcimModuleTypesUpdateExecute executes the request
+	//  @return ModuleType
+	DcimModuleTypesUpdateExecute(r ApiDcimModuleTypesUpdateRequest) (*ModuleType, *http.Response, error)
+
+	/*
+	DcimModulesBulkDestroy Method for DcimModulesBulkDestroy
+
+	Delete a list of module objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModulesBulkDestroyRequest
+	*/
+	DcimModulesBulkDestroy(ctx context.Context) ApiDcimModulesBulkDestroyRequest
+
+	// DcimModulesBulkDestroyExecute executes the request
+	DcimModulesBulkDestroyExecute(r ApiDcimModulesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModulesBulkPartialUpdate Method for DcimModulesBulkPartialUpdate
+
+	Patch a list of module objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModulesBulkPartialUpdateRequest
+	*/
+	DcimModulesBulkPartialUpdate(ctx context.Context) ApiDcimModulesBulkPartialUpdateRequest
+
+	// DcimModulesBulkPartialUpdateExecute executes the request
+	//  @return []Module
+	DcimModulesBulkPartialUpdateExecute(r ApiDcimModulesBulkPartialUpdateRequest) ([]Module, *http.Response, error)
+
+	/*
+	DcimModulesBulkUpdate Method for DcimModulesBulkUpdate
+
+	Put a list of module objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModulesBulkUpdateRequest
+	*/
+	DcimModulesBulkUpdate(ctx context.Context) ApiDcimModulesBulkUpdateRequest
+
+	// DcimModulesBulkUpdateExecute executes the request
+	//  @return []Module
+	DcimModulesBulkUpdateExecute(r ApiDcimModulesBulkUpdateRequest) ([]Module, *http.Response, error)
+
+	/*
+	DcimModulesCreate Method for DcimModulesCreate
+
+	Post a list of module objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModulesCreateRequest
+	*/
+	DcimModulesCreate(ctx context.Context) ApiDcimModulesCreateRequest
+
+	// DcimModulesCreateExecute executes the request
+	//  @return Module
+	DcimModulesCreateExecute(r ApiDcimModulesCreateRequest) (*Module, *http.Response, error)
+
+	/*
+	DcimModulesDestroy Method for DcimModulesDestroy
+
+	Delete a module object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module.
+	@return ApiDcimModulesDestroyRequest
+	*/
+	DcimModulesDestroy(ctx context.Context, id int32) ApiDcimModulesDestroyRequest
+
+	// DcimModulesDestroyExecute executes the request
+	DcimModulesDestroyExecute(r ApiDcimModulesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimModulesList Method for DcimModulesList
+
+	Get a list of module objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimModulesListRequest
+	*/
+	DcimModulesList(ctx context.Context) ApiDcimModulesListRequest
+
+	// DcimModulesListExecute executes the request
+	//  @return PaginatedModuleList
+	DcimModulesListExecute(r ApiDcimModulesListRequest) (*PaginatedModuleList, *http.Response, error)
+
+	/*
+	DcimModulesPartialUpdate Method for DcimModulesPartialUpdate
+
+	Patch a module object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module.
+	@return ApiDcimModulesPartialUpdateRequest
+	*/
+	DcimModulesPartialUpdate(ctx context.Context, id int32) ApiDcimModulesPartialUpdateRequest
+
+	// DcimModulesPartialUpdateExecute executes the request
+	//  @return Module
+	DcimModulesPartialUpdateExecute(r ApiDcimModulesPartialUpdateRequest) (*Module, *http.Response, error)
+
+	/*
+	DcimModulesRetrieve Method for DcimModulesRetrieve
+
+	Get a module object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module.
+	@return ApiDcimModulesRetrieveRequest
+	*/
+	DcimModulesRetrieve(ctx context.Context, id int32) ApiDcimModulesRetrieveRequest
+
+	// DcimModulesRetrieveExecute executes the request
+	//  @return Module
+	DcimModulesRetrieveExecute(r ApiDcimModulesRetrieveRequest) (*Module, *http.Response, error)
+
+	/*
+	DcimModulesUpdate Method for DcimModulesUpdate
+
+	Put a module object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this module.
+	@return ApiDcimModulesUpdateRequest
+	*/
+	DcimModulesUpdate(ctx context.Context, id int32) ApiDcimModulesUpdateRequest
+
+	// DcimModulesUpdateExecute executes the request
+	//  @return Module
+	DcimModulesUpdateExecute(r ApiDcimModulesUpdateRequest) (*Module, *http.Response, error)
+
+	/*
+	DcimPlatformsBulkDestroy Method for DcimPlatformsBulkDestroy
+
+	Delete a list of platform objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPlatformsBulkDestroyRequest
+	*/
+	DcimPlatformsBulkDestroy(ctx context.Context) ApiDcimPlatformsBulkDestroyRequest
+
+	// DcimPlatformsBulkDestroyExecute executes the request
+	DcimPlatformsBulkDestroyExecute(r ApiDcimPlatformsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPlatformsBulkPartialUpdate Method for DcimPlatformsBulkPartialUpdate
+
+	Patch a list of platform objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPlatformsBulkPartialUpdateRequest
+	*/
+	DcimPlatformsBulkPartialUpdate(ctx context.Context) ApiDcimPlatformsBulkPartialUpdateRequest
+
+	// DcimPlatformsBulkPartialUpdateExecute executes the request
+	//  @return []Platform
+	DcimPlatformsBulkPartialUpdateExecute(r ApiDcimPlatformsBulkPartialUpdateRequest) ([]Platform, *http.Response, error)
+
+	/*
+	DcimPlatformsBulkUpdate Method for DcimPlatformsBulkUpdate
+
+	Put a list of platform objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPlatformsBulkUpdateRequest
+	*/
+	DcimPlatformsBulkUpdate(ctx context.Context) ApiDcimPlatformsBulkUpdateRequest
+
+	// DcimPlatformsBulkUpdateExecute executes the request
+	//  @return []Platform
+	DcimPlatformsBulkUpdateExecute(r ApiDcimPlatformsBulkUpdateRequest) ([]Platform, *http.Response, error)
+
+	/*
+	DcimPlatformsCreate Method for DcimPlatformsCreate
+
+	Post a list of platform objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPlatformsCreateRequest
+	*/
+	DcimPlatformsCreate(ctx context.Context) ApiDcimPlatformsCreateRequest
+
+	// DcimPlatformsCreateExecute executes the request
+	//  @return Platform
+	DcimPlatformsCreateExecute(r ApiDcimPlatformsCreateRequest) (*Platform, *http.Response, error)
+
+	/*
+	DcimPlatformsDestroy Method for DcimPlatformsDestroy
+
+	Delete a platform object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this platform.
+	@return ApiDcimPlatformsDestroyRequest
+	*/
+	DcimPlatformsDestroy(ctx context.Context, id int32) ApiDcimPlatformsDestroyRequest
+
+	// DcimPlatformsDestroyExecute executes the request
+	DcimPlatformsDestroyExecute(r ApiDcimPlatformsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPlatformsList Method for DcimPlatformsList
+
+	Get a list of platform objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPlatformsListRequest
+	*/
+	DcimPlatformsList(ctx context.Context) ApiDcimPlatformsListRequest
+
+	// DcimPlatformsListExecute executes the request
+	//  @return PaginatedPlatformList
+	DcimPlatformsListExecute(r ApiDcimPlatformsListRequest) (*PaginatedPlatformList, *http.Response, error)
+
+	/*
+	DcimPlatformsPartialUpdate Method for DcimPlatformsPartialUpdate
+
+	Patch a platform object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this platform.
+	@return ApiDcimPlatformsPartialUpdateRequest
+	*/
+	DcimPlatformsPartialUpdate(ctx context.Context, id int32) ApiDcimPlatformsPartialUpdateRequest
+
+	// DcimPlatformsPartialUpdateExecute executes the request
+	//  @return Platform
+	DcimPlatformsPartialUpdateExecute(r ApiDcimPlatformsPartialUpdateRequest) (*Platform, *http.Response, error)
+
+	/*
+	DcimPlatformsRetrieve Method for DcimPlatformsRetrieve
+
+	Get a platform object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this platform.
+	@return ApiDcimPlatformsRetrieveRequest
+	*/
+	DcimPlatformsRetrieve(ctx context.Context, id int32) ApiDcimPlatformsRetrieveRequest
+
+	// DcimPlatformsRetrieveExecute executes the request
+	//  @return Platform
+	DcimPlatformsRetrieveExecute(r ApiDcimPlatformsRetrieveRequest) (*Platform, *http.Response, error)
+
+	/*
+	DcimPlatformsUpdate Method for DcimPlatformsUpdate
+
+	Put a platform object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this platform.
+	@return ApiDcimPlatformsUpdateRequest
+	*/
+	DcimPlatformsUpdate(ctx context.Context, id int32) ApiDcimPlatformsUpdateRequest
+
+	// DcimPlatformsUpdateExecute executes the request
+	//  @return Platform
+	DcimPlatformsUpdateExecute(r ApiDcimPlatformsUpdateRequest) (*Platform, *http.Response, error)
+
+	/*
+	DcimPowerFeedsBulkDestroy Method for DcimPowerFeedsBulkDestroy
+
+	Delete a list of power feed objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerFeedsBulkDestroyRequest
+	*/
+	DcimPowerFeedsBulkDestroy(ctx context.Context) ApiDcimPowerFeedsBulkDestroyRequest
+
+	// DcimPowerFeedsBulkDestroyExecute executes the request
+	DcimPowerFeedsBulkDestroyExecute(r ApiDcimPowerFeedsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerFeedsBulkPartialUpdate Method for DcimPowerFeedsBulkPartialUpdate
+
+	Patch a list of power feed objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerFeedsBulkPartialUpdateRequest
+	*/
+	DcimPowerFeedsBulkPartialUpdate(ctx context.Context) ApiDcimPowerFeedsBulkPartialUpdateRequest
+
+	// DcimPowerFeedsBulkPartialUpdateExecute executes the request
+	//  @return []PowerFeed
+	DcimPowerFeedsBulkPartialUpdateExecute(r ApiDcimPowerFeedsBulkPartialUpdateRequest) ([]PowerFeed, *http.Response, error)
+
+	/*
+	DcimPowerFeedsBulkUpdate Method for DcimPowerFeedsBulkUpdate
+
+	Put a list of power feed objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerFeedsBulkUpdateRequest
+	*/
+	DcimPowerFeedsBulkUpdate(ctx context.Context) ApiDcimPowerFeedsBulkUpdateRequest
+
+	// DcimPowerFeedsBulkUpdateExecute executes the request
+	//  @return []PowerFeed
+	DcimPowerFeedsBulkUpdateExecute(r ApiDcimPowerFeedsBulkUpdateRequest) ([]PowerFeed, *http.Response, error)
+
+	/*
+	DcimPowerFeedsCreate Method for DcimPowerFeedsCreate
+
+	Post a list of power feed objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerFeedsCreateRequest
+	*/
+	DcimPowerFeedsCreate(ctx context.Context) ApiDcimPowerFeedsCreateRequest
+
+	// DcimPowerFeedsCreateExecute executes the request
+	//  @return PowerFeed
+	DcimPowerFeedsCreateExecute(r ApiDcimPowerFeedsCreateRequest) (*PowerFeed, *http.Response, error)
+
+	/*
+	DcimPowerFeedsDestroy Method for DcimPowerFeedsDestroy
+
+	Delete a power feed object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power feed.
+	@return ApiDcimPowerFeedsDestroyRequest
+	*/
+	DcimPowerFeedsDestroy(ctx context.Context, id int32) ApiDcimPowerFeedsDestroyRequest
+
+	// DcimPowerFeedsDestroyExecute executes the request
+	DcimPowerFeedsDestroyExecute(r ApiDcimPowerFeedsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerFeedsList Method for DcimPowerFeedsList
+
+	Get a list of power feed objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerFeedsListRequest
+	*/
+	DcimPowerFeedsList(ctx context.Context) ApiDcimPowerFeedsListRequest
+
+	// DcimPowerFeedsListExecute executes the request
+	//  @return PaginatedPowerFeedList
+	DcimPowerFeedsListExecute(r ApiDcimPowerFeedsListRequest) (*PaginatedPowerFeedList, *http.Response, error)
+
+	/*
+	DcimPowerFeedsPartialUpdate Method for DcimPowerFeedsPartialUpdate
+
+	Patch a power feed object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power feed.
+	@return ApiDcimPowerFeedsPartialUpdateRequest
+	*/
+	DcimPowerFeedsPartialUpdate(ctx context.Context, id int32) ApiDcimPowerFeedsPartialUpdateRequest
+
+	// DcimPowerFeedsPartialUpdateExecute executes the request
+	//  @return PowerFeed
+	DcimPowerFeedsPartialUpdateExecute(r ApiDcimPowerFeedsPartialUpdateRequest) (*PowerFeed, *http.Response, error)
+
+	/*
+	DcimPowerFeedsRetrieve Method for DcimPowerFeedsRetrieve
+
+	Get a power feed object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power feed.
+	@return ApiDcimPowerFeedsRetrieveRequest
+	*/
+	DcimPowerFeedsRetrieve(ctx context.Context, id int32) ApiDcimPowerFeedsRetrieveRequest
+
+	// DcimPowerFeedsRetrieveExecute executes the request
+	//  @return PowerFeed
+	DcimPowerFeedsRetrieveExecute(r ApiDcimPowerFeedsRetrieveRequest) (*PowerFeed, *http.Response, error)
+
+	/*
+	DcimPowerFeedsTraceRetrieve Method for DcimPowerFeedsTraceRetrieve
+
+	Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power feed.
+	@return ApiDcimPowerFeedsTraceRetrieveRequest
+	*/
+	DcimPowerFeedsTraceRetrieve(ctx context.Context, id int32) ApiDcimPowerFeedsTraceRetrieveRequest
+
+	// DcimPowerFeedsTraceRetrieveExecute executes the request
+	//  @return PowerFeed
+	DcimPowerFeedsTraceRetrieveExecute(r ApiDcimPowerFeedsTraceRetrieveRequest) (*PowerFeed, *http.Response, error)
+
+	/*
+	DcimPowerFeedsUpdate Method for DcimPowerFeedsUpdate
+
+	Put a power feed object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power feed.
+	@return ApiDcimPowerFeedsUpdateRequest
+	*/
+	DcimPowerFeedsUpdate(ctx context.Context, id int32) ApiDcimPowerFeedsUpdateRequest
+
+	// DcimPowerFeedsUpdateExecute executes the request
+	//  @return PowerFeed
+	DcimPowerFeedsUpdateExecute(r ApiDcimPowerFeedsUpdateRequest) (*PowerFeed, *http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesBulkDestroy Method for DcimPowerOutletTemplatesBulkDestroy
+
+	Delete a list of power outlet template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletTemplatesBulkDestroyRequest
+	*/
+	DcimPowerOutletTemplatesBulkDestroy(ctx context.Context) ApiDcimPowerOutletTemplatesBulkDestroyRequest
+
+	// DcimPowerOutletTemplatesBulkDestroyExecute executes the request
+	DcimPowerOutletTemplatesBulkDestroyExecute(r ApiDcimPowerOutletTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesBulkPartialUpdate Method for DcimPowerOutletTemplatesBulkPartialUpdate
+
+	Patch a list of power outlet template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletTemplatesBulkPartialUpdateRequest
+	*/
+	DcimPowerOutletTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimPowerOutletTemplatesBulkPartialUpdateRequest
+
+	// DcimPowerOutletTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []PowerOutletTemplate
+	DcimPowerOutletTemplatesBulkPartialUpdateExecute(r ApiDcimPowerOutletTemplatesBulkPartialUpdateRequest) ([]PowerOutletTemplate, *http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesBulkUpdate Method for DcimPowerOutletTemplatesBulkUpdate
+
+	Put a list of power outlet template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletTemplatesBulkUpdateRequest
+	*/
+	DcimPowerOutletTemplatesBulkUpdate(ctx context.Context) ApiDcimPowerOutletTemplatesBulkUpdateRequest
+
+	// DcimPowerOutletTemplatesBulkUpdateExecute executes the request
+	//  @return []PowerOutletTemplate
+	DcimPowerOutletTemplatesBulkUpdateExecute(r ApiDcimPowerOutletTemplatesBulkUpdateRequest) ([]PowerOutletTemplate, *http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesCreate Method for DcimPowerOutletTemplatesCreate
+
+	Post a list of power outlet template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletTemplatesCreateRequest
+	*/
+	DcimPowerOutletTemplatesCreate(ctx context.Context) ApiDcimPowerOutletTemplatesCreateRequest
+
+	// DcimPowerOutletTemplatesCreateExecute executes the request
+	//  @return PowerOutletTemplate
+	DcimPowerOutletTemplatesCreateExecute(r ApiDcimPowerOutletTemplatesCreateRequest) (*PowerOutletTemplate, *http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesDestroy Method for DcimPowerOutletTemplatesDestroy
+
+	Delete a power outlet template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet template.
+	@return ApiDcimPowerOutletTemplatesDestroyRequest
+	*/
+	DcimPowerOutletTemplatesDestroy(ctx context.Context, id int32) ApiDcimPowerOutletTemplatesDestroyRequest
+
+	// DcimPowerOutletTemplatesDestroyExecute executes the request
+	DcimPowerOutletTemplatesDestroyExecute(r ApiDcimPowerOutletTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesList Method for DcimPowerOutletTemplatesList
+
+	Get a list of power outlet template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletTemplatesListRequest
+	*/
+	DcimPowerOutletTemplatesList(ctx context.Context) ApiDcimPowerOutletTemplatesListRequest
+
+	// DcimPowerOutletTemplatesListExecute executes the request
+	//  @return PaginatedPowerOutletTemplateList
+	DcimPowerOutletTemplatesListExecute(r ApiDcimPowerOutletTemplatesListRequest) (*PaginatedPowerOutletTemplateList, *http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesPartialUpdate Method for DcimPowerOutletTemplatesPartialUpdate
+
+	Patch a power outlet template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet template.
+	@return ApiDcimPowerOutletTemplatesPartialUpdateRequest
+	*/
+	DcimPowerOutletTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimPowerOutletTemplatesPartialUpdateRequest
+
+	// DcimPowerOutletTemplatesPartialUpdateExecute executes the request
+	//  @return PowerOutletTemplate
+	DcimPowerOutletTemplatesPartialUpdateExecute(r ApiDcimPowerOutletTemplatesPartialUpdateRequest) (*PowerOutletTemplate, *http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesRetrieve Method for DcimPowerOutletTemplatesRetrieve
+
+	Get a power outlet template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet template.
+	@return ApiDcimPowerOutletTemplatesRetrieveRequest
+	*/
+	DcimPowerOutletTemplatesRetrieve(ctx context.Context, id int32) ApiDcimPowerOutletTemplatesRetrieveRequest
+
+	// DcimPowerOutletTemplatesRetrieveExecute executes the request
+	//  @return PowerOutletTemplate
+	DcimPowerOutletTemplatesRetrieveExecute(r ApiDcimPowerOutletTemplatesRetrieveRequest) (*PowerOutletTemplate, *http.Response, error)
+
+	/*
+	DcimPowerOutletTemplatesUpdate Method for DcimPowerOutletTemplatesUpdate
+
+	Put a power outlet template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet template.
+	@return ApiDcimPowerOutletTemplatesUpdateRequest
+	*/
+	DcimPowerOutletTemplatesUpdate(ctx context.Context, id int32) ApiDcimPowerOutletTemplatesUpdateRequest
+
+	// DcimPowerOutletTemplatesUpdateExecute executes the request
+	//  @return PowerOutletTemplate
+	DcimPowerOutletTemplatesUpdateExecute(r ApiDcimPowerOutletTemplatesUpdateRequest) (*PowerOutletTemplate, *http.Response, error)
+
+	/*
+	DcimPowerOutletsBulkDestroy Method for DcimPowerOutletsBulkDestroy
+
+	Delete a list of power outlet objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletsBulkDestroyRequest
+	*/
+	DcimPowerOutletsBulkDestroy(ctx context.Context) ApiDcimPowerOutletsBulkDestroyRequest
+
+	// DcimPowerOutletsBulkDestroyExecute executes the request
+	DcimPowerOutletsBulkDestroyExecute(r ApiDcimPowerOutletsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerOutletsBulkPartialUpdate Method for DcimPowerOutletsBulkPartialUpdate
+
+	Patch a list of power outlet objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletsBulkPartialUpdateRequest
+	*/
+	DcimPowerOutletsBulkPartialUpdate(ctx context.Context) ApiDcimPowerOutletsBulkPartialUpdateRequest
+
+	// DcimPowerOutletsBulkPartialUpdateExecute executes the request
+	//  @return []PowerOutlet
+	DcimPowerOutletsBulkPartialUpdateExecute(r ApiDcimPowerOutletsBulkPartialUpdateRequest) ([]PowerOutlet, *http.Response, error)
+
+	/*
+	DcimPowerOutletsBulkUpdate Method for DcimPowerOutletsBulkUpdate
+
+	Put a list of power outlet objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletsBulkUpdateRequest
+	*/
+	DcimPowerOutletsBulkUpdate(ctx context.Context) ApiDcimPowerOutletsBulkUpdateRequest
+
+	// DcimPowerOutletsBulkUpdateExecute executes the request
+	//  @return []PowerOutlet
+	DcimPowerOutletsBulkUpdateExecute(r ApiDcimPowerOutletsBulkUpdateRequest) ([]PowerOutlet, *http.Response, error)
+
+	/*
+	DcimPowerOutletsCreate Method for DcimPowerOutletsCreate
+
+	Post a list of power outlet objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletsCreateRequest
+	*/
+	DcimPowerOutletsCreate(ctx context.Context) ApiDcimPowerOutletsCreateRequest
+
+	// DcimPowerOutletsCreateExecute executes the request
+	//  @return PowerOutlet
+	DcimPowerOutletsCreateExecute(r ApiDcimPowerOutletsCreateRequest) (*PowerOutlet, *http.Response, error)
+
+	/*
+	DcimPowerOutletsDestroy Method for DcimPowerOutletsDestroy
+
+	Delete a power outlet object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet.
+	@return ApiDcimPowerOutletsDestroyRequest
+	*/
+	DcimPowerOutletsDestroy(ctx context.Context, id int32) ApiDcimPowerOutletsDestroyRequest
+
+	// DcimPowerOutletsDestroyExecute executes the request
+	DcimPowerOutletsDestroyExecute(r ApiDcimPowerOutletsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerOutletsList Method for DcimPowerOutletsList
+
+	Get a list of power outlet objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerOutletsListRequest
+	*/
+	DcimPowerOutletsList(ctx context.Context) ApiDcimPowerOutletsListRequest
+
+	// DcimPowerOutletsListExecute executes the request
+	//  @return PaginatedPowerOutletList
+	DcimPowerOutletsListExecute(r ApiDcimPowerOutletsListRequest) (*PaginatedPowerOutletList, *http.Response, error)
+
+	/*
+	DcimPowerOutletsPartialUpdate Method for DcimPowerOutletsPartialUpdate
+
+	Patch a power outlet object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet.
+	@return ApiDcimPowerOutletsPartialUpdateRequest
+	*/
+	DcimPowerOutletsPartialUpdate(ctx context.Context, id int32) ApiDcimPowerOutletsPartialUpdateRequest
+
+	// DcimPowerOutletsPartialUpdateExecute executes the request
+	//  @return PowerOutlet
+	DcimPowerOutletsPartialUpdateExecute(r ApiDcimPowerOutletsPartialUpdateRequest) (*PowerOutlet, *http.Response, error)
+
+	/*
+	DcimPowerOutletsRetrieve Method for DcimPowerOutletsRetrieve
+
+	Get a power outlet object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet.
+	@return ApiDcimPowerOutletsRetrieveRequest
+	*/
+	DcimPowerOutletsRetrieve(ctx context.Context, id int32) ApiDcimPowerOutletsRetrieveRequest
+
+	// DcimPowerOutletsRetrieveExecute executes the request
+	//  @return PowerOutlet
+	DcimPowerOutletsRetrieveExecute(r ApiDcimPowerOutletsRetrieveRequest) (*PowerOutlet, *http.Response, error)
+
+	/*
+	DcimPowerOutletsTraceRetrieve Method for DcimPowerOutletsTraceRetrieve
+
+	Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet.
+	@return ApiDcimPowerOutletsTraceRetrieveRequest
+	*/
+	DcimPowerOutletsTraceRetrieve(ctx context.Context, id int32) ApiDcimPowerOutletsTraceRetrieveRequest
+
+	// DcimPowerOutletsTraceRetrieveExecute executes the request
+	//  @return PowerOutlet
+	DcimPowerOutletsTraceRetrieveExecute(r ApiDcimPowerOutletsTraceRetrieveRequest) (*PowerOutlet, *http.Response, error)
+
+	/*
+	DcimPowerOutletsUpdate Method for DcimPowerOutletsUpdate
+
+	Put a power outlet object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power outlet.
+	@return ApiDcimPowerOutletsUpdateRequest
+	*/
+	DcimPowerOutletsUpdate(ctx context.Context, id int32) ApiDcimPowerOutletsUpdateRequest
+
+	// DcimPowerOutletsUpdateExecute executes the request
+	//  @return PowerOutlet
+	DcimPowerOutletsUpdateExecute(r ApiDcimPowerOutletsUpdateRequest) (*PowerOutlet, *http.Response, error)
+
+	/*
+	DcimPowerPanelsBulkDestroy Method for DcimPowerPanelsBulkDestroy
+
+	Delete a list of power panel objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPanelsBulkDestroyRequest
+	*/
+	DcimPowerPanelsBulkDestroy(ctx context.Context) ApiDcimPowerPanelsBulkDestroyRequest
+
+	// DcimPowerPanelsBulkDestroyExecute executes the request
+	DcimPowerPanelsBulkDestroyExecute(r ApiDcimPowerPanelsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerPanelsBulkPartialUpdate Method for DcimPowerPanelsBulkPartialUpdate
+
+	Patch a list of power panel objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPanelsBulkPartialUpdateRequest
+	*/
+	DcimPowerPanelsBulkPartialUpdate(ctx context.Context) ApiDcimPowerPanelsBulkPartialUpdateRequest
+
+	// DcimPowerPanelsBulkPartialUpdateExecute executes the request
+	//  @return []PowerPanel
+	DcimPowerPanelsBulkPartialUpdateExecute(r ApiDcimPowerPanelsBulkPartialUpdateRequest) ([]PowerPanel, *http.Response, error)
+
+	/*
+	DcimPowerPanelsBulkUpdate Method for DcimPowerPanelsBulkUpdate
+
+	Put a list of power panel objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPanelsBulkUpdateRequest
+	*/
+	DcimPowerPanelsBulkUpdate(ctx context.Context) ApiDcimPowerPanelsBulkUpdateRequest
+
+	// DcimPowerPanelsBulkUpdateExecute executes the request
+	//  @return []PowerPanel
+	DcimPowerPanelsBulkUpdateExecute(r ApiDcimPowerPanelsBulkUpdateRequest) ([]PowerPanel, *http.Response, error)
+
+	/*
+	DcimPowerPanelsCreate Method for DcimPowerPanelsCreate
+
+	Post a list of power panel objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPanelsCreateRequest
+	*/
+	DcimPowerPanelsCreate(ctx context.Context) ApiDcimPowerPanelsCreateRequest
+
+	// DcimPowerPanelsCreateExecute executes the request
+	//  @return PowerPanel
+	DcimPowerPanelsCreateExecute(r ApiDcimPowerPanelsCreateRequest) (*PowerPanel, *http.Response, error)
+
+	/*
+	DcimPowerPanelsDestroy Method for DcimPowerPanelsDestroy
+
+	Delete a power panel object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power panel.
+	@return ApiDcimPowerPanelsDestroyRequest
+	*/
+	DcimPowerPanelsDestroy(ctx context.Context, id int32) ApiDcimPowerPanelsDestroyRequest
+
+	// DcimPowerPanelsDestroyExecute executes the request
+	DcimPowerPanelsDestroyExecute(r ApiDcimPowerPanelsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerPanelsList Method for DcimPowerPanelsList
+
+	Get a list of power panel objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPanelsListRequest
+	*/
+	DcimPowerPanelsList(ctx context.Context) ApiDcimPowerPanelsListRequest
+
+	// DcimPowerPanelsListExecute executes the request
+	//  @return PaginatedPowerPanelList
+	DcimPowerPanelsListExecute(r ApiDcimPowerPanelsListRequest) (*PaginatedPowerPanelList, *http.Response, error)
+
+	/*
+	DcimPowerPanelsPartialUpdate Method for DcimPowerPanelsPartialUpdate
+
+	Patch a power panel object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power panel.
+	@return ApiDcimPowerPanelsPartialUpdateRequest
+	*/
+	DcimPowerPanelsPartialUpdate(ctx context.Context, id int32) ApiDcimPowerPanelsPartialUpdateRequest
+
+	// DcimPowerPanelsPartialUpdateExecute executes the request
+	//  @return PowerPanel
+	DcimPowerPanelsPartialUpdateExecute(r ApiDcimPowerPanelsPartialUpdateRequest) (*PowerPanel, *http.Response, error)
+
+	/*
+	DcimPowerPanelsRetrieve Method for DcimPowerPanelsRetrieve
+
+	Get a power panel object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power panel.
+	@return ApiDcimPowerPanelsRetrieveRequest
+	*/
+	DcimPowerPanelsRetrieve(ctx context.Context, id int32) ApiDcimPowerPanelsRetrieveRequest
+
+	// DcimPowerPanelsRetrieveExecute executes the request
+	//  @return PowerPanel
+	DcimPowerPanelsRetrieveExecute(r ApiDcimPowerPanelsRetrieveRequest) (*PowerPanel, *http.Response, error)
+
+	/*
+	DcimPowerPanelsUpdate Method for DcimPowerPanelsUpdate
+
+	Put a power panel object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power panel.
+	@return ApiDcimPowerPanelsUpdateRequest
+	*/
+	DcimPowerPanelsUpdate(ctx context.Context, id int32) ApiDcimPowerPanelsUpdateRequest
+
+	// DcimPowerPanelsUpdateExecute executes the request
+	//  @return PowerPanel
+	DcimPowerPanelsUpdateExecute(r ApiDcimPowerPanelsUpdateRequest) (*PowerPanel, *http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesBulkDestroy Method for DcimPowerPortTemplatesBulkDestroy
+
+	Delete a list of power port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortTemplatesBulkDestroyRequest
+	*/
+	DcimPowerPortTemplatesBulkDestroy(ctx context.Context) ApiDcimPowerPortTemplatesBulkDestroyRequest
+
+	// DcimPowerPortTemplatesBulkDestroyExecute executes the request
+	DcimPowerPortTemplatesBulkDestroyExecute(r ApiDcimPowerPortTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesBulkPartialUpdate Method for DcimPowerPortTemplatesBulkPartialUpdate
+
+	Patch a list of power port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortTemplatesBulkPartialUpdateRequest
+	*/
+	DcimPowerPortTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimPowerPortTemplatesBulkPartialUpdateRequest
+
+	// DcimPowerPortTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []PowerPortTemplate
+	DcimPowerPortTemplatesBulkPartialUpdateExecute(r ApiDcimPowerPortTemplatesBulkPartialUpdateRequest) ([]PowerPortTemplate, *http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesBulkUpdate Method for DcimPowerPortTemplatesBulkUpdate
+
+	Put a list of power port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortTemplatesBulkUpdateRequest
+	*/
+	DcimPowerPortTemplatesBulkUpdate(ctx context.Context) ApiDcimPowerPortTemplatesBulkUpdateRequest
+
+	// DcimPowerPortTemplatesBulkUpdateExecute executes the request
+	//  @return []PowerPortTemplate
+	DcimPowerPortTemplatesBulkUpdateExecute(r ApiDcimPowerPortTemplatesBulkUpdateRequest) ([]PowerPortTemplate, *http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesCreate Method for DcimPowerPortTemplatesCreate
+
+	Post a list of power port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortTemplatesCreateRequest
+	*/
+	DcimPowerPortTemplatesCreate(ctx context.Context) ApiDcimPowerPortTemplatesCreateRequest
+
+	// DcimPowerPortTemplatesCreateExecute executes the request
+	//  @return PowerPortTemplate
+	DcimPowerPortTemplatesCreateExecute(r ApiDcimPowerPortTemplatesCreateRequest) (*PowerPortTemplate, *http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesDestroy Method for DcimPowerPortTemplatesDestroy
+
+	Delete a power port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port template.
+	@return ApiDcimPowerPortTemplatesDestroyRequest
+	*/
+	DcimPowerPortTemplatesDestroy(ctx context.Context, id int32) ApiDcimPowerPortTemplatesDestroyRequest
+
+	// DcimPowerPortTemplatesDestroyExecute executes the request
+	DcimPowerPortTemplatesDestroyExecute(r ApiDcimPowerPortTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesList Method for DcimPowerPortTemplatesList
+
+	Get a list of power port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortTemplatesListRequest
+	*/
+	DcimPowerPortTemplatesList(ctx context.Context) ApiDcimPowerPortTemplatesListRequest
+
+	// DcimPowerPortTemplatesListExecute executes the request
+	//  @return PaginatedPowerPortTemplateList
+	DcimPowerPortTemplatesListExecute(r ApiDcimPowerPortTemplatesListRequest) (*PaginatedPowerPortTemplateList, *http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesPartialUpdate Method for DcimPowerPortTemplatesPartialUpdate
+
+	Patch a power port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port template.
+	@return ApiDcimPowerPortTemplatesPartialUpdateRequest
+	*/
+	DcimPowerPortTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimPowerPortTemplatesPartialUpdateRequest
+
+	// DcimPowerPortTemplatesPartialUpdateExecute executes the request
+	//  @return PowerPortTemplate
+	DcimPowerPortTemplatesPartialUpdateExecute(r ApiDcimPowerPortTemplatesPartialUpdateRequest) (*PowerPortTemplate, *http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesRetrieve Method for DcimPowerPortTemplatesRetrieve
+
+	Get a power port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port template.
+	@return ApiDcimPowerPortTemplatesRetrieveRequest
+	*/
+	DcimPowerPortTemplatesRetrieve(ctx context.Context, id int32) ApiDcimPowerPortTemplatesRetrieveRequest
+
+	// DcimPowerPortTemplatesRetrieveExecute executes the request
+	//  @return PowerPortTemplate
+	DcimPowerPortTemplatesRetrieveExecute(r ApiDcimPowerPortTemplatesRetrieveRequest) (*PowerPortTemplate, *http.Response, error)
+
+	/*
+	DcimPowerPortTemplatesUpdate Method for DcimPowerPortTemplatesUpdate
+
+	Put a power port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port template.
+	@return ApiDcimPowerPortTemplatesUpdateRequest
+	*/
+	DcimPowerPortTemplatesUpdate(ctx context.Context, id int32) ApiDcimPowerPortTemplatesUpdateRequest
+
+	// DcimPowerPortTemplatesUpdateExecute executes the request
+	//  @return PowerPortTemplate
+	DcimPowerPortTemplatesUpdateExecute(r ApiDcimPowerPortTemplatesUpdateRequest) (*PowerPortTemplate, *http.Response, error)
+
+	/*
+	DcimPowerPortsBulkDestroy Method for DcimPowerPortsBulkDestroy
+
+	Delete a list of power port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortsBulkDestroyRequest
+	*/
+	DcimPowerPortsBulkDestroy(ctx context.Context) ApiDcimPowerPortsBulkDestroyRequest
+
+	// DcimPowerPortsBulkDestroyExecute executes the request
+	DcimPowerPortsBulkDestroyExecute(r ApiDcimPowerPortsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerPortsBulkPartialUpdate Method for DcimPowerPortsBulkPartialUpdate
+
+	Patch a list of power port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortsBulkPartialUpdateRequest
+	*/
+	DcimPowerPortsBulkPartialUpdate(ctx context.Context) ApiDcimPowerPortsBulkPartialUpdateRequest
+
+	// DcimPowerPortsBulkPartialUpdateExecute executes the request
+	//  @return []PowerPort
+	DcimPowerPortsBulkPartialUpdateExecute(r ApiDcimPowerPortsBulkPartialUpdateRequest) ([]PowerPort, *http.Response, error)
+
+	/*
+	DcimPowerPortsBulkUpdate Method for DcimPowerPortsBulkUpdate
+
+	Put a list of power port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortsBulkUpdateRequest
+	*/
+	DcimPowerPortsBulkUpdate(ctx context.Context) ApiDcimPowerPortsBulkUpdateRequest
+
+	// DcimPowerPortsBulkUpdateExecute executes the request
+	//  @return []PowerPort
+	DcimPowerPortsBulkUpdateExecute(r ApiDcimPowerPortsBulkUpdateRequest) ([]PowerPort, *http.Response, error)
+
+	/*
+	DcimPowerPortsCreate Method for DcimPowerPortsCreate
+
+	Post a list of power port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortsCreateRequest
+	*/
+	DcimPowerPortsCreate(ctx context.Context) ApiDcimPowerPortsCreateRequest
+
+	// DcimPowerPortsCreateExecute executes the request
+	//  @return PowerPort
+	DcimPowerPortsCreateExecute(r ApiDcimPowerPortsCreateRequest) (*PowerPort, *http.Response, error)
+
+	/*
+	DcimPowerPortsDestroy Method for DcimPowerPortsDestroy
+
+	Delete a power port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port.
+	@return ApiDcimPowerPortsDestroyRequest
+	*/
+	DcimPowerPortsDestroy(ctx context.Context, id int32) ApiDcimPowerPortsDestroyRequest
+
+	// DcimPowerPortsDestroyExecute executes the request
+	DcimPowerPortsDestroyExecute(r ApiDcimPowerPortsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimPowerPortsList Method for DcimPowerPortsList
+
+	Get a list of power port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimPowerPortsListRequest
+	*/
+	DcimPowerPortsList(ctx context.Context) ApiDcimPowerPortsListRequest
+
+	// DcimPowerPortsListExecute executes the request
+	//  @return PaginatedPowerPortList
+	DcimPowerPortsListExecute(r ApiDcimPowerPortsListRequest) (*PaginatedPowerPortList, *http.Response, error)
+
+	/*
+	DcimPowerPortsPartialUpdate Method for DcimPowerPortsPartialUpdate
+
+	Patch a power port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port.
+	@return ApiDcimPowerPortsPartialUpdateRequest
+	*/
+	DcimPowerPortsPartialUpdate(ctx context.Context, id int32) ApiDcimPowerPortsPartialUpdateRequest
+
+	// DcimPowerPortsPartialUpdateExecute executes the request
+	//  @return PowerPort
+	DcimPowerPortsPartialUpdateExecute(r ApiDcimPowerPortsPartialUpdateRequest) (*PowerPort, *http.Response, error)
+
+	/*
+	DcimPowerPortsRetrieve Method for DcimPowerPortsRetrieve
+
+	Get a power port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port.
+	@return ApiDcimPowerPortsRetrieveRequest
+	*/
+	DcimPowerPortsRetrieve(ctx context.Context, id int32) ApiDcimPowerPortsRetrieveRequest
+
+	// DcimPowerPortsRetrieveExecute executes the request
+	//  @return PowerPort
+	DcimPowerPortsRetrieveExecute(r ApiDcimPowerPortsRetrieveRequest) (*PowerPort, *http.Response, error)
+
+	/*
+	DcimPowerPortsTraceRetrieve Method for DcimPowerPortsTraceRetrieve
+
+	Trace a complete cable path and return each segment as a three-tuple of (termination, cable, termination).
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port.
+	@return ApiDcimPowerPortsTraceRetrieveRequest
+	*/
+	DcimPowerPortsTraceRetrieve(ctx context.Context, id int32) ApiDcimPowerPortsTraceRetrieveRequest
+
+	// DcimPowerPortsTraceRetrieveExecute executes the request
+	//  @return PowerPort
+	DcimPowerPortsTraceRetrieveExecute(r ApiDcimPowerPortsTraceRetrieveRequest) (*PowerPort, *http.Response, error)
+
+	/*
+	DcimPowerPortsUpdate Method for DcimPowerPortsUpdate
+
+	Put a power port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this power port.
+	@return ApiDcimPowerPortsUpdateRequest
+	*/
+	DcimPowerPortsUpdate(ctx context.Context, id int32) ApiDcimPowerPortsUpdateRequest
+
+	// DcimPowerPortsUpdateExecute executes the request
+	//  @return PowerPort
+	DcimPowerPortsUpdateExecute(r ApiDcimPowerPortsUpdateRequest) (*PowerPort, *http.Response, error)
+
+	/*
+	DcimRackReservationsBulkDestroy Method for DcimRackReservationsBulkDestroy
+
+	Delete a list of rack reservation objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackReservationsBulkDestroyRequest
+	*/
+	DcimRackReservationsBulkDestroy(ctx context.Context) ApiDcimRackReservationsBulkDestroyRequest
+
+	// DcimRackReservationsBulkDestroyExecute executes the request
+	DcimRackReservationsBulkDestroyExecute(r ApiDcimRackReservationsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRackReservationsBulkPartialUpdate Method for DcimRackReservationsBulkPartialUpdate
+
+	Patch a list of rack reservation objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackReservationsBulkPartialUpdateRequest
+	*/
+	DcimRackReservationsBulkPartialUpdate(ctx context.Context) ApiDcimRackReservationsBulkPartialUpdateRequest
+
+	// DcimRackReservationsBulkPartialUpdateExecute executes the request
+	//  @return []RackReservation
+	DcimRackReservationsBulkPartialUpdateExecute(r ApiDcimRackReservationsBulkPartialUpdateRequest) ([]RackReservation, *http.Response, error)
+
+	/*
+	DcimRackReservationsBulkUpdate Method for DcimRackReservationsBulkUpdate
+
+	Put a list of rack reservation objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackReservationsBulkUpdateRequest
+	*/
+	DcimRackReservationsBulkUpdate(ctx context.Context) ApiDcimRackReservationsBulkUpdateRequest
+
+	// DcimRackReservationsBulkUpdateExecute executes the request
+	//  @return []RackReservation
+	DcimRackReservationsBulkUpdateExecute(r ApiDcimRackReservationsBulkUpdateRequest) ([]RackReservation, *http.Response, error)
+
+	/*
+	DcimRackReservationsCreate Method for DcimRackReservationsCreate
+
+	Post a list of rack reservation objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackReservationsCreateRequest
+	*/
+	DcimRackReservationsCreate(ctx context.Context) ApiDcimRackReservationsCreateRequest
+
+	// DcimRackReservationsCreateExecute executes the request
+	//  @return RackReservation
+	DcimRackReservationsCreateExecute(r ApiDcimRackReservationsCreateRequest) (*RackReservation, *http.Response, error)
+
+	/*
+	DcimRackReservationsDestroy Method for DcimRackReservationsDestroy
+
+	Delete a rack reservation object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack reservation.
+	@return ApiDcimRackReservationsDestroyRequest
+	*/
+	DcimRackReservationsDestroy(ctx context.Context, id int32) ApiDcimRackReservationsDestroyRequest
+
+	// DcimRackReservationsDestroyExecute executes the request
+	DcimRackReservationsDestroyExecute(r ApiDcimRackReservationsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRackReservationsList Method for DcimRackReservationsList
+
+	Get a list of rack reservation objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackReservationsListRequest
+	*/
+	DcimRackReservationsList(ctx context.Context) ApiDcimRackReservationsListRequest
+
+	// DcimRackReservationsListExecute executes the request
+	//  @return PaginatedRackReservationList
+	DcimRackReservationsListExecute(r ApiDcimRackReservationsListRequest) (*PaginatedRackReservationList, *http.Response, error)
+
+	/*
+	DcimRackReservationsPartialUpdate Method for DcimRackReservationsPartialUpdate
+
+	Patch a rack reservation object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack reservation.
+	@return ApiDcimRackReservationsPartialUpdateRequest
+	*/
+	DcimRackReservationsPartialUpdate(ctx context.Context, id int32) ApiDcimRackReservationsPartialUpdateRequest
+
+	// DcimRackReservationsPartialUpdateExecute executes the request
+	//  @return RackReservation
+	DcimRackReservationsPartialUpdateExecute(r ApiDcimRackReservationsPartialUpdateRequest) (*RackReservation, *http.Response, error)
+
+	/*
+	DcimRackReservationsRetrieve Method for DcimRackReservationsRetrieve
+
+	Get a rack reservation object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack reservation.
+	@return ApiDcimRackReservationsRetrieveRequest
+	*/
+	DcimRackReservationsRetrieve(ctx context.Context, id int32) ApiDcimRackReservationsRetrieveRequest
+
+	// DcimRackReservationsRetrieveExecute executes the request
+	//  @return RackReservation
+	DcimRackReservationsRetrieveExecute(r ApiDcimRackReservationsRetrieveRequest) (*RackReservation, *http.Response, error)
+
+	/*
+	DcimRackReservationsUpdate Method for DcimRackReservationsUpdate
+
+	Put a rack reservation object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack reservation.
+	@return ApiDcimRackReservationsUpdateRequest
+	*/
+	DcimRackReservationsUpdate(ctx context.Context, id int32) ApiDcimRackReservationsUpdateRequest
+
+	// DcimRackReservationsUpdateExecute executes the request
+	//  @return RackReservation
+	DcimRackReservationsUpdateExecute(r ApiDcimRackReservationsUpdateRequest) (*RackReservation, *http.Response, error)
+
+	/*
+	DcimRackRolesBulkDestroy Method for DcimRackRolesBulkDestroy
+
+	Delete a list of rack role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackRolesBulkDestroyRequest
+	*/
+	DcimRackRolesBulkDestroy(ctx context.Context) ApiDcimRackRolesBulkDestroyRequest
+
+	// DcimRackRolesBulkDestroyExecute executes the request
+	DcimRackRolesBulkDestroyExecute(r ApiDcimRackRolesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRackRolesBulkPartialUpdate Method for DcimRackRolesBulkPartialUpdate
+
+	Patch a list of rack role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackRolesBulkPartialUpdateRequest
+	*/
+	DcimRackRolesBulkPartialUpdate(ctx context.Context) ApiDcimRackRolesBulkPartialUpdateRequest
+
+	// DcimRackRolesBulkPartialUpdateExecute executes the request
+	//  @return []RackRole
+	DcimRackRolesBulkPartialUpdateExecute(r ApiDcimRackRolesBulkPartialUpdateRequest) ([]RackRole, *http.Response, error)
+
+	/*
+	DcimRackRolesBulkUpdate Method for DcimRackRolesBulkUpdate
+
+	Put a list of rack role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackRolesBulkUpdateRequest
+	*/
+	DcimRackRolesBulkUpdate(ctx context.Context) ApiDcimRackRolesBulkUpdateRequest
+
+	// DcimRackRolesBulkUpdateExecute executes the request
+	//  @return []RackRole
+	DcimRackRolesBulkUpdateExecute(r ApiDcimRackRolesBulkUpdateRequest) ([]RackRole, *http.Response, error)
+
+	/*
+	DcimRackRolesCreate Method for DcimRackRolesCreate
+
+	Post a list of rack role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackRolesCreateRequest
+	*/
+	DcimRackRolesCreate(ctx context.Context) ApiDcimRackRolesCreateRequest
+
+	// DcimRackRolesCreateExecute executes the request
+	//  @return RackRole
+	DcimRackRolesCreateExecute(r ApiDcimRackRolesCreateRequest) (*RackRole, *http.Response, error)
+
+	/*
+	DcimRackRolesDestroy Method for DcimRackRolesDestroy
+
+	Delete a rack role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack role.
+	@return ApiDcimRackRolesDestroyRequest
+	*/
+	DcimRackRolesDestroy(ctx context.Context, id int32) ApiDcimRackRolesDestroyRequest
+
+	// DcimRackRolesDestroyExecute executes the request
+	DcimRackRolesDestroyExecute(r ApiDcimRackRolesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRackRolesList Method for DcimRackRolesList
+
+	Get a list of rack role objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRackRolesListRequest
+	*/
+	DcimRackRolesList(ctx context.Context) ApiDcimRackRolesListRequest
+
+	// DcimRackRolesListExecute executes the request
+	//  @return PaginatedRackRoleList
+	DcimRackRolesListExecute(r ApiDcimRackRolesListRequest) (*PaginatedRackRoleList, *http.Response, error)
+
+	/*
+	DcimRackRolesPartialUpdate Method for DcimRackRolesPartialUpdate
+
+	Patch a rack role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack role.
+	@return ApiDcimRackRolesPartialUpdateRequest
+	*/
+	DcimRackRolesPartialUpdate(ctx context.Context, id int32) ApiDcimRackRolesPartialUpdateRequest
+
+	// DcimRackRolesPartialUpdateExecute executes the request
+	//  @return RackRole
+	DcimRackRolesPartialUpdateExecute(r ApiDcimRackRolesPartialUpdateRequest) (*RackRole, *http.Response, error)
+
+	/*
+	DcimRackRolesRetrieve Method for DcimRackRolesRetrieve
+
+	Get a rack role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack role.
+	@return ApiDcimRackRolesRetrieveRequest
+	*/
+	DcimRackRolesRetrieve(ctx context.Context, id int32) ApiDcimRackRolesRetrieveRequest
+
+	// DcimRackRolesRetrieveExecute executes the request
+	//  @return RackRole
+	DcimRackRolesRetrieveExecute(r ApiDcimRackRolesRetrieveRequest) (*RackRole, *http.Response, error)
+
+	/*
+	DcimRackRolesUpdate Method for DcimRackRolesUpdate
+
+	Put a rack role object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack role.
+	@return ApiDcimRackRolesUpdateRequest
+	*/
+	DcimRackRolesUpdate(ctx context.Context, id int32) ApiDcimRackRolesUpdateRequest
+
+	// DcimRackRolesUpdateExecute executes the request
+	//  @return RackRole
+	DcimRackRolesUpdateExecute(r ApiDcimRackRolesUpdateRequest) (*RackRole, *http.Response, error)
+
+	/*
+	DcimRacksBulkDestroy Method for DcimRacksBulkDestroy
+
+	Delete a list of rack objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRacksBulkDestroyRequest
+	*/
+	DcimRacksBulkDestroy(ctx context.Context) ApiDcimRacksBulkDestroyRequest
+
+	// DcimRacksBulkDestroyExecute executes the request
+	DcimRacksBulkDestroyExecute(r ApiDcimRacksBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRacksBulkPartialUpdate Method for DcimRacksBulkPartialUpdate
+
+	Patch a list of rack objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRacksBulkPartialUpdateRequest
+	*/
+	DcimRacksBulkPartialUpdate(ctx context.Context) ApiDcimRacksBulkPartialUpdateRequest
+
+	// DcimRacksBulkPartialUpdateExecute executes the request
+	//  @return []Rack
+	DcimRacksBulkPartialUpdateExecute(r ApiDcimRacksBulkPartialUpdateRequest) ([]Rack, *http.Response, error)
+
+	/*
+	DcimRacksBulkUpdate Method for DcimRacksBulkUpdate
+
+	Put a list of rack objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRacksBulkUpdateRequest
+	*/
+	DcimRacksBulkUpdate(ctx context.Context) ApiDcimRacksBulkUpdateRequest
+
+	// DcimRacksBulkUpdateExecute executes the request
+	//  @return []Rack
+	DcimRacksBulkUpdateExecute(r ApiDcimRacksBulkUpdateRequest) ([]Rack, *http.Response, error)
+
+	/*
+	DcimRacksCreate Method for DcimRacksCreate
+
+	Post a list of rack objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRacksCreateRequest
+	*/
+	DcimRacksCreate(ctx context.Context) ApiDcimRacksCreateRequest
+
+	// DcimRacksCreateExecute executes the request
+	//  @return Rack
+	DcimRacksCreateExecute(r ApiDcimRacksCreateRequest) (*Rack, *http.Response, error)
+
+	/*
+	DcimRacksDestroy Method for DcimRacksDestroy
+
+	Delete a rack object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack.
+	@return ApiDcimRacksDestroyRequest
+	*/
+	DcimRacksDestroy(ctx context.Context, id int32) ApiDcimRacksDestroyRequest
+
+	// DcimRacksDestroyExecute executes the request
+	DcimRacksDestroyExecute(r ApiDcimRacksDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRacksElevationRetrieve Method for DcimRacksElevationRetrieve
+
+	Rack elevation representing the list of rack units. Also supports rendering the elevation as an SVG.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack.
+	@return ApiDcimRacksElevationRetrieveRequest
+	*/
+	DcimRacksElevationRetrieve(ctx context.Context, id int32) ApiDcimRacksElevationRetrieveRequest
+
+	// DcimRacksElevationRetrieveExecute executes the request
+	//  @return PaginatedRackUnitList
+	DcimRacksElevationRetrieveExecute(r ApiDcimRacksElevationRetrieveRequest) (*PaginatedRackUnitList, *http.Response, error)
+
+	/*
+	DcimRacksList Method for DcimRacksList
+
+	Get a list of rack objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRacksListRequest
+	*/
+	DcimRacksList(ctx context.Context) ApiDcimRacksListRequest
+
+	// DcimRacksListExecute executes the request
+	//  @return PaginatedRackList
+	DcimRacksListExecute(r ApiDcimRacksListRequest) (*PaginatedRackList, *http.Response, error)
+
+	/*
+	DcimRacksPartialUpdate Method for DcimRacksPartialUpdate
+
+	Patch a rack object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack.
+	@return ApiDcimRacksPartialUpdateRequest
+	*/
+	DcimRacksPartialUpdate(ctx context.Context, id int32) ApiDcimRacksPartialUpdateRequest
+
+	// DcimRacksPartialUpdateExecute executes the request
+	//  @return Rack
+	DcimRacksPartialUpdateExecute(r ApiDcimRacksPartialUpdateRequest) (*Rack, *http.Response, error)
+
+	/*
+	DcimRacksRetrieve Method for DcimRacksRetrieve
+
+	Get a rack object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack.
+	@return ApiDcimRacksRetrieveRequest
+	*/
+	DcimRacksRetrieve(ctx context.Context, id int32) ApiDcimRacksRetrieveRequest
+
+	// DcimRacksRetrieveExecute executes the request
+	//  @return Rack
+	DcimRacksRetrieveExecute(r ApiDcimRacksRetrieveRequest) (*Rack, *http.Response, error)
+
+	/*
+	DcimRacksUpdate Method for DcimRacksUpdate
+
+	Put a rack object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rack.
+	@return ApiDcimRacksUpdateRequest
+	*/
+	DcimRacksUpdate(ctx context.Context, id int32) ApiDcimRacksUpdateRequest
+
+	// DcimRacksUpdateExecute executes the request
+	//  @return Rack
+	DcimRacksUpdateExecute(r ApiDcimRacksUpdateRequest) (*Rack, *http.Response, error)
+
+	/*
+	DcimRearPortTemplatesBulkDestroy Method for DcimRearPortTemplatesBulkDestroy
+
+	Delete a list of rear port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortTemplatesBulkDestroyRequest
+	*/
+	DcimRearPortTemplatesBulkDestroy(ctx context.Context) ApiDcimRearPortTemplatesBulkDestroyRequest
+
+	// DcimRearPortTemplatesBulkDestroyExecute executes the request
+	DcimRearPortTemplatesBulkDestroyExecute(r ApiDcimRearPortTemplatesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRearPortTemplatesBulkPartialUpdate Method for DcimRearPortTemplatesBulkPartialUpdate
+
+	Patch a list of rear port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortTemplatesBulkPartialUpdateRequest
+	*/
+	DcimRearPortTemplatesBulkPartialUpdate(ctx context.Context) ApiDcimRearPortTemplatesBulkPartialUpdateRequest
+
+	// DcimRearPortTemplatesBulkPartialUpdateExecute executes the request
+	//  @return []RearPortTemplate
+	DcimRearPortTemplatesBulkPartialUpdateExecute(r ApiDcimRearPortTemplatesBulkPartialUpdateRequest) ([]RearPortTemplate, *http.Response, error)
+
+	/*
+	DcimRearPortTemplatesBulkUpdate Method for DcimRearPortTemplatesBulkUpdate
+
+	Put a list of rear port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortTemplatesBulkUpdateRequest
+	*/
+	DcimRearPortTemplatesBulkUpdate(ctx context.Context) ApiDcimRearPortTemplatesBulkUpdateRequest
+
+	// DcimRearPortTemplatesBulkUpdateExecute executes the request
+	//  @return []RearPortTemplate
+	DcimRearPortTemplatesBulkUpdateExecute(r ApiDcimRearPortTemplatesBulkUpdateRequest) ([]RearPortTemplate, *http.Response, error)
+
+	/*
+	DcimRearPortTemplatesCreate Method for DcimRearPortTemplatesCreate
+
+	Post a list of rear port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortTemplatesCreateRequest
+	*/
+	DcimRearPortTemplatesCreate(ctx context.Context) ApiDcimRearPortTemplatesCreateRequest
+
+	// DcimRearPortTemplatesCreateExecute executes the request
+	//  @return RearPortTemplate
+	DcimRearPortTemplatesCreateExecute(r ApiDcimRearPortTemplatesCreateRequest) (*RearPortTemplate, *http.Response, error)
+
+	/*
+	DcimRearPortTemplatesDestroy Method for DcimRearPortTemplatesDestroy
+
+	Delete a rear port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port template.
+	@return ApiDcimRearPortTemplatesDestroyRequest
+	*/
+	DcimRearPortTemplatesDestroy(ctx context.Context, id int32) ApiDcimRearPortTemplatesDestroyRequest
+
+	// DcimRearPortTemplatesDestroyExecute executes the request
+	DcimRearPortTemplatesDestroyExecute(r ApiDcimRearPortTemplatesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRearPortTemplatesList Method for DcimRearPortTemplatesList
+
+	Get a list of rear port template objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortTemplatesListRequest
+	*/
+	DcimRearPortTemplatesList(ctx context.Context) ApiDcimRearPortTemplatesListRequest
+
+	// DcimRearPortTemplatesListExecute executes the request
+	//  @return PaginatedRearPortTemplateList
+	DcimRearPortTemplatesListExecute(r ApiDcimRearPortTemplatesListRequest) (*PaginatedRearPortTemplateList, *http.Response, error)
+
+	/*
+	DcimRearPortTemplatesPartialUpdate Method for DcimRearPortTemplatesPartialUpdate
+
+	Patch a rear port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port template.
+	@return ApiDcimRearPortTemplatesPartialUpdateRequest
+	*/
+	DcimRearPortTemplatesPartialUpdate(ctx context.Context, id int32) ApiDcimRearPortTemplatesPartialUpdateRequest
+
+	// DcimRearPortTemplatesPartialUpdateExecute executes the request
+	//  @return RearPortTemplate
+	DcimRearPortTemplatesPartialUpdateExecute(r ApiDcimRearPortTemplatesPartialUpdateRequest) (*RearPortTemplate, *http.Response, error)
+
+	/*
+	DcimRearPortTemplatesRetrieve Method for DcimRearPortTemplatesRetrieve
+
+	Get a rear port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port template.
+	@return ApiDcimRearPortTemplatesRetrieveRequest
+	*/
+	DcimRearPortTemplatesRetrieve(ctx context.Context, id int32) ApiDcimRearPortTemplatesRetrieveRequest
+
+	// DcimRearPortTemplatesRetrieveExecute executes the request
+	//  @return RearPortTemplate
+	DcimRearPortTemplatesRetrieveExecute(r ApiDcimRearPortTemplatesRetrieveRequest) (*RearPortTemplate, *http.Response, error)
+
+	/*
+	DcimRearPortTemplatesUpdate Method for DcimRearPortTemplatesUpdate
+
+	Put a rear port template object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port template.
+	@return ApiDcimRearPortTemplatesUpdateRequest
+	*/
+	DcimRearPortTemplatesUpdate(ctx context.Context, id int32) ApiDcimRearPortTemplatesUpdateRequest
+
+	// DcimRearPortTemplatesUpdateExecute executes the request
+	//  @return RearPortTemplate
+	DcimRearPortTemplatesUpdateExecute(r ApiDcimRearPortTemplatesUpdateRequest) (*RearPortTemplate, *http.Response, error)
+
+	/*
+	DcimRearPortsBulkDestroy Method for DcimRearPortsBulkDestroy
+
+	Delete a list of rear port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortsBulkDestroyRequest
+	*/
+	DcimRearPortsBulkDestroy(ctx context.Context) ApiDcimRearPortsBulkDestroyRequest
+
+	// DcimRearPortsBulkDestroyExecute executes the request
+	DcimRearPortsBulkDestroyExecute(r ApiDcimRearPortsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRearPortsBulkPartialUpdate Method for DcimRearPortsBulkPartialUpdate
+
+	Patch a list of rear port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortsBulkPartialUpdateRequest
+	*/
+	DcimRearPortsBulkPartialUpdate(ctx context.Context) ApiDcimRearPortsBulkPartialUpdateRequest
+
+	// DcimRearPortsBulkPartialUpdateExecute executes the request
+	//  @return []RearPort
+	DcimRearPortsBulkPartialUpdateExecute(r ApiDcimRearPortsBulkPartialUpdateRequest) ([]RearPort, *http.Response, error)
+
+	/*
+	DcimRearPortsBulkUpdate Method for DcimRearPortsBulkUpdate
+
+	Put a list of rear port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortsBulkUpdateRequest
+	*/
+	DcimRearPortsBulkUpdate(ctx context.Context) ApiDcimRearPortsBulkUpdateRequest
+
+	// DcimRearPortsBulkUpdateExecute executes the request
+	//  @return []RearPort
+	DcimRearPortsBulkUpdateExecute(r ApiDcimRearPortsBulkUpdateRequest) ([]RearPort, *http.Response, error)
+
+	/*
+	DcimRearPortsCreate Method for DcimRearPortsCreate
+
+	Post a list of rear port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortsCreateRequest
+	*/
+	DcimRearPortsCreate(ctx context.Context) ApiDcimRearPortsCreateRequest
+
+	// DcimRearPortsCreateExecute executes the request
+	//  @return RearPort
+	DcimRearPortsCreateExecute(r ApiDcimRearPortsCreateRequest) (*RearPort, *http.Response, error)
+
+	/*
+	DcimRearPortsDestroy Method for DcimRearPortsDestroy
+
+	Delete a rear port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port.
+	@return ApiDcimRearPortsDestroyRequest
+	*/
+	DcimRearPortsDestroy(ctx context.Context, id int32) ApiDcimRearPortsDestroyRequest
+
+	// DcimRearPortsDestroyExecute executes the request
+	DcimRearPortsDestroyExecute(r ApiDcimRearPortsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRearPortsList Method for DcimRearPortsList
+
+	Get a list of rear port objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRearPortsListRequest
+	*/
+	DcimRearPortsList(ctx context.Context) ApiDcimRearPortsListRequest
+
+	// DcimRearPortsListExecute executes the request
+	//  @return PaginatedRearPortList
+	DcimRearPortsListExecute(r ApiDcimRearPortsListRequest) (*PaginatedRearPortList, *http.Response, error)
+
+	/*
+	DcimRearPortsPartialUpdate Method for DcimRearPortsPartialUpdate
+
+	Patch a rear port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port.
+	@return ApiDcimRearPortsPartialUpdateRequest
+	*/
+	DcimRearPortsPartialUpdate(ctx context.Context, id int32) ApiDcimRearPortsPartialUpdateRequest
+
+	// DcimRearPortsPartialUpdateExecute executes the request
+	//  @return RearPort
+	DcimRearPortsPartialUpdateExecute(r ApiDcimRearPortsPartialUpdateRequest) (*RearPort, *http.Response, error)
+
+	/*
+	DcimRearPortsPathsRetrieve Method for DcimRearPortsPathsRetrieve
+
+	Return all CablePaths which traverse a given pass-through port.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port.
+	@return ApiDcimRearPortsPathsRetrieveRequest
+	*/
+	DcimRearPortsPathsRetrieve(ctx context.Context, id int32) ApiDcimRearPortsPathsRetrieveRequest
+
+	// DcimRearPortsPathsRetrieveExecute executes the request
+	//  @return RearPort
+	DcimRearPortsPathsRetrieveExecute(r ApiDcimRearPortsPathsRetrieveRequest) (*RearPort, *http.Response, error)
+
+	/*
+	DcimRearPortsRetrieve Method for DcimRearPortsRetrieve
+
+	Get a rear port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port.
+	@return ApiDcimRearPortsRetrieveRequest
+	*/
+	DcimRearPortsRetrieve(ctx context.Context, id int32) ApiDcimRearPortsRetrieveRequest
+
+	// DcimRearPortsRetrieveExecute executes the request
+	//  @return RearPort
+	DcimRearPortsRetrieveExecute(r ApiDcimRearPortsRetrieveRequest) (*RearPort, *http.Response, error)
+
+	/*
+	DcimRearPortsUpdate Method for DcimRearPortsUpdate
+
+	Put a rear port object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this rear port.
+	@return ApiDcimRearPortsUpdateRequest
+	*/
+	DcimRearPortsUpdate(ctx context.Context, id int32) ApiDcimRearPortsUpdateRequest
+
+	// DcimRearPortsUpdateExecute executes the request
+	//  @return RearPort
+	DcimRearPortsUpdateExecute(r ApiDcimRearPortsUpdateRequest) (*RearPort, *http.Response, error)
+
+	/*
+	DcimRegionsBulkDestroy Method for DcimRegionsBulkDestroy
+
+	Delete a list of region objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRegionsBulkDestroyRequest
+	*/
+	DcimRegionsBulkDestroy(ctx context.Context) ApiDcimRegionsBulkDestroyRequest
+
+	// DcimRegionsBulkDestroyExecute executes the request
+	DcimRegionsBulkDestroyExecute(r ApiDcimRegionsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRegionsBulkPartialUpdate Method for DcimRegionsBulkPartialUpdate
+
+	Patch a list of region objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRegionsBulkPartialUpdateRequest
+	*/
+	DcimRegionsBulkPartialUpdate(ctx context.Context) ApiDcimRegionsBulkPartialUpdateRequest
+
+	// DcimRegionsBulkPartialUpdateExecute executes the request
+	//  @return []Region
+	DcimRegionsBulkPartialUpdateExecute(r ApiDcimRegionsBulkPartialUpdateRequest) ([]Region, *http.Response, error)
+
+	/*
+	DcimRegionsBulkUpdate Method for DcimRegionsBulkUpdate
+
+	Put a list of region objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRegionsBulkUpdateRequest
+	*/
+	DcimRegionsBulkUpdate(ctx context.Context) ApiDcimRegionsBulkUpdateRequest
+
+	// DcimRegionsBulkUpdateExecute executes the request
+	//  @return []Region
+	DcimRegionsBulkUpdateExecute(r ApiDcimRegionsBulkUpdateRequest) ([]Region, *http.Response, error)
+
+	/*
+	DcimRegionsCreate Method for DcimRegionsCreate
+
+	Post a list of region objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRegionsCreateRequest
+	*/
+	DcimRegionsCreate(ctx context.Context) ApiDcimRegionsCreateRequest
+
+	// DcimRegionsCreateExecute executes the request
+	//  @return Region
+	DcimRegionsCreateExecute(r ApiDcimRegionsCreateRequest) (*Region, *http.Response, error)
+
+	/*
+	DcimRegionsDestroy Method for DcimRegionsDestroy
+
+	Delete a region object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this region.
+	@return ApiDcimRegionsDestroyRequest
+	*/
+	DcimRegionsDestroy(ctx context.Context, id int32) ApiDcimRegionsDestroyRequest
+
+	// DcimRegionsDestroyExecute executes the request
+	DcimRegionsDestroyExecute(r ApiDcimRegionsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimRegionsList Method for DcimRegionsList
+
+	Get a list of region objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimRegionsListRequest
+	*/
+	DcimRegionsList(ctx context.Context) ApiDcimRegionsListRequest
+
+	// DcimRegionsListExecute executes the request
+	//  @return PaginatedRegionList
+	DcimRegionsListExecute(r ApiDcimRegionsListRequest) (*PaginatedRegionList, *http.Response, error)
+
+	/*
+	DcimRegionsPartialUpdate Method for DcimRegionsPartialUpdate
+
+	Patch a region object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this region.
+	@return ApiDcimRegionsPartialUpdateRequest
+	*/
+	DcimRegionsPartialUpdate(ctx context.Context, id int32) ApiDcimRegionsPartialUpdateRequest
+
+	// DcimRegionsPartialUpdateExecute executes the request
+	//  @return Region
+	DcimRegionsPartialUpdateExecute(r ApiDcimRegionsPartialUpdateRequest) (*Region, *http.Response, error)
+
+	/*
+	DcimRegionsRetrieve Method for DcimRegionsRetrieve
+
+	Get a region object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this region.
+	@return ApiDcimRegionsRetrieveRequest
+	*/
+	DcimRegionsRetrieve(ctx context.Context, id int32) ApiDcimRegionsRetrieveRequest
+
+	// DcimRegionsRetrieveExecute executes the request
+	//  @return Region
+	DcimRegionsRetrieveExecute(r ApiDcimRegionsRetrieveRequest) (*Region, *http.Response, error)
+
+	/*
+	DcimRegionsUpdate Method for DcimRegionsUpdate
+
+	Put a region object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this region.
+	@return ApiDcimRegionsUpdateRequest
+	*/
+	DcimRegionsUpdate(ctx context.Context, id int32) ApiDcimRegionsUpdateRequest
+
+	// DcimRegionsUpdateExecute executes the request
+	//  @return Region
+	DcimRegionsUpdateExecute(r ApiDcimRegionsUpdateRequest) (*Region, *http.Response, error)
+
+	/*
+	DcimSiteGroupsBulkDestroy Method for DcimSiteGroupsBulkDestroy
+
+	Delete a list of site group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSiteGroupsBulkDestroyRequest
+	*/
+	DcimSiteGroupsBulkDestroy(ctx context.Context) ApiDcimSiteGroupsBulkDestroyRequest
+
+	// DcimSiteGroupsBulkDestroyExecute executes the request
+	DcimSiteGroupsBulkDestroyExecute(r ApiDcimSiteGroupsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimSiteGroupsBulkPartialUpdate Method for DcimSiteGroupsBulkPartialUpdate
+
+	Patch a list of site group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSiteGroupsBulkPartialUpdateRequest
+	*/
+	DcimSiteGroupsBulkPartialUpdate(ctx context.Context) ApiDcimSiteGroupsBulkPartialUpdateRequest
+
+	// DcimSiteGroupsBulkPartialUpdateExecute executes the request
+	//  @return []SiteGroup
+	DcimSiteGroupsBulkPartialUpdateExecute(r ApiDcimSiteGroupsBulkPartialUpdateRequest) ([]SiteGroup, *http.Response, error)
+
+	/*
+	DcimSiteGroupsBulkUpdate Method for DcimSiteGroupsBulkUpdate
+
+	Put a list of site group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSiteGroupsBulkUpdateRequest
+	*/
+	DcimSiteGroupsBulkUpdate(ctx context.Context) ApiDcimSiteGroupsBulkUpdateRequest
+
+	// DcimSiteGroupsBulkUpdateExecute executes the request
+	//  @return []SiteGroup
+	DcimSiteGroupsBulkUpdateExecute(r ApiDcimSiteGroupsBulkUpdateRequest) ([]SiteGroup, *http.Response, error)
+
+	/*
+	DcimSiteGroupsCreate Method for DcimSiteGroupsCreate
+
+	Post a list of site group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSiteGroupsCreateRequest
+	*/
+	DcimSiteGroupsCreate(ctx context.Context) ApiDcimSiteGroupsCreateRequest
+
+	// DcimSiteGroupsCreateExecute executes the request
+	//  @return SiteGroup
+	DcimSiteGroupsCreateExecute(r ApiDcimSiteGroupsCreateRequest) (*SiteGroup, *http.Response, error)
+
+	/*
+	DcimSiteGroupsDestroy Method for DcimSiteGroupsDestroy
+
+	Delete a site group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site group.
+	@return ApiDcimSiteGroupsDestroyRequest
+	*/
+	DcimSiteGroupsDestroy(ctx context.Context, id int32) ApiDcimSiteGroupsDestroyRequest
+
+	// DcimSiteGroupsDestroyExecute executes the request
+	DcimSiteGroupsDestroyExecute(r ApiDcimSiteGroupsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimSiteGroupsList Method for DcimSiteGroupsList
+
+	Get a list of site group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSiteGroupsListRequest
+	*/
+	DcimSiteGroupsList(ctx context.Context) ApiDcimSiteGroupsListRequest
+
+	// DcimSiteGroupsListExecute executes the request
+	//  @return PaginatedSiteGroupList
+	DcimSiteGroupsListExecute(r ApiDcimSiteGroupsListRequest) (*PaginatedSiteGroupList, *http.Response, error)
+
+	/*
+	DcimSiteGroupsPartialUpdate Method for DcimSiteGroupsPartialUpdate
+
+	Patch a site group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site group.
+	@return ApiDcimSiteGroupsPartialUpdateRequest
+	*/
+	DcimSiteGroupsPartialUpdate(ctx context.Context, id int32) ApiDcimSiteGroupsPartialUpdateRequest
+
+	// DcimSiteGroupsPartialUpdateExecute executes the request
+	//  @return SiteGroup
+	DcimSiteGroupsPartialUpdateExecute(r ApiDcimSiteGroupsPartialUpdateRequest) (*SiteGroup, *http.Response, error)
+
+	/*
+	DcimSiteGroupsRetrieve Method for DcimSiteGroupsRetrieve
+
+	Get a site group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site group.
+	@return ApiDcimSiteGroupsRetrieveRequest
+	*/
+	DcimSiteGroupsRetrieve(ctx context.Context, id int32) ApiDcimSiteGroupsRetrieveRequest
+
+	// DcimSiteGroupsRetrieveExecute executes the request
+	//  @return SiteGroup
+	DcimSiteGroupsRetrieveExecute(r ApiDcimSiteGroupsRetrieveRequest) (*SiteGroup, *http.Response, error)
+
+	/*
+	DcimSiteGroupsUpdate Method for DcimSiteGroupsUpdate
+
+	Put a site group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site group.
+	@return ApiDcimSiteGroupsUpdateRequest
+	*/
+	DcimSiteGroupsUpdate(ctx context.Context, id int32) ApiDcimSiteGroupsUpdateRequest
+
+	// DcimSiteGroupsUpdateExecute executes the request
+	//  @return SiteGroup
+	DcimSiteGroupsUpdateExecute(r ApiDcimSiteGroupsUpdateRequest) (*SiteGroup, *http.Response, error)
+
+	/*
+	DcimSitesBulkDestroy Method for DcimSitesBulkDestroy
+
+	Delete a list of site objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSitesBulkDestroyRequest
+	*/
+	DcimSitesBulkDestroy(ctx context.Context) ApiDcimSitesBulkDestroyRequest
+
+	// DcimSitesBulkDestroyExecute executes the request
+	DcimSitesBulkDestroyExecute(r ApiDcimSitesBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimSitesBulkPartialUpdate Method for DcimSitesBulkPartialUpdate
+
+	Patch a list of site objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSitesBulkPartialUpdateRequest
+	*/
+	DcimSitesBulkPartialUpdate(ctx context.Context) ApiDcimSitesBulkPartialUpdateRequest
+
+	// DcimSitesBulkPartialUpdateExecute executes the request
+	//  @return []Site
+	DcimSitesBulkPartialUpdateExecute(r ApiDcimSitesBulkPartialUpdateRequest) ([]Site, *http.Response, error)
+
+	/*
+	DcimSitesBulkUpdate Method for DcimSitesBulkUpdate
+
+	Put a list of site objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSitesBulkUpdateRequest
+	*/
+	DcimSitesBulkUpdate(ctx context.Context) ApiDcimSitesBulkUpdateRequest
+
+	// DcimSitesBulkUpdateExecute executes the request
+	//  @return []Site
+	DcimSitesBulkUpdateExecute(r ApiDcimSitesBulkUpdateRequest) ([]Site, *http.Response, error)
+
+	/*
+	DcimSitesCreate Method for DcimSitesCreate
+
+	Post a list of site objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSitesCreateRequest
+	*/
+	DcimSitesCreate(ctx context.Context) ApiDcimSitesCreateRequest
+
+	// DcimSitesCreateExecute executes the request
+	//  @return Site
+	DcimSitesCreateExecute(r ApiDcimSitesCreateRequest) (*Site, *http.Response, error)
+
+	/*
+	DcimSitesDestroy Method for DcimSitesDestroy
+
+	Delete a site object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site.
+	@return ApiDcimSitesDestroyRequest
+	*/
+	DcimSitesDestroy(ctx context.Context, id int32) ApiDcimSitesDestroyRequest
+
+	// DcimSitesDestroyExecute executes the request
+	DcimSitesDestroyExecute(r ApiDcimSitesDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimSitesList Method for DcimSitesList
+
+	Get a list of site objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimSitesListRequest
+	*/
+	DcimSitesList(ctx context.Context) ApiDcimSitesListRequest
+
+	// DcimSitesListExecute executes the request
+	//  @return PaginatedSiteList
+	DcimSitesListExecute(r ApiDcimSitesListRequest) (*PaginatedSiteList, *http.Response, error)
+
+	/*
+	DcimSitesPartialUpdate Method for DcimSitesPartialUpdate
+
+	Patch a site object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site.
+	@return ApiDcimSitesPartialUpdateRequest
+	*/
+	DcimSitesPartialUpdate(ctx context.Context, id int32) ApiDcimSitesPartialUpdateRequest
+
+	// DcimSitesPartialUpdateExecute executes the request
+	//  @return Site
+	DcimSitesPartialUpdateExecute(r ApiDcimSitesPartialUpdateRequest) (*Site, *http.Response, error)
+
+	/*
+	DcimSitesRetrieve Method for DcimSitesRetrieve
+
+	Get a site object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site.
+	@return ApiDcimSitesRetrieveRequest
+	*/
+	DcimSitesRetrieve(ctx context.Context, id int32) ApiDcimSitesRetrieveRequest
+
+	// DcimSitesRetrieveExecute executes the request
+	//  @return Site
+	DcimSitesRetrieveExecute(r ApiDcimSitesRetrieveRequest) (*Site, *http.Response, error)
+
+	/*
+	DcimSitesUpdate Method for DcimSitesUpdate
+
+	Put a site object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this site.
+	@return ApiDcimSitesUpdateRequest
+	*/
+	DcimSitesUpdate(ctx context.Context, id int32) ApiDcimSitesUpdateRequest
+
+	// DcimSitesUpdateExecute executes the request
+	//  @return Site
+	DcimSitesUpdateExecute(r ApiDcimSitesUpdateRequest) (*Site, *http.Response, error)
+
+	/*
+	DcimVirtualChassisBulkDestroy Method for DcimVirtualChassisBulkDestroy
+
+	Delete a list of virtual chassis objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualChassisBulkDestroyRequest
+	*/
+	DcimVirtualChassisBulkDestroy(ctx context.Context) ApiDcimVirtualChassisBulkDestroyRequest
+
+	// DcimVirtualChassisBulkDestroyExecute executes the request
+	DcimVirtualChassisBulkDestroyExecute(r ApiDcimVirtualChassisBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimVirtualChassisBulkPartialUpdate Method for DcimVirtualChassisBulkPartialUpdate
+
+	Patch a list of virtual chassis objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualChassisBulkPartialUpdateRequest
+	*/
+	DcimVirtualChassisBulkPartialUpdate(ctx context.Context) ApiDcimVirtualChassisBulkPartialUpdateRequest
+
+	// DcimVirtualChassisBulkPartialUpdateExecute executes the request
+	//  @return []VirtualChassis
+	DcimVirtualChassisBulkPartialUpdateExecute(r ApiDcimVirtualChassisBulkPartialUpdateRequest) ([]VirtualChassis, *http.Response, error)
+
+	/*
+	DcimVirtualChassisBulkUpdate Method for DcimVirtualChassisBulkUpdate
+
+	Put a list of virtual chassis objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualChassisBulkUpdateRequest
+	*/
+	DcimVirtualChassisBulkUpdate(ctx context.Context) ApiDcimVirtualChassisBulkUpdateRequest
+
+	// DcimVirtualChassisBulkUpdateExecute executes the request
+	//  @return []VirtualChassis
+	DcimVirtualChassisBulkUpdateExecute(r ApiDcimVirtualChassisBulkUpdateRequest) ([]VirtualChassis, *http.Response, error)
+
+	/*
+	DcimVirtualChassisCreate Method for DcimVirtualChassisCreate
+
+	Post a list of virtual chassis objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualChassisCreateRequest
+	*/
+	DcimVirtualChassisCreate(ctx context.Context) ApiDcimVirtualChassisCreateRequest
+
+	// DcimVirtualChassisCreateExecute executes the request
+	//  @return VirtualChassis
+	DcimVirtualChassisCreateExecute(r ApiDcimVirtualChassisCreateRequest) (*VirtualChassis, *http.Response, error)
+
+	/*
+	DcimVirtualChassisDestroy Method for DcimVirtualChassisDestroy
+
+	Delete a virtual chassis object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual chassis.
+	@return ApiDcimVirtualChassisDestroyRequest
+	*/
+	DcimVirtualChassisDestroy(ctx context.Context, id int32) ApiDcimVirtualChassisDestroyRequest
+
+	// DcimVirtualChassisDestroyExecute executes the request
+	DcimVirtualChassisDestroyExecute(r ApiDcimVirtualChassisDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimVirtualChassisList Method for DcimVirtualChassisList
+
+	Get a list of virtual chassis objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualChassisListRequest
+	*/
+	DcimVirtualChassisList(ctx context.Context) ApiDcimVirtualChassisListRequest
+
+	// DcimVirtualChassisListExecute executes the request
+	//  @return PaginatedVirtualChassisList
+	DcimVirtualChassisListExecute(r ApiDcimVirtualChassisListRequest) (*PaginatedVirtualChassisList, *http.Response, error)
+
+	/*
+	DcimVirtualChassisPartialUpdate Method for DcimVirtualChassisPartialUpdate
+
+	Patch a virtual chassis object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual chassis.
+	@return ApiDcimVirtualChassisPartialUpdateRequest
+	*/
+	DcimVirtualChassisPartialUpdate(ctx context.Context, id int32) ApiDcimVirtualChassisPartialUpdateRequest
+
+	// DcimVirtualChassisPartialUpdateExecute executes the request
+	//  @return VirtualChassis
+	DcimVirtualChassisPartialUpdateExecute(r ApiDcimVirtualChassisPartialUpdateRequest) (*VirtualChassis, *http.Response, error)
+
+	/*
+	DcimVirtualChassisRetrieve Method for DcimVirtualChassisRetrieve
+
+	Get a virtual chassis object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual chassis.
+	@return ApiDcimVirtualChassisRetrieveRequest
+	*/
+	DcimVirtualChassisRetrieve(ctx context.Context, id int32) ApiDcimVirtualChassisRetrieveRequest
+
+	// DcimVirtualChassisRetrieveExecute executes the request
+	//  @return VirtualChassis
+	DcimVirtualChassisRetrieveExecute(r ApiDcimVirtualChassisRetrieveRequest) (*VirtualChassis, *http.Response, error)
+
+	/*
+	DcimVirtualChassisUpdate Method for DcimVirtualChassisUpdate
+
+	Put a virtual chassis object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual chassis.
+	@return ApiDcimVirtualChassisUpdateRequest
+	*/
+	DcimVirtualChassisUpdate(ctx context.Context, id int32) ApiDcimVirtualChassisUpdateRequest
+
+	// DcimVirtualChassisUpdateExecute executes the request
+	//  @return VirtualChassis
+	DcimVirtualChassisUpdateExecute(r ApiDcimVirtualChassisUpdateRequest) (*VirtualChassis, *http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsBulkDestroy Method for DcimVirtualDeviceContextsBulkDestroy
+
+	Delete a list of virtual device context objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualDeviceContextsBulkDestroyRequest
+	*/
+	DcimVirtualDeviceContextsBulkDestroy(ctx context.Context) ApiDcimVirtualDeviceContextsBulkDestroyRequest
+
+	// DcimVirtualDeviceContextsBulkDestroyExecute executes the request
+	DcimVirtualDeviceContextsBulkDestroyExecute(r ApiDcimVirtualDeviceContextsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsBulkPartialUpdate Method for DcimVirtualDeviceContextsBulkPartialUpdate
+
+	Patch a list of virtual device context objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualDeviceContextsBulkPartialUpdateRequest
+	*/
+	DcimVirtualDeviceContextsBulkPartialUpdate(ctx context.Context) ApiDcimVirtualDeviceContextsBulkPartialUpdateRequest
+
+	// DcimVirtualDeviceContextsBulkPartialUpdateExecute executes the request
+	//  @return []VirtualDeviceContext
+	DcimVirtualDeviceContextsBulkPartialUpdateExecute(r ApiDcimVirtualDeviceContextsBulkPartialUpdateRequest) ([]VirtualDeviceContext, *http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsBulkUpdate Method for DcimVirtualDeviceContextsBulkUpdate
+
+	Put a list of virtual device context objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualDeviceContextsBulkUpdateRequest
+	*/
+	DcimVirtualDeviceContextsBulkUpdate(ctx context.Context) ApiDcimVirtualDeviceContextsBulkUpdateRequest
+
+	// DcimVirtualDeviceContextsBulkUpdateExecute executes the request
+	//  @return []VirtualDeviceContext
+	DcimVirtualDeviceContextsBulkUpdateExecute(r ApiDcimVirtualDeviceContextsBulkUpdateRequest) ([]VirtualDeviceContext, *http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsCreate Method for DcimVirtualDeviceContextsCreate
+
+	Post a list of virtual device context objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualDeviceContextsCreateRequest
+	*/
+	DcimVirtualDeviceContextsCreate(ctx context.Context) ApiDcimVirtualDeviceContextsCreateRequest
+
+	// DcimVirtualDeviceContextsCreateExecute executes the request
+	//  @return VirtualDeviceContext
+	DcimVirtualDeviceContextsCreateExecute(r ApiDcimVirtualDeviceContextsCreateRequest) (*VirtualDeviceContext, *http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsDestroy Method for DcimVirtualDeviceContextsDestroy
+
+	Delete a virtual device context object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual device context.
+	@return ApiDcimVirtualDeviceContextsDestroyRequest
+	*/
+	DcimVirtualDeviceContextsDestroy(ctx context.Context, id int32) ApiDcimVirtualDeviceContextsDestroyRequest
+
+	// DcimVirtualDeviceContextsDestroyExecute executes the request
+	DcimVirtualDeviceContextsDestroyExecute(r ApiDcimVirtualDeviceContextsDestroyRequest) (*http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsList Method for DcimVirtualDeviceContextsList
+
+	Get a list of virtual device context objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiDcimVirtualDeviceContextsListRequest
+	*/
+	DcimVirtualDeviceContextsList(ctx context.Context) ApiDcimVirtualDeviceContextsListRequest
+
+	// DcimVirtualDeviceContextsListExecute executes the request
+	//  @return PaginatedVirtualDeviceContextList
+	DcimVirtualDeviceContextsListExecute(r ApiDcimVirtualDeviceContextsListRequest) (*PaginatedVirtualDeviceContextList, *http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsPartialUpdate Method for DcimVirtualDeviceContextsPartialUpdate
+
+	Patch a virtual device context object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual device context.
+	@return ApiDcimVirtualDeviceContextsPartialUpdateRequest
+	*/
+	DcimVirtualDeviceContextsPartialUpdate(ctx context.Context, id int32) ApiDcimVirtualDeviceContextsPartialUpdateRequest
+
+	// DcimVirtualDeviceContextsPartialUpdateExecute executes the request
+	//  @return VirtualDeviceContext
+	DcimVirtualDeviceContextsPartialUpdateExecute(r ApiDcimVirtualDeviceContextsPartialUpdateRequest) (*VirtualDeviceContext, *http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsRetrieve Method for DcimVirtualDeviceContextsRetrieve
+
+	Get a virtual device context object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual device context.
+	@return ApiDcimVirtualDeviceContextsRetrieveRequest
+	*/
+	DcimVirtualDeviceContextsRetrieve(ctx context.Context, id int32) ApiDcimVirtualDeviceContextsRetrieveRequest
+
+	// DcimVirtualDeviceContextsRetrieveExecute executes the request
+	//  @return VirtualDeviceContext
+	DcimVirtualDeviceContextsRetrieveExecute(r ApiDcimVirtualDeviceContextsRetrieveRequest) (*VirtualDeviceContext, *http.Response, error)
+
+	/*
+	DcimVirtualDeviceContextsUpdate Method for DcimVirtualDeviceContextsUpdate
+
+	Put a virtual device context object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this virtual device context.
+	@return ApiDcimVirtualDeviceContextsUpdateRequest
+	*/
+	DcimVirtualDeviceContextsUpdate(ctx context.Context, id int32) ApiDcimVirtualDeviceContextsUpdateRequest
+
+	// DcimVirtualDeviceContextsUpdateExecute executes the request
+	//  @return VirtualDeviceContext
+	DcimVirtualDeviceContextsUpdateExecute(r ApiDcimVirtualDeviceContextsUpdateRequest) (*VirtualDeviceContext, *http.Response, error)
+}
+
 // DcimAPIService DcimAPI service
 type DcimAPIService service
 
 type ApiDcimCableTerminationsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableTerminationRequest *[]CableTerminationRequest
 }
 
@@ -139,7 +5559,7 @@ func (a *DcimAPIService) DcimCableTerminationsBulkDestroyExecute(r ApiDcimCableT
 
 type ApiDcimCableTerminationsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableTerminationRequest *[]CableTerminationRequest
 }
 
@@ -263,7 +5683,7 @@ func (a *DcimAPIService) DcimCableTerminationsBulkPartialUpdateExecute(r ApiDcim
 
 type ApiDcimCableTerminationsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableTerminationRequest *[]CableTerminationRequest
 }
 
@@ -387,7 +5807,7 @@ func (a *DcimAPIService) DcimCableTerminationsBulkUpdateExecute(r ApiDcimCableTe
 
 type ApiDcimCableTerminationsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableTerminationRequest *CableTerminationRequest
 }
 
@@ -511,7 +5931,7 @@ func (a *DcimAPIService) DcimCableTerminationsCreateExecute(r ApiDcimCableTermin
 
 type ApiDcimCableTerminationsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -617,7 +6037,7 @@ func (a *DcimAPIService) DcimCableTerminationsDestroyExecute(r ApiDcimCableTermi
 
 type ApiDcimCableTerminationsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cable *int32
 	cableN *int32
 	cableEnd *End
@@ -1303,7 +6723,7 @@ func (a *DcimAPIService) DcimCableTerminationsListExecute(r ApiDcimCableTerminat
 
 type ApiDcimCableTerminationsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedCableTerminationRequest *PatchedCableTerminationRequest
 }
@@ -1428,7 +6848,7 @@ func (a *DcimAPIService) DcimCableTerminationsPartialUpdateExecute(r ApiDcimCabl
 
 type ApiDcimCableTerminationsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -1545,7 +6965,7 @@ func (a *DcimAPIService) DcimCableTerminationsRetrieveExecute(r ApiDcimCableTerm
 
 type ApiDcimCableTerminationsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	cableTerminationRequest *CableTerminationRequest
 }
@@ -1673,7 +7093,7 @@ func (a *DcimAPIService) DcimCableTerminationsUpdateExecute(r ApiDcimCableTermin
 
 type ApiDcimCablesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableRequest *[]CableRequest
 }
 
@@ -1786,7 +7206,7 @@ func (a *DcimAPIService) DcimCablesBulkDestroyExecute(r ApiDcimCablesBulkDestroy
 
 type ApiDcimCablesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableRequest *[]CableRequest
 }
 
@@ -1910,7 +7330,7 @@ func (a *DcimAPIService) DcimCablesBulkPartialUpdateExecute(r ApiDcimCablesBulkP
 
 type ApiDcimCablesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableRequest *[]CableRequest
 }
 
@@ -2034,7 +7454,7 @@ func (a *DcimAPIService) DcimCablesBulkUpdateExecute(r ApiDcimCablesBulkUpdateRe
 
 type ApiDcimCablesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableCableRequest *WritableCableRequest
 }
 
@@ -2155,7 +7575,7 @@ func (a *DcimAPIService) DcimCablesCreateExecute(r ApiDcimCablesCreateRequest) (
 
 type ApiDcimCablesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -2261,7 +7681,7 @@ func (a *DcimAPIService) DcimCablesDestroyExecute(r ApiDcimCablesDestroyRequest)
 
 type ApiDcimCablesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	circuitterminationId *[]int32
 	color *[]string
 	colorN *[]string
@@ -3924,7 +9344,7 @@ func (a *DcimAPIService) DcimCablesListExecute(r ApiDcimCablesListRequest) (*Pag
 
 type ApiDcimCablesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableCableRequest *PatchedWritableCableRequest
 }
@@ -4049,7 +9469,7 @@ func (a *DcimAPIService) DcimCablesPartialUpdateExecute(r ApiDcimCablesPartialUp
 
 type ApiDcimCablesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -4166,7 +9586,7 @@ func (a *DcimAPIService) DcimCablesRetrieveExecute(r ApiDcimCablesRetrieveReques
 
 type ApiDcimCablesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableCableRequest *WritableCableRequest
 }
@@ -4291,7 +9711,7 @@ func (a *DcimAPIService) DcimCablesUpdateExecute(r ApiDcimCablesUpdateRequest) (
 
 type ApiDcimConnectedDeviceListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	peerDevice *string
 	peerInterface *string
 }
@@ -4431,7 +9851,7 @@ func (a *DcimAPIService) DcimConnectedDeviceListExecute(r ApiDcimConnectedDevice
 
 type ApiDcimConsolePortTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consolePortTemplateRequest *[]ConsolePortTemplateRequest
 }
 
@@ -4544,7 +9964,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesBulkDestroyExecute(r ApiDcimCon
 
 type ApiDcimConsolePortTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consolePortTemplateRequest *[]ConsolePortTemplateRequest
 }
 
@@ -4668,7 +10088,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesBulkPartialUpdateExecute(r ApiD
 
 type ApiDcimConsolePortTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consolePortTemplateRequest *[]ConsolePortTemplateRequest
 }
 
@@ -4792,7 +10212,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesBulkUpdateExecute(r ApiDcimCons
 
 type ApiDcimConsolePortTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableConsolePortTemplateRequest *WritableConsolePortTemplateRequest
 }
 
@@ -4916,7 +10336,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesCreateExecute(r ApiDcimConsoleP
 
 type ApiDcimConsolePortTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -5022,7 +10442,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesDestroyExecute(r ApiDcimConsole
 
 type ApiDcimConsolePortTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -6252,7 +11672,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesListExecute(r ApiDcimConsolePor
 
 type ApiDcimConsolePortTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableConsolePortTemplateRequest *PatchedWritableConsolePortTemplateRequest
 }
@@ -6377,7 +11797,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesPartialUpdateExecute(r ApiDcimC
 
 type ApiDcimConsolePortTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -6494,7 +11914,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesRetrieveExecute(r ApiDcimConsol
 
 type ApiDcimConsolePortTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableConsolePortTemplateRequest *WritableConsolePortTemplateRequest
 }
@@ -6622,7 +12042,7 @@ func (a *DcimAPIService) DcimConsolePortTemplatesUpdateExecute(r ApiDcimConsoleP
 
 type ApiDcimConsolePortsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consolePortRequest *[]ConsolePortRequest
 }
 
@@ -6735,7 +12155,7 @@ func (a *DcimAPIService) DcimConsolePortsBulkDestroyExecute(r ApiDcimConsolePort
 
 type ApiDcimConsolePortsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consolePortRequest *[]ConsolePortRequest
 }
 
@@ -6859,7 +12279,7 @@ func (a *DcimAPIService) DcimConsolePortsBulkPartialUpdateExecute(r ApiDcimConso
 
 type ApiDcimConsolePortsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consolePortRequest *[]ConsolePortRequest
 }
 
@@ -6983,7 +12403,7 @@ func (a *DcimAPIService) DcimConsolePortsBulkUpdateExecute(r ApiDcimConsolePorts
 
 type ApiDcimConsolePortsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableConsolePortRequest *WritableConsolePortRequest
 }
 
@@ -7107,7 +12527,7 @@ func (a *DcimAPIService) DcimConsolePortsCreateExecute(r ApiDcimConsolePortsCrea
 
 type ApiDcimConsolePortsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -7213,7 +12633,7 @@ func (a *DcimAPIService) DcimConsolePortsDestroyExecute(r ApiDcimConsolePortsDes
 
 type ApiDcimConsolePortsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableEnd *CircuitsCircuitTerminationsListCableEndParameter
 	cableEndN *CircuitsCircuitTerminationsListCableEndParameter
 	cableId *[]*int32
@@ -9171,7 +14591,7 @@ func (a *DcimAPIService) DcimConsolePortsListExecute(r ApiDcimConsolePortsListRe
 
 type ApiDcimConsolePortsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableConsolePortRequest *PatchedWritableConsolePortRequest
 }
@@ -9296,7 +14716,7 @@ func (a *DcimAPIService) DcimConsolePortsPartialUpdateExecute(r ApiDcimConsolePo
 
 type ApiDcimConsolePortsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -9413,7 +14833,7 @@ func (a *DcimAPIService) DcimConsolePortsRetrieveExecute(r ApiDcimConsolePortsRe
 
 type ApiDcimConsolePortsTraceRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -9530,7 +14950,7 @@ func (a *DcimAPIService) DcimConsolePortsTraceRetrieveExecute(r ApiDcimConsolePo
 
 type ApiDcimConsolePortsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableConsolePortRequest *WritableConsolePortRequest
 }
@@ -9658,7 +15078,7 @@ func (a *DcimAPIService) DcimConsolePortsUpdateExecute(r ApiDcimConsolePortsUpda
 
 type ApiDcimConsoleServerPortTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consoleServerPortTemplateRequest *[]ConsoleServerPortTemplateRequest
 }
 
@@ -9771,7 +15191,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesBulkDestroyExecute(r ApiD
 
 type ApiDcimConsoleServerPortTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consoleServerPortTemplateRequest *[]ConsoleServerPortTemplateRequest
 }
 
@@ -9895,7 +15315,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesBulkPartialUpdateExecute(
 
 type ApiDcimConsoleServerPortTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consoleServerPortTemplateRequest *[]ConsoleServerPortTemplateRequest
 }
 
@@ -10019,7 +15439,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesBulkUpdateExecute(r ApiDc
 
 type ApiDcimConsoleServerPortTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableConsoleServerPortTemplateRequest *WritableConsoleServerPortTemplateRequest
 }
 
@@ -10143,7 +15563,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesCreateExecute(r ApiDcimCo
 
 type ApiDcimConsoleServerPortTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -10249,7 +15669,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesDestroyExecute(r ApiDcimC
 
 type ApiDcimConsoleServerPortTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -11479,7 +16899,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesListExecute(r ApiDcimCons
 
 type ApiDcimConsoleServerPortTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableConsoleServerPortTemplateRequest *PatchedWritableConsoleServerPortTemplateRequest
 }
@@ -11604,7 +17024,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesPartialUpdateExecute(r Ap
 
 type ApiDcimConsoleServerPortTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -11721,7 +17141,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesRetrieveExecute(r ApiDcim
 
 type ApiDcimConsoleServerPortTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableConsoleServerPortTemplateRequest *WritableConsoleServerPortTemplateRequest
 }
@@ -11849,7 +17269,7 @@ func (a *DcimAPIService) DcimConsoleServerPortTemplatesUpdateExecute(r ApiDcimCo
 
 type ApiDcimConsoleServerPortsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consoleServerPortRequest *[]ConsoleServerPortRequest
 }
 
@@ -11962,7 +17382,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsBulkDestroyExecute(r ApiDcimConso
 
 type ApiDcimConsoleServerPortsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consoleServerPortRequest *[]ConsoleServerPortRequest
 }
 
@@ -12086,7 +17506,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsBulkPartialUpdateExecute(r ApiDci
 
 type ApiDcimConsoleServerPortsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consoleServerPortRequest *[]ConsoleServerPortRequest
 }
 
@@ -12210,7 +17630,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsBulkUpdateExecute(r ApiDcimConsol
 
 type ApiDcimConsoleServerPortsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableConsoleServerPortRequest *WritableConsoleServerPortRequest
 }
 
@@ -12334,7 +17754,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsCreateExecute(r ApiDcimConsoleSer
 
 type ApiDcimConsoleServerPortsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -12440,7 +17860,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsDestroyExecute(r ApiDcimConsoleSe
 
 type ApiDcimConsoleServerPortsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableEnd *CircuitsCircuitTerminationsListCableEndParameter
 	cableEndN *CircuitsCircuitTerminationsListCableEndParameter
 	cableId *[]*int32
@@ -14398,7 +19818,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsListExecute(r ApiDcimConsoleServe
 
 type ApiDcimConsoleServerPortsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableConsoleServerPortRequest *PatchedWritableConsoleServerPortRequest
 }
@@ -14523,7 +19943,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsPartialUpdateExecute(r ApiDcimCon
 
 type ApiDcimConsoleServerPortsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -14640,7 +20060,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsRetrieveExecute(r ApiDcimConsoleS
 
 type ApiDcimConsoleServerPortsTraceRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -14757,7 +20177,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsTraceRetrieveExecute(r ApiDcimCon
 
 type ApiDcimConsoleServerPortsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableConsoleServerPortRequest *WritableConsoleServerPortRequest
 }
@@ -14885,7 +20305,7 @@ func (a *DcimAPIService) DcimConsoleServerPortsUpdateExecute(r ApiDcimConsoleSer
 
 type ApiDcimDeviceBayTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayTemplateRequest *[]DeviceBayTemplateRequest
 }
 
@@ -14998,7 +20418,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesBulkDestroyExecute(r ApiDcimDevic
 
 type ApiDcimDeviceBayTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayTemplateRequest *[]DeviceBayTemplateRequest
 }
 
@@ -15122,7 +20542,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesBulkPartialUpdateExecute(r ApiDci
 
 type ApiDcimDeviceBayTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayTemplateRequest *[]DeviceBayTemplateRequest
 }
 
@@ -15246,7 +20666,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesBulkUpdateExecute(r ApiDcimDevice
 
 type ApiDcimDeviceBayTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayTemplateRequest *DeviceBayTemplateRequest
 }
 
@@ -15370,7 +20790,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesCreateExecute(r ApiDcimDeviceBayT
 
 type ApiDcimDeviceBayTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -15476,7 +20896,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesDestroyExecute(r ApiDcimDeviceBay
 
 type ApiDcimDeviceBayTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -16614,7 +22034,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesListExecute(r ApiDcimDeviceBayTem
 
 type ApiDcimDeviceBayTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedDeviceBayTemplateRequest *PatchedDeviceBayTemplateRequest
 }
@@ -16739,7 +22159,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesPartialUpdateExecute(r ApiDcimDev
 
 type ApiDcimDeviceBayTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -16856,7 +22276,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesRetrieveExecute(r ApiDcimDeviceBa
 
 type ApiDcimDeviceBayTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	deviceBayTemplateRequest *DeviceBayTemplateRequest
 }
@@ -16984,7 +22404,7 @@ func (a *DcimAPIService) DcimDeviceBayTemplatesUpdateExecute(r ApiDcimDeviceBayT
 
 type ApiDcimDeviceBaysBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayRequest *[]DeviceBayRequest
 }
 
@@ -17097,7 +22517,7 @@ func (a *DcimAPIService) DcimDeviceBaysBulkDestroyExecute(r ApiDcimDeviceBaysBul
 
 type ApiDcimDeviceBaysBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayRequest *[]DeviceBayRequest
 }
 
@@ -17221,7 +22641,7 @@ func (a *DcimAPIService) DcimDeviceBaysBulkPartialUpdateExecute(r ApiDcimDeviceB
 
 type ApiDcimDeviceBaysBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayRequest *[]DeviceBayRequest
 }
 
@@ -17345,7 +22765,7 @@ func (a *DcimAPIService) DcimDeviceBaysBulkUpdateExecute(r ApiDcimDeviceBaysBulk
 
 type ApiDcimDeviceBaysCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceBayRequest *DeviceBayRequest
 }
 
@@ -17469,7 +22889,7 @@ func (a *DcimAPIService) DcimDeviceBaysCreateExecute(r ApiDcimDeviceBaysCreateRe
 
 type ApiDcimDeviceBaysDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -17575,7 +22995,7 @@ func (a *DcimAPIService) DcimDeviceBaysDestroyExecute(r ApiDcimDeviceBaysDestroy
 
 type ApiDcimDeviceBaysListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -19421,7 +24841,7 @@ func (a *DcimAPIService) DcimDeviceBaysListExecute(r ApiDcimDeviceBaysListReques
 
 type ApiDcimDeviceBaysPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedDeviceBayRequest *PatchedDeviceBayRequest
 }
@@ -19546,7 +24966,7 @@ func (a *DcimAPIService) DcimDeviceBaysPartialUpdateExecute(r ApiDcimDeviceBaysP
 
 type ApiDcimDeviceBaysRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -19663,7 +25083,7 @@ func (a *DcimAPIService) DcimDeviceBaysRetrieveExecute(r ApiDcimDeviceBaysRetrie
 
 type ApiDcimDeviceBaysUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	deviceBayRequest *DeviceBayRequest
 }
@@ -19791,7 +25211,7 @@ func (a *DcimAPIService) DcimDeviceBaysUpdateExecute(r ApiDcimDeviceBaysUpdateRe
 
 type ApiDcimDeviceRolesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceRoleRequest *[]DeviceRoleRequest
 }
 
@@ -19904,7 +25324,7 @@ func (a *DcimAPIService) DcimDeviceRolesBulkDestroyExecute(r ApiDcimDeviceRolesB
 
 type ApiDcimDeviceRolesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceRoleRequest *[]DeviceRoleRequest
 }
 
@@ -20028,7 +25448,7 @@ func (a *DcimAPIService) DcimDeviceRolesBulkPartialUpdateExecute(r ApiDcimDevice
 
 type ApiDcimDeviceRolesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceRoleRequest *[]DeviceRoleRequest
 }
 
@@ -20152,7 +25572,7 @@ func (a *DcimAPIService) DcimDeviceRolesBulkUpdateExecute(r ApiDcimDeviceRolesBu
 
 type ApiDcimDeviceRolesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceRoleRequest *DeviceRoleRequest
 }
 
@@ -20276,7 +25696,7 @@ func (a *DcimAPIService) DcimDeviceRolesCreateExecute(r ApiDcimDeviceRolesCreate
 
 type ApiDcimDeviceRolesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -20382,7 +25802,7 @@ func (a *DcimAPIService) DcimDeviceRolesDestroyExecute(r ApiDcimDeviceRolesDestr
 
 type ApiDcimDeviceRolesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	color *[]string
 	colorEmpty *bool
 	colorIc *[]string
@@ -21706,7 +27126,7 @@ func (a *DcimAPIService) DcimDeviceRolesListExecute(r ApiDcimDeviceRolesListRequ
 
 type ApiDcimDeviceRolesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedDeviceRoleRequest *PatchedDeviceRoleRequest
 }
@@ -21831,7 +27251,7 @@ func (a *DcimAPIService) DcimDeviceRolesPartialUpdateExecute(r ApiDcimDeviceRole
 
 type ApiDcimDeviceRolesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -21948,7 +27368,7 @@ func (a *DcimAPIService) DcimDeviceRolesRetrieveExecute(r ApiDcimDeviceRolesRetr
 
 type ApiDcimDeviceRolesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	deviceRoleRequest *DeviceRoleRequest
 }
@@ -22076,7 +27496,7 @@ func (a *DcimAPIService) DcimDeviceRolesUpdateExecute(r ApiDcimDeviceRolesUpdate
 
 type ApiDcimDeviceTypesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceTypeRequest *[]DeviceTypeRequest
 }
 
@@ -22189,7 +27609,7 @@ func (a *DcimAPIService) DcimDeviceTypesBulkDestroyExecute(r ApiDcimDeviceTypesB
 
 type ApiDcimDeviceTypesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceTypeRequest *[]DeviceTypeRequest
 }
 
@@ -22313,7 +27733,7 @@ func (a *DcimAPIService) DcimDeviceTypesBulkPartialUpdateExecute(r ApiDcimDevice
 
 type ApiDcimDeviceTypesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceTypeRequest *[]DeviceTypeRequest
 }
 
@@ -22437,7 +27857,7 @@ func (a *DcimAPIService) DcimDeviceTypesBulkUpdateExecute(r ApiDcimDeviceTypesBu
 
 type ApiDcimDeviceTypesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableDeviceTypeRequest *WritableDeviceTypeRequest
 }
 
@@ -22561,7 +27981,7 @@ func (a *DcimAPIService) DcimDeviceTypesCreateExecute(r ApiDcimDeviceTypesCreate
 
 type ApiDcimDeviceTypesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -22667,7 +28087,7 @@ func (a *DcimAPIService) DcimDeviceTypesDestroyExecute(r ApiDcimDeviceTypesDestr
 
 type ApiDcimDeviceTypesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	airflow *DcimDeviceTypesListAirflowParameter
 	airflowN *DcimDeviceTypesListAirflowParameter
 	consolePortTemplateCount *[]int32
@@ -25610,7 +31030,7 @@ func (a *DcimAPIService) DcimDeviceTypesListExecute(r ApiDcimDeviceTypesListRequ
 
 type ApiDcimDeviceTypesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableDeviceTypeRequest *PatchedWritableDeviceTypeRequest
 }
@@ -25735,7 +31155,7 @@ func (a *DcimAPIService) DcimDeviceTypesPartialUpdateExecute(r ApiDcimDeviceType
 
 type ApiDcimDeviceTypesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -25852,7 +31272,7 @@ func (a *DcimAPIService) DcimDeviceTypesRetrieveExecute(r ApiDcimDeviceTypesRetr
 
 type ApiDcimDeviceTypesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableDeviceTypeRequest *WritableDeviceTypeRequest
 }
@@ -25980,7 +31400,7 @@ func (a *DcimAPIService) DcimDeviceTypesUpdateExecute(r ApiDcimDeviceTypesUpdate
 
 type ApiDcimDevicesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceWithConfigContextRequest *[]DeviceWithConfigContextRequest
 }
 
@@ -26093,7 +31513,7 @@ func (a *DcimAPIService) DcimDevicesBulkDestroyExecute(r ApiDcimDevicesBulkDestr
 
 type ApiDcimDevicesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceWithConfigContextRequest *[]DeviceWithConfigContextRequest
 }
 
@@ -26217,7 +31637,7 @@ func (a *DcimAPIService) DcimDevicesBulkPartialUpdateExecute(r ApiDcimDevicesBul
 
 type ApiDcimDevicesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	deviceWithConfigContextRequest *[]DeviceWithConfigContextRequest
 }
 
@@ -26341,7 +31761,7 @@ func (a *DcimAPIService) DcimDevicesBulkUpdateExecute(r ApiDcimDevicesBulkUpdate
 
 type ApiDcimDevicesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableDeviceWithConfigContextRequest *WritableDeviceWithConfigContextRequest
 }
 
@@ -26465,7 +31885,7 @@ func (a *DcimAPIService) DcimDevicesCreateExecute(r ApiDcimDevicesCreateRequest)
 
 type ApiDcimDevicesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -26571,7 +31991,7 @@ func (a *DcimAPIService) DcimDevicesDestroyExecute(r ApiDcimDevicesDestroyReques
 
 type ApiDcimDevicesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	airflow *DcimDeviceTypesListAirflowParameter
 	airflowN *DcimDeviceTypesListAirflowParameter
 	assetTag *[]string
@@ -31107,7 +36527,7 @@ func (a *DcimAPIService) DcimDevicesListExecute(r ApiDcimDevicesListRequest) (*P
 
 type ApiDcimDevicesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableDeviceWithConfigContextRequest *PatchedWritableDeviceWithConfigContextRequest
 }
@@ -31232,7 +36652,7 @@ func (a *DcimAPIService) DcimDevicesPartialUpdateExecute(r ApiDcimDevicesPartial
 
 type ApiDcimDevicesRenderConfigCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableDeviceWithConfigContextRequest *WritableDeviceWithConfigContextRequest
 	format *DcimDevicesRenderConfigCreateFormatParameter
@@ -31369,7 +36789,7 @@ func (a *DcimAPIService) DcimDevicesRenderConfigCreateExecute(r ApiDcimDevicesRe
 
 type ApiDcimDevicesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -31486,7 +36906,7 @@ func (a *DcimAPIService) DcimDevicesRetrieveExecute(r ApiDcimDevicesRetrieveRequ
 
 type ApiDcimDevicesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableDeviceWithConfigContextRequest *WritableDeviceWithConfigContextRequest
 }
@@ -31614,7 +37034,7 @@ func (a *DcimAPIService) DcimDevicesUpdateExecute(r ApiDcimDevicesUpdateRequest)
 
 type ApiDcimFrontPortTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	frontPortTemplateRequest *[]FrontPortTemplateRequest
 }
 
@@ -31727,7 +37147,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesBulkDestroyExecute(r ApiDcimFront
 
 type ApiDcimFrontPortTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	frontPortTemplateRequest *[]FrontPortTemplateRequest
 }
 
@@ -31851,7 +37271,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesBulkPartialUpdateExecute(r ApiDci
 
 type ApiDcimFrontPortTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	frontPortTemplateRequest *[]FrontPortTemplateRequest
 }
 
@@ -31975,7 +37395,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesBulkUpdateExecute(r ApiDcimFrontP
 
 type ApiDcimFrontPortTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableFrontPortTemplateRequest *WritableFrontPortTemplateRequest
 }
 
@@ -32099,7 +37519,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesCreateExecute(r ApiDcimFrontPortT
 
 type ApiDcimFrontPortTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -32205,7 +37625,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesDestroyExecute(r ApiDcimFrontPort
 
 type ApiDcimFrontPortTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	color *[]string
 	colorEmpty *bool
 	colorIc *[]string
@@ -33773,7 +39193,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesListExecute(r ApiDcimFrontPortTem
 
 type ApiDcimFrontPortTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableFrontPortTemplateRequest *PatchedWritableFrontPortTemplateRequest
 }
@@ -33898,7 +39318,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesPartialUpdateExecute(r ApiDcimFro
 
 type ApiDcimFrontPortTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -34015,7 +39435,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesRetrieveExecute(r ApiDcimFrontPor
 
 type ApiDcimFrontPortTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableFrontPortTemplateRequest *WritableFrontPortTemplateRequest
 }
@@ -34143,7 +39563,7 @@ func (a *DcimAPIService) DcimFrontPortTemplatesUpdateExecute(r ApiDcimFrontPortT
 
 type ApiDcimFrontPortsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	frontPortRequest *[]FrontPortRequest
 }
 
@@ -34256,7 +39676,7 @@ func (a *DcimAPIService) DcimFrontPortsBulkDestroyExecute(r ApiDcimFrontPortsBul
 
 type ApiDcimFrontPortsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	frontPortRequest *[]FrontPortRequest
 }
 
@@ -34380,7 +39800,7 @@ func (a *DcimAPIService) DcimFrontPortsBulkPartialUpdateExecute(r ApiDcimFrontPo
 
 type ApiDcimFrontPortsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	frontPortRequest *[]FrontPortRequest
 }
 
@@ -34504,7 +39924,7 @@ func (a *DcimAPIService) DcimFrontPortsBulkUpdateExecute(r ApiDcimFrontPortsBulk
 
 type ApiDcimFrontPortsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableFrontPortRequest *WritableFrontPortRequest
 }
 
@@ -34628,7 +40048,7 @@ func (a *DcimAPIService) DcimFrontPortsCreateExecute(r ApiDcimFrontPortsCreateRe
 
 type ApiDcimFrontPortsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -34734,7 +40154,7 @@ func (a *DcimAPIService) DcimFrontPortsDestroyExecute(r ApiDcimFrontPortsDestroy
 
 type ApiDcimFrontPortsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableEnd *CircuitsCircuitTerminationsListCableEndParameter
 	cableEndN *CircuitsCircuitTerminationsListCableEndParameter
 	cableId *[]*int32
@@ -36985,7 +42405,7 @@ func (a *DcimAPIService) DcimFrontPortsListExecute(r ApiDcimFrontPortsListReques
 
 type ApiDcimFrontPortsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableFrontPortRequest *PatchedWritableFrontPortRequest
 }
@@ -37110,7 +42530,7 @@ func (a *DcimAPIService) DcimFrontPortsPartialUpdateExecute(r ApiDcimFrontPortsP
 
 type ApiDcimFrontPortsPathsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -37227,7 +42647,7 @@ func (a *DcimAPIService) DcimFrontPortsPathsRetrieveExecute(r ApiDcimFrontPortsP
 
 type ApiDcimFrontPortsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -37344,7 +42764,7 @@ func (a *DcimAPIService) DcimFrontPortsRetrieveExecute(r ApiDcimFrontPortsRetrie
 
 type ApiDcimFrontPortsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableFrontPortRequest *WritableFrontPortRequest
 }
@@ -37472,7 +42892,7 @@ func (a *DcimAPIService) DcimFrontPortsUpdateExecute(r ApiDcimFrontPortsUpdateRe
 
 type ApiDcimInterfaceTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	interfaceTemplateRequest *[]InterfaceTemplateRequest
 }
 
@@ -37585,7 +43005,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesBulkDestroyExecute(r ApiDcimInter
 
 type ApiDcimInterfaceTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	interfaceTemplateRequest *[]InterfaceTemplateRequest
 }
 
@@ -37709,7 +43129,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesBulkPartialUpdateExecute(r ApiDci
 
 type ApiDcimInterfaceTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	interfaceTemplateRequest *[]InterfaceTemplateRequest
 }
 
@@ -37833,7 +43253,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesBulkUpdateExecute(r ApiDcimInterf
 
 type ApiDcimInterfaceTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableInterfaceTemplateRequest *WritableInterfaceTemplateRequest
 }
 
@@ -37957,7 +43377,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesCreateExecute(r ApiDcimInterfaceT
 
 type ApiDcimInterfaceTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -38063,7 +43483,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesDestroyExecute(r ApiDcimInterface
 
 type ApiDcimInterfaceTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	bridgeId *[]int32
 	bridgeIdN *[]int32
 	created *[]time.Time
@@ -39461,7 +44881,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesListExecute(r ApiDcimInterfaceTem
 
 type ApiDcimInterfaceTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableInterfaceTemplateRequest *PatchedWritableInterfaceTemplateRequest
 }
@@ -39586,7 +45006,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesPartialUpdateExecute(r ApiDcimInt
 
 type ApiDcimInterfaceTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -39703,7 +45123,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesRetrieveExecute(r ApiDcimInterfac
 
 type ApiDcimInterfaceTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableInterfaceTemplateRequest *WritableInterfaceTemplateRequest
 }
@@ -39831,7 +45251,7 @@ func (a *DcimAPIService) DcimInterfaceTemplatesUpdateExecute(r ApiDcimInterfaceT
 
 type ApiDcimInterfacesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	interfaceRequest *[]InterfaceRequest
 }
 
@@ -39944,7 +45364,7 @@ func (a *DcimAPIService) DcimInterfacesBulkDestroyExecute(r ApiDcimInterfacesBul
 
 type ApiDcimInterfacesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	interfaceRequest *[]InterfaceRequest
 }
 
@@ -40068,7 +45488,7 @@ func (a *DcimAPIService) DcimInterfacesBulkPartialUpdateExecute(r ApiDcimInterfa
 
 type ApiDcimInterfacesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	interfaceRequest *[]InterfaceRequest
 }
 
@@ -40192,7 +45612,7 @@ func (a *DcimAPIService) DcimInterfacesBulkUpdateExecute(r ApiDcimInterfacesBulk
 
 type ApiDcimInterfacesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableInterfaceRequest *WritableInterfaceRequest
 }
 
@@ -40316,7 +45736,7 @@ func (a *DcimAPIService) DcimInterfacesCreateExecute(r ApiDcimInterfacesCreateRe
 
 type ApiDcimInterfacesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -40422,7 +45842,7 @@ func (a *DcimAPIService) DcimInterfacesDestroyExecute(r ApiDcimInterfacesDestroy
 
 type ApiDcimInterfacesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	bridgeId *[]int32
 	bridgeIdN *[]int32
 	cableEnd *CircuitsCircuitTerminationsListCableEndParameter
@@ -43965,7 +49385,7 @@ func (a *DcimAPIService) DcimInterfacesListExecute(r ApiDcimInterfacesListReques
 
 type ApiDcimInterfacesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableInterfaceRequest *PatchedWritableInterfaceRequest
 }
@@ -44090,7 +49510,7 @@ func (a *DcimAPIService) DcimInterfacesPartialUpdateExecute(r ApiDcimInterfacesP
 
 type ApiDcimInterfacesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -44207,7 +49627,7 @@ func (a *DcimAPIService) DcimInterfacesRetrieveExecute(r ApiDcimInterfacesRetrie
 
 type ApiDcimInterfacesTraceRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -44324,7 +49744,7 @@ func (a *DcimAPIService) DcimInterfacesTraceRetrieveExecute(r ApiDcimInterfacesT
 
 type ApiDcimInterfacesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableInterfaceRequest *WritableInterfaceRequest
 }
@@ -44452,7 +49872,7 @@ func (a *DcimAPIService) DcimInterfacesUpdateExecute(r ApiDcimInterfacesUpdateRe
 
 type ApiDcimInventoryItemRolesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRoleRequest *[]InventoryItemRoleRequest
 }
 
@@ -44565,7 +49985,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesBulkDestroyExecute(r ApiDcimInven
 
 type ApiDcimInventoryItemRolesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRoleRequest *[]InventoryItemRoleRequest
 }
 
@@ -44689,7 +50109,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesBulkPartialUpdateExecute(r ApiDci
 
 type ApiDcimInventoryItemRolesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRoleRequest *[]InventoryItemRoleRequest
 }
 
@@ -44813,7 +50233,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesBulkUpdateExecute(r ApiDcimInvent
 
 type ApiDcimInventoryItemRolesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRoleRequest *InventoryItemRoleRequest
 }
 
@@ -44937,7 +50357,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesCreateExecute(r ApiDcimInventoryI
 
 type ApiDcimInventoryItemRolesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -45043,7 +50463,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesDestroyExecute(r ApiDcimInventory
 
 type ApiDcimInventoryItemRolesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	color *[]string
 	colorEmpty *bool
 	colorIc *[]string
@@ -46322,7 +51742,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesListExecute(r ApiDcimInventoryIte
 
 type ApiDcimInventoryItemRolesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedInventoryItemRoleRequest *PatchedInventoryItemRoleRequest
 }
@@ -46447,7 +51867,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesPartialUpdateExecute(r ApiDcimInv
 
 type ApiDcimInventoryItemRolesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -46564,7 +51984,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesRetrieveExecute(r ApiDcimInventor
 
 type ApiDcimInventoryItemRolesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	inventoryItemRoleRequest *InventoryItemRoleRequest
 }
@@ -46692,7 +52112,7 @@ func (a *DcimAPIService) DcimInventoryItemRolesUpdateExecute(r ApiDcimInventoryI
 
 type ApiDcimInventoryItemTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemTemplateRequest *[]InventoryItemTemplateRequest
 }
 
@@ -46805,7 +52225,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesBulkDestroyExecute(r ApiDcimI
 
 type ApiDcimInventoryItemTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemTemplateRequest *[]InventoryItemTemplateRequest
 }
 
@@ -46929,7 +52349,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesBulkPartialUpdateExecute(r Ap
 
 type ApiDcimInventoryItemTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemTemplateRequest *[]InventoryItemTemplateRequest
 }
 
@@ -47053,7 +52473,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesBulkUpdateExecute(r ApiDcimIn
 
 type ApiDcimInventoryItemTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemTemplateRequest *InventoryItemTemplateRequest
 }
 
@@ -47177,7 +52597,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesCreateExecute(r ApiDcimInvent
 
 type ApiDcimInventoryItemTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -47283,7 +52703,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesDestroyExecute(r ApiDcimInven
 
 type ApiDcimInventoryItemTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	componentId *[]int32
 	componentIdEmpty *[]int32
 	componentIdGt *[]int32
@@ -48917,7 +54337,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesListExecute(r ApiDcimInventor
 
 type ApiDcimInventoryItemTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedInventoryItemTemplateRequest *PatchedInventoryItemTemplateRequest
 }
@@ -49042,7 +54462,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesPartialUpdateExecute(r ApiDci
 
 type ApiDcimInventoryItemTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -49159,7 +54579,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesRetrieveExecute(r ApiDcimInve
 
 type ApiDcimInventoryItemTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	inventoryItemTemplateRequest *InventoryItemTemplateRequest
 }
@@ -49287,7 +54707,7 @@ func (a *DcimAPIService) DcimInventoryItemTemplatesUpdateExecute(r ApiDcimInvent
 
 type ApiDcimInventoryItemsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRequest *[]InventoryItemRequest
 }
 
@@ -49400,7 +54820,7 @@ func (a *DcimAPIService) DcimInventoryItemsBulkDestroyExecute(r ApiDcimInventory
 
 type ApiDcimInventoryItemsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRequest *[]InventoryItemRequest
 }
 
@@ -49524,7 +54944,7 @@ func (a *DcimAPIService) DcimInventoryItemsBulkPartialUpdateExecute(r ApiDcimInv
 
 type ApiDcimInventoryItemsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRequest *[]InventoryItemRequest
 }
 
@@ -49648,7 +55068,7 @@ func (a *DcimAPIService) DcimInventoryItemsBulkUpdateExecute(r ApiDcimInventoryI
 
 type ApiDcimInventoryItemsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	inventoryItemRequest *InventoryItemRequest
 }
 
@@ -49772,7 +55192,7 @@ func (a *DcimAPIService) DcimInventoryItemsCreateExecute(r ApiDcimInventoryItems
 
 type ApiDcimInventoryItemsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -49878,7 +55298,7 @@ func (a *DcimAPIService) DcimInventoryItemsDestroyExecute(r ApiDcimInventoryItem
 
 type ApiDcimInventoryItemsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	assetTag *[]string
 	assetTagEmpty *bool
 	assetTagIc *[]string
@@ -52515,7 +57935,7 @@ func (a *DcimAPIService) DcimInventoryItemsListExecute(r ApiDcimInventoryItemsLi
 
 type ApiDcimInventoryItemsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedInventoryItemRequest *PatchedInventoryItemRequest
 }
@@ -52640,7 +58060,7 @@ func (a *DcimAPIService) DcimInventoryItemsPartialUpdateExecute(r ApiDcimInvento
 
 type ApiDcimInventoryItemsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -52757,7 +58177,7 @@ func (a *DcimAPIService) DcimInventoryItemsRetrieveExecute(r ApiDcimInventoryIte
 
 type ApiDcimInventoryItemsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	inventoryItemRequest *InventoryItemRequest
 }
@@ -52885,7 +58305,7 @@ func (a *DcimAPIService) DcimInventoryItemsUpdateExecute(r ApiDcimInventoryItems
 
 type ApiDcimLocationsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	locationRequest *[]LocationRequest
 }
 
@@ -52998,7 +58418,7 @@ func (a *DcimAPIService) DcimLocationsBulkDestroyExecute(r ApiDcimLocationsBulkD
 
 type ApiDcimLocationsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	locationRequest *[]LocationRequest
 }
 
@@ -53122,7 +58542,7 @@ func (a *DcimAPIService) DcimLocationsBulkPartialUpdateExecute(r ApiDcimLocation
 
 type ApiDcimLocationsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	locationRequest *[]LocationRequest
 }
 
@@ -53246,7 +58666,7 @@ func (a *DcimAPIService) DcimLocationsBulkUpdateExecute(r ApiDcimLocationsBulkUp
 
 type ApiDcimLocationsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableLocationRequest *WritableLocationRequest
 }
 
@@ -53370,7 +58790,7 @@ func (a *DcimAPIService) DcimLocationsCreateExecute(r ApiDcimLocationsCreateRequ
 
 type ApiDcimLocationsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -53476,7 +58896,7 @@ func (a *DcimAPIService) DcimLocationsDestroyExecute(r ApiDcimLocationsDestroyRe
 
 type ApiDcimLocationsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	ancestor *[]string
 	ancestorN *[]string
 	ancestorId *[]string
@@ -55383,7 +60803,7 @@ func (a *DcimAPIService) DcimLocationsListExecute(r ApiDcimLocationsListRequest)
 
 type ApiDcimLocationsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableLocationRequest *PatchedWritableLocationRequest
 }
@@ -55508,7 +60928,7 @@ func (a *DcimAPIService) DcimLocationsPartialUpdateExecute(r ApiDcimLocationsPar
 
 type ApiDcimLocationsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -55625,7 +61045,7 @@ func (a *DcimAPIService) DcimLocationsRetrieveExecute(r ApiDcimLocationsRetrieve
 
 type ApiDcimLocationsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableLocationRequest *WritableLocationRequest
 }
@@ -55753,7 +61173,7 @@ func (a *DcimAPIService) DcimLocationsUpdateExecute(r ApiDcimLocationsUpdateRequ
 
 type ApiDcimManufacturersBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	manufacturerRequest *[]ManufacturerRequest
 }
 
@@ -55866,7 +61286,7 @@ func (a *DcimAPIService) DcimManufacturersBulkDestroyExecute(r ApiDcimManufactur
 
 type ApiDcimManufacturersBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	manufacturerRequest *[]ManufacturerRequest
 }
 
@@ -55990,7 +61410,7 @@ func (a *DcimAPIService) DcimManufacturersBulkPartialUpdateExecute(r ApiDcimManu
 
 type ApiDcimManufacturersBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	manufacturerRequest *[]ManufacturerRequest
 }
 
@@ -56114,7 +61534,7 @@ func (a *DcimAPIService) DcimManufacturersBulkUpdateExecute(r ApiDcimManufacture
 
 type ApiDcimManufacturersCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	manufacturerRequest *ManufacturerRequest
 }
 
@@ -56238,7 +61658,7 @@ func (a *DcimAPIService) DcimManufacturersCreateExecute(r ApiDcimManufacturersCr
 
 type ApiDcimManufacturersDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -56344,7 +61764,7 @@ func (a *DcimAPIService) DcimManufacturersDestroyExecute(r ApiDcimManufacturersD
 
 type ApiDcimManufacturersListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	contact *[]int32
 	contactN *[]int32
 	contactGroup *[]string
@@ -57550,7 +62970,7 @@ func (a *DcimAPIService) DcimManufacturersListExecute(r ApiDcimManufacturersList
 
 type ApiDcimManufacturersPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedManufacturerRequest *PatchedManufacturerRequest
 }
@@ -57675,7 +63095,7 @@ func (a *DcimAPIService) DcimManufacturersPartialUpdateExecute(r ApiDcimManufact
 
 type ApiDcimManufacturersRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -57792,7 +63212,7 @@ func (a *DcimAPIService) DcimManufacturersRetrieveExecute(r ApiDcimManufacturers
 
 type ApiDcimManufacturersUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	manufacturerRequest *ManufacturerRequest
 }
@@ -57920,7 +63340,7 @@ func (a *DcimAPIService) DcimManufacturersUpdateExecute(r ApiDcimManufacturersUp
 
 type ApiDcimModuleBayTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayTemplateRequest *[]ModuleBayTemplateRequest
 }
 
@@ -58033,7 +63453,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesBulkDestroyExecute(r ApiDcimModul
 
 type ApiDcimModuleBayTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayTemplateRequest *[]ModuleBayTemplateRequest
 }
 
@@ -58157,7 +63577,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesBulkPartialUpdateExecute(r ApiDci
 
 type ApiDcimModuleBayTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayTemplateRequest *[]ModuleBayTemplateRequest
 }
 
@@ -58281,7 +63701,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesBulkUpdateExecute(r ApiDcimModule
 
 type ApiDcimModuleBayTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayTemplateRequest *ModuleBayTemplateRequest
 }
 
@@ -58405,7 +63825,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesCreateExecute(r ApiDcimModuleBayT
 
 type ApiDcimModuleBayTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -58511,7 +63931,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesDestroyExecute(r ApiDcimModuleBay
 
 type ApiDcimModuleBayTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -59828,7 +65248,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesListExecute(r ApiDcimModuleBayTem
 
 type ApiDcimModuleBayTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedModuleBayTemplateRequest *PatchedModuleBayTemplateRequest
 }
@@ -59953,7 +65373,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesPartialUpdateExecute(r ApiDcimMod
 
 type ApiDcimModuleBayTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -60070,7 +65490,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesRetrieveExecute(r ApiDcimModuleBa
 
 type ApiDcimModuleBayTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	moduleBayTemplateRequest *ModuleBayTemplateRequest
 }
@@ -60198,7 +65618,7 @@ func (a *DcimAPIService) DcimModuleBayTemplatesUpdateExecute(r ApiDcimModuleBayT
 
 type ApiDcimModuleBaysBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayRequest *[]ModuleBayRequest
 }
 
@@ -60311,7 +65731,7 @@ func (a *DcimAPIService) DcimModuleBaysBulkDestroyExecute(r ApiDcimModuleBaysBul
 
 type ApiDcimModuleBaysBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayRequest *[]ModuleBayRequest
 }
 
@@ -60435,7 +65855,7 @@ func (a *DcimAPIService) DcimModuleBaysBulkPartialUpdateExecute(r ApiDcimModuleB
 
 type ApiDcimModuleBaysBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayRequest *[]ModuleBayRequest
 }
 
@@ -60559,7 +65979,7 @@ func (a *DcimAPIService) DcimModuleBaysBulkUpdateExecute(r ApiDcimModuleBaysBulk
 
 type ApiDcimModuleBaysCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleBayRequest *ModuleBayRequest
 }
 
@@ -60683,7 +66103,7 @@ func (a *DcimAPIService) DcimModuleBaysCreateExecute(r ApiDcimModuleBaysCreateRe
 
 type ApiDcimModuleBaysDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -60789,7 +66209,7 @@ func (a *DcimAPIService) DcimModuleBaysDestroyExecute(r ApiDcimModuleBaysDestroy
 
 type ApiDcimModuleBaysListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -62778,7 +68198,7 @@ func (a *DcimAPIService) DcimModuleBaysListExecute(r ApiDcimModuleBaysListReques
 
 type ApiDcimModuleBaysPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedModuleBayRequest *PatchedModuleBayRequest
 }
@@ -62903,7 +68323,7 @@ func (a *DcimAPIService) DcimModuleBaysPartialUpdateExecute(r ApiDcimModuleBaysP
 
 type ApiDcimModuleBaysRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -63020,7 +68440,7 @@ func (a *DcimAPIService) DcimModuleBaysRetrieveExecute(r ApiDcimModuleBaysRetrie
 
 type ApiDcimModuleBaysUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	moduleBayRequest *ModuleBayRequest
 }
@@ -63148,7 +68568,7 @@ func (a *DcimAPIService) DcimModuleBaysUpdateExecute(r ApiDcimModuleBaysUpdateRe
 
 type ApiDcimModuleTypesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleTypeRequest *[]ModuleTypeRequest
 }
 
@@ -63261,7 +68681,7 @@ func (a *DcimAPIService) DcimModuleTypesBulkDestroyExecute(r ApiDcimModuleTypesB
 
 type ApiDcimModuleTypesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleTypeRequest *[]ModuleTypeRequest
 }
 
@@ -63385,7 +68805,7 @@ func (a *DcimAPIService) DcimModuleTypesBulkPartialUpdateExecute(r ApiDcimModule
 
 type ApiDcimModuleTypesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleTypeRequest *[]ModuleTypeRequest
 }
 
@@ -63509,7 +68929,7 @@ func (a *DcimAPIService) DcimModuleTypesBulkUpdateExecute(r ApiDcimModuleTypesBu
 
 type ApiDcimModuleTypesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableModuleTypeRequest *WritableModuleTypeRequest
 }
 
@@ -63633,7 +69053,7 @@ func (a *DcimAPIService) DcimModuleTypesCreateExecute(r ApiDcimModuleTypesCreate
 
 type ApiDcimModuleTypesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -63739,7 +69159,7 @@ func (a *DcimAPIService) DcimModuleTypesDestroyExecute(r ApiDcimModuleTypesDestr
 
 type ApiDcimModuleTypesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	consolePorts *bool
 	consoleServerPorts *bool
 	created *[]time.Time
@@ -65102,7 +70522,7 @@ func (a *DcimAPIService) DcimModuleTypesListExecute(r ApiDcimModuleTypesListRequ
 
 type ApiDcimModuleTypesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableModuleTypeRequest *PatchedWritableModuleTypeRequest
 }
@@ -65227,7 +70647,7 @@ func (a *DcimAPIService) DcimModuleTypesPartialUpdateExecute(r ApiDcimModuleType
 
 type ApiDcimModuleTypesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -65344,7 +70764,7 @@ func (a *DcimAPIService) DcimModuleTypesRetrieveExecute(r ApiDcimModuleTypesRetr
 
 type ApiDcimModuleTypesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableModuleTypeRequest *WritableModuleTypeRequest
 }
@@ -65472,7 +70892,7 @@ func (a *DcimAPIService) DcimModuleTypesUpdateExecute(r ApiDcimModuleTypesUpdate
 
 type ApiDcimModulesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleRequest *[]ModuleRequest
 }
 
@@ -65585,7 +71005,7 @@ func (a *DcimAPIService) DcimModulesBulkDestroyExecute(r ApiDcimModulesBulkDestr
 
 type ApiDcimModulesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleRequest *[]ModuleRequest
 }
 
@@ -65709,7 +71129,7 @@ func (a *DcimAPIService) DcimModulesBulkPartialUpdateExecute(r ApiDcimModulesBul
 
 type ApiDcimModulesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	moduleRequest *[]ModuleRequest
 }
 
@@ -65833,7 +71253,7 @@ func (a *DcimAPIService) DcimModulesBulkUpdateExecute(r ApiDcimModulesBulkUpdate
 
 type ApiDcimModulesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableModuleRequest *WritableModuleRequest
 }
 
@@ -65957,7 +71377,7 @@ func (a *DcimAPIService) DcimModulesCreateExecute(r ApiDcimModulesCreateRequest)
 
 type ApiDcimModulesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -66063,7 +71483,7 @@ func (a *DcimAPIService) DcimModulesDestroyExecute(r ApiDcimModulesDestroyReques
 
 type ApiDcimModulesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	assetTag *[]string
 	assetTagEmpty *bool
 	assetTagIc *[]string
@@ -67413,7 +72833,7 @@ func (a *DcimAPIService) DcimModulesListExecute(r ApiDcimModulesListRequest) (*P
 
 type ApiDcimModulesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableModuleRequest *PatchedWritableModuleRequest
 }
@@ -67538,7 +72958,7 @@ func (a *DcimAPIService) DcimModulesPartialUpdateExecute(r ApiDcimModulesPartial
 
 type ApiDcimModulesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -67655,7 +73075,7 @@ func (a *DcimAPIService) DcimModulesRetrieveExecute(r ApiDcimModulesRetrieveRequ
 
 type ApiDcimModulesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableModuleRequest *WritableModuleRequest
 }
@@ -67783,7 +73203,7 @@ func (a *DcimAPIService) DcimModulesUpdateExecute(r ApiDcimModulesUpdateRequest)
 
 type ApiDcimPlatformsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	platformRequest *[]PlatformRequest
 }
 
@@ -67896,7 +73316,7 @@ func (a *DcimAPIService) DcimPlatformsBulkDestroyExecute(r ApiDcimPlatformsBulkD
 
 type ApiDcimPlatformsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	platformRequest *[]PlatformRequest
 }
 
@@ -68020,7 +73440,7 @@ func (a *DcimAPIService) DcimPlatformsBulkPartialUpdateExecute(r ApiDcimPlatform
 
 type ApiDcimPlatformsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	platformRequest *[]PlatformRequest
 }
 
@@ -68144,7 +73564,7 @@ func (a *DcimAPIService) DcimPlatformsBulkUpdateExecute(r ApiDcimPlatformsBulkUp
 
 type ApiDcimPlatformsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	platformRequest *PlatformRequest
 }
 
@@ -68268,7 +73688,7 @@ func (a *DcimAPIService) DcimPlatformsCreateExecute(r ApiDcimPlatformsCreateRequ
 
 type ApiDcimPlatformsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -68374,7 +73794,7 @@ func (a *DcimAPIService) DcimPlatformsDestroyExecute(r ApiDcimPlatformsDestroyRe
 
 type ApiDcimPlatformsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	availableForDeviceType *string
 	configTemplateId *[]*int32
 	configTemplateIdN *[]*int32
@@ -69591,7 +75011,7 @@ func (a *DcimAPIService) DcimPlatformsListExecute(r ApiDcimPlatformsListRequest)
 
 type ApiDcimPlatformsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedPlatformRequest *PatchedPlatformRequest
 }
@@ -69716,7 +75136,7 @@ func (a *DcimAPIService) DcimPlatformsPartialUpdateExecute(r ApiDcimPlatformsPar
 
 type ApiDcimPlatformsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -69833,7 +75253,7 @@ func (a *DcimAPIService) DcimPlatformsRetrieveExecute(r ApiDcimPlatformsRetrieve
 
 type ApiDcimPlatformsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	platformRequest *PlatformRequest
 }
@@ -69961,7 +75381,7 @@ func (a *DcimAPIService) DcimPlatformsUpdateExecute(r ApiDcimPlatformsUpdateRequ
 
 type ApiDcimPowerFeedsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerFeedRequest *[]PowerFeedRequest
 }
 
@@ -70074,7 +75494,7 @@ func (a *DcimAPIService) DcimPowerFeedsBulkDestroyExecute(r ApiDcimPowerFeedsBul
 
 type ApiDcimPowerFeedsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerFeedRequest *[]PowerFeedRequest
 }
 
@@ -70198,7 +75618,7 @@ func (a *DcimAPIService) DcimPowerFeedsBulkPartialUpdateExecute(r ApiDcimPowerFe
 
 type ApiDcimPowerFeedsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerFeedRequest *[]PowerFeedRequest
 }
 
@@ -70322,7 +75742,7 @@ func (a *DcimAPIService) DcimPowerFeedsBulkUpdateExecute(r ApiDcimPowerFeedsBulk
 
 type ApiDcimPowerFeedsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writablePowerFeedRequest *WritablePowerFeedRequest
 }
 
@@ -70446,7 +75866,7 @@ func (a *DcimAPIService) DcimPowerFeedsCreateExecute(r ApiDcimPowerFeedsCreateRe
 
 type ApiDcimPowerFeedsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -70552,7 +75972,7 @@ func (a *DcimAPIService) DcimPowerFeedsDestroyExecute(r ApiDcimPowerFeedsDestroy
 
 type ApiDcimPowerFeedsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	amperage *[]int32
 	amperageEmpty *bool
 	amperageGt *[]int32
@@ -72523,7 +77943,7 @@ func (a *DcimAPIService) DcimPowerFeedsListExecute(r ApiDcimPowerFeedsListReques
 
 type ApiDcimPowerFeedsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritablePowerFeedRequest *PatchedWritablePowerFeedRequest
 }
@@ -72648,7 +78068,7 @@ func (a *DcimAPIService) DcimPowerFeedsPartialUpdateExecute(r ApiDcimPowerFeedsP
 
 type ApiDcimPowerFeedsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -72765,7 +78185,7 @@ func (a *DcimAPIService) DcimPowerFeedsRetrieveExecute(r ApiDcimPowerFeedsRetrie
 
 type ApiDcimPowerFeedsTraceRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -72882,7 +78302,7 @@ func (a *DcimAPIService) DcimPowerFeedsTraceRetrieveExecute(r ApiDcimPowerFeedsT
 
 type ApiDcimPowerFeedsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writablePowerFeedRequest *WritablePowerFeedRequest
 }
@@ -73010,7 +78430,7 @@ func (a *DcimAPIService) DcimPowerFeedsUpdateExecute(r ApiDcimPowerFeedsUpdateRe
 
 type ApiDcimPowerOutletTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerOutletTemplateRequest *[]PowerOutletTemplateRequest
 }
 
@@ -73123,7 +78543,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesBulkDestroyExecute(r ApiDcimPow
 
 type ApiDcimPowerOutletTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerOutletTemplateRequest *[]PowerOutletTemplateRequest
 }
 
@@ -73247,7 +78667,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesBulkPartialUpdateExecute(r ApiD
 
 type ApiDcimPowerOutletTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerOutletTemplateRequest *[]PowerOutletTemplateRequest
 }
 
@@ -73371,7 +78791,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesBulkUpdateExecute(r ApiDcimPowe
 
 type ApiDcimPowerOutletTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writablePowerOutletTemplateRequest *WritablePowerOutletTemplateRequest
 }
 
@@ -73495,7 +78915,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesCreateExecute(r ApiDcimPowerOut
 
 type ApiDcimPowerOutletTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -73601,7 +79021,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesDestroyExecute(r ApiDcimPowerOu
 
 type ApiDcimPowerOutletTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -74903,7 +80323,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesListExecute(r ApiDcimPowerOutle
 
 type ApiDcimPowerOutletTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritablePowerOutletTemplateRequest *PatchedWritablePowerOutletTemplateRequest
 }
@@ -75028,7 +80448,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesPartialUpdateExecute(r ApiDcimP
 
 type ApiDcimPowerOutletTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -75145,7 +80565,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesRetrieveExecute(r ApiDcimPowerO
 
 type ApiDcimPowerOutletTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writablePowerOutletTemplateRequest *WritablePowerOutletTemplateRequest
 }
@@ -75273,7 +80693,7 @@ func (a *DcimAPIService) DcimPowerOutletTemplatesUpdateExecute(r ApiDcimPowerOut
 
 type ApiDcimPowerOutletsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerOutletRequest *[]PowerOutletRequest
 }
 
@@ -75386,7 +80806,7 @@ func (a *DcimAPIService) DcimPowerOutletsBulkDestroyExecute(r ApiDcimPowerOutlet
 
 type ApiDcimPowerOutletsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerOutletRequest *[]PowerOutletRequest
 }
 
@@ -75510,7 +80930,7 @@ func (a *DcimAPIService) DcimPowerOutletsBulkPartialUpdateExecute(r ApiDcimPower
 
 type ApiDcimPowerOutletsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerOutletRequest *[]PowerOutletRequest
 }
 
@@ -75634,7 +81054,7 @@ func (a *DcimAPIService) DcimPowerOutletsBulkUpdateExecute(r ApiDcimPowerOutlets
 
 type ApiDcimPowerOutletsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writablePowerOutletRequest *WritablePowerOutletRequest
 }
 
@@ -75758,7 +81178,7 @@ func (a *DcimAPIService) DcimPowerOutletsCreateExecute(r ApiDcimPowerOutletsCrea
 
 type ApiDcimPowerOutletsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -75864,7 +81284,7 @@ func (a *DcimAPIService) DcimPowerOutletsDestroyExecute(r ApiDcimPowerOutletsDes
 
 type ApiDcimPowerOutletsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableEnd *CircuitsCircuitTerminationsListCableEndParameter
 	cableEndN *CircuitsCircuitTerminationsListCableEndParameter
 	cableId *[]*int32
@@ -77874,7 +83294,7 @@ func (a *DcimAPIService) DcimPowerOutletsListExecute(r ApiDcimPowerOutletsListRe
 
 type ApiDcimPowerOutletsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritablePowerOutletRequest *PatchedWritablePowerOutletRequest
 }
@@ -77999,7 +83419,7 @@ func (a *DcimAPIService) DcimPowerOutletsPartialUpdateExecute(r ApiDcimPowerOutl
 
 type ApiDcimPowerOutletsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -78116,7 +83536,7 @@ func (a *DcimAPIService) DcimPowerOutletsRetrieveExecute(r ApiDcimPowerOutletsRe
 
 type ApiDcimPowerOutletsTraceRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -78233,7 +83653,7 @@ func (a *DcimAPIService) DcimPowerOutletsTraceRetrieveExecute(r ApiDcimPowerOutl
 
 type ApiDcimPowerOutletsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writablePowerOutletRequest *WritablePowerOutletRequest
 }
@@ -78361,7 +83781,7 @@ func (a *DcimAPIService) DcimPowerOutletsUpdateExecute(r ApiDcimPowerOutletsUpda
 
 type ApiDcimPowerPanelsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPanelRequest *[]PowerPanelRequest
 }
 
@@ -78474,7 +83894,7 @@ func (a *DcimAPIService) DcimPowerPanelsBulkDestroyExecute(r ApiDcimPowerPanelsB
 
 type ApiDcimPowerPanelsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPanelRequest *[]PowerPanelRequest
 }
 
@@ -78598,7 +84018,7 @@ func (a *DcimAPIService) DcimPowerPanelsBulkPartialUpdateExecute(r ApiDcimPowerP
 
 type ApiDcimPowerPanelsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPanelRequest *[]PowerPanelRequest
 }
 
@@ -78722,7 +84142,7 @@ func (a *DcimAPIService) DcimPowerPanelsBulkUpdateExecute(r ApiDcimPowerPanelsBu
 
 type ApiDcimPowerPanelsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPanelRequest *PowerPanelRequest
 }
 
@@ -78846,7 +84266,7 @@ func (a *DcimAPIService) DcimPowerPanelsCreateExecute(r ApiDcimPowerPanelsCreate
 
 type ApiDcimPowerPanelsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -78952,7 +84372,7 @@ func (a *DcimAPIService) DcimPowerPanelsDestroyExecute(r ApiDcimPowerPanelsDestr
 
 type ApiDcimPowerPanelsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	contact *[]int32
 	contactN *[]int32
 	contactGroup *[]string
@@ -80221,7 +85641,7 @@ func (a *DcimAPIService) DcimPowerPanelsListExecute(r ApiDcimPowerPanelsListRequ
 
 type ApiDcimPowerPanelsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedPowerPanelRequest *PatchedPowerPanelRequest
 }
@@ -80346,7 +85766,7 @@ func (a *DcimAPIService) DcimPowerPanelsPartialUpdateExecute(r ApiDcimPowerPanel
 
 type ApiDcimPowerPanelsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -80463,7 +85883,7 @@ func (a *DcimAPIService) DcimPowerPanelsRetrieveExecute(r ApiDcimPowerPanelsRetr
 
 type ApiDcimPowerPanelsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	powerPanelRequest *PowerPanelRequest
 }
@@ -80591,7 +86011,7 @@ func (a *DcimAPIService) DcimPowerPanelsUpdateExecute(r ApiDcimPowerPanelsUpdate
 
 type ApiDcimPowerPortTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPortTemplateRequest *[]PowerPortTemplateRequest
 }
 
@@ -80704,7 +86124,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesBulkDestroyExecute(r ApiDcimPower
 
 type ApiDcimPowerPortTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPortTemplateRequest *[]PowerPortTemplateRequest
 }
 
@@ -80828,7 +86248,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesBulkPartialUpdateExecute(r ApiDci
 
 type ApiDcimPowerPortTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPortTemplateRequest *[]PowerPortTemplateRequest
 }
 
@@ -80952,7 +86372,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesBulkUpdateExecute(r ApiDcimPowerP
 
 type ApiDcimPowerPortTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writablePowerPortTemplateRequest *WritablePowerPortTemplateRequest
 }
 
@@ -81076,7 +86496,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesCreateExecute(r ApiDcimPowerPortT
 
 type ApiDcimPowerPortTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -81182,7 +86602,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesDestroyExecute(r ApiDcimPowerPort
 
 type ApiDcimPowerPortTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	allocatedDraw *[]int32
 	allocatedDrawEmpty *bool
 	allocatedDrawGt *[]int32
@@ -82634,7 +88054,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesListExecute(r ApiDcimPowerPortTem
 
 type ApiDcimPowerPortTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritablePowerPortTemplateRequest *PatchedWritablePowerPortTemplateRequest
 }
@@ -82759,7 +88179,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesPartialUpdateExecute(r ApiDcimPow
 
 type ApiDcimPowerPortTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -82876,7 +88296,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesRetrieveExecute(r ApiDcimPowerPor
 
 type ApiDcimPowerPortTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writablePowerPortTemplateRequest *WritablePowerPortTemplateRequest
 }
@@ -83004,7 +88424,7 @@ func (a *DcimAPIService) DcimPowerPortTemplatesUpdateExecute(r ApiDcimPowerPortT
 
 type ApiDcimPowerPortsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPortRequest *[]PowerPortRequest
 }
 
@@ -83117,7 +88537,7 @@ func (a *DcimAPIService) DcimPowerPortsBulkDestroyExecute(r ApiDcimPowerPortsBul
 
 type ApiDcimPowerPortsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPortRequest *[]PowerPortRequest
 }
 
@@ -83241,7 +88661,7 @@ func (a *DcimAPIService) DcimPowerPortsBulkPartialUpdateExecute(r ApiDcimPowerPo
 
 type ApiDcimPowerPortsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	powerPortRequest *[]PowerPortRequest
 }
 
@@ -83365,7 +88785,7 @@ func (a *DcimAPIService) DcimPowerPortsBulkUpdateExecute(r ApiDcimPowerPortsBulk
 
 type ApiDcimPowerPortsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writablePowerPortRequest *WritablePowerPortRequest
 }
 
@@ -83489,7 +88909,7 @@ func (a *DcimAPIService) DcimPowerPortsCreateExecute(r ApiDcimPowerPortsCreateRe
 
 type ApiDcimPowerPortsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -83595,7 +89015,7 @@ func (a *DcimAPIService) DcimPowerPortsDestroyExecute(r ApiDcimPowerPortsDestroy
 
 type ApiDcimPowerPortsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	allocatedDraw *[]int32
 	allocatedDrawEmpty *bool
 	allocatedDrawGt *[]int32
@@ -85755,7 +91175,7 @@ func (a *DcimAPIService) DcimPowerPortsListExecute(r ApiDcimPowerPortsListReques
 
 type ApiDcimPowerPortsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritablePowerPortRequest *PatchedWritablePowerPortRequest
 }
@@ -85880,7 +91300,7 @@ func (a *DcimAPIService) DcimPowerPortsPartialUpdateExecute(r ApiDcimPowerPortsP
 
 type ApiDcimPowerPortsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -85997,7 +91417,7 @@ func (a *DcimAPIService) DcimPowerPortsRetrieveExecute(r ApiDcimPowerPortsRetrie
 
 type ApiDcimPowerPortsTraceRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -86114,7 +91534,7 @@ func (a *DcimAPIService) DcimPowerPortsTraceRetrieveExecute(r ApiDcimPowerPortsT
 
 type ApiDcimPowerPortsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writablePowerPortRequest *WritablePowerPortRequest
 }
@@ -86242,7 +91662,7 @@ func (a *DcimAPIService) DcimPowerPortsUpdateExecute(r ApiDcimPowerPortsUpdateRe
 
 type ApiDcimRackReservationsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackReservationRequest *[]RackReservationRequest
 }
 
@@ -86355,7 +91775,7 @@ func (a *DcimAPIService) DcimRackReservationsBulkDestroyExecute(r ApiDcimRackRes
 
 type ApiDcimRackReservationsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackReservationRequest *[]RackReservationRequest
 }
 
@@ -86479,7 +91899,7 @@ func (a *DcimAPIService) DcimRackReservationsBulkPartialUpdateExecute(r ApiDcimR
 
 type ApiDcimRackReservationsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackReservationRequest *[]RackReservationRequest
 }
 
@@ -86603,7 +92023,7 @@ func (a *DcimAPIService) DcimRackReservationsBulkUpdateExecute(r ApiDcimRackRese
 
 type ApiDcimRackReservationsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackReservationRequest *RackReservationRequest
 }
 
@@ -86727,7 +92147,7 @@ func (a *DcimAPIService) DcimRackReservationsCreateExecute(r ApiDcimRackReservat
 
 type ApiDcimRackReservationsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -86833,7 +92253,7 @@ func (a *DcimAPIService) DcimRackReservationsDestroyExecute(r ApiDcimRackReserva
 
 type ApiDcimRackReservationsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -88108,7 +93528,7 @@ func (a *DcimAPIService) DcimRackReservationsListExecute(r ApiDcimRackReservatio
 
 type ApiDcimRackReservationsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedRackReservationRequest *PatchedRackReservationRequest
 }
@@ -88233,7 +93653,7 @@ func (a *DcimAPIService) DcimRackReservationsPartialUpdateExecute(r ApiDcimRackR
 
 type ApiDcimRackReservationsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -88350,7 +93770,7 @@ func (a *DcimAPIService) DcimRackReservationsRetrieveExecute(r ApiDcimRackReserv
 
 type ApiDcimRackReservationsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	rackReservationRequest *RackReservationRequest
 }
@@ -88478,7 +93898,7 @@ func (a *DcimAPIService) DcimRackReservationsUpdateExecute(r ApiDcimRackReservat
 
 type ApiDcimRackRolesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackRoleRequest *[]RackRoleRequest
 }
 
@@ -88591,7 +94011,7 @@ func (a *DcimAPIService) DcimRackRolesBulkDestroyExecute(r ApiDcimRackRolesBulkD
 
 type ApiDcimRackRolesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackRoleRequest *[]RackRoleRequest
 }
 
@@ -88715,7 +94135,7 @@ func (a *DcimAPIService) DcimRackRolesBulkPartialUpdateExecute(r ApiDcimRackRole
 
 type ApiDcimRackRolesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackRoleRequest *[]RackRoleRequest
 }
 
@@ -88839,7 +94259,7 @@ func (a *DcimAPIService) DcimRackRolesBulkUpdateExecute(r ApiDcimRackRolesBulkUp
 
 type ApiDcimRackRolesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackRoleRequest *RackRoleRequest
 }
 
@@ -88963,7 +94383,7 @@ func (a *DcimAPIService) DcimRackRolesCreateExecute(r ApiDcimRackRolesCreateRequ
 
 type ApiDcimRackRolesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -89069,7 +94489,7 @@ func (a *DcimAPIService) DcimRackRolesDestroyExecute(r ApiDcimRackRolesDestroyRe
 
 type ApiDcimRackRolesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	color *[]string
 	colorEmpty *bool
 	colorIc *[]string
@@ -90348,7 +95768,7 @@ func (a *DcimAPIService) DcimRackRolesListExecute(r ApiDcimRackRolesListRequest)
 
 type ApiDcimRackRolesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedRackRoleRequest *PatchedRackRoleRequest
 }
@@ -90473,7 +95893,7 @@ func (a *DcimAPIService) DcimRackRolesPartialUpdateExecute(r ApiDcimRackRolesPar
 
 type ApiDcimRackRolesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -90590,7 +96010,7 @@ func (a *DcimAPIService) DcimRackRolesRetrieveExecute(r ApiDcimRackRolesRetrieve
 
 type ApiDcimRackRolesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	rackRoleRequest *RackRoleRequest
 }
@@ -90718,7 +96138,7 @@ func (a *DcimAPIService) DcimRackRolesUpdateExecute(r ApiDcimRackRolesUpdateRequ
 
 type ApiDcimRacksBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackRequest *[]RackRequest
 }
 
@@ -90831,7 +96251,7 @@ func (a *DcimAPIService) DcimRacksBulkDestroyExecute(r ApiDcimRacksBulkDestroyRe
 
 type ApiDcimRacksBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackRequest *[]RackRequest
 }
 
@@ -90955,7 +96375,7 @@ func (a *DcimAPIService) DcimRacksBulkPartialUpdateExecute(r ApiDcimRacksBulkPar
 
 type ApiDcimRacksBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rackRequest *[]RackRequest
 }
 
@@ -91079,7 +96499,7 @@ func (a *DcimAPIService) DcimRacksBulkUpdateExecute(r ApiDcimRacksBulkUpdateRequ
 
 type ApiDcimRacksCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableRackRequest *WritableRackRequest
 }
 
@@ -91203,7 +96623,7 @@ func (a *DcimAPIService) DcimRacksCreateExecute(r ApiDcimRacksCreateRequest) (*R
 
 type ApiDcimRacksDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -91309,7 +96729,7 @@ func (a *DcimAPIService) DcimRacksDestroyExecute(r ApiDcimRacksDestroyRequest) (
 
 type ApiDcimRacksElevationRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	exclude *int32
 	expandDevices *bool
@@ -91556,7 +96976,7 @@ func (a *DcimAPIService) DcimRacksElevationRetrieveExecute(r ApiDcimRacksElevati
 
 type ApiDcimRacksListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	assetTag *[]string
 	assetTagEmpty *bool
 	assetTagIc *[]string
@@ -94538,7 +99958,7 @@ func (a *DcimAPIService) DcimRacksListExecute(r ApiDcimRacksListRequest) (*Pagin
 
 type ApiDcimRacksPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableRackRequest *PatchedWritableRackRequest
 }
@@ -94663,7 +100083,7 @@ func (a *DcimAPIService) DcimRacksPartialUpdateExecute(r ApiDcimRacksPartialUpda
 
 type ApiDcimRacksRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -94780,7 +100200,7 @@ func (a *DcimAPIService) DcimRacksRetrieveExecute(r ApiDcimRacksRetrieveRequest)
 
 type ApiDcimRacksUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableRackRequest *WritableRackRequest
 }
@@ -94908,7 +100328,7 @@ func (a *DcimAPIService) DcimRacksUpdateExecute(r ApiDcimRacksUpdateRequest) (*R
 
 type ApiDcimRearPortTemplatesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rearPortTemplateRequest *[]RearPortTemplateRequest
 }
 
@@ -95021,7 +100441,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesBulkDestroyExecute(r ApiDcimRearPo
 
 type ApiDcimRearPortTemplatesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rearPortTemplateRequest *[]RearPortTemplateRequest
 }
 
@@ -95145,7 +100565,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesBulkPartialUpdateExecute(r ApiDcim
 
 type ApiDcimRearPortTemplatesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rearPortTemplateRequest *[]RearPortTemplateRequest
 }
 
@@ -95269,7 +100689,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesBulkUpdateExecute(r ApiDcimRearPor
 
 type ApiDcimRearPortTemplatesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableRearPortTemplateRequest *WritableRearPortTemplateRequest
 }
 
@@ -95393,7 +100813,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesCreateExecute(r ApiDcimRearPortTem
 
 type ApiDcimRearPortTemplatesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -95499,7 +100919,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesDestroyExecute(r ApiDcimRearPortTe
 
 type ApiDcimRearPortTemplatesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	color *[]string
 	colorEmpty *bool
 	colorIc *[]string
@@ -97033,7 +102453,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesListExecute(r ApiDcimRearPortTempl
 
 type ApiDcimRearPortTemplatesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableRearPortTemplateRequest *PatchedWritableRearPortTemplateRequest
 }
@@ -97158,7 +102578,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesPartialUpdateExecute(r ApiDcimRear
 
 type ApiDcimRearPortTemplatesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -97275,7 +102695,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesRetrieveExecute(r ApiDcimRearPortT
 
 type ApiDcimRearPortTemplatesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableRearPortTemplateRequest *WritableRearPortTemplateRequest
 }
@@ -97403,7 +102823,7 @@ func (a *DcimAPIService) DcimRearPortTemplatesUpdateExecute(r ApiDcimRearPortTem
 
 type ApiDcimRearPortsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rearPortRequest *[]RearPortRequest
 }
 
@@ -97516,7 +102936,7 @@ func (a *DcimAPIService) DcimRearPortsBulkDestroyExecute(r ApiDcimRearPortsBulkD
 
 type ApiDcimRearPortsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rearPortRequest *[]RearPortRequest
 }
 
@@ -97640,7 +103060,7 @@ func (a *DcimAPIService) DcimRearPortsBulkPartialUpdateExecute(r ApiDcimRearPort
 
 type ApiDcimRearPortsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	rearPortRequest *[]RearPortRequest
 }
 
@@ -97764,7 +103184,7 @@ func (a *DcimAPIService) DcimRearPortsBulkUpdateExecute(r ApiDcimRearPortsBulkUp
 
 type ApiDcimRearPortsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableRearPortRequest *WritableRearPortRequest
 }
 
@@ -97888,7 +103308,7 @@ func (a *DcimAPIService) DcimRearPortsCreateExecute(r ApiDcimRearPortsCreateRequ
 
 type ApiDcimRearPortsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -97994,7 +103414,7 @@ func (a *DcimAPIService) DcimRearPortsDestroyExecute(r ApiDcimRearPortsDestroyRe
 
 type ApiDcimRearPortsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	cableEnd *CircuitsCircuitTerminationsListCableEndParameter
 	cableEndN *CircuitsCircuitTerminationsListCableEndParameter
 	cableId *[]*int32
@@ -100211,7 +105631,7 @@ func (a *DcimAPIService) DcimRearPortsListExecute(r ApiDcimRearPortsListRequest)
 
 type ApiDcimRearPortsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableRearPortRequest *PatchedWritableRearPortRequest
 }
@@ -100336,7 +105756,7 @@ func (a *DcimAPIService) DcimRearPortsPartialUpdateExecute(r ApiDcimRearPortsPar
 
 type ApiDcimRearPortsPathsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -100453,7 +105873,7 @@ func (a *DcimAPIService) DcimRearPortsPathsRetrieveExecute(r ApiDcimRearPortsPat
 
 type ApiDcimRearPortsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -100570,7 +105990,7 @@ func (a *DcimAPIService) DcimRearPortsRetrieveExecute(r ApiDcimRearPortsRetrieve
 
 type ApiDcimRearPortsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableRearPortRequest *WritableRearPortRequest
 }
@@ -100698,7 +106118,7 @@ func (a *DcimAPIService) DcimRearPortsUpdateExecute(r ApiDcimRearPortsUpdateRequ
 
 type ApiDcimRegionsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	regionRequest *[]RegionRequest
 }
 
@@ -100811,7 +106231,7 @@ func (a *DcimAPIService) DcimRegionsBulkDestroyExecute(r ApiDcimRegionsBulkDestr
 
 type ApiDcimRegionsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	regionRequest *[]RegionRequest
 }
 
@@ -100935,7 +106355,7 @@ func (a *DcimAPIService) DcimRegionsBulkPartialUpdateExecute(r ApiDcimRegionsBul
 
 type ApiDcimRegionsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	regionRequest *[]RegionRequest
 }
 
@@ -101059,7 +106479,7 @@ func (a *DcimAPIService) DcimRegionsBulkUpdateExecute(r ApiDcimRegionsBulkUpdate
 
 type ApiDcimRegionsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableRegionRequest *WritableRegionRequest
 }
 
@@ -101183,7 +106603,7 @@ func (a *DcimAPIService) DcimRegionsCreateExecute(r ApiDcimRegionsCreateRequest)
 
 type ApiDcimRegionsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -101289,7 +106709,7 @@ func (a *DcimAPIService) DcimRegionsDestroyExecute(r ApiDcimRegionsDestroyReques
 
 type ApiDcimRegionsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	ancestor *[]string
 	ancestorN *[]string
 	ancestorId *[]string
@@ -102635,7 +108055,7 @@ func (a *DcimAPIService) DcimRegionsListExecute(r ApiDcimRegionsListRequest) (*P
 
 type ApiDcimRegionsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableRegionRequest *PatchedWritableRegionRequest
 }
@@ -102760,7 +108180,7 @@ func (a *DcimAPIService) DcimRegionsPartialUpdateExecute(r ApiDcimRegionsPartial
 
 type ApiDcimRegionsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -102877,7 +108297,7 @@ func (a *DcimAPIService) DcimRegionsRetrieveExecute(r ApiDcimRegionsRetrieveRequ
 
 type ApiDcimRegionsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableRegionRequest *WritableRegionRequest
 }
@@ -103005,7 +108425,7 @@ func (a *DcimAPIService) DcimRegionsUpdateExecute(r ApiDcimRegionsUpdateRequest)
 
 type ApiDcimSiteGroupsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	siteGroupRequest *[]SiteGroupRequest
 }
 
@@ -103118,7 +108538,7 @@ func (a *DcimAPIService) DcimSiteGroupsBulkDestroyExecute(r ApiDcimSiteGroupsBul
 
 type ApiDcimSiteGroupsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	siteGroupRequest *[]SiteGroupRequest
 }
 
@@ -103242,7 +108662,7 @@ func (a *DcimAPIService) DcimSiteGroupsBulkPartialUpdateExecute(r ApiDcimSiteGro
 
 type ApiDcimSiteGroupsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	siteGroupRequest *[]SiteGroupRequest
 }
 
@@ -103366,7 +108786,7 @@ func (a *DcimAPIService) DcimSiteGroupsBulkUpdateExecute(r ApiDcimSiteGroupsBulk
 
 type ApiDcimSiteGroupsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableSiteGroupRequest *WritableSiteGroupRequest
 }
 
@@ -103490,7 +108910,7 @@ func (a *DcimAPIService) DcimSiteGroupsCreateExecute(r ApiDcimSiteGroupsCreateRe
 
 type ApiDcimSiteGroupsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -103596,7 +109016,7 @@ func (a *DcimAPIService) DcimSiteGroupsDestroyExecute(r ApiDcimSiteGroupsDestroy
 
 type ApiDcimSiteGroupsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	ancestor *[]string
 	ancestorN *[]string
 	ancestorId *[]string
@@ -104942,7 +110362,7 @@ func (a *DcimAPIService) DcimSiteGroupsListExecute(r ApiDcimSiteGroupsListReques
 
 type ApiDcimSiteGroupsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableSiteGroupRequest *PatchedWritableSiteGroupRequest
 }
@@ -105067,7 +110487,7 @@ func (a *DcimAPIService) DcimSiteGroupsPartialUpdateExecute(r ApiDcimSiteGroupsP
 
 type ApiDcimSiteGroupsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -105184,7 +110604,7 @@ func (a *DcimAPIService) DcimSiteGroupsRetrieveExecute(r ApiDcimSiteGroupsRetrie
 
 type ApiDcimSiteGroupsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableSiteGroupRequest *WritableSiteGroupRequest
 }
@@ -105312,7 +110732,7 @@ func (a *DcimAPIService) DcimSiteGroupsUpdateExecute(r ApiDcimSiteGroupsUpdateRe
 
 type ApiDcimSitesBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	siteRequest *[]SiteRequest
 }
 
@@ -105425,7 +110845,7 @@ func (a *DcimAPIService) DcimSitesBulkDestroyExecute(r ApiDcimSitesBulkDestroyRe
 
 type ApiDcimSitesBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	siteRequest *[]SiteRequest
 }
 
@@ -105549,7 +110969,7 @@ func (a *DcimAPIService) DcimSitesBulkPartialUpdateExecute(r ApiDcimSitesBulkPar
 
 type ApiDcimSitesBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	siteRequest *[]SiteRequest
 }
 
@@ -105673,7 +111093,7 @@ func (a *DcimAPIService) DcimSitesBulkUpdateExecute(r ApiDcimSitesBulkUpdateRequ
 
 type ApiDcimSitesCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableSiteRequest *WritableSiteRequest
 }
 
@@ -105797,7 +111217,7 @@ func (a *DcimAPIService) DcimSitesCreateExecute(r ApiDcimSitesCreateRequest) (*S
 
 type ApiDcimSitesDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -105903,7 +111323,7 @@ func (a *DcimAPIService) DcimSitesDestroyExecute(r ApiDcimSitesDestroyRequest) (
 
 type ApiDcimSitesListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	asn *[]int64
 	asnN *[]int64
 	asnId *[]int32
@@ -108062,7 +113482,7 @@ func (a *DcimAPIService) DcimSitesListExecute(r ApiDcimSitesListRequest) (*Pagin
 
 type ApiDcimSitesPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableSiteRequest *PatchedWritableSiteRequest
 }
@@ -108187,7 +113607,7 @@ func (a *DcimAPIService) DcimSitesPartialUpdateExecute(r ApiDcimSitesPartialUpda
 
 type ApiDcimSitesRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -108304,7 +113724,7 @@ func (a *DcimAPIService) DcimSitesRetrieveExecute(r ApiDcimSitesRetrieveRequest)
 
 type ApiDcimSitesUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableSiteRequest *WritableSiteRequest
 }
@@ -108432,7 +113852,7 @@ func (a *DcimAPIService) DcimSitesUpdateExecute(r ApiDcimSitesUpdateRequest) (*S
 
 type ApiDcimVirtualChassisBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	virtualChassisRequest *[]VirtualChassisRequest
 }
 
@@ -108545,7 +113965,7 @@ func (a *DcimAPIService) DcimVirtualChassisBulkDestroyExecute(r ApiDcimVirtualCh
 
 type ApiDcimVirtualChassisBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	virtualChassisRequest *[]VirtualChassisRequest
 }
 
@@ -108669,7 +114089,7 @@ func (a *DcimAPIService) DcimVirtualChassisBulkPartialUpdateExecute(r ApiDcimVir
 
 type ApiDcimVirtualChassisBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	virtualChassisRequest *[]VirtualChassisRequest
 }
 
@@ -108793,7 +114213,7 @@ func (a *DcimAPIService) DcimVirtualChassisBulkUpdateExecute(r ApiDcimVirtualCha
 
 type ApiDcimVirtualChassisCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableVirtualChassisRequest *WritableVirtualChassisRequest
 }
 
@@ -108917,7 +114337,7 @@ func (a *DcimAPIService) DcimVirtualChassisCreateExecute(r ApiDcimVirtualChassis
 
 type ApiDcimVirtualChassisDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -109023,7 +114443,7 @@ func (a *DcimAPIService) DcimVirtualChassisDestroyExecute(r ApiDcimVirtualChassi
 
 type ApiDcimVirtualChassisListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -110586,7 +116006,7 @@ func (a *DcimAPIService) DcimVirtualChassisListExecute(r ApiDcimVirtualChassisLi
 
 type ApiDcimVirtualChassisPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableVirtualChassisRequest *PatchedWritableVirtualChassisRequest
 }
@@ -110711,7 +116131,7 @@ func (a *DcimAPIService) DcimVirtualChassisPartialUpdateExecute(r ApiDcimVirtual
 
 type ApiDcimVirtualChassisRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -110828,7 +116248,7 @@ func (a *DcimAPIService) DcimVirtualChassisRetrieveExecute(r ApiDcimVirtualChass
 
 type ApiDcimVirtualChassisUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableVirtualChassisRequest *WritableVirtualChassisRequest
 }
@@ -110956,7 +116376,7 @@ func (a *DcimAPIService) DcimVirtualChassisUpdateExecute(r ApiDcimVirtualChassis
 
 type ApiDcimVirtualDeviceContextsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	virtualDeviceContextRequest *[]VirtualDeviceContextRequest
 }
 
@@ -111069,7 +116489,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsBulkDestroyExecute(r ApiDcimVi
 
 type ApiDcimVirtualDeviceContextsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	virtualDeviceContextRequest *[]VirtualDeviceContextRequest
 }
 
@@ -111193,7 +116613,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsBulkPartialUpdateExecute(r Api
 
 type ApiDcimVirtualDeviceContextsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	virtualDeviceContextRequest *[]VirtualDeviceContextRequest
 }
 
@@ -111317,7 +116737,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsBulkUpdateExecute(r ApiDcimVir
 
 type ApiDcimVirtualDeviceContextsCreateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	writableVirtualDeviceContextRequest *WritableVirtualDeviceContextRequest
 }
 
@@ -111441,7 +116861,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsCreateExecute(r ApiDcimVirtual
 
 type ApiDcimVirtualDeviceContextsDestroyRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -111547,7 +116967,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsDestroyExecute(r ApiDcimVirtua
 
 type ApiDcimVirtualDeviceContextsListRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	created *[]time.Time
 	createdEmpty *[]time.Time
 	createdGt *[]time.Time
@@ -112943,7 +118363,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsListExecute(r ApiDcimVirtualDe
 
 type ApiDcimVirtualDeviceContextsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	patchedWritableVirtualDeviceContextRequest *PatchedWritableVirtualDeviceContextRequest
 }
@@ -113068,7 +118488,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsPartialUpdateExecute(r ApiDcim
 
 type ApiDcimVirtualDeviceContextsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 }
 
@@ -113185,7 +118605,7 @@ func (a *DcimAPIService) DcimVirtualDeviceContextsRetrieveExecute(r ApiDcimVirtu
 
 type ApiDcimVirtualDeviceContextsUpdateRequest struct {
 	ctx context.Context
-	ApiService *DcimAPIService
+	ApiService DcimAPI
 	id int32
 	writableVirtualDeviceContextRequest *WritableVirtualDeviceContextRequest
 }

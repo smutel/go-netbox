@@ -21,12 +21,399 @@ import (
 )
 
 
+type WirelessAPI interface {
+
+	/*
+	WirelessWirelessLanGroupsBulkDestroy Method for WirelessWirelessLanGroupsBulkDestroy
+
+	Delete a list of wireless LAN group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLanGroupsBulkDestroyRequest
+	*/
+	WirelessWirelessLanGroupsBulkDestroy(ctx context.Context) ApiWirelessWirelessLanGroupsBulkDestroyRequest
+
+	// WirelessWirelessLanGroupsBulkDestroyExecute executes the request
+	WirelessWirelessLanGroupsBulkDestroyExecute(r ApiWirelessWirelessLanGroupsBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsBulkPartialUpdate Method for WirelessWirelessLanGroupsBulkPartialUpdate
+
+	Patch a list of wireless LAN group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLanGroupsBulkPartialUpdateRequest
+	*/
+	WirelessWirelessLanGroupsBulkPartialUpdate(ctx context.Context) ApiWirelessWirelessLanGroupsBulkPartialUpdateRequest
+
+	// WirelessWirelessLanGroupsBulkPartialUpdateExecute executes the request
+	//  @return []WirelessLANGroup
+	WirelessWirelessLanGroupsBulkPartialUpdateExecute(r ApiWirelessWirelessLanGroupsBulkPartialUpdateRequest) ([]WirelessLANGroup, *http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsBulkUpdate Method for WirelessWirelessLanGroupsBulkUpdate
+
+	Put a list of wireless LAN group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLanGroupsBulkUpdateRequest
+	*/
+	WirelessWirelessLanGroupsBulkUpdate(ctx context.Context) ApiWirelessWirelessLanGroupsBulkUpdateRequest
+
+	// WirelessWirelessLanGroupsBulkUpdateExecute executes the request
+	//  @return []WirelessLANGroup
+	WirelessWirelessLanGroupsBulkUpdateExecute(r ApiWirelessWirelessLanGroupsBulkUpdateRequest) ([]WirelessLANGroup, *http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsCreate Method for WirelessWirelessLanGroupsCreate
+
+	Post a list of wireless LAN group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLanGroupsCreateRequest
+	*/
+	WirelessWirelessLanGroupsCreate(ctx context.Context) ApiWirelessWirelessLanGroupsCreateRequest
+
+	// WirelessWirelessLanGroupsCreateExecute executes the request
+	//  @return WirelessLANGroup
+	WirelessWirelessLanGroupsCreateExecute(r ApiWirelessWirelessLanGroupsCreateRequest) (*WirelessLANGroup, *http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsDestroy Method for WirelessWirelessLanGroupsDestroy
+
+	Delete a wireless LAN group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN group.
+	@return ApiWirelessWirelessLanGroupsDestroyRequest
+	*/
+	WirelessWirelessLanGroupsDestroy(ctx context.Context, id int32) ApiWirelessWirelessLanGroupsDestroyRequest
+
+	// WirelessWirelessLanGroupsDestroyExecute executes the request
+	WirelessWirelessLanGroupsDestroyExecute(r ApiWirelessWirelessLanGroupsDestroyRequest) (*http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsList Method for WirelessWirelessLanGroupsList
+
+	Get a list of wireless LAN group objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLanGroupsListRequest
+	*/
+	WirelessWirelessLanGroupsList(ctx context.Context) ApiWirelessWirelessLanGroupsListRequest
+
+	// WirelessWirelessLanGroupsListExecute executes the request
+	//  @return PaginatedWirelessLANGroupList
+	WirelessWirelessLanGroupsListExecute(r ApiWirelessWirelessLanGroupsListRequest) (*PaginatedWirelessLANGroupList, *http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsPartialUpdate Method for WirelessWirelessLanGroupsPartialUpdate
+
+	Patch a wireless LAN group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN group.
+	@return ApiWirelessWirelessLanGroupsPartialUpdateRequest
+	*/
+	WirelessWirelessLanGroupsPartialUpdate(ctx context.Context, id int32) ApiWirelessWirelessLanGroupsPartialUpdateRequest
+
+	// WirelessWirelessLanGroupsPartialUpdateExecute executes the request
+	//  @return WirelessLANGroup
+	WirelessWirelessLanGroupsPartialUpdateExecute(r ApiWirelessWirelessLanGroupsPartialUpdateRequest) (*WirelessLANGroup, *http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsRetrieve Method for WirelessWirelessLanGroupsRetrieve
+
+	Get a wireless LAN group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN group.
+	@return ApiWirelessWirelessLanGroupsRetrieveRequest
+	*/
+	WirelessWirelessLanGroupsRetrieve(ctx context.Context, id int32) ApiWirelessWirelessLanGroupsRetrieveRequest
+
+	// WirelessWirelessLanGroupsRetrieveExecute executes the request
+	//  @return WirelessLANGroup
+	WirelessWirelessLanGroupsRetrieveExecute(r ApiWirelessWirelessLanGroupsRetrieveRequest) (*WirelessLANGroup, *http.Response, error)
+
+	/*
+	WirelessWirelessLanGroupsUpdate Method for WirelessWirelessLanGroupsUpdate
+
+	Put a wireless LAN group object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN group.
+	@return ApiWirelessWirelessLanGroupsUpdateRequest
+	*/
+	WirelessWirelessLanGroupsUpdate(ctx context.Context, id int32) ApiWirelessWirelessLanGroupsUpdateRequest
+
+	// WirelessWirelessLanGroupsUpdateExecute executes the request
+	//  @return WirelessLANGroup
+	WirelessWirelessLanGroupsUpdateExecute(r ApiWirelessWirelessLanGroupsUpdateRequest) (*WirelessLANGroup, *http.Response, error)
+
+	/*
+	WirelessWirelessLansBulkDestroy Method for WirelessWirelessLansBulkDestroy
+
+	Delete a list of wireless LAN objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLansBulkDestroyRequest
+	*/
+	WirelessWirelessLansBulkDestroy(ctx context.Context) ApiWirelessWirelessLansBulkDestroyRequest
+
+	// WirelessWirelessLansBulkDestroyExecute executes the request
+	WirelessWirelessLansBulkDestroyExecute(r ApiWirelessWirelessLansBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	WirelessWirelessLansBulkPartialUpdate Method for WirelessWirelessLansBulkPartialUpdate
+
+	Patch a list of wireless LAN objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLansBulkPartialUpdateRequest
+	*/
+	WirelessWirelessLansBulkPartialUpdate(ctx context.Context) ApiWirelessWirelessLansBulkPartialUpdateRequest
+
+	// WirelessWirelessLansBulkPartialUpdateExecute executes the request
+	//  @return []WirelessLAN
+	WirelessWirelessLansBulkPartialUpdateExecute(r ApiWirelessWirelessLansBulkPartialUpdateRequest) ([]WirelessLAN, *http.Response, error)
+
+	/*
+	WirelessWirelessLansBulkUpdate Method for WirelessWirelessLansBulkUpdate
+
+	Put a list of wireless LAN objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLansBulkUpdateRequest
+	*/
+	WirelessWirelessLansBulkUpdate(ctx context.Context) ApiWirelessWirelessLansBulkUpdateRequest
+
+	// WirelessWirelessLansBulkUpdateExecute executes the request
+	//  @return []WirelessLAN
+	WirelessWirelessLansBulkUpdateExecute(r ApiWirelessWirelessLansBulkUpdateRequest) ([]WirelessLAN, *http.Response, error)
+
+	/*
+	WirelessWirelessLansCreate Method for WirelessWirelessLansCreate
+
+	Post a list of wireless LAN objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLansCreateRequest
+	*/
+	WirelessWirelessLansCreate(ctx context.Context) ApiWirelessWirelessLansCreateRequest
+
+	// WirelessWirelessLansCreateExecute executes the request
+	//  @return WirelessLAN
+	WirelessWirelessLansCreateExecute(r ApiWirelessWirelessLansCreateRequest) (*WirelessLAN, *http.Response, error)
+
+	/*
+	WirelessWirelessLansDestroy Method for WirelessWirelessLansDestroy
+
+	Delete a wireless LAN object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN.
+	@return ApiWirelessWirelessLansDestroyRequest
+	*/
+	WirelessWirelessLansDestroy(ctx context.Context, id int32) ApiWirelessWirelessLansDestroyRequest
+
+	// WirelessWirelessLansDestroyExecute executes the request
+	WirelessWirelessLansDestroyExecute(r ApiWirelessWirelessLansDestroyRequest) (*http.Response, error)
+
+	/*
+	WirelessWirelessLansList Method for WirelessWirelessLansList
+
+	Get a list of wireless LAN objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLansListRequest
+	*/
+	WirelessWirelessLansList(ctx context.Context) ApiWirelessWirelessLansListRequest
+
+	// WirelessWirelessLansListExecute executes the request
+	//  @return PaginatedWirelessLANList
+	WirelessWirelessLansListExecute(r ApiWirelessWirelessLansListRequest) (*PaginatedWirelessLANList, *http.Response, error)
+
+	/*
+	WirelessWirelessLansPartialUpdate Method for WirelessWirelessLansPartialUpdate
+
+	Patch a wireless LAN object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN.
+	@return ApiWirelessWirelessLansPartialUpdateRequest
+	*/
+	WirelessWirelessLansPartialUpdate(ctx context.Context, id int32) ApiWirelessWirelessLansPartialUpdateRequest
+
+	// WirelessWirelessLansPartialUpdateExecute executes the request
+	//  @return WirelessLAN
+	WirelessWirelessLansPartialUpdateExecute(r ApiWirelessWirelessLansPartialUpdateRequest) (*WirelessLAN, *http.Response, error)
+
+	/*
+	WirelessWirelessLansRetrieve Method for WirelessWirelessLansRetrieve
+
+	Get a wireless LAN object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN.
+	@return ApiWirelessWirelessLansRetrieveRequest
+	*/
+	WirelessWirelessLansRetrieve(ctx context.Context, id int32) ApiWirelessWirelessLansRetrieveRequest
+
+	// WirelessWirelessLansRetrieveExecute executes the request
+	//  @return WirelessLAN
+	WirelessWirelessLansRetrieveExecute(r ApiWirelessWirelessLansRetrieveRequest) (*WirelessLAN, *http.Response, error)
+
+	/*
+	WirelessWirelessLansUpdate Method for WirelessWirelessLansUpdate
+
+	Put a wireless LAN object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless LAN.
+	@return ApiWirelessWirelessLansUpdateRequest
+	*/
+	WirelessWirelessLansUpdate(ctx context.Context, id int32) ApiWirelessWirelessLansUpdateRequest
+
+	// WirelessWirelessLansUpdateExecute executes the request
+	//  @return WirelessLAN
+	WirelessWirelessLansUpdateExecute(r ApiWirelessWirelessLansUpdateRequest) (*WirelessLAN, *http.Response, error)
+
+	/*
+	WirelessWirelessLinksBulkDestroy Method for WirelessWirelessLinksBulkDestroy
+
+	Delete a list of wireless link objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLinksBulkDestroyRequest
+	*/
+	WirelessWirelessLinksBulkDestroy(ctx context.Context) ApiWirelessWirelessLinksBulkDestroyRequest
+
+	// WirelessWirelessLinksBulkDestroyExecute executes the request
+	WirelessWirelessLinksBulkDestroyExecute(r ApiWirelessWirelessLinksBulkDestroyRequest) (*http.Response, error)
+
+	/*
+	WirelessWirelessLinksBulkPartialUpdate Method for WirelessWirelessLinksBulkPartialUpdate
+
+	Patch a list of wireless link objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLinksBulkPartialUpdateRequest
+	*/
+	WirelessWirelessLinksBulkPartialUpdate(ctx context.Context) ApiWirelessWirelessLinksBulkPartialUpdateRequest
+
+	// WirelessWirelessLinksBulkPartialUpdateExecute executes the request
+	//  @return []WirelessLink
+	WirelessWirelessLinksBulkPartialUpdateExecute(r ApiWirelessWirelessLinksBulkPartialUpdateRequest) ([]WirelessLink, *http.Response, error)
+
+	/*
+	WirelessWirelessLinksBulkUpdate Method for WirelessWirelessLinksBulkUpdate
+
+	Put a list of wireless link objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLinksBulkUpdateRequest
+	*/
+	WirelessWirelessLinksBulkUpdate(ctx context.Context) ApiWirelessWirelessLinksBulkUpdateRequest
+
+	// WirelessWirelessLinksBulkUpdateExecute executes the request
+	//  @return []WirelessLink
+	WirelessWirelessLinksBulkUpdateExecute(r ApiWirelessWirelessLinksBulkUpdateRequest) ([]WirelessLink, *http.Response, error)
+
+	/*
+	WirelessWirelessLinksCreate Method for WirelessWirelessLinksCreate
+
+	Post a list of wireless link objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLinksCreateRequest
+	*/
+	WirelessWirelessLinksCreate(ctx context.Context) ApiWirelessWirelessLinksCreateRequest
+
+	// WirelessWirelessLinksCreateExecute executes the request
+	//  @return WirelessLink
+	WirelessWirelessLinksCreateExecute(r ApiWirelessWirelessLinksCreateRequest) (*WirelessLink, *http.Response, error)
+
+	/*
+	WirelessWirelessLinksDestroy Method for WirelessWirelessLinksDestroy
+
+	Delete a wireless link object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless link.
+	@return ApiWirelessWirelessLinksDestroyRequest
+	*/
+	WirelessWirelessLinksDestroy(ctx context.Context, id int32) ApiWirelessWirelessLinksDestroyRequest
+
+	// WirelessWirelessLinksDestroyExecute executes the request
+	WirelessWirelessLinksDestroyExecute(r ApiWirelessWirelessLinksDestroyRequest) (*http.Response, error)
+
+	/*
+	WirelessWirelessLinksList Method for WirelessWirelessLinksList
+
+	Get a list of wireless link objects.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiWirelessWirelessLinksListRequest
+	*/
+	WirelessWirelessLinksList(ctx context.Context) ApiWirelessWirelessLinksListRequest
+
+	// WirelessWirelessLinksListExecute executes the request
+	//  @return PaginatedWirelessLinkList
+	WirelessWirelessLinksListExecute(r ApiWirelessWirelessLinksListRequest) (*PaginatedWirelessLinkList, *http.Response, error)
+
+	/*
+	WirelessWirelessLinksPartialUpdate Method for WirelessWirelessLinksPartialUpdate
+
+	Patch a wireless link object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless link.
+	@return ApiWirelessWirelessLinksPartialUpdateRequest
+	*/
+	WirelessWirelessLinksPartialUpdate(ctx context.Context, id int32) ApiWirelessWirelessLinksPartialUpdateRequest
+
+	// WirelessWirelessLinksPartialUpdateExecute executes the request
+	//  @return WirelessLink
+	WirelessWirelessLinksPartialUpdateExecute(r ApiWirelessWirelessLinksPartialUpdateRequest) (*WirelessLink, *http.Response, error)
+
+	/*
+	WirelessWirelessLinksRetrieve Method for WirelessWirelessLinksRetrieve
+
+	Get a wireless link object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless link.
+	@return ApiWirelessWirelessLinksRetrieveRequest
+	*/
+	WirelessWirelessLinksRetrieve(ctx context.Context, id int32) ApiWirelessWirelessLinksRetrieveRequest
+
+	// WirelessWirelessLinksRetrieveExecute executes the request
+	//  @return WirelessLink
+	WirelessWirelessLinksRetrieveExecute(r ApiWirelessWirelessLinksRetrieveRequest) (*WirelessLink, *http.Response, error)
+
+	/*
+	WirelessWirelessLinksUpdate Method for WirelessWirelessLinksUpdate
+
+	Put a wireless link object.
+
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this wireless link.
+	@return ApiWirelessWirelessLinksUpdateRequest
+	*/
+	WirelessWirelessLinksUpdate(ctx context.Context, id int32) ApiWirelessWirelessLinksUpdateRequest
+
+	// WirelessWirelessLinksUpdateExecute executes the request
+	//  @return WirelessLink
+	WirelessWirelessLinksUpdateExecute(r ApiWirelessWirelessLinksUpdateRequest) (*WirelessLink, *http.Response, error)
+}
+
 // WirelessAPIService WirelessAPI service
 type WirelessAPIService service
 
 type ApiWirelessWirelessLanGroupsBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLANGroupRequest *[]WirelessLANGroupRequest
 }
 
@@ -139,7 +526,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsBulkDestroyExecute(r ApiWi
 
 type ApiWirelessWirelessLanGroupsBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLANGroupRequest *[]WirelessLANGroupRequest
 }
 
@@ -263,7 +650,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsBulkPartialUpdateExecute(r
 
 type ApiWirelessWirelessLanGroupsBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLANGroupRequest *[]WirelessLANGroupRequest
 }
 
@@ -387,7 +774,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsBulkUpdateExecute(r ApiWir
 
 type ApiWirelessWirelessLanGroupsCreateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	writableWirelessLANGroupRequest *WritableWirelessLANGroupRequest
 }
 
@@ -511,7 +898,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsCreateExecute(r ApiWireles
 
 type ApiWirelessWirelessLanGroupsDestroyRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 }
 
@@ -617,7 +1004,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsDestroyExecute(r ApiWirele
 
 type ApiWirelessWirelessLanGroupsListRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	ancestor *[]string
 	ancestorN *[]string
 	ancestorId *[]string
@@ -1853,7 +2240,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsListExecute(r ApiWirelessW
 
 type ApiWirelessWirelessLanGroupsPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 	patchedWritableWirelessLANGroupRequest *PatchedWritableWirelessLANGroupRequest
 }
@@ -1978,7 +2365,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsPartialUpdateExecute(r Api
 
 type ApiWirelessWirelessLanGroupsRetrieveRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 }
 
@@ -2095,7 +2482,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsRetrieveExecute(r ApiWirel
 
 type ApiWirelessWirelessLanGroupsUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 	writableWirelessLANGroupRequest *WritableWirelessLANGroupRequest
 }
@@ -2223,7 +2610,7 @@ func (a *WirelessAPIService) WirelessWirelessLanGroupsUpdateExecute(r ApiWireles
 
 type ApiWirelessWirelessLansBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLANRequest *[]WirelessLANRequest
 }
 
@@ -2336,7 +2723,7 @@ func (a *WirelessAPIService) WirelessWirelessLansBulkDestroyExecute(r ApiWireles
 
 type ApiWirelessWirelessLansBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLANRequest *[]WirelessLANRequest
 }
 
@@ -2460,7 +2847,7 @@ func (a *WirelessAPIService) WirelessWirelessLansBulkPartialUpdateExecute(r ApiW
 
 type ApiWirelessWirelessLansBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLANRequest *[]WirelessLANRequest
 }
 
@@ -2584,7 +2971,7 @@ func (a *WirelessAPIService) WirelessWirelessLansBulkUpdateExecute(r ApiWireless
 
 type ApiWirelessWirelessLansCreateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	writableWirelessLANRequest *WritableWirelessLANRequest
 }
 
@@ -2708,7 +3095,7 @@ func (a *WirelessAPIService) WirelessWirelessLansCreateExecute(r ApiWirelessWire
 
 type ApiWirelessWirelessLansDestroyRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 }
 
@@ -2814,7 +3201,7 @@ func (a *WirelessAPIService) WirelessWirelessLansDestroyExecute(r ApiWirelessWir
 
 type ApiWirelessWirelessLansListRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	authCipher *[]string
 	authCipherN *[]string
 	authPsk *[]string
@@ -4292,7 +4679,7 @@ func (a *WirelessAPIService) WirelessWirelessLansListExecute(r ApiWirelessWirele
 
 type ApiWirelessWirelessLansPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 	patchedWritableWirelessLANRequest *PatchedWritableWirelessLANRequest
 }
@@ -4417,7 +4804,7 @@ func (a *WirelessAPIService) WirelessWirelessLansPartialUpdateExecute(r ApiWirel
 
 type ApiWirelessWirelessLansRetrieveRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 }
 
@@ -4534,7 +4921,7 @@ func (a *WirelessAPIService) WirelessWirelessLansRetrieveExecute(r ApiWirelessWi
 
 type ApiWirelessWirelessLansUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 	writableWirelessLANRequest *WritableWirelessLANRequest
 }
@@ -4662,7 +5049,7 @@ func (a *WirelessAPIService) WirelessWirelessLansUpdateExecute(r ApiWirelessWire
 
 type ApiWirelessWirelessLinksBulkDestroyRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLinkRequest *[]WirelessLinkRequest
 }
 
@@ -4775,7 +5162,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksBulkDestroyExecute(r ApiWirele
 
 type ApiWirelessWirelessLinksBulkPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLinkRequest *[]WirelessLinkRequest
 }
 
@@ -4899,7 +5286,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksBulkPartialUpdateExecute(r Api
 
 type ApiWirelessWirelessLinksBulkUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	wirelessLinkRequest *[]WirelessLinkRequest
 }
 
@@ -5023,7 +5410,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksBulkUpdateExecute(r ApiWireles
 
 type ApiWirelessWirelessLinksCreateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	writableWirelessLinkRequest *WritableWirelessLinkRequest
 }
 
@@ -5147,7 +5534,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksCreateExecute(r ApiWirelessWir
 
 type ApiWirelessWirelessLinksDestroyRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 }
 
@@ -5253,7 +5640,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksDestroyExecute(r ApiWirelessWi
 
 type ApiWirelessWirelessLinksListRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	authCipher *[]string
 	authCipherN *[]string
 	authPsk *[]string
@@ -6663,7 +7050,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksListExecute(r ApiWirelessWirel
 
 type ApiWirelessWirelessLinksPartialUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 	patchedWritableWirelessLinkRequest *PatchedWritableWirelessLinkRequest
 }
@@ -6788,7 +7175,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksPartialUpdateExecute(r ApiWire
 
 type ApiWirelessWirelessLinksRetrieveRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 }
 
@@ -6905,7 +7292,7 @@ func (a *WirelessAPIService) WirelessWirelessLinksRetrieveExecute(r ApiWirelessW
 
 type ApiWirelessWirelessLinksUpdateRequest struct {
 	ctx context.Context
-	ApiService *WirelessAPIService
+	ApiService WirelessAPI
 	id int32
 	writableWirelessLinkRequest *WritableWirelessLinkRequest
 }

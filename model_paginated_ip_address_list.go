@@ -72,6 +72,7 @@ func (o *PaginatedIPAddressList) SetCount(v int32) {
 	o.Count = v
 }
 
+
 // GetNext returns the Next field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PaginatedIPAddressList) GetNext() string {
 	if o == nil || IsNil(o.Next.Get()) {
@@ -180,6 +181,7 @@ func (o *PaginatedIPAddressList) SetResults(v []IPAddress) {
 	o.Results = v
 }
 
+
 func (o PaginatedIPAddressList) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -215,6 +217,11 @@ func (o *PaginatedIPAddressList) UnmarshalJSON(data []byte) (err error) {
 		"results",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -224,11 +231,23 @@ func (o *PaginatedIPAddressList) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varPaginatedIPAddressList := _PaginatedIPAddressList{}
 
 	err = json.Unmarshal(data, &varPaginatedIPAddressList)

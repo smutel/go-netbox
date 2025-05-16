@@ -127,6 +127,7 @@ func (o *DeviceType) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *DeviceType) GetUrl() string {
 	if o == nil {
@@ -150,6 +151,7 @@ func (o *DeviceType) GetUrlOk() (*string, bool) {
 func (o *DeviceType) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *DeviceType) GetDisplay() string {
@@ -175,6 +177,7 @@ func (o *DeviceType) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetManufacturer returns the Manufacturer field value
 func (o *DeviceType) GetManufacturer() BriefManufacturer {
 	if o == nil {
@@ -198,6 +201,7 @@ func (o *DeviceType) GetManufacturerOk() (*BriefManufacturer, bool) {
 func (o *DeviceType) SetManufacturer(v BriefManufacturer) {
 	o.Manufacturer = v
 }
+
 
 // GetDefaultPlatform returns the DefaultPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceType) GetDefaultPlatform() BriefPlatform {
@@ -265,6 +269,7 @@ func (o *DeviceType) SetModel(v string) {
 	o.Model = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *DeviceType) GetSlug() string {
 	if o == nil {
@@ -288,6 +293,7 @@ func (o *DeviceType) GetSlugOk() (*string, bool) {
 func (o *DeviceType) SetSlug(v string) {
 	o.Slug = v
 }
+
 
 // GetPartNumber returns the PartNumber field value if set, zero value otherwise.
 func (o *DeviceType) GetPartNumber() string {
@@ -823,6 +829,7 @@ func (o *DeviceType) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DeviceType) GetLastUpdated() time.Time {
@@ -849,6 +856,7 @@ func (o *DeviceType) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetDeviceCount returns the DeviceCount field value
 func (o *DeviceType) GetDeviceCount() int64 {
 	if o == nil {
@@ -872,6 +880,7 @@ func (o *DeviceType) GetDeviceCountOk() (*int64, bool) {
 func (o *DeviceType) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
+
 
 // GetConsolePortTemplateCount returns the ConsolePortTemplateCount field value
 func (o *DeviceType) GetConsolePortTemplateCount() int32 {
@@ -897,6 +906,7 @@ func (o *DeviceType) SetConsolePortTemplateCount(v int32) {
 	o.ConsolePortTemplateCount = v
 }
 
+
 // GetConsoleServerPortTemplateCount returns the ConsoleServerPortTemplateCount field value
 func (o *DeviceType) GetConsoleServerPortTemplateCount() int32 {
 	if o == nil {
@@ -920,6 +930,7 @@ func (o *DeviceType) GetConsoleServerPortTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetConsoleServerPortTemplateCount(v int32) {
 	o.ConsoleServerPortTemplateCount = v
 }
+
 
 // GetPowerPortTemplateCount returns the PowerPortTemplateCount field value
 func (o *DeviceType) GetPowerPortTemplateCount() int32 {
@@ -945,6 +956,7 @@ func (o *DeviceType) SetPowerPortTemplateCount(v int32) {
 	o.PowerPortTemplateCount = v
 }
 
+
 // GetPowerOutletTemplateCount returns the PowerOutletTemplateCount field value
 func (o *DeviceType) GetPowerOutletTemplateCount() int32 {
 	if o == nil {
@@ -968,6 +980,7 @@ func (o *DeviceType) GetPowerOutletTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetPowerOutletTemplateCount(v int32) {
 	o.PowerOutletTemplateCount = v
 }
+
 
 // GetInterfaceTemplateCount returns the InterfaceTemplateCount field value
 func (o *DeviceType) GetInterfaceTemplateCount() int32 {
@@ -993,6 +1006,7 @@ func (o *DeviceType) SetInterfaceTemplateCount(v int32) {
 	o.InterfaceTemplateCount = v
 }
 
+
 // GetFrontPortTemplateCount returns the FrontPortTemplateCount field value
 func (o *DeviceType) GetFrontPortTemplateCount() int32 {
 	if o == nil {
@@ -1016,6 +1030,7 @@ func (o *DeviceType) GetFrontPortTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetFrontPortTemplateCount(v int32) {
 	o.FrontPortTemplateCount = v
 }
+
 
 // GetRearPortTemplateCount returns the RearPortTemplateCount field value
 func (o *DeviceType) GetRearPortTemplateCount() int32 {
@@ -1041,6 +1056,7 @@ func (o *DeviceType) SetRearPortTemplateCount(v int32) {
 	o.RearPortTemplateCount = v
 }
 
+
 // GetDeviceBayTemplateCount returns the DeviceBayTemplateCount field value
 func (o *DeviceType) GetDeviceBayTemplateCount() int32 {
 	if o == nil {
@@ -1064,6 +1080,7 @@ func (o *DeviceType) GetDeviceBayTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetDeviceBayTemplateCount(v int32) {
 	o.DeviceBayTemplateCount = v
 }
+
 
 // GetModuleBayTemplateCount returns the ModuleBayTemplateCount field value
 func (o *DeviceType) GetModuleBayTemplateCount() int32 {
@@ -1089,6 +1106,7 @@ func (o *DeviceType) SetModuleBayTemplateCount(v int32) {
 	o.ModuleBayTemplateCount = v
 }
 
+
 // GetInventoryItemTemplateCount returns the InventoryItemTemplateCount field value
 func (o *DeviceType) GetInventoryItemTemplateCount() int32 {
 	if o == nil {
@@ -1112,6 +1130,7 @@ func (o *DeviceType) GetInventoryItemTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetInventoryItemTemplateCount(v int32) {
 	o.InventoryItemTemplateCount = v
 }
+
 
 func (o DeviceType) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -1221,6 +1240,11 @@ func (o *DeviceType) UnmarshalJSON(data []byte) (err error) {
 		"inventory_item_template_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -1230,11 +1254,23 @@ func (o *DeviceType) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varDeviceType := _DeviceType{}
 
 	err = json.Unmarshal(data, &varDeviceType)

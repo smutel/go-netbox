@@ -81,6 +81,7 @@ func (o *WritableLocationRequest) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetSlug returns the Slug field value
 func (o *WritableLocationRequest) GetSlug() string {
 	if o == nil {
@@ -105,6 +106,7 @@ func (o *WritableLocationRequest) SetSlug(v string) {
 	o.Slug = v
 }
 
+
 // GetSite returns the Site field value
 func (o *WritableLocationRequest) GetSite() BriefSiteRequest {
 	if o == nil {
@@ -128,6 +130,7 @@ func (o *WritableLocationRequest) GetSiteOk() (*BriefSiteRequest, bool) {
 func (o *WritableLocationRequest) SetSite(v BriefSiteRequest) {
 	o.Site = v
 }
+
 
 // GetParent returns the Parent field value
 // If the value is explicit nil, the zero value for int32 will be returned
@@ -154,6 +157,7 @@ func (o *WritableLocationRequest) GetParentOk() (*int32, bool) {
 func (o *WritableLocationRequest) SetParent(v int32) {
 	o.Parent.Set(&v)
 }
+
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *WritableLocationRequest) GetStatus() LocationStatusValue {
@@ -408,6 +412,11 @@ func (o *WritableLocationRequest) UnmarshalJSON(data []byte) (err error) {
 		"parent",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -417,11 +426,23 @@ func (o *WritableLocationRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varWritableLocationRequest := _WritableLocationRequest{}
 
 	err = json.Unmarshal(data, &varWritableLocationRequest)

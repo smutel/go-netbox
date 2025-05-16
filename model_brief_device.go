@@ -74,6 +74,7 @@ func (o *BriefDevice) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *BriefDevice) GetUrl() string {
 	if o == nil {
@@ -98,6 +99,7 @@ func (o *BriefDevice) SetUrl(v string) {
 	o.Url = v
 }
 
+
 // GetDisplay returns the Display field value
 func (o *BriefDevice) GetDisplay() string {
 	if o == nil {
@@ -121,6 +123,7 @@ func (o *BriefDevice) GetDisplayOk() (*string, bool) {
 func (o *BriefDevice) SetDisplay(v string) {
 	o.Display = v
 }
+
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefDevice) GetName() string {
@@ -233,6 +236,11 @@ func (o *BriefDevice) UnmarshalJSON(data []byte) (err error) {
 		"display",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -242,11 +250,23 @@ func (o *BriefDevice) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varBriefDevice := _BriefDevice{}
 
 	err = json.Unmarshal(data, &varBriefDevice)

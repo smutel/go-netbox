@@ -95,6 +95,7 @@ func (o *VirtualDeviceContext) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *VirtualDeviceContext) GetUrl() string {
 	if o == nil {
@@ -118,6 +119,7 @@ func (o *VirtualDeviceContext) GetUrlOk() (*string, bool) {
 func (o *VirtualDeviceContext) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *VirtualDeviceContext) GetDisplay() string {
@@ -143,6 +145,7 @@ func (o *VirtualDeviceContext) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetName returns the Name field value
 func (o *VirtualDeviceContext) GetName() string {
 	if o == nil {
@@ -167,6 +170,7 @@ func (o *VirtualDeviceContext) SetName(v string) {
 	o.Name = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *VirtualDeviceContext) GetDevice() BriefDevice {
 	if o == nil {
@@ -190,6 +194,7 @@ func (o *VirtualDeviceContext) GetDeviceOk() (*BriefDevice, bool) {
 func (o *VirtualDeviceContext) SetDevice(v BriefDevice) {
 	o.Device = v
 }
+
 
 // GetIdentifier returns the Identifier field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VirtualDeviceContext) GetIdentifier() int32 {
@@ -301,6 +306,7 @@ func (o *VirtualDeviceContext) SetPrimaryIp(v BriefIPAddress) {
 	o.PrimaryIp.Set(&v)
 }
 
+
 // GetPrimaryIp4 returns the PrimaryIp4 field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VirtualDeviceContext) GetPrimaryIp4() BriefIPAddress {
 	if o == nil || IsNil(o.PrimaryIp4.Get()) {
@@ -408,6 +414,7 @@ func (o *VirtualDeviceContext) GetStatusOk() (*VirtualDeviceContextStatus, bool)
 func (o *VirtualDeviceContext) SetStatus(v VirtualDeviceContextStatus) {
 	o.Status = v
 }
+
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *VirtualDeviceContext) GetDescription() string {
@@ -563,6 +570,7 @@ func (o *VirtualDeviceContext) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VirtualDeviceContext) GetLastUpdated() time.Time {
@@ -589,6 +597,7 @@ func (o *VirtualDeviceContext) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetInterfaceCount returns the InterfaceCount field value
 func (o *VirtualDeviceContext) GetInterfaceCount() int64 {
 	if o == nil {
@@ -612,6 +621,7 @@ func (o *VirtualDeviceContext) GetInterfaceCountOk() (*int64, bool) {
 func (o *VirtualDeviceContext) SetInterfaceCount(v int64) {
 	o.InterfaceCount = v
 }
+
 
 func (o VirtualDeviceContext) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -682,6 +692,11 @@ func (o *VirtualDeviceContext) UnmarshalJSON(data []byte) (err error) {
 		"interface_count",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -691,11 +706,23 @@ func (o *VirtualDeviceContext) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varVirtualDeviceContext := _VirtualDeviceContext{}
 
 	err = json.Unmarshal(data, &varVirtualDeviceContext)

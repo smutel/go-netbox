@@ -108,6 +108,7 @@ func (o *ConsoleServerPort) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *ConsoleServerPort) GetUrl() string {
 	if o == nil {
@@ -131,6 +132,7 @@ func (o *ConsoleServerPort) GetUrlOk() (*string, bool) {
 func (o *ConsoleServerPort) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *ConsoleServerPort) GetDisplay() string {
@@ -156,6 +158,7 @@ func (o *ConsoleServerPort) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetDevice returns the Device field value
 func (o *ConsoleServerPort) GetDevice() BriefDevice {
 	if o == nil {
@@ -179,6 +182,7 @@ func (o *ConsoleServerPort) GetDeviceOk() (*BriefDevice, bool) {
 func (o *ConsoleServerPort) SetDevice(v BriefDevice) {
 	o.Device = v
 }
+
 
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsoleServerPort) GetModule() BriefModule {
@@ -245,6 +249,7 @@ func (o *ConsoleServerPort) GetNameOk() (*string, bool) {
 func (o *ConsoleServerPort) SetName(v string) {
 	o.Name = v
 }
+
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ConsoleServerPort) GetLabel() string {
@@ -442,6 +447,7 @@ func (o *ConsoleServerPort) SetCable(v BriefCable) {
 	o.Cable.Set(&v)
 }
 
+
 // GetCableEnd returns the CableEnd field value
 func (o *ConsoleServerPort) GetCableEnd() string {
 	if o == nil {
@@ -466,6 +472,7 @@ func (o *ConsoleServerPort) SetCableEnd(v string) {
 	o.CableEnd = v
 }
 
+
 // GetLinkPeers returns the LinkPeers field value
 func (o *ConsoleServerPort) GetLinkPeers() []interface{} {
 	if o == nil {
@@ -489,6 +496,7 @@ func (o *ConsoleServerPort) GetLinkPeersOk() ([]interface{}, bool) {
 func (o *ConsoleServerPort) SetLinkPeers(v []interface{}) {
 	o.LinkPeers = v
 }
+
 
 // GetLinkPeersType returns the LinkPeersType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -516,6 +524,7 @@ func (o *ConsoleServerPort) SetLinkPeersType(v string) {
 	o.LinkPeersType.Set(&v)
 }
 
+
 // GetConnectedEndpoints returns the ConnectedEndpoints field value
 // If the value is explicit nil, the zero value for []interface{} will be returned
 func (o *ConsoleServerPort) GetConnectedEndpoints() []interface{} {
@@ -541,6 +550,7 @@ func (o *ConsoleServerPort) GetConnectedEndpointsOk() ([]interface{}, bool) {
 func (o *ConsoleServerPort) SetConnectedEndpoints(v []interface{}) {
 	o.ConnectedEndpoints = v
 }
+
 
 // GetConnectedEndpointsType returns the ConnectedEndpointsType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -568,6 +578,7 @@ func (o *ConsoleServerPort) SetConnectedEndpointsType(v string) {
 	o.ConnectedEndpointsType.Set(&v)
 }
 
+
 // GetConnectedEndpointsReachable returns the ConnectedEndpointsReachable field value
 func (o *ConsoleServerPort) GetConnectedEndpointsReachable() bool {
 	if o == nil {
@@ -591,6 +602,7 @@ func (o *ConsoleServerPort) GetConnectedEndpointsReachableOk() (*bool, bool) {
 func (o *ConsoleServerPort) SetConnectedEndpointsReachable(v bool) {
 	o.ConnectedEndpointsReachable = v
 }
+
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *ConsoleServerPort) GetTags() []NestedTag {
@@ -682,6 +694,7 @@ func (o *ConsoleServerPort) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ConsoleServerPort) GetLastUpdated() time.Time {
@@ -708,6 +721,7 @@ func (o *ConsoleServerPort) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetOccupied returns the Occupied field value
 func (o *ConsoleServerPort) GetOccupied() bool {
 	if o == nil {
@@ -731,6 +745,7 @@ func (o *ConsoleServerPort) GetOccupiedOk() (*bool, bool) {
 func (o *ConsoleServerPort) SetOccupied(v bool) {
 	o.Occupied = v
 }
+
 
 func (o ConsoleServerPort) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -813,6 +828,11 @@ func (o *ConsoleServerPort) UnmarshalJSON(data []byte) (err error) {
 		"_occupied",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -822,11 +842,23 @@ func (o *ConsoleServerPort) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varConsoleServerPort := _ConsoleServerPort{}
 
 	err = json.Unmarshal(data, &varConsoleServerPort)

@@ -99,6 +99,7 @@ func (o *Prefix) SetId(v int32) {
 	o.Id = v
 }
 
+
 // GetUrl returns the Url field value
 func (o *Prefix) GetUrl() string {
 	if o == nil {
@@ -122,6 +123,7 @@ func (o *Prefix) GetUrlOk() (*string, bool) {
 func (o *Prefix) SetUrl(v string) {
 	o.Url = v
 }
+
 
 // GetDisplay returns the Display field value
 func (o *Prefix) GetDisplay() string {
@@ -147,6 +149,7 @@ func (o *Prefix) SetDisplay(v string) {
 	o.Display = v
 }
 
+
 // GetFamily returns the Family field value
 func (o *Prefix) GetFamily() AggregateFamily {
 	if o == nil {
@@ -171,6 +174,7 @@ func (o *Prefix) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
 
+
 // GetPrefix returns the Prefix field value
 func (o *Prefix) GetPrefix() string {
 	if o == nil {
@@ -194,6 +198,7 @@ func (o *Prefix) GetPrefixOk() (*string, bool) {
 func (o *Prefix) SetPrefix(v string) {
 	o.Prefix = v
 }
+
 
 // GetSite returns the Site field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Prefix) GetSite() BriefSite {
@@ -655,6 +660,7 @@ func (o *Prefix) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
+
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Prefix) GetLastUpdated() time.Time {
@@ -681,6 +687,7 @@ func (o *Prefix) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
+
 // GetChildren returns the Children field value
 func (o *Prefix) GetChildren() int32 {
 	if o == nil {
@@ -705,6 +712,7 @@ func (o *Prefix) SetChildren(v int32) {
 	o.Children = v
 }
 
+
 // GetDepth returns the Depth field value
 func (o *Prefix) GetDepth() int32 {
 	if o == nil {
@@ -728,6 +736,7 @@ func (o *Prefix) GetDepthOk() (*int32, bool) {
 func (o *Prefix) SetDepth(v int32) {
 	o.Depth = v
 }
+
 
 func (o Prefix) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
@@ -808,6 +817,11 @@ func (o *Prefix) UnmarshalJSON(data []byte) (err error) {
 		"_depth",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -817,11 +831,23 @@ func (o *Prefix) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varPrefix := _Prefix{}
 
 	err = json.Unmarshal(data, &varPrefix)

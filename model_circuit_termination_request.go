@@ -85,6 +85,7 @@ func (o *CircuitTerminationRequest) SetCircuit(v BriefCircuitRequest) {
 	o.Circuit = v
 }
 
+
 // GetTermSide returns the TermSide field value
 func (o *CircuitTerminationRequest) GetTermSide() Termination1 {
 	if o == nil {
@@ -108,6 +109,7 @@ func (o *CircuitTerminationRequest) GetTermSideOk() (*Termination1, bool) {
 func (o *CircuitTerminationRequest) SetTermSide(v Termination1) {
 	o.TermSide = v
 }
+
 
 // GetSite returns the Site field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitTerminationRequest) GetSite() BriefSiteRequest {
@@ -528,6 +530,11 @@ func (o *CircuitTerminationRequest) UnmarshalJSON(data []byte) (err error) {
 		"term_side",
 	}
 
+	// defaultValueFuncMap captures the default values for required properties.
+	// These values are used when required properties are missing from the payload.
+	defaultValueFuncMap := map[string]func() interface{} {
+	}
+	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
@@ -537,11 +544,23 @@ func (o *CircuitTerminationRequest) UnmarshalJSON(data []byte) (err error) {
 	}
 
 	for _, requiredProperty := range(requiredProperties) {
-		if _, exists := allProperties[requiredProperty]; !exists {
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
+			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
+				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
+				defaultValueApplied = true
+			}
+		}
+		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
+	if defaultValueApplied {
+		data, err = json.Marshal(allProperties)
+		if err != nil{
+			return err
+		}
+	}
 	varCircuitTerminationRequest := _CircuitTerminationRequest{}
 
 	err = json.Unmarshal(data, &varCircuitTerminationRequest)
