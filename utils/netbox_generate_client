@@ -55,7 +55,7 @@ if [ ! -f "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml" ]; then
   echo "Get github project netbox-docker ..."
   rm -rf netbox-docker
   git clone https://github.com/netbox-community/netbox-docker.git -q
-  cd netbox-docker
+  cd "${PROJECT_ROOT}"/utils/netbox-docker
   git config advice.detachedHead false
   git checkout "${DOCKER_VERSION}"
   mv docker-compose.override.yml.example docker-compose.override.yml
@@ -72,7 +72,7 @@ if [ ! -f "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml" ]; then
   cp openapi.yaml "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml"
   rm openapi.yaml
   docker compose down -v
-  cd ..
+  cd "${PROJECT_ROOT}"/utils
 fi
 
 cp "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml" "${PROJECT_ROOT}/api/openapi.yaml"
@@ -94,12 +94,16 @@ docker run --rm --env JAVA_OPTS=-DmaxYamlCodePoints=9999999 -v "${PROJECT_ROOT}:
 echo "Apply patches manually ..."
 sudo cp "${PROJECT_ROOT}"/patches/* "${PROJECT_ROOT}"
 
+cd "${PROJECT_ROOT}"
 echo "Execute go mod tidy ... "
-cd ..
 go mod tidy
-cd utils
+
+echo "Execute goimports ..."
+go install golang.org/x/tools/cmd/goimports@latest
+find . -name "*.go" -exec "$GOPATH"/bin/goimports -w {} \;
 
 echo "Cleaning ..."
+cd "${PROJECT_ROOT}/utils"
 rm -rf netbox-docker
 rm -f swagger
 rm -f swagger.json
