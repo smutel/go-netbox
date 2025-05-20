@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/smutel/go-netbox/compare/v3.4.0...v4.0.0) (2025-05-20)
+
+
+### Features
+
+* Switch to openapi ([de6714a](https://github.com/smutel/go-netbox/commit/de6714a303ba55bda9e48a75d406297ca882be30))
+
 ## [3.4.0](https://github.com/smutel/go-netbox/compare/v3.3.0...v3.4.0) (2023-06-12)
 
 
