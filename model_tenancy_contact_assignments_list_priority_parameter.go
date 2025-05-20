@@ -20,10 +20,10 @@ type TenancyContactAssignmentsListPriorityParameter string
 
 // List of tenancy_contact_assignments_list_priority_parameter
 const (
-	TENANCYCONTACTASSIGNMENTSLISTPRIORITYPARAMETER_INACTIVE TenancyContactAssignmentsListPriorityParameter = "inactive"
-	TENANCYCONTACTASSIGNMENTSLISTPRIORITYPARAMETER_PRIMARY TenancyContactAssignmentsListPriorityParameter = "primary"
+	TENANCYCONTACTASSIGNMENTSLISTPRIORITYPARAMETER_INACTIVE  TenancyContactAssignmentsListPriorityParameter = "inactive"
+	TENANCYCONTACTASSIGNMENTSLISTPRIORITYPARAMETER_PRIMARY   TenancyContactAssignmentsListPriorityParameter = "primary"
 	TENANCYCONTACTASSIGNMENTSLISTPRIORITYPARAMETER_SECONDARY TenancyContactAssignmentsListPriorityParameter = "secondary"
-	TENANCYCONTACTASSIGNMENTSLISTPRIORITYPARAMETER_TERTIARY TenancyContactAssignmentsListPriorityParameter = "tertiary"
+	TENANCYCONTACTASSIGNMENTSLISTPRIORITYPARAMETER_TERTIARY  TenancyContactAssignmentsListPriorityParameter = "tertiary"
 )
 
 // All allowed values of TenancyContactAssignmentsListPriorityParameter enum
@@ -112,4 +112,3 @@ func (v *NullableTenancyContactAssignmentsListPriorityParameter) UnmarshalJSON(s
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

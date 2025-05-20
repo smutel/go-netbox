@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Prefix type satisfies the MappedNullable interface at compile time
@@ -21,29 +21,29 @@ var _ MappedNullable = &Prefix{}
 
 // Prefix Adds support for custom fields and tags.
 type Prefix struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Family AggregateFamily `json:"family"`
-	Prefix string `json:"prefix"`
-	Site NullableBriefSite `json:"site,omitempty"`
-	Vrf NullableBriefVRF `json:"vrf,omitempty"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	Vlan NullableBriefVLAN `json:"vlan,omitempty"`
-	Status *PrefixStatus `json:"status,omitempty"`
-	Role NullableBriefRole `json:"role,omitempty"`
+	Id      int32               `json:"id"`
+	Url     string              `json:"url"`
+	Display string              `json:"display"`
+	Family  AggregateFamily     `json:"family"`
+	Prefix  string              `json:"prefix"`
+	Site    NullableBriefSite   `json:"site,omitempty"`
+	Vrf     NullableBriefVRF    `json:"vrf,omitempty"`
+	Tenant  NullableBriefTenant `json:"tenant,omitempty"`
+	Vlan    NullableBriefVLAN   `json:"vlan,omitempty"`
+	Status  *PrefixStatus       `json:"status,omitempty"`
+	Role    NullableBriefRole   `json:"role,omitempty"`
 	// All IP addresses within this prefix are considered usable
 	IsPool *bool `json:"is_pool,omitempty"`
 	// Treat as fully utilized
-	MarkUtilized *bool `json:"mark_utilized,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	Children int32 `json:"children"`
-	Depth int32 `json:"_depth"`
+	MarkUtilized         *bool                  `json:"mark_utilized,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	Children             int32                  `json:"children"`
+	Depth                int32                  `json:"_depth"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -99,7 +99,6 @@ func (o *Prefix) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Prefix) GetUrl() string {
 	if o == nil {
@@ -123,7 +122,6 @@ func (o *Prefix) GetUrlOk() (*string, bool) {
 func (o *Prefix) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Prefix) GetDisplay() string {
@@ -149,7 +147,6 @@ func (o *Prefix) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetFamily returns the Family field value
 func (o *Prefix) GetFamily() AggregateFamily {
 	if o == nil {
@@ -174,7 +171,6 @@ func (o *Prefix) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
 
-
 // GetPrefix returns the Prefix field value
 func (o *Prefix) GetPrefix() string {
 	if o == nil {
@@ -198,7 +194,6 @@ func (o *Prefix) GetPrefixOk() (*string, bool) {
 func (o *Prefix) SetPrefix(v string) {
 	o.Prefix = v
 }
-
 
 // GetSite returns the Site field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Prefix) GetSite() BriefSite {
@@ -232,6 +227,7 @@ func (o *Prefix) HasSite() bool {
 func (o *Prefix) SetSite(v BriefSite) {
 	o.Site.Set(&v)
 }
+
 // SetSiteNil sets the value for Site to be an explicit nil
 func (o *Prefix) SetSiteNil() {
 	o.Site.Set(nil)
@@ -274,6 +270,7 @@ func (o *Prefix) HasVrf() bool {
 func (o *Prefix) SetVrf(v BriefVRF) {
 	o.Vrf.Set(&v)
 }
+
 // SetVrfNil sets the value for Vrf to be an explicit nil
 func (o *Prefix) SetVrfNil() {
 	o.Vrf.Set(nil)
@@ -316,6 +313,7 @@ func (o *Prefix) HasTenant() bool {
 func (o *Prefix) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *Prefix) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -358,6 +356,7 @@ func (o *Prefix) HasVlan() bool {
 func (o *Prefix) SetVlan(v BriefVLAN) {
 	o.Vlan.Set(&v)
 }
+
 // SetVlanNil sets the value for Vlan to be an explicit nil
 func (o *Prefix) SetVlanNil() {
 	o.Vlan.Set(nil)
@@ -432,6 +431,7 @@ func (o *Prefix) HasRole() bool {
 func (o *Prefix) SetRole(v BriefRole) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *Prefix) SetRoleNil() {
 	o.Role.Set(nil)
@@ -660,7 +660,6 @@ func (o *Prefix) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Prefix) GetLastUpdated() time.Time {
@@ -687,7 +686,6 @@ func (o *Prefix) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetChildren returns the Children field value
 func (o *Prefix) GetChildren() int32 {
 	if o == nil {
@@ -711,7 +709,6 @@ func (o *Prefix) GetChildrenOk() (*int32, bool) {
 func (o *Prefix) SetChildren(v int32) {
 	o.Children = v
 }
-
 
 // GetDepth returns the Depth field value
 func (o *Prefix) GetDepth() int32 {
@@ -737,9 +734,8 @@ func (o *Prefix) SetDepth(v int32) {
 	o.Depth = v
 }
 
-
 func (o Prefix) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -819,32 +815,31 @@ func (o *Prefix) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -923,5 +918,3 @@ func (v *NullablePrefix) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

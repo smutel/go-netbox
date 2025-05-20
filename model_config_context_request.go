@@ -20,25 +20,25 @@ var _ MappedNullable = &ConfigContextRequest{}
 
 // ConfigContextRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type ConfigContextRequest struct {
-	Name string `json:"name"`
-	Weight *int32 `json:"weight,omitempty"`
-	Description *string `json:"description,omitempty"`
-	IsActive *bool `json:"is_active,omitempty"`
-	Regions []int32 `json:"regions,omitempty"`
-	SiteGroups []int32 `json:"site_groups,omitempty"`
-	Sites []int32 `json:"sites,omitempty"`
-	Locations []int32 `json:"locations,omitempty"`
-	DeviceTypes []int32 `json:"device_types,omitempty"`
-	Roles []int32 `json:"roles,omitempty"`
-	Platforms []int32 `json:"platforms,omitempty"`
-	ClusterTypes []int32 `json:"cluster_types,omitempty"`
-	ClusterGroups []int32 `json:"cluster_groups,omitempty"`
-	Clusters []int32 `json:"clusters,omitempty"`
-	TenantGroups []int32 `json:"tenant_groups,omitempty"`
-	Tenants []int32 `json:"tenants,omitempty"`
-	Tags []string `json:"tags,omitempty"`
-	DataSource *BriefDataSourceRequest `json:"data_source,omitempty"`
-	Data interface{} `json:"data"`
+	Name                 string                  `json:"name"`
+	Weight               *int32                  `json:"weight,omitempty"`
+	Description          *string                 `json:"description,omitempty"`
+	IsActive             *bool                   `json:"is_active,omitempty"`
+	Regions              []int32                 `json:"regions,omitempty"`
+	SiteGroups           []int32                 `json:"site_groups,omitempty"`
+	Sites                []int32                 `json:"sites,omitempty"`
+	Locations            []int32                 `json:"locations,omitempty"`
+	DeviceTypes          []int32                 `json:"device_types,omitempty"`
+	Roles                []int32                 `json:"roles,omitempty"`
+	Platforms            []int32                 `json:"platforms,omitempty"`
+	ClusterTypes         []int32                 `json:"cluster_types,omitempty"`
+	ClusterGroups        []int32                 `json:"cluster_groups,omitempty"`
+	Clusters             []int32                 `json:"clusters,omitempty"`
+	TenantGroups         []int32                 `json:"tenant_groups,omitempty"`
+	Tenants              []int32                 `json:"tenants,omitempty"`
+	Tags                 []string                `json:"tags,omitempty"`
+	DataSource           *BriefDataSourceRequest `json:"data_source,omitempty"`
+	Data                 interface{}             `json:"data"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,7 +86,6 @@ func (o *ConfigContextRequest) GetNameOk() (*string, bool) {
 func (o *ConfigContextRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetWeight returns the Weight field value if set, zero value otherwise.
 func (o *ConfigContextRequest) GetWeight() int32 {
@@ -658,9 +657,8 @@ func (o *ConfigContextRequest) SetData(v interface{}) {
 	o.Data = v
 }
 
-
 func (o ConfigContextRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -743,32 +741,31 @@ func (o *ConfigContextRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -845,5 +842,3 @@ func (v *NullableConfigContextRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

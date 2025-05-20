@@ -20,20 +20,20 @@ type CustomLinkButtonClass string
 
 // List of CustomLink_button_class
 const (
-	CUSTOMLINKBUTTONCLASS_DEFAULT CustomLinkButtonClass = "default"
-	CUSTOMLINKBUTTONCLASS_BLUE CustomLinkButtonClass = "blue"
-	CUSTOMLINKBUTTONCLASS_INDIGO CustomLinkButtonClass = "indigo"
-	CUSTOMLINKBUTTONCLASS_PURPLE CustomLinkButtonClass = "purple"
-	CUSTOMLINKBUTTONCLASS_PINK CustomLinkButtonClass = "pink"
-	CUSTOMLINKBUTTONCLASS_RED CustomLinkButtonClass = "red"
-	CUSTOMLINKBUTTONCLASS_ORANGE CustomLinkButtonClass = "orange"
-	CUSTOMLINKBUTTONCLASS_YELLOW CustomLinkButtonClass = "yellow"
-	CUSTOMLINKBUTTONCLASS_GREEN CustomLinkButtonClass = "green"
-	CUSTOMLINKBUTTONCLASS_TEAL CustomLinkButtonClass = "teal"
-	CUSTOMLINKBUTTONCLASS_CYAN CustomLinkButtonClass = "cyan"
-	CUSTOMLINKBUTTONCLASS_GRAY CustomLinkButtonClass = "gray"
-	CUSTOMLINKBUTTONCLASS_BLACK CustomLinkButtonClass = "black"
-	CUSTOMLINKBUTTONCLASS_WHITE CustomLinkButtonClass = "white"
+	CUSTOMLINKBUTTONCLASS_DEFAULT    CustomLinkButtonClass = "default"
+	CUSTOMLINKBUTTONCLASS_BLUE       CustomLinkButtonClass = "blue"
+	CUSTOMLINKBUTTONCLASS_INDIGO     CustomLinkButtonClass = "indigo"
+	CUSTOMLINKBUTTONCLASS_PURPLE     CustomLinkButtonClass = "purple"
+	CUSTOMLINKBUTTONCLASS_PINK       CustomLinkButtonClass = "pink"
+	CUSTOMLINKBUTTONCLASS_RED        CustomLinkButtonClass = "red"
+	CUSTOMLINKBUTTONCLASS_ORANGE     CustomLinkButtonClass = "orange"
+	CUSTOMLINKBUTTONCLASS_YELLOW     CustomLinkButtonClass = "yellow"
+	CUSTOMLINKBUTTONCLASS_GREEN      CustomLinkButtonClass = "green"
+	CUSTOMLINKBUTTONCLASS_TEAL       CustomLinkButtonClass = "teal"
+	CUSTOMLINKBUTTONCLASS_CYAN       CustomLinkButtonClass = "cyan"
+	CUSTOMLINKBUTTONCLASS_GRAY       CustomLinkButtonClass = "gray"
+	CUSTOMLINKBUTTONCLASS_BLACK      CustomLinkButtonClass = "black"
+	CUSTOMLINKBUTTONCLASS_WHITE      CustomLinkButtonClass = "white"
 	CUSTOMLINKBUTTONCLASS_GHOST_DARK CustomLinkButtonClass = "ghost-dark"
 )
 
@@ -134,4 +134,3 @@ func (v *NullableCustomLinkButtonClass) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

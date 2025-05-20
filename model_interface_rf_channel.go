@@ -19,8 +19,8 @@ var _ MappedNullable = &InterfaceRfChannel{}
 
 // InterfaceRfChannel struct for InterfaceRfChannel
 type InterfaceRfChannel struct {
-	Value *InterfaceRfChannelValue `json:"value,omitempty"`
-	Label *InterfaceRfChannelLabel `json:"label,omitempty"`
+	Value                *InterfaceRfChannelValue `json:"value,omitempty"`
+	Label                *InterfaceRfChannelLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *InterfaceRfChannel) SetLabel(v InterfaceRfChannelLabel) {
 }
 
 func (o InterfaceRfChannel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableInterfaceRfChannel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

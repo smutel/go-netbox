@@ -20,8 +20,8 @@ type TunnelTerminationRoleLabel string
 
 // List of TunnelTermination_role_label
 const (
-	TUNNELTERMINATIONROLELABEL_PEER TunnelTerminationRoleLabel = "Peer"
-	TUNNELTERMINATIONROLELABEL_HUB TunnelTerminationRoleLabel = "Hub"
+	TUNNELTERMINATIONROLELABEL_PEER  TunnelTerminationRoleLabel = "Peer"
+	TUNNELTERMINATIONROLELABEL_HUB   TunnelTerminationRoleLabel = "Hub"
 	TUNNELTERMINATIONROLELABEL_SPOKE TunnelTerminationRoleLabel = "Spoke"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableTunnelTerminationRoleLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

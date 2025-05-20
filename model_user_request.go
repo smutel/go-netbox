@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the UserRequest type satisfies the MappedNullable interface at compile time
@@ -22,19 +22,19 @@ var _ MappedNullable = &UserRequest{}
 // UserRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type UserRequest struct {
 	// Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
-	Username string `json:"username" validate:"regexp=^[\\\\w.@+-]+$"`
-	Password string `json:"password"`
+	Username  string  `json:"username" validate:"regexp=^[\\\\w.@+-]+$"`
+	Password  string  `json:"password"`
 	FirstName *string `json:"first_name,omitempty"`
-	LastName *string `json:"last_name,omitempty"`
-	Email *string `json:"email,omitempty"`
+	LastName  *string `json:"last_name,omitempty"`
+	Email     *string `json:"email,omitempty"`
 	// Designates whether the user can log into this admin site.
 	IsStaff *bool `json:"is_staff,omitempty"`
 	// Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
-	IsActive *bool `json:"is_active,omitempty"`
-	DateJoined *time.Time `json:"date_joined,omitempty"`
-	LastLogin NullableTime `json:"last_login,omitempty"`
-	Groups []int32 `json:"groups,omitempty"`
-	Permissions []int32 `json:"permissions,omitempty"`
+	IsActive             *bool        `json:"is_active,omitempty"`
+	DateJoined           *time.Time   `json:"date_joined,omitempty"`
+	LastLogin            NullableTime `json:"last_login,omitempty"`
+	Groups               []int32      `json:"groups,omitempty"`
+	Permissions          []int32      `json:"permissions,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,7 +83,6 @@ func (o *UserRequest) SetUsername(v string) {
 	o.Username = v
 }
 
-
 // GetPassword returns the Password field value
 func (o *UserRequest) GetPassword() string {
 	if o == nil {
@@ -107,7 +106,6 @@ func (o *UserRequest) GetPasswordOk() (*string, bool) {
 func (o *UserRequest) SetPassword(v string) {
 	o.Password = v
 }
-
 
 // GetFirstName returns the FirstName field value if set, zero value otherwise.
 func (o *UserRequest) GetFirstName() string {
@@ -333,6 +331,7 @@ func (o *UserRequest) HasLastLogin() bool {
 func (o *UserRequest) SetLastLogin(v time.Time) {
 	o.LastLogin.Set(&v)
 }
+
 // SetLastLoginNil sets the value for LastLogin to be an explicit nil
 func (o *UserRequest) SetLastLoginNil() {
 	o.LastLogin.Set(nil)
@@ -408,7 +407,7 @@ func (o *UserRequest) SetPermissions(v []int32) {
 }
 
 func (o UserRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -465,32 +464,31 @@ func (o *UserRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -559,5 +557,3 @@ func (v *NullableUserRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

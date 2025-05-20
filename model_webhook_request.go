@@ -20,10 +20,10 @@ var _ MappedNullable = &WebhookRequest{}
 
 // WebhookRequest Adds support for custom fields and tags.
 type WebhookRequest struct {
-	Name string `json:"name"`
+	Name        string  `json:"name"`
 	Description *string `json:"description,omitempty"`
 	// This URL will be called using the HTTP method defined when the webhook is called. Jinja2 template processing is supported with the same context as the request body.
-	PayloadUrl string `json:"payload_url"`
+	PayloadUrl string                           `json:"payload_url"`
 	HttpMethod *PatchedWebhookRequestHttpMethod `json:"http_method,omitempty"`
 	// The complete list of official content types is available <a href=\"https://www.iana.org/assignments/media-types/media-types.xhtml\">here</a>.
 	HttpContentType *string `json:"http_content_type,omitempty"`
@@ -36,9 +36,9 @@ type WebhookRequest struct {
 	// Enable SSL certificate verification. Disable with caution!
 	SslVerification *bool `json:"ssl_verification,omitempty"`
 	// The specific CA certificate file to use for SSL verification. Leave blank to use the system defaults.
-	CaFilePath NullableString `json:"ca_file_path,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
+	CaFilePath           NullableString         `json:"ca_file_path,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,7 +86,6 @@ func (o *WebhookRequest) GetNameOk() (*string, bool) {
 func (o *WebhookRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WebhookRequest) GetDescription() string {
@@ -143,7 +142,6 @@ func (o *WebhookRequest) GetPayloadUrlOk() (*string, bool) {
 func (o *WebhookRequest) SetPayloadUrl(v string) {
 	o.PayloadUrl = v
 }
-
 
 // GetHttpMethod returns the HttpMethod field value if set, zero value otherwise.
 func (o *WebhookRequest) GetHttpMethod() PatchedWebhookRequestHttpMethod {
@@ -369,6 +367,7 @@ func (o *WebhookRequest) HasCaFilePath() bool {
 func (o *WebhookRequest) SetCaFilePath(v string) {
 	o.CaFilePath.Set(&v)
 }
+
 // SetCaFilePathNil sets the value for CaFilePath to be an explicit nil
 func (o *WebhookRequest) SetCaFilePathNil() {
 	o.CaFilePath.Set(nil)
@@ -444,7 +443,7 @@ func (o *WebhookRequest) SetTags(v []NestedTagRequest) {
 }
 
 func (o WebhookRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -504,32 +503,31 @@ func (o *WebhookRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -599,5 +597,3 @@ func (v *NullableWebhookRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

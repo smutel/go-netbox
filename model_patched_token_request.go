@@ -20,13 +20,13 @@ var _ MappedNullable = &PatchedTokenRequest{}
 
 // PatchedTokenRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type PatchedTokenRequest struct {
-	User *BriefUserRequest `json:"user,omitempty"`
-	Expires NullableTime `json:"expires,omitempty"`
-	LastUsed NullableTime `json:"last_used,omitempty"`
-	Key *string `json:"key,omitempty"`
+	User     *BriefUserRequest `json:"user,omitempty"`
+	Expires  NullableTime      `json:"expires,omitempty"`
+	LastUsed NullableTime      `json:"last_used,omitempty"`
+	Key      *string           `json:"key,omitempty"`
 	// Permit create/update/delete operations using this key
-	WriteEnabled *bool `json:"write_enabled,omitempty"`
-	Description *string `json:"description,omitempty"`
+	WriteEnabled         *bool   `json:"write_enabled,omitempty"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -113,6 +113,7 @@ func (o *PatchedTokenRequest) HasExpires() bool {
 func (o *PatchedTokenRequest) SetExpires(v time.Time) {
 	o.Expires.Set(&v)
 }
+
 // SetExpiresNil sets the value for Expires to be an explicit nil
 func (o *PatchedTokenRequest) SetExpiresNil() {
 	o.Expires.Set(nil)
@@ -155,6 +156,7 @@ func (o *PatchedTokenRequest) HasLastUsed() bool {
 func (o *PatchedTokenRequest) SetLastUsed(v time.Time) {
 	o.LastUsed.Set(&v)
 }
+
 // SetLastUsedNil sets the value for LastUsed to be an explicit nil
 func (o *PatchedTokenRequest) SetLastUsedNil() {
 	o.LastUsed.Set(nil)
@@ -262,7 +264,7 @@ func (o *PatchedTokenRequest) SetDescription(v string) {
 }
 
 func (o PatchedTokenRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -358,5 +360,3 @@ func (v *NullablePatchedTokenRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

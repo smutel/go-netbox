@@ -19,8 +19,8 @@ var _ MappedNullable = &TunnelTerminationRole{}
 
 // TunnelTerminationRole struct for TunnelTerminationRole
 type TunnelTerminationRole struct {
-	Value *PatchedWritableTunnelTerminationRequestRole `json:"value,omitempty"`
-	Label *TunnelTerminationRoleLabel `json:"label,omitempty"`
+	Value                *PatchedWritableTunnelTerminationRequestRole `json:"value,omitempty"`
+	Label                *TunnelTerminationRoleLabel                  `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *TunnelTerminationRole) SetLabel(v TunnelTerminationRoleLabel) {
 }
 
 func (o TunnelTerminationRole) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableTunnelTerminationRole) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

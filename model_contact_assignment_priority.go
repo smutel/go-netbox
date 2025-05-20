@@ -19,8 +19,8 @@ var _ MappedNullable = &ContactAssignmentPriority{}
 
 // ContactAssignmentPriority struct for ContactAssignmentPriority
 type ContactAssignmentPriority struct {
-	Value *ContactAssignmentPriorityValue `json:"value,omitempty"`
-	Label *ContactAssignmentPriorityLabel `json:"label,omitempty"`
+	Value                *ContactAssignmentPriorityValue `json:"value,omitempty"`
+	Label                *ContactAssignmentPriorityLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *ContactAssignmentPriority) SetLabel(v ContactAssignmentPriorityLabel) {
 }
 
 func (o ContactAssignmentPriority) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableContactAssignmentPriority) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

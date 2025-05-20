@@ -20,9 +20,9 @@ type PatchedWritableIKEProposalRequestGroup int32
 
 // List of PatchedWritableIKEProposalRequest_group
 const (
-	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__1 PatchedWritableIKEProposalRequestGroup = 1
-	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__2 PatchedWritableIKEProposalRequestGroup = 2
-	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__5 PatchedWritableIKEProposalRequestGroup = 5
+	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__1  PatchedWritableIKEProposalRequestGroup = 1
+	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__2  PatchedWritableIKEProposalRequestGroup = 2
+	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__5  PatchedWritableIKEProposalRequestGroup = 5
 	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__14 PatchedWritableIKEProposalRequestGroup = 14
 	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__15 PatchedWritableIKEProposalRequestGroup = 15
 	PATCHEDWRITABLEIKEPROPOSALREQUESTGROUP__16 PatchedWritableIKEProposalRequestGroup = 16
@@ -152,4 +152,3 @@ func (v *NullablePatchedWritableIKEProposalRequestGroup) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

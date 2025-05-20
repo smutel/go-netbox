@@ -16,20 +16,20 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
+	"time"
 )
-
 
 type IpamAPI interface {
 
 	/*
-	IpamAggregatesBulkDestroy Method for IpamAggregatesBulkDestroy
+		IpamAggregatesBulkDestroy Method for IpamAggregatesBulkDestroy
 
-	Delete a list of aggregate objects.
+		Delete a list of aggregate objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAggregatesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAggregatesBulkDestroyRequest
 	*/
 	IpamAggregatesBulkDestroy(ctx context.Context) ApiIpamAggregatesBulkDestroyRequest
 
@@ -37,12 +37,12 @@ type IpamAPI interface {
 	IpamAggregatesBulkDestroyExecute(r ApiIpamAggregatesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamAggregatesBulkPartialUpdate Method for IpamAggregatesBulkPartialUpdate
+		IpamAggregatesBulkPartialUpdate Method for IpamAggregatesBulkPartialUpdate
 
-	Patch a list of aggregate objects.
+		Patch a list of aggregate objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAggregatesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAggregatesBulkPartialUpdateRequest
 	*/
 	IpamAggregatesBulkPartialUpdate(ctx context.Context) ApiIpamAggregatesBulkPartialUpdateRequest
 
@@ -51,12 +51,12 @@ type IpamAPI interface {
 	IpamAggregatesBulkPartialUpdateExecute(r ApiIpamAggregatesBulkPartialUpdateRequest) ([]Aggregate, *http.Response, error)
 
 	/*
-	IpamAggregatesBulkUpdate Method for IpamAggregatesBulkUpdate
+		IpamAggregatesBulkUpdate Method for IpamAggregatesBulkUpdate
 
-	Put a list of aggregate objects.
+		Put a list of aggregate objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAggregatesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAggregatesBulkUpdateRequest
 	*/
 	IpamAggregatesBulkUpdate(ctx context.Context) ApiIpamAggregatesBulkUpdateRequest
 
@@ -65,12 +65,12 @@ type IpamAPI interface {
 	IpamAggregatesBulkUpdateExecute(r ApiIpamAggregatesBulkUpdateRequest) ([]Aggregate, *http.Response, error)
 
 	/*
-	IpamAggregatesCreate Method for IpamAggregatesCreate
+		IpamAggregatesCreate Method for IpamAggregatesCreate
 
-	Post a list of aggregate objects.
+		Post a list of aggregate objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAggregatesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAggregatesCreateRequest
 	*/
 	IpamAggregatesCreate(ctx context.Context) ApiIpamAggregatesCreateRequest
 
@@ -79,13 +79,13 @@ type IpamAPI interface {
 	IpamAggregatesCreateExecute(r ApiIpamAggregatesCreateRequest) (*Aggregate, *http.Response, error)
 
 	/*
-	IpamAggregatesDestroy Method for IpamAggregatesDestroy
+		IpamAggregatesDestroy Method for IpamAggregatesDestroy
 
-	Delete a aggregate object.
+		Delete a aggregate object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this aggregate.
-	@return ApiIpamAggregatesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this aggregate.
+		@return ApiIpamAggregatesDestroyRequest
 	*/
 	IpamAggregatesDestroy(ctx context.Context, id int32) ApiIpamAggregatesDestroyRequest
 
@@ -93,12 +93,12 @@ type IpamAPI interface {
 	IpamAggregatesDestroyExecute(r ApiIpamAggregatesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamAggregatesList Method for IpamAggregatesList
+		IpamAggregatesList Method for IpamAggregatesList
 
-	Get a list of aggregate objects.
+		Get a list of aggregate objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAggregatesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAggregatesListRequest
 	*/
 	IpamAggregatesList(ctx context.Context) ApiIpamAggregatesListRequest
 
@@ -107,13 +107,13 @@ type IpamAPI interface {
 	IpamAggregatesListExecute(r ApiIpamAggregatesListRequest) (*PaginatedAggregateList, *http.Response, error)
 
 	/*
-	IpamAggregatesPartialUpdate Method for IpamAggregatesPartialUpdate
+		IpamAggregatesPartialUpdate Method for IpamAggregatesPartialUpdate
 
-	Patch a aggregate object.
+		Patch a aggregate object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this aggregate.
-	@return ApiIpamAggregatesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this aggregate.
+		@return ApiIpamAggregatesPartialUpdateRequest
 	*/
 	IpamAggregatesPartialUpdate(ctx context.Context, id int32) ApiIpamAggregatesPartialUpdateRequest
 
@@ -122,13 +122,13 @@ type IpamAPI interface {
 	IpamAggregatesPartialUpdateExecute(r ApiIpamAggregatesPartialUpdateRequest) (*Aggregate, *http.Response, error)
 
 	/*
-	IpamAggregatesRetrieve Method for IpamAggregatesRetrieve
+		IpamAggregatesRetrieve Method for IpamAggregatesRetrieve
 
-	Get a aggregate object.
+		Get a aggregate object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this aggregate.
-	@return ApiIpamAggregatesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this aggregate.
+		@return ApiIpamAggregatesRetrieveRequest
 	*/
 	IpamAggregatesRetrieve(ctx context.Context, id int32) ApiIpamAggregatesRetrieveRequest
 
@@ -137,13 +137,13 @@ type IpamAPI interface {
 	IpamAggregatesRetrieveExecute(r ApiIpamAggregatesRetrieveRequest) (*Aggregate, *http.Response, error)
 
 	/*
-	IpamAggregatesUpdate Method for IpamAggregatesUpdate
+		IpamAggregatesUpdate Method for IpamAggregatesUpdate
 
-	Put a aggregate object.
+		Put a aggregate object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this aggregate.
-	@return ApiIpamAggregatesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this aggregate.
+		@return ApiIpamAggregatesUpdateRequest
 	*/
 	IpamAggregatesUpdate(ctx context.Context, id int32) ApiIpamAggregatesUpdateRequest
 
@@ -152,13 +152,13 @@ type IpamAPI interface {
 	IpamAggregatesUpdateExecute(r ApiIpamAggregatesUpdateRequest) (*Aggregate, *http.Response, error)
 
 	/*
-	IpamAsnRangesAvailableAsnsCreate Method for IpamAsnRangesAvailableAsnsCreate
+		IpamAsnRangesAvailableAsnsCreate Method for IpamAsnRangesAvailableAsnsCreate
 
-	Post a ASN object.
+		Post a ASN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamAsnRangesAvailableAsnsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamAsnRangesAvailableAsnsCreateRequest
 	*/
 	IpamAsnRangesAvailableAsnsCreate(ctx context.Context, id int32) ApiIpamAsnRangesAvailableAsnsCreateRequest
 
@@ -167,13 +167,13 @@ type IpamAPI interface {
 	IpamAsnRangesAvailableAsnsCreateExecute(r ApiIpamAsnRangesAvailableAsnsCreateRequest) ([]ASN, *http.Response, error)
 
 	/*
-	IpamAsnRangesAvailableAsnsList Method for IpamAsnRangesAvailableAsnsList
+		IpamAsnRangesAvailableAsnsList Method for IpamAsnRangesAvailableAsnsList
 
-	Get a ASN object.
+		Get a ASN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamAsnRangesAvailableAsnsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamAsnRangesAvailableAsnsListRequest
 	*/
 	IpamAsnRangesAvailableAsnsList(ctx context.Context, id int32) ApiIpamAsnRangesAvailableAsnsListRequest
 
@@ -182,12 +182,12 @@ type IpamAPI interface {
 	IpamAsnRangesAvailableAsnsListExecute(r ApiIpamAsnRangesAvailableAsnsListRequest) ([]AvailableASN, *http.Response, error)
 
 	/*
-	IpamAsnRangesBulkDestroy Method for IpamAsnRangesBulkDestroy
+		IpamAsnRangesBulkDestroy Method for IpamAsnRangesBulkDestroy
 
-	Delete a list of ASN range objects.
+		Delete a list of ASN range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnRangesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnRangesBulkDestroyRequest
 	*/
 	IpamAsnRangesBulkDestroy(ctx context.Context) ApiIpamAsnRangesBulkDestroyRequest
 
@@ -195,12 +195,12 @@ type IpamAPI interface {
 	IpamAsnRangesBulkDestroyExecute(r ApiIpamAsnRangesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamAsnRangesBulkPartialUpdate Method for IpamAsnRangesBulkPartialUpdate
+		IpamAsnRangesBulkPartialUpdate Method for IpamAsnRangesBulkPartialUpdate
 
-	Patch a list of ASN range objects.
+		Patch a list of ASN range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnRangesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnRangesBulkPartialUpdateRequest
 	*/
 	IpamAsnRangesBulkPartialUpdate(ctx context.Context) ApiIpamAsnRangesBulkPartialUpdateRequest
 
@@ -209,12 +209,12 @@ type IpamAPI interface {
 	IpamAsnRangesBulkPartialUpdateExecute(r ApiIpamAsnRangesBulkPartialUpdateRequest) ([]ASNRange, *http.Response, error)
 
 	/*
-	IpamAsnRangesBulkUpdate Method for IpamAsnRangesBulkUpdate
+		IpamAsnRangesBulkUpdate Method for IpamAsnRangesBulkUpdate
 
-	Put a list of ASN range objects.
+		Put a list of ASN range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnRangesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnRangesBulkUpdateRequest
 	*/
 	IpamAsnRangesBulkUpdate(ctx context.Context) ApiIpamAsnRangesBulkUpdateRequest
 
@@ -223,12 +223,12 @@ type IpamAPI interface {
 	IpamAsnRangesBulkUpdateExecute(r ApiIpamAsnRangesBulkUpdateRequest) ([]ASNRange, *http.Response, error)
 
 	/*
-	IpamAsnRangesCreate Method for IpamAsnRangesCreate
+		IpamAsnRangesCreate Method for IpamAsnRangesCreate
 
-	Post a list of ASN range objects.
+		Post a list of ASN range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnRangesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnRangesCreateRequest
 	*/
 	IpamAsnRangesCreate(ctx context.Context) ApiIpamAsnRangesCreateRequest
 
@@ -237,13 +237,13 @@ type IpamAPI interface {
 	IpamAsnRangesCreateExecute(r ApiIpamAsnRangesCreateRequest) (*ASNRange, *http.Response, error)
 
 	/*
-	IpamAsnRangesDestroy Method for IpamAsnRangesDestroy
+		IpamAsnRangesDestroy Method for IpamAsnRangesDestroy
 
-	Delete a ASN range object.
+		Delete a ASN range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN range.
-	@return ApiIpamAsnRangesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN range.
+		@return ApiIpamAsnRangesDestroyRequest
 	*/
 	IpamAsnRangesDestroy(ctx context.Context, id int32) ApiIpamAsnRangesDestroyRequest
 
@@ -251,12 +251,12 @@ type IpamAPI interface {
 	IpamAsnRangesDestroyExecute(r ApiIpamAsnRangesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamAsnRangesList Method for IpamAsnRangesList
+		IpamAsnRangesList Method for IpamAsnRangesList
 
-	Get a list of ASN range objects.
+		Get a list of ASN range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnRangesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnRangesListRequest
 	*/
 	IpamAsnRangesList(ctx context.Context) ApiIpamAsnRangesListRequest
 
@@ -265,13 +265,13 @@ type IpamAPI interface {
 	IpamAsnRangesListExecute(r ApiIpamAsnRangesListRequest) (*PaginatedASNRangeList, *http.Response, error)
 
 	/*
-	IpamAsnRangesPartialUpdate Method for IpamAsnRangesPartialUpdate
+		IpamAsnRangesPartialUpdate Method for IpamAsnRangesPartialUpdate
 
-	Patch a ASN range object.
+		Patch a ASN range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN range.
-	@return ApiIpamAsnRangesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN range.
+		@return ApiIpamAsnRangesPartialUpdateRequest
 	*/
 	IpamAsnRangesPartialUpdate(ctx context.Context, id int32) ApiIpamAsnRangesPartialUpdateRequest
 
@@ -280,13 +280,13 @@ type IpamAPI interface {
 	IpamAsnRangesPartialUpdateExecute(r ApiIpamAsnRangesPartialUpdateRequest) (*ASNRange, *http.Response, error)
 
 	/*
-	IpamAsnRangesRetrieve Method for IpamAsnRangesRetrieve
+		IpamAsnRangesRetrieve Method for IpamAsnRangesRetrieve
 
-	Get a ASN range object.
+		Get a ASN range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN range.
-	@return ApiIpamAsnRangesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN range.
+		@return ApiIpamAsnRangesRetrieveRequest
 	*/
 	IpamAsnRangesRetrieve(ctx context.Context, id int32) ApiIpamAsnRangesRetrieveRequest
 
@@ -295,13 +295,13 @@ type IpamAPI interface {
 	IpamAsnRangesRetrieveExecute(r ApiIpamAsnRangesRetrieveRequest) (*ASNRange, *http.Response, error)
 
 	/*
-	IpamAsnRangesUpdate Method for IpamAsnRangesUpdate
+		IpamAsnRangesUpdate Method for IpamAsnRangesUpdate
 
-	Put a ASN range object.
+		Put a ASN range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN range.
-	@return ApiIpamAsnRangesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN range.
+		@return ApiIpamAsnRangesUpdateRequest
 	*/
 	IpamAsnRangesUpdate(ctx context.Context, id int32) ApiIpamAsnRangesUpdateRequest
 
@@ -310,12 +310,12 @@ type IpamAPI interface {
 	IpamAsnRangesUpdateExecute(r ApiIpamAsnRangesUpdateRequest) (*ASNRange, *http.Response, error)
 
 	/*
-	IpamAsnsBulkDestroy Method for IpamAsnsBulkDestroy
+		IpamAsnsBulkDestroy Method for IpamAsnsBulkDestroy
 
-	Delete a list of ASN objects.
+		Delete a list of ASN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnsBulkDestroyRequest
 	*/
 	IpamAsnsBulkDestroy(ctx context.Context) ApiIpamAsnsBulkDestroyRequest
 
@@ -323,12 +323,12 @@ type IpamAPI interface {
 	IpamAsnsBulkDestroyExecute(r ApiIpamAsnsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamAsnsBulkPartialUpdate Method for IpamAsnsBulkPartialUpdate
+		IpamAsnsBulkPartialUpdate Method for IpamAsnsBulkPartialUpdate
 
-	Patch a list of ASN objects.
+		Patch a list of ASN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnsBulkPartialUpdateRequest
 	*/
 	IpamAsnsBulkPartialUpdate(ctx context.Context) ApiIpamAsnsBulkPartialUpdateRequest
 
@@ -337,12 +337,12 @@ type IpamAPI interface {
 	IpamAsnsBulkPartialUpdateExecute(r ApiIpamAsnsBulkPartialUpdateRequest) ([]ASN, *http.Response, error)
 
 	/*
-	IpamAsnsBulkUpdate Method for IpamAsnsBulkUpdate
+		IpamAsnsBulkUpdate Method for IpamAsnsBulkUpdate
 
-	Put a list of ASN objects.
+		Put a list of ASN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnsBulkUpdateRequest
 	*/
 	IpamAsnsBulkUpdate(ctx context.Context) ApiIpamAsnsBulkUpdateRequest
 
@@ -351,12 +351,12 @@ type IpamAPI interface {
 	IpamAsnsBulkUpdateExecute(r ApiIpamAsnsBulkUpdateRequest) ([]ASN, *http.Response, error)
 
 	/*
-	IpamAsnsCreate Method for IpamAsnsCreate
+		IpamAsnsCreate Method for IpamAsnsCreate
 
-	Post a list of ASN objects.
+		Post a list of ASN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnsCreateRequest
 	*/
 	IpamAsnsCreate(ctx context.Context) ApiIpamAsnsCreateRequest
 
@@ -365,13 +365,13 @@ type IpamAPI interface {
 	IpamAsnsCreateExecute(r ApiIpamAsnsCreateRequest) (*ASN, *http.Response, error)
 
 	/*
-	IpamAsnsDestroy Method for IpamAsnsDestroy
+		IpamAsnsDestroy Method for IpamAsnsDestroy
 
-	Delete a ASN object.
+		Delete a ASN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN.
-	@return ApiIpamAsnsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN.
+		@return ApiIpamAsnsDestroyRequest
 	*/
 	IpamAsnsDestroy(ctx context.Context, id int32) ApiIpamAsnsDestroyRequest
 
@@ -379,12 +379,12 @@ type IpamAPI interface {
 	IpamAsnsDestroyExecute(r ApiIpamAsnsDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamAsnsList Method for IpamAsnsList
+		IpamAsnsList Method for IpamAsnsList
 
-	Get a list of ASN objects.
+		Get a list of ASN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamAsnsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamAsnsListRequest
 	*/
 	IpamAsnsList(ctx context.Context) ApiIpamAsnsListRequest
 
@@ -393,13 +393,13 @@ type IpamAPI interface {
 	IpamAsnsListExecute(r ApiIpamAsnsListRequest) (*PaginatedASNList, *http.Response, error)
 
 	/*
-	IpamAsnsPartialUpdate Method for IpamAsnsPartialUpdate
+		IpamAsnsPartialUpdate Method for IpamAsnsPartialUpdate
 
-	Patch a ASN object.
+		Patch a ASN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN.
-	@return ApiIpamAsnsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN.
+		@return ApiIpamAsnsPartialUpdateRequest
 	*/
 	IpamAsnsPartialUpdate(ctx context.Context, id int32) ApiIpamAsnsPartialUpdateRequest
 
@@ -408,13 +408,13 @@ type IpamAPI interface {
 	IpamAsnsPartialUpdateExecute(r ApiIpamAsnsPartialUpdateRequest) (*ASN, *http.Response, error)
 
 	/*
-	IpamAsnsRetrieve Method for IpamAsnsRetrieve
+		IpamAsnsRetrieve Method for IpamAsnsRetrieve
 
-	Get a ASN object.
+		Get a ASN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN.
-	@return ApiIpamAsnsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN.
+		@return ApiIpamAsnsRetrieveRequest
 	*/
 	IpamAsnsRetrieve(ctx context.Context, id int32) ApiIpamAsnsRetrieveRequest
 
@@ -423,13 +423,13 @@ type IpamAPI interface {
 	IpamAsnsRetrieveExecute(r ApiIpamAsnsRetrieveRequest) (*ASN, *http.Response, error)
 
 	/*
-	IpamAsnsUpdate Method for IpamAsnsUpdate
+		IpamAsnsUpdate Method for IpamAsnsUpdate
 
-	Put a ASN object.
+		Put a ASN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this ASN.
-	@return ApiIpamAsnsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this ASN.
+		@return ApiIpamAsnsUpdateRequest
 	*/
 	IpamAsnsUpdate(ctx context.Context, id int32) ApiIpamAsnsUpdateRequest
 
@@ -438,12 +438,12 @@ type IpamAPI interface {
 	IpamAsnsUpdateExecute(r ApiIpamAsnsUpdateRequest) (*ASN, *http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsBulkDestroy Method for IpamFhrpGroupAssignmentsBulkDestroy
+		IpamFhrpGroupAssignmentsBulkDestroy Method for IpamFhrpGroupAssignmentsBulkDestroy
 
-	Delete a list of FHRP group assignment objects.
+		Delete a list of FHRP group assignment objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupAssignmentsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupAssignmentsBulkDestroyRequest
 	*/
 	IpamFhrpGroupAssignmentsBulkDestroy(ctx context.Context) ApiIpamFhrpGroupAssignmentsBulkDestroyRequest
 
@@ -451,12 +451,12 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsBulkDestroyExecute(r ApiIpamFhrpGroupAssignmentsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsBulkPartialUpdate Method for IpamFhrpGroupAssignmentsBulkPartialUpdate
+		IpamFhrpGroupAssignmentsBulkPartialUpdate Method for IpamFhrpGroupAssignmentsBulkPartialUpdate
 
-	Patch a list of FHRP group assignment objects.
+		Patch a list of FHRP group assignment objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest
 	*/
 	IpamFhrpGroupAssignmentsBulkPartialUpdate(ctx context.Context) ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest
 
@@ -465,12 +465,12 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsBulkPartialUpdateExecute(r ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest) ([]FHRPGroupAssignment, *http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsBulkUpdate Method for IpamFhrpGroupAssignmentsBulkUpdate
+		IpamFhrpGroupAssignmentsBulkUpdate Method for IpamFhrpGroupAssignmentsBulkUpdate
 
-	Put a list of FHRP group assignment objects.
+		Put a list of FHRP group assignment objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupAssignmentsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupAssignmentsBulkUpdateRequest
 	*/
 	IpamFhrpGroupAssignmentsBulkUpdate(ctx context.Context) ApiIpamFhrpGroupAssignmentsBulkUpdateRequest
 
@@ -479,12 +479,12 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsBulkUpdateExecute(r ApiIpamFhrpGroupAssignmentsBulkUpdateRequest) ([]FHRPGroupAssignment, *http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsCreate Method for IpamFhrpGroupAssignmentsCreate
+		IpamFhrpGroupAssignmentsCreate Method for IpamFhrpGroupAssignmentsCreate
 
-	Post a list of FHRP group assignment objects.
+		Post a list of FHRP group assignment objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupAssignmentsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupAssignmentsCreateRequest
 	*/
 	IpamFhrpGroupAssignmentsCreate(ctx context.Context) ApiIpamFhrpGroupAssignmentsCreateRequest
 
@@ -493,13 +493,13 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsCreateExecute(r ApiIpamFhrpGroupAssignmentsCreateRequest) (*FHRPGroupAssignment, *http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsDestroy Method for IpamFhrpGroupAssignmentsDestroy
+		IpamFhrpGroupAssignmentsDestroy Method for IpamFhrpGroupAssignmentsDestroy
 
-	Delete a FHRP group assignment object.
+		Delete a FHRP group assignment object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group assignment.
-	@return ApiIpamFhrpGroupAssignmentsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group assignment.
+		@return ApiIpamFhrpGroupAssignmentsDestroyRequest
 	*/
 	IpamFhrpGroupAssignmentsDestroy(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsDestroyRequest
 
@@ -507,12 +507,12 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsDestroyExecute(r ApiIpamFhrpGroupAssignmentsDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsList Method for IpamFhrpGroupAssignmentsList
+		IpamFhrpGroupAssignmentsList Method for IpamFhrpGroupAssignmentsList
 
-	Get a list of FHRP group assignment objects.
+		Get a list of FHRP group assignment objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupAssignmentsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupAssignmentsListRequest
 	*/
 	IpamFhrpGroupAssignmentsList(ctx context.Context) ApiIpamFhrpGroupAssignmentsListRequest
 
@@ -521,13 +521,13 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsListExecute(r ApiIpamFhrpGroupAssignmentsListRequest) (*PaginatedFHRPGroupAssignmentList, *http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsPartialUpdate Method for IpamFhrpGroupAssignmentsPartialUpdate
+		IpamFhrpGroupAssignmentsPartialUpdate Method for IpamFhrpGroupAssignmentsPartialUpdate
 
-	Patch a FHRP group assignment object.
+		Patch a FHRP group assignment object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group assignment.
-	@return ApiIpamFhrpGroupAssignmentsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group assignment.
+		@return ApiIpamFhrpGroupAssignmentsPartialUpdateRequest
 	*/
 	IpamFhrpGroupAssignmentsPartialUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsPartialUpdateRequest
 
@@ -536,13 +536,13 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsPartialUpdateExecute(r ApiIpamFhrpGroupAssignmentsPartialUpdateRequest) (*FHRPGroupAssignment, *http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsRetrieve Method for IpamFhrpGroupAssignmentsRetrieve
+		IpamFhrpGroupAssignmentsRetrieve Method for IpamFhrpGroupAssignmentsRetrieve
 
-	Get a FHRP group assignment object.
+		Get a FHRP group assignment object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group assignment.
-	@return ApiIpamFhrpGroupAssignmentsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group assignment.
+		@return ApiIpamFhrpGroupAssignmentsRetrieveRequest
 	*/
 	IpamFhrpGroupAssignmentsRetrieve(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsRetrieveRequest
 
@@ -551,13 +551,13 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsRetrieveExecute(r ApiIpamFhrpGroupAssignmentsRetrieveRequest) (*FHRPGroupAssignment, *http.Response, error)
 
 	/*
-	IpamFhrpGroupAssignmentsUpdate Method for IpamFhrpGroupAssignmentsUpdate
+		IpamFhrpGroupAssignmentsUpdate Method for IpamFhrpGroupAssignmentsUpdate
 
-	Put a FHRP group assignment object.
+		Put a FHRP group assignment object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group assignment.
-	@return ApiIpamFhrpGroupAssignmentsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group assignment.
+		@return ApiIpamFhrpGroupAssignmentsUpdateRequest
 	*/
 	IpamFhrpGroupAssignmentsUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsUpdateRequest
 
@@ -566,12 +566,12 @@ type IpamAPI interface {
 	IpamFhrpGroupAssignmentsUpdateExecute(r ApiIpamFhrpGroupAssignmentsUpdateRequest) (*FHRPGroupAssignment, *http.Response, error)
 
 	/*
-	IpamFhrpGroupsBulkDestroy Method for IpamFhrpGroupsBulkDestroy
+		IpamFhrpGroupsBulkDestroy Method for IpamFhrpGroupsBulkDestroy
 
-	Delete a list of FHRP group objects.
+		Delete a list of FHRP group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupsBulkDestroyRequest
 	*/
 	IpamFhrpGroupsBulkDestroy(ctx context.Context) ApiIpamFhrpGroupsBulkDestroyRequest
 
@@ -579,12 +579,12 @@ type IpamAPI interface {
 	IpamFhrpGroupsBulkDestroyExecute(r ApiIpamFhrpGroupsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamFhrpGroupsBulkPartialUpdate Method for IpamFhrpGroupsBulkPartialUpdate
+		IpamFhrpGroupsBulkPartialUpdate Method for IpamFhrpGroupsBulkPartialUpdate
 
-	Patch a list of FHRP group objects.
+		Patch a list of FHRP group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupsBulkPartialUpdateRequest
 	*/
 	IpamFhrpGroupsBulkPartialUpdate(ctx context.Context) ApiIpamFhrpGroupsBulkPartialUpdateRequest
 
@@ -593,12 +593,12 @@ type IpamAPI interface {
 	IpamFhrpGroupsBulkPartialUpdateExecute(r ApiIpamFhrpGroupsBulkPartialUpdateRequest) ([]FHRPGroup, *http.Response, error)
 
 	/*
-	IpamFhrpGroupsBulkUpdate Method for IpamFhrpGroupsBulkUpdate
+		IpamFhrpGroupsBulkUpdate Method for IpamFhrpGroupsBulkUpdate
 
-	Put a list of FHRP group objects.
+		Put a list of FHRP group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupsBulkUpdateRequest
 	*/
 	IpamFhrpGroupsBulkUpdate(ctx context.Context) ApiIpamFhrpGroupsBulkUpdateRequest
 
@@ -607,12 +607,12 @@ type IpamAPI interface {
 	IpamFhrpGroupsBulkUpdateExecute(r ApiIpamFhrpGroupsBulkUpdateRequest) ([]FHRPGroup, *http.Response, error)
 
 	/*
-	IpamFhrpGroupsCreate Method for IpamFhrpGroupsCreate
+		IpamFhrpGroupsCreate Method for IpamFhrpGroupsCreate
 
-	Post a list of FHRP group objects.
+		Post a list of FHRP group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupsCreateRequest
 	*/
 	IpamFhrpGroupsCreate(ctx context.Context) ApiIpamFhrpGroupsCreateRequest
 
@@ -621,13 +621,13 @@ type IpamAPI interface {
 	IpamFhrpGroupsCreateExecute(r ApiIpamFhrpGroupsCreateRequest) (*FHRPGroup, *http.Response, error)
 
 	/*
-	IpamFhrpGroupsDestroy Method for IpamFhrpGroupsDestroy
+		IpamFhrpGroupsDestroy Method for IpamFhrpGroupsDestroy
 
-	Delete a FHRP group object.
+		Delete a FHRP group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group.
-	@return ApiIpamFhrpGroupsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group.
+		@return ApiIpamFhrpGroupsDestroyRequest
 	*/
 	IpamFhrpGroupsDestroy(ctx context.Context, id int32) ApiIpamFhrpGroupsDestroyRequest
 
@@ -635,12 +635,12 @@ type IpamAPI interface {
 	IpamFhrpGroupsDestroyExecute(r ApiIpamFhrpGroupsDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamFhrpGroupsList Method for IpamFhrpGroupsList
+		IpamFhrpGroupsList Method for IpamFhrpGroupsList
 
-	Get a list of FHRP group objects.
+		Get a list of FHRP group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamFhrpGroupsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamFhrpGroupsListRequest
 	*/
 	IpamFhrpGroupsList(ctx context.Context) ApiIpamFhrpGroupsListRequest
 
@@ -649,13 +649,13 @@ type IpamAPI interface {
 	IpamFhrpGroupsListExecute(r ApiIpamFhrpGroupsListRequest) (*PaginatedFHRPGroupList, *http.Response, error)
 
 	/*
-	IpamFhrpGroupsPartialUpdate Method for IpamFhrpGroupsPartialUpdate
+		IpamFhrpGroupsPartialUpdate Method for IpamFhrpGroupsPartialUpdate
 
-	Patch a FHRP group object.
+		Patch a FHRP group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group.
-	@return ApiIpamFhrpGroupsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group.
+		@return ApiIpamFhrpGroupsPartialUpdateRequest
 	*/
 	IpamFhrpGroupsPartialUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupsPartialUpdateRequest
 
@@ -664,13 +664,13 @@ type IpamAPI interface {
 	IpamFhrpGroupsPartialUpdateExecute(r ApiIpamFhrpGroupsPartialUpdateRequest) (*FHRPGroup, *http.Response, error)
 
 	/*
-	IpamFhrpGroupsRetrieve Method for IpamFhrpGroupsRetrieve
+		IpamFhrpGroupsRetrieve Method for IpamFhrpGroupsRetrieve
 
-	Get a FHRP group object.
+		Get a FHRP group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group.
-	@return ApiIpamFhrpGroupsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group.
+		@return ApiIpamFhrpGroupsRetrieveRequest
 	*/
 	IpamFhrpGroupsRetrieve(ctx context.Context, id int32) ApiIpamFhrpGroupsRetrieveRequest
 
@@ -679,13 +679,13 @@ type IpamAPI interface {
 	IpamFhrpGroupsRetrieveExecute(r ApiIpamFhrpGroupsRetrieveRequest) (*FHRPGroup, *http.Response, error)
 
 	/*
-	IpamFhrpGroupsUpdate Method for IpamFhrpGroupsUpdate
+		IpamFhrpGroupsUpdate Method for IpamFhrpGroupsUpdate
 
-	Put a FHRP group object.
+		Put a FHRP group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this FHRP group.
-	@return ApiIpamFhrpGroupsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this FHRP group.
+		@return ApiIpamFhrpGroupsUpdateRequest
 	*/
 	IpamFhrpGroupsUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupsUpdateRequest
 
@@ -694,12 +694,12 @@ type IpamAPI interface {
 	IpamFhrpGroupsUpdateExecute(r ApiIpamFhrpGroupsUpdateRequest) (*FHRPGroup, *http.Response, error)
 
 	/*
-	IpamIpAddressesBulkDestroy Method for IpamIpAddressesBulkDestroy
+		IpamIpAddressesBulkDestroy Method for IpamIpAddressesBulkDestroy
 
-	Delete a list of IP address objects.
+		Delete a list of IP address objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpAddressesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpAddressesBulkDestroyRequest
 	*/
 	IpamIpAddressesBulkDestroy(ctx context.Context) ApiIpamIpAddressesBulkDestroyRequest
 
@@ -707,12 +707,12 @@ type IpamAPI interface {
 	IpamIpAddressesBulkDestroyExecute(r ApiIpamIpAddressesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamIpAddressesBulkPartialUpdate Method for IpamIpAddressesBulkPartialUpdate
+		IpamIpAddressesBulkPartialUpdate Method for IpamIpAddressesBulkPartialUpdate
 
-	Patch a list of IP address objects.
+		Patch a list of IP address objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpAddressesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpAddressesBulkPartialUpdateRequest
 	*/
 	IpamIpAddressesBulkPartialUpdate(ctx context.Context) ApiIpamIpAddressesBulkPartialUpdateRequest
 
@@ -721,12 +721,12 @@ type IpamAPI interface {
 	IpamIpAddressesBulkPartialUpdateExecute(r ApiIpamIpAddressesBulkPartialUpdateRequest) ([]IPAddress, *http.Response, error)
 
 	/*
-	IpamIpAddressesBulkUpdate Method for IpamIpAddressesBulkUpdate
+		IpamIpAddressesBulkUpdate Method for IpamIpAddressesBulkUpdate
 
-	Put a list of IP address objects.
+		Put a list of IP address objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpAddressesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpAddressesBulkUpdateRequest
 	*/
 	IpamIpAddressesBulkUpdate(ctx context.Context) ApiIpamIpAddressesBulkUpdateRequest
 
@@ -735,12 +735,12 @@ type IpamAPI interface {
 	IpamIpAddressesBulkUpdateExecute(r ApiIpamIpAddressesBulkUpdateRequest) ([]IPAddress, *http.Response, error)
 
 	/*
-	IpamIpAddressesCreate Method for IpamIpAddressesCreate
+		IpamIpAddressesCreate Method for IpamIpAddressesCreate
 
-	Post a list of IP address objects.
+		Post a list of IP address objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpAddressesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpAddressesCreateRequest
 	*/
 	IpamIpAddressesCreate(ctx context.Context) ApiIpamIpAddressesCreateRequest
 
@@ -749,13 +749,13 @@ type IpamAPI interface {
 	IpamIpAddressesCreateExecute(r ApiIpamIpAddressesCreateRequest) (*IPAddress, *http.Response, error)
 
 	/*
-	IpamIpAddressesDestroy Method for IpamIpAddressesDestroy
+		IpamIpAddressesDestroy Method for IpamIpAddressesDestroy
 
-	Delete a IP address object.
+		Delete a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP address.
-	@return ApiIpamIpAddressesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP address.
+		@return ApiIpamIpAddressesDestroyRequest
 	*/
 	IpamIpAddressesDestroy(ctx context.Context, id int32) ApiIpamIpAddressesDestroyRequest
 
@@ -763,12 +763,12 @@ type IpamAPI interface {
 	IpamIpAddressesDestroyExecute(r ApiIpamIpAddressesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamIpAddressesList Method for IpamIpAddressesList
+		IpamIpAddressesList Method for IpamIpAddressesList
 
-	Get a list of IP address objects.
+		Get a list of IP address objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpAddressesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpAddressesListRequest
 	*/
 	IpamIpAddressesList(ctx context.Context) ApiIpamIpAddressesListRequest
 
@@ -777,13 +777,13 @@ type IpamAPI interface {
 	IpamIpAddressesListExecute(r ApiIpamIpAddressesListRequest) (*PaginatedIPAddressList, *http.Response, error)
 
 	/*
-	IpamIpAddressesPartialUpdate Method for IpamIpAddressesPartialUpdate
+		IpamIpAddressesPartialUpdate Method for IpamIpAddressesPartialUpdate
 
-	Patch a IP address object.
+		Patch a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP address.
-	@return ApiIpamIpAddressesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP address.
+		@return ApiIpamIpAddressesPartialUpdateRequest
 	*/
 	IpamIpAddressesPartialUpdate(ctx context.Context, id int32) ApiIpamIpAddressesPartialUpdateRequest
 
@@ -792,13 +792,13 @@ type IpamAPI interface {
 	IpamIpAddressesPartialUpdateExecute(r ApiIpamIpAddressesPartialUpdateRequest) (*IPAddress, *http.Response, error)
 
 	/*
-	IpamIpAddressesRetrieve Method for IpamIpAddressesRetrieve
+		IpamIpAddressesRetrieve Method for IpamIpAddressesRetrieve
 
-	Get a IP address object.
+		Get a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP address.
-	@return ApiIpamIpAddressesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP address.
+		@return ApiIpamIpAddressesRetrieveRequest
 	*/
 	IpamIpAddressesRetrieve(ctx context.Context, id int32) ApiIpamIpAddressesRetrieveRequest
 
@@ -807,13 +807,13 @@ type IpamAPI interface {
 	IpamIpAddressesRetrieveExecute(r ApiIpamIpAddressesRetrieveRequest) (*IPAddress, *http.Response, error)
 
 	/*
-	IpamIpAddressesUpdate Method for IpamIpAddressesUpdate
+		IpamIpAddressesUpdate Method for IpamIpAddressesUpdate
 
-	Put a IP address object.
+		Put a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP address.
-	@return ApiIpamIpAddressesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP address.
+		@return ApiIpamIpAddressesUpdateRequest
 	*/
 	IpamIpAddressesUpdate(ctx context.Context, id int32) ApiIpamIpAddressesUpdateRequest
 
@@ -822,13 +822,13 @@ type IpamAPI interface {
 	IpamIpAddressesUpdateExecute(r ApiIpamIpAddressesUpdateRequest) (*IPAddress, *http.Response, error)
 
 	/*
-	IpamIpRangesAvailableIpsCreate Method for IpamIpRangesAvailableIpsCreate
+		IpamIpRangesAvailableIpsCreate Method for IpamIpRangesAvailableIpsCreate
 
-	Post a IP address object.
+		Post a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamIpRangesAvailableIpsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamIpRangesAvailableIpsCreateRequest
 	*/
 	IpamIpRangesAvailableIpsCreate(ctx context.Context, id int32) ApiIpamIpRangesAvailableIpsCreateRequest
 
@@ -837,13 +837,13 @@ type IpamAPI interface {
 	IpamIpRangesAvailableIpsCreateExecute(r ApiIpamIpRangesAvailableIpsCreateRequest) ([]IPAddress, *http.Response, error)
 
 	/*
-	IpamIpRangesAvailableIpsList Method for IpamIpRangesAvailableIpsList
+		IpamIpRangesAvailableIpsList Method for IpamIpRangesAvailableIpsList
 
-	Get a IP address object.
+		Get a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamIpRangesAvailableIpsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamIpRangesAvailableIpsListRequest
 	*/
 	IpamIpRangesAvailableIpsList(ctx context.Context, id int32) ApiIpamIpRangesAvailableIpsListRequest
 
@@ -852,12 +852,12 @@ type IpamAPI interface {
 	IpamIpRangesAvailableIpsListExecute(r ApiIpamIpRangesAvailableIpsListRequest) ([]AvailableIP, *http.Response, error)
 
 	/*
-	IpamIpRangesBulkDestroy Method for IpamIpRangesBulkDestroy
+		IpamIpRangesBulkDestroy Method for IpamIpRangesBulkDestroy
 
-	Delete a list of IP range objects.
+		Delete a list of IP range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpRangesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpRangesBulkDestroyRequest
 	*/
 	IpamIpRangesBulkDestroy(ctx context.Context) ApiIpamIpRangesBulkDestroyRequest
 
@@ -865,12 +865,12 @@ type IpamAPI interface {
 	IpamIpRangesBulkDestroyExecute(r ApiIpamIpRangesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamIpRangesBulkPartialUpdate Method for IpamIpRangesBulkPartialUpdate
+		IpamIpRangesBulkPartialUpdate Method for IpamIpRangesBulkPartialUpdate
 
-	Patch a list of IP range objects.
+		Patch a list of IP range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpRangesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpRangesBulkPartialUpdateRequest
 	*/
 	IpamIpRangesBulkPartialUpdate(ctx context.Context) ApiIpamIpRangesBulkPartialUpdateRequest
 
@@ -879,12 +879,12 @@ type IpamAPI interface {
 	IpamIpRangesBulkPartialUpdateExecute(r ApiIpamIpRangesBulkPartialUpdateRequest) ([]IPRange, *http.Response, error)
 
 	/*
-	IpamIpRangesBulkUpdate Method for IpamIpRangesBulkUpdate
+		IpamIpRangesBulkUpdate Method for IpamIpRangesBulkUpdate
 
-	Put a list of IP range objects.
+		Put a list of IP range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpRangesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpRangesBulkUpdateRequest
 	*/
 	IpamIpRangesBulkUpdate(ctx context.Context) ApiIpamIpRangesBulkUpdateRequest
 
@@ -893,12 +893,12 @@ type IpamAPI interface {
 	IpamIpRangesBulkUpdateExecute(r ApiIpamIpRangesBulkUpdateRequest) ([]IPRange, *http.Response, error)
 
 	/*
-	IpamIpRangesCreate Method for IpamIpRangesCreate
+		IpamIpRangesCreate Method for IpamIpRangesCreate
 
-	Post a list of IP range objects.
+		Post a list of IP range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpRangesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpRangesCreateRequest
 	*/
 	IpamIpRangesCreate(ctx context.Context) ApiIpamIpRangesCreateRequest
 
@@ -907,13 +907,13 @@ type IpamAPI interface {
 	IpamIpRangesCreateExecute(r ApiIpamIpRangesCreateRequest) (*IPRange, *http.Response, error)
 
 	/*
-	IpamIpRangesDestroy Method for IpamIpRangesDestroy
+		IpamIpRangesDestroy Method for IpamIpRangesDestroy
 
-	Delete a IP range object.
+		Delete a IP range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP range.
-	@return ApiIpamIpRangesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP range.
+		@return ApiIpamIpRangesDestroyRequest
 	*/
 	IpamIpRangesDestroy(ctx context.Context, id int32) ApiIpamIpRangesDestroyRequest
 
@@ -921,12 +921,12 @@ type IpamAPI interface {
 	IpamIpRangesDestroyExecute(r ApiIpamIpRangesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamIpRangesList Method for IpamIpRangesList
+		IpamIpRangesList Method for IpamIpRangesList
 
-	Get a list of IP range objects.
+		Get a list of IP range objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamIpRangesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamIpRangesListRequest
 	*/
 	IpamIpRangesList(ctx context.Context) ApiIpamIpRangesListRequest
 
@@ -935,13 +935,13 @@ type IpamAPI interface {
 	IpamIpRangesListExecute(r ApiIpamIpRangesListRequest) (*PaginatedIPRangeList, *http.Response, error)
 
 	/*
-	IpamIpRangesPartialUpdate Method for IpamIpRangesPartialUpdate
+		IpamIpRangesPartialUpdate Method for IpamIpRangesPartialUpdate
 
-	Patch a IP range object.
+		Patch a IP range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP range.
-	@return ApiIpamIpRangesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP range.
+		@return ApiIpamIpRangesPartialUpdateRequest
 	*/
 	IpamIpRangesPartialUpdate(ctx context.Context, id int32) ApiIpamIpRangesPartialUpdateRequest
 
@@ -950,13 +950,13 @@ type IpamAPI interface {
 	IpamIpRangesPartialUpdateExecute(r ApiIpamIpRangesPartialUpdateRequest) (*IPRange, *http.Response, error)
 
 	/*
-	IpamIpRangesRetrieve Method for IpamIpRangesRetrieve
+		IpamIpRangesRetrieve Method for IpamIpRangesRetrieve
 
-	Get a IP range object.
+		Get a IP range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP range.
-	@return ApiIpamIpRangesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP range.
+		@return ApiIpamIpRangesRetrieveRequest
 	*/
 	IpamIpRangesRetrieve(ctx context.Context, id int32) ApiIpamIpRangesRetrieveRequest
 
@@ -965,13 +965,13 @@ type IpamAPI interface {
 	IpamIpRangesRetrieveExecute(r ApiIpamIpRangesRetrieveRequest) (*IPRange, *http.Response, error)
 
 	/*
-	IpamIpRangesUpdate Method for IpamIpRangesUpdate
+		IpamIpRangesUpdate Method for IpamIpRangesUpdate
 
-	Put a IP range object.
+		Put a IP range object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this IP range.
-	@return ApiIpamIpRangesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this IP range.
+		@return ApiIpamIpRangesUpdateRequest
 	*/
 	IpamIpRangesUpdate(ctx context.Context, id int32) ApiIpamIpRangesUpdateRequest
 
@@ -980,13 +980,13 @@ type IpamAPI interface {
 	IpamIpRangesUpdateExecute(r ApiIpamIpRangesUpdateRequest) (*IPRange, *http.Response, error)
 
 	/*
-	IpamPrefixesAvailableIpsCreate Method for IpamPrefixesAvailableIpsCreate
+		IpamPrefixesAvailableIpsCreate Method for IpamPrefixesAvailableIpsCreate
 
-	Post a IP address object.
+		Post a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamPrefixesAvailableIpsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamPrefixesAvailableIpsCreateRequest
 	*/
 	IpamPrefixesAvailableIpsCreate(ctx context.Context, id int32) ApiIpamPrefixesAvailableIpsCreateRequest
 
@@ -995,13 +995,13 @@ type IpamAPI interface {
 	IpamPrefixesAvailableIpsCreateExecute(r ApiIpamPrefixesAvailableIpsCreateRequest) ([]IPAddress, *http.Response, error)
 
 	/*
-	IpamPrefixesAvailableIpsList Method for IpamPrefixesAvailableIpsList
+		IpamPrefixesAvailableIpsList Method for IpamPrefixesAvailableIpsList
 
-	Get a IP address object.
+		Get a IP address object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamPrefixesAvailableIpsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamPrefixesAvailableIpsListRequest
 	*/
 	IpamPrefixesAvailableIpsList(ctx context.Context, id int32) ApiIpamPrefixesAvailableIpsListRequest
 
@@ -1010,13 +1010,13 @@ type IpamAPI interface {
 	IpamPrefixesAvailableIpsListExecute(r ApiIpamPrefixesAvailableIpsListRequest) ([]AvailableIP, *http.Response, error)
 
 	/*
-	IpamPrefixesAvailablePrefixesCreate Method for IpamPrefixesAvailablePrefixesCreate
+		IpamPrefixesAvailablePrefixesCreate Method for IpamPrefixesAvailablePrefixesCreate
 
-	Post a prefix object.
+		Post a prefix object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamPrefixesAvailablePrefixesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamPrefixesAvailablePrefixesCreateRequest
 	*/
 	IpamPrefixesAvailablePrefixesCreate(ctx context.Context, id int32) ApiIpamPrefixesAvailablePrefixesCreateRequest
 
@@ -1025,13 +1025,13 @@ type IpamAPI interface {
 	IpamPrefixesAvailablePrefixesCreateExecute(r ApiIpamPrefixesAvailablePrefixesCreateRequest) ([]Prefix, *http.Response, error)
 
 	/*
-	IpamPrefixesAvailablePrefixesList Method for IpamPrefixesAvailablePrefixesList
+		IpamPrefixesAvailablePrefixesList Method for IpamPrefixesAvailablePrefixesList
 
-	Get a prefix object.
+		Get a prefix object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamPrefixesAvailablePrefixesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamPrefixesAvailablePrefixesListRequest
 	*/
 	IpamPrefixesAvailablePrefixesList(ctx context.Context, id int32) ApiIpamPrefixesAvailablePrefixesListRequest
 
@@ -1040,12 +1040,12 @@ type IpamAPI interface {
 	IpamPrefixesAvailablePrefixesListExecute(r ApiIpamPrefixesAvailablePrefixesListRequest) ([]AvailablePrefix, *http.Response, error)
 
 	/*
-	IpamPrefixesBulkDestroy Method for IpamPrefixesBulkDestroy
+		IpamPrefixesBulkDestroy Method for IpamPrefixesBulkDestroy
 
-	Delete a list of prefix objects.
+		Delete a list of prefix objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamPrefixesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamPrefixesBulkDestroyRequest
 	*/
 	IpamPrefixesBulkDestroy(ctx context.Context) ApiIpamPrefixesBulkDestroyRequest
 
@@ -1053,12 +1053,12 @@ type IpamAPI interface {
 	IpamPrefixesBulkDestroyExecute(r ApiIpamPrefixesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamPrefixesBulkPartialUpdate Method for IpamPrefixesBulkPartialUpdate
+		IpamPrefixesBulkPartialUpdate Method for IpamPrefixesBulkPartialUpdate
 
-	Patch a list of prefix objects.
+		Patch a list of prefix objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamPrefixesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamPrefixesBulkPartialUpdateRequest
 	*/
 	IpamPrefixesBulkPartialUpdate(ctx context.Context) ApiIpamPrefixesBulkPartialUpdateRequest
 
@@ -1067,12 +1067,12 @@ type IpamAPI interface {
 	IpamPrefixesBulkPartialUpdateExecute(r ApiIpamPrefixesBulkPartialUpdateRequest) ([]Prefix, *http.Response, error)
 
 	/*
-	IpamPrefixesBulkUpdate Method for IpamPrefixesBulkUpdate
+		IpamPrefixesBulkUpdate Method for IpamPrefixesBulkUpdate
 
-	Put a list of prefix objects.
+		Put a list of prefix objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamPrefixesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamPrefixesBulkUpdateRequest
 	*/
 	IpamPrefixesBulkUpdate(ctx context.Context) ApiIpamPrefixesBulkUpdateRequest
 
@@ -1081,12 +1081,12 @@ type IpamAPI interface {
 	IpamPrefixesBulkUpdateExecute(r ApiIpamPrefixesBulkUpdateRequest) ([]Prefix, *http.Response, error)
 
 	/*
-	IpamPrefixesCreate Method for IpamPrefixesCreate
+		IpamPrefixesCreate Method for IpamPrefixesCreate
 
-	Post a list of prefix objects.
+		Post a list of prefix objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamPrefixesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamPrefixesCreateRequest
 	*/
 	IpamPrefixesCreate(ctx context.Context) ApiIpamPrefixesCreateRequest
 
@@ -1095,13 +1095,13 @@ type IpamAPI interface {
 	IpamPrefixesCreateExecute(r ApiIpamPrefixesCreateRequest) (*Prefix, *http.Response, error)
 
 	/*
-	IpamPrefixesDestroy Method for IpamPrefixesDestroy
+		IpamPrefixesDestroy Method for IpamPrefixesDestroy
 
-	Delete a prefix object.
+		Delete a prefix object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this prefix.
-	@return ApiIpamPrefixesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this prefix.
+		@return ApiIpamPrefixesDestroyRequest
 	*/
 	IpamPrefixesDestroy(ctx context.Context, id int32) ApiIpamPrefixesDestroyRequest
 
@@ -1109,12 +1109,12 @@ type IpamAPI interface {
 	IpamPrefixesDestroyExecute(r ApiIpamPrefixesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamPrefixesList Method for IpamPrefixesList
+		IpamPrefixesList Method for IpamPrefixesList
 
-	Get a list of prefix objects.
+		Get a list of prefix objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamPrefixesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamPrefixesListRequest
 	*/
 	IpamPrefixesList(ctx context.Context) ApiIpamPrefixesListRequest
 
@@ -1123,13 +1123,13 @@ type IpamAPI interface {
 	IpamPrefixesListExecute(r ApiIpamPrefixesListRequest) (*PaginatedPrefixList, *http.Response, error)
 
 	/*
-	IpamPrefixesPartialUpdate Method for IpamPrefixesPartialUpdate
+		IpamPrefixesPartialUpdate Method for IpamPrefixesPartialUpdate
 
-	Patch a prefix object.
+		Patch a prefix object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this prefix.
-	@return ApiIpamPrefixesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this prefix.
+		@return ApiIpamPrefixesPartialUpdateRequest
 	*/
 	IpamPrefixesPartialUpdate(ctx context.Context, id int32) ApiIpamPrefixesPartialUpdateRequest
 
@@ -1138,13 +1138,13 @@ type IpamAPI interface {
 	IpamPrefixesPartialUpdateExecute(r ApiIpamPrefixesPartialUpdateRequest) (*Prefix, *http.Response, error)
 
 	/*
-	IpamPrefixesRetrieve Method for IpamPrefixesRetrieve
+		IpamPrefixesRetrieve Method for IpamPrefixesRetrieve
 
-	Get a prefix object.
+		Get a prefix object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this prefix.
-	@return ApiIpamPrefixesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this prefix.
+		@return ApiIpamPrefixesRetrieveRequest
 	*/
 	IpamPrefixesRetrieve(ctx context.Context, id int32) ApiIpamPrefixesRetrieveRequest
 
@@ -1153,13 +1153,13 @@ type IpamAPI interface {
 	IpamPrefixesRetrieveExecute(r ApiIpamPrefixesRetrieveRequest) (*Prefix, *http.Response, error)
 
 	/*
-	IpamPrefixesUpdate Method for IpamPrefixesUpdate
+		IpamPrefixesUpdate Method for IpamPrefixesUpdate
 
-	Put a prefix object.
+		Put a prefix object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this prefix.
-	@return ApiIpamPrefixesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this prefix.
+		@return ApiIpamPrefixesUpdateRequest
 	*/
 	IpamPrefixesUpdate(ctx context.Context, id int32) ApiIpamPrefixesUpdateRequest
 
@@ -1168,12 +1168,12 @@ type IpamAPI interface {
 	IpamPrefixesUpdateExecute(r ApiIpamPrefixesUpdateRequest) (*Prefix, *http.Response, error)
 
 	/*
-	IpamRirsBulkDestroy Method for IpamRirsBulkDestroy
+		IpamRirsBulkDestroy Method for IpamRirsBulkDestroy
 
-	Delete a list of RIR objects.
+		Delete a list of RIR objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRirsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRirsBulkDestroyRequest
 	*/
 	IpamRirsBulkDestroy(ctx context.Context) ApiIpamRirsBulkDestroyRequest
 
@@ -1181,12 +1181,12 @@ type IpamAPI interface {
 	IpamRirsBulkDestroyExecute(r ApiIpamRirsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamRirsBulkPartialUpdate Method for IpamRirsBulkPartialUpdate
+		IpamRirsBulkPartialUpdate Method for IpamRirsBulkPartialUpdate
 
-	Patch a list of RIR objects.
+		Patch a list of RIR objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRirsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRirsBulkPartialUpdateRequest
 	*/
 	IpamRirsBulkPartialUpdate(ctx context.Context) ApiIpamRirsBulkPartialUpdateRequest
 
@@ -1195,12 +1195,12 @@ type IpamAPI interface {
 	IpamRirsBulkPartialUpdateExecute(r ApiIpamRirsBulkPartialUpdateRequest) ([]RIR, *http.Response, error)
 
 	/*
-	IpamRirsBulkUpdate Method for IpamRirsBulkUpdate
+		IpamRirsBulkUpdate Method for IpamRirsBulkUpdate
 
-	Put a list of RIR objects.
+		Put a list of RIR objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRirsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRirsBulkUpdateRequest
 	*/
 	IpamRirsBulkUpdate(ctx context.Context) ApiIpamRirsBulkUpdateRequest
 
@@ -1209,12 +1209,12 @@ type IpamAPI interface {
 	IpamRirsBulkUpdateExecute(r ApiIpamRirsBulkUpdateRequest) ([]RIR, *http.Response, error)
 
 	/*
-	IpamRirsCreate Method for IpamRirsCreate
+		IpamRirsCreate Method for IpamRirsCreate
 
-	Post a list of RIR objects.
+		Post a list of RIR objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRirsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRirsCreateRequest
 	*/
 	IpamRirsCreate(ctx context.Context) ApiIpamRirsCreateRequest
 
@@ -1223,13 +1223,13 @@ type IpamAPI interface {
 	IpamRirsCreateExecute(r ApiIpamRirsCreateRequest) (*RIR, *http.Response, error)
 
 	/*
-	IpamRirsDestroy Method for IpamRirsDestroy
+		IpamRirsDestroy Method for IpamRirsDestroy
 
-	Delete a RIR object.
+		Delete a RIR object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this RIR.
-	@return ApiIpamRirsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this RIR.
+		@return ApiIpamRirsDestroyRequest
 	*/
 	IpamRirsDestroy(ctx context.Context, id int32) ApiIpamRirsDestroyRequest
 
@@ -1237,12 +1237,12 @@ type IpamAPI interface {
 	IpamRirsDestroyExecute(r ApiIpamRirsDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamRirsList Method for IpamRirsList
+		IpamRirsList Method for IpamRirsList
 
-	Get a list of RIR objects.
+		Get a list of RIR objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRirsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRirsListRequest
 	*/
 	IpamRirsList(ctx context.Context) ApiIpamRirsListRequest
 
@@ -1251,13 +1251,13 @@ type IpamAPI interface {
 	IpamRirsListExecute(r ApiIpamRirsListRequest) (*PaginatedRIRList, *http.Response, error)
 
 	/*
-	IpamRirsPartialUpdate Method for IpamRirsPartialUpdate
+		IpamRirsPartialUpdate Method for IpamRirsPartialUpdate
 
-	Patch a RIR object.
+		Patch a RIR object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this RIR.
-	@return ApiIpamRirsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this RIR.
+		@return ApiIpamRirsPartialUpdateRequest
 	*/
 	IpamRirsPartialUpdate(ctx context.Context, id int32) ApiIpamRirsPartialUpdateRequest
 
@@ -1266,13 +1266,13 @@ type IpamAPI interface {
 	IpamRirsPartialUpdateExecute(r ApiIpamRirsPartialUpdateRequest) (*RIR, *http.Response, error)
 
 	/*
-	IpamRirsRetrieve Method for IpamRirsRetrieve
+		IpamRirsRetrieve Method for IpamRirsRetrieve
 
-	Get a RIR object.
+		Get a RIR object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this RIR.
-	@return ApiIpamRirsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this RIR.
+		@return ApiIpamRirsRetrieveRequest
 	*/
 	IpamRirsRetrieve(ctx context.Context, id int32) ApiIpamRirsRetrieveRequest
 
@@ -1281,13 +1281,13 @@ type IpamAPI interface {
 	IpamRirsRetrieveExecute(r ApiIpamRirsRetrieveRequest) (*RIR, *http.Response, error)
 
 	/*
-	IpamRirsUpdate Method for IpamRirsUpdate
+		IpamRirsUpdate Method for IpamRirsUpdate
 
-	Put a RIR object.
+		Put a RIR object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this RIR.
-	@return ApiIpamRirsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this RIR.
+		@return ApiIpamRirsUpdateRequest
 	*/
 	IpamRirsUpdate(ctx context.Context, id int32) ApiIpamRirsUpdateRequest
 
@@ -1296,12 +1296,12 @@ type IpamAPI interface {
 	IpamRirsUpdateExecute(r ApiIpamRirsUpdateRequest) (*RIR, *http.Response, error)
 
 	/*
-	IpamRolesBulkDestroy Method for IpamRolesBulkDestroy
+		IpamRolesBulkDestroy Method for IpamRolesBulkDestroy
 
-	Delete a list of role objects.
+		Delete a list of role objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRolesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRolesBulkDestroyRequest
 	*/
 	IpamRolesBulkDestroy(ctx context.Context) ApiIpamRolesBulkDestroyRequest
 
@@ -1309,12 +1309,12 @@ type IpamAPI interface {
 	IpamRolesBulkDestroyExecute(r ApiIpamRolesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamRolesBulkPartialUpdate Method for IpamRolesBulkPartialUpdate
+		IpamRolesBulkPartialUpdate Method for IpamRolesBulkPartialUpdate
 
-	Patch a list of role objects.
+		Patch a list of role objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRolesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRolesBulkPartialUpdateRequest
 	*/
 	IpamRolesBulkPartialUpdate(ctx context.Context) ApiIpamRolesBulkPartialUpdateRequest
 
@@ -1323,12 +1323,12 @@ type IpamAPI interface {
 	IpamRolesBulkPartialUpdateExecute(r ApiIpamRolesBulkPartialUpdateRequest) ([]Role, *http.Response, error)
 
 	/*
-	IpamRolesBulkUpdate Method for IpamRolesBulkUpdate
+		IpamRolesBulkUpdate Method for IpamRolesBulkUpdate
 
-	Put a list of role objects.
+		Put a list of role objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRolesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRolesBulkUpdateRequest
 	*/
 	IpamRolesBulkUpdate(ctx context.Context) ApiIpamRolesBulkUpdateRequest
 
@@ -1337,12 +1337,12 @@ type IpamAPI interface {
 	IpamRolesBulkUpdateExecute(r ApiIpamRolesBulkUpdateRequest) ([]Role, *http.Response, error)
 
 	/*
-	IpamRolesCreate Method for IpamRolesCreate
+		IpamRolesCreate Method for IpamRolesCreate
 
-	Post a list of role objects.
+		Post a list of role objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRolesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRolesCreateRequest
 	*/
 	IpamRolesCreate(ctx context.Context) ApiIpamRolesCreateRequest
 
@@ -1351,13 +1351,13 @@ type IpamAPI interface {
 	IpamRolesCreateExecute(r ApiIpamRolesCreateRequest) (*Role, *http.Response, error)
 
 	/*
-	IpamRolesDestroy Method for IpamRolesDestroy
+		IpamRolesDestroy Method for IpamRolesDestroy
 
-	Delete a role object.
+		Delete a role object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this role.
-	@return ApiIpamRolesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this role.
+		@return ApiIpamRolesDestroyRequest
 	*/
 	IpamRolesDestroy(ctx context.Context, id int32) ApiIpamRolesDestroyRequest
 
@@ -1365,12 +1365,12 @@ type IpamAPI interface {
 	IpamRolesDestroyExecute(r ApiIpamRolesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamRolesList Method for IpamRolesList
+		IpamRolesList Method for IpamRolesList
 
-	Get a list of role objects.
+		Get a list of role objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRolesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRolesListRequest
 	*/
 	IpamRolesList(ctx context.Context) ApiIpamRolesListRequest
 
@@ -1379,13 +1379,13 @@ type IpamAPI interface {
 	IpamRolesListExecute(r ApiIpamRolesListRequest) (*PaginatedRoleList, *http.Response, error)
 
 	/*
-	IpamRolesPartialUpdate Method for IpamRolesPartialUpdate
+		IpamRolesPartialUpdate Method for IpamRolesPartialUpdate
 
-	Patch a role object.
+		Patch a role object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this role.
-	@return ApiIpamRolesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this role.
+		@return ApiIpamRolesPartialUpdateRequest
 	*/
 	IpamRolesPartialUpdate(ctx context.Context, id int32) ApiIpamRolesPartialUpdateRequest
 
@@ -1394,13 +1394,13 @@ type IpamAPI interface {
 	IpamRolesPartialUpdateExecute(r ApiIpamRolesPartialUpdateRequest) (*Role, *http.Response, error)
 
 	/*
-	IpamRolesRetrieve Method for IpamRolesRetrieve
+		IpamRolesRetrieve Method for IpamRolesRetrieve
 
-	Get a role object.
+		Get a role object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this role.
-	@return ApiIpamRolesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this role.
+		@return ApiIpamRolesRetrieveRequest
 	*/
 	IpamRolesRetrieve(ctx context.Context, id int32) ApiIpamRolesRetrieveRequest
 
@@ -1409,13 +1409,13 @@ type IpamAPI interface {
 	IpamRolesRetrieveExecute(r ApiIpamRolesRetrieveRequest) (*Role, *http.Response, error)
 
 	/*
-	IpamRolesUpdate Method for IpamRolesUpdate
+		IpamRolesUpdate Method for IpamRolesUpdate
 
-	Put a role object.
+		Put a role object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this role.
-	@return ApiIpamRolesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this role.
+		@return ApiIpamRolesUpdateRequest
 	*/
 	IpamRolesUpdate(ctx context.Context, id int32) ApiIpamRolesUpdateRequest
 
@@ -1424,12 +1424,12 @@ type IpamAPI interface {
 	IpamRolesUpdateExecute(r ApiIpamRolesUpdateRequest) (*Role, *http.Response, error)
 
 	/*
-	IpamRouteTargetsBulkDestroy Method for IpamRouteTargetsBulkDestroy
+		IpamRouteTargetsBulkDestroy Method for IpamRouteTargetsBulkDestroy
 
-	Delete a list of route target objects.
+		Delete a list of route target objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRouteTargetsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRouteTargetsBulkDestroyRequest
 	*/
 	IpamRouteTargetsBulkDestroy(ctx context.Context) ApiIpamRouteTargetsBulkDestroyRequest
 
@@ -1437,12 +1437,12 @@ type IpamAPI interface {
 	IpamRouteTargetsBulkDestroyExecute(r ApiIpamRouteTargetsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamRouteTargetsBulkPartialUpdate Method for IpamRouteTargetsBulkPartialUpdate
+		IpamRouteTargetsBulkPartialUpdate Method for IpamRouteTargetsBulkPartialUpdate
 
-	Patch a list of route target objects.
+		Patch a list of route target objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRouteTargetsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRouteTargetsBulkPartialUpdateRequest
 	*/
 	IpamRouteTargetsBulkPartialUpdate(ctx context.Context) ApiIpamRouteTargetsBulkPartialUpdateRequest
 
@@ -1451,12 +1451,12 @@ type IpamAPI interface {
 	IpamRouteTargetsBulkPartialUpdateExecute(r ApiIpamRouteTargetsBulkPartialUpdateRequest) ([]RouteTarget, *http.Response, error)
 
 	/*
-	IpamRouteTargetsBulkUpdate Method for IpamRouteTargetsBulkUpdate
+		IpamRouteTargetsBulkUpdate Method for IpamRouteTargetsBulkUpdate
 
-	Put a list of route target objects.
+		Put a list of route target objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRouteTargetsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRouteTargetsBulkUpdateRequest
 	*/
 	IpamRouteTargetsBulkUpdate(ctx context.Context) ApiIpamRouteTargetsBulkUpdateRequest
 
@@ -1465,12 +1465,12 @@ type IpamAPI interface {
 	IpamRouteTargetsBulkUpdateExecute(r ApiIpamRouteTargetsBulkUpdateRequest) ([]RouteTarget, *http.Response, error)
 
 	/*
-	IpamRouteTargetsCreate Method for IpamRouteTargetsCreate
+		IpamRouteTargetsCreate Method for IpamRouteTargetsCreate
 
-	Post a list of route target objects.
+		Post a list of route target objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRouteTargetsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRouteTargetsCreateRequest
 	*/
 	IpamRouteTargetsCreate(ctx context.Context) ApiIpamRouteTargetsCreateRequest
 
@@ -1479,13 +1479,13 @@ type IpamAPI interface {
 	IpamRouteTargetsCreateExecute(r ApiIpamRouteTargetsCreateRequest) (*RouteTarget, *http.Response, error)
 
 	/*
-	IpamRouteTargetsDestroy Method for IpamRouteTargetsDestroy
+		IpamRouteTargetsDestroy Method for IpamRouteTargetsDestroy
 
-	Delete a route target object.
+		Delete a route target object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this route target.
-	@return ApiIpamRouteTargetsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this route target.
+		@return ApiIpamRouteTargetsDestroyRequest
 	*/
 	IpamRouteTargetsDestroy(ctx context.Context, id int32) ApiIpamRouteTargetsDestroyRequest
 
@@ -1493,12 +1493,12 @@ type IpamAPI interface {
 	IpamRouteTargetsDestroyExecute(r ApiIpamRouteTargetsDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamRouteTargetsList Method for IpamRouteTargetsList
+		IpamRouteTargetsList Method for IpamRouteTargetsList
 
-	Get a list of route target objects.
+		Get a list of route target objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamRouteTargetsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamRouteTargetsListRequest
 	*/
 	IpamRouteTargetsList(ctx context.Context) ApiIpamRouteTargetsListRequest
 
@@ -1507,13 +1507,13 @@ type IpamAPI interface {
 	IpamRouteTargetsListExecute(r ApiIpamRouteTargetsListRequest) (*PaginatedRouteTargetList, *http.Response, error)
 
 	/*
-	IpamRouteTargetsPartialUpdate Method for IpamRouteTargetsPartialUpdate
+		IpamRouteTargetsPartialUpdate Method for IpamRouteTargetsPartialUpdate
 
-	Patch a route target object.
+		Patch a route target object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this route target.
-	@return ApiIpamRouteTargetsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this route target.
+		@return ApiIpamRouteTargetsPartialUpdateRequest
 	*/
 	IpamRouteTargetsPartialUpdate(ctx context.Context, id int32) ApiIpamRouteTargetsPartialUpdateRequest
 
@@ -1522,13 +1522,13 @@ type IpamAPI interface {
 	IpamRouteTargetsPartialUpdateExecute(r ApiIpamRouteTargetsPartialUpdateRequest) (*RouteTarget, *http.Response, error)
 
 	/*
-	IpamRouteTargetsRetrieve Method for IpamRouteTargetsRetrieve
+		IpamRouteTargetsRetrieve Method for IpamRouteTargetsRetrieve
 
-	Get a route target object.
+		Get a route target object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this route target.
-	@return ApiIpamRouteTargetsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this route target.
+		@return ApiIpamRouteTargetsRetrieveRequest
 	*/
 	IpamRouteTargetsRetrieve(ctx context.Context, id int32) ApiIpamRouteTargetsRetrieveRequest
 
@@ -1537,13 +1537,13 @@ type IpamAPI interface {
 	IpamRouteTargetsRetrieveExecute(r ApiIpamRouteTargetsRetrieveRequest) (*RouteTarget, *http.Response, error)
 
 	/*
-	IpamRouteTargetsUpdate Method for IpamRouteTargetsUpdate
+		IpamRouteTargetsUpdate Method for IpamRouteTargetsUpdate
 
-	Put a route target object.
+		Put a route target object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this route target.
-	@return ApiIpamRouteTargetsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this route target.
+		@return ApiIpamRouteTargetsUpdateRequest
 	*/
 	IpamRouteTargetsUpdate(ctx context.Context, id int32) ApiIpamRouteTargetsUpdateRequest
 
@@ -1552,12 +1552,12 @@ type IpamAPI interface {
 	IpamRouteTargetsUpdateExecute(r ApiIpamRouteTargetsUpdateRequest) (*RouteTarget, *http.Response, error)
 
 	/*
-	IpamServiceTemplatesBulkDestroy Method for IpamServiceTemplatesBulkDestroy
+		IpamServiceTemplatesBulkDestroy Method for IpamServiceTemplatesBulkDestroy
 
-	Delete a list of service template objects.
+		Delete a list of service template objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServiceTemplatesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServiceTemplatesBulkDestroyRequest
 	*/
 	IpamServiceTemplatesBulkDestroy(ctx context.Context) ApiIpamServiceTemplatesBulkDestroyRequest
 
@@ -1565,12 +1565,12 @@ type IpamAPI interface {
 	IpamServiceTemplatesBulkDestroyExecute(r ApiIpamServiceTemplatesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamServiceTemplatesBulkPartialUpdate Method for IpamServiceTemplatesBulkPartialUpdate
+		IpamServiceTemplatesBulkPartialUpdate Method for IpamServiceTemplatesBulkPartialUpdate
 
-	Patch a list of service template objects.
+		Patch a list of service template objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServiceTemplatesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServiceTemplatesBulkPartialUpdateRequest
 	*/
 	IpamServiceTemplatesBulkPartialUpdate(ctx context.Context) ApiIpamServiceTemplatesBulkPartialUpdateRequest
 
@@ -1579,12 +1579,12 @@ type IpamAPI interface {
 	IpamServiceTemplatesBulkPartialUpdateExecute(r ApiIpamServiceTemplatesBulkPartialUpdateRequest) ([]ServiceTemplate, *http.Response, error)
 
 	/*
-	IpamServiceTemplatesBulkUpdate Method for IpamServiceTemplatesBulkUpdate
+		IpamServiceTemplatesBulkUpdate Method for IpamServiceTemplatesBulkUpdate
 
-	Put a list of service template objects.
+		Put a list of service template objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServiceTemplatesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServiceTemplatesBulkUpdateRequest
 	*/
 	IpamServiceTemplatesBulkUpdate(ctx context.Context) ApiIpamServiceTemplatesBulkUpdateRequest
 
@@ -1593,12 +1593,12 @@ type IpamAPI interface {
 	IpamServiceTemplatesBulkUpdateExecute(r ApiIpamServiceTemplatesBulkUpdateRequest) ([]ServiceTemplate, *http.Response, error)
 
 	/*
-	IpamServiceTemplatesCreate Method for IpamServiceTemplatesCreate
+		IpamServiceTemplatesCreate Method for IpamServiceTemplatesCreate
 
-	Post a list of service template objects.
+		Post a list of service template objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServiceTemplatesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServiceTemplatesCreateRequest
 	*/
 	IpamServiceTemplatesCreate(ctx context.Context) ApiIpamServiceTemplatesCreateRequest
 
@@ -1607,13 +1607,13 @@ type IpamAPI interface {
 	IpamServiceTemplatesCreateExecute(r ApiIpamServiceTemplatesCreateRequest) (*ServiceTemplate, *http.Response, error)
 
 	/*
-	IpamServiceTemplatesDestroy Method for IpamServiceTemplatesDestroy
+		IpamServiceTemplatesDestroy Method for IpamServiceTemplatesDestroy
 
-	Delete a service template object.
+		Delete a service template object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service template.
-	@return ApiIpamServiceTemplatesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service template.
+		@return ApiIpamServiceTemplatesDestroyRequest
 	*/
 	IpamServiceTemplatesDestroy(ctx context.Context, id int32) ApiIpamServiceTemplatesDestroyRequest
 
@@ -1621,12 +1621,12 @@ type IpamAPI interface {
 	IpamServiceTemplatesDestroyExecute(r ApiIpamServiceTemplatesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamServiceTemplatesList Method for IpamServiceTemplatesList
+		IpamServiceTemplatesList Method for IpamServiceTemplatesList
 
-	Get a list of service template objects.
+		Get a list of service template objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServiceTemplatesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServiceTemplatesListRequest
 	*/
 	IpamServiceTemplatesList(ctx context.Context) ApiIpamServiceTemplatesListRequest
 
@@ -1635,13 +1635,13 @@ type IpamAPI interface {
 	IpamServiceTemplatesListExecute(r ApiIpamServiceTemplatesListRequest) (*PaginatedServiceTemplateList, *http.Response, error)
 
 	/*
-	IpamServiceTemplatesPartialUpdate Method for IpamServiceTemplatesPartialUpdate
+		IpamServiceTemplatesPartialUpdate Method for IpamServiceTemplatesPartialUpdate
 
-	Patch a service template object.
+		Patch a service template object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service template.
-	@return ApiIpamServiceTemplatesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service template.
+		@return ApiIpamServiceTemplatesPartialUpdateRequest
 	*/
 	IpamServiceTemplatesPartialUpdate(ctx context.Context, id int32) ApiIpamServiceTemplatesPartialUpdateRequest
 
@@ -1650,13 +1650,13 @@ type IpamAPI interface {
 	IpamServiceTemplatesPartialUpdateExecute(r ApiIpamServiceTemplatesPartialUpdateRequest) (*ServiceTemplate, *http.Response, error)
 
 	/*
-	IpamServiceTemplatesRetrieve Method for IpamServiceTemplatesRetrieve
+		IpamServiceTemplatesRetrieve Method for IpamServiceTemplatesRetrieve
 
-	Get a service template object.
+		Get a service template object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service template.
-	@return ApiIpamServiceTemplatesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service template.
+		@return ApiIpamServiceTemplatesRetrieveRequest
 	*/
 	IpamServiceTemplatesRetrieve(ctx context.Context, id int32) ApiIpamServiceTemplatesRetrieveRequest
 
@@ -1665,13 +1665,13 @@ type IpamAPI interface {
 	IpamServiceTemplatesRetrieveExecute(r ApiIpamServiceTemplatesRetrieveRequest) (*ServiceTemplate, *http.Response, error)
 
 	/*
-	IpamServiceTemplatesUpdate Method for IpamServiceTemplatesUpdate
+		IpamServiceTemplatesUpdate Method for IpamServiceTemplatesUpdate
 
-	Put a service template object.
+		Put a service template object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service template.
-	@return ApiIpamServiceTemplatesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service template.
+		@return ApiIpamServiceTemplatesUpdateRequest
 	*/
 	IpamServiceTemplatesUpdate(ctx context.Context, id int32) ApiIpamServiceTemplatesUpdateRequest
 
@@ -1680,12 +1680,12 @@ type IpamAPI interface {
 	IpamServiceTemplatesUpdateExecute(r ApiIpamServiceTemplatesUpdateRequest) (*ServiceTemplate, *http.Response, error)
 
 	/*
-	IpamServicesBulkDestroy Method for IpamServicesBulkDestroy
+		IpamServicesBulkDestroy Method for IpamServicesBulkDestroy
 
-	Delete a list of service objects.
+		Delete a list of service objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServicesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServicesBulkDestroyRequest
 	*/
 	IpamServicesBulkDestroy(ctx context.Context) ApiIpamServicesBulkDestroyRequest
 
@@ -1693,12 +1693,12 @@ type IpamAPI interface {
 	IpamServicesBulkDestroyExecute(r ApiIpamServicesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamServicesBulkPartialUpdate Method for IpamServicesBulkPartialUpdate
+		IpamServicesBulkPartialUpdate Method for IpamServicesBulkPartialUpdate
 
-	Patch a list of service objects.
+		Patch a list of service objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServicesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServicesBulkPartialUpdateRequest
 	*/
 	IpamServicesBulkPartialUpdate(ctx context.Context) ApiIpamServicesBulkPartialUpdateRequest
 
@@ -1707,12 +1707,12 @@ type IpamAPI interface {
 	IpamServicesBulkPartialUpdateExecute(r ApiIpamServicesBulkPartialUpdateRequest) ([]Service, *http.Response, error)
 
 	/*
-	IpamServicesBulkUpdate Method for IpamServicesBulkUpdate
+		IpamServicesBulkUpdate Method for IpamServicesBulkUpdate
 
-	Put a list of service objects.
+		Put a list of service objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServicesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServicesBulkUpdateRequest
 	*/
 	IpamServicesBulkUpdate(ctx context.Context) ApiIpamServicesBulkUpdateRequest
 
@@ -1721,12 +1721,12 @@ type IpamAPI interface {
 	IpamServicesBulkUpdateExecute(r ApiIpamServicesBulkUpdateRequest) ([]Service, *http.Response, error)
 
 	/*
-	IpamServicesCreate Method for IpamServicesCreate
+		IpamServicesCreate Method for IpamServicesCreate
 
-	Post a list of service objects.
+		Post a list of service objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServicesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServicesCreateRequest
 	*/
 	IpamServicesCreate(ctx context.Context) ApiIpamServicesCreateRequest
 
@@ -1735,13 +1735,13 @@ type IpamAPI interface {
 	IpamServicesCreateExecute(r ApiIpamServicesCreateRequest) (*Service, *http.Response, error)
 
 	/*
-	IpamServicesDestroy Method for IpamServicesDestroy
+		IpamServicesDestroy Method for IpamServicesDestroy
 
-	Delete a service object.
+		Delete a service object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service.
-	@return ApiIpamServicesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service.
+		@return ApiIpamServicesDestroyRequest
 	*/
 	IpamServicesDestroy(ctx context.Context, id int32) ApiIpamServicesDestroyRequest
 
@@ -1749,12 +1749,12 @@ type IpamAPI interface {
 	IpamServicesDestroyExecute(r ApiIpamServicesDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamServicesList Method for IpamServicesList
+		IpamServicesList Method for IpamServicesList
 
-	Get a list of service objects.
+		Get a list of service objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamServicesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamServicesListRequest
 	*/
 	IpamServicesList(ctx context.Context) ApiIpamServicesListRequest
 
@@ -1763,13 +1763,13 @@ type IpamAPI interface {
 	IpamServicesListExecute(r ApiIpamServicesListRequest) (*PaginatedServiceList, *http.Response, error)
 
 	/*
-	IpamServicesPartialUpdate Method for IpamServicesPartialUpdate
+		IpamServicesPartialUpdate Method for IpamServicesPartialUpdate
 
-	Patch a service object.
+		Patch a service object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service.
-	@return ApiIpamServicesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service.
+		@return ApiIpamServicesPartialUpdateRequest
 	*/
 	IpamServicesPartialUpdate(ctx context.Context, id int32) ApiIpamServicesPartialUpdateRequest
 
@@ -1778,13 +1778,13 @@ type IpamAPI interface {
 	IpamServicesPartialUpdateExecute(r ApiIpamServicesPartialUpdateRequest) (*Service, *http.Response, error)
 
 	/*
-	IpamServicesRetrieve Method for IpamServicesRetrieve
+		IpamServicesRetrieve Method for IpamServicesRetrieve
 
-	Get a service object.
+		Get a service object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service.
-	@return ApiIpamServicesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service.
+		@return ApiIpamServicesRetrieveRequest
 	*/
 	IpamServicesRetrieve(ctx context.Context, id int32) ApiIpamServicesRetrieveRequest
 
@@ -1793,13 +1793,13 @@ type IpamAPI interface {
 	IpamServicesRetrieveExecute(r ApiIpamServicesRetrieveRequest) (*Service, *http.Response, error)
 
 	/*
-	IpamServicesUpdate Method for IpamServicesUpdate
+		IpamServicesUpdate Method for IpamServicesUpdate
 
-	Put a service object.
+		Put a service object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this service.
-	@return ApiIpamServicesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this service.
+		@return ApiIpamServicesUpdateRequest
 	*/
 	IpamServicesUpdate(ctx context.Context, id int32) ApiIpamServicesUpdateRequest
 
@@ -1808,13 +1808,13 @@ type IpamAPI interface {
 	IpamServicesUpdateExecute(r ApiIpamServicesUpdateRequest) (*Service, *http.Response, error)
 
 	/*
-	IpamVlanGroupsAvailableVlansCreate Method for IpamVlanGroupsAvailableVlansCreate
+		IpamVlanGroupsAvailableVlansCreate Method for IpamVlanGroupsAvailableVlansCreate
 
-	Post a VLAN object.
+		Post a VLAN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamVlanGroupsAvailableVlansCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamVlanGroupsAvailableVlansCreateRequest
 	*/
 	IpamVlanGroupsAvailableVlansCreate(ctx context.Context, id int32) ApiIpamVlanGroupsAvailableVlansCreateRequest
 
@@ -1823,13 +1823,13 @@ type IpamAPI interface {
 	IpamVlanGroupsAvailableVlansCreateExecute(r ApiIpamVlanGroupsAvailableVlansCreateRequest) ([]VLAN, *http.Response, error)
 
 	/*
-	IpamVlanGroupsAvailableVlansList Method for IpamVlanGroupsAvailableVlansList
+		IpamVlanGroupsAvailableVlansList Method for IpamVlanGroupsAvailableVlansList
 
-	Get a VLAN object.
+		Get a VLAN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id
-	@return ApiIpamVlanGroupsAvailableVlansListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id
+		@return ApiIpamVlanGroupsAvailableVlansListRequest
 	*/
 	IpamVlanGroupsAvailableVlansList(ctx context.Context, id int32) ApiIpamVlanGroupsAvailableVlansListRequest
 
@@ -1838,12 +1838,12 @@ type IpamAPI interface {
 	IpamVlanGroupsAvailableVlansListExecute(r ApiIpamVlanGroupsAvailableVlansListRequest) ([]AvailableVLAN, *http.Response, error)
 
 	/*
-	IpamVlanGroupsBulkDestroy Method for IpamVlanGroupsBulkDestroy
+		IpamVlanGroupsBulkDestroy Method for IpamVlanGroupsBulkDestroy
 
-	Delete a list of VLAN group objects.
+		Delete a list of VLAN group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlanGroupsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlanGroupsBulkDestroyRequest
 	*/
 	IpamVlanGroupsBulkDestroy(ctx context.Context) ApiIpamVlanGroupsBulkDestroyRequest
 
@@ -1851,12 +1851,12 @@ type IpamAPI interface {
 	IpamVlanGroupsBulkDestroyExecute(r ApiIpamVlanGroupsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamVlanGroupsBulkPartialUpdate Method for IpamVlanGroupsBulkPartialUpdate
+		IpamVlanGroupsBulkPartialUpdate Method for IpamVlanGroupsBulkPartialUpdate
 
-	Patch a list of VLAN group objects.
+		Patch a list of VLAN group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlanGroupsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlanGroupsBulkPartialUpdateRequest
 	*/
 	IpamVlanGroupsBulkPartialUpdate(ctx context.Context) ApiIpamVlanGroupsBulkPartialUpdateRequest
 
@@ -1865,12 +1865,12 @@ type IpamAPI interface {
 	IpamVlanGroupsBulkPartialUpdateExecute(r ApiIpamVlanGroupsBulkPartialUpdateRequest) ([]VLANGroup, *http.Response, error)
 
 	/*
-	IpamVlanGroupsBulkUpdate Method for IpamVlanGroupsBulkUpdate
+		IpamVlanGroupsBulkUpdate Method for IpamVlanGroupsBulkUpdate
 
-	Put a list of VLAN group objects.
+		Put a list of VLAN group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlanGroupsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlanGroupsBulkUpdateRequest
 	*/
 	IpamVlanGroupsBulkUpdate(ctx context.Context) ApiIpamVlanGroupsBulkUpdateRequest
 
@@ -1879,12 +1879,12 @@ type IpamAPI interface {
 	IpamVlanGroupsBulkUpdateExecute(r ApiIpamVlanGroupsBulkUpdateRequest) ([]VLANGroup, *http.Response, error)
 
 	/*
-	IpamVlanGroupsCreate Method for IpamVlanGroupsCreate
+		IpamVlanGroupsCreate Method for IpamVlanGroupsCreate
 
-	Post a list of VLAN group objects.
+		Post a list of VLAN group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlanGroupsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlanGroupsCreateRequest
 	*/
 	IpamVlanGroupsCreate(ctx context.Context) ApiIpamVlanGroupsCreateRequest
 
@@ -1893,13 +1893,13 @@ type IpamAPI interface {
 	IpamVlanGroupsCreateExecute(r ApiIpamVlanGroupsCreateRequest) (*VLANGroup, *http.Response, error)
 
 	/*
-	IpamVlanGroupsDestroy Method for IpamVlanGroupsDestroy
+		IpamVlanGroupsDestroy Method for IpamVlanGroupsDestroy
 
-	Delete a VLAN group object.
+		Delete a VLAN group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN group.
-	@return ApiIpamVlanGroupsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN group.
+		@return ApiIpamVlanGroupsDestroyRequest
 	*/
 	IpamVlanGroupsDestroy(ctx context.Context, id int32) ApiIpamVlanGroupsDestroyRequest
 
@@ -1907,12 +1907,12 @@ type IpamAPI interface {
 	IpamVlanGroupsDestroyExecute(r ApiIpamVlanGroupsDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamVlanGroupsList Method for IpamVlanGroupsList
+		IpamVlanGroupsList Method for IpamVlanGroupsList
 
-	Get a list of VLAN group objects.
+		Get a list of VLAN group objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlanGroupsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlanGroupsListRequest
 	*/
 	IpamVlanGroupsList(ctx context.Context) ApiIpamVlanGroupsListRequest
 
@@ -1921,13 +1921,13 @@ type IpamAPI interface {
 	IpamVlanGroupsListExecute(r ApiIpamVlanGroupsListRequest) (*PaginatedVLANGroupList, *http.Response, error)
 
 	/*
-	IpamVlanGroupsPartialUpdate Method for IpamVlanGroupsPartialUpdate
+		IpamVlanGroupsPartialUpdate Method for IpamVlanGroupsPartialUpdate
 
-	Patch a VLAN group object.
+		Patch a VLAN group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN group.
-	@return ApiIpamVlanGroupsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN group.
+		@return ApiIpamVlanGroupsPartialUpdateRequest
 	*/
 	IpamVlanGroupsPartialUpdate(ctx context.Context, id int32) ApiIpamVlanGroupsPartialUpdateRequest
 
@@ -1936,13 +1936,13 @@ type IpamAPI interface {
 	IpamVlanGroupsPartialUpdateExecute(r ApiIpamVlanGroupsPartialUpdateRequest) (*VLANGroup, *http.Response, error)
 
 	/*
-	IpamVlanGroupsRetrieve Method for IpamVlanGroupsRetrieve
+		IpamVlanGroupsRetrieve Method for IpamVlanGroupsRetrieve
 
-	Get a VLAN group object.
+		Get a VLAN group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN group.
-	@return ApiIpamVlanGroupsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN group.
+		@return ApiIpamVlanGroupsRetrieveRequest
 	*/
 	IpamVlanGroupsRetrieve(ctx context.Context, id int32) ApiIpamVlanGroupsRetrieveRequest
 
@@ -1951,13 +1951,13 @@ type IpamAPI interface {
 	IpamVlanGroupsRetrieveExecute(r ApiIpamVlanGroupsRetrieveRequest) (*VLANGroup, *http.Response, error)
 
 	/*
-	IpamVlanGroupsUpdate Method for IpamVlanGroupsUpdate
+		IpamVlanGroupsUpdate Method for IpamVlanGroupsUpdate
 
-	Put a VLAN group object.
+		Put a VLAN group object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN group.
-	@return ApiIpamVlanGroupsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN group.
+		@return ApiIpamVlanGroupsUpdateRequest
 	*/
 	IpamVlanGroupsUpdate(ctx context.Context, id int32) ApiIpamVlanGroupsUpdateRequest
 
@@ -1966,12 +1966,12 @@ type IpamAPI interface {
 	IpamVlanGroupsUpdateExecute(r ApiIpamVlanGroupsUpdateRequest) (*VLANGroup, *http.Response, error)
 
 	/*
-	IpamVlansBulkDestroy Method for IpamVlansBulkDestroy
+		IpamVlansBulkDestroy Method for IpamVlansBulkDestroy
 
-	Delete a list of VLAN objects.
+		Delete a list of VLAN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlansBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlansBulkDestroyRequest
 	*/
 	IpamVlansBulkDestroy(ctx context.Context) ApiIpamVlansBulkDestroyRequest
 
@@ -1979,12 +1979,12 @@ type IpamAPI interface {
 	IpamVlansBulkDestroyExecute(r ApiIpamVlansBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamVlansBulkPartialUpdate Method for IpamVlansBulkPartialUpdate
+		IpamVlansBulkPartialUpdate Method for IpamVlansBulkPartialUpdate
 
-	Patch a list of VLAN objects.
+		Patch a list of VLAN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlansBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlansBulkPartialUpdateRequest
 	*/
 	IpamVlansBulkPartialUpdate(ctx context.Context) ApiIpamVlansBulkPartialUpdateRequest
 
@@ -1993,12 +1993,12 @@ type IpamAPI interface {
 	IpamVlansBulkPartialUpdateExecute(r ApiIpamVlansBulkPartialUpdateRequest) ([]VLAN, *http.Response, error)
 
 	/*
-	IpamVlansBulkUpdate Method for IpamVlansBulkUpdate
+		IpamVlansBulkUpdate Method for IpamVlansBulkUpdate
 
-	Put a list of VLAN objects.
+		Put a list of VLAN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlansBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlansBulkUpdateRequest
 	*/
 	IpamVlansBulkUpdate(ctx context.Context) ApiIpamVlansBulkUpdateRequest
 
@@ -2007,12 +2007,12 @@ type IpamAPI interface {
 	IpamVlansBulkUpdateExecute(r ApiIpamVlansBulkUpdateRequest) ([]VLAN, *http.Response, error)
 
 	/*
-	IpamVlansCreate Method for IpamVlansCreate
+		IpamVlansCreate Method for IpamVlansCreate
 
-	Post a list of VLAN objects.
+		Post a list of VLAN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlansCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlansCreateRequest
 	*/
 	IpamVlansCreate(ctx context.Context) ApiIpamVlansCreateRequest
 
@@ -2021,13 +2021,13 @@ type IpamAPI interface {
 	IpamVlansCreateExecute(r ApiIpamVlansCreateRequest) (*VLAN, *http.Response, error)
 
 	/*
-	IpamVlansDestroy Method for IpamVlansDestroy
+		IpamVlansDestroy Method for IpamVlansDestroy
 
-	Delete a VLAN object.
+		Delete a VLAN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN.
-	@return ApiIpamVlansDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN.
+		@return ApiIpamVlansDestroyRequest
 	*/
 	IpamVlansDestroy(ctx context.Context, id int32) ApiIpamVlansDestroyRequest
 
@@ -2035,12 +2035,12 @@ type IpamAPI interface {
 	IpamVlansDestroyExecute(r ApiIpamVlansDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamVlansList Method for IpamVlansList
+		IpamVlansList Method for IpamVlansList
 
-	Get a list of VLAN objects.
+		Get a list of VLAN objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVlansListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVlansListRequest
 	*/
 	IpamVlansList(ctx context.Context) ApiIpamVlansListRequest
 
@@ -2049,13 +2049,13 @@ type IpamAPI interface {
 	IpamVlansListExecute(r ApiIpamVlansListRequest) (*PaginatedVLANList, *http.Response, error)
 
 	/*
-	IpamVlansPartialUpdate Method for IpamVlansPartialUpdate
+		IpamVlansPartialUpdate Method for IpamVlansPartialUpdate
 
-	Patch a VLAN object.
+		Patch a VLAN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN.
-	@return ApiIpamVlansPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN.
+		@return ApiIpamVlansPartialUpdateRequest
 	*/
 	IpamVlansPartialUpdate(ctx context.Context, id int32) ApiIpamVlansPartialUpdateRequest
 
@@ -2064,13 +2064,13 @@ type IpamAPI interface {
 	IpamVlansPartialUpdateExecute(r ApiIpamVlansPartialUpdateRequest) (*VLAN, *http.Response, error)
 
 	/*
-	IpamVlansRetrieve Method for IpamVlansRetrieve
+		IpamVlansRetrieve Method for IpamVlansRetrieve
 
-	Get a VLAN object.
+		Get a VLAN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN.
-	@return ApiIpamVlansRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN.
+		@return ApiIpamVlansRetrieveRequest
 	*/
 	IpamVlansRetrieve(ctx context.Context, id int32) ApiIpamVlansRetrieveRequest
 
@@ -2079,13 +2079,13 @@ type IpamAPI interface {
 	IpamVlansRetrieveExecute(r ApiIpamVlansRetrieveRequest) (*VLAN, *http.Response, error)
 
 	/*
-	IpamVlansUpdate Method for IpamVlansUpdate
+		IpamVlansUpdate Method for IpamVlansUpdate
 
-	Put a VLAN object.
+		Put a VLAN object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VLAN.
-	@return ApiIpamVlansUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VLAN.
+		@return ApiIpamVlansUpdateRequest
 	*/
 	IpamVlansUpdate(ctx context.Context, id int32) ApiIpamVlansUpdateRequest
 
@@ -2094,12 +2094,12 @@ type IpamAPI interface {
 	IpamVlansUpdateExecute(r ApiIpamVlansUpdateRequest) (*VLAN, *http.Response, error)
 
 	/*
-	IpamVrfsBulkDestroy Method for IpamVrfsBulkDestroy
+		IpamVrfsBulkDestroy Method for IpamVrfsBulkDestroy
 
-	Delete a list of VRF objects.
+		Delete a list of VRF objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVrfsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVrfsBulkDestroyRequest
 	*/
 	IpamVrfsBulkDestroy(ctx context.Context) ApiIpamVrfsBulkDestroyRequest
 
@@ -2107,12 +2107,12 @@ type IpamAPI interface {
 	IpamVrfsBulkDestroyExecute(r ApiIpamVrfsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamVrfsBulkPartialUpdate Method for IpamVrfsBulkPartialUpdate
+		IpamVrfsBulkPartialUpdate Method for IpamVrfsBulkPartialUpdate
 
-	Patch a list of VRF objects.
+		Patch a list of VRF objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVrfsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVrfsBulkPartialUpdateRequest
 	*/
 	IpamVrfsBulkPartialUpdate(ctx context.Context) ApiIpamVrfsBulkPartialUpdateRequest
 
@@ -2121,12 +2121,12 @@ type IpamAPI interface {
 	IpamVrfsBulkPartialUpdateExecute(r ApiIpamVrfsBulkPartialUpdateRequest) ([]VRF, *http.Response, error)
 
 	/*
-	IpamVrfsBulkUpdate Method for IpamVrfsBulkUpdate
+		IpamVrfsBulkUpdate Method for IpamVrfsBulkUpdate
 
-	Put a list of VRF objects.
+		Put a list of VRF objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVrfsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVrfsBulkUpdateRequest
 	*/
 	IpamVrfsBulkUpdate(ctx context.Context) ApiIpamVrfsBulkUpdateRequest
 
@@ -2135,12 +2135,12 @@ type IpamAPI interface {
 	IpamVrfsBulkUpdateExecute(r ApiIpamVrfsBulkUpdateRequest) ([]VRF, *http.Response, error)
 
 	/*
-	IpamVrfsCreate Method for IpamVrfsCreate
+		IpamVrfsCreate Method for IpamVrfsCreate
 
-	Post a list of VRF objects.
+		Post a list of VRF objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVrfsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVrfsCreateRequest
 	*/
 	IpamVrfsCreate(ctx context.Context) ApiIpamVrfsCreateRequest
 
@@ -2149,13 +2149,13 @@ type IpamAPI interface {
 	IpamVrfsCreateExecute(r ApiIpamVrfsCreateRequest) (*VRF, *http.Response, error)
 
 	/*
-	IpamVrfsDestroy Method for IpamVrfsDestroy
+		IpamVrfsDestroy Method for IpamVrfsDestroy
 
-	Delete a VRF object.
+		Delete a VRF object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VRF.
-	@return ApiIpamVrfsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VRF.
+		@return ApiIpamVrfsDestroyRequest
 	*/
 	IpamVrfsDestroy(ctx context.Context, id int32) ApiIpamVrfsDestroyRequest
 
@@ -2163,12 +2163,12 @@ type IpamAPI interface {
 	IpamVrfsDestroyExecute(r ApiIpamVrfsDestroyRequest) (*http.Response, error)
 
 	/*
-	IpamVrfsList Method for IpamVrfsList
+		IpamVrfsList Method for IpamVrfsList
 
-	Get a list of VRF objects.
+		Get a list of VRF objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiIpamVrfsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiIpamVrfsListRequest
 	*/
 	IpamVrfsList(ctx context.Context) ApiIpamVrfsListRequest
 
@@ -2177,13 +2177,13 @@ type IpamAPI interface {
 	IpamVrfsListExecute(r ApiIpamVrfsListRequest) (*PaginatedVRFList, *http.Response, error)
 
 	/*
-	IpamVrfsPartialUpdate Method for IpamVrfsPartialUpdate
+		IpamVrfsPartialUpdate Method for IpamVrfsPartialUpdate
 
-	Patch a VRF object.
+		Patch a VRF object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VRF.
-	@return ApiIpamVrfsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VRF.
+		@return ApiIpamVrfsPartialUpdateRequest
 	*/
 	IpamVrfsPartialUpdate(ctx context.Context, id int32) ApiIpamVrfsPartialUpdateRequest
 
@@ -2192,13 +2192,13 @@ type IpamAPI interface {
 	IpamVrfsPartialUpdateExecute(r ApiIpamVrfsPartialUpdateRequest) (*VRF, *http.Response, error)
 
 	/*
-	IpamVrfsRetrieve Method for IpamVrfsRetrieve
+		IpamVrfsRetrieve Method for IpamVrfsRetrieve
 
-	Get a VRF object.
+		Get a VRF object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VRF.
-	@return ApiIpamVrfsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VRF.
+		@return ApiIpamVrfsRetrieveRequest
 	*/
 	IpamVrfsRetrieve(ctx context.Context, id int32) ApiIpamVrfsRetrieveRequest
 
@@ -2207,13 +2207,13 @@ type IpamAPI interface {
 	IpamVrfsRetrieveExecute(r ApiIpamVrfsRetrieveRequest) (*VRF, *http.Response, error)
 
 	/*
-	IpamVrfsUpdate Method for IpamVrfsUpdate
+		IpamVrfsUpdate Method for IpamVrfsUpdate
 
-	Put a VRF object.
+		Put a VRF object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this VRF.
-	@return ApiIpamVrfsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this VRF.
+		@return ApiIpamVrfsUpdateRequest
 	*/
 	IpamVrfsUpdate(ctx context.Context, id int32) ApiIpamVrfsUpdateRequest
 
@@ -2226,8 +2226,8 @@ type IpamAPI interface {
 type IpamAPIService service
 
 type ApiIpamAggregatesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	aggregateRequest *[]AggregateRequest
 }
 
@@ -2245,22 +2245,22 @@ IpamAggregatesBulkDestroy Method for IpamAggregatesBulkDestroy
 
 Delete a list of aggregate objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAggregatesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAggregatesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamAggregatesBulkDestroy(ctx context.Context) ApiIpamAggregatesBulkDestroyRequest {
 	return ApiIpamAggregatesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamAggregatesBulkDestroyExecute(r ApiIpamAggregatesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesBulkDestroy")
@@ -2339,8 +2339,8 @@ func (a *IpamAPIService) IpamAggregatesBulkDestroyExecute(r ApiIpamAggregatesBul
 }
 
 type ApiIpamAggregatesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	aggregateRequest *[]AggregateRequest
 }
 
@@ -2358,24 +2358,25 @@ IpamAggregatesBulkPartialUpdate Method for IpamAggregatesBulkPartialUpdate
 
 Patch a list of aggregate objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAggregatesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAggregatesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamAggregatesBulkPartialUpdate(ctx context.Context) ApiIpamAggregatesBulkPartialUpdateRequest {
 	return ApiIpamAggregatesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Aggregate
+//
+//	@return []Aggregate
 func (a *IpamAPIService) IpamAggregatesBulkPartialUpdateExecute(r ApiIpamAggregatesBulkPartialUpdateRequest) ([]Aggregate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Aggregate
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Aggregate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesBulkPartialUpdate")
@@ -2463,8 +2464,8 @@ func (a *IpamAPIService) IpamAggregatesBulkPartialUpdateExecute(r ApiIpamAggrega
 }
 
 type ApiIpamAggregatesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	aggregateRequest *[]AggregateRequest
 }
 
@@ -2482,24 +2483,25 @@ IpamAggregatesBulkUpdate Method for IpamAggregatesBulkUpdate
 
 Put a list of aggregate objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAggregatesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAggregatesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamAggregatesBulkUpdate(ctx context.Context) ApiIpamAggregatesBulkUpdateRequest {
 	return ApiIpamAggregatesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Aggregate
+//
+//	@return []Aggregate
 func (a *IpamAPIService) IpamAggregatesBulkUpdateExecute(r ApiIpamAggregatesBulkUpdateRequest) ([]Aggregate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Aggregate
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Aggregate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesBulkUpdate")
@@ -2587,8 +2589,8 @@ func (a *IpamAPIService) IpamAggregatesBulkUpdateExecute(r ApiIpamAggregatesBulk
 }
 
 type ApiIpamAggregatesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                      context.Context
+	ApiService               IpamAPI
 	writableAggregateRequest *WritableAggregateRequest
 }
 
@@ -2606,24 +2608,25 @@ IpamAggregatesCreate Method for IpamAggregatesCreate
 
 Post a list of aggregate objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAggregatesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAggregatesCreateRequest
 */
 func (a *IpamAPIService) IpamAggregatesCreate(ctx context.Context) ApiIpamAggregatesCreateRequest {
 	return ApiIpamAggregatesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Aggregate
+//
+//	@return Aggregate
 func (a *IpamAPIService) IpamAggregatesCreateExecute(r ApiIpamAggregatesCreateRequest) (*Aggregate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Aggregate
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Aggregate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesCreate")
@@ -2711,9 +2714,9 @@ func (a *IpamAPIService) IpamAggregatesCreateExecute(r ApiIpamAggregatesCreateRe
 }
 
 type ApiIpamAggregatesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamAggregatesDestroyRequest) Execute() (*http.Response, error) {
@@ -2725,24 +2728,24 @@ IpamAggregatesDestroy Method for IpamAggregatesDestroy
 
 Delete a aggregate object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this aggregate.
- @return ApiIpamAggregatesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this aggregate.
+	@return ApiIpamAggregatesDestroyRequest
 */
 func (a *IpamAPIService) IpamAggregatesDestroy(ctx context.Context, id int32) ApiIpamAggregatesDestroyRequest {
 	return ApiIpamAggregatesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamAggregatesDestroyExecute(r ApiIpamAggregatesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesDestroy")
@@ -2817,70 +2820,70 @@ func (a *IpamAPIService) IpamAggregatesDestroyExecute(r ApiIpamAggregatesDestroy
 }
 
 type ApiIpamAggregatesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	dateAdded *[]string
-	dateAddedEmpty *bool
-	dateAddedGt *[]string
-	dateAddedGte *[]string
-	dateAddedLt *[]string
-	dateAddedLte *[]string
-	dateAddedN *[]string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	family *float32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	dateAdded         *[]string
+	dateAddedEmpty    *bool
+	dateAddedGt       *[]string
+	dateAddedGte      *[]string
+	dateAddedLt       *[]string
+	dateAddedLte      *[]string
+	dateAddedN        *[]string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	family            *float32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	offset *int32
-	ordering *string
-	prefix *string
-	q *string
-	rir *[]string
-	rirN *[]string
-	rirId *[]int32
-	rirIdN *[]int32
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
+	offset            *int32
+	ordering          *string
+	prefix            *string
+	q                 *string
+	rir               *[]string
+	rirN              *[]string
+	rirId             *[]int32
+	rirIdN            *[]int32
+	tag               *[]string
+	tagN              *[]string
+	tenant            *[]string
+	tenantN           *[]string
+	tenantGroup       *[]string
+	tenantGroupN      *[]string
+	tenantGroupId     *[]string
+	tenantGroupIdN    *[]string
+	tenantId          *[]*int32
+	tenantIdN         *[]*int32
+	updatedByRequest  *string
 }
 
 func (r ApiIpamAggregatesListRequest) Created(created []time.Time) ApiIpamAggregatesListRequest {
@@ -3215,24 +3218,25 @@ IpamAggregatesList Method for IpamAggregatesList
 
 Get a list of aggregate objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAggregatesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAggregatesListRequest
 */
 func (a *IpamAPIService) IpamAggregatesList(ctx context.Context) ApiIpamAggregatesListRequest {
 	return ApiIpamAggregatesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedAggregateList
+//
+//	@return PaginatedAggregateList
 func (a *IpamAPIService) IpamAggregatesListExecute(r ApiIpamAggregatesListRequest) (*PaginatedAggregateList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedAggregateList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedAggregateList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesList")
@@ -3901,9 +3905,9 @@ func (a *IpamAPIService) IpamAggregatesListExecute(r ApiIpamAggregatesListReques
 }
 
 type ApiIpamAggregatesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                             context.Context
+	ApiService                      IpamAPI
+	id                              int32
 	patchedWritableAggregateRequest *PatchedWritableAggregateRequest
 }
 
@@ -3921,26 +3925,27 @@ IpamAggregatesPartialUpdate Method for IpamAggregatesPartialUpdate
 
 Patch a aggregate object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this aggregate.
- @return ApiIpamAggregatesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this aggregate.
+	@return ApiIpamAggregatesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamAggregatesPartialUpdate(ctx context.Context, id int32) ApiIpamAggregatesPartialUpdateRequest {
 	return ApiIpamAggregatesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Aggregate
+//
+//	@return Aggregate
 func (a *IpamAPIService) IpamAggregatesPartialUpdateExecute(r ApiIpamAggregatesPartialUpdateRequest) (*Aggregate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Aggregate
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Aggregate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesPartialUpdate")
@@ -4026,9 +4031,9 @@ func (a *IpamAPIService) IpamAggregatesPartialUpdateExecute(r ApiIpamAggregatesP
 }
 
 type ApiIpamAggregatesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamAggregatesRetrieveRequest) Execute() (*Aggregate, *http.Response, error) {
@@ -4040,26 +4045,27 @@ IpamAggregatesRetrieve Method for IpamAggregatesRetrieve
 
 Get a aggregate object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this aggregate.
- @return ApiIpamAggregatesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this aggregate.
+	@return ApiIpamAggregatesRetrieveRequest
 */
 func (a *IpamAPIService) IpamAggregatesRetrieve(ctx context.Context, id int32) ApiIpamAggregatesRetrieveRequest {
 	return ApiIpamAggregatesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Aggregate
+//
+//	@return Aggregate
 func (a *IpamAPIService) IpamAggregatesRetrieveExecute(r ApiIpamAggregatesRetrieveRequest) (*Aggregate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Aggregate
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Aggregate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesRetrieve")
@@ -4143,9 +4149,9 @@ func (a *IpamAPIService) IpamAggregatesRetrieveExecute(r ApiIpamAggregatesRetrie
 }
 
 type ApiIpamAggregatesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                      context.Context
+	ApiService               IpamAPI
+	id                       int32
 	writableAggregateRequest *WritableAggregateRequest
 }
 
@@ -4163,26 +4169,27 @@ IpamAggregatesUpdate Method for IpamAggregatesUpdate
 
 Put a aggregate object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this aggregate.
- @return ApiIpamAggregatesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this aggregate.
+	@return ApiIpamAggregatesUpdateRequest
 */
 func (a *IpamAPIService) IpamAggregatesUpdate(ctx context.Context, id int32) ApiIpamAggregatesUpdateRequest {
 	return ApiIpamAggregatesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Aggregate
+//
+//	@return Aggregate
 func (a *IpamAPIService) IpamAggregatesUpdateExecute(r ApiIpamAggregatesUpdateRequest) (*Aggregate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Aggregate
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Aggregate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAggregatesUpdate")
@@ -4271,9 +4278,9 @@ func (a *IpamAPIService) IpamAggregatesUpdateExecute(r ApiIpamAggregatesUpdateRe
 }
 
 type ApiIpamAsnRangesAvailableAsnsCreateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 	aSNRequest *[]ASNRequest
 }
 
@@ -4291,26 +4298,27 @@ IpamAsnRangesAvailableAsnsCreate Method for IpamAsnRangesAvailableAsnsCreate
 
 Post a ASN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamAsnRangesAvailableAsnsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamAsnRangesAvailableAsnsCreateRequest
 */
 func (a *IpamAPIService) IpamAsnRangesAvailableAsnsCreate(ctx context.Context, id int32) ApiIpamAsnRangesAvailableAsnsCreateRequest {
 	return ApiIpamAsnRangesAvailableAsnsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []ASN
+//
+//	@return []ASN
 func (a *IpamAPIService) IpamAsnRangesAvailableAsnsCreateExecute(r ApiIpamAsnRangesAvailableAsnsCreateRequest) ([]ASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ASN
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesAvailableAsnsCreate")
@@ -4399,9 +4407,9 @@ func (a *IpamAPIService) IpamAsnRangesAvailableAsnsCreateExecute(r ApiIpamAsnRan
 }
 
 type ApiIpamAsnRangesAvailableAsnsListRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamAsnRangesAvailableAsnsListRequest) Execute() ([]AvailableASN, *http.Response, error) {
@@ -4413,26 +4421,27 @@ IpamAsnRangesAvailableAsnsList Method for IpamAsnRangesAvailableAsnsList
 
 Get a ASN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamAsnRangesAvailableAsnsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamAsnRangesAvailableAsnsListRequest
 */
 func (a *IpamAPIService) IpamAsnRangesAvailableAsnsList(ctx context.Context, id int32) ApiIpamAsnRangesAvailableAsnsListRequest {
 	return ApiIpamAsnRangesAvailableAsnsListRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []AvailableASN
+//
+//	@return []AvailableASN
 func (a *IpamAPIService) IpamAsnRangesAvailableAsnsListExecute(r ApiIpamAsnRangesAvailableAsnsListRequest) ([]AvailableASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AvailableASN
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AvailableASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesAvailableAsnsList")
@@ -4516,8 +4525,8 @@ func (a *IpamAPIService) IpamAsnRangesAvailableAsnsListExecute(r ApiIpamAsnRange
 }
 
 type ApiIpamAsnRangesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx             context.Context
+	ApiService      IpamAPI
 	aSNRangeRequest *[]ASNRangeRequest
 }
 
@@ -4535,22 +4544,22 @@ IpamAsnRangesBulkDestroy Method for IpamAsnRangesBulkDestroy
 
 Delete a list of ASN range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnRangesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnRangesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamAsnRangesBulkDestroy(ctx context.Context) ApiIpamAsnRangesBulkDestroyRequest {
 	return ApiIpamAsnRangesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamAsnRangesBulkDestroyExecute(r ApiIpamAsnRangesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesBulkDestroy")
@@ -4629,8 +4638,8 @@ func (a *IpamAPIService) IpamAsnRangesBulkDestroyExecute(r ApiIpamAsnRangesBulkD
 }
 
 type ApiIpamAsnRangesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx             context.Context
+	ApiService      IpamAPI
 	aSNRangeRequest *[]ASNRangeRequest
 }
 
@@ -4648,24 +4657,25 @@ IpamAsnRangesBulkPartialUpdate Method for IpamAsnRangesBulkPartialUpdate
 
 Patch a list of ASN range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnRangesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnRangesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnRangesBulkPartialUpdate(ctx context.Context) ApiIpamAsnRangesBulkPartialUpdateRequest {
 	return ApiIpamAsnRangesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ASNRange
+//
+//	@return []ASNRange
 func (a *IpamAPIService) IpamAsnRangesBulkPartialUpdateExecute(r ApiIpamAsnRangesBulkPartialUpdateRequest) ([]ASNRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ASNRange
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ASNRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesBulkPartialUpdate")
@@ -4753,8 +4763,8 @@ func (a *IpamAPIService) IpamAsnRangesBulkPartialUpdateExecute(r ApiIpamAsnRange
 }
 
 type ApiIpamAsnRangesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx             context.Context
+	ApiService      IpamAPI
 	aSNRangeRequest *[]ASNRangeRequest
 }
 
@@ -4772,24 +4782,25 @@ IpamAsnRangesBulkUpdate Method for IpamAsnRangesBulkUpdate
 
 Put a list of ASN range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnRangesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnRangesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnRangesBulkUpdate(ctx context.Context) ApiIpamAsnRangesBulkUpdateRequest {
 	return ApiIpamAsnRangesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ASNRange
+//
+//	@return []ASNRange
 func (a *IpamAPIService) IpamAsnRangesBulkUpdateExecute(r ApiIpamAsnRangesBulkUpdateRequest) ([]ASNRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ASNRange
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ASNRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesBulkUpdate")
@@ -4877,8 +4888,8 @@ func (a *IpamAPIService) IpamAsnRangesBulkUpdateExecute(r ApiIpamAsnRangesBulkUp
 }
 
 type ApiIpamAsnRangesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx             context.Context
+	ApiService      IpamAPI
 	aSNRangeRequest *ASNRangeRequest
 }
 
@@ -4896,24 +4907,25 @@ IpamAsnRangesCreate Method for IpamAsnRangesCreate
 
 Post a list of ASN range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnRangesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnRangesCreateRequest
 */
 func (a *IpamAPIService) IpamAsnRangesCreate(ctx context.Context) ApiIpamAsnRangesCreateRequest {
 	return ApiIpamAsnRangesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ASNRange
+//
+//	@return ASNRange
 func (a *IpamAPIService) IpamAsnRangesCreateExecute(r ApiIpamAsnRangesCreateRequest) (*ASNRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASNRange
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASNRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesCreate")
@@ -5001,9 +5013,9 @@ func (a *IpamAPIService) IpamAsnRangesCreateExecute(r ApiIpamAsnRangesCreateRequ
 }
 
 type ApiIpamAsnRangesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamAsnRangesDestroyRequest) Execute() (*http.Response, error) {
@@ -5015,24 +5027,24 @@ IpamAsnRangesDestroy Method for IpamAsnRangesDestroy
 
 Delete a ASN range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN range.
- @return ApiIpamAsnRangesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN range.
+	@return ApiIpamAsnRangesDestroyRequest
 */
 func (a *IpamAPIService) IpamAsnRangesDestroy(ctx context.Context, id int32) ApiIpamAsnRangesDestroyRequest {
 	return ApiIpamAsnRangesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamAsnRangesDestroyExecute(r ApiIpamAsnRangesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesDestroy")
@@ -5107,97 +5119,97 @@ func (a *IpamAPIService) IpamAsnRangesDestroyExecute(r ApiIpamAsnRangesDestroyRe
 }
 
 type ApiIpamAsnRangesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	end *[]int32
-	endEmpty *bool
-	endGt *[]int32
-	endGte *[]int32
-	endLt *[]int32
-	endLte *[]int32
-	endN *[]int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	end               *[]int32
+	endEmpty          *bool
+	endGt             *[]int32
+	endGte            *[]int32
+	endLt             *[]int32
+	endLte            *[]int32
+	endN              *[]int32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	rir *[]string
-	rirN *[]string
-	rirId *[]int32
-	rirIdN *[]int32
-	slug *[]string
-	slugEmpty *bool
-	slugIc *[]string
-	slugIe *[]string
-	slugIew *[]string
-	slugIsw *[]string
-	slugN *[]string
-	slugNic *[]string
-	slugNie *[]string
-	slugNiew *[]string
-	slugNisw *[]string
-	start *[]int32
-	startEmpty *bool
-	startGt *[]int32
-	startGte *[]int32
-	startLt *[]int32
-	startLte *[]int32
-	startN *[]int32
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	rir               *[]string
+	rirN              *[]string
+	rirId             *[]int32
+	rirIdN            *[]int32
+	slug              *[]string
+	slugEmpty         *bool
+	slugIc            *[]string
+	slugIe            *[]string
+	slugIew           *[]string
+	slugIsw           *[]string
+	slugN             *[]string
+	slugNic           *[]string
+	slugNie           *[]string
+	slugNiew          *[]string
+	slugNisw          *[]string
+	start             *[]int32
+	startEmpty        *bool
+	startGt           *[]int32
+	startGte          *[]int32
+	startLt           *[]int32
+	startLte          *[]int32
+	startN            *[]int32
+	tag               *[]string
+	tagN              *[]string
+	tenant            *[]string
+	tenantN           *[]string
+	tenantGroup       *[]string
+	tenantGroupN      *[]string
+	tenantGroupId     *[]string
+	tenantGroupIdN    *[]string
+	tenantId          *[]*int32
+	tenantIdN         *[]*int32
+	updatedByRequest  *string
 }
 
 func (r ApiIpamAsnRangesListRequest) Created(created []time.Time) ApiIpamAsnRangesListRequest {
@@ -5666,24 +5678,25 @@ IpamAsnRangesList Method for IpamAsnRangesList
 
 Get a list of ASN range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnRangesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnRangesListRequest
 */
 func (a *IpamAPIService) IpamAsnRangesList(ctx context.Context) ApiIpamAsnRangesListRequest {
 	return ApiIpamAsnRangesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedASNRangeList
+//
+//	@return PaginatedASNRangeList
 func (a *IpamAPIService) IpamAsnRangesListExecute(r ApiIpamAsnRangesListRequest) (*PaginatedASNRangeList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedASNRangeList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedASNRangeList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesList")
@@ -6641,9 +6654,9 @@ func (a *IpamAPIService) IpamAsnRangesListExecute(r ApiIpamAsnRangesListRequest)
 }
 
 type ApiIpamAsnRangesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                    context.Context
+	ApiService             IpamAPI
+	id                     int32
 	patchedASNRangeRequest *PatchedASNRangeRequest
 }
 
@@ -6661,26 +6674,27 @@ IpamAsnRangesPartialUpdate Method for IpamAsnRangesPartialUpdate
 
 Patch a ASN range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN range.
- @return ApiIpamAsnRangesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN range.
+	@return ApiIpamAsnRangesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnRangesPartialUpdate(ctx context.Context, id int32) ApiIpamAsnRangesPartialUpdateRequest {
 	return ApiIpamAsnRangesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ASNRange
+//
+//	@return ASNRange
 func (a *IpamAPIService) IpamAsnRangesPartialUpdateExecute(r ApiIpamAsnRangesPartialUpdateRequest) (*ASNRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASNRange
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASNRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesPartialUpdate")
@@ -6766,9 +6780,9 @@ func (a *IpamAPIService) IpamAsnRangesPartialUpdateExecute(r ApiIpamAsnRangesPar
 }
 
 type ApiIpamAsnRangesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamAsnRangesRetrieveRequest) Execute() (*ASNRange, *http.Response, error) {
@@ -6780,26 +6794,27 @@ IpamAsnRangesRetrieve Method for IpamAsnRangesRetrieve
 
 Get a ASN range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN range.
- @return ApiIpamAsnRangesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN range.
+	@return ApiIpamAsnRangesRetrieveRequest
 */
 func (a *IpamAPIService) IpamAsnRangesRetrieve(ctx context.Context, id int32) ApiIpamAsnRangesRetrieveRequest {
 	return ApiIpamAsnRangesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ASNRange
+//
+//	@return ASNRange
 func (a *IpamAPIService) IpamAsnRangesRetrieveExecute(r ApiIpamAsnRangesRetrieveRequest) (*ASNRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASNRange
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASNRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesRetrieve")
@@ -6883,9 +6898,9 @@ func (a *IpamAPIService) IpamAsnRangesRetrieveExecute(r ApiIpamAsnRangesRetrieve
 }
 
 type ApiIpamAsnRangesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx             context.Context
+	ApiService      IpamAPI
+	id              int32
 	aSNRangeRequest *ASNRangeRequest
 }
 
@@ -6903,26 +6918,27 @@ IpamAsnRangesUpdate Method for IpamAsnRangesUpdate
 
 Put a ASN range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN range.
- @return ApiIpamAsnRangesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN range.
+	@return ApiIpamAsnRangesUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnRangesUpdate(ctx context.Context, id int32) ApiIpamAsnRangesUpdateRequest {
 	return ApiIpamAsnRangesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ASNRange
+//
+//	@return ASNRange
 func (a *IpamAPIService) IpamAsnRangesUpdateExecute(r ApiIpamAsnRangesUpdateRequest) (*ASNRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASNRange
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASNRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnRangesUpdate")
@@ -7011,7 +7027,7 @@ func (a *IpamAPIService) IpamAsnRangesUpdateExecute(r ApiIpamAsnRangesUpdateRequ
 }
 
 type ApiIpamAsnsBulkDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	aSNRequest *[]ASNRequest
 }
@@ -7030,22 +7046,22 @@ IpamAsnsBulkDestroy Method for IpamAsnsBulkDestroy
 
 Delete a list of ASN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnsBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamAsnsBulkDestroy(ctx context.Context) ApiIpamAsnsBulkDestroyRequest {
 	return ApiIpamAsnsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamAsnsBulkDestroyExecute(r ApiIpamAsnsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsBulkDestroy")
@@ -7124,7 +7140,7 @@ func (a *IpamAPIService) IpamAsnsBulkDestroyExecute(r ApiIpamAsnsBulkDestroyRequ
 }
 
 type ApiIpamAsnsBulkPartialUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	aSNRequest *[]ASNRequest
 }
@@ -7143,24 +7159,25 @@ IpamAsnsBulkPartialUpdate Method for IpamAsnsBulkPartialUpdate
 
 Patch a list of ASN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnsBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnsBulkPartialUpdate(ctx context.Context) ApiIpamAsnsBulkPartialUpdateRequest {
 	return ApiIpamAsnsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ASN
+//
+//	@return []ASN
 func (a *IpamAPIService) IpamAsnsBulkPartialUpdateExecute(r ApiIpamAsnsBulkPartialUpdateRequest) ([]ASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ASN
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsBulkPartialUpdate")
@@ -7248,7 +7265,7 @@ func (a *IpamAPIService) IpamAsnsBulkPartialUpdateExecute(r ApiIpamAsnsBulkParti
 }
 
 type ApiIpamAsnsBulkUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	aSNRequest *[]ASNRequest
 }
@@ -7267,24 +7284,25 @@ IpamAsnsBulkUpdate Method for IpamAsnsBulkUpdate
 
 Put a list of ASN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnsBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnsBulkUpdate(ctx context.Context) ApiIpamAsnsBulkUpdateRequest {
 	return ApiIpamAsnsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ASN
+//
+//	@return []ASN
 func (a *IpamAPIService) IpamAsnsBulkUpdateExecute(r ApiIpamAsnsBulkUpdateRequest) ([]ASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ASN
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsBulkUpdate")
@@ -7372,7 +7390,7 @@ func (a *IpamAPIService) IpamAsnsBulkUpdateExecute(r ApiIpamAsnsBulkUpdateReques
 }
 
 type ApiIpamAsnsCreateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	aSNRequest *ASNRequest
 }
@@ -7391,24 +7409,25 @@ IpamAsnsCreate Method for IpamAsnsCreate
 
 Post a list of ASN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnsCreateRequest
 */
 func (a *IpamAPIService) IpamAsnsCreate(ctx context.Context) ApiIpamAsnsCreateRequest {
 	return ApiIpamAsnsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ASN
+//
+//	@return ASN
 func (a *IpamAPIService) IpamAsnsCreateExecute(r ApiIpamAsnsCreateRequest) (*ASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASN
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsCreate")
@@ -7496,9 +7515,9 @@ func (a *IpamAPIService) IpamAsnsCreateExecute(r ApiIpamAsnsCreateRequest) (*ASN
 }
 
 type ApiIpamAsnsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamAsnsDestroyRequest) Execute() (*http.Response, error) {
@@ -7510,24 +7529,24 @@ IpamAsnsDestroy Method for IpamAsnsDestroy
 
 Delete a ASN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN.
- @return ApiIpamAsnsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN.
+	@return ApiIpamAsnsDestroyRequest
 */
 func (a *IpamAPIService) IpamAsnsDestroy(ctx context.Context, id int32) ApiIpamAsnsDestroyRequest {
 	return ApiIpamAsnsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamAsnsDestroyExecute(r ApiIpamAsnsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsDestroy")
@@ -7602,76 +7621,76 @@ func (a *IpamAPIService) IpamAsnsDestroyExecute(r ApiIpamAsnsDestroyRequest) (*h
 }
 
 type ApiIpamAsnsListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	asn *[]int32
-	asnEmpty *bool
-	asnGt *[]int32
-	asnGte *[]int32
-	asnLt *[]int32
-	asnLte *[]int32
-	asnN *[]int32
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	asn               *[]int32
+	asnEmpty          *bool
+	asnGt             *[]int32
+	asnGte            *[]int32
+	asnLt             *[]int32
+	asnLte            *[]int32
+	asnN              *[]int32
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	offset *int32
-	ordering *string
-	provider *[]string
-	providerN *[]string
-	providerId *[]int32
-	providerIdN *[]int32
-	q *string
-	rir *[]string
-	rirN *[]string
-	rirId *[]int32
-	rirIdN *[]int32
-	site *[]string
-	siteN *[]string
-	siteId *[]int32
-	siteIdN *[]int32
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
+	offset            *int32
+	ordering          *string
+	provider          *[]string
+	providerN         *[]string
+	providerId        *[]int32
+	providerIdN       *[]int32
+	q                 *string
+	rir               *[]string
+	rirN              *[]string
+	rirId             *[]int32
+	rirIdN            *[]int32
+	site              *[]string
+	siteN             *[]string
+	siteId            *[]int32
+	siteIdN           *[]int32
+	tag               *[]string
+	tagN              *[]string
+	tenant            *[]string
+	tenantN           *[]string
+	tenantGroup       *[]string
+	tenantGroupN      *[]string
+	tenantGroupId     *[]string
+	tenantGroupIdN    *[]string
+	tenantId          *[]*int32
+	tenantIdN         *[]*int32
+	updatedByRequest  *string
 }
 
 func (r ApiIpamAsnsListRequest) Asn(asn []int32) ApiIpamAsnsListRequest {
@@ -8043,24 +8062,25 @@ IpamAsnsList Method for IpamAsnsList
 
 Get a list of ASN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamAsnsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamAsnsListRequest
 */
 func (a *IpamAPIService) IpamAsnsList(ctx context.Context) ApiIpamAsnsListRequest {
 	return ApiIpamAsnsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedASNList
+//
+//	@return PaginatedASNList
 func (a *IpamAPIService) IpamAsnsListExecute(r ApiIpamAsnsListRequest) (*PaginatedASNList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedASNList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedASNList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsList")
@@ -8811,9 +8831,9 @@ func (a *IpamAPIService) IpamAsnsListExecute(r ApiIpamAsnsListRequest) (*Paginat
 }
 
 type ApiIpamAsnsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	id                int32
 	patchedASNRequest *PatchedASNRequest
 }
 
@@ -8831,26 +8851,27 @@ IpamAsnsPartialUpdate Method for IpamAsnsPartialUpdate
 
 Patch a ASN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN.
- @return ApiIpamAsnsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN.
+	@return ApiIpamAsnsPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnsPartialUpdate(ctx context.Context, id int32) ApiIpamAsnsPartialUpdateRequest {
 	return ApiIpamAsnsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ASN
+//
+//	@return ASN
 func (a *IpamAPIService) IpamAsnsPartialUpdateExecute(r ApiIpamAsnsPartialUpdateRequest) (*ASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASN
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsPartialUpdate")
@@ -8936,9 +8957,9 @@ func (a *IpamAPIService) IpamAsnsPartialUpdateExecute(r ApiIpamAsnsPartialUpdate
 }
 
 type ApiIpamAsnsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamAsnsRetrieveRequest) Execute() (*ASN, *http.Response, error) {
@@ -8950,26 +8971,27 @@ IpamAsnsRetrieve Method for IpamAsnsRetrieve
 
 Get a ASN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN.
- @return ApiIpamAsnsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN.
+	@return ApiIpamAsnsRetrieveRequest
 */
 func (a *IpamAPIService) IpamAsnsRetrieve(ctx context.Context, id int32) ApiIpamAsnsRetrieveRequest {
 	return ApiIpamAsnsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ASN
+//
+//	@return ASN
 func (a *IpamAPIService) IpamAsnsRetrieveExecute(r ApiIpamAsnsRetrieveRequest) (*ASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASN
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsRetrieve")
@@ -9053,9 +9075,9 @@ func (a *IpamAPIService) IpamAsnsRetrieveExecute(r ApiIpamAsnsRetrieveRequest) (
 }
 
 type ApiIpamAsnsUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 	aSNRequest *ASNRequest
 }
 
@@ -9073,26 +9095,27 @@ IpamAsnsUpdate Method for IpamAsnsUpdate
 
 Put a ASN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this ASN.
- @return ApiIpamAsnsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this ASN.
+	@return ApiIpamAsnsUpdateRequest
 */
 func (a *IpamAPIService) IpamAsnsUpdate(ctx context.Context, id int32) ApiIpamAsnsUpdateRequest {
 	return ApiIpamAsnsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ASN
+//
+//	@return ASN
 func (a *IpamAPIService) IpamAsnsUpdateExecute(r ApiIpamAsnsUpdateRequest) (*ASN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ASN
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ASN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamAsnsUpdate")
@@ -9181,8 +9204,8 @@ func (a *IpamAPIService) IpamAsnsUpdateExecute(r ApiIpamAsnsUpdateRequest) (*ASN
 }
 
 type ApiIpamFhrpGroupAssignmentsBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                        context.Context
+	ApiService                 IpamAPI
 	fHRPGroupAssignmentRequest *[]FHRPGroupAssignmentRequest
 }
 
@@ -9200,22 +9223,22 @@ IpamFhrpGroupAssignmentsBulkDestroy Method for IpamFhrpGroupAssignmentsBulkDestr
 
 Delete a list of FHRP group assignment objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupAssignmentsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupAssignmentsBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkDestroy(ctx context.Context) ApiIpamFhrpGroupAssignmentsBulkDestroyRequest {
 	return ApiIpamFhrpGroupAssignmentsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkDestroyExecute(r ApiIpamFhrpGroupAssignmentsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsBulkDestroy")
@@ -9294,8 +9317,8 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkDestroyExecute(r ApiIpamFhr
 }
 
 type ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                        context.Context
+	ApiService                 IpamAPI
 	fHRPGroupAssignmentRequest *[]FHRPGroupAssignmentRequest
 }
 
@@ -9313,24 +9336,25 @@ IpamFhrpGroupAssignmentsBulkPartialUpdate Method for IpamFhrpGroupAssignmentsBul
 
 Patch a list of FHRP group assignment objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkPartialUpdate(ctx context.Context) ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest {
 	return ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []FHRPGroupAssignment
+//
+//	@return []FHRPGroupAssignment
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkPartialUpdateExecute(r ApiIpamFhrpGroupAssignmentsBulkPartialUpdateRequest) ([]FHRPGroupAssignment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []FHRPGroupAssignment
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FHRPGroupAssignment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsBulkPartialUpdate")
@@ -9418,8 +9442,8 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkPartialUpdateExecute(r ApiI
 }
 
 type ApiIpamFhrpGroupAssignmentsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                        context.Context
+	ApiService                 IpamAPI
 	fHRPGroupAssignmentRequest *[]FHRPGroupAssignmentRequest
 }
 
@@ -9437,24 +9461,25 @@ IpamFhrpGroupAssignmentsBulkUpdate Method for IpamFhrpGroupAssignmentsBulkUpdate
 
 Put a list of FHRP group assignment objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupAssignmentsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupAssignmentsBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkUpdate(ctx context.Context) ApiIpamFhrpGroupAssignmentsBulkUpdateRequest {
 	return ApiIpamFhrpGroupAssignmentsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []FHRPGroupAssignment
+//
+//	@return []FHRPGroupAssignment
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkUpdateExecute(r ApiIpamFhrpGroupAssignmentsBulkUpdateRequest) ([]FHRPGroupAssignment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []FHRPGroupAssignment
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FHRPGroupAssignment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsBulkUpdate")
@@ -9542,8 +9567,8 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsBulkUpdateExecute(r ApiIpamFhrp
 }
 
 type ApiIpamFhrpGroupAssignmentsCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                        context.Context
+	ApiService                 IpamAPI
 	fHRPGroupAssignmentRequest *FHRPGroupAssignmentRequest
 }
 
@@ -9561,24 +9586,25 @@ IpamFhrpGroupAssignmentsCreate Method for IpamFhrpGroupAssignmentsCreate
 
 Post a list of FHRP group assignment objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupAssignmentsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupAssignmentsCreateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsCreate(ctx context.Context) ApiIpamFhrpGroupAssignmentsCreateRequest {
 	return ApiIpamFhrpGroupAssignmentsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroupAssignment
+//
+//	@return FHRPGroupAssignment
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsCreateExecute(r ApiIpamFhrpGroupAssignmentsCreateRequest) (*FHRPGroupAssignment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroupAssignment
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroupAssignment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsCreate")
@@ -9666,9 +9692,9 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsCreateExecute(r ApiIpamFhrpGrou
 }
 
 type ApiIpamFhrpGroupAssignmentsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamFhrpGroupAssignmentsDestroyRequest) Execute() (*http.Response, error) {
@@ -9680,24 +9706,24 @@ IpamFhrpGroupAssignmentsDestroy Method for IpamFhrpGroupAssignmentsDestroy
 
 Delete a FHRP group assignment object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group assignment.
- @return ApiIpamFhrpGroupAssignmentsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group assignment.
+	@return ApiIpamFhrpGroupAssignmentsDestroyRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsDestroy(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsDestroyRequest {
 	return ApiIpamFhrpGroupAssignmentsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsDestroyExecute(r ApiIpamFhrpGroupAssignmentsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsDestroy")
@@ -9772,57 +9798,57 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsDestroyExecute(r ApiIpamFhrpGro
 }
 
 type ApiIpamFhrpGroupAssignmentsListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	device *[]string
-	deviceId *[]int32
-	groupId *[]int32
-	groupIdN *[]int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	interfaceId *[]int32
-	interfaceIdEmpty *bool
-	interfaceIdGt *[]int32
-	interfaceIdGte *[]int32
-	interfaceIdLt *[]int32
-	interfaceIdLte *[]int32
-	interfaceIdN *[]int32
-	interfaceType *string
-	interfaceTypeN *string
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	device            *[]string
+	deviceId          *[]int32
+	groupId           *[]int32
+	groupIdN          *[]int32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	interfaceId       *[]int32
+	interfaceIdEmpty  *bool
+	interfaceIdGt     *[]int32
+	interfaceIdGte    *[]int32
+	interfaceIdLt     *[]int32
+	interfaceIdLte    *[]int32
+	interfaceIdN      *[]int32
+	interfaceType     *string
+	interfaceTypeN    *string
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	offset *int32
-	ordering *string
-	priority *[]int32
-	priorityEmpty *bool
-	priorityGt *[]int32
-	priorityGte *[]int32
-	priorityLt *[]int32
-	priorityLte *[]int32
-	priorityN *[]int32
-	updatedByRequest *string
-	virtualMachine *[]string
-	virtualMachineId *[]int32
+	offset            *int32
+	ordering          *string
+	priority          *[]int32
+	priorityEmpty     *bool
+	priorityGt        *[]int32
+	priorityGte       *[]int32
+	priorityLt        *[]int32
+	priorityLte       *[]int32
+	priorityN         *[]int32
+	updatedByRequest  *string
+	virtualMachine    *[]string
+	virtualMachineId  *[]int32
 }
 
 func (r ApiIpamFhrpGroupAssignmentsListRequest) Created(created []time.Time) ApiIpamFhrpGroupAssignmentsListRequest {
@@ -10084,24 +10110,25 @@ IpamFhrpGroupAssignmentsList Method for IpamFhrpGroupAssignmentsList
 
 Get a list of FHRP group assignment objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupAssignmentsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupAssignmentsListRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsList(ctx context.Context) ApiIpamFhrpGroupAssignmentsListRequest {
 	return ApiIpamFhrpGroupAssignmentsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedFHRPGroupAssignmentList
+//
+//	@return PaginatedFHRPGroupAssignmentList
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsListExecute(r ApiIpamFhrpGroupAssignmentsListRequest) (*PaginatedFHRPGroupAssignmentList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedFHRPGroupAssignmentList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedFHRPGroupAssignmentList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsList")
@@ -10635,9 +10662,9 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsListExecute(r ApiIpamFhrpGroupA
 }
 
 type ApiIpamFhrpGroupAssignmentsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                               context.Context
+	ApiService                        IpamAPI
+	id                                int32
 	patchedFHRPGroupAssignmentRequest *PatchedFHRPGroupAssignmentRequest
 }
 
@@ -10655,26 +10682,27 @@ IpamFhrpGroupAssignmentsPartialUpdate Method for IpamFhrpGroupAssignmentsPartial
 
 Patch a FHRP group assignment object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group assignment.
- @return ApiIpamFhrpGroupAssignmentsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group assignment.
+	@return ApiIpamFhrpGroupAssignmentsPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsPartialUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsPartialUpdateRequest {
 	return ApiIpamFhrpGroupAssignmentsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroupAssignment
+//
+//	@return FHRPGroupAssignment
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsPartialUpdateExecute(r ApiIpamFhrpGroupAssignmentsPartialUpdateRequest) (*FHRPGroupAssignment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroupAssignment
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroupAssignment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsPartialUpdate")
@@ -10760,9 +10788,9 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsPartialUpdateExecute(r ApiIpamF
 }
 
 type ApiIpamFhrpGroupAssignmentsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamFhrpGroupAssignmentsRetrieveRequest) Execute() (*FHRPGroupAssignment, *http.Response, error) {
@@ -10774,26 +10802,27 @@ IpamFhrpGroupAssignmentsRetrieve Method for IpamFhrpGroupAssignmentsRetrieve
 
 Get a FHRP group assignment object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group assignment.
- @return ApiIpamFhrpGroupAssignmentsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group assignment.
+	@return ApiIpamFhrpGroupAssignmentsRetrieveRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsRetrieve(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsRetrieveRequest {
 	return ApiIpamFhrpGroupAssignmentsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroupAssignment
+//
+//	@return FHRPGroupAssignment
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsRetrieveExecute(r ApiIpamFhrpGroupAssignmentsRetrieveRequest) (*FHRPGroupAssignment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroupAssignment
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroupAssignment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsRetrieve")
@@ -10877,9 +10906,9 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsRetrieveExecute(r ApiIpamFhrpGr
 }
 
 type ApiIpamFhrpGroupAssignmentsUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                        context.Context
+	ApiService                 IpamAPI
+	id                         int32
 	fHRPGroupAssignmentRequest *FHRPGroupAssignmentRequest
 }
 
@@ -10897,26 +10926,27 @@ IpamFhrpGroupAssignmentsUpdate Method for IpamFhrpGroupAssignmentsUpdate
 
 Put a FHRP group assignment object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group assignment.
- @return ApiIpamFhrpGroupAssignmentsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group assignment.
+	@return ApiIpamFhrpGroupAssignmentsUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupAssignmentsUpdateRequest {
 	return ApiIpamFhrpGroupAssignmentsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroupAssignment
+//
+//	@return FHRPGroupAssignment
 func (a *IpamAPIService) IpamFhrpGroupAssignmentsUpdateExecute(r ApiIpamFhrpGroupAssignmentsUpdateRequest) (*FHRPGroupAssignment, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroupAssignment
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroupAssignment
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupAssignmentsUpdate")
@@ -11005,8 +11035,8 @@ func (a *IpamAPIService) IpamFhrpGroupAssignmentsUpdateExecute(r ApiIpamFhrpGrou
 }
 
 type ApiIpamFhrpGroupsBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	fHRPGroupRequest *[]FHRPGroupRequest
 }
 
@@ -11024,22 +11054,22 @@ IpamFhrpGroupsBulkDestroy Method for IpamFhrpGroupsBulkDestroy
 
 Delete a list of FHRP group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupsBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsBulkDestroy(ctx context.Context) ApiIpamFhrpGroupsBulkDestroyRequest {
 	return ApiIpamFhrpGroupsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamFhrpGroupsBulkDestroyExecute(r ApiIpamFhrpGroupsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsBulkDestroy")
@@ -11118,8 +11148,8 @@ func (a *IpamAPIService) IpamFhrpGroupsBulkDestroyExecute(r ApiIpamFhrpGroupsBul
 }
 
 type ApiIpamFhrpGroupsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	fHRPGroupRequest *[]FHRPGroupRequest
 }
 
@@ -11137,24 +11167,25 @@ IpamFhrpGroupsBulkPartialUpdate Method for IpamFhrpGroupsBulkPartialUpdate
 
 Patch a list of FHRP group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupsBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsBulkPartialUpdate(ctx context.Context) ApiIpamFhrpGroupsBulkPartialUpdateRequest {
 	return ApiIpamFhrpGroupsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []FHRPGroup
+//
+//	@return []FHRPGroup
 func (a *IpamAPIService) IpamFhrpGroupsBulkPartialUpdateExecute(r ApiIpamFhrpGroupsBulkPartialUpdateRequest) ([]FHRPGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []FHRPGroup
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FHRPGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsBulkPartialUpdate")
@@ -11242,8 +11273,8 @@ func (a *IpamAPIService) IpamFhrpGroupsBulkPartialUpdateExecute(r ApiIpamFhrpGro
 }
 
 type ApiIpamFhrpGroupsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	fHRPGroupRequest *[]FHRPGroupRequest
 }
 
@@ -11261,24 +11292,25 @@ IpamFhrpGroupsBulkUpdate Method for IpamFhrpGroupsBulkUpdate
 
 Put a list of FHRP group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupsBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsBulkUpdate(ctx context.Context) ApiIpamFhrpGroupsBulkUpdateRequest {
 	return ApiIpamFhrpGroupsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []FHRPGroup
+//
+//	@return []FHRPGroup
 func (a *IpamAPIService) IpamFhrpGroupsBulkUpdateExecute(r ApiIpamFhrpGroupsBulkUpdateRequest) ([]FHRPGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []FHRPGroup
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []FHRPGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsBulkUpdate")
@@ -11366,8 +11398,8 @@ func (a *IpamAPIService) IpamFhrpGroupsBulkUpdateExecute(r ApiIpamFhrpGroupsBulk
 }
 
 type ApiIpamFhrpGroupsCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	fHRPGroupRequest *FHRPGroupRequest
 }
 
@@ -11385,24 +11417,25 @@ IpamFhrpGroupsCreate Method for IpamFhrpGroupsCreate
 
 Post a list of FHRP group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupsCreateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsCreate(ctx context.Context) ApiIpamFhrpGroupsCreateRequest {
 	return ApiIpamFhrpGroupsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroup
+//
+//	@return FHRPGroup
 func (a *IpamAPIService) IpamFhrpGroupsCreateExecute(r ApiIpamFhrpGroupsCreateRequest) (*FHRPGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroup
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsCreate")
@@ -11490,9 +11523,9 @@ func (a *IpamAPIService) IpamFhrpGroupsCreateExecute(r ApiIpamFhrpGroupsCreateRe
 }
 
 type ApiIpamFhrpGroupsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamFhrpGroupsDestroyRequest) Execute() (*http.Response, error) {
@@ -11504,24 +11537,24 @@ IpamFhrpGroupsDestroy Method for IpamFhrpGroupsDestroy
 
 Delete a FHRP group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group.
- @return ApiIpamFhrpGroupsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group.
+	@return ApiIpamFhrpGroupsDestroyRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsDestroy(ctx context.Context, id int32) ApiIpamFhrpGroupsDestroyRequest {
 	return ApiIpamFhrpGroupsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamFhrpGroupsDestroyExecute(r ApiIpamFhrpGroupsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsDestroy")
@@ -11596,83 +11629,83 @@ func (a *IpamAPIService) IpamFhrpGroupsDestroyExecute(r ApiIpamFhrpGroupsDestroy
 }
 
 type ApiIpamFhrpGroupsListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	authKey *[]string
-	authKeyEmpty *bool
-	authKeyIc *[]string
-	authKeyIe *[]string
-	authKeyIew *[]string
-	authKeyIsw *[]string
-	authKeyN *[]string
-	authKeyNic *[]string
-	authKeyNie *[]string
-	authKeyNiew *[]string
-	authKeyNisw *[]string
-	authType *[]string
-	authTypeN *[]string
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	groupId *[]int32
-	groupIdEmpty *bool
-	groupIdGt *[]int32
-	groupIdGte *[]int32
-	groupIdLt *[]int32
-	groupIdLte *[]int32
-	groupIdN *[]int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	authKey           *[]string
+	authKeyEmpty      *bool
+	authKeyIc         *[]string
+	authKeyIe         *[]string
+	authKeyIew        *[]string
+	authKeyIsw        *[]string
+	authKeyN          *[]string
+	authKeyNic        *[]string
+	authKeyNie        *[]string
+	authKeyNiew       *[]string
+	authKeyNisw       *[]string
+	authType          *[]string
+	authTypeN         *[]string
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	groupId           *[]int32
+	groupIdEmpty      *bool
+	groupIdGt         *[]int32
+	groupIdGte        *[]int32
+	groupIdLt         *[]int32
+	groupIdLte        *[]int32
+	groupIdN          *[]int32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	protocol *[]string
-	protocolN *[]string
-	q *string
-	relatedIp *[]string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	protocol          *[]string
+	protocolN         *[]string
+	q                 *string
+	relatedIp         *[]string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 func (r ApiIpamFhrpGroupsListRequest) AuthKey(authKey []string) ApiIpamFhrpGroupsListRequest {
@@ -12063,24 +12096,25 @@ IpamFhrpGroupsList Method for IpamFhrpGroupsList
 
 Get a list of FHRP group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamFhrpGroupsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamFhrpGroupsListRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsList(ctx context.Context) ApiIpamFhrpGroupsListRequest {
 	return ApiIpamFhrpGroupsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedFHRPGroupList
+//
+//	@return PaginatedFHRPGroupList
 func (a *IpamAPIService) IpamFhrpGroupsListExecute(r ApiIpamFhrpGroupsListRequest) (*PaginatedFHRPGroupList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedFHRPGroupList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedFHRPGroupList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsList")
@@ -12892,9 +12926,9 @@ func (a *IpamAPIService) IpamFhrpGroupsListExecute(r ApiIpamFhrpGroupsListReques
 }
 
 type ApiIpamFhrpGroupsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                     context.Context
+	ApiService              IpamAPI
+	id                      int32
 	patchedFHRPGroupRequest *PatchedFHRPGroupRequest
 }
 
@@ -12912,26 +12946,27 @@ IpamFhrpGroupsPartialUpdate Method for IpamFhrpGroupsPartialUpdate
 
 Patch a FHRP group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group.
- @return ApiIpamFhrpGroupsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group.
+	@return ApiIpamFhrpGroupsPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsPartialUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupsPartialUpdateRequest {
 	return ApiIpamFhrpGroupsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroup
+//
+//	@return FHRPGroup
 func (a *IpamAPIService) IpamFhrpGroupsPartialUpdateExecute(r ApiIpamFhrpGroupsPartialUpdateRequest) (*FHRPGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroup
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsPartialUpdate")
@@ -13017,9 +13052,9 @@ func (a *IpamAPIService) IpamFhrpGroupsPartialUpdateExecute(r ApiIpamFhrpGroupsP
 }
 
 type ApiIpamFhrpGroupsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamFhrpGroupsRetrieveRequest) Execute() (*FHRPGroup, *http.Response, error) {
@@ -13031,26 +13066,27 @@ IpamFhrpGroupsRetrieve Method for IpamFhrpGroupsRetrieve
 
 Get a FHRP group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group.
- @return ApiIpamFhrpGroupsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group.
+	@return ApiIpamFhrpGroupsRetrieveRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsRetrieve(ctx context.Context, id int32) ApiIpamFhrpGroupsRetrieveRequest {
 	return ApiIpamFhrpGroupsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroup
+//
+//	@return FHRPGroup
 func (a *IpamAPIService) IpamFhrpGroupsRetrieveExecute(r ApiIpamFhrpGroupsRetrieveRequest) (*FHRPGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroup
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsRetrieve")
@@ -13134,9 +13170,9 @@ func (a *IpamAPIService) IpamFhrpGroupsRetrieveExecute(r ApiIpamFhrpGroupsRetrie
 }
 
 type ApiIpamFhrpGroupsUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx              context.Context
+	ApiService       IpamAPI
+	id               int32
 	fHRPGroupRequest *FHRPGroupRequest
 }
 
@@ -13154,26 +13190,27 @@ IpamFhrpGroupsUpdate Method for IpamFhrpGroupsUpdate
 
 Put a FHRP group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this FHRP group.
- @return ApiIpamFhrpGroupsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this FHRP group.
+	@return ApiIpamFhrpGroupsUpdateRequest
 */
 func (a *IpamAPIService) IpamFhrpGroupsUpdate(ctx context.Context, id int32) ApiIpamFhrpGroupsUpdateRequest {
 	return ApiIpamFhrpGroupsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return FHRPGroup
+//
+//	@return FHRPGroup
 func (a *IpamAPIService) IpamFhrpGroupsUpdateExecute(r ApiIpamFhrpGroupsUpdateRequest) (*FHRPGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *FHRPGroup
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *FHRPGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamFhrpGroupsUpdate")
@@ -13262,8 +13299,8 @@ func (a *IpamAPIService) IpamFhrpGroupsUpdateExecute(r ApiIpamFhrpGroupsUpdateRe
 }
 
 type ApiIpamIpAddressesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	iPAddressRequest *[]IPAddressRequest
 }
 
@@ -13281,22 +13318,22 @@ IpamIpAddressesBulkDestroy Method for IpamIpAddressesBulkDestroy
 
 Delete a list of IP address objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpAddressesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpAddressesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamIpAddressesBulkDestroy(ctx context.Context) ApiIpamIpAddressesBulkDestroyRequest {
 	return ApiIpamIpAddressesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamIpAddressesBulkDestroyExecute(r ApiIpamIpAddressesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesBulkDestroy")
@@ -13375,8 +13412,8 @@ func (a *IpamAPIService) IpamIpAddressesBulkDestroyExecute(r ApiIpamIpAddressesB
 }
 
 type ApiIpamIpAddressesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	iPAddressRequest *[]IPAddressRequest
 }
 
@@ -13394,24 +13431,25 @@ IpamIpAddressesBulkPartialUpdate Method for IpamIpAddressesBulkPartialUpdate
 
 Patch a list of IP address objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpAddressesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpAddressesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamIpAddressesBulkPartialUpdate(ctx context.Context) ApiIpamIpAddressesBulkPartialUpdateRequest {
 	return ApiIpamIpAddressesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []IPAddress
+//
+//	@return []IPAddress
 func (a *IpamAPIService) IpamIpAddressesBulkPartialUpdateExecute(r ApiIpamIpAddressesBulkPartialUpdateRequest) ([]IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []IPAddress
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesBulkPartialUpdate")
@@ -13499,8 +13537,8 @@ func (a *IpamAPIService) IpamIpAddressesBulkPartialUpdateExecute(r ApiIpamIpAddr
 }
 
 type ApiIpamIpAddressesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	iPAddressRequest *[]IPAddressRequest
 }
 
@@ -13518,24 +13556,25 @@ IpamIpAddressesBulkUpdate Method for IpamIpAddressesBulkUpdate
 
 Put a list of IP address objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpAddressesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpAddressesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamIpAddressesBulkUpdate(ctx context.Context) ApiIpamIpAddressesBulkUpdateRequest {
 	return ApiIpamIpAddressesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []IPAddress
+//
+//	@return []IPAddress
 func (a *IpamAPIService) IpamIpAddressesBulkUpdateExecute(r ApiIpamIpAddressesBulkUpdateRequest) ([]IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []IPAddress
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesBulkUpdate")
@@ -13623,8 +13662,8 @@ func (a *IpamAPIService) IpamIpAddressesBulkUpdateExecute(r ApiIpamIpAddressesBu
 }
 
 type ApiIpamIpAddressesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                      context.Context
+	ApiService               IpamAPI
 	writableIPAddressRequest *WritableIPAddressRequest
 }
 
@@ -13642,24 +13681,25 @@ IpamIpAddressesCreate Method for IpamIpAddressesCreate
 
 Post a list of IP address objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpAddressesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpAddressesCreateRequest
 */
 func (a *IpamAPIService) IpamIpAddressesCreate(ctx context.Context) ApiIpamIpAddressesCreateRequest {
 	return ApiIpamIpAddressesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IPAddress
+//
+//	@return IPAddress
 func (a *IpamAPIService) IpamIpAddressesCreateExecute(r ApiIpamIpAddressesCreateRequest) (*IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPAddress
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesCreate")
@@ -13747,9 +13787,9 @@ func (a *IpamAPIService) IpamIpAddressesCreateExecute(r ApiIpamIpAddressesCreate
 }
 
 type ApiIpamIpAddressesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamIpAddressesDestroyRequest) Execute() (*http.Response, error) {
@@ -13761,24 +13801,24 @@ IpamIpAddressesDestroy Method for IpamIpAddressesDestroy
 
 Delete a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP address.
- @return ApiIpamIpAddressesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP address.
+	@return ApiIpamIpAddressesDestroyRequest
 */
 func (a *IpamAPIService) IpamIpAddressesDestroy(ctx context.Context, id int32) ApiIpamIpAddressesDestroyRequest {
 	return ApiIpamIpAddressesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamIpAddressesDestroyExecute(r ApiIpamIpAddressesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesDestroy")
@@ -13853,113 +13893,113 @@ func (a *IpamAPIService) IpamIpAddressesDestroyExecute(r ApiIpamIpAddressesDestr
 }
 
 type ApiIpamIpAddressesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	address *[]string
-	assigned *bool
-	assignedObjectId *[]int32
+	ctx                   context.Context
+	ApiService            IpamAPI
+	address               *[]string
+	assigned              *bool
+	assignedObjectId      *[]int32
 	assignedObjectIdEmpty *bool
-	assignedObjectIdGt *[]int32
-	assignedObjectIdGte *[]int32
-	assignedObjectIdLt *[]int32
-	assignedObjectIdLte *[]int32
-	assignedObjectIdN *[]int32
-	assignedObjectType *int32
-	assignedObjectTypeN *int32
-	assignedToInterface *bool
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	device *[]string
-	deviceId *[]int32
-	dnsName *[]string
-	dnsNameEmpty *bool
-	dnsNameIc *[]string
-	dnsNameIe *[]string
-	dnsNameIew *[]string
-	dnsNameIsw *[]string
-	dnsNameN *[]string
-	dnsNameNic *[]string
-	dnsNameNie *[]string
-	dnsNameNiew *[]string
-	dnsNameNisw *[]string
-	family *float32
-	fhrpgroupId *[]int32
-	fhrpgroupIdN *[]int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	interface_ *[]string
-	interfaceN *[]string
-	interfaceId *[]int32
-	interfaceIdN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
-	maskLength *[]int32
-	maskLengthGte *float32
-	maskLengthLte *float32
-	modifiedByRequest *string
-	natInsideId *[]int32
-	natInsideIdN *[]int32
-	offset *int32
-	ordering *string
-	parent *[]string
-	presentInVrf *string
-	presentInVrfId *string
-	q *string
-	role *[]string
-	roleN *[]string
-	serviceId *[]int32
-	serviceIdN *[]int32
-	status *[]string
-	statusN *[]string
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
-	virtualMachine *[]string
-	virtualMachineId *[]int32
-	vminterface *[]string
-	vminterfaceN *[]string
-	vminterfaceId *[]int32
-	vminterfaceIdN *[]int32
-	vrf *[]*string
-	vrfN *[]*string
-	vrfId *[]*int32
-	vrfIdN *[]*int32
+	assignedObjectIdGt    *[]int32
+	assignedObjectIdGte   *[]int32
+	assignedObjectIdLt    *[]int32
+	assignedObjectIdLte   *[]int32
+	assignedObjectIdN     *[]int32
+	assignedObjectType    *int32
+	assignedObjectTypeN   *int32
+	assignedToInterface   *bool
+	created               *[]time.Time
+	createdEmpty          *[]time.Time
+	createdGt             *[]time.Time
+	createdGte            *[]time.Time
+	createdLt             *[]time.Time
+	createdLte            *[]time.Time
+	createdN              *[]time.Time
+	createdByRequest      *string
+	description           *[]string
+	descriptionEmpty      *bool
+	descriptionIc         *[]string
+	descriptionIe         *[]string
+	descriptionIew        *[]string
+	descriptionIsw        *[]string
+	descriptionN          *[]string
+	descriptionNic        *[]string
+	descriptionNie        *[]string
+	descriptionNiew       *[]string
+	descriptionNisw       *[]string
+	device                *[]string
+	deviceId              *[]int32
+	dnsName               *[]string
+	dnsNameEmpty          *bool
+	dnsNameIc             *[]string
+	dnsNameIe             *[]string
+	dnsNameIew            *[]string
+	dnsNameIsw            *[]string
+	dnsNameN              *[]string
+	dnsNameNic            *[]string
+	dnsNameNie            *[]string
+	dnsNameNiew           *[]string
+	dnsNameNisw           *[]string
+	family                *float32
+	fhrpgroupId           *[]int32
+	fhrpgroupIdN          *[]int32
+	id                    *[]int32
+	idEmpty               *bool
+	idGt                  *[]int32
+	idGte                 *[]int32
+	idLt                  *[]int32
+	idLte                 *[]int32
+	idN                   *[]int32
+	interface_            *[]string
+	interfaceN            *[]string
+	interfaceId           *[]int32
+	interfaceIdN          *[]int32
+	lastUpdated           *[]time.Time
+	lastUpdatedEmpty      *[]time.Time
+	lastUpdatedGt         *[]time.Time
+	lastUpdatedGte        *[]time.Time
+	lastUpdatedLt         *[]time.Time
+	lastUpdatedLte        *[]time.Time
+	lastUpdatedN          *[]time.Time
+	limit                 *int32
+	maskLength            *[]int32
+	maskLengthGte         *float32
+	maskLengthLte         *float32
+	modifiedByRequest     *string
+	natInsideId           *[]int32
+	natInsideIdN          *[]int32
+	offset                *int32
+	ordering              *string
+	parent                *[]string
+	presentInVrf          *string
+	presentInVrfId        *string
+	q                     *string
+	role                  *[]string
+	roleN                 *[]string
+	serviceId             *[]int32
+	serviceIdN            *[]int32
+	status                *[]string
+	statusN               *[]string
+	tag                   *[]string
+	tagN                  *[]string
+	tenant                *[]string
+	tenantN               *[]string
+	tenantGroup           *[]string
+	tenantGroupN          *[]string
+	tenantGroupId         *[]string
+	tenantGroupIdN        *[]string
+	tenantId              *[]*int32
+	tenantIdN             *[]*int32
+	updatedByRequest      *string
+	virtualMachine        *[]string
+	virtualMachineId      *[]int32
+	vminterface           *[]string
+	vminterfaceN          *[]string
+	vminterfaceId         *[]int32
+	vminterfaceIdN        *[]int32
+	vrf                   *[]*string
+	vrfN                  *[]*string
+	vrfId                 *[]*int32
+	vrfIdN                *[]*int32
 }
 
 func (r ApiIpamIpAddressesListRequest) Address(address []string) ApiIpamIpAddressesListRequest {
@@ -14528,24 +14568,25 @@ IpamIpAddressesList Method for IpamIpAddressesList
 
 Get a list of IP address objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpAddressesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpAddressesListRequest
 */
 func (a *IpamAPIService) IpamIpAddressesList(ctx context.Context) ApiIpamIpAddressesListRequest {
 	return ApiIpamIpAddressesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedIPAddressList
+//
+//	@return PaginatedIPAddressList
 func (a *IpamAPIService) IpamIpAddressesListExecute(r ApiIpamIpAddressesListRequest) (*PaginatedIPAddressList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedIPAddressList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedIPAddressList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesList")
@@ -15623,9 +15664,9 @@ func (a *IpamAPIService) IpamIpAddressesListExecute(r ApiIpamIpAddressesListRequ
 }
 
 type ApiIpamIpAddressesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                             context.Context
+	ApiService                      IpamAPI
+	id                              int32
 	patchedWritableIPAddressRequest *PatchedWritableIPAddressRequest
 }
 
@@ -15643,26 +15684,27 @@ IpamIpAddressesPartialUpdate Method for IpamIpAddressesPartialUpdate
 
 Patch a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP address.
- @return ApiIpamIpAddressesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP address.
+	@return ApiIpamIpAddressesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamIpAddressesPartialUpdate(ctx context.Context, id int32) ApiIpamIpAddressesPartialUpdateRequest {
 	return ApiIpamIpAddressesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IPAddress
+//
+//	@return IPAddress
 func (a *IpamAPIService) IpamIpAddressesPartialUpdateExecute(r ApiIpamIpAddressesPartialUpdateRequest) (*IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPAddress
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesPartialUpdate")
@@ -15748,9 +15790,9 @@ func (a *IpamAPIService) IpamIpAddressesPartialUpdateExecute(r ApiIpamIpAddresse
 }
 
 type ApiIpamIpAddressesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamIpAddressesRetrieveRequest) Execute() (*IPAddress, *http.Response, error) {
@@ -15762,26 +15804,27 @@ IpamIpAddressesRetrieve Method for IpamIpAddressesRetrieve
 
 Get a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP address.
- @return ApiIpamIpAddressesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP address.
+	@return ApiIpamIpAddressesRetrieveRequest
 */
 func (a *IpamAPIService) IpamIpAddressesRetrieve(ctx context.Context, id int32) ApiIpamIpAddressesRetrieveRequest {
 	return ApiIpamIpAddressesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IPAddress
+//
+//	@return IPAddress
 func (a *IpamAPIService) IpamIpAddressesRetrieveExecute(r ApiIpamIpAddressesRetrieveRequest) (*IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPAddress
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesRetrieve")
@@ -15865,9 +15908,9 @@ func (a *IpamAPIService) IpamIpAddressesRetrieveExecute(r ApiIpamIpAddressesRetr
 }
 
 type ApiIpamIpAddressesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                      context.Context
+	ApiService               IpamAPI
+	id                       int32
 	writableIPAddressRequest *WritableIPAddressRequest
 }
 
@@ -15885,26 +15928,27 @@ IpamIpAddressesUpdate Method for IpamIpAddressesUpdate
 
 Put a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP address.
- @return ApiIpamIpAddressesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP address.
+	@return ApiIpamIpAddressesUpdateRequest
 */
 func (a *IpamAPIService) IpamIpAddressesUpdate(ctx context.Context, id int32) ApiIpamIpAddressesUpdateRequest {
 	return ApiIpamIpAddressesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IPAddress
+//
+//	@return IPAddress
 func (a *IpamAPIService) IpamIpAddressesUpdateExecute(r ApiIpamIpAddressesUpdateRequest) (*IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPAddress
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpAddressesUpdate")
@@ -15993,9 +16037,9 @@ func (a *IpamAPIService) IpamIpAddressesUpdateExecute(r ApiIpamIpAddressesUpdate
 }
 
 type ApiIpamIpRangesAvailableIpsCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx              context.Context
+	ApiService       IpamAPI
+	id               int32
 	iPAddressRequest *[]IPAddressRequest
 }
 
@@ -16013,26 +16057,27 @@ IpamIpRangesAvailableIpsCreate Method for IpamIpRangesAvailableIpsCreate
 
 Post a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamIpRangesAvailableIpsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamIpRangesAvailableIpsCreateRequest
 */
 func (a *IpamAPIService) IpamIpRangesAvailableIpsCreate(ctx context.Context, id int32) ApiIpamIpRangesAvailableIpsCreateRequest {
 	return ApiIpamIpRangesAvailableIpsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []IPAddress
+//
+//	@return []IPAddress
 func (a *IpamAPIService) IpamIpRangesAvailableIpsCreateExecute(r ApiIpamIpRangesAvailableIpsCreateRequest) ([]IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []IPAddress
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesAvailableIpsCreate")
@@ -16121,9 +16166,9 @@ func (a *IpamAPIService) IpamIpRangesAvailableIpsCreateExecute(r ApiIpamIpRanges
 }
 
 type ApiIpamIpRangesAvailableIpsListRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamIpRangesAvailableIpsListRequest) Execute() ([]AvailableIP, *http.Response, error) {
@@ -16135,26 +16180,27 @@ IpamIpRangesAvailableIpsList Method for IpamIpRangesAvailableIpsList
 
 Get a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamIpRangesAvailableIpsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamIpRangesAvailableIpsListRequest
 */
 func (a *IpamAPIService) IpamIpRangesAvailableIpsList(ctx context.Context, id int32) ApiIpamIpRangesAvailableIpsListRequest {
 	return ApiIpamIpRangesAvailableIpsListRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []AvailableIP
+//
+//	@return []AvailableIP
 func (a *IpamAPIService) IpamIpRangesAvailableIpsListExecute(r ApiIpamIpRangesAvailableIpsListRequest) ([]AvailableIP, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AvailableIP
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AvailableIP
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesAvailableIpsList")
@@ -16238,8 +16284,8 @@ func (a *IpamAPIService) IpamIpRangesAvailableIpsListExecute(r ApiIpamIpRangesAv
 }
 
 type ApiIpamIpRangesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx            context.Context
+	ApiService     IpamAPI
 	iPRangeRequest *[]IPRangeRequest
 }
 
@@ -16257,22 +16303,22 @@ IpamIpRangesBulkDestroy Method for IpamIpRangesBulkDestroy
 
 Delete a list of IP range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpRangesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpRangesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamIpRangesBulkDestroy(ctx context.Context) ApiIpamIpRangesBulkDestroyRequest {
 	return ApiIpamIpRangesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamIpRangesBulkDestroyExecute(r ApiIpamIpRangesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesBulkDestroy")
@@ -16351,8 +16397,8 @@ func (a *IpamAPIService) IpamIpRangesBulkDestroyExecute(r ApiIpamIpRangesBulkDes
 }
 
 type ApiIpamIpRangesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx            context.Context
+	ApiService     IpamAPI
 	iPRangeRequest *[]IPRangeRequest
 }
 
@@ -16370,24 +16416,25 @@ IpamIpRangesBulkPartialUpdate Method for IpamIpRangesBulkPartialUpdate
 
 Patch a list of IP range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpRangesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpRangesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamIpRangesBulkPartialUpdate(ctx context.Context) ApiIpamIpRangesBulkPartialUpdateRequest {
 	return ApiIpamIpRangesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []IPRange
+//
+//	@return []IPRange
 func (a *IpamAPIService) IpamIpRangesBulkPartialUpdateExecute(r ApiIpamIpRangesBulkPartialUpdateRequest) ([]IPRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []IPRange
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []IPRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesBulkPartialUpdate")
@@ -16475,8 +16522,8 @@ func (a *IpamAPIService) IpamIpRangesBulkPartialUpdateExecute(r ApiIpamIpRangesB
 }
 
 type ApiIpamIpRangesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx            context.Context
+	ApiService     IpamAPI
 	iPRangeRequest *[]IPRangeRequest
 }
 
@@ -16494,24 +16541,25 @@ IpamIpRangesBulkUpdate Method for IpamIpRangesBulkUpdate
 
 Put a list of IP range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpRangesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpRangesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamIpRangesBulkUpdate(ctx context.Context) ApiIpamIpRangesBulkUpdateRequest {
 	return ApiIpamIpRangesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []IPRange
+//
+//	@return []IPRange
 func (a *IpamAPIService) IpamIpRangesBulkUpdateExecute(r ApiIpamIpRangesBulkUpdateRequest) ([]IPRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []IPRange
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []IPRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesBulkUpdate")
@@ -16599,8 +16647,8 @@ func (a *IpamAPIService) IpamIpRangesBulkUpdateExecute(r ApiIpamIpRangesBulkUpda
 }
 
 type ApiIpamIpRangesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                    context.Context
+	ApiService             IpamAPI
 	writableIPRangeRequest *WritableIPRangeRequest
 }
 
@@ -16618,24 +16666,25 @@ IpamIpRangesCreate Method for IpamIpRangesCreate
 
 Post a list of IP range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpRangesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpRangesCreateRequest
 */
 func (a *IpamAPIService) IpamIpRangesCreate(ctx context.Context) ApiIpamIpRangesCreateRequest {
 	return ApiIpamIpRangesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return IPRange
+//
+//	@return IPRange
 func (a *IpamAPIService) IpamIpRangesCreateExecute(r ApiIpamIpRangesCreateRequest) (*IPRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPRange
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesCreate")
@@ -16723,9 +16772,9 @@ func (a *IpamAPIService) IpamIpRangesCreateExecute(r ApiIpamIpRangesCreateReques
 }
 
 type ApiIpamIpRangesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamIpRangesDestroyRequest) Execute() (*http.Response, error) {
@@ -16737,24 +16786,24 @@ IpamIpRangesDestroy Method for IpamIpRangesDestroy
 
 Delete a IP range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP range.
- @return ApiIpamIpRangesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP range.
+	@return ApiIpamIpRangesDestroyRequest
 */
 func (a *IpamAPIService) IpamIpRangesDestroy(ctx context.Context, id int32) ApiIpamIpRangesDestroyRequest {
 	return ApiIpamIpRangesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamIpRangesDestroyExecute(r ApiIpamIpRangesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesDestroy")
@@ -16829,80 +16878,80 @@ func (a *IpamAPIService) IpamIpRangesDestroyExecute(r ApiIpamIpRangesDestroyRequ
 }
 
 type ApiIpamIpRangesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	contains *string
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	endAddress *[]string
-	family *float32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
-	markUtilized *bool
+	ctx               context.Context
+	ApiService        IpamAPI
+	contains          *string
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	endAddress        *[]string
+	family            *float32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
+	markUtilized      *bool
 	modifiedByRequest *string
-	offset *int32
-	ordering *string
-	parent *[]string
-	q *string
-	role *[]string
-	roleN *[]string
-	roleId *[]*int32
-	roleIdN *[]*int32
-	size *[]int32
-	sizeEmpty *bool
-	sizeGt *[]int32
-	sizeGte *[]int32
-	sizeLt *[]int32
-	sizeLte *[]int32
-	sizeN *[]int32
-	startAddress *[]string
-	status *[]string
-	statusN *[]string
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
-	vrf *[]*string
-	vrfN *[]*string
-	vrfId *[]*int32
-	vrfIdN *[]*int32
+	offset            *int32
+	ordering          *string
+	parent            *[]string
+	q                 *string
+	role              *[]string
+	roleN             *[]string
+	roleId            *[]*int32
+	roleIdN           *[]*int32
+	size              *[]int32
+	sizeEmpty         *bool
+	sizeGt            *[]int32
+	sizeGte           *[]int32
+	sizeLt            *[]int32
+	sizeLte           *[]int32
+	sizeN             *[]int32
+	startAddress      *[]string
+	status            *[]string
+	statusN           *[]string
+	tag               *[]string
+	tagN              *[]string
+	tenant            *[]string
+	tenantN           *[]string
+	tenantGroup       *[]string
+	tenantGroupN      *[]string
+	tenantGroupId     *[]string
+	tenantGroupIdN    *[]string
+	tenantId          *[]*int32
+	tenantIdN         *[]*int32
+	updatedByRequest  *string
+	vrf               *[]*string
+	vrfN              *[]*string
+	vrfId             *[]*int32
+	vrfIdN            *[]*int32
 }
 
 // Ranges which contain this prefix or IP
@@ -17293,24 +17342,25 @@ IpamIpRangesList Method for IpamIpRangesList
 
 Get a list of IP range objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamIpRangesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamIpRangesListRequest
 */
 func (a *IpamAPIService) IpamIpRangesList(ctx context.Context) ApiIpamIpRangesListRequest {
 	return ApiIpamIpRangesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedIPRangeList
+//
+//	@return PaginatedIPRangeList
 func (a *IpamAPIService) IpamIpRangesListExecute(r ApiIpamIpRangesListRequest) (*PaginatedIPRangeList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedIPRangeList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedIPRangeList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesList")
@@ -18081,9 +18131,9 @@ func (a *IpamAPIService) IpamIpRangesListExecute(r ApiIpamIpRangesListRequest) (
 }
 
 type ApiIpamIpRangesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                           context.Context
+	ApiService                    IpamAPI
+	id                            int32
 	patchedWritableIPRangeRequest *PatchedWritableIPRangeRequest
 }
 
@@ -18101,26 +18151,27 @@ IpamIpRangesPartialUpdate Method for IpamIpRangesPartialUpdate
 
 Patch a IP range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP range.
- @return ApiIpamIpRangesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP range.
+	@return ApiIpamIpRangesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamIpRangesPartialUpdate(ctx context.Context, id int32) ApiIpamIpRangesPartialUpdateRequest {
 	return ApiIpamIpRangesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IPRange
+//
+//	@return IPRange
 func (a *IpamAPIService) IpamIpRangesPartialUpdateExecute(r ApiIpamIpRangesPartialUpdateRequest) (*IPRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPRange
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesPartialUpdate")
@@ -18206,9 +18257,9 @@ func (a *IpamAPIService) IpamIpRangesPartialUpdateExecute(r ApiIpamIpRangesParti
 }
 
 type ApiIpamIpRangesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamIpRangesRetrieveRequest) Execute() (*IPRange, *http.Response, error) {
@@ -18220,26 +18271,27 @@ IpamIpRangesRetrieve Method for IpamIpRangesRetrieve
 
 Get a IP range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP range.
- @return ApiIpamIpRangesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP range.
+	@return ApiIpamIpRangesRetrieveRequest
 */
 func (a *IpamAPIService) IpamIpRangesRetrieve(ctx context.Context, id int32) ApiIpamIpRangesRetrieveRequest {
 	return ApiIpamIpRangesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IPRange
+//
+//	@return IPRange
 func (a *IpamAPIService) IpamIpRangesRetrieveExecute(r ApiIpamIpRangesRetrieveRequest) (*IPRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPRange
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesRetrieve")
@@ -18323,9 +18375,9 @@ func (a *IpamAPIService) IpamIpRangesRetrieveExecute(r ApiIpamIpRangesRetrieveRe
 }
 
 type ApiIpamIpRangesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                    context.Context
+	ApiService             IpamAPI
+	id                     int32
 	writableIPRangeRequest *WritableIPRangeRequest
 }
 
@@ -18343,26 +18395,27 @@ IpamIpRangesUpdate Method for IpamIpRangesUpdate
 
 Put a IP range object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this IP range.
- @return ApiIpamIpRangesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this IP range.
+	@return ApiIpamIpRangesUpdateRequest
 */
 func (a *IpamAPIService) IpamIpRangesUpdate(ctx context.Context, id int32) ApiIpamIpRangesUpdateRequest {
 	return ApiIpamIpRangesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return IPRange
+//
+//	@return IPRange
 func (a *IpamAPIService) IpamIpRangesUpdateExecute(r ApiIpamIpRangesUpdateRequest) (*IPRange, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *IPRange
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *IPRange
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamIpRangesUpdate")
@@ -18451,9 +18504,9 @@ func (a *IpamAPIService) IpamIpRangesUpdateExecute(r ApiIpamIpRangesUpdateReques
 }
 
 type ApiIpamPrefixesAvailableIpsCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx              context.Context
+	ApiService       IpamAPI
+	id               int32
 	iPAddressRequest *[]IPAddressRequest
 }
 
@@ -18471,26 +18524,27 @@ IpamPrefixesAvailableIpsCreate Method for IpamPrefixesAvailableIpsCreate
 
 Post a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamPrefixesAvailableIpsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamPrefixesAvailableIpsCreateRequest
 */
 func (a *IpamAPIService) IpamPrefixesAvailableIpsCreate(ctx context.Context, id int32) ApiIpamPrefixesAvailableIpsCreateRequest {
 	return ApiIpamPrefixesAvailableIpsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []IPAddress
+//
+//	@return []IPAddress
 func (a *IpamAPIService) IpamPrefixesAvailableIpsCreateExecute(r ApiIpamPrefixesAvailableIpsCreateRequest) ([]IPAddress, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []IPAddress
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []IPAddress
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesAvailableIpsCreate")
@@ -18579,9 +18633,9 @@ func (a *IpamAPIService) IpamPrefixesAvailableIpsCreateExecute(r ApiIpamPrefixes
 }
 
 type ApiIpamPrefixesAvailableIpsListRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamPrefixesAvailableIpsListRequest) Execute() ([]AvailableIP, *http.Response, error) {
@@ -18593,26 +18647,27 @@ IpamPrefixesAvailableIpsList Method for IpamPrefixesAvailableIpsList
 
 Get a IP address object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamPrefixesAvailableIpsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamPrefixesAvailableIpsListRequest
 */
 func (a *IpamAPIService) IpamPrefixesAvailableIpsList(ctx context.Context, id int32) ApiIpamPrefixesAvailableIpsListRequest {
 	return ApiIpamPrefixesAvailableIpsListRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []AvailableIP
+//
+//	@return []AvailableIP
 func (a *IpamAPIService) IpamPrefixesAvailableIpsListExecute(r ApiIpamPrefixesAvailableIpsListRequest) ([]AvailableIP, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AvailableIP
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AvailableIP
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesAvailableIpsList")
@@ -18696,9 +18751,9 @@ func (a *IpamAPIService) IpamPrefixesAvailableIpsListExecute(r ApiIpamPrefixesAv
 }
 
 type ApiIpamPrefixesAvailablePrefixesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx           context.Context
+	ApiService    IpamAPI
+	id            int32
 	prefixRequest *[]PrefixRequest
 }
 
@@ -18716,26 +18771,27 @@ IpamPrefixesAvailablePrefixesCreate Method for IpamPrefixesAvailablePrefixesCrea
 
 Post a prefix object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamPrefixesAvailablePrefixesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamPrefixesAvailablePrefixesCreateRequest
 */
 func (a *IpamAPIService) IpamPrefixesAvailablePrefixesCreate(ctx context.Context, id int32) ApiIpamPrefixesAvailablePrefixesCreateRequest {
 	return ApiIpamPrefixesAvailablePrefixesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []Prefix
+//
+//	@return []Prefix
 func (a *IpamAPIService) IpamPrefixesAvailablePrefixesCreateExecute(r ApiIpamPrefixesAvailablePrefixesCreateRequest) ([]Prefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Prefix
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Prefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesAvailablePrefixesCreate")
@@ -18824,9 +18880,9 @@ func (a *IpamAPIService) IpamPrefixesAvailablePrefixesCreateExecute(r ApiIpamPre
 }
 
 type ApiIpamPrefixesAvailablePrefixesListRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamPrefixesAvailablePrefixesListRequest) Execute() ([]AvailablePrefix, *http.Response, error) {
@@ -18838,26 +18894,27 @@ IpamPrefixesAvailablePrefixesList Method for IpamPrefixesAvailablePrefixesList
 
 Get a prefix object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamPrefixesAvailablePrefixesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamPrefixesAvailablePrefixesListRequest
 */
 func (a *IpamAPIService) IpamPrefixesAvailablePrefixesList(ctx context.Context, id int32) ApiIpamPrefixesAvailablePrefixesListRequest {
 	return ApiIpamPrefixesAvailablePrefixesListRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []AvailablePrefix
+//
+//	@return []AvailablePrefix
 func (a *IpamAPIService) IpamPrefixesAvailablePrefixesListExecute(r ApiIpamPrefixesAvailablePrefixesListRequest) ([]AvailablePrefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AvailablePrefix
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AvailablePrefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesAvailablePrefixesList")
@@ -18941,8 +18998,8 @@ func (a *IpamAPIService) IpamPrefixesAvailablePrefixesListExecute(r ApiIpamPrefi
 }
 
 type ApiIpamPrefixesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx           context.Context
+	ApiService    IpamAPI
 	prefixRequest *[]PrefixRequest
 }
 
@@ -18960,22 +19017,22 @@ IpamPrefixesBulkDestroy Method for IpamPrefixesBulkDestroy
 
 Delete a list of prefix objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamPrefixesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamPrefixesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamPrefixesBulkDestroy(ctx context.Context) ApiIpamPrefixesBulkDestroyRequest {
 	return ApiIpamPrefixesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamPrefixesBulkDestroyExecute(r ApiIpamPrefixesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesBulkDestroy")
@@ -19054,8 +19111,8 @@ func (a *IpamAPIService) IpamPrefixesBulkDestroyExecute(r ApiIpamPrefixesBulkDes
 }
 
 type ApiIpamPrefixesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx           context.Context
+	ApiService    IpamAPI
 	prefixRequest *[]PrefixRequest
 }
 
@@ -19073,24 +19130,25 @@ IpamPrefixesBulkPartialUpdate Method for IpamPrefixesBulkPartialUpdate
 
 Patch a list of prefix objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamPrefixesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamPrefixesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamPrefixesBulkPartialUpdate(ctx context.Context) ApiIpamPrefixesBulkPartialUpdateRequest {
 	return ApiIpamPrefixesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Prefix
+//
+//	@return []Prefix
 func (a *IpamAPIService) IpamPrefixesBulkPartialUpdateExecute(r ApiIpamPrefixesBulkPartialUpdateRequest) ([]Prefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Prefix
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Prefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesBulkPartialUpdate")
@@ -19178,8 +19236,8 @@ func (a *IpamAPIService) IpamPrefixesBulkPartialUpdateExecute(r ApiIpamPrefixesB
 }
 
 type ApiIpamPrefixesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx           context.Context
+	ApiService    IpamAPI
 	prefixRequest *[]PrefixRequest
 }
 
@@ -19197,24 +19255,25 @@ IpamPrefixesBulkUpdate Method for IpamPrefixesBulkUpdate
 
 Put a list of prefix objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamPrefixesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamPrefixesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamPrefixesBulkUpdate(ctx context.Context) ApiIpamPrefixesBulkUpdateRequest {
 	return ApiIpamPrefixesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Prefix
+//
+//	@return []Prefix
 func (a *IpamAPIService) IpamPrefixesBulkUpdateExecute(r ApiIpamPrefixesBulkUpdateRequest) ([]Prefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Prefix
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Prefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesBulkUpdate")
@@ -19302,8 +19361,8 @@ func (a *IpamAPIService) IpamPrefixesBulkUpdateExecute(r ApiIpamPrefixesBulkUpda
 }
 
 type ApiIpamPrefixesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                   context.Context
+	ApiService            IpamAPI
 	writablePrefixRequest *WritablePrefixRequest
 }
 
@@ -19321,24 +19380,25 @@ IpamPrefixesCreate Method for IpamPrefixesCreate
 
 Post a list of prefix objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamPrefixesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamPrefixesCreateRequest
 */
 func (a *IpamAPIService) IpamPrefixesCreate(ctx context.Context) ApiIpamPrefixesCreateRequest {
 	return ApiIpamPrefixesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Prefix
+//
+//	@return Prefix
 func (a *IpamAPIService) IpamPrefixesCreateExecute(r ApiIpamPrefixesCreateRequest) (*Prefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Prefix
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Prefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesCreate")
@@ -19426,9 +19486,9 @@ func (a *IpamAPIService) IpamPrefixesCreateExecute(r ApiIpamPrefixesCreateReques
 }
 
 type ApiIpamPrefixesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamPrefixesDestroyRequest) Execute() (*http.Response, error) {
@@ -19440,24 +19500,24 @@ IpamPrefixesDestroy Method for IpamPrefixesDestroy
 
 Delete a prefix object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this prefix.
- @return ApiIpamPrefixesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this prefix.
+	@return ApiIpamPrefixesDestroyRequest
 */
 func (a *IpamAPIService) IpamPrefixesDestroy(ctx context.Context, id int32) ApiIpamPrefixesDestroyRequest {
 	return ApiIpamPrefixesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamPrefixesDestroyExecute(r ApiIpamPrefixesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesDestroy")
@@ -19532,114 +19592,114 @@ func (a *IpamAPIService) IpamPrefixesDestroyExecute(r ApiIpamPrefixesDestroyRequ
 }
 
 type ApiIpamPrefixesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	children *[]int32
-	childrenEmpty *[]int32
-	childrenGt *[]int32
-	childrenGte *[]int32
-	childrenLt *[]int32
-	childrenLte *[]int32
-	childrenN *[]int32
-	contains *string
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	depth *[]int32
-	depthEmpty *[]int32
-	depthGt *[]int32
-	depthGte *[]int32
-	depthLt *[]int32
-	depthLte *[]int32
-	depthN *[]int32
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	family *float32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	isPool *bool
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
-	markUtilized *bool
-	maskLength *[]int32
-	maskLengthGte *float32
-	maskLengthLte *float32
+	ctx               context.Context
+	ApiService        IpamAPI
+	children          *[]int32
+	childrenEmpty     *[]int32
+	childrenGt        *[]int32
+	childrenGte       *[]int32
+	childrenLt        *[]int32
+	childrenLte       *[]int32
+	childrenN         *[]int32
+	contains          *string
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	depth             *[]int32
+	depthEmpty        *[]int32
+	depthGt           *[]int32
+	depthGte          *[]int32
+	depthLt           *[]int32
+	depthLte          *[]int32
+	depthN            *[]int32
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	family            *float32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	isPool            *bool
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
+	markUtilized      *bool
+	maskLength        *[]int32
+	maskLengthGte     *float32
+	maskLengthLte     *float32
 	modifiedByRequest *string
-	offset *int32
-	ordering *string
-	prefix *[]string
-	presentInVrf *string
-	presentInVrfId *string
-	q *string
-	region *[]string
-	regionN *[]string
-	regionId *[]string
-	regionIdN *[]string
-	role *[]string
-	roleN *[]string
-	roleId *[]*int32
-	roleIdN *[]*int32
-	site *[]string
-	siteN *[]string
-	siteGroup *[]string
-	siteGroupN *[]string
-	siteGroupId *[]string
-	siteGroupIdN *[]string
-	siteId *[]*int32
-	siteIdN *[]*int32
-	status *[]string
-	statusN *[]string
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
-	vlanId *[]*int32
-	vlanIdN *[]*int32
-	vlanVid *int32
-	vlanVidEmpty *int32
-	vlanVidGt *int32
-	vlanVidGte *int32
-	vlanVidLt *int32
-	vlanVidLte *int32
-	vlanVidN *int32
-	vrf *[]*string
-	vrfN *[]*string
-	vrfId *[]*int32
-	vrfIdN *[]*int32
-	within *string
-	withinInclude *string
+	offset            *int32
+	ordering          *string
+	prefix            *[]string
+	presentInVrf      *string
+	presentInVrfId    *string
+	q                 *string
+	region            *[]string
+	regionN           *[]string
+	regionId          *[]string
+	regionIdN         *[]string
+	role              *[]string
+	roleN             *[]string
+	roleId            *[]*int32
+	roleIdN           *[]*int32
+	site              *[]string
+	siteN             *[]string
+	siteGroup         *[]string
+	siteGroupN        *[]string
+	siteGroupId       *[]string
+	siteGroupIdN      *[]string
+	siteId            *[]*int32
+	siteIdN           *[]*int32
+	status            *[]string
+	statusN           *[]string
+	tag               *[]string
+	tagN              *[]string
+	tenant            *[]string
+	tenantN           *[]string
+	tenantGroup       *[]string
+	tenantGroupN      *[]string
+	tenantGroupId     *[]string
+	tenantGroupIdN    *[]string
+	tenantId          *[]*int32
+	tenantIdN         *[]*int32
+	updatedByRequest  *string
+	vlanId            *[]*int32
+	vlanIdN           *[]*int32
+	vlanVid           *int32
+	vlanVidEmpty      *int32
+	vlanVidGt         *int32
+	vlanVidGte        *int32
+	vlanVidLt         *int32
+	vlanVidLte        *int32
+	vlanVidN          *int32
+	vrf               *[]*string
+	vrfN              *[]*string
+	vrfId             *[]*int32
+	vrfIdN            *[]*int32
+	within            *string
+	withinInclude     *string
 }
 
 func (r ApiIpamPrefixesListRequest) Children(children []int32) ApiIpamPrefixesListRequest {
@@ -20215,24 +20275,25 @@ IpamPrefixesList Method for IpamPrefixesList
 
 Get a list of prefix objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamPrefixesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamPrefixesListRequest
 */
 func (a *IpamAPIService) IpamPrefixesList(ctx context.Context) ApiIpamPrefixesListRequest {
 	return ApiIpamPrefixesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedPrefixList
+//
+//	@return PaginatedPrefixList
 func (a *IpamAPIService) IpamPrefixesListExecute(r ApiIpamPrefixesListRequest) (*PaginatedPrefixList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedPrefixList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedPrefixList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesList")
@@ -21273,9 +21334,9 @@ func (a *IpamAPIService) IpamPrefixesListExecute(r ApiIpamPrefixesListRequest) (
 }
 
 type ApiIpamPrefixesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                          context.Context
+	ApiService                   IpamAPI
+	id                           int32
 	patchedWritablePrefixRequest *PatchedWritablePrefixRequest
 }
 
@@ -21293,26 +21354,27 @@ IpamPrefixesPartialUpdate Method for IpamPrefixesPartialUpdate
 
 Patch a prefix object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this prefix.
- @return ApiIpamPrefixesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this prefix.
+	@return ApiIpamPrefixesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamPrefixesPartialUpdate(ctx context.Context, id int32) ApiIpamPrefixesPartialUpdateRequest {
 	return ApiIpamPrefixesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Prefix
+//
+//	@return Prefix
 func (a *IpamAPIService) IpamPrefixesPartialUpdateExecute(r ApiIpamPrefixesPartialUpdateRequest) (*Prefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Prefix
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Prefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesPartialUpdate")
@@ -21398,9 +21460,9 @@ func (a *IpamAPIService) IpamPrefixesPartialUpdateExecute(r ApiIpamPrefixesParti
 }
 
 type ApiIpamPrefixesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamPrefixesRetrieveRequest) Execute() (*Prefix, *http.Response, error) {
@@ -21412,26 +21474,27 @@ IpamPrefixesRetrieve Method for IpamPrefixesRetrieve
 
 Get a prefix object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this prefix.
- @return ApiIpamPrefixesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this prefix.
+	@return ApiIpamPrefixesRetrieveRequest
 */
 func (a *IpamAPIService) IpamPrefixesRetrieve(ctx context.Context, id int32) ApiIpamPrefixesRetrieveRequest {
 	return ApiIpamPrefixesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Prefix
+//
+//	@return Prefix
 func (a *IpamAPIService) IpamPrefixesRetrieveExecute(r ApiIpamPrefixesRetrieveRequest) (*Prefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Prefix
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Prefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesRetrieve")
@@ -21515,9 +21578,9 @@ func (a *IpamAPIService) IpamPrefixesRetrieveExecute(r ApiIpamPrefixesRetrieveRe
 }
 
 type ApiIpamPrefixesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                   context.Context
+	ApiService            IpamAPI
+	id                    int32
 	writablePrefixRequest *WritablePrefixRequest
 }
 
@@ -21535,26 +21598,27 @@ IpamPrefixesUpdate Method for IpamPrefixesUpdate
 
 Put a prefix object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this prefix.
- @return ApiIpamPrefixesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this prefix.
+	@return ApiIpamPrefixesUpdateRequest
 */
 func (a *IpamAPIService) IpamPrefixesUpdate(ctx context.Context, id int32) ApiIpamPrefixesUpdateRequest {
 	return ApiIpamPrefixesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Prefix
+//
+//	@return Prefix
 func (a *IpamAPIService) IpamPrefixesUpdateExecute(r ApiIpamPrefixesUpdateRequest) (*Prefix, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Prefix
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Prefix
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamPrefixesUpdate")
@@ -21643,7 +21707,7 @@ func (a *IpamAPIService) IpamPrefixesUpdateExecute(r ApiIpamPrefixesUpdateReques
 }
 
 type ApiIpamRirsBulkDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	rIRRequest *[]RIRRequest
 }
@@ -21662,22 +21726,22 @@ IpamRirsBulkDestroy Method for IpamRirsBulkDestroy
 
 Delete a list of RIR objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRirsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRirsBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamRirsBulkDestroy(ctx context.Context) ApiIpamRirsBulkDestroyRequest {
 	return ApiIpamRirsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamRirsBulkDestroyExecute(r ApiIpamRirsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsBulkDestroy")
@@ -21756,7 +21820,7 @@ func (a *IpamAPIService) IpamRirsBulkDestroyExecute(r ApiIpamRirsBulkDestroyRequ
 }
 
 type ApiIpamRirsBulkPartialUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	rIRRequest *[]RIRRequest
 }
@@ -21775,24 +21839,25 @@ IpamRirsBulkPartialUpdate Method for IpamRirsBulkPartialUpdate
 
 Patch a list of RIR objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRirsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRirsBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamRirsBulkPartialUpdate(ctx context.Context) ApiIpamRirsBulkPartialUpdateRequest {
 	return ApiIpamRirsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []RIR
+//
+//	@return []RIR
 func (a *IpamAPIService) IpamRirsBulkPartialUpdateExecute(r ApiIpamRirsBulkPartialUpdateRequest) ([]RIR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []RIR
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []RIR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsBulkPartialUpdate")
@@ -21880,7 +21945,7 @@ func (a *IpamAPIService) IpamRirsBulkPartialUpdateExecute(r ApiIpamRirsBulkParti
 }
 
 type ApiIpamRirsBulkUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	rIRRequest *[]RIRRequest
 }
@@ -21899,24 +21964,25 @@ IpamRirsBulkUpdate Method for IpamRirsBulkUpdate
 
 Put a list of RIR objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRirsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRirsBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamRirsBulkUpdate(ctx context.Context) ApiIpamRirsBulkUpdateRequest {
 	return ApiIpamRirsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []RIR
+//
+//	@return []RIR
 func (a *IpamAPIService) IpamRirsBulkUpdateExecute(r ApiIpamRirsBulkUpdateRequest) ([]RIR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []RIR
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []RIR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsBulkUpdate")
@@ -22004,7 +22070,7 @@ func (a *IpamAPIService) IpamRirsBulkUpdateExecute(r ApiIpamRirsBulkUpdateReques
 }
 
 type ApiIpamRirsCreateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	rIRRequest *RIRRequest
 }
@@ -22023,24 +22089,25 @@ IpamRirsCreate Method for IpamRirsCreate
 
 Post a list of RIR objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRirsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRirsCreateRequest
 */
 func (a *IpamAPIService) IpamRirsCreate(ctx context.Context) ApiIpamRirsCreateRequest {
 	return ApiIpamRirsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RIR
+//
+//	@return RIR
 func (a *IpamAPIService) IpamRirsCreateExecute(r ApiIpamRirsCreateRequest) (*RIR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RIR
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RIR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsCreate")
@@ -22128,9 +22195,9 @@ func (a *IpamAPIService) IpamRirsCreateExecute(r ApiIpamRirsCreateRequest) (*RIR
 }
 
 type ApiIpamRirsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamRirsDestroyRequest) Execute() (*http.Response, error) {
@@ -22142,24 +22209,24 @@ IpamRirsDestroy Method for IpamRirsDestroy
 
 Delete a RIR object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this RIR.
- @return ApiIpamRirsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this RIR.
+	@return ApiIpamRirsDestroyRequest
 */
 func (a *IpamAPIService) IpamRirsDestroy(ctx context.Context, id int32) ApiIpamRirsDestroyRequest {
 	return ApiIpamRirsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamRirsDestroyExecute(r ApiIpamRirsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsDestroy")
@@ -22234,72 +22301,72 @@ func (a *IpamAPIService) IpamRirsDestroyExecute(r ApiIpamRirsDestroyRequest) (*h
 }
 
 type ApiIpamRirsListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	isPrivate *bool
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	isPrivate         *bool
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	slug *[]string
-	slugEmpty *bool
-	slugIc *[]string
-	slugIe *[]string
-	slugIew *[]string
-	slugIsw *[]string
-	slugN *[]string
-	slugNic *[]string
-	slugNie *[]string
-	slugNiew *[]string
-	slugNisw *[]string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	slug              *[]string
+	slugEmpty         *bool
+	slugIc            *[]string
+	slugIe            *[]string
+	slugIew           *[]string
+	slugIsw           *[]string
+	slugN             *[]string
+	slugNic           *[]string
+	slugNie           *[]string
+	slugNiew          *[]string
+	slugNisw          *[]string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 func (r ApiIpamRirsListRequest) Created(created []time.Time) ApiIpamRirsListRequest {
@@ -22635,24 +22702,25 @@ IpamRirsList Method for IpamRirsList
 
 Get a list of RIR objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRirsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRirsListRequest
 */
 func (a *IpamAPIService) IpamRirsList(ctx context.Context) ApiIpamRirsListRequest {
 	return ApiIpamRirsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedRIRList
+//
+//	@return PaginatedRIRList
 func (a *IpamAPIService) IpamRirsListExecute(r ApiIpamRirsListRequest) (*PaginatedRIRList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedRIRList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedRIRList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsList")
@@ -23343,9 +23411,9 @@ func (a *IpamAPIService) IpamRirsListExecute(r ApiIpamRirsListRequest) (*Paginat
 }
 
 type ApiIpamRirsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	id                int32
 	patchedRIRRequest *PatchedRIRRequest
 }
 
@@ -23363,26 +23431,27 @@ IpamRirsPartialUpdate Method for IpamRirsPartialUpdate
 
 Patch a RIR object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this RIR.
- @return ApiIpamRirsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this RIR.
+	@return ApiIpamRirsPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamRirsPartialUpdate(ctx context.Context, id int32) ApiIpamRirsPartialUpdateRequest {
 	return ApiIpamRirsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RIR
+//
+//	@return RIR
 func (a *IpamAPIService) IpamRirsPartialUpdateExecute(r ApiIpamRirsPartialUpdateRequest) (*RIR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RIR
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RIR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsPartialUpdate")
@@ -23468,9 +23537,9 @@ func (a *IpamAPIService) IpamRirsPartialUpdateExecute(r ApiIpamRirsPartialUpdate
 }
 
 type ApiIpamRirsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamRirsRetrieveRequest) Execute() (*RIR, *http.Response, error) {
@@ -23482,26 +23551,27 @@ IpamRirsRetrieve Method for IpamRirsRetrieve
 
 Get a RIR object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this RIR.
- @return ApiIpamRirsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this RIR.
+	@return ApiIpamRirsRetrieveRequest
 */
 func (a *IpamAPIService) IpamRirsRetrieve(ctx context.Context, id int32) ApiIpamRirsRetrieveRequest {
 	return ApiIpamRirsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RIR
+//
+//	@return RIR
 func (a *IpamAPIService) IpamRirsRetrieveExecute(r ApiIpamRirsRetrieveRequest) (*RIR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RIR
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RIR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsRetrieve")
@@ -23585,9 +23655,9 @@ func (a *IpamAPIService) IpamRirsRetrieveExecute(r ApiIpamRirsRetrieveRequest) (
 }
 
 type ApiIpamRirsUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 	rIRRequest *RIRRequest
 }
 
@@ -23605,26 +23675,27 @@ IpamRirsUpdate Method for IpamRirsUpdate
 
 Put a RIR object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this RIR.
- @return ApiIpamRirsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this RIR.
+	@return ApiIpamRirsUpdateRequest
 */
 func (a *IpamAPIService) IpamRirsUpdate(ctx context.Context, id int32) ApiIpamRirsUpdateRequest {
 	return ApiIpamRirsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RIR
+//
+//	@return RIR
 func (a *IpamAPIService) IpamRirsUpdateExecute(r ApiIpamRirsUpdateRequest) (*RIR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RIR
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RIR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRirsUpdate")
@@ -23713,8 +23784,8 @@ func (a *IpamAPIService) IpamRirsUpdateExecute(r ApiIpamRirsUpdateRequest) (*RIR
 }
 
 type ApiIpamRolesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx         context.Context
+	ApiService  IpamAPI
 	roleRequest *[]RoleRequest
 }
 
@@ -23732,22 +23803,22 @@ IpamRolesBulkDestroy Method for IpamRolesBulkDestroy
 
 Delete a list of role objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRolesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRolesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamRolesBulkDestroy(ctx context.Context) ApiIpamRolesBulkDestroyRequest {
 	return ApiIpamRolesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamRolesBulkDestroyExecute(r ApiIpamRolesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesBulkDestroy")
@@ -23826,8 +23897,8 @@ func (a *IpamAPIService) IpamRolesBulkDestroyExecute(r ApiIpamRolesBulkDestroyRe
 }
 
 type ApiIpamRolesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx         context.Context
+	ApiService  IpamAPI
 	roleRequest *[]RoleRequest
 }
 
@@ -23845,24 +23916,25 @@ IpamRolesBulkPartialUpdate Method for IpamRolesBulkPartialUpdate
 
 Patch a list of role objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRolesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRolesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamRolesBulkPartialUpdate(ctx context.Context) ApiIpamRolesBulkPartialUpdateRequest {
 	return ApiIpamRolesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Role
+//
+//	@return []Role
 func (a *IpamAPIService) IpamRolesBulkPartialUpdateExecute(r ApiIpamRolesBulkPartialUpdateRequest) ([]Role, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Role
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Role
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesBulkPartialUpdate")
@@ -23950,8 +24022,8 @@ func (a *IpamAPIService) IpamRolesBulkPartialUpdateExecute(r ApiIpamRolesBulkPar
 }
 
 type ApiIpamRolesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx         context.Context
+	ApiService  IpamAPI
 	roleRequest *[]RoleRequest
 }
 
@@ -23969,24 +24041,25 @@ IpamRolesBulkUpdate Method for IpamRolesBulkUpdate
 
 Put a list of role objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRolesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRolesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamRolesBulkUpdate(ctx context.Context) ApiIpamRolesBulkUpdateRequest {
 	return ApiIpamRolesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Role
+//
+//	@return []Role
 func (a *IpamAPIService) IpamRolesBulkUpdateExecute(r ApiIpamRolesBulkUpdateRequest) ([]Role, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Role
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Role
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesBulkUpdate")
@@ -24074,8 +24147,8 @@ func (a *IpamAPIService) IpamRolesBulkUpdateExecute(r ApiIpamRolesBulkUpdateRequ
 }
 
 type ApiIpamRolesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx         context.Context
+	ApiService  IpamAPI
 	roleRequest *RoleRequest
 }
 
@@ -24093,24 +24166,25 @@ IpamRolesCreate Method for IpamRolesCreate
 
 Post a list of role objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRolesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRolesCreateRequest
 */
 func (a *IpamAPIService) IpamRolesCreate(ctx context.Context) ApiIpamRolesCreateRequest {
 	return ApiIpamRolesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Role
+//
+//	@return Role
 func (a *IpamAPIService) IpamRolesCreateExecute(r ApiIpamRolesCreateRequest) (*Role, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Role
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Role
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesCreate")
@@ -24198,9 +24272,9 @@ func (a *IpamAPIService) IpamRolesCreateExecute(r ApiIpamRolesCreateRequest) (*R
 }
 
 type ApiIpamRolesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamRolesDestroyRequest) Execute() (*http.Response, error) {
@@ -24212,24 +24286,24 @@ IpamRolesDestroy Method for IpamRolesDestroy
 
 Delete a role object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this role.
- @return ApiIpamRolesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this role.
+	@return ApiIpamRolesDestroyRequest
 */
 func (a *IpamAPIService) IpamRolesDestroy(ctx context.Context, id int32) ApiIpamRolesDestroyRequest {
 	return ApiIpamRolesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamRolesDestroyExecute(r ApiIpamRolesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesDestroy")
@@ -24304,78 +24378,78 @@ func (a *IpamAPIService) IpamRolesDestroyExecute(r ApiIpamRolesDestroyRequest) (
 }
 
 type ApiIpamRolesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	slug *[]string
-	slugEmpty *bool
-	slugIc *[]string
-	slugIe *[]string
-	slugIew *[]string
-	slugIsw *[]string
-	slugN *[]string
-	slugNic *[]string
-	slugNie *[]string
-	slugNiew *[]string
-	slugNisw *[]string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
-	weight *[]int32
-	weightEmpty *bool
-	weightGt *[]int32
-	weightGte *[]int32
-	weightLt *[]int32
-	weightLte *[]int32
-	weightN *[]int32
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	slug              *[]string
+	slugEmpty         *bool
+	slugIc            *[]string
+	slugIe            *[]string
+	slugIew           *[]string
+	slugIsw           *[]string
+	slugN             *[]string
+	slugNic           *[]string
+	slugNie           *[]string
+	slugNiew          *[]string
+	slugNisw          *[]string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
+	weight            *[]int32
+	weightEmpty       *bool
+	weightGt          *[]int32
+	weightGte         *[]int32
+	weightLt          *[]int32
+	weightLte         *[]int32
+	weightN           *[]int32
 }
 
 func (r ApiIpamRolesListRequest) Created(created []time.Time) ApiIpamRolesListRequest {
@@ -24741,24 +24815,25 @@ IpamRolesList Method for IpamRolesList
 
 Get a list of role objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRolesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRolesListRequest
 */
 func (a *IpamAPIService) IpamRolesList(ctx context.Context) ApiIpamRolesListRequest {
 	return ApiIpamRolesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedRoleList
+//
+//	@return PaginatedRoleList
 func (a *IpamAPIService) IpamRolesListExecute(r ApiIpamRolesListRequest) (*PaginatedRoleList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedRoleList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedRoleList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesList")
@@ -25515,9 +25590,9 @@ func (a *IpamAPIService) IpamRolesListExecute(r ApiIpamRolesListRequest) (*Pagin
 }
 
 type ApiIpamRolesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                context.Context
+	ApiService         IpamAPI
+	id                 int32
 	patchedRoleRequest *PatchedRoleRequest
 }
 
@@ -25535,26 +25610,27 @@ IpamRolesPartialUpdate Method for IpamRolesPartialUpdate
 
 Patch a role object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this role.
- @return ApiIpamRolesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this role.
+	@return ApiIpamRolesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamRolesPartialUpdate(ctx context.Context, id int32) ApiIpamRolesPartialUpdateRequest {
 	return ApiIpamRolesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Role
+//
+//	@return Role
 func (a *IpamAPIService) IpamRolesPartialUpdateExecute(r ApiIpamRolesPartialUpdateRequest) (*Role, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Role
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Role
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesPartialUpdate")
@@ -25640,9 +25716,9 @@ func (a *IpamAPIService) IpamRolesPartialUpdateExecute(r ApiIpamRolesPartialUpda
 }
 
 type ApiIpamRolesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamRolesRetrieveRequest) Execute() (*Role, *http.Response, error) {
@@ -25654,26 +25730,27 @@ IpamRolesRetrieve Method for IpamRolesRetrieve
 
 Get a role object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this role.
- @return ApiIpamRolesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this role.
+	@return ApiIpamRolesRetrieveRequest
 */
 func (a *IpamAPIService) IpamRolesRetrieve(ctx context.Context, id int32) ApiIpamRolesRetrieveRequest {
 	return ApiIpamRolesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Role
+//
+//	@return Role
 func (a *IpamAPIService) IpamRolesRetrieveExecute(r ApiIpamRolesRetrieveRequest) (*Role, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Role
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Role
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesRetrieve")
@@ -25757,9 +25834,9 @@ func (a *IpamAPIService) IpamRolesRetrieveExecute(r ApiIpamRolesRetrieveRequest)
 }
 
 type ApiIpamRolesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx         context.Context
+	ApiService  IpamAPI
+	id          int32
 	roleRequest *RoleRequest
 }
 
@@ -25777,26 +25854,27 @@ IpamRolesUpdate Method for IpamRolesUpdate
 
 Put a role object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this role.
- @return ApiIpamRolesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this role.
+	@return ApiIpamRolesUpdateRequest
 */
 func (a *IpamAPIService) IpamRolesUpdate(ctx context.Context, id int32) ApiIpamRolesUpdateRequest {
 	return ApiIpamRolesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Role
+//
+//	@return Role
 func (a *IpamAPIService) IpamRolesUpdateExecute(r ApiIpamRolesUpdateRequest) (*Role, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Role
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Role
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRolesUpdate")
@@ -25885,8 +25963,8 @@ func (a *IpamAPIService) IpamRolesUpdateExecute(r ApiIpamRolesUpdateRequest) (*R
 }
 
 type ApiIpamRouteTargetsBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                context.Context
+	ApiService         IpamAPI
 	routeTargetRequest *[]RouteTargetRequest
 }
 
@@ -25904,22 +25982,22 @@ IpamRouteTargetsBulkDestroy Method for IpamRouteTargetsBulkDestroy
 
 Delete a list of route target objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRouteTargetsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRouteTargetsBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsBulkDestroy(ctx context.Context) ApiIpamRouteTargetsBulkDestroyRequest {
 	return ApiIpamRouteTargetsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamRouteTargetsBulkDestroyExecute(r ApiIpamRouteTargetsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsBulkDestroy")
@@ -25998,8 +26076,8 @@ func (a *IpamAPIService) IpamRouteTargetsBulkDestroyExecute(r ApiIpamRouteTarget
 }
 
 type ApiIpamRouteTargetsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                context.Context
+	ApiService         IpamAPI
 	routeTargetRequest *[]RouteTargetRequest
 }
 
@@ -26017,24 +26095,25 @@ IpamRouteTargetsBulkPartialUpdate Method for IpamRouteTargetsBulkPartialUpdate
 
 Patch a list of route target objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRouteTargetsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRouteTargetsBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsBulkPartialUpdate(ctx context.Context) ApiIpamRouteTargetsBulkPartialUpdateRequest {
 	return ApiIpamRouteTargetsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []RouteTarget
+//
+//	@return []RouteTarget
 func (a *IpamAPIService) IpamRouteTargetsBulkPartialUpdateExecute(r ApiIpamRouteTargetsBulkPartialUpdateRequest) ([]RouteTarget, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []RouteTarget
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []RouteTarget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsBulkPartialUpdate")
@@ -26122,8 +26201,8 @@ func (a *IpamAPIService) IpamRouteTargetsBulkPartialUpdateExecute(r ApiIpamRoute
 }
 
 type ApiIpamRouteTargetsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                context.Context
+	ApiService         IpamAPI
 	routeTargetRequest *[]RouteTargetRequest
 }
 
@@ -26141,24 +26220,25 @@ IpamRouteTargetsBulkUpdate Method for IpamRouteTargetsBulkUpdate
 
 Put a list of route target objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRouteTargetsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRouteTargetsBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsBulkUpdate(ctx context.Context) ApiIpamRouteTargetsBulkUpdateRequest {
 	return ApiIpamRouteTargetsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []RouteTarget
+//
+//	@return []RouteTarget
 func (a *IpamAPIService) IpamRouteTargetsBulkUpdateExecute(r ApiIpamRouteTargetsBulkUpdateRequest) ([]RouteTarget, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []RouteTarget
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []RouteTarget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsBulkUpdate")
@@ -26246,8 +26326,8 @@ func (a *IpamAPIService) IpamRouteTargetsBulkUpdateExecute(r ApiIpamRouteTargets
 }
 
 type ApiIpamRouteTargetsCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                context.Context
+	ApiService         IpamAPI
 	routeTargetRequest *RouteTargetRequest
 }
 
@@ -26265,24 +26345,25 @@ IpamRouteTargetsCreate Method for IpamRouteTargetsCreate
 
 Post a list of route target objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRouteTargetsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRouteTargetsCreateRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsCreate(ctx context.Context) ApiIpamRouteTargetsCreateRequest {
 	return ApiIpamRouteTargetsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return RouteTarget
+//
+//	@return RouteTarget
 func (a *IpamAPIService) IpamRouteTargetsCreateExecute(r ApiIpamRouteTargetsCreateRequest) (*RouteTarget, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RouteTarget
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RouteTarget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsCreate")
@@ -26370,9 +26451,9 @@ func (a *IpamAPIService) IpamRouteTargetsCreateExecute(r ApiIpamRouteTargetsCrea
 }
 
 type ApiIpamRouteTargetsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamRouteTargetsDestroyRequest) Execute() (*http.Response, error) {
@@ -26384,24 +26465,24 @@ IpamRouteTargetsDestroy Method for IpamRouteTargetsDestroy
 
 Delete a route target object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this route target.
- @return ApiIpamRouteTargetsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this route target.
+	@return ApiIpamRouteTargetsDestroyRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsDestroy(ctx context.Context, id int32) ApiIpamRouteTargetsDestroyRequest {
 	return ApiIpamRouteTargetsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamRouteTargetsDestroyExecute(r ApiIpamRouteTargetsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsDestroy")
@@ -26476,84 +26557,84 @@ func (a *IpamAPIService) IpamRouteTargetsDestroyExecute(r ApiIpamRouteTargetsDes
 }
 
 type ApiIpamRouteTargetsListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	exportingL2vpn *[]*int64
-	exportingL2vpnN *[]*int64
-	exportingL2vpnId *[]int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	exportingL2vpn    *[]*int64
+	exportingL2vpnN   *[]*int64
+	exportingL2vpnId  *[]int32
 	exportingL2vpnIdN *[]int32
-	exportingVrf *[]*string
-	exportingVrfN *[]*string
-	exportingVrfId *[]int32
-	exportingVrfIdN *[]int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	importingL2vpn *[]*int64
-	importingL2vpnN *[]*int64
-	importingL2vpnId *[]int32
+	exportingVrf      *[]*string
+	exportingVrfN     *[]*string
+	exportingVrfId    *[]int32
+	exportingVrfIdN   *[]int32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	importingL2vpn    *[]*int64
+	importingL2vpnN   *[]*int64
+	importingL2vpnId  *[]int32
 	importingL2vpnIdN *[]int32
-	importingVrf *[]*string
-	importingVrfN *[]*string
-	importingVrfId *[]int32
-	importingVrfIdN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	importingVrf      *[]*string
+	importingVrfN     *[]*string
+	importingVrfId    *[]int32
+	importingVrfIdN   *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	tag               *[]string
+	tagN              *[]string
+	tenant            *[]string
+	tenantN           *[]string
+	tenantGroup       *[]string
+	tenantGroupN      *[]string
+	tenantGroupId     *[]string
+	tenantGroupIdN    *[]string
+	tenantId          *[]*int32
+	tenantIdN         *[]*int32
+	updatedByRequest  *string
 }
 
 func (r ApiIpamRouteTargetsListRequest) Created(created []time.Time) ApiIpamRouteTargetsListRequest {
@@ -26969,24 +27050,25 @@ IpamRouteTargetsList Method for IpamRouteTargetsList
 
 Get a list of route target objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamRouteTargetsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamRouteTargetsListRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsList(ctx context.Context) ApiIpamRouteTargetsListRequest {
 	return ApiIpamRouteTargetsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedRouteTargetList
+//
+//	@return PaginatedRouteTargetList
 func (a *IpamAPIService) IpamRouteTargetsListExecute(r ApiIpamRouteTargetsListRequest) (*PaginatedRouteTargetList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedRouteTargetList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedRouteTargetList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsList")
@@ -27825,9 +27907,9 @@ func (a *IpamAPIService) IpamRouteTargetsListExecute(r ApiIpamRouteTargetsListRe
 }
 
 type ApiIpamRouteTargetsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                       context.Context
+	ApiService                IpamAPI
+	id                        int32
 	patchedRouteTargetRequest *PatchedRouteTargetRequest
 }
 
@@ -27845,26 +27927,27 @@ IpamRouteTargetsPartialUpdate Method for IpamRouteTargetsPartialUpdate
 
 Patch a route target object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this route target.
- @return ApiIpamRouteTargetsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this route target.
+	@return ApiIpamRouteTargetsPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsPartialUpdate(ctx context.Context, id int32) ApiIpamRouteTargetsPartialUpdateRequest {
 	return ApiIpamRouteTargetsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RouteTarget
+//
+//	@return RouteTarget
 func (a *IpamAPIService) IpamRouteTargetsPartialUpdateExecute(r ApiIpamRouteTargetsPartialUpdateRequest) (*RouteTarget, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RouteTarget
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RouteTarget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsPartialUpdate")
@@ -27950,9 +28033,9 @@ func (a *IpamAPIService) IpamRouteTargetsPartialUpdateExecute(r ApiIpamRouteTarg
 }
 
 type ApiIpamRouteTargetsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamRouteTargetsRetrieveRequest) Execute() (*RouteTarget, *http.Response, error) {
@@ -27964,26 +28047,27 @@ IpamRouteTargetsRetrieve Method for IpamRouteTargetsRetrieve
 
 Get a route target object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this route target.
- @return ApiIpamRouteTargetsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this route target.
+	@return ApiIpamRouteTargetsRetrieveRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsRetrieve(ctx context.Context, id int32) ApiIpamRouteTargetsRetrieveRequest {
 	return ApiIpamRouteTargetsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RouteTarget
+//
+//	@return RouteTarget
 func (a *IpamAPIService) IpamRouteTargetsRetrieveExecute(r ApiIpamRouteTargetsRetrieveRequest) (*RouteTarget, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RouteTarget
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RouteTarget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsRetrieve")
@@ -28067,9 +28151,9 @@ func (a *IpamAPIService) IpamRouteTargetsRetrieveExecute(r ApiIpamRouteTargetsRe
 }
 
 type ApiIpamRouteTargetsUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                context.Context
+	ApiService         IpamAPI
+	id                 int32
 	routeTargetRequest *RouteTargetRequest
 }
 
@@ -28087,26 +28171,27 @@ IpamRouteTargetsUpdate Method for IpamRouteTargetsUpdate
 
 Put a route target object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this route target.
- @return ApiIpamRouteTargetsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this route target.
+	@return ApiIpamRouteTargetsUpdateRequest
 */
 func (a *IpamAPIService) IpamRouteTargetsUpdate(ctx context.Context, id int32) ApiIpamRouteTargetsUpdateRequest {
 	return ApiIpamRouteTargetsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return RouteTarget
+//
+//	@return RouteTarget
 func (a *IpamAPIService) IpamRouteTargetsUpdateExecute(r ApiIpamRouteTargetsUpdateRequest) (*RouteTarget, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *RouteTarget
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *RouteTarget
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamRouteTargetsUpdate")
@@ -28195,8 +28280,8 @@ func (a *IpamAPIService) IpamRouteTargetsUpdateExecute(r ApiIpamRouteTargetsUpda
 }
 
 type ApiIpamServiceTemplatesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                    context.Context
+	ApiService             IpamAPI
 	serviceTemplateRequest *[]ServiceTemplateRequest
 }
 
@@ -28214,22 +28299,22 @@ IpamServiceTemplatesBulkDestroy Method for IpamServiceTemplatesBulkDestroy
 
 Delete a list of service template objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServiceTemplatesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServiceTemplatesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesBulkDestroy(ctx context.Context) ApiIpamServiceTemplatesBulkDestroyRequest {
 	return ApiIpamServiceTemplatesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamServiceTemplatesBulkDestroyExecute(r ApiIpamServiceTemplatesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesBulkDestroy")
@@ -28308,8 +28393,8 @@ func (a *IpamAPIService) IpamServiceTemplatesBulkDestroyExecute(r ApiIpamService
 }
 
 type ApiIpamServiceTemplatesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                    context.Context
+	ApiService             IpamAPI
 	serviceTemplateRequest *[]ServiceTemplateRequest
 }
 
@@ -28327,24 +28412,25 @@ IpamServiceTemplatesBulkPartialUpdate Method for IpamServiceTemplatesBulkPartial
 
 Patch a list of service template objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServiceTemplatesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServiceTemplatesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesBulkPartialUpdate(ctx context.Context) ApiIpamServiceTemplatesBulkPartialUpdateRequest {
 	return ApiIpamServiceTemplatesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ServiceTemplate
+//
+//	@return []ServiceTemplate
 func (a *IpamAPIService) IpamServiceTemplatesBulkPartialUpdateExecute(r ApiIpamServiceTemplatesBulkPartialUpdateRequest) ([]ServiceTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ServiceTemplate
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ServiceTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesBulkPartialUpdate")
@@ -28432,8 +28518,8 @@ func (a *IpamAPIService) IpamServiceTemplatesBulkPartialUpdateExecute(r ApiIpamS
 }
 
 type ApiIpamServiceTemplatesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                    context.Context
+	ApiService             IpamAPI
 	serviceTemplateRequest *[]ServiceTemplateRequest
 }
 
@@ -28451,24 +28537,25 @@ IpamServiceTemplatesBulkUpdate Method for IpamServiceTemplatesBulkUpdate
 
 Put a list of service template objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServiceTemplatesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServiceTemplatesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesBulkUpdate(ctx context.Context) ApiIpamServiceTemplatesBulkUpdateRequest {
 	return ApiIpamServiceTemplatesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ServiceTemplate
+//
+//	@return []ServiceTemplate
 func (a *IpamAPIService) IpamServiceTemplatesBulkUpdateExecute(r ApiIpamServiceTemplatesBulkUpdateRequest) ([]ServiceTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ServiceTemplate
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ServiceTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesBulkUpdate")
@@ -28556,8 +28643,8 @@ func (a *IpamAPIService) IpamServiceTemplatesBulkUpdateExecute(r ApiIpamServiceT
 }
 
 type ApiIpamServiceTemplatesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                            context.Context
+	ApiService                     IpamAPI
 	writableServiceTemplateRequest *WritableServiceTemplateRequest
 }
 
@@ -28575,24 +28662,25 @@ IpamServiceTemplatesCreate Method for IpamServiceTemplatesCreate
 
 Post a list of service template objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServiceTemplatesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServiceTemplatesCreateRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesCreate(ctx context.Context) ApiIpamServiceTemplatesCreateRequest {
 	return ApiIpamServiceTemplatesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceTemplate
+//
+//	@return ServiceTemplate
 func (a *IpamAPIService) IpamServiceTemplatesCreateExecute(r ApiIpamServiceTemplatesCreateRequest) (*ServiceTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceTemplate
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesCreate")
@@ -28680,9 +28768,9 @@ func (a *IpamAPIService) IpamServiceTemplatesCreateExecute(r ApiIpamServiceTempl
 }
 
 type ApiIpamServiceTemplatesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamServiceTemplatesDestroyRequest) Execute() (*http.Response, error) {
@@ -28694,24 +28782,24 @@ IpamServiceTemplatesDestroy Method for IpamServiceTemplatesDestroy
 
 Delete a service template object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service template.
- @return ApiIpamServiceTemplatesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service template.
+	@return ApiIpamServiceTemplatesDestroyRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesDestroy(ctx context.Context, id int32) ApiIpamServiceTemplatesDestroyRequest {
 	return ApiIpamServiceTemplatesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamServiceTemplatesDestroyExecute(r ApiIpamServiceTemplatesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesDestroy")
@@ -28786,63 +28874,63 @@ func (a *IpamAPIService) IpamServiceTemplatesDestroyExecute(r ApiIpamServiceTemp
 }
 
 type ApiIpamServiceTemplatesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	port *float32
-	protocol *IpamServiceTemplatesListProtocolParameter
-	protocolN *IpamServiceTemplatesListProtocolParameter
-	q *string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	port              *float32
+	protocol          *IpamServiceTemplatesListProtocolParameter
+	protocolN         *IpamServiceTemplatesListProtocolParameter
+	q                 *string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 func (r ApiIpamServiceTemplatesListRequest) Created(created []time.Time) ApiIpamServiceTemplatesListRequest {
@@ -29135,24 +29223,25 @@ IpamServiceTemplatesList Method for IpamServiceTemplatesList
 
 Get a list of service template objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServiceTemplatesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServiceTemplatesListRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesList(ctx context.Context) ApiIpamServiceTemplatesListRequest {
 	return ApiIpamServiceTemplatesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedServiceTemplateList
+//
+//	@return PaginatedServiceTemplateList
 func (a *IpamAPIService) IpamServiceTemplatesListExecute(r ApiIpamServiceTemplatesListRequest) (*PaginatedServiceTemplateList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedServiceTemplateList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedServiceTemplateList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesList")
@@ -29736,9 +29825,9 @@ func (a *IpamAPIService) IpamServiceTemplatesListExecute(r ApiIpamServiceTemplat
 }
 
 type ApiIpamServiceTemplatesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                                   context.Context
+	ApiService                            IpamAPI
+	id                                    int32
 	patchedWritableServiceTemplateRequest *PatchedWritableServiceTemplateRequest
 }
 
@@ -29756,26 +29845,27 @@ IpamServiceTemplatesPartialUpdate Method for IpamServiceTemplatesPartialUpdate
 
 Patch a service template object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service template.
- @return ApiIpamServiceTemplatesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service template.
+	@return ApiIpamServiceTemplatesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesPartialUpdate(ctx context.Context, id int32) ApiIpamServiceTemplatesPartialUpdateRequest {
 	return ApiIpamServiceTemplatesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceTemplate
+//
+//	@return ServiceTemplate
 func (a *IpamAPIService) IpamServiceTemplatesPartialUpdateExecute(r ApiIpamServiceTemplatesPartialUpdateRequest) (*ServiceTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceTemplate
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesPartialUpdate")
@@ -29861,9 +29951,9 @@ func (a *IpamAPIService) IpamServiceTemplatesPartialUpdateExecute(r ApiIpamServi
 }
 
 type ApiIpamServiceTemplatesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamServiceTemplatesRetrieveRequest) Execute() (*ServiceTemplate, *http.Response, error) {
@@ -29875,26 +29965,27 @@ IpamServiceTemplatesRetrieve Method for IpamServiceTemplatesRetrieve
 
 Get a service template object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service template.
- @return ApiIpamServiceTemplatesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service template.
+	@return ApiIpamServiceTemplatesRetrieveRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesRetrieve(ctx context.Context, id int32) ApiIpamServiceTemplatesRetrieveRequest {
 	return ApiIpamServiceTemplatesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceTemplate
+//
+//	@return ServiceTemplate
 func (a *IpamAPIService) IpamServiceTemplatesRetrieveExecute(r ApiIpamServiceTemplatesRetrieveRequest) (*ServiceTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceTemplate
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesRetrieve")
@@ -29978,9 +30069,9 @@ func (a *IpamAPIService) IpamServiceTemplatesRetrieveExecute(r ApiIpamServiceTem
 }
 
 type ApiIpamServiceTemplatesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                            context.Context
+	ApiService                     IpamAPI
+	id                             int32
 	writableServiceTemplateRequest *WritableServiceTemplateRequest
 }
 
@@ -29998,26 +30089,27 @@ IpamServiceTemplatesUpdate Method for IpamServiceTemplatesUpdate
 
 Put a service template object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service template.
- @return ApiIpamServiceTemplatesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service template.
+	@return ApiIpamServiceTemplatesUpdateRequest
 */
 func (a *IpamAPIService) IpamServiceTemplatesUpdate(ctx context.Context, id int32) ApiIpamServiceTemplatesUpdateRequest {
 	return ApiIpamServiceTemplatesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ServiceTemplate
+//
+//	@return ServiceTemplate
 func (a *IpamAPIService) IpamServiceTemplatesUpdateExecute(r ApiIpamServiceTemplatesUpdateRequest) (*ServiceTemplate, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ServiceTemplate
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ServiceTemplate
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServiceTemplatesUpdate")
@@ -30106,8 +30198,8 @@ func (a *IpamAPIService) IpamServiceTemplatesUpdateExecute(r ApiIpamServiceTempl
 }
 
 type ApiIpamServicesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx            context.Context
+	ApiService     IpamAPI
 	serviceRequest *[]ServiceRequest
 }
 
@@ -30125,22 +30217,22 @@ IpamServicesBulkDestroy Method for IpamServicesBulkDestroy
 
 Delete a list of service objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServicesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServicesBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamServicesBulkDestroy(ctx context.Context) ApiIpamServicesBulkDestroyRequest {
 	return ApiIpamServicesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamServicesBulkDestroyExecute(r ApiIpamServicesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesBulkDestroy")
@@ -30219,8 +30311,8 @@ func (a *IpamAPIService) IpamServicesBulkDestroyExecute(r ApiIpamServicesBulkDes
 }
 
 type ApiIpamServicesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx            context.Context
+	ApiService     IpamAPI
 	serviceRequest *[]ServiceRequest
 }
 
@@ -30238,24 +30330,25 @@ IpamServicesBulkPartialUpdate Method for IpamServicesBulkPartialUpdate
 
 Patch a list of service objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServicesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServicesBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamServicesBulkPartialUpdate(ctx context.Context) ApiIpamServicesBulkPartialUpdateRequest {
 	return ApiIpamServicesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Service
+//
+//	@return []Service
 func (a *IpamAPIService) IpamServicesBulkPartialUpdateExecute(r ApiIpamServicesBulkPartialUpdateRequest) ([]Service, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Service
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Service
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesBulkPartialUpdate")
@@ -30343,8 +30436,8 @@ func (a *IpamAPIService) IpamServicesBulkPartialUpdateExecute(r ApiIpamServicesB
 }
 
 type ApiIpamServicesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx            context.Context
+	ApiService     IpamAPI
 	serviceRequest *[]ServiceRequest
 }
 
@@ -30362,24 +30455,25 @@ IpamServicesBulkUpdate Method for IpamServicesBulkUpdate
 
 Put a list of service objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServicesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServicesBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamServicesBulkUpdate(ctx context.Context) ApiIpamServicesBulkUpdateRequest {
 	return ApiIpamServicesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Service
+//
+//	@return []Service
 func (a *IpamAPIService) IpamServicesBulkUpdateExecute(r ApiIpamServicesBulkUpdateRequest) ([]Service, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Service
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Service
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesBulkUpdate")
@@ -30467,8 +30561,8 @@ func (a *IpamAPIService) IpamServicesBulkUpdateExecute(r ApiIpamServicesBulkUpda
 }
 
 type ApiIpamServicesCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                    context.Context
+	ApiService             IpamAPI
 	writableServiceRequest *WritableServiceRequest
 }
 
@@ -30486,24 +30580,25 @@ IpamServicesCreate Method for IpamServicesCreate
 
 Post a list of service objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServicesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServicesCreateRequest
 */
 func (a *IpamAPIService) IpamServicesCreate(ctx context.Context) ApiIpamServicesCreateRequest {
 	return ApiIpamServicesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Service
+//
+//	@return Service
 func (a *IpamAPIService) IpamServicesCreateExecute(r ApiIpamServicesCreateRequest) (*Service, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Service
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Service
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesCreate")
@@ -30591,9 +30686,9 @@ func (a *IpamAPIService) IpamServicesCreateExecute(r ApiIpamServicesCreateReques
 }
 
 type ApiIpamServicesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamServicesDestroyRequest) Execute() (*http.Response, error) {
@@ -30605,24 +30700,24 @@ IpamServicesDestroy Method for IpamServicesDestroy
 
 Delete a service object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service.
- @return ApiIpamServicesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service.
+	@return ApiIpamServicesDestroyRequest
 */
 func (a *IpamAPIService) IpamServicesDestroy(ctx context.Context, id int32) ApiIpamServicesDestroyRequest {
 	return ApiIpamServicesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamServicesDestroyExecute(r ApiIpamServicesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesDestroy")
@@ -30697,78 +30792,78 @@ func (a *IpamAPIService) IpamServicesDestroyExecute(r ApiIpamServicesDestroyRequ
 }
 
 type ApiIpamServicesListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	device *[]*string
-	deviceN *[]*string
-	deviceId *[]*int32
-	deviceIdN *[]*int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	ipAddress *[]string
-	ipAddressN *[]string
-	ipAddressId *[]int32
-	ipAddressIdN *[]int32
-	ipaddress *[]string
-	ipaddressN *[]string
-	ipaddressId *[]int32
-	ipaddressIdN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	device            *[]*string
+	deviceN           *[]*string
+	deviceId          *[]*int32
+	deviceIdN         *[]*int32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	ipAddress         *[]string
+	ipAddressN        *[]string
+	ipAddressId       *[]int32
+	ipAddressIdN      *[]int32
+	ipaddress         *[]string
+	ipaddressN        *[]string
+	ipaddressId       *[]int32
+	ipaddressIdN      *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	port *float32
-	protocol *IpamServiceTemplatesListProtocolParameter
-	protocolN *IpamServiceTemplatesListProtocolParameter
-	q *string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
-	virtualMachine *[]string
-	virtualMachineN *[]string
-	virtualMachineId *[]*int32
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	port              *float32
+	protocol          *IpamServiceTemplatesListProtocolParameter
+	protocolN         *IpamServiceTemplatesListProtocolParameter
+	q                 *string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
+	virtualMachine    *[]string
+	virtualMachineN   *[]string
+	virtualMachineId  *[]*int32
 	virtualMachineIdN *[]*int32
 }
 
@@ -31158,24 +31253,25 @@ IpamServicesList Method for IpamServicesList
 
 Get a list of service objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamServicesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamServicesListRequest
 */
 func (a *IpamAPIService) IpamServicesList(ctx context.Context) ApiIpamServicesListRequest {
 	return ApiIpamServicesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedServiceList
+//
+//	@return PaginatedServiceList
 func (a *IpamAPIService) IpamServicesListExecute(r ApiIpamServicesListRequest) (*PaginatedServiceList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedServiceList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedServiceList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesList")
@@ -31935,9 +32031,9 @@ func (a *IpamAPIService) IpamServicesListExecute(r ApiIpamServicesListRequest) (
 }
 
 type ApiIpamServicesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                           context.Context
+	ApiService                    IpamAPI
+	id                            int32
 	patchedWritableServiceRequest *PatchedWritableServiceRequest
 }
 
@@ -31955,26 +32051,27 @@ IpamServicesPartialUpdate Method for IpamServicesPartialUpdate
 
 Patch a service object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service.
- @return ApiIpamServicesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service.
+	@return ApiIpamServicesPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamServicesPartialUpdate(ctx context.Context, id int32) ApiIpamServicesPartialUpdateRequest {
 	return ApiIpamServicesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Service
+//
+//	@return Service
 func (a *IpamAPIService) IpamServicesPartialUpdateExecute(r ApiIpamServicesPartialUpdateRequest) (*Service, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Service
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Service
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesPartialUpdate")
@@ -32060,9 +32157,9 @@ func (a *IpamAPIService) IpamServicesPartialUpdateExecute(r ApiIpamServicesParti
 }
 
 type ApiIpamServicesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamServicesRetrieveRequest) Execute() (*Service, *http.Response, error) {
@@ -32074,26 +32171,27 @@ IpamServicesRetrieve Method for IpamServicesRetrieve
 
 Get a service object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service.
- @return ApiIpamServicesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service.
+	@return ApiIpamServicesRetrieveRequest
 */
 func (a *IpamAPIService) IpamServicesRetrieve(ctx context.Context, id int32) ApiIpamServicesRetrieveRequest {
 	return ApiIpamServicesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Service
+//
+//	@return Service
 func (a *IpamAPIService) IpamServicesRetrieveExecute(r ApiIpamServicesRetrieveRequest) (*Service, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Service
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Service
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesRetrieve")
@@ -32177,9 +32275,9 @@ func (a *IpamAPIService) IpamServicesRetrieveExecute(r ApiIpamServicesRetrieveRe
 }
 
 type ApiIpamServicesUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                    context.Context
+	ApiService             IpamAPI
+	id                     int32
 	writableServiceRequest *WritableServiceRequest
 }
 
@@ -32197,26 +32295,27 @@ IpamServicesUpdate Method for IpamServicesUpdate
 
 Put a service object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this service.
- @return ApiIpamServicesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this service.
+	@return ApiIpamServicesUpdateRequest
 */
 func (a *IpamAPIService) IpamServicesUpdate(ctx context.Context, id int32) ApiIpamServicesUpdateRequest {
 	return ApiIpamServicesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Service
+//
+//	@return Service
 func (a *IpamAPIService) IpamServicesUpdateExecute(r ApiIpamServicesUpdateRequest) (*Service, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Service
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Service
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamServicesUpdate")
@@ -32305,9 +32404,9 @@ func (a *IpamAPIService) IpamServicesUpdateExecute(r ApiIpamServicesUpdateReques
 }
 
 type ApiIpamVlanGroupsAvailableVlansCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx         context.Context
+	ApiService  IpamAPI
+	id          int32
 	vLANRequest *[]VLANRequest
 }
 
@@ -32325,26 +32424,27 @@ IpamVlanGroupsAvailableVlansCreate Method for IpamVlanGroupsAvailableVlansCreate
 
 Post a VLAN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamVlanGroupsAvailableVlansCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamVlanGroupsAvailableVlansCreateRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsAvailableVlansCreate(ctx context.Context, id int32) ApiIpamVlanGroupsAvailableVlansCreateRequest {
 	return ApiIpamVlanGroupsAvailableVlansCreateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []VLAN
+//
+//	@return []VLAN
 func (a *IpamAPIService) IpamVlanGroupsAvailableVlansCreateExecute(r ApiIpamVlanGroupsAvailableVlansCreateRequest) ([]VLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []VLAN
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []VLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsAvailableVlansCreate")
@@ -32433,9 +32533,9 @@ func (a *IpamAPIService) IpamVlanGroupsAvailableVlansCreateExecute(r ApiIpamVlan
 }
 
 type ApiIpamVlanGroupsAvailableVlansListRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamVlanGroupsAvailableVlansListRequest) Execute() ([]AvailableVLAN, *http.Response, error) {
@@ -32447,26 +32547,27 @@ IpamVlanGroupsAvailableVlansList Method for IpamVlanGroupsAvailableVlansList
 
 Get a VLAN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id
- @return ApiIpamVlanGroupsAvailableVlansListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id
+	@return ApiIpamVlanGroupsAvailableVlansListRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsAvailableVlansList(ctx context.Context, id int32) ApiIpamVlanGroupsAvailableVlansListRequest {
 	return ApiIpamVlanGroupsAvailableVlansListRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return []AvailableVLAN
+//
+//	@return []AvailableVLAN
 func (a *IpamAPIService) IpamVlanGroupsAvailableVlansListExecute(r ApiIpamVlanGroupsAvailableVlansListRequest) ([]AvailableVLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []AvailableVLAN
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []AvailableVLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsAvailableVlansList")
@@ -32550,8 +32651,8 @@ func (a *IpamAPIService) IpamVlanGroupsAvailableVlansListExecute(r ApiIpamVlanGr
 }
 
 type ApiIpamVlanGroupsBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	vLANGroupRequest *[]VLANGroupRequest
 }
 
@@ -32569,22 +32670,22 @@ IpamVlanGroupsBulkDestroy Method for IpamVlanGroupsBulkDestroy
 
 Delete a list of VLAN group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlanGroupsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlanGroupsBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsBulkDestroy(ctx context.Context) ApiIpamVlanGroupsBulkDestroyRequest {
 	return ApiIpamVlanGroupsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamVlanGroupsBulkDestroyExecute(r ApiIpamVlanGroupsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsBulkDestroy")
@@ -32663,8 +32764,8 @@ func (a *IpamAPIService) IpamVlanGroupsBulkDestroyExecute(r ApiIpamVlanGroupsBul
 }
 
 type ApiIpamVlanGroupsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	vLANGroupRequest *[]VLANGroupRequest
 }
 
@@ -32682,24 +32783,25 @@ IpamVlanGroupsBulkPartialUpdate Method for IpamVlanGroupsBulkPartialUpdate
 
 Patch a list of VLAN group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlanGroupsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlanGroupsBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsBulkPartialUpdate(ctx context.Context) ApiIpamVlanGroupsBulkPartialUpdateRequest {
 	return ApiIpamVlanGroupsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []VLANGroup
+//
+//	@return []VLANGroup
 func (a *IpamAPIService) IpamVlanGroupsBulkPartialUpdateExecute(r ApiIpamVlanGroupsBulkPartialUpdateRequest) ([]VLANGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []VLANGroup
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []VLANGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsBulkPartialUpdate")
@@ -32787,8 +32889,8 @@ func (a *IpamAPIService) IpamVlanGroupsBulkPartialUpdateExecute(r ApiIpamVlanGro
 }
 
 type ApiIpamVlanGroupsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	vLANGroupRequest *[]VLANGroupRequest
 }
 
@@ -32806,24 +32908,25 @@ IpamVlanGroupsBulkUpdate Method for IpamVlanGroupsBulkUpdate
 
 Put a list of VLAN group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlanGroupsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlanGroupsBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsBulkUpdate(ctx context.Context) ApiIpamVlanGroupsBulkUpdateRequest {
 	return ApiIpamVlanGroupsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []VLANGroup
+//
+//	@return []VLANGroup
 func (a *IpamAPIService) IpamVlanGroupsBulkUpdateExecute(r ApiIpamVlanGroupsBulkUpdateRequest) ([]VLANGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []VLANGroup
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []VLANGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsBulkUpdate")
@@ -32911,8 +33014,8 @@ func (a *IpamAPIService) IpamVlanGroupsBulkUpdateExecute(r ApiIpamVlanGroupsBulk
 }
 
 type ApiIpamVlanGroupsCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx              context.Context
+	ApiService       IpamAPI
 	vLANGroupRequest *VLANGroupRequest
 }
 
@@ -32930,24 +33033,25 @@ IpamVlanGroupsCreate Method for IpamVlanGroupsCreate
 
 Post a list of VLAN group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlanGroupsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlanGroupsCreateRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsCreate(ctx context.Context) ApiIpamVlanGroupsCreateRequest {
 	return ApiIpamVlanGroupsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return VLANGroup
+//
+//	@return VLANGroup
 func (a *IpamAPIService) IpamVlanGroupsCreateExecute(r ApiIpamVlanGroupsCreateRequest) (*VLANGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLANGroup
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLANGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsCreate")
@@ -33035,9 +33139,9 @@ func (a *IpamAPIService) IpamVlanGroupsCreateExecute(r ApiIpamVlanGroupsCreateRe
 }
 
 type ApiIpamVlanGroupsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamVlanGroupsDestroyRequest) Execute() (*http.Response, error) {
@@ -33049,24 +33153,24 @@ IpamVlanGroupsDestroy Method for IpamVlanGroupsDestroy
 
 Delete a VLAN group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN group.
- @return ApiIpamVlanGroupsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN group.
+	@return ApiIpamVlanGroupsDestroyRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsDestroy(ctx context.Context, id int32) ApiIpamVlanGroupsDestroyRequest {
 	return ApiIpamVlanGroupsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamVlanGroupsDestroyExecute(r ApiIpamVlanGroupsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsDestroy")
@@ -33141,103 +33245,103 @@ func (a *IpamAPIService) IpamVlanGroupsDestroyExecute(r ApiIpamVlanGroupsDestroy
 }
 
 type ApiIpamVlanGroupsListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	cluster *int32
-	clusterGroup *int32
-	clustergroup *int32
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
-	location *int32
-	maxVid *[]int32
-	maxVidEmpty *bool
-	maxVidGt *[]int32
-	maxVidGte *[]int32
-	maxVidLt *[]int32
-	maxVidLte *[]int32
-	maxVidN *[]int32
-	minVid *[]int32
-	minVidEmpty *bool
-	minVidGt *[]int32
-	minVidGte *[]int32
-	minVidLt *[]int32
-	minVidLte *[]int32
-	minVidN *[]int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	cluster           *int32
+	clusterGroup      *int32
+	clustergroup      *int32
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
+	location          *int32
+	maxVid            *[]int32
+	maxVidEmpty       *bool
+	maxVidGt          *[]int32
+	maxVidGte         *[]int32
+	maxVidLt          *[]int32
+	maxVidLte         *[]int32
+	maxVidN           *[]int32
+	minVid            *[]int32
+	minVidEmpty       *bool
+	minVidGt          *[]int32
+	minVidGte         *[]int32
+	minVidLt          *[]int32
+	minVidLte         *[]int32
+	minVidN           *[]int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	rack *int32
-	region *int32
-	scopeId *[]int32
-	scopeIdEmpty *bool
-	scopeIdGt *[]int32
-	scopeIdGte *[]int32
-	scopeIdLt *[]int32
-	scopeIdLte *[]int32
-	scopeIdN *[]int32
-	scopeType *string
-	scopeTypeN *string
-	site *int32
-	siteGroup *int32
-	sitegroup *int32
-	slug *[]string
-	slugEmpty *bool
-	slugIc *[]string
-	slugIe *[]string
-	slugIew *[]string
-	slugIsw *[]string
-	slugN *[]string
-	slugNic *[]string
-	slugNie *[]string
-	slugNiew *[]string
-	slugNisw *[]string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	rack              *int32
+	region            *int32
+	scopeId           *[]int32
+	scopeIdEmpty      *bool
+	scopeIdGt         *[]int32
+	scopeIdGte        *[]int32
+	scopeIdLt         *[]int32
+	scopeIdLte        *[]int32
+	scopeIdN          *[]int32
+	scopeType         *string
+	scopeTypeN        *string
+	site              *int32
+	siteGroup         *int32
+	sitegroup         *int32
+	slug              *[]string
+	slugEmpty         *bool
+	slugIc            *[]string
+	slugIe            *[]string
+	slugIew           *[]string
+	slugIsw           *[]string
+	slugN             *[]string
+	slugNic           *[]string
+	slugNie           *[]string
+	slugNiew          *[]string
+	slugNisw          *[]string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 func (r ApiIpamVlanGroupsListRequest) Cluster(cluster int32) ApiIpamVlanGroupsListRequest {
@@ -33728,24 +33832,25 @@ IpamVlanGroupsList Method for IpamVlanGroupsList
 
 Get a list of VLAN group objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlanGroupsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlanGroupsListRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsList(ctx context.Context) ApiIpamVlanGroupsListRequest {
 	return ApiIpamVlanGroupsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedVLANGroupList
+//
+//	@return PaginatedVLANGroupList
 func (a *IpamAPIService) IpamVlanGroupsListExecute(r ApiIpamVlanGroupsListRequest) (*PaginatedVLANGroupList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedVLANGroupList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedVLANGroupList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsList")
@@ -34673,9 +34778,9 @@ func (a *IpamAPIService) IpamVlanGroupsListExecute(r ApiIpamVlanGroupsListReques
 }
 
 type ApiIpamVlanGroupsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                     context.Context
+	ApiService              IpamAPI
+	id                      int32
 	patchedVLANGroupRequest *PatchedVLANGroupRequest
 }
 
@@ -34693,26 +34798,27 @@ IpamVlanGroupsPartialUpdate Method for IpamVlanGroupsPartialUpdate
 
 Patch a VLAN group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN group.
- @return ApiIpamVlanGroupsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN group.
+	@return ApiIpamVlanGroupsPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsPartialUpdate(ctx context.Context, id int32) ApiIpamVlanGroupsPartialUpdateRequest {
 	return ApiIpamVlanGroupsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VLANGroup
+//
+//	@return VLANGroup
 func (a *IpamAPIService) IpamVlanGroupsPartialUpdateExecute(r ApiIpamVlanGroupsPartialUpdateRequest) (*VLANGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLANGroup
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLANGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsPartialUpdate")
@@ -34798,9 +34904,9 @@ func (a *IpamAPIService) IpamVlanGroupsPartialUpdateExecute(r ApiIpamVlanGroupsP
 }
 
 type ApiIpamVlanGroupsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamVlanGroupsRetrieveRequest) Execute() (*VLANGroup, *http.Response, error) {
@@ -34812,26 +34918,27 @@ IpamVlanGroupsRetrieve Method for IpamVlanGroupsRetrieve
 
 Get a VLAN group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN group.
- @return ApiIpamVlanGroupsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN group.
+	@return ApiIpamVlanGroupsRetrieveRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsRetrieve(ctx context.Context, id int32) ApiIpamVlanGroupsRetrieveRequest {
 	return ApiIpamVlanGroupsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VLANGroup
+//
+//	@return VLANGroup
 func (a *IpamAPIService) IpamVlanGroupsRetrieveExecute(r ApiIpamVlanGroupsRetrieveRequest) (*VLANGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLANGroup
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLANGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsRetrieve")
@@ -34915,9 +35022,9 @@ func (a *IpamAPIService) IpamVlanGroupsRetrieveExecute(r ApiIpamVlanGroupsRetrie
 }
 
 type ApiIpamVlanGroupsUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx              context.Context
+	ApiService       IpamAPI
+	id               int32
 	vLANGroupRequest *VLANGroupRequest
 }
 
@@ -34935,26 +35042,27 @@ IpamVlanGroupsUpdate Method for IpamVlanGroupsUpdate
 
 Put a VLAN group object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN group.
- @return ApiIpamVlanGroupsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN group.
+	@return ApiIpamVlanGroupsUpdateRequest
 */
 func (a *IpamAPIService) IpamVlanGroupsUpdate(ctx context.Context, id int32) ApiIpamVlanGroupsUpdateRequest {
 	return ApiIpamVlanGroupsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VLANGroup
+//
+//	@return VLANGroup
 func (a *IpamAPIService) IpamVlanGroupsUpdateExecute(r ApiIpamVlanGroupsUpdateRequest) (*VLANGroup, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLANGroup
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLANGroup
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlanGroupsUpdate")
@@ -35043,8 +35151,8 @@ func (a *IpamAPIService) IpamVlanGroupsUpdateExecute(r ApiIpamVlanGroupsUpdateRe
 }
 
 type ApiIpamVlansBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx         context.Context
+	ApiService  IpamAPI
 	vLANRequest *[]VLANRequest
 }
 
@@ -35062,22 +35170,22 @@ IpamVlansBulkDestroy Method for IpamVlansBulkDestroy
 
 Delete a list of VLAN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlansBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlansBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamVlansBulkDestroy(ctx context.Context) ApiIpamVlansBulkDestroyRequest {
 	return ApiIpamVlansBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamVlansBulkDestroyExecute(r ApiIpamVlansBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansBulkDestroy")
@@ -35156,8 +35264,8 @@ func (a *IpamAPIService) IpamVlansBulkDestroyExecute(r ApiIpamVlansBulkDestroyRe
 }
 
 type ApiIpamVlansBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx         context.Context
+	ApiService  IpamAPI
 	vLANRequest *[]VLANRequest
 }
 
@@ -35175,24 +35283,25 @@ IpamVlansBulkPartialUpdate Method for IpamVlansBulkPartialUpdate
 
 Patch a list of VLAN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlansBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlansBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamVlansBulkPartialUpdate(ctx context.Context) ApiIpamVlansBulkPartialUpdateRequest {
 	return ApiIpamVlansBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []VLAN
+//
+//	@return []VLAN
 func (a *IpamAPIService) IpamVlansBulkPartialUpdateExecute(r ApiIpamVlansBulkPartialUpdateRequest) ([]VLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []VLAN
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []VLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansBulkPartialUpdate")
@@ -35280,8 +35389,8 @@ func (a *IpamAPIService) IpamVlansBulkPartialUpdateExecute(r ApiIpamVlansBulkPar
 }
 
 type ApiIpamVlansBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx         context.Context
+	ApiService  IpamAPI
 	vLANRequest *[]VLANRequest
 }
 
@@ -35299,24 +35408,25 @@ IpamVlansBulkUpdate Method for IpamVlansBulkUpdate
 
 Put a list of VLAN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlansBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlansBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamVlansBulkUpdate(ctx context.Context) ApiIpamVlansBulkUpdateRequest {
 	return ApiIpamVlansBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []VLAN
+//
+//	@return []VLAN
 func (a *IpamAPIService) IpamVlansBulkUpdateExecute(r ApiIpamVlansBulkUpdateRequest) ([]VLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []VLAN
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []VLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansBulkUpdate")
@@ -35404,8 +35514,8 @@ func (a *IpamAPIService) IpamVlansBulkUpdateExecute(r ApiIpamVlansBulkUpdateRequ
 }
 
 type ApiIpamVlansCreateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
+	ctx                 context.Context
+	ApiService          IpamAPI
 	writableVLANRequest *WritableVLANRequest
 }
 
@@ -35423,24 +35533,25 @@ IpamVlansCreate Method for IpamVlansCreate
 
 Post a list of VLAN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlansCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlansCreateRequest
 */
 func (a *IpamAPIService) IpamVlansCreate(ctx context.Context) ApiIpamVlansCreateRequest {
 	return ApiIpamVlansCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return VLAN
+//
+//	@return VLAN
 func (a *IpamAPIService) IpamVlansCreateExecute(r ApiIpamVlansCreateRequest) (*VLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLAN
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansCreate")
@@ -35528,9 +35639,9 @@ func (a *IpamAPIService) IpamVlansCreateExecute(r ApiIpamVlansCreateRequest) (*V
 }
 
 type ApiIpamVlansDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamVlansDestroyRequest) Execute() (*http.Response, error) {
@@ -35542,24 +35653,24 @@ IpamVlansDestroy Method for IpamVlansDestroy
 
 Delete a VLAN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN.
- @return ApiIpamVlansDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN.
+	@return ApiIpamVlansDestroyRequest
 */
 func (a *IpamAPIService) IpamVlansDestroy(ctx context.Context, id int32) ApiIpamVlansDestroyRequest {
 	return ApiIpamVlansDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamVlansDestroyExecute(r ApiIpamVlansDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansDestroy")
@@ -35634,104 +35745,104 @@ func (a *IpamAPIService) IpamVlansDestroyExecute(r ApiIpamVlansDestroyRequest) (
 }
 
 type ApiIpamVlansListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	availableAtSite *string
-	availableOnDevice *string
+	ctx                       context.Context
+	ApiService                IpamAPI
+	availableAtSite           *string
+	availableOnDevice         *string
 	availableOnVirtualmachine *string
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	group *[]string
-	groupN *[]string
-	groupId *[]*int32
-	groupIdN *[]*int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	l2vpn *[]*int64
-	l2vpnN *[]*int64
-	l2vpnId *[]int32
-	l2vpnIdN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
-	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	region *[]string
-	regionN *[]string
-	regionId *[]string
-	regionIdN *[]string
-	role *[]string
-	roleN *[]string
-	roleId *[]*int32
-	roleIdN *[]*int32
-	site *[]string
-	siteN *[]string
-	siteGroup *[]string
-	siteGroupN *[]string
-	siteGroupId *[]string
-	siteGroupIdN *[]string
-	siteId *[]*int32
-	siteIdN *[]*int32
-	status *[]string
-	statusN *[]string
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
-	vid *[]int32
-	vidEmpty *bool
-	vidGt *[]int32
-	vidGte *[]int32
-	vidLt *[]int32
-	vidLte *[]int32
-	vidN *[]int32
+	created                   *[]time.Time
+	createdEmpty              *[]time.Time
+	createdGt                 *[]time.Time
+	createdGte                *[]time.Time
+	createdLt                 *[]time.Time
+	createdLte                *[]time.Time
+	createdN                  *[]time.Time
+	createdByRequest          *string
+	description               *[]string
+	descriptionEmpty          *bool
+	descriptionIc             *[]string
+	descriptionIe             *[]string
+	descriptionIew            *[]string
+	descriptionIsw            *[]string
+	descriptionN              *[]string
+	descriptionNic            *[]string
+	descriptionNie            *[]string
+	descriptionNiew           *[]string
+	descriptionNisw           *[]string
+	group                     *[]string
+	groupN                    *[]string
+	groupId                   *[]*int32
+	groupIdN                  *[]*int32
+	id                        *[]int32
+	idEmpty                   *bool
+	idGt                      *[]int32
+	idGte                     *[]int32
+	idLt                      *[]int32
+	idLte                     *[]int32
+	idN                       *[]int32
+	l2vpn                     *[]*int64
+	l2vpnN                    *[]*int64
+	l2vpnId                   *[]int32
+	l2vpnIdN                  *[]int32
+	lastUpdated               *[]time.Time
+	lastUpdatedEmpty          *[]time.Time
+	lastUpdatedGt             *[]time.Time
+	lastUpdatedGte            *[]time.Time
+	lastUpdatedLt             *[]time.Time
+	lastUpdatedLte            *[]time.Time
+	lastUpdatedN              *[]time.Time
+	limit                     *int32
+	modifiedByRequest         *string
+	name                      *[]string
+	nameEmpty                 *bool
+	nameIc                    *[]string
+	nameIe                    *[]string
+	nameIew                   *[]string
+	nameIsw                   *[]string
+	nameN                     *[]string
+	nameNic                   *[]string
+	nameNie                   *[]string
+	nameNiew                  *[]string
+	nameNisw                  *[]string
+	offset                    *int32
+	ordering                  *string
+	q                         *string
+	region                    *[]string
+	regionN                   *[]string
+	regionId                  *[]string
+	regionIdN                 *[]string
+	role                      *[]string
+	roleN                     *[]string
+	roleId                    *[]*int32
+	roleIdN                   *[]*int32
+	site                      *[]string
+	siteN                     *[]string
+	siteGroup                 *[]string
+	siteGroupN                *[]string
+	siteGroupId               *[]string
+	siteGroupIdN              *[]string
+	siteId                    *[]*int32
+	siteIdN                   *[]*int32
+	status                    *[]string
+	statusN                   *[]string
+	tag                       *[]string
+	tagN                      *[]string
+	tenant                    *[]string
+	tenantN                   *[]string
+	tenantGroup               *[]string
+	tenantGroupN              *[]string
+	tenantGroupId             *[]string
+	tenantGroupIdN            *[]string
+	tenantId                  *[]*int32
+	tenantIdN                 *[]*int32
+	updatedByRequest          *string
+	vid                       *[]int32
+	vidEmpty                  *bool
+	vidGt                     *[]int32
+	vidGte                    *[]int32
+	vidLt                     *[]int32
+	vidLte                    *[]int32
+	vidN                      *[]int32
 }
 
 func (r ApiIpamVlansListRequest) AvailableAtSite(availableAtSite string) ApiIpamVlansListRequest {
@@ -36249,24 +36360,25 @@ IpamVlansList Method for IpamVlansList
 
 Get a list of VLAN objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVlansListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVlansListRequest
 */
 func (a *IpamAPIService) IpamVlansList(ctx context.Context) ApiIpamVlansListRequest {
 	return ApiIpamVlansListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedVLANList
+//
+//	@return PaginatedVLANList
 func (a *IpamAPIService) IpamVlansListExecute(r ApiIpamVlansListRequest) (*PaginatedVLANList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedVLANList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedVLANList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansList")
@@ -37293,9 +37405,9 @@ func (a *IpamAPIService) IpamVlansListExecute(r ApiIpamVlansListRequest) (*Pagin
 }
 
 type ApiIpamVlansPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                        context.Context
+	ApiService                 IpamAPI
+	id                         int32
 	patchedWritableVLANRequest *PatchedWritableVLANRequest
 }
 
@@ -37313,26 +37425,27 @@ IpamVlansPartialUpdate Method for IpamVlansPartialUpdate
 
 Patch a VLAN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN.
- @return ApiIpamVlansPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN.
+	@return ApiIpamVlansPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamVlansPartialUpdate(ctx context.Context, id int32) ApiIpamVlansPartialUpdateRequest {
 	return ApiIpamVlansPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VLAN
+//
+//	@return VLAN
 func (a *IpamAPIService) IpamVlansPartialUpdateExecute(r ApiIpamVlansPartialUpdateRequest) (*VLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLAN
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansPartialUpdate")
@@ -37418,9 +37531,9 @@ func (a *IpamAPIService) IpamVlansPartialUpdateExecute(r ApiIpamVlansPartialUpda
 }
 
 type ApiIpamVlansRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamVlansRetrieveRequest) Execute() (*VLAN, *http.Response, error) {
@@ -37432,26 +37545,27 @@ IpamVlansRetrieve Method for IpamVlansRetrieve
 
 Get a VLAN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN.
- @return ApiIpamVlansRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN.
+	@return ApiIpamVlansRetrieveRequest
 */
 func (a *IpamAPIService) IpamVlansRetrieve(ctx context.Context, id int32) ApiIpamVlansRetrieveRequest {
 	return ApiIpamVlansRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VLAN
+//
+//	@return VLAN
 func (a *IpamAPIService) IpamVlansRetrieveExecute(r ApiIpamVlansRetrieveRequest) (*VLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLAN
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansRetrieve")
@@ -37535,9 +37649,9 @@ func (a *IpamAPIService) IpamVlansRetrieveExecute(r ApiIpamVlansRetrieveRequest)
 }
 
 type ApiIpamVlansUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx                 context.Context
+	ApiService          IpamAPI
+	id                  int32
 	writableVLANRequest *WritableVLANRequest
 }
 
@@ -37555,26 +37669,27 @@ IpamVlansUpdate Method for IpamVlansUpdate
 
 Put a VLAN object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VLAN.
- @return ApiIpamVlansUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VLAN.
+	@return ApiIpamVlansUpdateRequest
 */
 func (a *IpamAPIService) IpamVlansUpdate(ctx context.Context, id int32) ApiIpamVlansUpdateRequest {
 	return ApiIpamVlansUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VLAN
+//
+//	@return VLAN
 func (a *IpamAPIService) IpamVlansUpdateExecute(r ApiIpamVlansUpdateRequest) (*VLAN, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VLAN
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VLAN
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVlansUpdate")
@@ -37663,7 +37778,7 @@ func (a *IpamAPIService) IpamVlansUpdateExecute(r ApiIpamVlansUpdateRequest) (*V
 }
 
 type ApiIpamVrfsBulkDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	vRFRequest *[]VRFRequest
 }
@@ -37682,22 +37797,22 @@ IpamVrfsBulkDestroy Method for IpamVrfsBulkDestroy
 
 Delete a list of VRF objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVrfsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVrfsBulkDestroyRequest
 */
 func (a *IpamAPIService) IpamVrfsBulkDestroy(ctx context.Context) ApiIpamVrfsBulkDestroyRequest {
 	return ApiIpamVrfsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamVrfsBulkDestroyExecute(r ApiIpamVrfsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsBulkDestroy")
@@ -37776,7 +37891,7 @@ func (a *IpamAPIService) IpamVrfsBulkDestroyExecute(r ApiIpamVrfsBulkDestroyRequ
 }
 
 type ApiIpamVrfsBulkPartialUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	vRFRequest *[]VRFRequest
 }
@@ -37795,24 +37910,25 @@ IpamVrfsBulkPartialUpdate Method for IpamVrfsBulkPartialUpdate
 
 Patch a list of VRF objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVrfsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVrfsBulkPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamVrfsBulkPartialUpdate(ctx context.Context) ApiIpamVrfsBulkPartialUpdateRequest {
 	return ApiIpamVrfsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []VRF
+//
+//	@return []VRF
 func (a *IpamAPIService) IpamVrfsBulkPartialUpdateExecute(r ApiIpamVrfsBulkPartialUpdateRequest) ([]VRF, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []VRF
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []VRF
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsBulkPartialUpdate")
@@ -37900,7 +38016,7 @@ func (a *IpamAPIService) IpamVrfsBulkPartialUpdateExecute(r ApiIpamVrfsBulkParti
 }
 
 type ApiIpamVrfsBulkUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	vRFRequest *[]VRFRequest
 }
@@ -37919,24 +38035,25 @@ IpamVrfsBulkUpdate Method for IpamVrfsBulkUpdate
 
 Put a list of VRF objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVrfsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVrfsBulkUpdateRequest
 */
 func (a *IpamAPIService) IpamVrfsBulkUpdate(ctx context.Context) ApiIpamVrfsBulkUpdateRequest {
 	return ApiIpamVrfsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []VRF
+//
+//	@return []VRF
 func (a *IpamAPIService) IpamVrfsBulkUpdateExecute(r ApiIpamVrfsBulkUpdateRequest) ([]VRF, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []VRF
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []VRF
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsBulkUpdate")
@@ -38024,7 +38141,7 @@ func (a *IpamAPIService) IpamVrfsBulkUpdateExecute(r ApiIpamVrfsBulkUpdateReques
 }
 
 type ApiIpamVrfsCreateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
 	vRFRequest *VRFRequest
 }
@@ -38043,24 +38160,25 @@ IpamVrfsCreate Method for IpamVrfsCreate
 
 Post a list of VRF objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVrfsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVrfsCreateRequest
 */
 func (a *IpamAPIService) IpamVrfsCreate(ctx context.Context) ApiIpamVrfsCreateRequest {
 	return ApiIpamVrfsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return VRF
+//
+//	@return VRF
 func (a *IpamAPIService) IpamVrfsCreateExecute(r ApiIpamVrfsCreateRequest) (*VRF, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VRF
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VRF
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsCreate")
@@ -38148,9 +38266,9 @@ func (a *IpamAPIService) IpamVrfsCreateExecute(r ApiIpamVrfsCreateRequest) (*VRF
 }
 
 type ApiIpamVrfsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamVrfsDestroyRequest) Execute() (*http.Response, error) {
@@ -38162,24 +38280,24 @@ IpamVrfsDestroy Method for IpamVrfsDestroy
 
 Delete a VRF object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VRF.
- @return ApiIpamVrfsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VRF.
+	@return ApiIpamVrfsDestroyRequest
 */
 func (a *IpamAPIService) IpamVrfsDestroy(ctx context.Context, id int32) ApiIpamVrfsDestroyRequest {
 	return ApiIpamVrfsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *IpamAPIService) IpamVrfsDestroyExecute(r ApiIpamVrfsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsDestroy")
@@ -38254,88 +38372,88 @@ func (a *IpamAPIService) IpamVrfsDestroyExecute(r ApiIpamVrfsDestroyRequest) (*h
 }
 
 type ApiIpamVrfsListRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	enforceUnique *bool
-	exportTarget *[]string
-	exportTargetN *[]string
-	exportTargetId *[]int32
-	exportTargetIdN *[]int32
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	importTarget *[]string
-	importTargetN *[]string
-	importTargetId *[]int32
-	importTargetIdN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	enforceUnique     *bool
+	exportTarget      *[]string
+	exportTargetN     *[]string
+	exportTargetId    *[]int32
+	exportTargetIdN   *[]int32
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	importTarget      *[]string
+	importTargetN     *[]string
+	importTargetId    *[]int32
+	importTargetIdN   *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	rd *[]string
-	rdEmpty *bool
-	rdIc *[]string
-	rdIe *[]string
-	rdIew *[]string
-	rdIsw *[]string
-	rdN *[]string
-	rdNic *[]string
-	rdNie *[]string
-	rdNiew *[]string
-	rdNisw *[]string
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	rd                *[]string
+	rdEmpty           *bool
+	rdIc              *[]string
+	rdIe              *[]string
+	rdIew             *[]string
+	rdIsw             *[]string
+	rdN               *[]string
+	rdNic             *[]string
+	rdNie             *[]string
+	rdNiew            *[]string
+	rdNisw            *[]string
+	tag               *[]string
+	tagN              *[]string
+	tenant            *[]string
+	tenantN           *[]string
+	tenantGroup       *[]string
+	tenantGroupN      *[]string
+	tenantGroupId     *[]string
+	tenantGroupIdN    *[]string
+	tenantId          *[]*int32
+	tenantIdN         *[]*int32
+	updatedByRequest  *string
 }
 
 func (r ApiIpamVrfsListRequest) Created(created []time.Time) ApiIpamVrfsListRequest {
@@ -38763,24 +38881,25 @@ IpamVrfsList Method for IpamVrfsList
 
 Get a list of VRF objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiIpamVrfsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiIpamVrfsListRequest
 */
 func (a *IpamAPIService) IpamVrfsList(ctx context.Context) ApiIpamVrfsListRequest {
 	return ApiIpamVrfsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedVRFList
+//
+//	@return PaginatedVRFList
 func (a *IpamAPIService) IpamVrfsListExecute(r ApiIpamVrfsListRequest) (*PaginatedVRFList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedVRFList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedVRFList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsList")
@@ -39647,9 +39766,9 @@ func (a *IpamAPIService) IpamVrfsListExecute(r ApiIpamVrfsListRequest) (*Paginat
 }
 
 type ApiIpamVrfsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService IpamAPI
-	id int32
+	ctx               context.Context
+	ApiService        IpamAPI
+	id                int32
 	patchedVRFRequest *PatchedVRFRequest
 }
 
@@ -39667,26 +39786,27 @@ IpamVrfsPartialUpdate Method for IpamVrfsPartialUpdate
 
 Patch a VRF object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VRF.
- @return ApiIpamVrfsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VRF.
+	@return ApiIpamVrfsPartialUpdateRequest
 */
 func (a *IpamAPIService) IpamVrfsPartialUpdate(ctx context.Context, id int32) ApiIpamVrfsPartialUpdateRequest {
 	return ApiIpamVrfsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VRF
+//
+//	@return VRF
 func (a *IpamAPIService) IpamVrfsPartialUpdateExecute(r ApiIpamVrfsPartialUpdateRequest) (*VRF, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VRF
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VRF
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsPartialUpdate")
@@ -39772,9 +39892,9 @@ func (a *IpamAPIService) IpamVrfsPartialUpdateExecute(r ApiIpamVrfsPartialUpdate
 }
 
 type ApiIpamVrfsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 }
 
 func (r ApiIpamVrfsRetrieveRequest) Execute() (*VRF, *http.Response, error) {
@@ -39786,26 +39906,27 @@ IpamVrfsRetrieve Method for IpamVrfsRetrieve
 
 Get a VRF object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VRF.
- @return ApiIpamVrfsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VRF.
+	@return ApiIpamVrfsRetrieveRequest
 */
 func (a *IpamAPIService) IpamVrfsRetrieve(ctx context.Context, id int32) ApiIpamVrfsRetrieveRequest {
 	return ApiIpamVrfsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VRF
+//
+//	@return VRF
 func (a *IpamAPIService) IpamVrfsRetrieveExecute(r ApiIpamVrfsRetrieveRequest) (*VRF, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VRF
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VRF
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsRetrieve")
@@ -39889,9 +40010,9 @@ func (a *IpamAPIService) IpamVrfsRetrieveExecute(r ApiIpamVrfsRetrieveRequest) (
 }
 
 type ApiIpamVrfsUpdateRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService IpamAPI
-	id int32
+	id         int32
 	vRFRequest *VRFRequest
 }
 
@@ -39909,26 +40030,27 @@ IpamVrfsUpdate Method for IpamVrfsUpdate
 
 Put a VRF object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this VRF.
- @return ApiIpamVrfsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this VRF.
+	@return ApiIpamVrfsUpdateRequest
 */
 func (a *IpamAPIService) IpamVrfsUpdate(ctx context.Context, id int32) ApiIpamVrfsUpdateRequest {
 	return ApiIpamVrfsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return VRF
+//
+//	@return VRF
 func (a *IpamAPIService) IpamVrfsUpdateExecute(r ApiIpamVrfsUpdateRequest) (*VRF, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *VRF
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *VRF
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IpamAPIService.IpamVrfsUpdate")

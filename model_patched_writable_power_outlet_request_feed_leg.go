@@ -20,9 +20,9 @@ type PatchedWritablePowerOutletRequestFeedLeg string
 
 // List of PatchedWritablePowerOutletRequest_feed_leg
 const (
-	PATCHEDWRITABLEPOWEROUTLETREQUESTFEEDLEG_A PatchedWritablePowerOutletRequestFeedLeg = "A"
-	PATCHEDWRITABLEPOWEROUTLETREQUESTFEEDLEG_B PatchedWritablePowerOutletRequestFeedLeg = "B"
-	PATCHEDWRITABLEPOWEROUTLETREQUESTFEEDLEG_C PatchedWritablePowerOutletRequestFeedLeg = "C"
+	PATCHEDWRITABLEPOWEROUTLETREQUESTFEEDLEG_A     PatchedWritablePowerOutletRequestFeedLeg = "A"
+	PATCHEDWRITABLEPOWEROUTLETREQUESTFEEDLEG_B     PatchedWritablePowerOutletRequestFeedLeg = "B"
+	PATCHEDWRITABLEPOWEROUTLETREQUESTFEEDLEG_C     PatchedWritablePowerOutletRequestFeedLeg = "C"
 	PATCHEDWRITABLEPOWEROUTLETREQUESTFEEDLEG_EMPTY PatchedWritablePowerOutletRequestFeedLeg = ""
 )
 
@@ -112,4 +112,3 @@ func (v *NullablePatchedWritablePowerOutletRequestFeedLeg) UnmarshalJSON(src []b
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

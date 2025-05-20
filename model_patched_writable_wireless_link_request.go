@@ -19,18 +19,18 @@ var _ MappedNullable = &PatchedWritableWirelessLinkRequest{}
 
 // PatchedWritableWirelessLinkRequest Adds support for custom fields and tags.
 type PatchedWritableWirelessLinkRequest struct {
-	InterfaceA *BriefInterfaceRequest `json:"interface_a,omitempty"`
-	InterfaceB *BriefInterfaceRequest `json:"interface_b,omitempty"`
-	Ssid *string `json:"ssid,omitempty"`
-	Status *CableStatusValue `json:"status,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	AuthType *AuthenticationType1 `json:"auth_type,omitempty"`
-	AuthCipher *AuthenticationCipher `json:"auth_cipher,omitempty"`
-	AuthPsk *string `json:"auth_psk,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	InterfaceA           *BriefInterfaceRequest     `json:"interface_a,omitempty"`
+	InterfaceB           *BriefInterfaceRequest     `json:"interface_b,omitempty"`
+	Ssid                 *string                    `json:"ssid,omitempty"`
+	Status               *CableStatusValue          `json:"status,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	AuthType             *AuthenticationType1       `json:"auth_type,omitempty"`
+	AuthCipher           *AuthenticationCipher      `json:"auth_cipher,omitempty"`
+	AuthPsk              *string                    `json:"auth_psk,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -213,6 +213,7 @@ func (o *PatchedWritableWirelessLinkRequest) HasTenant() bool {
 func (o *PatchedWritableWirelessLinkRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedWritableWirelessLinkRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -448,7 +449,7 @@ func (o *PatchedWritableWirelessLinkRequest) SetCustomFields(v map[string]interf
 }
 
 func (o PatchedWritableWirelessLinkRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -568,5 +569,3 @@ func (v *NullablePatchedWritableWirelessLinkRequest) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type RackFace1 string
 // List of Rack_face_1
 const (
 	RACKFACE1_FRONT RackFace1 = "front"
-	RACKFACE1_REAR RackFace1 = "rear"
+	RACKFACE1_REAR  RackFace1 = "rear"
 	RACKFACE1_EMPTY RackFace1 = ""
 )
 
@@ -110,4 +110,3 @@ func (v *NullableRackFace1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

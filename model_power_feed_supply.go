@@ -19,8 +19,8 @@ var _ MappedNullable = &PowerFeedSupply{}
 
 // PowerFeedSupply struct for PowerFeedSupply
 type PowerFeedSupply struct {
-	Value *PatchedWritablePowerFeedRequestSupply `json:"value,omitempty"`
-	Label *PowerFeedSupplyLabel `json:"label,omitempty"`
+	Value                *PatchedWritablePowerFeedRequestSupply `json:"value,omitempty"`
+	Label                *PowerFeedSupplyLabel                  `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *PowerFeedSupply) SetLabel(v PowerFeedSupplyLabel) {
 }
 
 func (o PowerFeedSupply) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullablePowerFeedSupply) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

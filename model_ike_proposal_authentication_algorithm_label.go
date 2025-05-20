@@ -20,11 +20,11 @@ type IKEProposalAuthenticationAlgorithmLabel string
 
 // List of IKEProposal_authentication_algorithm_label
 const (
-	IKEPROPOSALAUTHENTICATIONALGORITHMLABEL_SHA_1_HMAC IKEProposalAuthenticationAlgorithmLabel = "SHA-1 HMAC"
+	IKEPROPOSALAUTHENTICATIONALGORITHMLABEL_SHA_1_HMAC   IKEProposalAuthenticationAlgorithmLabel = "SHA-1 HMAC"
 	IKEPROPOSALAUTHENTICATIONALGORITHMLABEL_SHA_256_HMAC IKEProposalAuthenticationAlgorithmLabel = "SHA-256 HMAC"
 	IKEPROPOSALAUTHENTICATIONALGORITHMLABEL_SHA_384_HMAC IKEProposalAuthenticationAlgorithmLabel = "SHA-384 HMAC"
 	IKEPROPOSALAUTHENTICATIONALGORITHMLABEL_SHA_512_HMAC IKEProposalAuthenticationAlgorithmLabel = "SHA-512 HMAC"
-	IKEPROPOSALAUTHENTICATIONALGORITHMLABEL_MD5_HMAC IKEProposalAuthenticationAlgorithmLabel = "MD5 HMAC"
+	IKEPROPOSALAUTHENTICATIONALGORITHMLABEL_MD5_HMAC     IKEProposalAuthenticationAlgorithmLabel = "MD5 HMAC"
 )
 
 // All allowed values of IKEProposalAuthenticationAlgorithmLabel enum
@@ -114,4 +114,3 @@ func (v *NullableIKEProposalAuthenticationAlgorithmLabel) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,7 +19,7 @@ var _ MappedNullable = &ModuleBayNestedModuleRequest{}
 
 // ModuleBayNestedModuleRequest Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a dictionary of attributes which can be used to uniquely identify the related object. This class should be subclassed to return a full representation of the related object on read.
 type ModuleBayNestedModuleRequest struct {
-	Serial *string `json:"serial,omitempty"`
+	Serial               *string `json:"serial,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,7 +75,7 @@ func (o *ModuleBayNestedModuleRequest) SetSerial(v string) {
 }
 
 func (o ModuleBayNestedModuleRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -151,5 +151,3 @@ func (v *NullableModuleBayNestedModuleRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

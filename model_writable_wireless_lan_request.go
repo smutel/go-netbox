@@ -20,18 +20,18 @@ var _ MappedNullable = &WritableWirelessLANRequest{}
 
 // WritableWirelessLANRequest Adds support for custom fields and tags.
 type WritableWirelessLANRequest struct {
-	Ssid string `json:"ssid"`
-	Description *string `json:"description,omitempty"`
-	Group NullableBriefWirelessLANGroupRequest `json:"group,omitempty"`
-	Status *PatchedWritableWirelessLANRequestStatus `json:"status,omitempty"`
-	Vlan NullableBriefVLANRequest `json:"vlan,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	AuthType *AuthenticationType1 `json:"auth_type,omitempty"`
-	AuthCipher *AuthenticationCipher `json:"auth_cipher,omitempty"`
-	AuthPsk *string `json:"auth_psk,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Ssid                 string                                   `json:"ssid"`
+	Description          *string                                  `json:"description,omitempty"`
+	Group                NullableBriefWirelessLANGroupRequest     `json:"group,omitempty"`
+	Status               *PatchedWritableWirelessLANRequestStatus `json:"status,omitempty"`
+	Vlan                 NullableBriefVLANRequest                 `json:"vlan,omitempty"`
+	Tenant               NullableBriefTenantRequest               `json:"tenant,omitempty"`
+	AuthType             *AuthenticationType1                     `json:"auth_type,omitempty"`
+	AuthCipher           *AuthenticationCipher                    `json:"auth_cipher,omitempty"`
+	AuthPsk              *string                                  `json:"auth_psk,omitempty"`
+	Comments             *string                                  `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest                       `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                   `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,7 +78,6 @@ func (o *WritableWirelessLANRequest) GetSsidOk() (*string, bool) {
 func (o *WritableWirelessLANRequest) SetSsid(v string) {
 	o.Ssid = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WritableWirelessLANRequest) GetDescription() string {
@@ -144,6 +143,7 @@ func (o *WritableWirelessLANRequest) HasGroup() bool {
 func (o *WritableWirelessLANRequest) SetGroup(v BriefWirelessLANGroupRequest) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *WritableWirelessLANRequest) SetGroupNil() {
 	o.Group.Set(nil)
@@ -218,6 +218,7 @@ func (o *WritableWirelessLANRequest) HasVlan() bool {
 func (o *WritableWirelessLANRequest) SetVlan(v BriefVLANRequest) {
 	o.Vlan.Set(&v)
 }
+
 // SetVlanNil sets the value for Vlan to be an explicit nil
 func (o *WritableWirelessLANRequest) SetVlanNil() {
 	o.Vlan.Set(nil)
@@ -260,6 +261,7 @@ func (o *WritableWirelessLANRequest) HasTenant() bool {
 func (o *WritableWirelessLANRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *WritableWirelessLANRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -463,7 +465,7 @@ func (o *WritableWirelessLANRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o WritableWirelessLANRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -524,32 +526,31 @@ func (o *WritableWirelessLANRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -619,5 +620,3 @@ func (v *NullableWritableWirelessLANRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ var _ MappedNullable = &NestedModuleBay{}
 
 // NestedModuleBay Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a dictionary of attributes which can be used to uniquely identify the related object. This class should be subclassed to return a full representation of the related object on read.
 type NestedModuleBay struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	InstalledModule NullableModuleBayNestedModule `json:"installed_module,omitempty"`
-	Name string `json:"name"`
+	Id                   int32                         `json:"id"`
+	Url                  string                        `json:"url"`
+	Display              string                        `json:"display"`
+	InstalledModule      NullableModuleBayNestedModule `json:"installed_module,omitempty"`
+	Name                 string                        `json:"name"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,7 +75,6 @@ func (o *NestedModuleBay) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *NestedModuleBay) GetUrl() string {
 	if o == nil {
@@ -100,7 +99,6 @@ func (o *NestedModuleBay) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *NestedModuleBay) GetDisplay() string {
 	if o == nil {
@@ -124,7 +122,6 @@ func (o *NestedModuleBay) GetDisplayOk() (*string, bool) {
 func (o *NestedModuleBay) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetInstalledModule returns the InstalledModule field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NestedModuleBay) GetInstalledModule() ModuleBayNestedModule {
@@ -158,6 +155,7 @@ func (o *NestedModuleBay) HasInstalledModule() bool {
 func (o *NestedModuleBay) SetInstalledModule(v ModuleBayNestedModule) {
 	o.InstalledModule.Set(&v)
 }
+
 // SetInstalledModuleNil sets the value for InstalledModule to be an explicit nil
 func (o *NestedModuleBay) SetInstalledModuleNil() {
 	o.InstalledModule.Set(nil)
@@ -192,9 +190,8 @@ func (o *NestedModuleBay) SetName(v string) {
 	o.Name = v
 }
 
-
 func (o NestedModuleBay) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -231,32 +228,31 @@ func (o *NestedModuleBay) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -319,5 +315,3 @@ func (v *NullableNestedModuleBay) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -18,19 +18,18 @@ import (
 	"net/url"
 )
 
-
 type SchemaAPI interface {
 
 	/*
-	SchemaRetrieve Method for SchemaRetrieve
+			SchemaRetrieve Method for SchemaRetrieve
 
-	OpenApi3 schema for this API. Format can be selected via content negotiation.
+			OpenApi3 schema for this API. Format can be selected via content negotiation.
 
-- YAML: application/vnd.oai.openapi
-- JSON: application/vnd.oai.openapi+json
+		- YAML: application/vnd.oai.openapi
+		- JSON: application/vnd.oai.openapi+json
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiSchemaRetrieveRequest
+			@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+			@return ApiSchemaRetrieveRequest
 	*/
 	SchemaRetrieve(ctx context.Context) ApiSchemaRetrieveRequest
 
@@ -43,10 +42,10 @@ type SchemaAPI interface {
 type SchemaAPIService service
 
 type ApiSchemaRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService SchemaAPI
-	format *SchemaRetrieveFormatParameter
-	lang *SchemaRetrieveLangParameter
+	format     *SchemaRetrieveFormatParameter
+	lang       *SchemaRetrieveLangParameter
 }
 
 func (r ApiSchemaRetrieveRequest) Format(format SchemaRetrieveFormatParameter) ApiSchemaRetrieveRequest {
@@ -71,24 +70,25 @@ OpenApi3 schema for this API. Format can be selected via content negotiation.
 - YAML: application/vnd.oai.openapi
 - JSON: application/vnd.oai.openapi+json
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiSchemaRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiSchemaRetrieveRequest
 */
 func (a *SchemaAPIService) SchemaRetrieve(ctx context.Context) ApiSchemaRetrieveRequest {
 	return ApiSchemaRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *SchemaAPIService) SchemaRetrieveExecute(r ApiSchemaRetrieveRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SchemaAPIService.SchemaRetrieve")

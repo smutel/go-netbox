@@ -20,27 +20,27 @@ var _ MappedNullable = &PatchedWritableDeviceTypeRequest{}
 
 // PatchedWritableDeviceTypeRequest Adds support for custom fields and tags.
 type PatchedWritableDeviceTypeRequest struct {
-	Manufacturer *BriefManufacturerRequest `json:"manufacturer,omitempty"`
+	Manufacturer    *BriefManufacturerRequest    `json:"manufacturer,omitempty"`
 	DefaultPlatform NullableBriefPlatformRequest `json:"default_platform,omitempty"`
-	Model *string `json:"model,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Model           *string                      `json:"model,omitempty"`
+	Slug            *string                      `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	// Discrete part number (optional)
-	PartNumber *string `json:"part_number,omitempty"`
-	UHeight *float64 `json:"u_height,omitempty"`
+	PartNumber *string  `json:"part_number,omitempty"`
+	UHeight    *float64 `json:"u_height,omitempty"`
 	// Devices of this type are excluded when calculating rack utilization.
 	ExcludeFromUtilization *bool `json:"exclude_from_utilization,omitempty"`
 	// Device consumes both front and rear rack faces.
-	IsFullDepth *bool `json:"is_full_depth,omitempty"`
-	SubdeviceRole *ParentChildStatus1 `json:"subdevice_role,omitempty"`
-	Airflow *DeviceAirflowValue `json:"airflow,omitempty"`
-	Weight NullableFloat64 `json:"weight,omitempty"`
-	WeightUnit *DeviceTypeWeightUnitValue `json:"weight_unit,omitempty"`
-	FrontImage **os.File `json:"front_image,omitempty"`
-	RearImage **os.File `json:"rear_image,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	IsFullDepth          *bool                      `json:"is_full_depth,omitempty"`
+	SubdeviceRole        *ParentChildStatus1        `json:"subdevice_role,omitempty"`
+	Airflow              *DeviceAirflowValue        `json:"airflow,omitempty"`
+	Weight               NullableFloat64            `json:"weight,omitempty"`
+	WeightUnit           *DeviceTypeWeightUnitValue `json:"weight_unit,omitempty"`
+	FrontImage           **os.File                  `json:"front_image,omitempty"`
+	RearImage            **os.File                  `json:"rear_image,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -131,6 +131,7 @@ func (o *PatchedWritableDeviceTypeRequest) HasDefaultPlatform() bool {
 func (o *PatchedWritableDeviceTypeRequest) SetDefaultPlatform(v BriefPlatformRequest) {
 	o.DefaultPlatform.Set(&v)
 }
+
 // SetDefaultPlatformNil sets the value for DefaultPlatform to be an explicit nil
 func (o *PatchedWritableDeviceTypeRequest) SetDefaultPlatformNil() {
 	o.DefaultPlatform.Set(nil)
@@ -429,6 +430,7 @@ func (o *PatchedWritableDeviceTypeRequest) HasWeight() bool {
 func (o *PatchedWritableDeviceTypeRequest) SetWeight(v float64) {
 	o.Weight.Set(&v)
 }
+
 // SetWeightNil sets the value for Weight to be an explicit nil
 func (o *PatchedWritableDeviceTypeRequest) SetWeightNil() {
 	o.Weight.Set(nil)
@@ -664,7 +666,7 @@ func (o *PatchedWritableDeviceTypeRequest) SetCustomFields(v map[string]interfac
 }
 
 func (o PatchedWritableDeviceTypeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -808,5 +810,3 @@ func (v *NullablePatchedWritableDeviceTypeRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

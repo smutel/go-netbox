@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedPlatformRequest{}
 
 // PatchedPlatformRequest Adds support for custom fields and tags.
 type PatchedPlatformRequest struct {
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Manufacturer NullableBriefManufacturerRequest `json:"manufacturer,omitempty"`
-	ConfigTemplate NullableBriefConfigTemplateRequest `json:"config_template,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                            `json:"name,omitempty"`
+	Slug                 *string                            `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Manufacturer         NullableBriefManufacturerRequest   `json:"manufacturer,omitempty"`
+	ConfigTemplate       NullableBriefConfigTemplateRequest `json:"config_template,omitempty"`
+	Description          *string                            `json:"description,omitempty"`
+	Tags                 []NestedTagRequest                 `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}             `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,6 +144,7 @@ func (o *PatchedPlatformRequest) HasManufacturer() bool {
 func (o *PatchedPlatformRequest) SetManufacturer(v BriefManufacturerRequest) {
 	o.Manufacturer.Set(&v)
 }
+
 // SetManufacturerNil sets the value for Manufacturer to be an explicit nil
 func (o *PatchedPlatformRequest) SetManufacturerNil() {
 	o.Manufacturer.Set(nil)
@@ -186,6 +187,7 @@ func (o *PatchedPlatformRequest) HasConfigTemplate() bool {
 func (o *PatchedPlatformRequest) SetConfigTemplate(v BriefConfigTemplateRequest) {
 	o.ConfigTemplate.Set(&v)
 }
+
 // SetConfigTemplateNil sets the value for ConfigTemplate to be an explicit nil
 func (o *PatchedPlatformRequest) SetConfigTemplateNil() {
 	o.ConfigTemplate.Set(nil)
@@ -293,7 +295,7 @@ func (o *PatchedPlatformRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedPlatformRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -393,5 +395,3 @@ func (v *NullablePatchedPlatformRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

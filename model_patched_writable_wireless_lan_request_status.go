@@ -20,9 +20,9 @@ type PatchedWritableWirelessLANRequestStatus string
 
 // List of PatchedWritableWirelessLANRequest_status
 const (
-	PATCHEDWRITABLEWIRELESSLANREQUESTSTATUS_ACTIVE PatchedWritableWirelessLANRequestStatus = "active"
-	PATCHEDWRITABLEWIRELESSLANREQUESTSTATUS_RESERVED PatchedWritableWirelessLANRequestStatus = "reserved"
-	PATCHEDWRITABLEWIRELESSLANREQUESTSTATUS_DISABLED PatchedWritableWirelessLANRequestStatus = "disabled"
+	PATCHEDWRITABLEWIRELESSLANREQUESTSTATUS_ACTIVE     PatchedWritableWirelessLANRequestStatus = "active"
+	PATCHEDWRITABLEWIRELESSLANREQUESTSTATUS_RESERVED   PatchedWritableWirelessLANRequestStatus = "reserved"
+	PATCHEDWRITABLEWIRELESSLANREQUESTSTATUS_DISABLED   PatchedWritableWirelessLANRequestStatus = "disabled"
 	PATCHEDWRITABLEWIRELESSLANREQUESTSTATUS_DEPRECATED PatchedWritableWirelessLANRequestStatus = "deprecated"
 )
 
@@ -112,4 +112,3 @@ func (v *NullablePatchedWritableWirelessLANRequestStatus) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

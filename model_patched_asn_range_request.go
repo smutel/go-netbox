@@ -19,15 +19,15 @@ var _ MappedNullable = &PatchedASNRangeRequest{}
 
 // PatchedASNRangeRequest Adds support for custom fields and tags.
 type PatchedASNRangeRequest struct {
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Rir *BriefRIRRequest `json:"rir,omitempty"`
-	Start *int64 `json:"start,omitempty"`
-	End *int64 `json:"end,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                    `json:"name,omitempty"`
+	Slug                 *string                    `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Rir                  *BriefRIRRequest           `json:"rir,omitempty"`
+	Start                *int64                     `json:"start,omitempty"`
+	End                  *int64                     `json:"end,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -242,6 +242,7 @@ func (o *PatchedASNRangeRequest) HasTenant() bool {
 func (o *PatchedASNRangeRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedASNRangeRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -349,7 +350,7 @@ func (o *PatchedASNRangeRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedASNRangeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -457,5 +458,3 @@ func (v *NullablePatchedASNRangeRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

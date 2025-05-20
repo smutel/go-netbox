@@ -20,10 +20,10 @@ type PatchedWritableInterfaceRequestMode string
 
 // List of PatchedWritableInterfaceRequest_mode
 const (
-	PATCHEDWRITABLEINTERFACEREQUESTMODE_ACCESS PatchedWritableInterfaceRequestMode = "access"
-	PATCHEDWRITABLEINTERFACEREQUESTMODE_TAGGED PatchedWritableInterfaceRequestMode = "tagged"
+	PATCHEDWRITABLEINTERFACEREQUESTMODE_ACCESS     PatchedWritableInterfaceRequestMode = "access"
+	PATCHEDWRITABLEINTERFACEREQUESTMODE_TAGGED     PatchedWritableInterfaceRequestMode = "tagged"
 	PATCHEDWRITABLEINTERFACEREQUESTMODE_TAGGED_ALL PatchedWritableInterfaceRequestMode = "tagged-all"
-	PATCHEDWRITABLEINTERFACEREQUESTMODE_EMPTY PatchedWritableInterfaceRequestMode = ""
+	PATCHEDWRITABLEINTERFACEREQUESTMODE_EMPTY      PatchedWritableInterfaceRequestMode = ""
 )
 
 // All allowed values of PatchedWritableInterfaceRequestMode enum
@@ -112,4 +112,3 @@ func (v *NullablePatchedWritableInterfaceRequestMode) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

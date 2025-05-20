@@ -20,18 +20,18 @@ type PatchedWritableCustomFieldRequestType string
 
 // List of PatchedWritableCustomFieldRequest_type
 const (
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_TEXT PatchedWritableCustomFieldRequestType = "text"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_LONGTEXT PatchedWritableCustomFieldRequestType = "longtext"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_INTEGER PatchedWritableCustomFieldRequestType = "integer"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_DECIMAL PatchedWritableCustomFieldRequestType = "decimal"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_BOOLEAN PatchedWritableCustomFieldRequestType = "boolean"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_DATE PatchedWritableCustomFieldRequestType = "date"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_DATETIME PatchedWritableCustomFieldRequestType = "datetime"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_URL PatchedWritableCustomFieldRequestType = "url"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_JSON PatchedWritableCustomFieldRequestType = "json"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_SELECT PatchedWritableCustomFieldRequestType = "select"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_TEXT        PatchedWritableCustomFieldRequestType = "text"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_LONGTEXT    PatchedWritableCustomFieldRequestType = "longtext"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_INTEGER     PatchedWritableCustomFieldRequestType = "integer"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_DECIMAL     PatchedWritableCustomFieldRequestType = "decimal"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_BOOLEAN     PatchedWritableCustomFieldRequestType = "boolean"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_DATE        PatchedWritableCustomFieldRequestType = "date"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_DATETIME    PatchedWritableCustomFieldRequestType = "datetime"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_URL         PatchedWritableCustomFieldRequestType = "url"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_JSON        PatchedWritableCustomFieldRequestType = "json"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_SELECT      PatchedWritableCustomFieldRequestType = "select"
 	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_MULTISELECT PatchedWritableCustomFieldRequestType = "multiselect"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_OBJECT PatchedWritableCustomFieldRequestType = "object"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_OBJECT      PatchedWritableCustomFieldRequestType = "object"
 	PATCHEDWRITABLECUSTOMFIELDREQUESTTYPE_MULTIOBJECT PatchedWritableCustomFieldRequestType = "multiobject"
 )
 
@@ -130,4 +130,3 @@ func (v *NullablePatchedWritableCustomFieldRequestType) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

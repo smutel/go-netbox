@@ -20,17 +20,17 @@ var _ MappedNullable = &ModuleRequest{}
 
 // ModuleRequest Adds support for custom fields and tags.
 type ModuleRequest struct {
-	Device BriefDeviceRequest `json:"device"`
-	ModuleBay NestedModuleBayRequest `json:"module_bay"`
+	Device     BriefDeviceRequest     `json:"device"`
+	ModuleBay  NestedModuleBayRequest `json:"module_bay"`
 	ModuleType BriefModuleTypeRequest `json:"module_type"`
-	Status *ModuleStatusValue `json:"status,omitempty"`
-	Serial *string `json:"serial,omitempty"`
+	Status     *ModuleStatusValue     `json:"status,omitempty"`
+	Serial     *string                `json:"serial,omitempty"`
 	// A unique tag used to identify this device
-	AssetTag NullableString `json:"asset_tag,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	AssetTag             NullableString         `json:"asset_tag,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,6 @@ func (o *ModuleRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
-
 // GetModuleBay returns the ModuleBay field value
 func (o *ModuleRequest) GetModuleBay() NestedModuleBayRequest {
 	if o == nil {
@@ -105,7 +104,6 @@ func (o *ModuleRequest) SetModuleBay(v NestedModuleBayRequest) {
 	o.ModuleBay = v
 }
 
-
 // GetModuleType returns the ModuleType field value
 func (o *ModuleRequest) GetModuleType() BriefModuleTypeRequest {
 	if o == nil {
@@ -129,7 +127,6 @@ func (o *ModuleRequest) GetModuleTypeOk() (*BriefModuleTypeRequest, bool) {
 func (o *ModuleRequest) SetModuleType(v BriefModuleTypeRequest) {
 	o.ModuleType = v
 }
-
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *ModuleRequest) GetStatus() ModuleStatusValue {
@@ -227,6 +224,7 @@ func (o *ModuleRequest) HasAssetTag() bool {
 func (o *ModuleRequest) SetAssetTag(v string) {
 	o.AssetTag.Set(&v)
 }
+
 // SetAssetTagNil sets the value for AssetTag to be an explicit nil
 func (o *ModuleRequest) SetAssetTagNil() {
 	o.AssetTag.Set(nil)
@@ -366,7 +364,7 @@ func (o *ModuleRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o ModuleRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -419,32 +417,31 @@ func (o *ModuleRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -512,5 +509,3 @@ func (v *NullableModuleRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

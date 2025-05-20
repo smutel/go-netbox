@@ -20,13 +20,13 @@ type ConsolePortSpeedLabel string
 
 // List of ConsolePort_speed_label
 const (
-	CONSOLEPORTSPEEDLABEL__1200_BPS ConsolePortSpeedLabel = "1200 bps"
-	CONSOLEPORTSPEEDLABEL__2400_BPS ConsolePortSpeedLabel = "2400 bps"
-	CONSOLEPORTSPEEDLABEL__4800_BPS ConsolePortSpeedLabel = "4800 bps"
-	CONSOLEPORTSPEEDLABEL__9600_BPS ConsolePortSpeedLabel = "9600 bps"
-	CONSOLEPORTSPEEDLABEL__19_2_KBPS ConsolePortSpeedLabel = "19.2 kbps"
-	CONSOLEPORTSPEEDLABEL__38_4_KBPS ConsolePortSpeedLabel = "38.4 kbps"
-	CONSOLEPORTSPEEDLABEL__57_6_KBPS ConsolePortSpeedLabel = "57.6 kbps"
+	CONSOLEPORTSPEEDLABEL__1200_BPS   ConsolePortSpeedLabel = "1200 bps"
+	CONSOLEPORTSPEEDLABEL__2400_BPS   ConsolePortSpeedLabel = "2400 bps"
+	CONSOLEPORTSPEEDLABEL__4800_BPS   ConsolePortSpeedLabel = "4800 bps"
+	CONSOLEPORTSPEEDLABEL__9600_BPS   ConsolePortSpeedLabel = "9600 bps"
+	CONSOLEPORTSPEEDLABEL__19_2_KBPS  ConsolePortSpeedLabel = "19.2 kbps"
+	CONSOLEPORTSPEEDLABEL__38_4_KBPS  ConsolePortSpeedLabel = "38.4 kbps"
+	CONSOLEPORTSPEEDLABEL__57_6_KBPS  ConsolePortSpeedLabel = "57.6 kbps"
 	CONSOLEPORTSPEEDLABEL__115_2_KBPS ConsolePortSpeedLabel = "115.2 kbps"
 )
 
@@ -120,4 +120,3 @@ func (v *NullableConsolePortSpeedLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

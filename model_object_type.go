@@ -20,11 +20,11 @@ var _ MappedNullable = &ObjectType{}
 
 // ObjectType struct for ObjectType
 type ObjectType struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	AppLabel string `json:"app_label"`
-	Model string `json:"model"`
+	Id                   int32  `json:"id"`
+	Url                  string `json:"url"`
+	Display              string `json:"display"`
+	AppLabel             string `json:"app_label"`
+	Model                string `json:"model"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,6 @@ func (o *ObjectType) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ObjectType) GetUrl() string {
 	if o == nil {
@@ -100,7 +99,6 @@ func (o *ObjectType) GetUrlOk() (*string, bool) {
 func (o *ObjectType) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *ObjectType) GetDisplay() string {
@@ -126,7 +124,6 @@ func (o *ObjectType) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetAppLabel returns the AppLabel field value
 func (o *ObjectType) GetAppLabel() string {
 	if o == nil {
@@ -150,7 +147,6 @@ func (o *ObjectType) GetAppLabelOk() (*string, bool) {
 func (o *ObjectType) SetAppLabel(v string) {
 	o.AppLabel = v
 }
-
 
 // GetModel returns the Model field value
 func (o *ObjectType) GetModel() string {
@@ -176,9 +172,8 @@ func (o *ObjectType) SetModel(v string) {
 	o.Model = v
 }
 
-
 func (o ObjectType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -214,32 +209,31 @@ func (o *ObjectType) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -302,5 +296,3 @@ func (v *NullableObjectType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the InventoryItemRole type satisfies the MappedNullable interface at compile time
@@ -21,18 +21,18 @@ var _ MappedNullable = &InventoryItemRole{}
 
 // InventoryItemRole Adds support for custom fields and tags.
 type InventoryItemRole struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	InventoryitemCount int64 `json:"inventoryitem_count"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Name                 string                 `json:"name"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Color                *string                `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	InventoryitemCount   int64                  `json:"inventoryitem_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -87,7 +87,6 @@ func (o *InventoryItemRole) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *InventoryItemRole) GetUrl() string {
 	if o == nil {
@@ -111,7 +110,6 @@ func (o *InventoryItemRole) GetUrlOk() (*string, bool) {
 func (o *InventoryItemRole) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *InventoryItemRole) GetDisplay() string {
@@ -137,7 +135,6 @@ func (o *InventoryItemRole) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *InventoryItemRole) GetName() string {
 	if o == nil {
@@ -162,7 +159,6 @@ func (o *InventoryItemRole) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *InventoryItemRole) GetSlug() string {
 	if o == nil {
@@ -186,7 +182,6 @@ func (o *InventoryItemRole) GetSlugOk() (*string, bool) {
 func (o *InventoryItemRole) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *InventoryItemRole) GetColor() string {
@@ -342,7 +337,6 @@ func (o *InventoryItemRole) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *InventoryItemRole) GetLastUpdated() time.Time {
@@ -369,7 +363,6 @@ func (o *InventoryItemRole) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetInventoryitemCount returns the InventoryitemCount field value
 func (o *InventoryItemRole) GetInventoryitemCount() int64 {
 	if o == nil {
@@ -394,9 +387,8 @@ func (o *InventoryItemRole) SetInventoryitemCount(v int64) {
 	o.InventoryitemCount = v
 }
 
-
 func (o InventoryItemRole) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -450,32 +442,31 @@ func (o *InventoryItemRole) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -545,5 +536,3 @@ func (v *NullableInventoryItemRole) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

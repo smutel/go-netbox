@@ -20,24 +20,24 @@ var _ MappedNullable = &PatchedInventoryItemRequest{}
 // PatchedInventoryItemRequest Adds support for custom fields and tags.
 type PatchedInventoryItemRequest struct {
 	Device *BriefDeviceRequest `json:"device,omitempty"`
-	Parent NullableInt32 `json:"parent,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Parent NullableInt32       `json:"parent,omitempty"`
+	Name   *string             `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Role NullableBriefInventoryItemRoleRequest `json:"role,omitempty"`
-	Manufacturer NullableBriefManufacturerRequest `json:"manufacturer,omitempty"`
+	Label        *string                               `json:"label,omitempty"`
+	Role         NullableBriefInventoryItemRoleRequest `json:"role,omitempty"`
+	Manufacturer NullableBriefManufacturerRequest      `json:"manufacturer,omitempty"`
 	// Manufacturer-assigned part identifier
 	PartId *string `json:"part_id,omitempty"`
 	Serial *string `json:"serial,omitempty"`
 	// A unique tag used to identify this item
 	AssetTag NullableString `json:"asset_tag,omitempty"`
 	// This item was automatically discovered
-	Discovered *bool `json:"discovered,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ComponentType NullableString `json:"component_type,omitempty"`
-	ComponentId NullableInt64 `json:"component_id,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Discovered           *bool                  `json:"discovered,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	ComponentType        NullableString         `json:"component_type,omitempty"`
+	ComponentId          NullableInt64          `json:"component_id,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -124,6 +124,7 @@ func (o *PatchedInventoryItemRequest) HasParent() bool {
 func (o *PatchedInventoryItemRequest) SetParent(v int32) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *PatchedInventoryItemRequest) SetParentNil() {
 	o.Parent.Set(nil)
@@ -230,6 +231,7 @@ func (o *PatchedInventoryItemRequest) HasRole() bool {
 func (o *PatchedInventoryItemRequest) SetRole(v BriefInventoryItemRoleRequest) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *PatchedInventoryItemRequest) SetRoleNil() {
 	o.Role.Set(nil)
@@ -272,6 +274,7 @@ func (o *PatchedInventoryItemRequest) HasManufacturer() bool {
 func (o *PatchedInventoryItemRequest) SetManufacturer(v BriefManufacturerRequest) {
 	o.Manufacturer.Set(&v)
 }
+
 // SetManufacturerNil sets the value for Manufacturer to be an explicit nil
 func (o *PatchedInventoryItemRequest) SetManufacturerNil() {
 	o.Manufacturer.Set(nil)
@@ -378,6 +381,7 @@ func (o *PatchedInventoryItemRequest) HasAssetTag() bool {
 func (o *PatchedInventoryItemRequest) SetAssetTag(v string) {
 	o.AssetTag.Set(&v)
 }
+
 // SetAssetTagNil sets the value for AssetTag to be an explicit nil
 func (o *PatchedInventoryItemRequest) SetAssetTagNil() {
 	o.AssetTag.Set(nil)
@@ -484,6 +488,7 @@ func (o *PatchedInventoryItemRequest) HasComponentType() bool {
 func (o *PatchedInventoryItemRequest) SetComponentType(v string) {
 	o.ComponentType.Set(&v)
 }
+
 // SetComponentTypeNil sets the value for ComponentType to be an explicit nil
 func (o *PatchedInventoryItemRequest) SetComponentTypeNil() {
 	o.ComponentType.Set(nil)
@@ -526,6 +531,7 @@ func (o *PatchedInventoryItemRequest) HasComponentId() bool {
 func (o *PatchedInventoryItemRequest) SetComponentId(v int64) {
 	o.ComponentId.Set(&v)
 }
+
 // SetComponentIdNil sets the value for ComponentId to be an explicit nil
 func (o *PatchedInventoryItemRequest) SetComponentIdNil() {
 	o.ComponentId.Set(nil)
@@ -601,7 +607,7 @@ func (o *PatchedInventoryItemRequest) SetCustomFields(v map[string]interface{}) 
 }
 
 func (o PatchedInventoryItemRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -733,5 +739,3 @@ func (v *NullablePatchedInventoryItemRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type DcimPowerFeedsListPhaseParameter string
 // List of dcim_power_feeds_list_phase_parameter
 const (
 	DCIMPOWERFEEDSLISTPHASEPARAMETER_SINGLE_PHASE DcimPowerFeedsListPhaseParameter = "single-phase"
-	DCIMPOWERFEEDSLISTPHASEPARAMETER_THREE_PHASE DcimPowerFeedsListPhaseParameter = "three-phase"
+	DCIMPOWERFEEDSLISTPHASEPARAMETER_THREE_PHASE  DcimPowerFeedsListPhaseParameter = "three-phase"
 )
 
 // All allowed values of DcimPowerFeedsListPhaseParameter enum
@@ -108,4 +108,3 @@ func (v *NullableDcimPowerFeedsListPhaseParameter) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

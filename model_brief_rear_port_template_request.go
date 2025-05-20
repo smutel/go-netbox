@@ -21,8 +21,8 @@ var _ MappedNullable = &BriefRearPortTemplateRequest{}
 // BriefRearPortTemplateRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type BriefRearPortTemplateRequest struct {
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
+	Name                 string  `json:"name"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,6 @@ func (o *BriefRearPortTemplateRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefRearPortTemplateRequest) GetDescription() string {
 	if o == nil || IsNil(o.Description) {
@@ -104,7 +103,7 @@ func (o *BriefRearPortTemplateRequest) SetDescription(v string) {
 }
 
 func (o BriefRearPortTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -135,32 +134,31 @@ func (o *BriefRearPortTemplateRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -220,5 +218,3 @@ func (v *NullableBriefRearPortTemplateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

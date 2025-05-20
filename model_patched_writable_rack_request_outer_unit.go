@@ -20,8 +20,8 @@ type PatchedWritableRackRequestOuterUnit string
 
 // List of PatchedWritableRackRequest_outer_unit
 const (
-	PATCHEDWRITABLERACKREQUESTOUTERUNIT_MM PatchedWritableRackRequestOuterUnit = "mm"
-	PATCHEDWRITABLERACKREQUESTOUTERUNIT_IN PatchedWritableRackRequestOuterUnit = "in"
+	PATCHEDWRITABLERACKREQUESTOUTERUNIT_MM    PatchedWritableRackRequestOuterUnit = "mm"
+	PATCHEDWRITABLERACKREQUESTOUTERUNIT_IN    PatchedWritableRackRequestOuterUnit = "in"
 	PATCHEDWRITABLERACKREQUESTOUTERUNIT_EMPTY PatchedWritableRackRequestOuterUnit = ""
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableRackRequestOuterUnit) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the VirtualMachineWithConfigContext type satisfies the MappedNullable interface at compile time
@@ -21,35 +21,35 @@ var _ MappedNullable = &VirtualMachineWithConfigContext{}
 
 // VirtualMachineWithConfigContext Adds support for custom fields and tags.
 type VirtualMachineWithConfigContext struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Status *ModuleStatus `json:"status,omitempty"`
-	Site NullableBriefSite `json:"site,omitempty"`
-	Cluster NullableBriefCluster `json:"cluster,omitempty"`
-	Device NullableBriefDevice `json:"device,omitempty"`
-	Role NullableBriefDeviceRole `json:"role,omitempty"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	Platform NullableBriefPlatform `json:"platform,omitempty"`
-	PrimaryIp NullableBriefIPAddress `json:"primary_ip"`
-	PrimaryIp4 NullableBriefIPAddress `json:"primary_ip4,omitempty"`
-	PrimaryIp6 NullableBriefIPAddress `json:"primary_ip6,omitempty"`
-	Vcpus NullableFloat64 `json:"vcpus,omitempty"`
-	Memory NullableInt32 `json:"memory,omitempty"`
-	Disk NullableInt32 `json:"disk,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
+	Id             int32                       `json:"id"`
+	Url            string                      `json:"url"`
+	Display        string                      `json:"display"`
+	Name           string                      `json:"name"`
+	Status         *ModuleStatus               `json:"status,omitempty"`
+	Site           NullableBriefSite           `json:"site,omitempty"`
+	Cluster        NullableBriefCluster        `json:"cluster,omitempty"`
+	Device         NullableBriefDevice         `json:"device,omitempty"`
+	Role           NullableBriefDeviceRole     `json:"role,omitempty"`
+	Tenant         NullableBriefTenant         `json:"tenant,omitempty"`
+	Platform       NullableBriefPlatform       `json:"platform,omitempty"`
+	PrimaryIp      NullableBriefIPAddress      `json:"primary_ip"`
+	PrimaryIp4     NullableBriefIPAddress      `json:"primary_ip4,omitempty"`
+	PrimaryIp6     NullableBriefIPAddress      `json:"primary_ip6,omitempty"`
+	Vcpus          NullableFloat64             `json:"vcpus,omitempty"`
+	Memory         NullableInt32               `json:"memory,omitempty"`
+	Disk           NullableInt32               `json:"disk,omitempty"`
+	Description    *string                     `json:"description,omitempty"`
+	Comments       *string                     `json:"comments,omitempty"`
 	ConfigTemplate NullableBriefConfigTemplate `json:"config_template,omitempty"`
 	// Local config context data takes precedence over source contexts in the final rendered config context
-	LocalContextData interface{} `json:"local_context_data,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	ConfigContext interface{} `json:"config_context"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	InterfaceCount int32 `json:"interface_count"`
-	VirtualDiskCount int32 `json:"virtual_disk_count"`
+	LocalContextData     interface{}            `json:"local_context_data,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	ConfigContext        interface{}            `json:"config_context"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	InterfaceCount       int32                  `json:"interface_count"`
+	VirtualDiskCount     int32                  `json:"virtual_disk_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -106,7 +106,6 @@ func (o *VirtualMachineWithConfigContext) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *VirtualMachineWithConfigContext) GetUrl() string {
 	if o == nil {
@@ -130,7 +129,6 @@ func (o *VirtualMachineWithConfigContext) GetUrlOk() (*string, bool) {
 func (o *VirtualMachineWithConfigContext) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *VirtualMachineWithConfigContext) GetDisplay() string {
@@ -156,7 +154,6 @@ func (o *VirtualMachineWithConfigContext) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *VirtualMachineWithConfigContext) GetName() string {
 	if o == nil {
@@ -180,7 +177,6 @@ func (o *VirtualMachineWithConfigContext) GetNameOk() (*string, bool) {
 func (o *VirtualMachineWithConfigContext) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *VirtualMachineWithConfigContext) GetStatus() ModuleStatus {
@@ -246,6 +242,7 @@ func (o *VirtualMachineWithConfigContext) HasSite() bool {
 func (o *VirtualMachineWithConfigContext) SetSite(v BriefSite) {
 	o.Site.Set(&v)
 }
+
 // SetSiteNil sets the value for Site to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetSiteNil() {
 	o.Site.Set(nil)
@@ -288,6 +285,7 @@ func (o *VirtualMachineWithConfigContext) HasCluster() bool {
 func (o *VirtualMachineWithConfigContext) SetCluster(v BriefCluster) {
 	o.Cluster.Set(&v)
 }
+
 // SetClusterNil sets the value for Cluster to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetClusterNil() {
 	o.Cluster.Set(nil)
@@ -330,6 +328,7 @@ func (o *VirtualMachineWithConfigContext) HasDevice() bool {
 func (o *VirtualMachineWithConfigContext) SetDevice(v BriefDevice) {
 	o.Device.Set(&v)
 }
+
 // SetDeviceNil sets the value for Device to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetDeviceNil() {
 	o.Device.Set(nil)
@@ -372,6 +371,7 @@ func (o *VirtualMachineWithConfigContext) HasRole() bool {
 func (o *VirtualMachineWithConfigContext) SetRole(v BriefDeviceRole) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetRoleNil() {
 	o.Role.Set(nil)
@@ -414,6 +414,7 @@ func (o *VirtualMachineWithConfigContext) HasTenant() bool {
 func (o *VirtualMachineWithConfigContext) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -456,6 +457,7 @@ func (o *VirtualMachineWithConfigContext) HasPlatform() bool {
 func (o *VirtualMachineWithConfigContext) SetPlatform(v BriefPlatform) {
 	o.Platform.Set(&v)
 }
+
 // SetPlatformNil sets the value for Platform to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetPlatformNil() {
 	o.Platform.Set(nil)
@@ -492,7 +494,6 @@ func (o *VirtualMachineWithConfigContext) SetPrimaryIp(v BriefIPAddress) {
 	o.PrimaryIp.Set(&v)
 }
 
-
 // GetPrimaryIp4 returns the PrimaryIp4 field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VirtualMachineWithConfigContext) GetPrimaryIp4() BriefIPAddress {
 	if o == nil || IsNil(o.PrimaryIp4.Get()) {
@@ -525,6 +526,7 @@ func (o *VirtualMachineWithConfigContext) HasPrimaryIp4() bool {
 func (o *VirtualMachineWithConfigContext) SetPrimaryIp4(v BriefIPAddress) {
 	o.PrimaryIp4.Set(&v)
 }
+
 // SetPrimaryIp4Nil sets the value for PrimaryIp4 to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetPrimaryIp4Nil() {
 	o.PrimaryIp4.Set(nil)
@@ -567,6 +569,7 @@ func (o *VirtualMachineWithConfigContext) HasPrimaryIp6() bool {
 func (o *VirtualMachineWithConfigContext) SetPrimaryIp6(v BriefIPAddress) {
 	o.PrimaryIp6.Set(&v)
 }
+
 // SetPrimaryIp6Nil sets the value for PrimaryIp6 to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetPrimaryIp6Nil() {
 	o.PrimaryIp6.Set(nil)
@@ -609,6 +612,7 @@ func (o *VirtualMachineWithConfigContext) HasVcpus() bool {
 func (o *VirtualMachineWithConfigContext) SetVcpus(v float64) {
 	o.Vcpus.Set(&v)
 }
+
 // SetVcpusNil sets the value for Vcpus to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetVcpusNil() {
 	o.Vcpus.Set(nil)
@@ -651,6 +655,7 @@ func (o *VirtualMachineWithConfigContext) HasMemory() bool {
 func (o *VirtualMachineWithConfigContext) SetMemory(v int32) {
 	o.Memory.Set(&v)
 }
+
 // SetMemoryNil sets the value for Memory to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetMemoryNil() {
 	o.Memory.Set(nil)
@@ -693,6 +698,7 @@ func (o *VirtualMachineWithConfigContext) HasDisk() bool {
 func (o *VirtualMachineWithConfigContext) SetDisk(v int32) {
 	o.Disk.Set(&v)
 }
+
 // SetDiskNil sets the value for Disk to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetDiskNil() {
 	o.Disk.Set(nil)
@@ -799,6 +805,7 @@ func (o *VirtualMachineWithConfigContext) HasConfigTemplate() bool {
 func (o *VirtualMachineWithConfigContext) SetConfigTemplate(v BriefConfigTemplate) {
 	o.ConfigTemplate.Set(&v)
 }
+
 // SetConfigTemplateNil sets the value for ConfigTemplate to be an explicit nil
 func (o *VirtualMachineWithConfigContext) SetConfigTemplateNil() {
 	o.ConfigTemplate.Set(nil)
@@ -932,7 +939,6 @@ func (o *VirtualMachineWithConfigContext) SetConfigContext(v interface{}) {
 	o.ConfigContext = v
 }
 
-
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VirtualMachineWithConfigContext) GetCreated() time.Time {
@@ -958,7 +964,6 @@ func (o *VirtualMachineWithConfigContext) GetCreatedOk() (*time.Time, bool) {
 func (o *VirtualMachineWithConfigContext) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
-
 
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -986,7 +991,6 @@ func (o *VirtualMachineWithConfigContext) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetInterfaceCount returns the InterfaceCount field value
 func (o *VirtualMachineWithConfigContext) GetInterfaceCount() int32 {
 	if o == nil {
@@ -1010,7 +1014,6 @@ func (o *VirtualMachineWithConfigContext) GetInterfaceCountOk() (*int32, bool) {
 func (o *VirtualMachineWithConfigContext) SetInterfaceCount(v int32) {
 	o.InterfaceCount = v
 }
-
 
 // GetVirtualDiskCount returns the VirtualDiskCount field value
 func (o *VirtualMachineWithConfigContext) GetVirtualDiskCount() int32 {
@@ -1036,9 +1039,8 @@ func (o *VirtualMachineWithConfigContext) SetVirtualDiskCount(v int32) {
 	o.VirtualDiskCount = v
 }
 
-
 func (o VirtualMachineWithConfigContext) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1140,32 +1142,31 @@ func (o *VirtualMachineWithConfigContext) UnmarshalJSON(data []byte) (err error)
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -1251,5 +1252,3 @@ func (v *NullableVirtualMachineWithConfigContext) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

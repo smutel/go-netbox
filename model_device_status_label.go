@@ -20,12 +20,12 @@ type DeviceStatusLabel string
 
 // List of Device_status_label
 const (
-	DEVICESTATUSLABEL_OFFLINE DeviceStatusLabel = "Offline"
-	DEVICESTATUSLABEL_ACTIVE DeviceStatusLabel = "Active"
-	DEVICESTATUSLABEL_PLANNED DeviceStatusLabel = "Planned"
-	DEVICESTATUSLABEL_STAGED DeviceStatusLabel = "Staged"
-	DEVICESTATUSLABEL_FAILED DeviceStatusLabel = "Failed"
-	DEVICESTATUSLABEL_INVENTORY DeviceStatusLabel = "Inventory"
+	DEVICESTATUSLABEL_OFFLINE         DeviceStatusLabel = "Offline"
+	DEVICESTATUSLABEL_ACTIVE          DeviceStatusLabel = "Active"
+	DEVICESTATUSLABEL_PLANNED         DeviceStatusLabel = "Planned"
+	DEVICESTATUSLABEL_STAGED          DeviceStatusLabel = "Staged"
+	DEVICESTATUSLABEL_FAILED          DeviceStatusLabel = "Failed"
+	DEVICESTATUSLABEL_INVENTORY       DeviceStatusLabel = "Inventory"
 	DEVICESTATUSLABEL_DECOMMISSIONING DeviceStatusLabel = "Decommissioning"
 )
 
@@ -118,4 +118,3 @@ func (v *NullableDeviceStatusLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

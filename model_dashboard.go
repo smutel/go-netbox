@@ -19,8 +19,8 @@ var _ MappedNullable = &Dashboard{}
 
 // Dashboard struct for Dashboard
 type Dashboard struct {
-	Layout interface{} `json:"layout,omitempty"`
-	Config interface{} `json:"config,omitempty"`
+	Layout               interface{} `json:"layout,omitempty"`
+	Config               interface{} `json:"config,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -110,7 +110,7 @@ func (o *Dashboard) SetConfig(v interface{}) {
 }
 
 func (o Dashboard) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -190,5 +190,3 @@ func (v *NullableDashboard) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

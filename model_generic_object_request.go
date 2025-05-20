@@ -20,8 +20,8 @@ var _ MappedNullable = &GenericObjectRequest{}
 
 // GenericObjectRequest Minimal representation of some generic object identified by ContentType and PK.
 type GenericObjectRequest struct {
-	ObjectType string `json:"object_type"`
-	ObjectId int32 `json:"object_id"`
+	ObjectType           string `json:"object_type"`
+	ObjectId             int32  `json:"object_id"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,6 @@ func (o *GenericObjectRequest) SetObjectType(v string) {
 	o.ObjectType = v
 }
 
-
 // GetObjectId returns the ObjectId field value
 func (o *GenericObjectRequest) GetObjectId() int32 {
 	if o == nil {
@@ -95,9 +94,8 @@ func (o *GenericObjectRequest) SetObjectId(v int32) {
 	o.ObjectId = v
 }
 
-
 func (o GenericObjectRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -127,32 +125,31 @@ func (o *GenericObjectRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -212,5 +209,3 @@ func (v *NullableGenericObjectRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

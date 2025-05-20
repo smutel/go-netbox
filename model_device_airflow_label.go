@@ -24,9 +24,9 @@ const (
 	DEVICEAIRFLOWLABEL_REAR_TO_FRONT DeviceAirflowLabel = "Rear to front"
 	DEVICEAIRFLOWLABEL_LEFT_TO_RIGHT DeviceAirflowLabel = "Left to right"
 	DEVICEAIRFLOWLABEL_RIGHT_TO_LEFT DeviceAirflowLabel = "Right to left"
-	DEVICEAIRFLOWLABEL_SIDE_TO_REAR DeviceAirflowLabel = "Side to rear"
-	DEVICEAIRFLOWLABEL_PASSIVE DeviceAirflowLabel = "Passive"
-	DEVICEAIRFLOWLABEL_MIXED DeviceAirflowLabel = "Mixed"
+	DEVICEAIRFLOWLABEL_SIDE_TO_REAR  DeviceAirflowLabel = "Side to rear"
+	DEVICEAIRFLOWLABEL_PASSIVE       DeviceAirflowLabel = "Passive"
+	DEVICEAIRFLOWLABEL_MIXED         DeviceAirflowLabel = "Mixed"
 )
 
 // All allowed values of DeviceAirflowLabel enum
@@ -118,4 +118,3 @@ func (v *NullableDeviceAirflowLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

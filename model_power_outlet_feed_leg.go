@@ -19,8 +19,8 @@ var _ MappedNullable = &PowerOutletFeedLeg{}
 
 // PowerOutletFeedLeg struct for PowerOutletFeedLeg
 type PowerOutletFeedLeg struct {
-	Value *PowerOutletFeedLegValue `json:"value,omitempty"`
-	Label *PowerOutletFeedLegLabel `json:"label,omitempty"`
+	Value                *PowerOutletFeedLegValue `json:"value,omitempty"`
+	Label                *PowerOutletFeedLegLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *PowerOutletFeedLeg) SetLabel(v PowerOutletFeedLegLabel) {
 }
 
 func (o PowerOutletFeedLeg) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullablePowerOutletFeedLeg) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

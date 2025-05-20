@@ -20,11 +20,11 @@ var _ MappedNullable = &BriefL2VPNRequest{}
 
 // BriefL2VPNRequest Adds support for custom fields and tags.
 type BriefL2VPNRequest struct {
-	Identifier NullableInt64 `json:"identifier,omitempty"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Type *BriefL2VPNTypeValue `json:"type,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Identifier           NullableInt64        `json:"identifier,omitempty"`
+	Name                 string               `json:"name"`
+	Slug                 string               `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Type                 *BriefL2VPNTypeValue `json:"type,omitempty"`
+	Description          *string              `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -81,6 +81,7 @@ func (o *BriefL2VPNRequest) HasIdentifier() bool {
 func (o *BriefL2VPNRequest) SetIdentifier(v int64) {
 	o.Identifier.Set(&v)
 }
+
 // SetIdentifierNil sets the value for Identifier to be an explicit nil
 func (o *BriefL2VPNRequest) SetIdentifierNil() {
 	o.Identifier.Set(nil)
@@ -115,7 +116,6 @@ func (o *BriefL2VPNRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *BriefL2VPNRequest) GetSlug() string {
 	if o == nil {
@@ -139,7 +139,6 @@ func (o *BriefL2VPNRequest) GetSlugOk() (*string, bool) {
 func (o *BriefL2VPNRequest) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *BriefL2VPNRequest) GetType() BriefL2VPNTypeValue {
@@ -206,7 +205,7 @@ func (o *BriefL2VPNRequest) SetDescription(v string) {
 }
 
 func (o BriefL2VPNRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -245,32 +244,31 @@ func (o *BriefL2VPNRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -333,5 +331,3 @@ func (v *NullableBriefL2VPNRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -24,11 +24,11 @@ type PatchedWritablePowerOutletTemplateRequest struct {
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
 	Name *string `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *PatchedWritablePowerOutletTemplateRequestType `json:"type,omitempty"`
-	PowerPort NullableBriefPowerPortTemplateRequest `json:"power_port,omitempty"`
-	FeedLeg *PatchedWritablePowerOutletRequestFeedLeg `json:"feed_leg,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Label                *string                                        `json:"label,omitempty"`
+	Type                 *PatchedWritablePowerOutletTemplateRequestType `json:"type,omitempty"`
+	PowerPort            NullableBriefPowerPortTemplateRequest          `json:"power_port,omitempty"`
+	FeedLeg              *PatchedWritablePowerOutletRequestFeedLeg      `json:"feed_leg,omitempty"`
+	Description          *string                                        `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,6 +83,7 @@ func (o *PatchedWritablePowerOutletTemplateRequest) HasDeviceType() bool {
 func (o *PatchedWritablePowerOutletTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest) {
 	o.DeviceType.Set(&v)
 }
+
 // SetDeviceTypeNil sets the value for DeviceType to be an explicit nil
 func (o *PatchedWritablePowerOutletTemplateRequest) SetDeviceTypeNil() {
 	o.DeviceType.Set(nil)
@@ -125,6 +126,7 @@ func (o *PatchedWritablePowerOutletTemplateRequest) HasModuleType() bool {
 func (o *PatchedWritablePowerOutletTemplateRequest) SetModuleType(v BriefModuleTypeRequest) {
 	o.ModuleType.Set(&v)
 }
+
 // SetModuleTypeNil sets the value for ModuleType to be an explicit nil
 func (o *PatchedWritablePowerOutletTemplateRequest) SetModuleTypeNil() {
 	o.ModuleType.Set(nil)
@@ -263,6 +265,7 @@ func (o *PatchedWritablePowerOutletTemplateRequest) HasPowerPort() bool {
 func (o *PatchedWritablePowerOutletTemplateRequest) SetPowerPort(v BriefPowerPortTemplateRequest) {
 	o.PowerPort.Set(&v)
 }
+
 // SetPowerPortNil sets the value for PowerPort to be an explicit nil
 func (o *PatchedWritablePowerOutletTemplateRequest) SetPowerPortNil() {
 	o.PowerPort.Set(nil)
@@ -338,7 +341,7 @@ func (o *PatchedWritablePowerOutletTemplateRequest) SetDescription(v string) {
 }
 
 func (o PatchedWritablePowerOutletTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -442,5 +445,3 @@ func (v *NullablePatchedWritablePowerOutletTemplateRequest) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the TokenProvisionRequest type satisfies the MappedNullable interface at compile time
@@ -23,10 +23,10 @@ var _ MappedNullable = &TokenProvisionRequest{}
 type TokenProvisionRequest struct {
 	Expires NullableTime `json:"expires,omitempty"`
 	// Permit create/update/delete operations using this key
-	WriteEnabled *bool `json:"write_enabled,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Username string `json:"username"`
-	Password string `json:"password"`
+	WriteEnabled         *bool   `json:"write_enabled,omitempty"`
+	Description          *string `json:"description,omitempty"`
+	Username             string  `json:"username"`
+	Password             string  `json:"password"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,6 +83,7 @@ func (o *TokenProvisionRequest) HasExpires() bool {
 func (o *TokenProvisionRequest) SetExpires(v time.Time) {
 	o.Expires.Set(&v)
 }
+
 // SetExpiresNil sets the value for Expires to be an explicit nil
 func (o *TokenProvisionRequest) SetExpiresNil() {
 	o.Expires.Set(nil)
@@ -181,7 +182,6 @@ func (o *TokenProvisionRequest) SetUsername(v string) {
 	o.Username = v
 }
 
-
 // GetPassword returns the Password field value
 func (o *TokenProvisionRequest) GetPassword() string {
 	if o == nil {
@@ -206,9 +206,8 @@ func (o *TokenProvisionRequest) SetPassword(v string) {
 	o.Password = v
 }
 
-
 func (o TokenProvisionRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -247,32 +246,31 @@ func (o *TokenProvisionRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -335,5 +333,3 @@ func (v *NullableTokenProvisionRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

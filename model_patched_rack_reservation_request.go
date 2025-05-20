@@ -19,14 +19,14 @@ var _ MappedNullable = &PatchedRackReservationRequest{}
 
 // PatchedRackReservationRequest Adds support for custom fields and tags.
 type PatchedRackReservationRequest struct {
-	Rack *BriefRackRequest `json:"rack,omitempty"`
-	Units []int32 `json:"units,omitempty"`
-	User *BriefUserRequest `json:"user,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Rack                 *BriefRackRequest          `json:"rack,omitempty"`
+	Units                []int32                    `json:"units,omitempty"`
+	User                 *BriefUserRequest          `json:"user,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -177,6 +177,7 @@ func (o *PatchedRackReservationRequest) HasTenant() bool {
 func (o *PatchedRackReservationRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedRackReservationRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -316,7 +317,7 @@ func (o *PatchedRackReservationRequest) SetCustomFields(v map[string]interface{}
 }
 
 func (o PatchedRackReservationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -420,5 +421,3 @@ func (v *NullablePatchedRackReservationRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

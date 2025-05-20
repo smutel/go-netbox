@@ -19,8 +19,8 @@ var _ MappedNullable = &ObjectChangeAction{}
 
 // ObjectChangeAction struct for ObjectChangeAction
 type ObjectChangeAction struct {
-	Value *ObjectChangeActionValue `json:"value,omitempty"`
-	Label *ObjectChangeActionLabel `json:"label,omitempty"`
+	Value                *ObjectChangeActionValue `json:"value,omitempty"`
+	Label                *ObjectChangeActionLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *ObjectChangeAction) SetLabel(v ObjectChangeActionLabel) {
 }
 
 func (o ObjectChangeAction) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableObjectChangeAction) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

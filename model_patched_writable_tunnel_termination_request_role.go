@@ -20,8 +20,8 @@ type PatchedWritableTunnelTerminationRequestRole string
 
 // List of PatchedWritableTunnelTerminationRequest_role
 const (
-	PATCHEDWRITABLETUNNELTERMINATIONREQUESTROLE_PEER PatchedWritableTunnelTerminationRequestRole = "peer"
-	PATCHEDWRITABLETUNNELTERMINATIONREQUESTROLE_HUB PatchedWritableTunnelTerminationRequestRole = "hub"
+	PATCHEDWRITABLETUNNELTERMINATIONREQUESTROLE_PEER  PatchedWritableTunnelTerminationRequestRole = "peer"
+	PATCHEDWRITABLETUNNELTERMINATIONREQUESTROLE_HUB   PatchedWritableTunnelTerminationRequestRole = "hub"
 	PATCHEDWRITABLETUNNELTERMINATIONREQUESTROLE_SPOKE PatchedWritableTunnelTerminationRequestRole = "spoke"
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableTunnelTerminationRequestRole) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

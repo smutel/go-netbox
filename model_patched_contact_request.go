@@ -19,17 +19,17 @@ var _ MappedNullable = &PatchedContactRequest{}
 
 // PatchedContactRequest Adds support for custom fields and tags.
 type PatchedContactRequest struct {
-	Group NullableBriefContactGroupRequest `json:"group,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Title *string `json:"title,omitempty"`
-	Phone *string `json:"phone,omitempty"`
-	Email *string `json:"email,omitempty"`
-	Address *string `json:"address,omitempty"`
-	Link *string `json:"link,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Group                NullableBriefContactGroupRequest `json:"group,omitempty"`
+	Name                 *string                          `json:"name,omitempty"`
+	Title                *string                          `json:"title,omitempty"`
+	Phone                *string                          `json:"phone,omitempty"`
+	Email                *string                          `json:"email,omitempty"`
+	Address              *string                          `json:"address,omitempty"`
+	Link                 *string                          `json:"link,omitempty"`
+	Description          *string                          `json:"description,omitempty"`
+	Comments             *string                          `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest               `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}           `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -84,6 +84,7 @@ func (o *PatchedContactRequest) HasGroup() bool {
 func (o *PatchedContactRequest) SetGroup(v BriefContactGroupRequest) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *PatchedContactRequest) SetGroupNil() {
 	o.Group.Set(nil)
@@ -415,7 +416,7 @@ func (o *PatchedContactRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedContactRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -531,5 +532,3 @@ func (v *NullablePatchedContactRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

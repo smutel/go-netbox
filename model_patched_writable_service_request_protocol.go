@@ -20,8 +20,8 @@ type PatchedWritableServiceRequestProtocol string
 
 // List of PatchedWritableServiceRequest_protocol
 const (
-	PATCHEDWRITABLESERVICEREQUESTPROTOCOL_TCP PatchedWritableServiceRequestProtocol = "tcp"
-	PATCHEDWRITABLESERVICEREQUESTPROTOCOL_UDP PatchedWritableServiceRequestProtocol = "udp"
+	PATCHEDWRITABLESERVICEREQUESTPROTOCOL_TCP  PatchedWritableServiceRequestProtocol = "tcp"
+	PATCHEDWRITABLESERVICEREQUESTPROTOCOL_UDP  PatchedWritableServiceRequestProtocol = "udp"
 	PATCHEDWRITABLESERVICEREQUESTPROTOCOL_SCTP PatchedWritableServiceRequestProtocol = "sctp"
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableServiceRequestProtocol) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

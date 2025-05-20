@@ -20,14 +20,14 @@ type RackRequestType string
 
 // List of RackRequest_type
 const (
-	RACKREQUESTTYPE__2_POST_FRAME RackRequestType = "2-post-frame"
-	RACKREQUESTTYPE__4_POST_FRAME RackRequestType = "4-post-frame"
-	RACKREQUESTTYPE__4_POST_CABINET RackRequestType = "4-post-cabinet"
-	RACKREQUESTTYPE_WALL_FRAME RackRequestType = "wall-frame"
-	RACKREQUESTTYPE_WALL_FRAME_VERTICAL RackRequestType = "wall-frame-vertical"
-	RACKREQUESTTYPE_WALL_CABINET RackRequestType = "wall-cabinet"
+	RACKREQUESTTYPE__2_POST_FRAME         RackRequestType = "2-post-frame"
+	RACKREQUESTTYPE__4_POST_FRAME         RackRequestType = "4-post-frame"
+	RACKREQUESTTYPE__4_POST_CABINET       RackRequestType = "4-post-cabinet"
+	RACKREQUESTTYPE_WALL_FRAME            RackRequestType = "wall-frame"
+	RACKREQUESTTYPE_WALL_FRAME_VERTICAL   RackRequestType = "wall-frame-vertical"
+	RACKREQUESTTYPE_WALL_CABINET          RackRequestType = "wall-cabinet"
 	RACKREQUESTTYPE_WALL_CABINET_VERTICAL RackRequestType = "wall-cabinet-vertical"
-	RACKREQUESTTYPE_EMPTY RackRequestType = ""
+	RACKREQUESTTYPE_EMPTY                 RackRequestType = ""
 )
 
 // All allowed values of RackRequestType enum
@@ -120,4 +120,3 @@ func (v *NullableRackRequestType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

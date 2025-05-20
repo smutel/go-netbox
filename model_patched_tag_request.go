@@ -19,11 +19,11 @@ var _ MappedNullable = &PatchedTagRequest{}
 
 // PatchedTagRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type PatchedTagRequest struct {
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-\\\\w]+$"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
-	Description *string `json:"description,omitempty"`
-	ObjectTypes []string `json:"object_types,omitempty"`
+	Name                 *string  `json:"name,omitempty"`
+	Slug                 *string  `json:"slug,omitempty" validate:"regexp=^[-\\\\w]+$"`
+	Color                *string  `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Description          *string  `json:"description,omitempty"`
+	ObjectTypes          []string `json:"object_types,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -207,7 +207,7 @@ func (o *PatchedTagRequest) SetObjectTypes(v []string) {
 }
 
 func (o PatchedTagRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -299,5 +299,3 @@ func (v *NullablePatchedTagRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

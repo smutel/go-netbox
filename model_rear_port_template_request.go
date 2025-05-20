@@ -25,11 +25,11 @@ type RearPortTemplateRequest struct {
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
 	Name string `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type FrontPortTypeValue `json:"type"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
-	Positions *int32 `json:"positions,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Label                *string            `json:"label,omitempty"`
+	Type                 FrontPortTypeValue `json:"type"`
+	Color                *string            `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Positions            *int32             `json:"positions,omitempty"`
+	Description          *string            `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,6 +86,7 @@ func (o *RearPortTemplateRequest) HasDeviceType() bool {
 func (o *RearPortTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest) {
 	o.DeviceType.Set(&v)
 }
+
 // SetDeviceTypeNil sets the value for DeviceType to be an explicit nil
 func (o *RearPortTemplateRequest) SetDeviceTypeNil() {
 	o.DeviceType.Set(nil)
@@ -128,6 +129,7 @@ func (o *RearPortTemplateRequest) HasModuleType() bool {
 func (o *RearPortTemplateRequest) SetModuleType(v BriefModuleTypeRequest) {
 	o.ModuleType.Set(&v)
 }
+
 // SetModuleTypeNil sets the value for ModuleType to be an explicit nil
 func (o *RearPortTemplateRequest) SetModuleTypeNil() {
 	o.ModuleType.Set(nil)
@@ -161,7 +163,6 @@ func (o *RearPortTemplateRequest) GetNameOk() (*string, bool) {
 func (o *RearPortTemplateRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *RearPortTemplateRequest) GetLabel() string {
@@ -218,7 +219,6 @@ func (o *RearPortTemplateRequest) GetTypeOk() (*FrontPortTypeValue, bool) {
 func (o *RearPortTemplateRequest) SetType(v FrontPortTypeValue) {
 	o.Type = v
 }
-
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *RearPortTemplateRequest) GetColor() string {
@@ -317,7 +317,7 @@ func (o *RearPortTemplateRequest) SetDescription(v string) {
 }
 
 func (o RearPortTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -365,32 +365,31 @@ func (o *RearPortTemplateRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -456,5 +455,3 @@ func (v *NullableRearPortTemplateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedProviderAccountRequest{}
 
 // PatchedProviderAccountRequest Adds support for custom fields and tags.
 type PatchedProviderAccountRequest struct {
-	Provider *BriefProviderRequest `json:"provider,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Account *string `json:"account,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Provider             *BriefProviderRequest  `json:"provider,omitempty"`
+	Name                 *string                `json:"name,omitempty"`
+	Account              *string                `json:"account,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -277,7 +277,7 @@ func (o *PatchedProviderAccountRequest) SetCustomFields(v map[string]interface{}
 }
 
 func (o PatchedProviderAccountRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -377,5 +377,3 @@ func (v *NullablePatchedProviderAccountRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

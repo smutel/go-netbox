@@ -20,8 +20,8 @@ type InterfacePoeModeValue string
 
 // List of Interface_poe_mode_value
 const (
-	INTERFACEPOEMODEVALUE_PD InterfacePoeModeValue = "pd"
-	INTERFACEPOEMODEVALUE_PSE InterfacePoeModeValue = "pse"
+	INTERFACEPOEMODEVALUE_PD    InterfacePoeModeValue = "pd"
+	INTERFACEPOEMODEVALUE_PSE   InterfacePoeModeValue = "pse"
 	INTERFACEPOEMODEVALUE_EMPTY InterfacePoeModeValue = ""
 )
 
@@ -110,4 +110,3 @@ func (v *NullableInterfacePoeModeValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,16 +19,16 @@ var _ MappedNullable = &PatchedWritableServiceRequest{}
 
 // PatchedWritableServiceRequest Adds support for custom fields and tags.
 type PatchedWritableServiceRequest struct {
-	Device NullableBriefDeviceRequest `json:"device,omitempty"`
-	VirtualMachine NullableBriefVirtualMachineRequest `json:"virtual_machine,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Protocol *PatchedWritableServiceRequestProtocol `json:"protocol,omitempty"`
-	Ports []int32 `json:"ports,omitempty"`
-	Ipaddresses []int32 `json:"ipaddresses,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Device               NullableBriefDeviceRequest             `json:"device,omitempty"`
+	VirtualMachine       NullableBriefVirtualMachineRequest     `json:"virtual_machine,omitempty"`
+	Name                 *string                                `json:"name,omitempty"`
+	Protocol             *PatchedWritableServiceRequestProtocol `json:"protocol,omitempty"`
+	Ports                []int32                                `json:"ports,omitempty"`
+	Ipaddresses          []int32                                `json:"ipaddresses,omitempty"`
+	Description          *string                                `json:"description,omitempty"`
+	Comments             *string                                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest                     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                 `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,6 +83,7 @@ func (o *PatchedWritableServiceRequest) HasDevice() bool {
 func (o *PatchedWritableServiceRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device.Set(&v)
 }
+
 // SetDeviceNil sets the value for Device to be an explicit nil
 func (o *PatchedWritableServiceRequest) SetDeviceNil() {
 	o.Device.Set(nil)
@@ -125,6 +126,7 @@ func (o *PatchedWritableServiceRequest) HasVirtualMachine() bool {
 func (o *PatchedWritableServiceRequest) SetVirtualMachine(v BriefVirtualMachineRequest) {
 	o.VirtualMachine.Set(&v)
 }
+
 // SetVirtualMachineNil sets the value for VirtualMachine to be an explicit nil
 func (o *PatchedWritableServiceRequest) SetVirtualMachineNil() {
 	o.VirtualMachine.Set(nil)
@@ -392,7 +394,7 @@ func (o *PatchedWritableServiceRequest) SetCustomFields(v map[string]interface{}
 }
 
 func (o PatchedWritableServiceRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -504,5 +506,3 @@ func (v *NullablePatchedWritableServiceRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

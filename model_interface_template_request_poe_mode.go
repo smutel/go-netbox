@@ -20,8 +20,8 @@ type InterfaceTemplateRequestPoeMode string
 
 // List of InterfaceTemplateRequest_poe_mode
 const (
-	INTERFACETEMPLATEREQUESTPOEMODE_PD InterfaceTemplateRequestPoeMode = "pd"
-	INTERFACETEMPLATEREQUESTPOEMODE_PSE InterfaceTemplateRequestPoeMode = "pse"
+	INTERFACETEMPLATEREQUESTPOEMODE_PD    InterfaceTemplateRequestPoeMode = "pd"
+	INTERFACETEMPLATEREQUESTPOEMODE_PSE   InterfaceTemplateRequestPoeMode = "pse"
 	INTERFACETEMPLATEREQUESTPOEMODE_EMPTY InterfaceTemplateRequestPoeMode = ""
 )
 
@@ -110,4 +110,3 @@ func (v *NullableInterfaceTemplateRequestPoeMode) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

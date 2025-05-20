@@ -20,13 +20,13 @@ type ConsolePortRequestSpeed int32
 
 // List of ConsolePortRequest_speed
 const (
-	CONSOLEPORTREQUESTSPEED__1200 ConsolePortRequestSpeed = 1200
-	CONSOLEPORTREQUESTSPEED__2400 ConsolePortRequestSpeed = 2400
-	CONSOLEPORTREQUESTSPEED__4800 ConsolePortRequestSpeed = 4800
-	CONSOLEPORTREQUESTSPEED__9600 ConsolePortRequestSpeed = 9600
-	CONSOLEPORTREQUESTSPEED__19200 ConsolePortRequestSpeed = 19200
-	CONSOLEPORTREQUESTSPEED__38400 ConsolePortRequestSpeed = 38400
-	CONSOLEPORTREQUESTSPEED__57600 ConsolePortRequestSpeed = 57600
+	CONSOLEPORTREQUESTSPEED__1200   ConsolePortRequestSpeed = 1200
+	CONSOLEPORTREQUESTSPEED__2400   ConsolePortRequestSpeed = 2400
+	CONSOLEPORTREQUESTSPEED__4800   ConsolePortRequestSpeed = 4800
+	CONSOLEPORTREQUESTSPEED__9600   ConsolePortRequestSpeed = 9600
+	CONSOLEPORTREQUESTSPEED__19200  ConsolePortRequestSpeed = 19200
+	CONSOLEPORTREQUESTSPEED__38400  ConsolePortRequestSpeed = 38400
+	CONSOLEPORTREQUESTSPEED__57600  ConsolePortRequestSpeed = 57600
 	CONSOLEPORTREQUESTSPEED__115200 ConsolePortRequestSpeed = 115200
 )
 
@@ -120,4 +120,3 @@ func (v *NullableConsolePortRequestSpeed) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedWritableIPSecPolicyRequest{}
 
 // PatchedWritableIPSecPolicyRequest Adds support for custom fields and tags.
 type PatchedWritableIPSecPolicyRequest struct {
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Proposals []int32 `json:"proposals,omitempty"`
-	PfsGroup NullablePatchedWritableIPSecPolicyRequestPfsGroup `json:"pfs_group,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                                           `json:"name,omitempty"`
+	Description          *string                                           `json:"description,omitempty"`
+	Proposals            []int32                                           `json:"proposals,omitempty"`
+	PfsGroup             NullablePatchedWritableIPSecPolicyRequestPfsGroup `json:"pfs_group,omitempty"`
+	Comments             *string                                           `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest                                `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                            `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -176,6 +176,7 @@ func (o *PatchedWritableIPSecPolicyRequest) HasPfsGroup() bool {
 func (o *PatchedWritableIPSecPolicyRequest) SetPfsGroup(v PatchedWritableIPSecPolicyRequestPfsGroup) {
 	o.PfsGroup.Set(&v)
 }
+
 // SetPfsGroupNil sets the value for PfsGroup to be an explicit nil
 func (o *PatchedWritableIPSecPolicyRequest) SetPfsGroupNil() {
 	o.PfsGroup.Set(nil)
@@ -283,7 +284,7 @@ func (o *PatchedWritableIPSecPolicyRequest) SetCustomFields(v map[string]interfa
 }
 
 func (o PatchedWritableIPSecPolicyRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -383,5 +384,3 @@ func (v *NullablePatchedWritableIPSecPolicyRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

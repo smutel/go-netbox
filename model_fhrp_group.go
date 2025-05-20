@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the FHRPGroup type satisfies the MappedNullable interface at compile time
@@ -21,21 +21,21 @@ var _ MappedNullable = &FHRPGroup{}
 
 // FHRPGroup Adds support for custom fields and tags.
 type FHRPGroup struct {
-	Id int32 `json:"id"`
-	Name *string `json:"name,omitempty"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Protocol BriefFHRPGroupProtocol `json:"protocol"`
-	GroupId int32 `json:"group_id"`
-	AuthType *AuthenticationType `json:"auth_type,omitempty"`
-	AuthKey *string `json:"auth_key,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	IpAddresses []BriefIPAddress `json:"ip_addresses"`
+	Id                   int32                  `json:"id"`
+	Name                 *string                `json:"name,omitempty"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Protocol             BriefFHRPGroupProtocol `json:"protocol"`
+	GroupId              int32                  `json:"group_id"`
+	AuthType             *AuthenticationType    `json:"auth_type,omitempty"`
+	AuthKey              *string                `json:"auth_key,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	IpAddresses          []BriefIPAddress       `json:"ip_addresses"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -89,7 +89,6 @@ func (o *FHRPGroup) GetIdOk() (*int32, bool) {
 func (o *FHRPGroup) SetId(v int32) {
 	o.Id = v
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise.
 func (o *FHRPGroup) GetName() string {
@@ -147,7 +146,6 @@ func (o *FHRPGroup) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *FHRPGroup) GetDisplay() string {
 	if o == nil {
@@ -171,7 +169,6 @@ func (o *FHRPGroup) GetDisplayOk() (*string, bool) {
 func (o *FHRPGroup) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetProtocol returns the Protocol field value
 func (o *FHRPGroup) GetProtocol() BriefFHRPGroupProtocol {
@@ -197,7 +194,6 @@ func (o *FHRPGroup) SetProtocol(v BriefFHRPGroupProtocol) {
 	o.Protocol = v
 }
 
-
 // GetGroupId returns the GroupId field value
 func (o *FHRPGroup) GetGroupId() int32 {
 	if o == nil {
@@ -221,7 +217,6 @@ func (o *FHRPGroup) GetGroupIdOk() (*int32, bool) {
 func (o *FHRPGroup) SetGroupId(v int32) {
 	o.GroupId = v
 }
-
 
 // GetAuthType returns the AuthType field value if set, zero value otherwise.
 func (o *FHRPGroup) GetAuthType() AuthenticationType {
@@ -441,7 +436,6 @@ func (o *FHRPGroup) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *FHRPGroup) GetLastUpdated() time.Time {
@@ -468,7 +462,6 @@ func (o *FHRPGroup) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetIpAddresses returns the IpAddresses field value
 func (o *FHRPGroup) GetIpAddresses() []BriefIPAddress {
 	if o == nil {
@@ -493,9 +486,8 @@ func (o *FHRPGroup) SetIpAddresses(v []BriefIPAddress) {
 	o.IpAddresses = v
 }
 
-
 func (o FHRPGroup) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -558,32 +550,31 @@ func (o *FHRPGroup) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -656,5 +647,3 @@ func (v *NullableFHRPGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

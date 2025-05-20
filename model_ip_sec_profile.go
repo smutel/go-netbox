@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the IPSecProfile type satisfies the MappedNullable interface at compile time
@@ -21,19 +21,19 @@ var _ MappedNullable = &IPSecProfile{}
 
 // IPSecProfile Adds support for custom fields and tags.
 type IPSecProfile struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
-	Mode IPSecProfileMode `json:"mode"`
-	IkePolicy BriefIKEPolicy `json:"ike_policy"`
-	IpsecPolicy BriefIPSecPolicy `json:"ipsec_policy"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Name                 string                 `json:"name"`
+	Description          *string                `json:"description,omitempty"`
+	Mode                 IPSecProfileMode       `json:"mode"`
+	IkePolicy            BriefIKEPolicy         `json:"ike_policy"`
+	IpsecPolicy          BriefIPSecPolicy       `json:"ipsec_policy"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -89,7 +89,6 @@ func (o *IPSecProfile) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *IPSecProfile) GetUrl() string {
 	if o == nil {
@@ -113,7 +112,6 @@ func (o *IPSecProfile) GetUrlOk() (*string, bool) {
 func (o *IPSecProfile) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *IPSecProfile) GetDisplay() string {
@@ -139,7 +137,6 @@ func (o *IPSecProfile) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *IPSecProfile) GetName() string {
 	if o == nil {
@@ -163,7 +160,6 @@ func (o *IPSecProfile) GetNameOk() (*string, bool) {
 func (o *IPSecProfile) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IPSecProfile) GetDescription() string {
@@ -221,7 +217,6 @@ func (o *IPSecProfile) SetMode(v IPSecProfileMode) {
 	o.Mode = v
 }
 
-
 // GetIkePolicy returns the IkePolicy field value
 func (o *IPSecProfile) GetIkePolicy() BriefIKEPolicy {
 	if o == nil {
@@ -246,7 +241,6 @@ func (o *IPSecProfile) SetIkePolicy(v BriefIKEPolicy) {
 	o.IkePolicy = v
 }
 
-
 // GetIpsecPolicy returns the IpsecPolicy field value
 func (o *IPSecProfile) GetIpsecPolicy() BriefIPSecPolicy {
 	if o == nil {
@@ -270,7 +264,6 @@ func (o *IPSecProfile) GetIpsecPolicyOk() (*BriefIPSecPolicy, bool) {
 func (o *IPSecProfile) SetIpsecPolicy(v BriefIPSecPolicy) {
 	o.IpsecPolicy = v
 }
-
 
 // GetComments returns the Comments field value if set, zero value otherwise.
 func (o *IPSecProfile) GetComments() string {
@@ -394,7 +387,6 @@ func (o *IPSecProfile) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *IPSecProfile) GetLastUpdated() time.Time {
@@ -421,9 +413,8 @@ func (o *IPSecProfile) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o IPSecProfile) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -479,32 +470,31 @@ func (o *IPSecProfile) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -575,5 +565,3 @@ func (v *NullableIPSecProfile) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

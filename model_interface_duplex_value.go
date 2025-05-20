@@ -20,9 +20,9 @@ type InterfaceDuplexValue string
 
 // List of Interface_duplex_value
 const (
-	INTERFACEDUPLEXVALUE_HALF InterfaceDuplexValue = "half"
-	INTERFACEDUPLEXVALUE_FULL InterfaceDuplexValue = "full"
-	INTERFACEDUPLEXVALUE_AUTO InterfaceDuplexValue = "auto"
+	INTERFACEDUPLEXVALUE_HALF  InterfaceDuplexValue = "half"
+	INTERFACEDUPLEXVALUE_FULL  InterfaceDuplexValue = "full"
+	INTERFACEDUPLEXVALUE_AUTO  InterfaceDuplexValue = "auto"
 	INTERFACEDUPLEXVALUE_EMPTY InterfaceDuplexValue = ""
 )
 
@@ -112,4 +112,3 @@ func (v *NullableInterfaceDuplexValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

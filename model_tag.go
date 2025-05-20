@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Tag type satisfies the MappedNullable interface at compile time
@@ -21,17 +21,17 @@ var _ MappedNullable = &Tag{}
 
 // Tag Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type Tag struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-\\\\w]+$"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
-	Description *string `json:"description,omitempty"`
-	ObjectTypes []string `json:"object_types,omitempty"`
-	TaggedItems int64 `json:"tagged_items"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Id                   int32        `json:"id"`
+	Url                  string       `json:"url"`
+	Display              string       `json:"display"`
+	Name                 string       `json:"name"`
+	Slug                 string       `json:"slug" validate:"regexp=^[-\\\\w]+$"`
+	Color                *string      `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Description          *string      `json:"description,omitempty"`
+	ObjectTypes          []string     `json:"object_types,omitempty"`
+	TaggedItems          int64        `json:"tagged_items"`
+	Created              NullableTime `json:"created"`
+	LastUpdated          NullableTime `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,7 +86,6 @@ func (o *Tag) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Tag) GetUrl() string {
 	if o == nil {
@@ -110,7 +109,6 @@ func (o *Tag) GetUrlOk() (*string, bool) {
 func (o *Tag) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Tag) GetDisplay() string {
@@ -136,7 +134,6 @@ func (o *Tag) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *Tag) GetName() string {
 	if o == nil {
@@ -161,7 +158,6 @@ func (o *Tag) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *Tag) GetSlug() string {
 	if o == nil {
@@ -185,7 +181,6 @@ func (o *Tag) GetSlugOk() (*string, bool) {
 func (o *Tag) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *Tag) GetColor() string {
@@ -307,7 +302,6 @@ func (o *Tag) SetTaggedItems(v int64) {
 	o.TaggedItems = v
 }
 
-
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Tag) GetCreated() time.Time {
@@ -333,7 +327,6 @@ func (o *Tag) GetCreatedOk() (*time.Time, bool) {
 func (o *Tag) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
-
 
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -361,9 +354,8 @@ func (o *Tag) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o Tag) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -414,32 +406,31 @@ func (o *Tag) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -508,5 +499,3 @@ func (v *NullableTag) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

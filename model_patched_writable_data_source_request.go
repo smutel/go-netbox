@@ -19,16 +19,16 @@ var _ MappedNullable = &PatchedWritableDataSourceRequest{}
 
 // PatchedWritableDataSourceRequest Adds support for custom fields and tags.
 type PatchedWritableDataSourceRequest struct {
-	Name *string `json:"name,omitempty"`
-	Type *string `json:"type,omitempty"`
-	SourceUrl *string `json:"source_url,omitempty"`
-	Enabled *bool `json:"enabled,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Parameters interface{} `json:"parameters,omitempty"`
+	Name        *string     `json:"name,omitempty"`
+	Type        *string     `json:"type,omitempty"`
+	SourceUrl   *string     `json:"source_url,omitempty"`
+	Enabled     *bool       `json:"enabled,omitempty"`
+	Description *string     `json:"description,omitempty"`
+	Comments    *string     `json:"comments,omitempty"`
+	Parameters  interface{} `json:"parameters,omitempty"`
 	// Patterns (one per line) matching files to ignore when syncing
-	IgnoreRules *string `json:"ignore_rules,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	IgnoreRules          *string                `json:"ignore_rules,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -341,7 +341,7 @@ func (o *PatchedWritableDataSourceRequest) SetCustomFields(v map[string]interfac
 }
 
 func (o PatchedWritableDataSourceRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -449,5 +449,3 @@ func (v *NullablePatchedWritableDataSourceRequest) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

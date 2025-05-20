@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the InterfaceTemplate type satisfies the MappedNullable interface at compile time
@@ -21,25 +21,25 @@ var _ MappedNullable = &InterfaceTemplate{}
 
 // InterfaceTemplate Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type InterfaceTemplate struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
+	Id         int32                   `json:"id"`
+	Url        string                  `json:"url"`
+	Display    string                  `json:"display"`
 	DeviceType NullableBriefDeviceType `json:"device_type,omitempty"`
 	ModuleType NullableBriefModuleType `json:"module_type,omitempty"`
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
 	Name string `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type InterfaceType `json:"type"`
-	Enabled *bool `json:"enabled,omitempty"`
-	MgmtOnly *bool `json:"mgmt_only,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Bridge NullableNestedInterfaceTemplate `json:"bridge,omitempty"`
-	PoeMode NullableInterfaceTemplatePoeMode `json:"poe_mode,omitempty"`
-	PoeType NullableInterfaceTemplatePoeType `json:"poe_type,omitempty"`
-	RfRole NullableInterfaceTemplateRfRole `json:"rf_role,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Label                *string                          `json:"label,omitempty"`
+	Type                 InterfaceType                    `json:"type"`
+	Enabled              *bool                            `json:"enabled,omitempty"`
+	MgmtOnly             *bool                            `json:"mgmt_only,omitempty"`
+	Description          *string                          `json:"description,omitempty"`
+	Bridge               NullableNestedInterfaceTemplate  `json:"bridge,omitempty"`
+	PoeMode              NullableInterfaceTemplatePoeMode `json:"poe_mode,omitempty"`
+	PoeType              NullableInterfaceTemplatePoeType `json:"poe_type,omitempty"`
+	RfRole               NullableInterfaceTemplateRfRole  `json:"rf_role,omitempty"`
+	Created              NullableTime                     `json:"created"`
+	LastUpdated          NullableTime                     `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -93,7 +93,6 @@ func (o *InterfaceTemplate) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *InterfaceTemplate) GetUrl() string {
 	if o == nil {
@@ -118,7 +117,6 @@ func (o *InterfaceTemplate) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *InterfaceTemplate) GetDisplay() string {
 	if o == nil {
@@ -142,7 +140,6 @@ func (o *InterfaceTemplate) GetDisplayOk() (*string, bool) {
 func (o *InterfaceTemplate) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetDeviceType returns the DeviceType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *InterfaceTemplate) GetDeviceType() BriefDeviceType {
@@ -176,6 +173,7 @@ func (o *InterfaceTemplate) HasDeviceType() bool {
 func (o *InterfaceTemplate) SetDeviceType(v BriefDeviceType) {
 	o.DeviceType.Set(&v)
 }
+
 // SetDeviceTypeNil sets the value for DeviceType to be an explicit nil
 func (o *InterfaceTemplate) SetDeviceTypeNil() {
 	o.DeviceType.Set(nil)
@@ -218,6 +216,7 @@ func (o *InterfaceTemplate) HasModuleType() bool {
 func (o *InterfaceTemplate) SetModuleType(v BriefModuleType) {
 	o.ModuleType.Set(&v)
 }
+
 // SetModuleTypeNil sets the value for ModuleType to be an explicit nil
 func (o *InterfaceTemplate) SetModuleTypeNil() {
 	o.ModuleType.Set(nil)
@@ -251,7 +250,6 @@ func (o *InterfaceTemplate) GetNameOk() (*string, bool) {
 func (o *InterfaceTemplate) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *InterfaceTemplate) GetLabel() string {
@@ -308,7 +306,6 @@ func (o *InterfaceTemplate) GetTypeOk() (*InterfaceType, bool) {
 func (o *InterfaceTemplate) SetType(v InterfaceType) {
 	o.Type = v
 }
-
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *InterfaceTemplate) GetEnabled() bool {
@@ -438,6 +435,7 @@ func (o *InterfaceTemplate) HasBridge() bool {
 func (o *InterfaceTemplate) SetBridge(v NestedInterfaceTemplate) {
 	o.Bridge.Set(&v)
 }
+
 // SetBridgeNil sets the value for Bridge to be an explicit nil
 func (o *InterfaceTemplate) SetBridgeNil() {
 	o.Bridge.Set(nil)
@@ -480,6 +478,7 @@ func (o *InterfaceTemplate) HasPoeMode() bool {
 func (o *InterfaceTemplate) SetPoeMode(v InterfaceTemplatePoeMode) {
 	o.PoeMode.Set(&v)
 }
+
 // SetPoeModeNil sets the value for PoeMode to be an explicit nil
 func (o *InterfaceTemplate) SetPoeModeNil() {
 	o.PoeMode.Set(nil)
@@ -522,6 +521,7 @@ func (o *InterfaceTemplate) HasPoeType() bool {
 func (o *InterfaceTemplate) SetPoeType(v InterfaceTemplatePoeType) {
 	o.PoeType.Set(&v)
 }
+
 // SetPoeTypeNil sets the value for PoeType to be an explicit nil
 func (o *InterfaceTemplate) SetPoeTypeNil() {
 	o.PoeType.Set(nil)
@@ -564,6 +564,7 @@ func (o *InterfaceTemplate) HasRfRole() bool {
 func (o *InterfaceTemplate) SetRfRole(v InterfaceTemplateRfRole) {
 	o.RfRole.Set(&v)
 }
+
 // SetRfRoleNil sets the value for RfRole to be an explicit nil
 func (o *InterfaceTemplate) SetRfRoleNil() {
 	o.RfRole.Set(nil)
@@ -600,7 +601,6 @@ func (o *InterfaceTemplate) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *InterfaceTemplate) GetLastUpdated() time.Time {
@@ -627,9 +627,8 @@ func (o *InterfaceTemplate) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o InterfaceTemplate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -699,32 +698,31 @@ func (o *InterfaceTemplate) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -799,5 +797,3 @@ func (v *NullableInterfaceTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

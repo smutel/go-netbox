@@ -20,11 +20,11 @@ type WirelessLANStatusValue string
 
 // List of WirelessLAN_status_value
 const (
-	WIRELESSLANSTATUSVALUE_ACTIVE WirelessLANStatusValue = "active"
-	WIRELESSLANSTATUSVALUE_RESERVED WirelessLANStatusValue = "reserved"
-	WIRELESSLANSTATUSVALUE_DISABLED WirelessLANStatusValue = "disabled"
+	WIRELESSLANSTATUSVALUE_ACTIVE     WirelessLANStatusValue = "active"
+	WIRELESSLANSTATUSVALUE_RESERVED   WirelessLANStatusValue = "reserved"
+	WIRELESSLANSTATUSVALUE_DISABLED   WirelessLANStatusValue = "disabled"
 	WIRELESSLANSTATUSVALUE_DEPRECATED WirelessLANStatusValue = "deprecated"
-	WIRELESSLANSTATUSVALUE_EMPTY WirelessLANStatusValue = ""
+	WIRELESSLANSTATUSVALUE_EMPTY      WirelessLANStatusValue = ""
 )
 
 // All allowed values of WirelessLANStatusValue enum
@@ -114,4 +114,3 @@ func (v *NullableWirelessLANStatusValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

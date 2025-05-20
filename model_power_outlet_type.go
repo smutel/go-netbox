@@ -19,8 +19,8 @@ var _ MappedNullable = &PowerOutletType{}
 
 // PowerOutletType struct for PowerOutletType
 type PowerOutletType struct {
-	Value *PatchedWritablePowerOutletTemplateRequestType `json:"value,omitempty"`
-	Label *PowerOutletTypeLabel `json:"label,omitempty"`
+	Value                *PatchedWritablePowerOutletTemplateRequestType `json:"value,omitempty"`
+	Label                *PowerOutletTypeLabel                          `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *PowerOutletType) SetLabel(v PowerOutletTypeLabel) {
 }
 
 func (o PowerOutletType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullablePowerOutletType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,19 +19,19 @@ var _ MappedNullable = &CableRequest{}
 
 // CableRequest Adds support for custom fields and tags.
 type CableRequest struct {
-	Type *CableType `json:"type,omitempty"`
-	ATerminations []GenericObjectRequest `json:"a_terminations,omitempty"`
-	BTerminations []GenericObjectRequest `json:"b_terminations,omitempty"`
-	Status *CableStatusValue `json:"status,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Label *string `json:"label,omitempty"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
-	Length NullableFloat64 `json:"length,omitempty"`
-	LengthUnit NullableCableRequestLengthUnit `json:"length_unit,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Type                 *CableType                     `json:"type,omitempty"`
+	ATerminations        []GenericObjectRequest         `json:"a_terminations,omitempty"`
+	BTerminations        []GenericObjectRequest         `json:"b_terminations,omitempty"`
+	Status               *CableStatusValue              `json:"status,omitempty"`
+	Tenant               NullableBriefTenantRequest     `json:"tenant,omitempty"`
+	Label                *string                        `json:"label,omitempty"`
+	Color                *string                        `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Length               NullableFloat64                `json:"length,omitempty"`
+	LengthUnit           NullableCableRequestLengthUnit `json:"length_unit,omitempty"`
+	Description          *string                        `json:"description,omitempty"`
+	Comments             *string                        `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest             `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}         `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -214,6 +214,7 @@ func (o *CableRequest) HasTenant() bool {
 func (o *CableRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *CableRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -320,6 +321,7 @@ func (o *CableRequest) HasLength() bool {
 func (o *CableRequest) SetLength(v float64) {
 	o.Length.Set(&v)
 }
+
 // SetLengthNil sets the value for Length to be an explicit nil
 func (o *CableRequest) SetLengthNil() {
 	o.Length.Set(nil)
@@ -362,6 +364,7 @@ func (o *CableRequest) HasLengthUnit() bool {
 func (o *CableRequest) SetLengthUnit(v CableRequestLengthUnit) {
 	o.LengthUnit.Set(&v)
 }
+
 // SetLengthUnitNil sets the value for LengthUnit to be an explicit nil
 func (o *CableRequest) SetLengthUnitNil() {
 	o.LengthUnit.Set(nil)
@@ -501,7 +504,7 @@ func (o *CableRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o CableRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -625,5 +628,3 @@ func (v *NullableCableRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

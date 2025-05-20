@@ -19,15 +19,15 @@ var _ MappedNullable = &PatchedSavedFilterRequest{}
 
 // PatchedSavedFilterRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type PatchedSavedFilterRequest struct {
-	ObjectTypes []string `json:"object_types,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Description *string `json:"description,omitempty"`
-	User NullableInt32 `json:"user,omitempty"`
-	Weight *int32 `json:"weight,omitempty"`
-	Enabled *bool `json:"enabled,omitempty"`
-	Shared *bool `json:"shared,omitempty"`
-	Parameters interface{} `json:"parameters,omitempty"`
+	ObjectTypes          []string      `json:"object_types,omitempty"`
+	Name                 *string       `json:"name,omitempty"`
+	Slug                 *string       `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Description          *string       `json:"description,omitempty"`
+	User                 NullableInt32 `json:"user,omitempty"`
+	Weight               *int32        `json:"weight,omitempty"`
+	Enabled              *bool         `json:"enabled,omitempty"`
+	Shared               *bool         `json:"shared,omitempty"`
+	Parameters           interface{}   `json:"parameters,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -210,6 +210,7 @@ func (o *PatchedSavedFilterRequest) HasUser() bool {
 func (o *PatchedSavedFilterRequest) SetUser(v int32) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *PatchedSavedFilterRequest) SetUserNil() {
 	o.User.Set(nil)
@@ -350,7 +351,7 @@ func (o *PatchedSavedFilterRequest) SetParameters(v interface{}) {
 }
 
 func (o PatchedSavedFilterRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -458,5 +459,3 @@ func (v *NullablePatchedSavedFilterRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

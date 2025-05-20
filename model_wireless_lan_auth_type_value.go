@@ -20,11 +20,11 @@ type WirelessLANAuthTypeValue string
 
 // List of WirelessLAN_auth_type_value
 const (
-	WIRELESSLANAUTHTYPEVALUE_OPEN WirelessLANAuthTypeValue = "open"
-	WIRELESSLANAUTHTYPEVALUE_WEP WirelessLANAuthTypeValue = "wep"
-	WIRELESSLANAUTHTYPEVALUE_WPA_PERSONAL WirelessLANAuthTypeValue = "wpa-personal"
+	WIRELESSLANAUTHTYPEVALUE_OPEN           WirelessLANAuthTypeValue = "open"
+	WIRELESSLANAUTHTYPEVALUE_WEP            WirelessLANAuthTypeValue = "wep"
+	WIRELESSLANAUTHTYPEVALUE_WPA_PERSONAL   WirelessLANAuthTypeValue = "wpa-personal"
 	WIRELESSLANAUTHTYPEVALUE_WPA_ENTERPRISE WirelessLANAuthTypeValue = "wpa-enterprise"
-	WIRELESSLANAUTHTYPEVALUE_EMPTY WirelessLANAuthTypeValue = ""
+	WIRELESSLANAUTHTYPEVALUE_EMPTY          WirelessLANAuthTypeValue = ""
 )
 
 // All allowed values of WirelessLANAuthTypeValue enum
@@ -114,4 +114,3 @@ func (v *NullableWirelessLANAuthTypeValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

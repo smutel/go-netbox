@@ -20,7 +20,7 @@ var _ MappedNullable = &BriefL2VPNTerminationRequest{}
 
 // BriefL2VPNTerminationRequest Adds support for custom fields and tags.
 type BriefL2VPNTerminationRequest struct {
-	L2vpn BriefL2VPNRequest `json:"l2vpn"`
+	L2vpn                BriefL2VPNRequest `json:"l2vpn"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -68,9 +68,8 @@ func (o *BriefL2VPNTerminationRequest) SetL2vpn(v BriefL2VPNRequest) {
 	o.L2vpn = v
 }
 
-
 func (o BriefL2VPNTerminationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -98,32 +97,31 @@ func (o *BriefL2VPNTerminationRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -182,5 +180,3 @@ func (v *NullableBriefL2VPNTerminationRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

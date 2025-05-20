@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedWritableTunnelTerminationRequest{}
 
 // PatchedWritableTunnelTerminationRequest Adds support for custom fields and tags.
 type PatchedWritableTunnelTerminationRequest struct {
-	Tunnel *BriefTunnelRequest `json:"tunnel,omitempty"`
-	Role *PatchedWritableTunnelTerminationRequestRole `json:"role,omitempty"`
-	TerminationType *string `json:"termination_type,omitempty"`
-	TerminationId NullableInt64 `json:"termination_id,omitempty"`
-	OutsideIp NullableBriefIPAddressRequest `json:"outside_ip,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Tunnel               *BriefTunnelRequest                          `json:"tunnel,omitempty"`
+	Role                 *PatchedWritableTunnelTerminationRequestRole `json:"role,omitempty"`
+	TerminationType      *string                                      `json:"termination_type,omitempty"`
+	TerminationId        NullableInt64                                `json:"termination_id,omitempty"`
+	OutsideIp            NullableBriefIPAddressRequest                `json:"outside_ip,omitempty"`
+	Tags                 []NestedTagRequest                           `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                       `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -176,6 +176,7 @@ func (o *PatchedWritableTunnelTerminationRequest) HasTerminationId() bool {
 func (o *PatchedWritableTunnelTerminationRequest) SetTerminationId(v int64) {
 	o.TerminationId.Set(&v)
 }
+
 // SetTerminationIdNil sets the value for TerminationId to be an explicit nil
 func (o *PatchedWritableTunnelTerminationRequest) SetTerminationIdNil() {
 	o.TerminationId.Set(nil)
@@ -218,6 +219,7 @@ func (o *PatchedWritableTunnelTerminationRequest) HasOutsideIp() bool {
 func (o *PatchedWritableTunnelTerminationRequest) SetOutsideIp(v BriefIPAddressRequest) {
 	o.OutsideIp.Set(&v)
 }
+
 // SetOutsideIpNil sets the value for OutsideIp to be an explicit nil
 func (o *PatchedWritableTunnelTerminationRequest) SetOutsideIpNil() {
 	o.OutsideIp.Set(nil)
@@ -293,7 +295,7 @@ func (o *PatchedWritableTunnelTerminationRequest) SetCustomFields(v map[string]i
 }
 
 func (o PatchedWritableTunnelTerminationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -393,5 +395,3 @@ func (v *NullablePatchedWritableTunnelTerminationRequest) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,8 +19,8 @@ var _ MappedNullable = &IKEProposalAuthenticationAlgorithm{}
 
 // IKEProposalAuthenticationAlgorithm struct for IKEProposalAuthenticationAlgorithm
 type IKEProposalAuthenticationAlgorithm struct {
-	Value *IKEProposalAuthenticationAlgorithmValue `json:"value,omitempty"`
-	Label *IKEProposalAuthenticationAlgorithmLabel `json:"label,omitempty"`
+	Value                *IKEProposalAuthenticationAlgorithmValue `json:"value,omitempty"`
+	Label                *IKEProposalAuthenticationAlgorithmLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *IKEProposalAuthenticationAlgorithm) SetLabel(v IKEProposalAuthenticatio
 }
 
 func (o IKEProposalAuthenticationAlgorithm) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableIKEProposalAuthenticationAlgorithm) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

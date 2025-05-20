@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the ASNRange type satisfies the MappedNullable interface at compile time
@@ -21,21 +21,21 @@ var _ MappedNullable = &ASNRange{}
 
 // ASNRange Adds support for custom fields and tags.
 type ASNRange struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Rir BriefRIR `json:"rir"`
-	Start int64 `json:"start"`
-	End int64 `json:"end"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	AsnCount int32 `json:"asn_count"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Name                 string                 `json:"name"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Rir                  BriefRIR               `json:"rir"`
+	Start                int64                  `json:"start"`
+	End                  int64                  `json:"end"`
+	Tenant               NullableBriefTenant    `json:"tenant,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	AsnCount             int32                  `json:"asn_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -93,7 +93,6 @@ func (o *ASNRange) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ASNRange) GetUrl() string {
 	if o == nil {
@@ -117,7 +116,6 @@ func (o *ASNRange) GetUrlOk() (*string, bool) {
 func (o *ASNRange) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *ASNRange) GetDisplay() string {
@@ -143,7 +141,6 @@ func (o *ASNRange) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *ASNRange) GetName() string {
 	if o == nil {
@@ -167,7 +164,6 @@ func (o *ASNRange) GetNameOk() (*string, bool) {
 func (o *ASNRange) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetSlug returns the Slug field value
 func (o *ASNRange) GetSlug() string {
@@ -193,7 +189,6 @@ func (o *ASNRange) SetSlug(v string) {
 	o.Slug = v
 }
 
-
 // GetRir returns the Rir field value
 func (o *ASNRange) GetRir() BriefRIR {
 	if o == nil {
@@ -217,7 +212,6 @@ func (o *ASNRange) GetRirOk() (*BriefRIR, bool) {
 func (o *ASNRange) SetRir(v BriefRIR) {
 	o.Rir = v
 }
-
 
 // GetStart returns the Start field value
 func (o *ASNRange) GetStart() int64 {
@@ -243,7 +237,6 @@ func (o *ASNRange) SetStart(v int64) {
 	o.Start = v
 }
 
-
 // GetEnd returns the End field value
 func (o *ASNRange) GetEnd() int64 {
 	if o == nil {
@@ -267,7 +260,6 @@ func (o *ASNRange) GetEndOk() (*int64, bool) {
 func (o *ASNRange) SetEnd(v int64) {
 	o.End = v
 }
-
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ASNRange) GetTenant() BriefTenant {
@@ -301,6 +293,7 @@ func (o *ASNRange) HasTenant() bool {
 func (o *ASNRange) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *ASNRange) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -433,7 +426,6 @@ func (o *ASNRange) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ASNRange) GetLastUpdated() time.Time {
@@ -460,7 +452,6 @@ func (o *ASNRange) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetAsnCount returns the AsnCount field value
 func (o *ASNRange) GetAsnCount() int32 {
 	if o == nil {
@@ -485,9 +476,8 @@ func (o *ASNRange) SetAsnCount(v int32) {
 	o.AsnCount = v
 }
 
-
 func (o ASNRange) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -547,32 +537,31 @@ func (o *ASNRange) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -645,5 +634,3 @@ func (v *NullableASNRange) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

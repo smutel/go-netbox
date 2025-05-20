@@ -20,13 +20,13 @@ var _ MappedNullable = &BriefVLAN{}
 
 // BriefVLAN Adds support for custom fields and tags.
 type BriefVLAN struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
+	Id      int32  `json:"id"`
+	Url     string `json:"url"`
 	Display string `json:"display"`
 	// Numeric VLAN ID (1-4094)
-	Vid int32 `json:"vid"`
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
+	Vid                  int32   `json:"vid"`
+	Name                 string  `json:"name"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,7 +78,6 @@ func (o *BriefVLAN) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *BriefVLAN) GetUrl() string {
 	if o == nil {
@@ -102,7 +101,6 @@ func (o *BriefVLAN) GetUrlOk() (*string, bool) {
 func (o *BriefVLAN) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *BriefVLAN) GetDisplay() string {
@@ -128,7 +126,6 @@ func (o *BriefVLAN) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetVid returns the Vid field value
 func (o *BriefVLAN) GetVid() int32 {
 	if o == nil {
@@ -153,7 +150,6 @@ func (o *BriefVLAN) SetVid(v int32) {
 	o.Vid = v
 }
 
-
 // GetName returns the Name field value
 func (o *BriefVLAN) GetName() string {
 	if o == nil {
@@ -177,7 +173,6 @@ func (o *BriefVLAN) GetNameOk() (*string, bool) {
 func (o *BriefVLAN) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefVLAN) GetDescription() string {
@@ -212,7 +207,7 @@ func (o *BriefVLAN) SetDescription(v string) {
 }
 
 func (o BriefVLAN) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -251,32 +246,31 @@ func (o *BriefVLAN) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -340,5 +334,3 @@ func (v *NullableBriefVLAN) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

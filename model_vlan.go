@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the VLAN type satisfies the MappedNullable interface at compile time
@@ -21,25 +21,25 @@ var _ MappedNullable = &VLAN{}
 
 // VLAN Adds support for custom fields and tags.
 type VLAN struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Site NullableBriefSite `json:"site,omitempty"`
-	Group NullableBriefVLANGroup `json:"group,omitempty"`
+	Id      int32                  `json:"id"`
+	Url     string                 `json:"url"`
+	Display string                 `json:"display"`
+	Site    NullableBriefSite      `json:"site,omitempty"`
+	Group   NullableBriefVLANGroup `json:"group,omitempty"`
 	// Numeric VLAN ID (1-4094)
-	Vid int32 `json:"vid"`
-	Name string `json:"name"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	Status *IPRangeStatus `json:"status,omitempty"`
-	Role NullableBriefRole `json:"role,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	L2vpnTermination NullableBriefL2VPNTermination `json:"l2vpn_termination,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created,omitempty"`
-	LastUpdated NullableTime `json:"last_updated,omitempty"`
-	PrefixCount *int64 `json:"prefix_count,omitempty"`
+	Vid                  int32                         `json:"vid"`
+	Name                 string                        `json:"name"`
+	Tenant               NullableBriefTenant           `json:"tenant,omitempty"`
+	Status               *IPRangeStatus                `json:"status,omitempty"`
+	Role                 NullableBriefRole             `json:"role,omitempty"`
+	Description          *string                       `json:"description,omitempty"`
+	Comments             *string                       `json:"comments,omitempty"`
+	L2vpnTermination     NullableBriefL2VPNTermination `json:"l2vpn_termination,omitempty"`
+	Tags                 []NestedTag                   `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}        `json:"custom_fields,omitempty"`
+	Created              NullableTime                  `json:"created,omitempty"`
+	LastUpdated          NullableTime                  `json:"last_updated,omitempty"`
+	PrefixCount          *int64                        `json:"prefix_count,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -91,7 +91,6 @@ func (o *VLAN) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *VLAN) GetUrl() string {
 	if o == nil {
@@ -116,7 +115,6 @@ func (o *VLAN) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *VLAN) GetDisplay() string {
 	if o == nil {
@@ -140,7 +138,6 @@ func (o *VLAN) GetDisplayOk() (*string, bool) {
 func (o *VLAN) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetSite returns the Site field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLAN) GetSite() BriefSite {
@@ -174,6 +171,7 @@ func (o *VLAN) HasSite() bool {
 func (o *VLAN) SetSite(v BriefSite) {
 	o.Site.Set(&v)
 }
+
 // SetSiteNil sets the value for Site to be an explicit nil
 func (o *VLAN) SetSiteNil() {
 	o.Site.Set(nil)
@@ -216,6 +214,7 @@ func (o *VLAN) HasGroup() bool {
 func (o *VLAN) SetGroup(v BriefVLANGroup) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *VLAN) SetGroupNil() {
 	o.Group.Set(nil)
@@ -250,7 +249,6 @@ func (o *VLAN) SetVid(v int32) {
 	o.Vid = v
 }
 
-
 // GetName returns the Name field value
 func (o *VLAN) GetName() string {
 	if o == nil {
@@ -274,7 +272,6 @@ func (o *VLAN) GetNameOk() (*string, bool) {
 func (o *VLAN) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLAN) GetTenant() BriefTenant {
@@ -308,6 +305,7 @@ func (o *VLAN) HasTenant() bool {
 func (o *VLAN) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *VLAN) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -382,6 +380,7 @@ func (o *VLAN) HasRole() bool {
 func (o *VLAN) SetRole(v BriefRole) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *VLAN) SetRoleNil() {
 	o.Role.Set(nil)
@@ -488,6 +487,7 @@ func (o *VLAN) HasL2vpnTermination() bool {
 func (o *VLAN) SetL2vpnTermination(v BriefL2VPNTermination) {
 	o.L2vpnTermination.Set(&v)
 }
+
 // SetL2vpnTerminationNil sets the value for L2vpnTermination to be an explicit nil
 func (o *VLAN) SetL2vpnTerminationNil() {
 	o.L2vpnTermination.Set(nil)
@@ -594,6 +594,7 @@ func (o *VLAN) HasCreated() bool {
 func (o *VLAN) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
+
 // SetCreatedNil sets the value for Created to be an explicit nil
 func (o *VLAN) SetCreatedNil() {
 	o.Created.Set(nil)
@@ -636,6 +637,7 @@ func (o *VLAN) HasLastUpdated() bool {
 func (o *VLAN) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 // SetLastUpdatedNil sets the value for LastUpdated to be an explicit nil
 func (o *VLAN) SetLastUpdatedNil() {
 	o.LastUpdated.Set(nil)
@@ -679,7 +681,7 @@ func (o *VLAN) SetPrefixCount(v int64) {
 }
 
 func (o VLAN) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -754,32 +756,31 @@ func (o *VLAN) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -855,5 +856,3 @@ func (v *NullableVLAN) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,8 +20,8 @@ type ExtrasCustomFieldChoiceSetsListBaseChoicesParameter string
 
 // List of extras_custom_field_choice_sets_list_base_choices_parameter
 const (
-	EXTRASCUSTOMFIELDCHOICESETSLISTBASECHOICESPARAMETER_IATA ExtrasCustomFieldChoiceSetsListBaseChoicesParameter = "IATA"
-	EXTRASCUSTOMFIELDCHOICESETSLISTBASECHOICESPARAMETER_ISO_3166 ExtrasCustomFieldChoiceSetsListBaseChoicesParameter = "ISO_3166"
+	EXTRASCUSTOMFIELDCHOICESETSLISTBASECHOICESPARAMETER_IATA      ExtrasCustomFieldChoiceSetsListBaseChoicesParameter = "IATA"
+	EXTRASCUSTOMFIELDCHOICESETSLISTBASECHOICESPARAMETER_ISO_3166  ExtrasCustomFieldChoiceSetsListBaseChoicesParameter = "ISO_3166"
 	EXTRASCUSTOMFIELDCHOICESETSLISTBASECHOICESPARAMETER_UN_LOCODE ExtrasCustomFieldChoiceSetsListBaseChoicesParameter = "UN_LOCODE"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableExtrasCustomFieldChoiceSetsListBaseChoicesParameter) UnmarshalJ
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

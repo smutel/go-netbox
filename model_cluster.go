@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Cluster type satisfies the MappedNullable interface at compile time
@@ -21,23 +21,23 @@ var _ MappedNullable = &Cluster{}
 
 // Cluster Adds support for custom fields and tags.
 type Cluster struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Type BriefClusterType `json:"type"`
-	Group NullableBriefClusterGroup `json:"group,omitempty"`
-	Status *ClusterStatus `json:"status,omitempty"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	Site NullableBriefSite `json:"site,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	DeviceCount int64 `json:"device_count"`
-	VirtualmachineCount int64 `json:"virtualmachine_count"`
+	Id                   int32                     `json:"id"`
+	Url                  string                    `json:"url"`
+	Display              string                    `json:"display"`
+	Name                 string                    `json:"name"`
+	Type                 BriefClusterType          `json:"type"`
+	Group                NullableBriefClusterGroup `json:"group,omitempty"`
+	Status               *ClusterStatus            `json:"status,omitempty"`
+	Tenant               NullableBriefTenant       `json:"tenant,omitempty"`
+	Site                 NullableBriefSite         `json:"site,omitempty"`
+	Description          *string                   `json:"description,omitempty"`
+	Comments             *string                   `json:"comments,omitempty"`
+	Tags                 []NestedTag               `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}    `json:"custom_fields,omitempty"`
+	Created              NullableTime              `json:"created"`
+	LastUpdated          NullableTime              `json:"last_updated"`
+	DeviceCount          int64                     `json:"device_count"`
+	VirtualmachineCount  int64                     `json:"virtualmachine_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -93,7 +93,6 @@ func (o *Cluster) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Cluster) GetUrl() string {
 	if o == nil {
@@ -117,7 +116,6 @@ func (o *Cluster) GetUrlOk() (*string, bool) {
 func (o *Cluster) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Cluster) GetDisplay() string {
@@ -143,7 +141,6 @@ func (o *Cluster) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *Cluster) GetName() string {
 	if o == nil {
@@ -168,7 +165,6 @@ func (o *Cluster) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetType returns the Type field value
 func (o *Cluster) GetType() BriefClusterType {
 	if o == nil {
@@ -192,7 +188,6 @@ func (o *Cluster) GetTypeOk() (*BriefClusterType, bool) {
 func (o *Cluster) SetType(v BriefClusterType) {
 	o.Type = v
 }
-
 
 // GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Cluster) GetGroup() BriefClusterGroup {
@@ -226,6 +221,7 @@ func (o *Cluster) HasGroup() bool {
 func (o *Cluster) SetGroup(v BriefClusterGroup) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *Cluster) SetGroupNil() {
 	o.Group.Set(nil)
@@ -300,6 +296,7 @@ func (o *Cluster) HasTenant() bool {
 func (o *Cluster) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *Cluster) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -342,6 +339,7 @@ func (o *Cluster) HasSite() bool {
 func (o *Cluster) SetSite(v BriefSite) {
 	o.Site.Set(&v)
 }
+
 // SetSiteNil sets the value for Site to be an explicit nil
 func (o *Cluster) SetSiteNil() {
 	o.Site.Set(nil)
@@ -506,7 +504,6 @@ func (o *Cluster) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Cluster) GetLastUpdated() time.Time {
@@ -533,7 +530,6 @@ func (o *Cluster) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetDeviceCount returns the DeviceCount field value
 func (o *Cluster) GetDeviceCount() int64 {
 	if o == nil {
@@ -557,7 +553,6 @@ func (o *Cluster) GetDeviceCountOk() (*int64, bool) {
 func (o *Cluster) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
-
 
 // GetVirtualmachineCount returns the VirtualmachineCount field value
 func (o *Cluster) GetVirtualmachineCount() int64 {
@@ -583,9 +578,8 @@ func (o *Cluster) SetVirtualmachineCount(v int64) {
 	o.VirtualmachineCount = v
 }
 
-
 func (o Cluster) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -653,32 +647,31 @@ func (o *Cluster) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -753,5 +746,3 @@ func (v *NullableCluster) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,11 +22,11 @@ type DcimDeviceTypesListAirflowParameter string
 const (
 	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_FRONT_TO_REAR DcimDeviceTypesListAirflowParameter = "front-to-rear"
 	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_LEFT_TO_RIGHT DcimDeviceTypesListAirflowParameter = "left-to-right"
-	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_MIXED DcimDeviceTypesListAirflowParameter = "mixed"
-	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_PASSIVE DcimDeviceTypesListAirflowParameter = "passive"
+	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_MIXED         DcimDeviceTypesListAirflowParameter = "mixed"
+	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_PASSIVE       DcimDeviceTypesListAirflowParameter = "passive"
 	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_REAR_TO_FRONT DcimDeviceTypesListAirflowParameter = "rear-to-front"
 	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_RIGHT_TO_LEFT DcimDeviceTypesListAirflowParameter = "right-to-left"
-	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_SIDE_TO_REAR DcimDeviceTypesListAirflowParameter = "side-to-rear"
+	DCIMDEVICETYPESLISTAIRFLOWPARAMETER_SIDE_TO_REAR  DcimDeviceTypesListAirflowParameter = "side-to-rear"
 )
 
 // All allowed values of DcimDeviceTypesListAirflowParameter enum
@@ -118,4 +118,3 @@ func (v *NullableDcimDeviceTypesListAirflowParameter) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

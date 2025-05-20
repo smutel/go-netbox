@@ -21,8 +21,8 @@ type ParentChildStatus1 string
 // List of Parent_child_status_1
 const (
 	PARENTCHILDSTATUS1_PARENT ParentChildStatus1 = "parent"
-	PARENTCHILDSTATUS1_CHILD ParentChildStatus1 = "child"
-	PARENTCHILDSTATUS1_EMPTY ParentChildStatus1 = ""
+	PARENTCHILDSTATUS1_CHILD  ParentChildStatus1 = "child"
+	PARENTCHILDSTATUS1_EMPTY  ParentChildStatus1 = ""
 )
 
 // All allowed values of ParentChildStatus1 enum
@@ -110,4 +110,3 @@ func (v *NullableParentChildStatus1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -108,4 +108,3 @@ func (v *NullableCircuitsCircuitTerminationsListCableEndParameter) UnmarshalJSON
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

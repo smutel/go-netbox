@@ -24,13 +24,13 @@ type PatchedWritablePowerPortTemplateRequest struct {
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
 	Name *string `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *PatchedWritablePowerPortTemplateRequestType `json:"type,omitempty"`
+	Label *string                                      `json:"label,omitempty"`
+	Type  *PatchedWritablePowerPortTemplateRequestType `json:"type,omitempty"`
 	// Maximum power draw (watts)
 	MaximumDraw NullableInt32 `json:"maximum_draw,omitempty"`
 	// Allocated power draw (watts)
-	AllocatedDraw NullableInt32 `json:"allocated_draw,omitempty"`
-	Description *string `json:"description,omitempty"`
+	AllocatedDraw        NullableInt32 `json:"allocated_draw,omitempty"`
+	Description          *string       `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -85,6 +85,7 @@ func (o *PatchedWritablePowerPortTemplateRequest) HasDeviceType() bool {
 func (o *PatchedWritablePowerPortTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest) {
 	o.DeviceType.Set(&v)
 }
+
 // SetDeviceTypeNil sets the value for DeviceType to be an explicit nil
 func (o *PatchedWritablePowerPortTemplateRequest) SetDeviceTypeNil() {
 	o.DeviceType.Set(nil)
@@ -127,6 +128,7 @@ func (o *PatchedWritablePowerPortTemplateRequest) HasModuleType() bool {
 func (o *PatchedWritablePowerPortTemplateRequest) SetModuleType(v BriefModuleTypeRequest) {
 	o.ModuleType.Set(&v)
 }
+
 // SetModuleTypeNil sets the value for ModuleType to be an explicit nil
 func (o *PatchedWritablePowerPortTemplateRequest) SetModuleTypeNil() {
 	o.ModuleType.Set(nil)
@@ -265,6 +267,7 @@ func (o *PatchedWritablePowerPortTemplateRequest) HasMaximumDraw() bool {
 func (o *PatchedWritablePowerPortTemplateRequest) SetMaximumDraw(v int32) {
 	o.MaximumDraw.Set(&v)
 }
+
 // SetMaximumDrawNil sets the value for MaximumDraw to be an explicit nil
 func (o *PatchedWritablePowerPortTemplateRequest) SetMaximumDrawNil() {
 	o.MaximumDraw.Set(nil)
@@ -307,6 +310,7 @@ func (o *PatchedWritablePowerPortTemplateRequest) HasAllocatedDraw() bool {
 func (o *PatchedWritablePowerPortTemplateRequest) SetAllocatedDraw(v int32) {
 	o.AllocatedDraw.Set(&v)
 }
+
 // SetAllocatedDrawNil sets the value for AllocatedDraw to be an explicit nil
 func (o *PatchedWritablePowerPortTemplateRequest) SetAllocatedDrawNil() {
 	o.AllocatedDraw.Set(nil)
@@ -350,7 +354,7 @@ func (o *PatchedWritablePowerPortTemplateRequest) SetDescription(v string) {
 }
 
 func (o PatchedWritablePowerPortTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -454,5 +458,3 @@ func (v *NullablePatchedWritablePowerPortTemplateRequest) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

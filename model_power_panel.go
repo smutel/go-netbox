@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the PowerPanel type satisfies the MappedNullable interface at compile time
@@ -21,19 +21,19 @@ var _ MappedNullable = &PowerPanel{}
 
 // PowerPanel Adds support for custom fields and tags.
 type PowerPanel struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Site BriefSite `json:"site"`
-	Location NullableBriefLocation `json:"location,omitempty"`
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	PowerfeedCount int64 `json:"powerfeed_count"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Site                 BriefSite              `json:"site"`
+	Location             NullableBriefLocation  `json:"location,omitempty"`
+	Name                 string                 `json:"name"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	PowerfeedCount       int64                  `json:"powerfeed_count"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -88,7 +88,6 @@ func (o *PowerPanel) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *PowerPanel) GetUrl() string {
 	if o == nil {
@@ -112,7 +111,6 @@ func (o *PowerPanel) GetUrlOk() (*string, bool) {
 func (o *PowerPanel) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *PowerPanel) GetDisplay() string {
@@ -138,7 +136,6 @@ func (o *PowerPanel) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetSite returns the Site field value
 func (o *PowerPanel) GetSite() BriefSite {
 	if o == nil {
@@ -162,7 +159,6 @@ func (o *PowerPanel) GetSiteOk() (*BriefSite, bool) {
 func (o *PowerPanel) SetSite(v BriefSite) {
 	o.Site = v
 }
-
 
 // GetLocation returns the Location field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PowerPanel) GetLocation() BriefLocation {
@@ -196,6 +192,7 @@ func (o *PowerPanel) HasLocation() bool {
 func (o *PowerPanel) SetLocation(v BriefLocation) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *PowerPanel) SetLocationNil() {
 	o.Location.Set(nil)
@@ -229,7 +226,6 @@ func (o *PowerPanel) GetNameOk() (*string, bool) {
 func (o *PowerPanel) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *PowerPanel) GetDescription() string {
@@ -383,7 +379,6 @@ func (o *PowerPanel) SetPowerfeedCount(v int64) {
 	o.PowerfeedCount = v
 }
 
-
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *PowerPanel) GetCreated() time.Time {
@@ -409,7 +404,6 @@ func (o *PowerPanel) GetCreatedOk() (*time.Time, bool) {
 func (o *PowerPanel) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
-
 
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -437,9 +431,8 @@ func (o *PowerPanel) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o PowerPanel) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -496,32 +489,31 @@ func (o *PowerPanel) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -592,5 +584,3 @@ func (v *NullablePowerPanel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

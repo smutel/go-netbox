@@ -20,13 +20,13 @@ var _ MappedNullable = &NestedInterface{}
 
 // NestedInterface Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a dictionary of attributes which can be used to uniquely identify the related object. This class should be subclassed to return a full representation of the related object on read.
 type NestedInterface struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Device NestedDevice `json:"device"`
-	Name string `json:"name"`
-	Cable NullableInt32 `json:"cable,omitempty"`
-	Occupied bool `json:"_occupied"`
+	Id                   int32         `json:"id"`
+	Url                  string        `json:"url"`
+	Display              string        `json:"display"`
+	Device               NestedDevice  `json:"device"`
+	Name                 string        `json:"name"`
+	Cable                NullableInt32 `json:"cable,omitempty"`
+	Occupied             bool          `json:"_occupied"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -79,7 +79,6 @@ func (o *NestedInterface) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *NestedInterface) GetUrl() string {
 	if o == nil {
@@ -103,7 +102,6 @@ func (o *NestedInterface) GetUrlOk() (*string, bool) {
 func (o *NestedInterface) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *NestedInterface) GetDisplay() string {
@@ -129,7 +127,6 @@ func (o *NestedInterface) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetDevice returns the Device field value
 func (o *NestedInterface) GetDevice() NestedDevice {
 	if o == nil {
@@ -154,7 +151,6 @@ func (o *NestedInterface) SetDevice(v NestedDevice) {
 	o.Device = v
 }
 
-
 // GetName returns the Name field value
 func (o *NestedInterface) GetName() string {
 	if o == nil {
@@ -178,7 +174,6 @@ func (o *NestedInterface) GetNameOk() (*string, bool) {
 func (o *NestedInterface) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetCable returns the Cable field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *NestedInterface) GetCable() int32 {
@@ -212,6 +207,7 @@ func (o *NestedInterface) HasCable() bool {
 func (o *NestedInterface) SetCable(v int32) {
 	o.Cable.Set(&v)
 }
+
 // SetCableNil sets the value for Cable to be an explicit nil
 func (o *NestedInterface) SetCableNil() {
 	o.Cable.Set(nil)
@@ -246,9 +242,8 @@ func (o *NestedInterface) SetOccupied(v bool) {
 	o.Occupied = v
 }
 
-
 func (o NestedInterface) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -289,32 +284,31 @@ func (o *NestedInterface) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -379,5 +373,3 @@ func (v *NullableNestedInterface) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

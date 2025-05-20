@@ -20,16 +20,16 @@ var _ MappedNullable = &WritableDataSourceRequest{}
 
 // WritableDataSourceRequest Adds support for custom fields and tags.
 type WritableDataSourceRequest struct {
-	Name string `json:"name"`
-	Type string `json:"type"`
-	SourceUrl string `json:"source_url"`
-	Enabled *bool `json:"enabled,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Parameters interface{} `json:"parameters,omitempty"`
+	Name        string      `json:"name"`
+	Type        string      `json:"type"`
+	SourceUrl   string      `json:"source_url"`
+	Enabled     *bool       `json:"enabled,omitempty"`
+	Description *string     `json:"description,omitempty"`
+	Comments    *string     `json:"comments,omitempty"`
+	Parameters  interface{} `json:"parameters,omitempty"`
 	// Patterns (one per line) matching files to ignore when syncing
-	IgnoreRules *string `json:"ignore_rules,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	IgnoreRules          *string                `json:"ignore_rules,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -79,7 +79,6 @@ func (o *WritableDataSourceRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetType returns the Type field value
 func (o *WritableDataSourceRequest) GetType() string {
 	if o == nil {
@@ -104,7 +103,6 @@ func (o *WritableDataSourceRequest) SetType(v string) {
 	o.Type = v
 }
 
-
 // GetSourceUrl returns the SourceUrl field value
 func (o *WritableDataSourceRequest) GetSourceUrl() string {
 	if o == nil {
@@ -128,7 +126,6 @@ func (o *WritableDataSourceRequest) GetSourceUrlOk() (*string, bool) {
 func (o *WritableDataSourceRequest) SetSourceUrl(v string) {
 	o.SourceUrl = v
 }
-
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *WritableDataSourceRequest) GetEnabled() bool {
@@ -324,7 +321,7 @@ func (o *WritableDataSourceRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o WritableDataSourceRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -374,32 +371,31 @@ func (o *WritableDataSourceRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -466,5 +462,3 @@ func (v *NullableWritableDataSourceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

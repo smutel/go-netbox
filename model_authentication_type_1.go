@@ -20,11 +20,11 @@ type AuthenticationType1 string
 
 // List of Authentication_type_1
 const (
-	AUTHENTICATIONTYPE1_OPEN AuthenticationType1 = "open"
-	AUTHENTICATIONTYPE1_WEP AuthenticationType1 = "wep"
-	AUTHENTICATIONTYPE1_WPA_PERSONAL AuthenticationType1 = "wpa-personal"
+	AUTHENTICATIONTYPE1_OPEN           AuthenticationType1 = "open"
+	AUTHENTICATIONTYPE1_WEP            AuthenticationType1 = "wep"
+	AUTHENTICATIONTYPE1_WPA_PERSONAL   AuthenticationType1 = "wpa-personal"
 	AUTHENTICATIONTYPE1_WPA_ENTERPRISE AuthenticationType1 = "wpa-enterprise"
-	AUTHENTICATIONTYPE1_EMPTY AuthenticationType1 = ""
+	AUTHENTICATIONTYPE1_EMPTY          AuthenticationType1 = ""
 )
 
 // All allowed values of AuthenticationType1 enum
@@ -114,4 +114,3 @@ func (v *NullableAuthenticationType1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

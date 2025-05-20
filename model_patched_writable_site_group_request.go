@@ -19,12 +19,12 @@ var _ MappedNullable = &PatchedWritableSiteGroupRequest{}
 
 // PatchedWritableSiteGroupRequest Extends PrimaryModelSerializer to include MPTT support.
 type PatchedWritableSiteGroupRequest struct {
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Parent NullableInt32 `json:"parent,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                `json:"name,omitempty"`
+	Slug                 *string                `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Parent               NullableInt32          `json:"parent,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -143,6 +143,7 @@ func (o *PatchedWritableSiteGroupRequest) HasParent() bool {
 func (o *PatchedWritableSiteGroupRequest) SetParent(v int32) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *PatchedWritableSiteGroupRequest) SetParentNil() {
 	o.Parent.Set(nil)
@@ -250,7 +251,7 @@ func (o *PatchedWritableSiteGroupRequest) SetCustomFields(v map[string]interface
 }
 
 func (o PatchedWritableSiteGroupRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -346,5 +347,3 @@ func (v *NullablePatchedWritableSiteGroupRequest) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -22,7 +22,7 @@ type WirelessLANAuthCipherLabel string
 const (
 	WIRELESSLANAUTHCIPHERLABEL_AUTO WirelessLANAuthCipherLabel = "Auto"
 	WIRELESSLANAUTHCIPHERLABEL_TKIP WirelessLANAuthCipherLabel = "TKIP"
-	WIRELESSLANAUTHCIPHERLABEL_AES WirelessLANAuthCipherLabel = "AES"
+	WIRELESSLANAUTHCIPHERLABEL_AES  WirelessLANAuthCipherLabel = "AES"
 )
 
 // All allowed values of WirelessLANAuthCipherLabel enum
@@ -110,4 +110,3 @@ func (v *NullableWirelessLANAuthCipherLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,12 +20,12 @@ var _ MappedNullable = &VirtualDiskRequest{}
 
 // VirtualDiskRequest Adds support for custom fields and tags.
 type VirtualDiskRequest struct {
-	VirtualMachine BriefVirtualMachineRequest `json:"virtual_machine"`
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
-	Size int32 `json:"size"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	VirtualMachine       BriefVirtualMachineRequest `json:"virtual_machine"`
+	Name                 string                     `json:"name"`
+	Description          *string                    `json:"description,omitempty"`
+	Size                 int32                      `json:"size"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,7 +75,6 @@ func (o *VirtualDiskRequest) SetVirtualMachine(v BriefVirtualMachineRequest) {
 	o.VirtualMachine = v
 }
 
-
 // GetName returns the Name field value
 func (o *VirtualDiskRequest) GetName() string {
 	if o == nil {
@@ -99,7 +98,6 @@ func (o *VirtualDiskRequest) GetNameOk() (*string, bool) {
 func (o *VirtualDiskRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *VirtualDiskRequest) GetDescription() string {
@@ -156,7 +154,6 @@ func (o *VirtualDiskRequest) GetSizeOk() (*int32, bool) {
 func (o *VirtualDiskRequest) SetSize(v int32) {
 	o.Size = v
 }
-
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *VirtualDiskRequest) GetTags() []NestedTagRequest {
@@ -223,7 +220,7 @@ func (o *VirtualDiskRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o VirtualDiskRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -264,32 +261,31 @@ func (o *VirtualDiskRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -353,5 +349,3 @@ func (v *NullableVirtualDiskRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

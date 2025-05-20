@@ -21,9 +21,9 @@ var _ MappedNullable = &BriefVLANRequest{}
 // BriefVLANRequest Adds support for custom fields and tags.
 type BriefVLANRequest struct {
 	// Numeric VLAN ID (1-4094)
-	Vid int32 `json:"vid"`
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
+	Vid                  int32   `json:"vid"`
+	Name                 string  `json:"name"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -72,7 +72,6 @@ func (o *BriefVLANRequest) SetVid(v int32) {
 	o.Vid = v
 }
 
-
 // GetName returns the Name field value
 func (o *BriefVLANRequest) GetName() string {
 	if o == nil {
@@ -96,7 +95,6 @@ func (o *BriefVLANRequest) GetNameOk() (*string, bool) {
 func (o *BriefVLANRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefVLANRequest) GetDescription() string {
@@ -131,7 +129,7 @@ func (o *BriefVLANRequest) SetDescription(v string) {
 }
 
 func (o BriefVLANRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -164,32 +162,31 @@ func (o *BriefVLANRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -250,5 +247,3 @@ func (v *NullableBriefVLANRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

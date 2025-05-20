@@ -20,18 +20,18 @@ var _ MappedNullable = &WritableWirelessLinkRequest{}
 
 // WritableWirelessLinkRequest Adds support for custom fields and tags.
 type WritableWirelessLinkRequest struct {
-	InterfaceA BriefInterfaceRequest `json:"interface_a"`
-	InterfaceB BriefInterfaceRequest `json:"interface_b"`
-	Ssid *string `json:"ssid,omitempty"`
-	Status *CableStatusValue `json:"status,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	AuthType *AuthenticationType1 `json:"auth_type,omitempty"`
-	AuthCipher *AuthenticationCipher `json:"auth_cipher,omitempty"`
-	AuthPsk *string `json:"auth_psk,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	InterfaceA           BriefInterfaceRequest      `json:"interface_a"`
+	InterfaceB           BriefInterfaceRequest      `json:"interface_b"`
+	Ssid                 *string                    `json:"ssid,omitempty"`
+	Status               *CableStatusValue          `json:"status,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	AuthType             *AuthenticationType1       `json:"auth_type,omitempty"`
+	AuthCipher           *AuthenticationCipher      `json:"auth_cipher,omitempty"`
+	AuthPsk              *string                    `json:"auth_psk,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,6 @@ func (o *WritableWirelessLinkRequest) SetInterfaceA(v BriefInterfaceRequest) {
 	o.InterfaceA = v
 }
 
-
 // GetInterfaceB returns the InterfaceB field value
 func (o *WritableWirelessLinkRequest) GetInterfaceB() BriefInterfaceRequest {
 	if o == nil {
@@ -104,7 +103,6 @@ func (o *WritableWirelessLinkRequest) GetInterfaceBOk() (*BriefInterfaceRequest,
 func (o *WritableWirelessLinkRequest) SetInterfaceB(v BriefInterfaceRequest) {
 	o.InterfaceB = v
 }
-
 
 // GetSsid returns the Ssid field value if set, zero value otherwise.
 func (o *WritableWirelessLinkRequest) GetSsid() string {
@@ -202,6 +200,7 @@ func (o *WritableWirelessLinkRequest) HasTenant() bool {
 func (o *WritableWirelessLinkRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *WritableWirelessLinkRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -437,7 +436,7 @@ func (o *WritableWirelessLinkRequest) SetCustomFields(v map[string]interface{}) 
 }
 
 func (o WritableWirelessLinkRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -497,32 +496,31 @@ func (o *WritableWirelessLinkRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -592,5 +590,3 @@ func (v *NullableWritableWirelessLinkRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

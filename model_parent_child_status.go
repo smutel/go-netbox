@@ -20,7 +20,7 @@ type ParentChildStatus string
 
 // List of Parent_child_status
 const (
-	PARENTCHILDSTATUS_CHILD ParentChildStatus = "child"
+	PARENTCHILDSTATUS_CHILD  ParentChildStatus = "child"
 	PARENTCHILDSTATUS_PARENT ParentChildStatus = "parent"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableParentChildStatus) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedPowerPanelRequest{}
 
 // PatchedPowerPanelRequest Adds support for custom fields and tags.
 type PatchedPowerPanelRequest struct {
-	Site *BriefSiteRequest `json:"site,omitempty"`
-	Location NullableBriefLocationRequest `json:"location,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Site                 *BriefSiteRequest            `json:"site,omitempty"`
+	Location             NullableBriefLocationRequest `json:"location,omitempty"`
+	Name                 *string                      `json:"name,omitempty"`
+	Description          *string                      `json:"description,omitempty"`
+	Comments             *string                      `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest           `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}       `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -112,6 +112,7 @@ func (o *PatchedPowerPanelRequest) HasLocation() bool {
 func (o *PatchedPowerPanelRequest) SetLocation(v BriefLocationRequest) {
 	o.Location.Set(&v)
 }
+
 // SetLocationNil sets the value for Location to be an explicit nil
 func (o *PatchedPowerPanelRequest) SetLocationNil() {
 	o.Location.Set(nil)
@@ -283,7 +284,7 @@ func (o *PatchedPowerPanelRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedPowerPanelRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -383,5 +384,3 @@ func (v *NullablePatchedPowerPanelRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

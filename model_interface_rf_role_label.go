@@ -21,7 +21,7 @@ type InterfaceRfRoleLabel string
 // List of Interface_rf_role_label
 const (
 	INTERFACERFROLELABEL_ACCESS_POINT InterfaceRfRoleLabel = "Access point"
-	INTERFACERFROLELABEL_STATION InterfaceRfRoleLabel = "Station"
+	INTERFACERFROLELABEL_STATION      InterfaceRfRoleLabel = "Station"
 )
 
 // All allowed values of InterfaceRfRoleLabel enum
@@ -108,4 +108,3 @@ func (v *NullableInterfaceRfRoleLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

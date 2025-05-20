@@ -21,8 +21,8 @@ type IpamServiceTemplatesListProtocolParameter string
 // List of ipam_service_templates_list_protocol_parameter
 const (
 	IPAMSERVICETEMPLATESLISTPROTOCOLPARAMETER_SCTP IpamServiceTemplatesListProtocolParameter = "sctp"
-	IPAMSERVICETEMPLATESLISTPROTOCOLPARAMETER_TCP IpamServiceTemplatesListProtocolParameter = "tcp"
-	IPAMSERVICETEMPLATESLISTPROTOCOLPARAMETER_UDP IpamServiceTemplatesListProtocolParameter = "udp"
+	IPAMSERVICETEMPLATESLISTPROTOCOLPARAMETER_TCP  IpamServiceTemplatesListProtocolParameter = "tcp"
+	IPAMSERVICETEMPLATESLISTPROTOCOLPARAMETER_UDP  IpamServiceTemplatesListProtocolParameter = "udp"
 )
 
 // All allowed values of IpamServiceTemplatesListProtocolParameter enum
@@ -110,4 +110,3 @@ func (v *NullableIpamServiceTemplatesListProtocolParameter) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

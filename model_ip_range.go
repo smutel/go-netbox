@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the IPRange type satisfies the MappedNullable interface at compile time
@@ -21,25 +21,25 @@ var _ MappedNullable = &IPRange{}
 
 // IPRange Adds support for custom fields and tags.
 type IPRange struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Family AggregateFamily `json:"family"`
-	StartAddress string `json:"start_address"`
-	EndAddress string `json:"end_address"`
-	Size int32 `json:"size"`
-	Vrf NullableBriefVRF `json:"vrf,omitempty"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	Status *IPRangeStatus `json:"status,omitempty"`
-	Role NullableBriefRole `json:"role,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
+	Id           int32                  `json:"id"`
+	Url          string                 `json:"url"`
+	Display      string                 `json:"display"`
+	Family       AggregateFamily        `json:"family"`
+	StartAddress string                 `json:"start_address"`
+	EndAddress   string                 `json:"end_address"`
+	Size         int32                  `json:"size"`
+	Vrf          NullableBriefVRF       `json:"vrf,omitempty"`
+	Tenant       NullableBriefTenant    `json:"tenant,omitempty"`
+	Status       *IPRangeStatus         `json:"status,omitempty"`
+	Role         NullableBriefRole      `json:"role,omitempty"`
+	Description  *string                `json:"description,omitempty"`
+	Comments     *string                `json:"comments,omitempty"`
+	Tags         []NestedTag            `json:"tags,omitempty"`
 	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Created      NullableTime           `json:"created"`
+	LastUpdated  NullableTime           `json:"last_updated"`
 	// Treat as fully utilized
-	MarkUtilized *bool `json:"mark_utilized,omitempty"`
+	MarkUtilized         *bool `json:"mark_utilized,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -95,7 +95,6 @@ func (o *IPRange) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *IPRange) GetUrl() string {
 	if o == nil {
@@ -119,7 +118,6 @@ func (o *IPRange) GetUrlOk() (*string, bool) {
 func (o *IPRange) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *IPRange) GetDisplay() string {
@@ -145,7 +143,6 @@ func (o *IPRange) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetFamily returns the Family field value
 func (o *IPRange) GetFamily() AggregateFamily {
 	if o == nil {
@@ -169,7 +166,6 @@ func (o *IPRange) GetFamilyOk() (*AggregateFamily, bool) {
 func (o *IPRange) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
-
 
 // GetStartAddress returns the StartAddress field value
 func (o *IPRange) GetStartAddress() string {
@@ -195,7 +191,6 @@ func (o *IPRange) SetStartAddress(v string) {
 	o.StartAddress = v
 }
 
-
 // GetEndAddress returns the EndAddress field value
 func (o *IPRange) GetEndAddress() string {
 	if o == nil {
@@ -220,7 +215,6 @@ func (o *IPRange) SetEndAddress(v string) {
 	o.EndAddress = v
 }
 
-
 // GetSize returns the Size field value
 func (o *IPRange) GetSize() int32 {
 	if o == nil {
@@ -244,7 +238,6 @@ func (o *IPRange) GetSizeOk() (*int32, bool) {
 func (o *IPRange) SetSize(v int32) {
 	o.Size = v
 }
-
 
 // GetVrf returns the Vrf field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IPRange) GetVrf() BriefVRF {
@@ -278,6 +271,7 @@ func (o *IPRange) HasVrf() bool {
 func (o *IPRange) SetVrf(v BriefVRF) {
 	o.Vrf.Set(&v)
 }
+
 // SetVrfNil sets the value for Vrf to be an explicit nil
 func (o *IPRange) SetVrfNil() {
 	o.Vrf.Set(nil)
@@ -320,6 +314,7 @@ func (o *IPRange) HasTenant() bool {
 func (o *IPRange) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *IPRange) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -394,6 +389,7 @@ func (o *IPRange) HasRole() bool {
 func (o *IPRange) SetRole(v BriefRole) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *IPRange) SetRoleNil() {
 	o.Role.Set(nil)
@@ -558,7 +554,6 @@ func (o *IPRange) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *IPRange) GetLastUpdated() time.Time {
@@ -584,7 +579,6 @@ func (o *IPRange) GetLastUpdatedOk() (*time.Time, bool) {
 func (o *IPRange) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
-
 
 // GetMarkUtilized returns the MarkUtilized field value if set, zero value otherwise.
 func (o *IPRange) GetMarkUtilized() bool {
@@ -619,7 +613,7 @@ func (o *IPRange) SetMarkUtilized(v bool) {
 }
 
 func (o IPRange) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -690,32 +684,31 @@ func (o *IPRange) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -791,5 +784,3 @@ func (v *NullableIPRange) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

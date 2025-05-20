@@ -20,10 +20,10 @@ var _ MappedNullable = &AvailableIP{}
 
 // AvailableIP Representation of an IP address which does not exist in the database.
 type AvailableIP struct {
-	Family int32 `json:"family"`
-	Address string `json:"address"`
-	Vrf NullableBriefVRF `json:"vrf"`
-	Description *string `json:"description,omitempty"`
+	Family               int32            `json:"family"`
+	Address              string           `json:"address"`
+	Vrf                  NullableBriefVRF `json:"vrf"`
+	Description          *string          `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -73,7 +73,6 @@ func (o *AvailableIP) SetFamily(v int32) {
 	o.Family = v
 }
 
-
 // GetAddress returns the Address field value
 func (o *AvailableIP) GetAddress() string {
 	if o == nil {
@@ -97,7 +96,6 @@ func (o *AvailableIP) GetAddressOk() (*string, bool) {
 func (o *AvailableIP) SetAddress(v string) {
 	o.Address = v
 }
-
 
 // GetVrf returns the Vrf field value
 // If the value is explicit nil, the zero value for BriefVRF will be returned
@@ -124,7 +122,6 @@ func (o *AvailableIP) GetVrfOk() (*BriefVRF, bool) {
 func (o *AvailableIP) SetVrf(v BriefVRF) {
 	o.Vrf.Set(&v)
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *AvailableIP) GetDescription() string {
@@ -159,7 +156,7 @@ func (o *AvailableIP) SetDescription(v string) {
 }
 
 func (o AvailableIP) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -194,32 +191,31 @@ func (o *AvailableIP) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -281,5 +277,3 @@ func (v *NullableAvailableIP) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

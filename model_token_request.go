@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the TokenRequest type satisfies the MappedNullable interface at compile time
@@ -21,13 +21,13 @@ var _ MappedNullable = &TokenRequest{}
 
 // TokenRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type TokenRequest struct {
-	User BriefUserRequest `json:"user"`
-	Expires NullableTime `json:"expires,omitempty"`
-	LastUsed NullableTime `json:"last_used,omitempty"`
-	Key *string `json:"key,omitempty"`
+	User     BriefUserRequest `json:"user"`
+	Expires  NullableTime     `json:"expires,omitempty"`
+	LastUsed NullableTime     `json:"last_used,omitempty"`
+	Key      *string          `json:"key,omitempty"`
 	// Permit create/update/delete operations using this key
-	WriteEnabled *bool `json:"write_enabled,omitempty"`
-	Description *string `json:"description,omitempty"`
+	WriteEnabled         *bool   `json:"write_enabled,omitempty"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,7 +75,6 @@ func (o *TokenRequest) SetUser(v BriefUserRequest) {
 	o.User = v
 }
 
-
 // GetExpires returns the Expires field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *TokenRequest) GetExpires() time.Time {
 	if o == nil || IsNil(o.Expires.Get()) {
@@ -108,6 +107,7 @@ func (o *TokenRequest) HasExpires() bool {
 func (o *TokenRequest) SetExpires(v time.Time) {
 	o.Expires.Set(&v)
 }
+
 // SetExpiresNil sets the value for Expires to be an explicit nil
 func (o *TokenRequest) SetExpiresNil() {
 	o.Expires.Set(nil)
@@ -150,6 +150,7 @@ func (o *TokenRequest) HasLastUsed() bool {
 func (o *TokenRequest) SetLastUsed(v time.Time) {
 	o.LastUsed.Set(&v)
 }
+
 // SetLastUsedNil sets the value for LastUsed to be an explicit nil
 func (o *TokenRequest) SetLastUsedNil() {
 	o.LastUsed.Set(nil)
@@ -257,7 +258,7 @@ func (o *TokenRequest) SetDescription(v string) {
 }
 
 func (o TokenRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -300,32 +301,31 @@ func (o *TokenRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -389,5 +389,3 @@ func (v *NullableTokenRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

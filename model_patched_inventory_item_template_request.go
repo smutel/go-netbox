@@ -20,18 +20,18 @@ var _ MappedNullable = &PatchedInventoryItemTemplateRequest{}
 // PatchedInventoryItemTemplateRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type PatchedInventoryItemTemplateRequest struct {
 	DeviceType *BriefDeviceTypeRequest `json:"device_type,omitempty"`
-	Parent NullableInt32 `json:"parent,omitempty"`
+	Parent     NullableInt32           `json:"parent,omitempty"`
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
 	Name *string `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Role NullableBriefInventoryItemRoleRequest `json:"role,omitempty"`
-	Manufacturer NullableBriefManufacturerRequest `json:"manufacturer,omitempty"`
+	Label        *string                               `json:"label,omitempty"`
+	Role         NullableBriefInventoryItemRoleRequest `json:"role,omitempty"`
+	Manufacturer NullableBriefManufacturerRequest      `json:"manufacturer,omitempty"`
 	// Manufacturer-assigned part identifier
-	PartId *string `json:"part_id,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ComponentType NullableString `json:"component_type,omitempty"`
-	ComponentId NullableInt64 `json:"component_id,omitempty"`
+	PartId               *string        `json:"part_id,omitempty"`
+	Description          *string        `json:"description,omitempty"`
+	ComponentType        NullableString `json:"component_type,omitempty"`
+	ComponentId          NullableInt64  `json:"component_id,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -118,6 +118,7 @@ func (o *PatchedInventoryItemTemplateRequest) HasParent() bool {
 func (o *PatchedInventoryItemTemplateRequest) SetParent(v int32) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *PatchedInventoryItemTemplateRequest) SetParentNil() {
 	o.Parent.Set(nil)
@@ -224,6 +225,7 @@ func (o *PatchedInventoryItemTemplateRequest) HasRole() bool {
 func (o *PatchedInventoryItemTemplateRequest) SetRole(v BriefInventoryItemRoleRequest) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *PatchedInventoryItemTemplateRequest) SetRoleNil() {
 	o.Role.Set(nil)
@@ -266,6 +268,7 @@ func (o *PatchedInventoryItemTemplateRequest) HasManufacturer() bool {
 func (o *PatchedInventoryItemTemplateRequest) SetManufacturer(v BriefManufacturerRequest) {
 	o.Manufacturer.Set(&v)
 }
+
 // SetManufacturerNil sets the value for Manufacturer to be an explicit nil
 func (o *PatchedInventoryItemTemplateRequest) SetManufacturerNil() {
 	o.Manufacturer.Set(nil)
@@ -372,6 +375,7 @@ func (o *PatchedInventoryItemTemplateRequest) HasComponentType() bool {
 func (o *PatchedInventoryItemTemplateRequest) SetComponentType(v string) {
 	o.ComponentType.Set(&v)
 }
+
 // SetComponentTypeNil sets the value for ComponentType to be an explicit nil
 func (o *PatchedInventoryItemTemplateRequest) SetComponentTypeNil() {
 	o.ComponentType.Set(nil)
@@ -414,6 +418,7 @@ func (o *PatchedInventoryItemTemplateRequest) HasComponentId() bool {
 func (o *PatchedInventoryItemTemplateRequest) SetComponentId(v int64) {
 	o.ComponentId.Set(&v)
 }
+
 // SetComponentIdNil sets the value for ComponentId to be an explicit nil
 func (o *PatchedInventoryItemTemplateRequest) SetComponentIdNil() {
 	o.ComponentId.Set(nil)
@@ -425,7 +430,7 @@ func (o *PatchedInventoryItemTemplateRequest) UnsetComponentId() {
 }
 
 func (o PatchedInventoryItemTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -537,5 +542,3 @@ func (v *NullablePatchedInventoryItemTemplateRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

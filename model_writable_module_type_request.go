@@ -21,15 +21,15 @@ var _ MappedNullable = &WritableModuleTypeRequest{}
 // WritableModuleTypeRequest Adds support for custom fields and tags.
 type WritableModuleTypeRequest struct {
 	Manufacturer BriefManufacturerRequest `json:"manufacturer"`
-	Model string `json:"model"`
+	Model        string                   `json:"model"`
 	// Discrete part number (optional)
-	PartNumber *string `json:"part_number,omitempty"`
-	Weight NullableFloat64 `json:"weight,omitempty"`
-	WeightUnit *DeviceTypeWeightUnitValue `json:"weight_unit,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	PartNumber           *string                    `json:"part_number,omitempty"`
+	Weight               NullableFloat64            `json:"weight,omitempty"`
+	WeightUnit           *DeviceTypeWeightUnitValue `json:"weight_unit,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,7 +78,6 @@ func (o *WritableModuleTypeRequest) SetManufacturer(v BriefManufacturerRequest) 
 	o.Manufacturer = v
 }
 
-
 // GetModel returns the Model field value
 func (o *WritableModuleTypeRequest) GetModel() string {
 	if o == nil {
@@ -102,7 +101,6 @@ func (o *WritableModuleTypeRequest) GetModelOk() (*string, bool) {
 func (o *WritableModuleTypeRequest) SetModel(v string) {
 	o.Model = v
 }
-
 
 // GetPartNumber returns the PartNumber field value if set, zero value otherwise.
 func (o *WritableModuleTypeRequest) GetPartNumber() string {
@@ -168,6 +166,7 @@ func (o *WritableModuleTypeRequest) HasWeight() bool {
 func (o *WritableModuleTypeRequest) SetWeight(v float64) {
 	o.Weight.Set(&v)
 }
+
 // SetWeightNil sets the value for Weight to be an explicit nil
 func (o *WritableModuleTypeRequest) SetWeightNil() {
 	o.Weight.Set(nil)
@@ -339,7 +338,7 @@ func (o *WritableModuleTypeRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o WritableModuleTypeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -390,32 +389,31 @@ func (o *WritableModuleTypeRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -482,5 +480,3 @@ func (v *NullableWritableModuleTypeRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

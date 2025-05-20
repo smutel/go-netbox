@@ -20,14 +20,14 @@ var _ MappedNullable = &ConfigTemplateRequest{}
 
 // ConfigTemplateRequest Introduces support for Tag assignment. Adds `tags` serialization, and handles tag assignment on create() and update().
 type ConfigTemplateRequest struct {
-	Name string `json:"name"`
+	Name        string  `json:"name"`
 	Description *string `json:"description,omitempty"`
 	// Any <a href=\"https://jinja.palletsprojects.com/en/3.1.x/api/#jinja2.Environment\">additional parameters</a> to pass when constructing the Jinja2 environment.
 	EnvironmentParams interface{} `json:"environment_params,omitempty"`
 	// Jinja2 template code.
-	TemplateCode string `json:"template_code"`
-	DataSource *BriefDataSourceRequest `json:"data_source,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
+	TemplateCode         string                  `json:"template_code"`
+	DataSource           *BriefDataSourceRequest `json:"data_source,omitempty"`
+	Tags                 []NestedTagRequest      `json:"tags,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -75,7 +75,6 @@ func (o *ConfigTemplateRequest) GetNameOk() (*string, bool) {
 func (o *ConfigTemplateRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ConfigTemplateRequest) GetDescription() string {
@@ -166,7 +165,6 @@ func (o *ConfigTemplateRequest) SetTemplateCode(v string) {
 	o.TemplateCode = v
 }
 
-
 // GetDataSource returns the DataSource field value if set, zero value otherwise.
 func (o *ConfigTemplateRequest) GetDataSource() BriefDataSourceRequest {
 	if o == nil || IsNil(o.DataSource) {
@@ -232,7 +230,7 @@ func (o *ConfigTemplateRequest) SetTags(v []NestedTagRequest) {
 }
 
 func (o ConfigTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -274,32 +272,31 @@ func (o *ConfigTemplateRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -363,5 +360,3 @@ func (v *NullableConfigTemplateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

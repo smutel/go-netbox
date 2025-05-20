@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the ConfigContext type satisfies the MappedNullable interface at compile time
@@ -21,34 +21,34 @@ var _ MappedNullable = &ConfigContext{}
 
 // ConfigContext Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type ConfigContext struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Weight *int32 `json:"weight,omitempty"`
-	Description *string `json:"description,omitempty"`
-	IsActive *bool `json:"is_active,omitempty"`
-	Regions []Region `json:"regions,omitempty"`
-	SiteGroups []SiteGroup `json:"site_groups,omitempty"`
-	Sites []Site `json:"sites,omitempty"`
-	Locations []Location `json:"locations,omitempty"`
-	DeviceTypes []DeviceType `json:"device_types,omitempty"`
-	Roles []DeviceRole `json:"roles,omitempty"`
-	Platforms []Platform `json:"platforms,omitempty"`
-	ClusterTypes []ClusterType `json:"cluster_types,omitempty"`
-	ClusterGroups []ClusterGroup `json:"cluster_groups,omitempty"`
-	Clusters []Cluster `json:"clusters,omitempty"`
-	TenantGroups []TenantGroup `json:"tenant_groups,omitempty"`
-	Tenants []Tenant `json:"tenants,omitempty"`
-	Tags []string `json:"tags,omitempty"`
-	DataSource *BriefDataSource `json:"data_source,omitempty"`
+	Id            int32            `json:"id"`
+	Url           string           `json:"url"`
+	Display       string           `json:"display"`
+	Name          string           `json:"name"`
+	Weight        *int32           `json:"weight,omitempty"`
+	Description   *string          `json:"description,omitempty"`
+	IsActive      *bool            `json:"is_active,omitempty"`
+	Regions       []Region         `json:"regions,omitempty"`
+	SiteGroups    []SiteGroup      `json:"site_groups,omitempty"`
+	Sites         []Site           `json:"sites,omitempty"`
+	Locations     []Location       `json:"locations,omitempty"`
+	DeviceTypes   []DeviceType     `json:"device_types,omitempty"`
+	Roles         []DeviceRole     `json:"roles,omitempty"`
+	Platforms     []Platform       `json:"platforms,omitempty"`
+	ClusterTypes  []ClusterType    `json:"cluster_types,omitempty"`
+	ClusterGroups []ClusterGroup   `json:"cluster_groups,omitempty"`
+	Clusters      []Cluster        `json:"clusters,omitempty"`
+	TenantGroups  []TenantGroup    `json:"tenant_groups,omitempty"`
+	Tenants       []Tenant         `json:"tenants,omitempty"`
+	Tags          []string         `json:"tags,omitempty"`
+	DataSource    *BriefDataSource `json:"data_source,omitempty"`
 	// Path to remote file (relative to data source root)
-	DataPath string `json:"data_path"`
-	DataFile BriefDataFile `json:"data_file"`
-	DataSynced NullableTime `json:"data_synced"`
-	Data interface{} `json:"data"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	DataPath             string        `json:"data_path"`
+	DataFile             BriefDataFile `json:"data_file"`
+	DataSynced           NullableTime  `json:"data_synced"`
+	Data                 interface{}   `json:"data"`
+	Created              NullableTime  `json:"created"`
+	LastUpdated          NullableTime  `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -105,7 +105,6 @@ func (o *ConfigContext) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ConfigContext) GetUrl() string {
 	if o == nil {
@@ -129,7 +128,6 @@ func (o *ConfigContext) GetUrlOk() (*string, bool) {
 func (o *ConfigContext) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *ConfigContext) GetDisplay() string {
@@ -155,7 +153,6 @@ func (o *ConfigContext) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *ConfigContext) GetName() string {
 	if o == nil {
@@ -179,7 +176,6 @@ func (o *ConfigContext) GetNameOk() (*string, bool) {
 func (o *ConfigContext) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetWeight returns the Weight field value if set, zero value otherwise.
 func (o *ConfigContext) GetWeight() int32 {
@@ -749,7 +745,6 @@ func (o *ConfigContext) SetDataPath(v string) {
 	o.DataPath = v
 }
 
-
 // GetDataFile returns the DataFile field value
 func (o *ConfigContext) GetDataFile() BriefDataFile {
 	if o == nil {
@@ -773,7 +768,6 @@ func (o *ConfigContext) GetDataFileOk() (*BriefDataFile, bool) {
 func (o *ConfigContext) SetDataFile(v BriefDataFile) {
 	o.DataFile = v
 }
-
 
 // GetDataSynced returns the DataSynced field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -801,7 +795,6 @@ func (o *ConfigContext) SetDataSynced(v time.Time) {
 	o.DataSynced.Set(&v)
 }
 
-
 // GetData returns the Data field value
 // If the value is explicit nil, the zero value for interface{} will be returned
 func (o *ConfigContext) GetData() interface{} {
@@ -827,7 +820,6 @@ func (o *ConfigContext) GetDataOk() (*interface{}, bool) {
 func (o *ConfigContext) SetData(v interface{}) {
 	o.Data = v
 }
-
 
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -855,7 +847,6 @@ func (o *ConfigContext) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ConfigContext) GetLastUpdated() time.Time {
@@ -882,9 +873,8 @@ func (o *ConfigContext) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o ConfigContext) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -983,32 +973,31 @@ func (o *ConfigContext) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -1093,5 +1082,3 @@ func (v *NullableConfigContext) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

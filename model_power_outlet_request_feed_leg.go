@@ -20,9 +20,9 @@ type PowerOutletRequestFeedLeg string
 
 // List of PowerOutletRequest_feed_leg
 const (
-	POWEROUTLETREQUESTFEEDLEG_A PowerOutletRequestFeedLeg = "A"
-	POWEROUTLETREQUESTFEEDLEG_B PowerOutletRequestFeedLeg = "B"
-	POWEROUTLETREQUESTFEEDLEG_C PowerOutletRequestFeedLeg = "C"
+	POWEROUTLETREQUESTFEEDLEG_A     PowerOutletRequestFeedLeg = "A"
+	POWEROUTLETREQUESTFEEDLEG_B     PowerOutletRequestFeedLeg = "B"
+	POWEROUTLETREQUESTFEEDLEG_C     PowerOutletRequestFeedLeg = "C"
 	POWEROUTLETREQUESTFEEDLEG_EMPTY PowerOutletRequestFeedLeg = ""
 )
 
@@ -112,4 +112,3 @@ func (v *NullablePowerOutletRequestFeedLeg) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

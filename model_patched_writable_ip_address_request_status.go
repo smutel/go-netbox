@@ -20,11 +20,11 @@ type PatchedWritableIPAddressRequestStatus string
 
 // List of PatchedWritableIPAddressRequest_status
 const (
-	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_ACTIVE PatchedWritableIPAddressRequestStatus = "active"
-	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_RESERVED PatchedWritableIPAddressRequestStatus = "reserved"
+	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_ACTIVE     PatchedWritableIPAddressRequestStatus = "active"
+	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_RESERVED   PatchedWritableIPAddressRequestStatus = "reserved"
 	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_DEPRECATED PatchedWritableIPAddressRequestStatus = "deprecated"
-	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_DHCP PatchedWritableIPAddressRequestStatus = "dhcp"
-	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_SLAAC PatchedWritableIPAddressRequestStatus = "slaac"
+	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_DHCP       PatchedWritableIPAddressRequestStatus = "dhcp"
+	PATCHEDWRITABLEIPADDRESSREQUESTSTATUS_SLAAC      PatchedWritableIPAddressRequestStatus = "slaac"
 )
 
 // All allowed values of PatchedWritableIPAddressRequestStatus enum
@@ -114,4 +114,3 @@ func (v *NullablePatchedWritableIPAddressRequestStatus) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

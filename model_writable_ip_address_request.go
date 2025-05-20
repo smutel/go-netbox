@@ -20,21 +20,21 @@ var _ MappedNullable = &WritableIPAddressRequest{}
 
 // WritableIPAddressRequest Adds support for custom fields and tags.
 type WritableIPAddressRequest struct {
-	Address string `json:"address"`
-	Vrf NullableBriefVRFRequest `json:"vrf,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Status *PatchedWritableIPAddressRequestStatus `json:"status,omitempty"`
-	Role *PatchedWritableIPAddressRequestRole `json:"role,omitempty"`
-	AssignedObjectType NullableString `json:"assigned_object_type,omitempty"`
-	AssignedObjectId NullableInt64 `json:"assigned_object_id,omitempty"`
+	Address            string                                 `json:"address"`
+	Vrf                NullableBriefVRFRequest                `json:"vrf,omitempty"`
+	Tenant             NullableBriefTenantRequest             `json:"tenant,omitempty"`
+	Status             *PatchedWritableIPAddressRequestStatus `json:"status,omitempty"`
+	Role               *PatchedWritableIPAddressRequestRole   `json:"role,omitempty"`
+	AssignedObjectType NullableString                         `json:"assigned_object_type,omitempty"`
+	AssignedObjectId   NullableInt64                          `json:"assigned_object_id,omitempty"`
 	// The IP for which this address is the \"outside\" IP
 	NatInside NullableInt32 `json:"nat_inside,omitempty"`
 	// Hostname or FQDN (not case-sensitive)
-	DnsName *string `json:"dns_name,omitempty" validate:"regexp=^([0-9A-Za-z_-]+|\\\\*)(\\\\.[0-9A-Za-z_-]+)*\\\\.?$"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	DnsName              *string                `json:"dns_name,omitempty" validate:"regexp=^([0-9A-Za-z_-]+|\\\\*)(\\\\.[0-9A-Za-z_-]+)*\\\\.?$"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -82,7 +82,6 @@ func (o *WritableIPAddressRequest) SetAddress(v string) {
 	o.Address = v
 }
 
-
 // GetVrf returns the Vrf field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableIPAddressRequest) GetVrf() BriefVRFRequest {
 	if o == nil || IsNil(o.Vrf.Get()) {
@@ -115,6 +114,7 @@ func (o *WritableIPAddressRequest) HasVrf() bool {
 func (o *WritableIPAddressRequest) SetVrf(v BriefVRFRequest) {
 	o.Vrf.Set(&v)
 }
+
 // SetVrfNil sets the value for Vrf to be an explicit nil
 func (o *WritableIPAddressRequest) SetVrfNil() {
 	o.Vrf.Set(nil)
@@ -157,6 +157,7 @@ func (o *WritableIPAddressRequest) HasTenant() bool {
 func (o *WritableIPAddressRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *WritableIPAddressRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -263,6 +264,7 @@ func (o *WritableIPAddressRequest) HasAssignedObjectType() bool {
 func (o *WritableIPAddressRequest) SetAssignedObjectType(v string) {
 	o.AssignedObjectType.Set(&v)
 }
+
 // SetAssignedObjectTypeNil sets the value for AssignedObjectType to be an explicit nil
 func (o *WritableIPAddressRequest) SetAssignedObjectTypeNil() {
 	o.AssignedObjectType.Set(nil)
@@ -305,6 +307,7 @@ func (o *WritableIPAddressRequest) HasAssignedObjectId() bool {
 func (o *WritableIPAddressRequest) SetAssignedObjectId(v int64) {
 	o.AssignedObjectId.Set(&v)
 }
+
 // SetAssignedObjectIdNil sets the value for AssignedObjectId to be an explicit nil
 func (o *WritableIPAddressRequest) SetAssignedObjectIdNil() {
 	o.AssignedObjectId.Set(nil)
@@ -347,6 +350,7 @@ func (o *WritableIPAddressRequest) HasNatInside() bool {
 func (o *WritableIPAddressRequest) SetNatInside(v int32) {
 	o.NatInside.Set(&v)
 }
+
 // SetNatInsideNil sets the value for NatInside to be an explicit nil
 func (o *WritableIPAddressRequest) SetNatInsideNil() {
 	o.NatInside.Set(nil)
@@ -518,7 +522,7 @@ func (o *WritableIPAddressRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o WritableIPAddressRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -582,32 +586,31 @@ func (o *WritableIPAddressRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -678,5 +681,3 @@ func (v *NullableWritableIPAddressRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

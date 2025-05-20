@@ -19,17 +19,17 @@ var _ MappedNullable = &PatchedVLANGroupRequest{}
 
 // PatchedVLANGroupRequest Adds support for custom fields and tags.
 type PatchedVLANGroupRequest struct {
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Name      *string        `json:"name,omitempty"`
+	Slug      *string        `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	ScopeType NullableString `json:"scope_type,omitempty"`
-	ScopeId NullableInt32 `json:"scope_id,omitempty"`
+	ScopeId   NullableInt32  `json:"scope_id,omitempty"`
 	// Lowest permissible ID of a child VLAN
 	MinVid *int32 `json:"min_vid,omitempty"`
 	// Highest permissible ID of a child VLAN
-	MaxVid *int32 `json:"max_vid,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MaxVid               *int32                 `json:"max_vid,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -148,6 +148,7 @@ func (o *PatchedVLANGroupRequest) HasScopeType() bool {
 func (o *PatchedVLANGroupRequest) SetScopeType(v string) {
 	o.ScopeType.Set(&v)
 }
+
 // SetScopeTypeNil sets the value for ScopeType to be an explicit nil
 func (o *PatchedVLANGroupRequest) SetScopeTypeNil() {
 	o.ScopeType.Set(nil)
@@ -190,6 +191,7 @@ func (o *PatchedVLANGroupRequest) HasScopeId() bool {
 func (o *PatchedVLANGroupRequest) SetScopeId(v int32) {
 	o.ScopeId.Set(&v)
 }
+
 // SetScopeIdNil sets the value for ScopeId to be an explicit nil
 func (o *PatchedVLANGroupRequest) SetScopeIdNil() {
 	o.ScopeId.Set(nil)
@@ -361,7 +363,7 @@ func (o *PatchedVLANGroupRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedVLANGroupRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -469,5 +471,3 @@ func (v *NullablePatchedVLANGroupRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

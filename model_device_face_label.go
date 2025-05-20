@@ -21,7 +21,7 @@ type DeviceFaceLabel string
 // List of Device_face_label
 const (
 	DEVICEFACELABEL_FRONT DeviceFaceLabel = "Front"
-	DEVICEFACELABEL_REAR DeviceFaceLabel = "Rear"
+	DEVICEFACELABEL_REAR  DeviceFaceLabel = "Rear"
 )
 
 // All allowed values of DeviceFaceLabel enum
@@ -108,4 +108,3 @@ func (v *NullableDeviceFaceLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

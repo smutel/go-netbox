@@ -21,8 +21,8 @@ type ExtrasCustomFieldsListUiEditableParameter string
 // List of extras_custom_fields_list_ui_editable_parameter
 const (
 	EXTRASCUSTOMFIELDSLISTUIEDITABLEPARAMETER_HIDDEN ExtrasCustomFieldsListUiEditableParameter = "hidden"
-	EXTRASCUSTOMFIELDSLISTUIEDITABLEPARAMETER_NO ExtrasCustomFieldsListUiEditableParameter = "no"
-	EXTRASCUSTOMFIELDSLISTUIEDITABLEPARAMETER_YES ExtrasCustomFieldsListUiEditableParameter = "yes"
+	EXTRASCUSTOMFIELDSLISTUIEDITABLEPARAMETER_NO     ExtrasCustomFieldsListUiEditableParameter = "no"
+	EXTRASCUSTOMFIELDSLISTUIEDITABLEPARAMETER_YES    ExtrasCustomFieldsListUiEditableParameter = "yes"
 )
 
 // All allowed values of ExtrasCustomFieldsListUiEditableParameter enum
@@ -110,4 +110,3 @@ func (v *NullableExtrasCustomFieldsListUiEditableParameter) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

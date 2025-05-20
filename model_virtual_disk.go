@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the VirtualDisk type satisfies the MappedNullable interface at compile time
@@ -21,17 +21,17 @@ var _ MappedNullable = &VirtualDisk{}
 
 // VirtualDisk Adds support for custom fields and tags.
 type VirtualDisk struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	VirtualMachine BriefVirtualMachine `json:"virtual_machine"`
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
-	Size int32 `json:"size"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	VirtualMachine       BriefVirtualMachine    `json:"virtual_machine"`
+	Name                 string                 `json:"name"`
+	Description          *string                `json:"description,omitempty"`
+	Size                 int32                  `json:"size"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,7 +86,6 @@ func (o *VirtualDisk) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *VirtualDisk) GetUrl() string {
 	if o == nil {
@@ -110,7 +109,6 @@ func (o *VirtualDisk) GetUrlOk() (*string, bool) {
 func (o *VirtualDisk) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *VirtualDisk) GetDisplay() string {
@@ -136,7 +134,6 @@ func (o *VirtualDisk) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetVirtualMachine returns the VirtualMachine field value
 func (o *VirtualDisk) GetVirtualMachine() BriefVirtualMachine {
 	if o == nil {
@@ -161,7 +158,6 @@ func (o *VirtualDisk) SetVirtualMachine(v BriefVirtualMachine) {
 	o.VirtualMachine = v
 }
 
-
 // GetName returns the Name field value
 func (o *VirtualDisk) GetName() string {
 	if o == nil {
@@ -185,7 +181,6 @@ func (o *VirtualDisk) GetNameOk() (*string, bool) {
 func (o *VirtualDisk) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *VirtualDisk) GetDescription() string {
@@ -242,7 +237,6 @@ func (o *VirtualDisk) GetSizeOk() (*int32, bool) {
 func (o *VirtualDisk) SetSize(v int32) {
 	o.Size = v
 }
-
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *VirtualDisk) GetTags() []NestedTag {
@@ -334,7 +328,6 @@ func (o *VirtualDisk) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VirtualDisk) GetLastUpdated() time.Time {
@@ -361,9 +354,8 @@ func (o *VirtualDisk) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o VirtualDisk) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -414,32 +406,31 @@ func (o *VirtualDisk) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -508,5 +499,3 @@ func (v *NullableVirtualDisk) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

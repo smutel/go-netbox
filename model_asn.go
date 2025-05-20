@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the ASN type satisfies the MappedNullable interface at compile time
@@ -21,21 +21,21 @@ var _ MappedNullable = &ASN{}
 
 // ASN Adds support for custom fields and tags.
 type ASN struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
+	Id      int32  `json:"id"`
+	Url     string `json:"url"`
 	Display string `json:"display"`
 	// 16- or 32-bit autonomous system number
-	Asn int64 `json:"asn"`
-	Rir NullableBriefRIR `json:"rir,omitempty"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created,omitempty"`
-	LastUpdated NullableTime `json:"last_updated,omitempty"`
-	SiteCount *int64 `json:"site_count,omitempty"`
-	ProviderCount *int64 `json:"provider_count,omitempty"`
+	Asn                  int64                  `json:"asn"`
+	Rir                  NullableBriefRIR       `json:"rir,omitempty"`
+	Tenant               NullableBriefTenant    `json:"tenant,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created,omitempty"`
+	LastUpdated          NullableTime           `json:"last_updated,omitempty"`
+	SiteCount            *int64                 `json:"site_count,omitempty"`
+	ProviderCount        *int64                 `json:"provider_count,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,7 +86,6 @@ func (o *ASN) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ASN) GetUrl() string {
 	if o == nil {
@@ -110,7 +109,6 @@ func (o *ASN) GetUrlOk() (*string, bool) {
 func (o *ASN) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *ASN) GetDisplay() string {
@@ -136,7 +134,6 @@ func (o *ASN) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetAsn returns the Asn field value
 func (o *ASN) GetAsn() int64 {
 	if o == nil {
@@ -160,7 +157,6 @@ func (o *ASN) GetAsnOk() (*int64, bool) {
 func (o *ASN) SetAsn(v int64) {
 	o.Asn = v
 }
-
 
 // GetRir returns the Rir field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ASN) GetRir() BriefRIR {
@@ -194,6 +190,7 @@ func (o *ASN) HasRir() bool {
 func (o *ASN) SetRir(v BriefRIR) {
 	o.Rir.Set(&v)
 }
+
 // SetRirNil sets the value for Rir to be an explicit nil
 func (o *ASN) SetRirNil() {
 	o.Rir.Set(nil)
@@ -236,6 +233,7 @@ func (o *ASN) HasTenant() bool {
 func (o *ASN) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *ASN) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -406,6 +404,7 @@ func (o *ASN) HasCreated() bool {
 func (o *ASN) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
+
 // SetCreatedNil sets the value for Created to be an explicit nil
 func (o *ASN) SetCreatedNil() {
 	o.Created.Set(nil)
@@ -448,6 +447,7 @@ func (o *ASN) HasLastUpdated() bool {
 func (o *ASN) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
+
 // SetLastUpdatedNil sets the value for LastUpdated to be an explicit nil
 func (o *ASN) SetLastUpdatedNil() {
 	o.LastUpdated.Set(nil)
@@ -523,7 +523,7 @@ func (o *ASN) SetProviderCount(v int64) {
 }
 
 func (o ASN) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -587,32 +587,31 @@ func (o *ASN) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -684,5 +683,3 @@ func (v *NullableASN) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

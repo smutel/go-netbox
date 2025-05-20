@@ -19,12 +19,12 @@ var _ MappedNullable = &PatchedVirtualDiskRequest{}
 
 // PatchedVirtualDiskRequest Adds support for custom fields and tags.
 type PatchedVirtualDiskRequest struct {
-	VirtualMachine *BriefVirtualMachineRequest `json:"virtual_machine,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Size *int32 `json:"size,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	VirtualMachine       *BriefVirtualMachineRequest `json:"virtual_machine,omitempty"`
+	Name                 *string                     `json:"name,omitempty"`
+	Description          *string                     `json:"description,omitempty"`
+	Size                 *int32                      `json:"size,omitempty"`
+	Tags                 []NestedTagRequest          `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}      `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -240,7 +240,7 @@ func (o *PatchedVirtualDiskRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedVirtualDiskRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -336,5 +336,3 @@ func (v *NullablePatchedVirtualDiskRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

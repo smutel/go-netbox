@@ -19,8 +19,8 @@ var _ MappedNullable = &CustomFieldChoiceSetBaseChoices{}
 
 // CustomFieldChoiceSetBaseChoices struct for CustomFieldChoiceSetBaseChoices
 type CustomFieldChoiceSetBaseChoices struct {
-	Value *CustomFieldChoiceSetBaseChoicesValue `json:"value,omitempty"`
-	Label *CustomFieldChoiceSetBaseChoicesLabel `json:"label,omitempty"`
+	Value                *CustomFieldChoiceSetBaseChoicesValue `json:"value,omitempty"`
+	Label                *CustomFieldChoiceSetBaseChoicesLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *CustomFieldChoiceSetBaseChoices) SetLabel(v CustomFieldChoiceSetBaseCho
 }
 
 func (o CustomFieldChoiceSetBaseChoices) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableCustomFieldChoiceSetBaseChoices) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

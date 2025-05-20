@@ -20,12 +20,12 @@ var _ MappedNullable = &PatchedRouteTargetRequest{}
 // PatchedRouteTargetRequest Adds support for custom fields and tags.
 type PatchedRouteTargetRequest struct {
 	// Route target value (formatted in accordance with RFC 4360)
-	Name *string `json:"name,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                    `json:"name,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -112,6 +112,7 @@ func (o *PatchedRouteTargetRequest) HasTenant() bool {
 func (o *PatchedRouteTargetRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedRouteTargetRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -251,7 +252,7 @@ func (o *PatchedRouteTargetRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedRouteTargetRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -347,5 +348,3 @@ func (v *NullablePatchedRouteTargetRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

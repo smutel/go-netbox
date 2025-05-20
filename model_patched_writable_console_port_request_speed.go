@@ -20,13 +20,13 @@ type PatchedWritableConsolePortRequestSpeed int32
 
 // List of PatchedWritableConsolePortRequest_speed
 const (
-	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__1200 PatchedWritableConsolePortRequestSpeed = 1200
-	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__2400 PatchedWritableConsolePortRequestSpeed = 2400
-	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__4800 PatchedWritableConsolePortRequestSpeed = 4800
-	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__9600 PatchedWritableConsolePortRequestSpeed = 9600
-	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__19200 PatchedWritableConsolePortRequestSpeed = 19200
-	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__38400 PatchedWritableConsolePortRequestSpeed = 38400
-	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__57600 PatchedWritableConsolePortRequestSpeed = 57600
+	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__1200   PatchedWritableConsolePortRequestSpeed = 1200
+	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__2400   PatchedWritableConsolePortRequestSpeed = 2400
+	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__4800   PatchedWritableConsolePortRequestSpeed = 4800
+	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__9600   PatchedWritableConsolePortRequestSpeed = 9600
+	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__19200  PatchedWritableConsolePortRequestSpeed = 19200
+	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__38400  PatchedWritableConsolePortRequestSpeed = 38400
+	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__57600  PatchedWritableConsolePortRequestSpeed = 57600
 	PATCHEDWRITABLECONSOLEPORTREQUESTSPEED__115200 PatchedWritableConsolePortRequestSpeed = 115200
 )
 
@@ -120,4 +120,3 @@ func (v *NullablePatchedWritableConsolePortRequestSpeed) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

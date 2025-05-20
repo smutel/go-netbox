@@ -20,17 +20,17 @@ var _ MappedNullable = &VLANGroupRequest{}
 
 // VLANGroupRequest Adds support for custom fields and tags.
 type VLANGroupRequest struct {
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Name      string         `json:"name"`
+	Slug      string         `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	ScopeType NullableString `json:"scope_type,omitempty"`
-	ScopeId NullableInt32 `json:"scope_id,omitempty"`
+	ScopeId   NullableInt32  `json:"scope_id,omitempty"`
 	// Lowest permissible ID of a child VLAN
 	MinVid *int32 `json:"min_vid,omitempty"`
 	// Highest permissible ID of a child VLAN
-	MaxVid *int32 `json:"max_vid,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MaxVid               *int32                 `json:"max_vid,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -79,7 +79,6 @@ func (o *VLANGroupRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *VLANGroupRequest) GetSlug() string {
 	if o == nil {
@@ -103,7 +102,6 @@ func (o *VLANGroupRequest) GetSlugOk() (*string, bool) {
 func (o *VLANGroupRequest) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetScopeType returns the ScopeType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *VLANGroupRequest) GetScopeType() string {
@@ -137,6 +135,7 @@ func (o *VLANGroupRequest) HasScopeType() bool {
 func (o *VLANGroupRequest) SetScopeType(v string) {
 	o.ScopeType.Set(&v)
 }
+
 // SetScopeTypeNil sets the value for ScopeType to be an explicit nil
 func (o *VLANGroupRequest) SetScopeTypeNil() {
 	o.ScopeType.Set(nil)
@@ -179,6 +178,7 @@ func (o *VLANGroupRequest) HasScopeId() bool {
 func (o *VLANGroupRequest) SetScopeId(v int32) {
 	o.ScopeId.Set(&v)
 }
+
 // SetScopeIdNil sets the value for ScopeId to be an explicit nil
 func (o *VLANGroupRequest) SetScopeIdNil() {
 	o.ScopeId.Set(nil)
@@ -350,7 +350,7 @@ func (o *VLANGroupRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o VLANGroupRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -401,32 +401,31 @@ func (o *VLANGroupRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -493,5 +492,3 @@ func (v *NullableVLANGroupRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,7 +21,7 @@ type DcimRacksElevationRetrieveRenderParameter string
 // List of dcim_racks_elevation_retrieve_render_parameter
 const (
 	DCIMRACKSELEVATIONRETRIEVERENDERPARAMETER_JSON DcimRacksElevationRetrieveRenderParameter = "json"
-	DCIMRACKSELEVATIONRETRIEVERENDERPARAMETER_SVG DcimRacksElevationRetrieveRenderParameter = "svg"
+	DCIMRACKSELEVATIONRETRIEVERENDERPARAMETER_SVG  DcimRacksElevationRetrieveRenderParameter = "svg"
 )
 
 // All allowed values of DcimRacksElevationRetrieveRenderParameter enum
@@ -108,4 +108,3 @@ func (v *NullableDcimRacksElevationRetrieveRenderParameter) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

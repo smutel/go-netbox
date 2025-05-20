@@ -19,8 +19,8 @@ var _ MappedNullable = &CustomFieldUiEditable{}
 
 // CustomFieldUiEditable struct for CustomFieldUiEditable
 type CustomFieldUiEditable struct {
-	Value *CustomFieldUiEditableValue `json:"value,omitempty"`
-	Label *CustomFieldUiEditableLabel `json:"label,omitempty"`
+	Value                *CustomFieldUiEditableValue `json:"value,omitempty"`
+	Label                *CustomFieldUiEditableLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *CustomFieldUiEditable) SetLabel(v CustomFieldUiEditableLabel) {
 }
 
 func (o CustomFieldUiEditable) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableCustomFieldUiEditable) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

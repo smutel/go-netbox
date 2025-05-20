@@ -20,10 +20,10 @@ var _ MappedNullable = &ModuleBayNestedModule{}
 
 // ModuleBayNestedModule Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a dictionary of attributes which can be used to uniquely identify the related object. This class should be subclassed to return a full representation of the related object on read.
 type ModuleBayNestedModule struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Serial *string `json:"serial,omitempty"`
+	Id                   int32   `json:"id"`
+	Url                  string  `json:"url"`
+	Display              string  `json:"display"`
+	Serial               *string `json:"serial,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -73,7 +73,6 @@ func (o *ModuleBayNestedModule) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ModuleBayNestedModule) GetUrl() string {
 	if o == nil {
@@ -98,7 +97,6 @@ func (o *ModuleBayNestedModule) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *ModuleBayNestedModule) GetDisplay() string {
 	if o == nil {
@@ -122,7 +120,6 @@ func (o *ModuleBayNestedModule) GetDisplayOk() (*string, bool) {
 func (o *ModuleBayNestedModule) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetSerial returns the Serial field value if set, zero value otherwise.
 func (o *ModuleBayNestedModule) GetSerial() string {
@@ -157,7 +154,7 @@ func (o *ModuleBayNestedModule) SetSerial(v string) {
 }
 
 func (o ModuleBayNestedModule) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -192,32 +189,31 @@ func (o *ModuleBayNestedModule) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -279,5 +275,3 @@ func (v *NullableModuleBayNestedModule) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

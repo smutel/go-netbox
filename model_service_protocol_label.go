@@ -20,8 +20,8 @@ type ServiceProtocolLabel string
 
 // List of Service_protocol_label
 const (
-	SERVICEPROTOCOLLABEL_TCP ServiceProtocolLabel = "TCP"
-	SERVICEPROTOCOLLABEL_UDP ServiceProtocolLabel = "UDP"
+	SERVICEPROTOCOLLABEL_TCP  ServiceProtocolLabel = "TCP"
+	SERVICEPROTOCOLLABEL_UDP  ServiceProtocolLabel = "UDP"
 	SERVICEPROTOCOLLABEL_SCTP ServiceProtocolLabel = "SCTP"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableServiceProtocolLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

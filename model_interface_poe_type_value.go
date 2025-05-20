@@ -28,7 +28,7 @@ const (
 	INTERFACEPOETYPEVALUE_PASSIVE_24V_4PAIR InterfacePoeTypeValue = "passive-24v-4pair"
 	INTERFACEPOETYPEVALUE_PASSIVE_48V_2PAIR InterfacePoeTypeValue = "passive-48v-2pair"
 	INTERFACEPOETYPEVALUE_PASSIVE_48V_4PAIR InterfacePoeTypeValue = "passive-48v-4pair"
-	INTERFACEPOETYPEVALUE_EMPTY InterfacePoeTypeValue = ""
+	INTERFACEPOETYPEVALUE_EMPTY             InterfacePoeTypeValue = ""
 )
 
 // All allowed values of InterfacePoeTypeValue enum
@@ -122,4 +122,3 @@ func (v *NullableInterfacePoeTypeValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

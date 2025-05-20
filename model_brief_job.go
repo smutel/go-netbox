@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the BriefJob type satisfies the MappedNullable interface at compile time
@@ -21,11 +21,11 @@ var _ MappedNullable = &BriefJob{}
 
 // BriefJob struct for BriefJob
 type BriefJob struct {
-	Url string `json:"url"`
-	Status BriefJobStatus `json:"status"`
-	Created time.Time `json:"created"`
-	Completed NullableTime `json:"completed,omitempty"`
-	User BriefUser `json:"user"`
+	Url                  string         `json:"url"`
+	Status               BriefJobStatus `json:"status"`
+	Created              time.Time      `json:"created"`
+	Completed            NullableTime   `json:"completed,omitempty"`
+	User                 BriefUser      `json:"user"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,6 @@ func (o *BriefJob) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetStatus returns the Status field value
 func (o *BriefJob) GetStatus() BriefJobStatus {
 	if o == nil {
@@ -101,7 +100,6 @@ func (o *BriefJob) SetStatus(v BriefJobStatus) {
 	o.Status = v
 }
 
-
 // GetCreated returns the Created field value
 func (o *BriefJob) GetCreated() time.Time {
 	if o == nil {
@@ -125,7 +123,6 @@ func (o *BriefJob) GetCreatedOk() (*time.Time, bool) {
 func (o *BriefJob) SetCreated(v time.Time) {
 	o.Created = v
 }
-
 
 // GetCompleted returns the Completed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefJob) GetCompleted() time.Time {
@@ -159,6 +156,7 @@ func (o *BriefJob) HasCompleted() bool {
 func (o *BriefJob) SetCompleted(v time.Time) {
 	o.Completed.Set(&v)
 }
+
 // SetCompletedNil sets the value for Completed to be an explicit nil
 func (o *BriefJob) SetCompletedNil() {
 	o.Completed.Set(nil)
@@ -193,9 +191,8 @@ func (o *BriefJob) SetUser(v BriefUser) {
 	o.User = v
 }
 
-
 func (o BriefJob) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -232,32 +229,31 @@ func (o *BriefJob) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -320,5 +316,3 @@ func (v *NullableBriefJob) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,10 +20,10 @@ var _ MappedNullable = &PatchedImageAttachmentRequest{}
 
 // PatchedImageAttachmentRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type PatchedImageAttachmentRequest struct {
-	ObjectType *string `json:"object_type,omitempty"`
-	ObjectId *int64 `json:"object_id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Image **os.File `json:"image,omitempty"`
+	ObjectType           *string   `json:"object_type,omitempty"`
+	ObjectId             *int64    `json:"object_id,omitempty"`
+	Name                 *string   `json:"name,omitempty"`
+	Image                **os.File `json:"image,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -175,7 +175,7 @@ func (o *PatchedImageAttachmentRequest) SetImage(v *os.File) {
 }
 
 func (o PatchedImageAttachmentRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -263,5 +263,3 @@ func (v *NullablePatchedImageAttachmentRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Manufacturer type satisfies the MappedNullable interface at compile time
@@ -21,19 +21,19 @@ var _ MappedNullable = &Manufacturer{}
 
 // Manufacturer Adds support for custom fields and tags.
 type Manufacturer struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	DevicetypeCount int64 `json:"devicetype_count"`
-	InventoryitemCount int64 `json:"inventoryitem_count"`
-	PlatformCount int64 `json:"platform_count"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Name                 string                 `json:"name"`
+	Slug                 string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	DevicetypeCount      int64                  `json:"devicetype_count"`
+	InventoryitemCount   int64                  `json:"inventoryitem_count"`
+	PlatformCount        int64                  `json:"platform_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -90,7 +90,6 @@ func (o *Manufacturer) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Manufacturer) GetUrl() string {
 	if o == nil {
@@ -114,7 +113,6 @@ func (o *Manufacturer) GetUrlOk() (*string, bool) {
 func (o *Manufacturer) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Manufacturer) GetDisplay() string {
@@ -140,7 +138,6 @@ func (o *Manufacturer) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *Manufacturer) GetName() string {
 	if o == nil {
@@ -165,7 +162,6 @@ func (o *Manufacturer) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *Manufacturer) GetSlug() string {
 	if o == nil {
@@ -189,7 +185,6 @@ func (o *Manufacturer) GetSlugOk() (*string, bool) {
 func (o *Manufacturer) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *Manufacturer) GetDescription() string {
@@ -313,7 +308,6 @@ func (o *Manufacturer) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Manufacturer) GetLastUpdated() time.Time {
@@ -340,7 +334,6 @@ func (o *Manufacturer) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetDevicetypeCount returns the DevicetypeCount field value
 func (o *Manufacturer) GetDevicetypeCount() int64 {
 	if o == nil {
@@ -364,7 +357,6 @@ func (o *Manufacturer) GetDevicetypeCountOk() (*int64, bool) {
 func (o *Manufacturer) SetDevicetypeCount(v int64) {
 	o.DevicetypeCount = v
 }
-
 
 // GetInventoryitemCount returns the InventoryitemCount field value
 func (o *Manufacturer) GetInventoryitemCount() int64 {
@@ -390,7 +382,6 @@ func (o *Manufacturer) SetInventoryitemCount(v int64) {
 	o.InventoryitemCount = v
 }
 
-
 // GetPlatformCount returns the PlatformCount field value
 func (o *Manufacturer) GetPlatformCount() int64 {
 	if o == nil {
@@ -415,9 +406,8 @@ func (o *Manufacturer) SetPlatformCount(v int64) {
 	o.PlatformCount = v
 }
 
-
 func (o Manufacturer) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -472,32 +462,31 @@ func (o *Manufacturer) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -568,5 +557,3 @@ func (v *NullableManufacturer) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

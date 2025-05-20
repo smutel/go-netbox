@@ -20,8 +20,8 @@ type PatchedWritableCustomFieldRequestUiEditable string
 
 // List of PatchedWritableCustomFieldRequest_ui_editable
 const (
-	PATCHEDWRITABLECUSTOMFIELDREQUESTUIEDITABLE_YES PatchedWritableCustomFieldRequestUiEditable = "yes"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTUIEDITABLE_NO PatchedWritableCustomFieldRequestUiEditable = "no"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTUIEDITABLE_YES    PatchedWritableCustomFieldRequestUiEditable = "yes"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTUIEDITABLE_NO     PatchedWritableCustomFieldRequestUiEditable = "no"
 	PATCHEDWRITABLECUSTOMFIELDREQUESTUIEDITABLE_HIDDEN PatchedWritableCustomFieldRequestUiEditable = "hidden"
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableCustomFieldRequestUiEditable) UnmarshalJSON(src 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

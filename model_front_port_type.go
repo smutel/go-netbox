@@ -19,8 +19,8 @@ var _ MappedNullable = &FrontPortType{}
 
 // FrontPortType struct for FrontPortType
 type FrontPortType struct {
-	Value *FrontPortTypeValue `json:"value,omitempty"`
-	Label *FrontPortTypeLabel `json:"label,omitempty"`
+	Value                *FrontPortTypeValue `json:"value,omitempty"`
+	Label                *FrontPortTypeLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *FrontPortType) SetLabel(v FrontPortTypeLabel) {
 }
 
 func (o FrontPortType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableFrontPortType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

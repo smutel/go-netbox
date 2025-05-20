@@ -20,7 +20,7 @@ type VirtualDeviceContextStatusLabel string
 
 // List of VirtualDeviceContext_status_label
 const (
-	VIRTUALDEVICECONTEXTSTATUSLABEL_ACTIVE VirtualDeviceContextStatusLabel = "Active"
+	VIRTUALDEVICECONTEXTSTATUSLABEL_ACTIVE  VirtualDeviceContextStatusLabel = "Active"
 	VIRTUALDEVICECONTEXTSTATUSLABEL_PLANNED VirtualDeviceContextStatusLabel = "Planned"
 	VIRTUALDEVICECONTEXTSTATUSLABEL_OFFLINE VirtualDeviceContextStatusLabel = "Offline"
 )
@@ -110,4 +110,3 @@ func (v *NullableVirtualDeviceContextStatusLabel) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

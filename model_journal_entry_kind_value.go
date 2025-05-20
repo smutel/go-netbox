@@ -20,10 +20,10 @@ type JournalEntryKindValue string
 
 // List of JournalEntry_kind_value
 const (
-	JOURNALENTRYKINDVALUE_INFO JournalEntryKindValue = "info"
+	JOURNALENTRYKINDVALUE_INFO    JournalEntryKindValue = "info"
 	JOURNALENTRYKINDVALUE_SUCCESS JournalEntryKindValue = "success"
 	JOURNALENTRYKINDVALUE_WARNING JournalEntryKindValue = "warning"
-	JOURNALENTRYKINDVALUE_DANGER JournalEntryKindValue = "danger"
+	JOURNALENTRYKINDVALUE_DANGER  JournalEntryKindValue = "danger"
 )
 
 // All allowed values of JournalEntryKindValue enum
@@ -112,4 +112,3 @@ func (v *NullableJournalEntryKindValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

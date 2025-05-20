@@ -20,12 +20,12 @@ var _ MappedNullable = &BriefIPAddress{}
 
 // BriefIPAddress Adds support for custom fields and tags.
 type BriefIPAddress struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Family AggregateFamily `json:"family"`
-	Address string `json:"address"`
-	Description *string `json:"description,omitempty"`
+	Id                   int32           `json:"id"`
+	Url                  string          `json:"url"`
+	Display              string          `json:"display"`
+	Family               AggregateFamily `json:"family"`
+	Address              string          `json:"address"`
+	Description          *string         `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -77,7 +77,6 @@ func (o *BriefIPAddress) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *BriefIPAddress) GetUrl() string {
 	if o == nil {
@@ -101,7 +100,6 @@ func (o *BriefIPAddress) GetUrlOk() (*string, bool) {
 func (o *BriefIPAddress) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *BriefIPAddress) GetDisplay() string {
@@ -127,7 +125,6 @@ func (o *BriefIPAddress) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetFamily returns the Family field value
 func (o *BriefIPAddress) GetFamily() AggregateFamily {
 	if o == nil {
@@ -152,7 +149,6 @@ func (o *BriefIPAddress) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
 
-
 // GetAddress returns the Address field value
 func (o *BriefIPAddress) GetAddress() string {
 	if o == nil {
@@ -176,7 +172,6 @@ func (o *BriefIPAddress) GetAddressOk() (*string, bool) {
 func (o *BriefIPAddress) SetAddress(v string) {
 	o.Address = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefIPAddress) GetDescription() string {
@@ -211,7 +206,7 @@ func (o *BriefIPAddress) SetDescription(v string) {
 }
 
 func (o BriefIPAddress) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -250,32 +245,31 @@ func (o *BriefIPAddress) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -339,5 +333,3 @@ func (v *NullableBriefIPAddress) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

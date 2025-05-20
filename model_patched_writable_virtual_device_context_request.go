@@ -19,17 +19,17 @@ var _ MappedNullable = &PatchedWritableVirtualDeviceContextRequest{}
 
 // PatchedWritableVirtualDeviceContextRequest Adds support for custom fields and tags.
 type PatchedWritableVirtualDeviceContextRequest struct {
-	Name *string `json:"name,omitempty"`
-	Device *BriefDeviceRequest `json:"device,omitempty"`
-	Identifier NullableInt32 `json:"identifier,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	PrimaryIp4 NullableBriefIPAddressRequest `json:"primary_ip4,omitempty"`
-	PrimaryIp6 NullableBriefIPAddressRequest `json:"primary_ip6,omitempty"`
-	Status *PatchedWritableVirtualDeviceContextRequestStatus `json:"status,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                                           `json:"name,omitempty"`
+	Device               *BriefDeviceRequest                               `json:"device,omitempty"`
+	Identifier           NullableInt32                                     `json:"identifier,omitempty"`
+	Tenant               NullableBriefTenantRequest                        `json:"tenant,omitempty"`
+	PrimaryIp4           NullableBriefIPAddressRequest                     `json:"primary_ip4,omitempty"`
+	PrimaryIp6           NullableBriefIPAddressRequest                     `json:"primary_ip6,omitempty"`
+	Status               *PatchedWritableVirtualDeviceContextRequestStatus `json:"status,omitempty"`
+	Description          *string                                           `json:"description,omitempty"`
+	Comments             *string                                           `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest                                `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                            `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -148,6 +148,7 @@ func (o *PatchedWritableVirtualDeviceContextRequest) HasIdentifier() bool {
 func (o *PatchedWritableVirtualDeviceContextRequest) SetIdentifier(v int32) {
 	o.Identifier.Set(&v)
 }
+
 // SetIdentifierNil sets the value for Identifier to be an explicit nil
 func (o *PatchedWritableVirtualDeviceContextRequest) SetIdentifierNil() {
 	o.Identifier.Set(nil)
@@ -190,6 +191,7 @@ func (o *PatchedWritableVirtualDeviceContextRequest) HasTenant() bool {
 func (o *PatchedWritableVirtualDeviceContextRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedWritableVirtualDeviceContextRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -232,6 +234,7 @@ func (o *PatchedWritableVirtualDeviceContextRequest) HasPrimaryIp4() bool {
 func (o *PatchedWritableVirtualDeviceContextRequest) SetPrimaryIp4(v BriefIPAddressRequest) {
 	o.PrimaryIp4.Set(&v)
 }
+
 // SetPrimaryIp4Nil sets the value for PrimaryIp4 to be an explicit nil
 func (o *PatchedWritableVirtualDeviceContextRequest) SetPrimaryIp4Nil() {
 	o.PrimaryIp4.Set(nil)
@@ -274,6 +277,7 @@ func (o *PatchedWritableVirtualDeviceContextRequest) HasPrimaryIp6() bool {
 func (o *PatchedWritableVirtualDeviceContextRequest) SetPrimaryIp6(v BriefIPAddressRequest) {
 	o.PrimaryIp6.Set(&v)
 }
+
 // SetPrimaryIp6Nil sets the value for PrimaryIp6 to be an explicit nil
 func (o *PatchedWritableVirtualDeviceContextRequest) SetPrimaryIp6Nil() {
 	o.PrimaryIp6.Set(nil)
@@ -445,7 +449,7 @@ func (o *PatchedWritableVirtualDeviceContextRequest) SetCustomFields(v map[strin
 }
 
 func (o PatchedWritableVirtualDeviceContextRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -561,5 +565,3 @@ func (v *NullablePatchedWritableVirtualDeviceContextRequest) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

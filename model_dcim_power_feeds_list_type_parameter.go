@@ -20,7 +20,7 @@ type DcimPowerFeedsListTypeParameter string
 
 // List of dcim_power_feeds_list_type_parameter
 const (
-	DCIMPOWERFEEDSLISTTYPEPARAMETER_PRIMARY DcimPowerFeedsListTypeParameter = "primary"
+	DCIMPOWERFEEDSLISTTYPEPARAMETER_PRIMARY   DcimPowerFeedsListTypeParameter = "primary"
 	DCIMPOWERFEEDSLISTTYPEPARAMETER_REDUNDANT DcimPowerFeedsListTypeParameter = "redundant"
 )
 
@@ -108,4 +108,3 @@ func (v *NullableDcimPowerFeedsListTypeParameter) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

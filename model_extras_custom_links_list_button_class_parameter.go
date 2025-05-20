@@ -20,21 +20,21 @@ type ExtrasCustomLinksListButtonClassParameter string
 
 // List of extras_custom_links_list_button_class_parameter
 const (
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_BLACK ExtrasCustomLinksListButtonClassParameter = "black"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_BLUE ExtrasCustomLinksListButtonClassParameter = "blue"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_CYAN ExtrasCustomLinksListButtonClassParameter = "cyan"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_DEFAULT ExtrasCustomLinksListButtonClassParameter = "default"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_BLACK      ExtrasCustomLinksListButtonClassParameter = "black"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_BLUE       ExtrasCustomLinksListButtonClassParameter = "blue"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_CYAN       ExtrasCustomLinksListButtonClassParameter = "cyan"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_DEFAULT    ExtrasCustomLinksListButtonClassParameter = "default"
 	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_GHOST_DARK ExtrasCustomLinksListButtonClassParameter = "ghost-dark"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_GRAY ExtrasCustomLinksListButtonClassParameter = "gray"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_GREEN ExtrasCustomLinksListButtonClassParameter = "green"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_INDIGO ExtrasCustomLinksListButtonClassParameter = "indigo"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_ORANGE ExtrasCustomLinksListButtonClassParameter = "orange"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_PINK ExtrasCustomLinksListButtonClassParameter = "pink"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_PURPLE ExtrasCustomLinksListButtonClassParameter = "purple"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_RED ExtrasCustomLinksListButtonClassParameter = "red"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_TEAL ExtrasCustomLinksListButtonClassParameter = "teal"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_WHITE ExtrasCustomLinksListButtonClassParameter = "white"
-	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_YELLOW ExtrasCustomLinksListButtonClassParameter = "yellow"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_GRAY       ExtrasCustomLinksListButtonClassParameter = "gray"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_GREEN      ExtrasCustomLinksListButtonClassParameter = "green"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_INDIGO     ExtrasCustomLinksListButtonClassParameter = "indigo"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_ORANGE     ExtrasCustomLinksListButtonClassParameter = "orange"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_PINK       ExtrasCustomLinksListButtonClassParameter = "pink"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_PURPLE     ExtrasCustomLinksListButtonClassParameter = "purple"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_RED        ExtrasCustomLinksListButtonClassParameter = "red"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_TEAL       ExtrasCustomLinksListButtonClassParameter = "teal"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_WHITE      ExtrasCustomLinksListButtonClassParameter = "white"
+	EXTRASCUSTOMLINKSLISTBUTTONCLASSPARAMETER_YELLOW     ExtrasCustomLinksListButtonClassParameter = "yellow"
 )
 
 // All allowed values of ExtrasCustomLinksListButtonClassParameter enum
@@ -134,4 +134,3 @@ func (v *NullableExtrasCustomLinksListButtonClassParameter) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

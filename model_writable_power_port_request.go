@@ -20,21 +20,21 @@ var _ MappedNullable = &WritablePowerPortRequest{}
 
 // WritablePowerPortRequest Adds support for custom fields and tags.
 type WritablePowerPortRequest struct {
-	Device BriefDeviceRequest `json:"device"`
+	Device BriefDeviceRequest         `json:"device"`
 	Module NullableBriefModuleRequest `json:"module,omitempty"`
-	Name string `json:"name"`
+	Name   string                     `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *PatchedWritablePowerPortRequestType `json:"type,omitempty"`
+	Label *string                              `json:"label,omitempty"`
+	Type  *PatchedWritablePowerPortRequestType `json:"type,omitempty"`
 	// Maximum power draw (watts)
 	MaximumDraw NullableInt32 `json:"maximum_draw,omitempty"`
 	// Allocated power draw (watts)
 	AllocatedDraw NullableInt32 `json:"allocated_draw,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Description   *string       `json:"description,omitempty"`
 	// Treat as if a cable is connected
-	MarkConnected *bool `json:"mark_connected,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MarkConnected        *bool                  `json:"mark_connected,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,7 +83,6 @@ func (o *WritablePowerPortRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
-
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritablePowerPortRequest) GetModule() BriefModuleRequest {
 	if o == nil || IsNil(o.Module.Get()) {
@@ -116,6 +115,7 @@ func (o *WritablePowerPortRequest) HasModule() bool {
 func (o *WritablePowerPortRequest) SetModule(v BriefModuleRequest) {
 	o.Module.Set(&v)
 }
+
 // SetModuleNil sets the value for Module to be an explicit nil
 func (o *WritablePowerPortRequest) SetModuleNil() {
 	o.Module.Set(nil)
@@ -149,7 +149,6 @@ func (o *WritablePowerPortRequest) GetNameOk() (*string, bool) {
 func (o *WritablePowerPortRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *WritablePowerPortRequest) GetLabel() string {
@@ -247,6 +246,7 @@ func (o *WritablePowerPortRequest) HasMaximumDraw() bool {
 func (o *WritablePowerPortRequest) SetMaximumDraw(v int32) {
 	o.MaximumDraw.Set(&v)
 }
+
 // SetMaximumDrawNil sets the value for MaximumDraw to be an explicit nil
 func (o *WritablePowerPortRequest) SetMaximumDrawNil() {
 	o.MaximumDraw.Set(nil)
@@ -289,6 +289,7 @@ func (o *WritablePowerPortRequest) HasAllocatedDraw() bool {
 func (o *WritablePowerPortRequest) SetAllocatedDraw(v int32) {
 	o.AllocatedDraw.Set(&v)
 }
+
 // SetAllocatedDrawNil sets the value for AllocatedDraw to be an explicit nil
 func (o *WritablePowerPortRequest) SetAllocatedDrawNil() {
 	o.AllocatedDraw.Set(nil)
@@ -428,7 +429,7 @@ func (o *WritablePowerPortRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o WritablePowerPortRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -485,32 +486,31 @@ func (o *WritablePowerPortRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -579,5 +579,3 @@ func (v *NullableWritablePowerPortRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

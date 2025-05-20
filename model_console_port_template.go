@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the ConsolePortTemplate type satisfies the MappedNullable interface at compile time
@@ -21,19 +21,19 @@ var _ MappedNullable = &ConsolePortTemplate{}
 
 // ConsolePortTemplate Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type ConsolePortTemplate struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
+	Id         int32                   `json:"id"`
+	Url        string                  `json:"url"`
+	Display    string                  `json:"display"`
 	DeviceType NullableBriefDeviceType `json:"device_type,omitempty"`
 	ModuleType NullableBriefModuleType `json:"module_type,omitempty"`
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
 	Name string `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *ConsolePortType `json:"type,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Label                *string          `json:"label,omitempty"`
+	Type                 *ConsolePortType `json:"type,omitempty"`
+	Description          *string          `json:"description,omitempty"`
+	Created              NullableTime     `json:"created"`
+	LastUpdated          NullableTime     `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,7 +86,6 @@ func (o *ConsolePortTemplate) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ConsolePortTemplate) GetUrl() string {
 	if o == nil {
@@ -111,7 +110,6 @@ func (o *ConsolePortTemplate) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *ConsolePortTemplate) GetDisplay() string {
 	if o == nil {
@@ -135,7 +133,6 @@ func (o *ConsolePortTemplate) GetDisplayOk() (*string, bool) {
 func (o *ConsolePortTemplate) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetDeviceType returns the DeviceType field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsolePortTemplate) GetDeviceType() BriefDeviceType {
@@ -169,6 +166,7 @@ func (o *ConsolePortTemplate) HasDeviceType() bool {
 func (o *ConsolePortTemplate) SetDeviceType(v BriefDeviceType) {
 	o.DeviceType.Set(&v)
 }
+
 // SetDeviceTypeNil sets the value for DeviceType to be an explicit nil
 func (o *ConsolePortTemplate) SetDeviceTypeNil() {
 	o.DeviceType.Set(nil)
@@ -211,6 +209,7 @@ func (o *ConsolePortTemplate) HasModuleType() bool {
 func (o *ConsolePortTemplate) SetModuleType(v BriefModuleType) {
 	o.ModuleType.Set(&v)
 }
+
 // SetModuleTypeNil sets the value for ModuleType to be an explicit nil
 func (o *ConsolePortTemplate) SetModuleTypeNil() {
 	o.ModuleType.Set(nil)
@@ -244,7 +243,6 @@ func (o *ConsolePortTemplate) GetNameOk() (*string, bool) {
 func (o *ConsolePortTemplate) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ConsolePortTemplate) GetLabel() string {
@@ -368,7 +366,6 @@ func (o *ConsolePortTemplate) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ConsolePortTemplate) GetLastUpdated() time.Time {
@@ -395,9 +392,8 @@ func (o *ConsolePortTemplate) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o ConsolePortTemplate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -450,32 +446,31 @@ func (o *ConsolePortTemplate) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -544,5 +539,3 @@ func (v *NullableConsolePortTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

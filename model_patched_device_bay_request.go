@@ -20,13 +20,13 @@ var _ MappedNullable = &PatchedDeviceBayRequest{}
 // PatchedDeviceBayRequest Adds support for custom fields and tags.
 type PatchedDeviceBayRequest struct {
 	Device *BriefDeviceRequest `json:"device,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name   *string             `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Description *string `json:"description,omitempty"`
-	InstalledDevice NullableBriefDeviceRequest `json:"installed_device,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Label                *string                    `json:"label,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	InstalledDevice      NullableBriefDeviceRequest `json:"installed_device,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -209,6 +209,7 @@ func (o *PatchedDeviceBayRequest) HasInstalledDevice() bool {
 func (o *PatchedDeviceBayRequest) SetInstalledDevice(v BriefDeviceRequest) {
 	o.InstalledDevice.Set(&v)
 }
+
 // SetInstalledDeviceNil sets the value for InstalledDevice to be an explicit nil
 func (o *PatchedDeviceBayRequest) SetInstalledDeviceNil() {
 	o.InstalledDevice.Set(nil)
@@ -284,7 +285,7 @@ func (o *PatchedDeviceBayRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedDeviceBayRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -384,5 +385,3 @@ func (v *NullablePatchedDeviceBayRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

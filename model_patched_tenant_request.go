@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedTenantRequest{}
 
 // PatchedTenantRequest Adds support for custom fields and tags.
 type PatchedTenantRequest struct {
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Group NullableBriefTenantGroupRequest `json:"group,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                         `json:"name,omitempty"`
+	Slug                 *string                         `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Group                NullableBriefTenantGroupRequest `json:"group,omitempty"`
+	Description          *string                         `json:"description,omitempty"`
+	Comments             *string                         `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest              `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}          `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,6 +144,7 @@ func (o *PatchedTenantRequest) HasGroup() bool {
 func (o *PatchedTenantRequest) SetGroup(v BriefTenantGroupRequest) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *PatchedTenantRequest) SetGroupNil() {
 	o.Group.Set(nil)
@@ -283,7 +284,7 @@ func (o *PatchedTenantRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedTenantRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -383,5 +384,3 @@ func (v *NullablePatchedTenantRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

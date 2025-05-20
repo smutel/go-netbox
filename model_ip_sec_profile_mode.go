@@ -19,8 +19,8 @@ var _ MappedNullable = &IPSecProfileMode{}
 
 // IPSecProfileMode struct for IPSecProfileMode
 type IPSecProfileMode struct {
-	Value *IPSecProfileModeValue `json:"value,omitempty"`
-	Label *IPSecProfileModeLabel `json:"label,omitempty"`
+	Value                *IPSecProfileModeValue `json:"value,omitempty"`
+	Label                *IPSecProfileModeLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *IPSecProfileMode) SetLabel(v IPSecProfileModeLabel) {
 }
 
 func (o IPSecProfileMode) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableIPSecProfileMode) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,16 +21,16 @@ var _ MappedNullable = &PatchedVRFRequest{}
 type PatchedVRFRequest struct {
 	Name *string `json:"name,omitempty"`
 	// Unique route distinguisher (as defined in RFC 4364)
-	Rd NullableString `json:"rd,omitempty"`
+	Rd     NullableString             `json:"rd,omitempty"`
 	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
 	// Prevent duplicate prefixes/IP addresses within this VRF
-	EnforceUnique *bool `json:"enforce_unique,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	ImportTargets []int32 `json:"import_targets,omitempty"`
-	ExportTargets []int32 `json:"export_targets,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	EnforceUnique        *bool                  `json:"enforce_unique,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	ImportTargets        []int32                `json:"import_targets,omitempty"`
+	ExportTargets        []int32                `json:"export_targets,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -117,6 +117,7 @@ func (o *PatchedVRFRequest) HasRd() bool {
 func (o *PatchedVRFRequest) SetRd(v string) {
 	o.Rd.Set(&v)
 }
+
 // SetRdNil sets the value for Rd to be an explicit nil
 func (o *PatchedVRFRequest) SetRdNil() {
 	o.Rd.Set(nil)
@@ -159,6 +160,7 @@ func (o *PatchedVRFRequest) HasTenant() bool {
 func (o *PatchedVRFRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedVRFRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -394,7 +396,7 @@ func (o *PatchedVRFRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedVRFRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -506,5 +508,3 @@ func (v *NullablePatchedVRFRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

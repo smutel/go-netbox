@@ -24,7 +24,7 @@ const (
 	DCIMCABLESLISTLENGTHUNITPARAMETER_FT DcimCablesListLengthUnitParameter = "ft"
 	DCIMCABLESLISTLENGTHUNITPARAMETER_IN DcimCablesListLengthUnitParameter = "in"
 	DCIMCABLESLISTLENGTHUNITPARAMETER_KM DcimCablesListLengthUnitParameter = "km"
-	DCIMCABLESLISTLENGTHUNITPARAMETER_M DcimCablesListLengthUnitParameter = "m"
+	DCIMCABLESLISTLENGTHUNITPARAMETER_M  DcimCablesListLengthUnitParameter = "m"
 	DCIMCABLESLISTLENGTHUNITPARAMETER_MI DcimCablesListLengthUnitParameter = "mi"
 )
 
@@ -116,4 +116,3 @@ func (v *NullableDcimCablesListLengthUnitParameter) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

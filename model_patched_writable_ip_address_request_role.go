@@ -20,15 +20,15 @@ type PatchedWritableIPAddressRequestRole string
 
 // List of PatchedWritableIPAddressRequest_role
 const (
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_LOOPBACK PatchedWritableIPAddressRequestRole = "loopback"
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_LOOPBACK  PatchedWritableIPAddressRequestRole = "loopback"
 	PATCHEDWRITABLEIPADDRESSREQUESTROLE_SECONDARY PatchedWritableIPAddressRequestRole = "secondary"
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_ANYCAST PatchedWritableIPAddressRequestRole = "anycast"
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_VIP PatchedWritableIPAddressRequestRole = "vip"
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_VRRP PatchedWritableIPAddressRequestRole = "vrrp"
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_HSRP PatchedWritableIPAddressRequestRole = "hsrp"
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_GLBP PatchedWritableIPAddressRequestRole = "glbp"
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_CARP PatchedWritableIPAddressRequestRole = "carp"
-	PATCHEDWRITABLEIPADDRESSREQUESTROLE_EMPTY PatchedWritableIPAddressRequestRole = ""
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_ANYCAST   PatchedWritableIPAddressRequestRole = "anycast"
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_VIP       PatchedWritableIPAddressRequestRole = "vip"
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_VRRP      PatchedWritableIPAddressRequestRole = "vrrp"
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_HSRP      PatchedWritableIPAddressRequestRole = "hsrp"
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_GLBP      PatchedWritableIPAddressRequestRole = "glbp"
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_CARP      PatchedWritableIPAddressRequestRole = "carp"
+	PATCHEDWRITABLEIPADDRESSREQUESTROLE_EMPTY     PatchedWritableIPAddressRequestRole = ""
 )
 
 // All allowed values of PatchedWritableIPAddressRequestRole enum
@@ -122,4 +122,3 @@ func (v *NullablePatchedWritableIPAddressRequestRole) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

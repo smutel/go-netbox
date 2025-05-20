@@ -20,13 +20,13 @@ var _ MappedNullable = &PatchedASNRequest{}
 // PatchedASNRequest Adds support for custom fields and tags.
 type PatchedASNRequest struct {
 	// 16- or 32-bit autonomous system number
-	Asn *int64 `json:"asn,omitempty"`
-	Rir NullableBriefRIRRequest `json:"rir,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Asn                  *int64                     `json:"asn,omitempty"`
+	Rir                  NullableBriefRIRRequest    `json:"rir,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -113,6 +113,7 @@ func (o *PatchedASNRequest) HasRir() bool {
 func (o *PatchedASNRequest) SetRir(v BriefRIRRequest) {
 	o.Rir.Set(&v)
 }
+
 // SetRirNil sets the value for Rir to be an explicit nil
 func (o *PatchedASNRequest) SetRirNil() {
 	o.Rir.Set(nil)
@@ -155,6 +156,7 @@ func (o *PatchedASNRequest) HasTenant() bool {
 func (o *PatchedASNRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedASNRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -294,7 +296,7 @@ func (o *PatchedASNRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedASNRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -394,5 +396,3 @@ func (v *NullablePatchedASNRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

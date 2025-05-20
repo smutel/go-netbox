@@ -20,13 +20,13 @@ var _ MappedNullable = &VirtualChassisRequest{}
 
 // VirtualChassisRequest Adds support for custom fields and tags.
 type VirtualChassisRequest struct {
-	Name string `json:"name"`
-	Domain *string `json:"domain,omitempty"`
-	Master NullableNestedDeviceRequest `json:"master,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 string                      `json:"name"`
+	Domain               *string                     `json:"domain,omitempty"`
+	Master               NullableNestedDeviceRequest `json:"master,omitempty"`
+	Description          *string                     `json:"description,omitempty"`
+	Comments             *string                     `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest          `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}      `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -73,7 +73,6 @@ func (o *VirtualChassisRequest) GetNameOk() (*string, bool) {
 func (o *VirtualChassisRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDomain returns the Domain field value if set, zero value otherwise.
 func (o *VirtualChassisRequest) GetDomain() string {
@@ -139,6 +138,7 @@ func (o *VirtualChassisRequest) HasMaster() bool {
 func (o *VirtualChassisRequest) SetMaster(v NestedDeviceRequest) {
 	o.Master.Set(&v)
 }
+
 // SetMasterNil sets the value for Master to be an explicit nil
 func (o *VirtualChassisRequest) SetMasterNil() {
 	o.Master.Set(nil)
@@ -278,7 +278,7 @@ func (o *VirtualChassisRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o VirtualChassisRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -324,32 +324,31 @@ func (o *VirtualChassisRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -414,5 +413,3 @@ func (v *NullableVirtualChassisRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,8 +20,8 @@ type CustomFieldChoiceSetBaseChoicesLabel string
 
 // List of CustomFieldChoiceSet_base_choices_label
 const (
-	CUSTOMFIELDCHOICESETBASECHOICESLABEL_IATA__AIRPORT_CODES CustomFieldChoiceSetBaseChoicesLabel = "IATA (Airport codes)"
-	CUSTOMFIELDCHOICESETBASECHOICESLABEL_ISO_3166__COUNTRY_CODES CustomFieldChoiceSetBaseChoicesLabel = "ISO 3166 (Country codes)"
+	CUSTOMFIELDCHOICESETBASECHOICESLABEL_IATA__AIRPORT_CODES       CustomFieldChoiceSetBaseChoicesLabel = "IATA (Airport codes)"
+	CUSTOMFIELDCHOICESETBASECHOICESLABEL_ISO_3166__COUNTRY_CODES   CustomFieldChoiceSetBaseChoicesLabel = "ISO 3166 (Country codes)"
 	CUSTOMFIELDCHOICESETBASECHOICESLABEL_UN_LOCODE__LOCATION_CODES CustomFieldChoiceSetBaseChoicesLabel = "UN/LOCODE (Location codes)"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableCustomFieldChoiceSetBaseChoicesLabel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

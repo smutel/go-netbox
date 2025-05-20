@@ -20,7 +20,7 @@ type DcimDeviceTypesListWeightUnitParameter string
 
 // List of dcim_device_types_list_weight_unit_parameter
 const (
-	DCIMDEVICETYPESLISTWEIGHTUNITPARAMETER_G DcimDeviceTypesListWeightUnitParameter = "g"
+	DCIMDEVICETYPESLISTWEIGHTUNITPARAMETER_G  DcimDeviceTypesListWeightUnitParameter = "g"
 	DCIMDEVICETYPESLISTWEIGHTUNITPARAMETER_KG DcimDeviceTypesListWeightUnitParameter = "kg"
 	DCIMDEVICETYPESLISTWEIGHTUNITPARAMETER_LB DcimDeviceTypesListWeightUnitParameter = "lb"
 	DCIMDEVICETYPESLISTWEIGHTUNITPARAMETER_OZ DcimDeviceTypesListWeightUnitParameter = "oz"
@@ -112,4 +112,3 @@ func (v *NullableDcimDeviceTypesListWeightUnitParameter) UnmarshalJSON(src []byt
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

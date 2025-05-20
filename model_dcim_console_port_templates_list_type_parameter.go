@@ -20,9 +20,9 @@ type DcimConsolePortTemplatesListTypeParameter string
 
 // List of dcim_console_port_templates_list_type_parameter
 const (
-	DCIMCONSOLEPORTTEMPLATESLISTTYPEPARAMETER_OTHER DcimConsolePortTemplatesListTypeParameter = "Other"
+	DCIMCONSOLEPORTTEMPLATESLISTTYPEPARAMETER_OTHER  DcimConsolePortTemplatesListTypeParameter = "Other"
 	DCIMCONSOLEPORTTEMPLATESLISTTYPEPARAMETER_SERIAL DcimConsolePortTemplatesListTypeParameter = "Serial"
-	DCIMCONSOLEPORTTEMPLATESLISTTYPEPARAMETER_USB DcimConsolePortTemplatesListTypeParameter = "USB"
+	DCIMCONSOLEPORTTEMPLATESLISTTYPEPARAMETER_USB    DcimConsolePortTemplatesListTypeParameter = "USB"
 )
 
 // All allowed values of DcimConsolePortTemplatesListTypeParameter enum
@@ -110,4 +110,3 @@ func (v *NullableDcimConsolePortTemplatesListTypeParameter) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

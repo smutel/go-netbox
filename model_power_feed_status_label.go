@@ -21,9 +21,9 @@ type PowerFeedStatusLabel string
 // List of PowerFeed_status_label
 const (
 	POWERFEEDSTATUSLABEL_OFFLINE PowerFeedStatusLabel = "Offline"
-	POWERFEEDSTATUSLABEL_ACTIVE PowerFeedStatusLabel = "Active"
+	POWERFEEDSTATUSLABEL_ACTIVE  PowerFeedStatusLabel = "Active"
 	POWERFEEDSTATUSLABEL_PLANNED PowerFeedStatusLabel = "Planned"
-	POWERFEEDSTATUSLABEL_FAILED PowerFeedStatusLabel = "Failed"
+	POWERFEEDSTATUSLABEL_FAILED  PowerFeedStatusLabel = "Failed"
 )
 
 // All allowed values of PowerFeedStatusLabel enum
@@ -112,4 +112,3 @@ func (v *NullablePowerFeedStatusLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

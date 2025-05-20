@@ -21,7 +21,7 @@ type DcimRacksElevationRetrieveFaceParameter string
 // List of dcim_racks_elevation_retrieve_face_parameter
 const (
 	DCIMRACKSELEVATIONRETRIEVEFACEPARAMETER_FRONT DcimRacksElevationRetrieveFaceParameter = "front"
-	DCIMRACKSELEVATIONRETRIEVEFACEPARAMETER_REAR DcimRacksElevationRetrieveFaceParameter = "rear"
+	DCIMRACKSELEVATIONRETRIEVEFACEPARAMETER_REAR  DcimRacksElevationRetrieveFaceParameter = "rear"
 )
 
 // All allowed values of DcimRacksElevationRetrieveFaceParameter enum
@@ -108,4 +108,3 @@ func (v *NullableDcimRacksElevationRetrieveFaceParameter) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

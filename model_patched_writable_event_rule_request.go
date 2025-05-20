@@ -20,7 +20,7 @@ var _ MappedNullable = &PatchedWritableEventRuleRequest{}
 // PatchedWritableEventRuleRequest Adds support for custom fields and tags.
 type PatchedWritableEventRuleRequest struct {
 	ObjectTypes []string `json:"object_types,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name        *string  `json:"name,omitempty"`
 	// Triggers when a matching object is created.
 	TypeCreate *bool `json:"type_create,omitempty"`
 	// Triggers when a matching object is updated.
@@ -31,15 +31,15 @@ type PatchedWritableEventRuleRequest struct {
 	TypeJobStart *bool `json:"type_job_start,omitempty"`
 	// Triggers when a job for a matching object terminates.
 	TypeJobEnd *bool `json:"type_job_end,omitempty"`
-	Enabled *bool `json:"enabled,omitempty"`
+	Enabled    *bool `json:"enabled,omitempty"`
 	// A set of conditions which determine whether the event will be generated.
-	Conditions interface{} `json:"conditions,omitempty"`
-	ActionType *EventRuleActionTypeValue `json:"action_type,omitempty"`
-	ActionObjectType *string `json:"action_object_type,omitempty"`
-	ActionObjectId NullableInt64 `json:"action_object_id,omitempty"`
-	Description *string `json:"description,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
+	Conditions           interface{}               `json:"conditions,omitempty"`
+	ActionType           *EventRuleActionTypeValue `json:"action_type,omitempty"`
+	ActionObjectType     *string                   `json:"action_object_type,omitempty"`
+	ActionObjectId       NullableInt64             `json:"action_object_id,omitempty"`
+	Description          *string                   `json:"description,omitempty"`
+	CustomFields         map[string]interface{}    `json:"custom_fields,omitempty"`
+	Tags                 []NestedTagRequest        `json:"tags,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -447,6 +447,7 @@ func (o *PatchedWritableEventRuleRequest) HasActionObjectId() bool {
 func (o *PatchedWritableEventRuleRequest) SetActionObjectId(v int64) {
 	o.ActionObjectId.Set(&v)
 }
+
 // SetActionObjectIdNil sets the value for ActionObjectId to be an explicit nil
 func (o *PatchedWritableEventRuleRequest) SetActionObjectIdNil() {
 	o.ActionObjectId.Set(nil)
@@ -554,7 +555,7 @@ func (o *PatchedWritableEventRuleRequest) SetTags(v []NestedTagRequest) {
 }
 
 func (o PatchedWritableEventRuleRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -686,5 +687,3 @@ func (v *NullablePatchedWritableEventRuleRequest) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,17 +19,17 @@ var _ MappedNullable = &PatchedWritableLocationRequest{}
 
 // PatchedWritableLocationRequest Extends PrimaryModelSerializer to include MPTT support.
 type PatchedWritableLocationRequest struct {
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Site *BriefSiteRequest `json:"site,omitempty"`
-	Parent NullableInt32 `json:"parent,omitempty"`
-	Status *LocationStatusValue `json:"status,omitempty"`
+	Name   *string                    `json:"name,omitempty"`
+	Slug   *string                    `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Site   *BriefSiteRequest          `json:"site,omitempty"`
+	Parent NullableInt32              `json:"parent,omitempty"`
+	Status *LocationStatusValue       `json:"status,omitempty"`
 	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
 	// Local facility ID or description
-	Facility *string `json:"facility,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Facility             *string                `json:"facility,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -180,6 +180,7 @@ func (o *PatchedWritableLocationRequest) HasParent() bool {
 func (o *PatchedWritableLocationRequest) SetParent(v int32) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *PatchedWritableLocationRequest) SetParentNil() {
 	o.Parent.Set(nil)
@@ -254,6 +255,7 @@ func (o *PatchedWritableLocationRequest) HasTenant() bool {
 func (o *PatchedWritableLocationRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedWritableLocationRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -393,7 +395,7 @@ func (o *PatchedWritableLocationRequest) SetCustomFields(v map[string]interface{
 }
 
 func (o PatchedWritableLocationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -505,5 +507,3 @@ func (v *NullablePatchedWritableLocationRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,8 +19,8 @@ var _ MappedNullable = &ConsolePortType{}
 
 // ConsolePortType struct for ConsolePortType
 type ConsolePortType struct {
-	Value *ConsolePortTypeValue `json:"value,omitempty"`
-	Label *ConsolePortTypeLabel `json:"label,omitempty"`
+	Value                *ConsolePortTypeValue `json:"value,omitempty"`
+	Label                *ConsolePortTypeLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *ConsolePortType) SetLabel(v ConsolePortTypeLabel) {
 }
 
 func (o ConsolePortType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableConsolePortType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

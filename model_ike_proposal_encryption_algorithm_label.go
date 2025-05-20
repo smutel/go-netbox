@@ -26,8 +26,8 @@ const (
 	IKEPROPOSALENCRYPTIONALGORITHMLABEL__192_BIT_AES__GCM IKEProposalEncryptionAlgorithmLabel = "192-bit AES (GCM)"
 	IKEPROPOSALENCRYPTIONALGORITHMLABEL__256_BIT_AES__CBC IKEProposalEncryptionAlgorithmLabel = "256-bit AES (CBC)"
 	IKEPROPOSALENCRYPTIONALGORITHMLABEL__256_BIT_AES__GCM IKEProposalEncryptionAlgorithmLabel = "256-bit AES (GCM)"
-	IKEPROPOSALENCRYPTIONALGORITHMLABEL__3_DES IKEProposalEncryptionAlgorithmLabel = "3DES"
-	IKEPROPOSALENCRYPTIONALGORITHMLABEL_DES IKEProposalEncryptionAlgorithmLabel = "DES"
+	IKEPROPOSALENCRYPTIONALGORITHMLABEL__3_DES            IKEProposalEncryptionAlgorithmLabel = "3DES"
+	IKEPROPOSALENCRYPTIONALGORITHMLABEL_DES               IKEProposalEncryptionAlgorithmLabel = "DES"
 )
 
 // All allowed values of IKEProposalEncryptionAlgorithmLabel enum
@@ -120,4 +120,3 @@ func (v *NullableIKEProposalEncryptionAlgorithmLabel) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

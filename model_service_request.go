@@ -20,16 +20,16 @@ var _ MappedNullable = &ServiceRequest{}
 
 // ServiceRequest Adds support for custom fields and tags.
 type ServiceRequest struct {
-	Device NullableBriefDeviceRequest `json:"device,omitempty"`
-	VirtualMachine NullableBriefVirtualMachineRequest `json:"virtual_machine,omitempty"`
-	Name string `json:"name"`
-	Protocol *PatchedWritableServiceRequestProtocol `json:"protocol,omitempty"`
-	Ports []int32 `json:"ports"`
-	Ipaddresses []int32 `json:"ipaddresses,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Device               NullableBriefDeviceRequest             `json:"device,omitempty"`
+	VirtualMachine       NullableBriefVirtualMachineRequest     `json:"virtual_machine,omitempty"`
+	Name                 string                                 `json:"name"`
+	Protocol             *PatchedWritableServiceRequestProtocol `json:"protocol,omitempty"`
+	Ports                []int32                                `json:"ports"`
+	Ipaddresses          []int32                                `json:"ipaddresses,omitempty"`
+	Description          *string                                `json:"description,omitempty"`
+	Comments             *string                                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest                     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                 `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -86,6 +86,7 @@ func (o *ServiceRequest) HasDevice() bool {
 func (o *ServiceRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device.Set(&v)
 }
+
 // SetDeviceNil sets the value for Device to be an explicit nil
 func (o *ServiceRequest) SetDeviceNil() {
 	o.Device.Set(nil)
@@ -128,6 +129,7 @@ func (o *ServiceRequest) HasVirtualMachine() bool {
 func (o *ServiceRequest) SetVirtualMachine(v BriefVirtualMachineRequest) {
 	o.VirtualMachine.Set(&v)
 }
+
 // SetVirtualMachineNil sets the value for VirtualMachine to be an explicit nil
 func (o *ServiceRequest) SetVirtualMachineNil() {
 	o.VirtualMachine.Set(nil)
@@ -161,7 +163,6 @@ func (o *ServiceRequest) GetNameOk() (*string, bool) {
 func (o *ServiceRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetProtocol returns the Protocol field value if set, zero value otherwise.
 func (o *ServiceRequest) GetProtocol() PatchedWritableServiceRequestProtocol {
@@ -218,7 +219,6 @@ func (o *ServiceRequest) GetPortsOk() ([]int32, bool) {
 func (o *ServiceRequest) SetPorts(v []int32) {
 	o.Ports = v
 }
-
 
 // GetIpaddresses returns the Ipaddresses field value if set, zero value otherwise.
 func (o *ServiceRequest) GetIpaddresses() []int32 {
@@ -381,7 +381,7 @@ func (o *ServiceRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o ServiceRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -435,32 +435,31 @@ func (o *ServiceRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -528,5 +527,3 @@ func (v *NullableServiceRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

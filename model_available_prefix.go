@@ -20,9 +20,9 @@ var _ MappedNullable = &AvailablePrefix{}
 
 // AvailablePrefix Representation of a prefix which does not exist in the database.
 type AvailablePrefix struct {
-	Family int32 `json:"family"`
-	Prefix string `json:"prefix"`
-	Vrf NullableBriefVRF `json:"vrf"`
+	Family               int32            `json:"family"`
+	Prefix               string           `json:"prefix"`
+	Vrf                  NullableBriefVRF `json:"vrf"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -72,7 +72,6 @@ func (o *AvailablePrefix) SetFamily(v int32) {
 	o.Family = v
 }
 
-
 // GetPrefix returns the Prefix field value
 func (o *AvailablePrefix) GetPrefix() string {
 	if o == nil {
@@ -96,7 +95,6 @@ func (o *AvailablePrefix) GetPrefixOk() (*string, bool) {
 func (o *AvailablePrefix) SetPrefix(v string) {
 	o.Prefix = v
 }
-
 
 // GetVrf returns the Vrf field value
 // If the value is explicit nil, the zero value for BriefVRF will be returned
@@ -124,9 +122,8 @@ func (o *AvailablePrefix) SetVrf(v BriefVRF) {
 	o.Vrf.Set(&v)
 }
 
-
 func (o AvailablePrefix) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -158,32 +155,31 @@ func (o *AvailablePrefix) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -244,5 +240,3 @@ func (v *NullableAvailablePrefix) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

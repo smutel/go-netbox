@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the DeviceType type satisfies the MappedNullable interface at compile time
@@ -21,44 +21,44 @@ var _ MappedNullable = &DeviceType{}
 
 // DeviceType Adds support for custom fields and tags.
 type DeviceType struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Manufacturer BriefManufacturer `json:"manufacturer"`
+	Id              int32                 `json:"id"`
+	Url             string                `json:"url"`
+	Display         string                `json:"display"`
+	Manufacturer    BriefManufacturer     `json:"manufacturer"`
 	DefaultPlatform NullableBriefPlatform `json:"default_platform,omitempty"`
-	Model string `json:"model"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Model           string                `json:"model"`
+	Slug            string                `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	// Discrete part number (optional)
-	PartNumber *string `json:"part_number,omitempty"`
-	UHeight *float64 `json:"u_height,omitempty"`
+	PartNumber *string  `json:"part_number,omitempty"`
+	UHeight    *float64 `json:"u_height,omitempty"`
 	// Devices of this type are excluded when calculating rack utilization.
 	ExcludeFromUtilization *bool `json:"exclude_from_utilization,omitempty"`
 	// Device consumes both front and rear rack faces.
-	IsFullDepth *bool `json:"is_full_depth,omitempty"`
-	SubdeviceRole NullableDeviceTypeSubdeviceRole `json:"subdevice_role,omitempty"`
-	Airflow NullableDeviceTypeAirflow `json:"airflow,omitempty"`
-	Weight NullableFloat64 `json:"weight,omitempty"`
-	WeightUnit NullableDeviceTypeWeightUnit `json:"weight_unit,omitempty"`
-	FrontImage NullableString `json:"front_image,omitempty"`
-	RearImage NullableString `json:"rear_image,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	DeviceCount int64 `json:"device_count"`
-	ConsolePortTemplateCount int32 `json:"console_port_template_count"`
-	ConsoleServerPortTemplateCount int32 `json:"console_server_port_template_count"`
-	PowerPortTemplateCount int32 `json:"power_port_template_count"`
-	PowerOutletTemplateCount int32 `json:"power_outlet_template_count"`
-	InterfaceTemplateCount int32 `json:"interface_template_count"`
-	FrontPortTemplateCount int32 `json:"front_port_template_count"`
-	RearPortTemplateCount int32 `json:"rear_port_template_count"`
-	DeviceBayTemplateCount int32 `json:"device_bay_template_count"`
-	ModuleBayTemplateCount int32 `json:"module_bay_template_count"`
-	InventoryItemTemplateCount int32 `json:"inventory_item_template_count"`
-	AdditionalProperties map[string]interface{}
+	IsFullDepth                    *bool                           `json:"is_full_depth,omitempty"`
+	SubdeviceRole                  NullableDeviceTypeSubdeviceRole `json:"subdevice_role,omitempty"`
+	Airflow                        NullableDeviceTypeAirflow       `json:"airflow,omitempty"`
+	Weight                         NullableFloat64                 `json:"weight,omitempty"`
+	WeightUnit                     NullableDeviceTypeWeightUnit    `json:"weight_unit,omitempty"`
+	FrontImage                     NullableString                  `json:"front_image,omitempty"`
+	RearImage                      NullableString                  `json:"rear_image,omitempty"`
+	Description                    *string                         `json:"description,omitempty"`
+	Comments                       *string                         `json:"comments,omitempty"`
+	Tags                           []NestedTag                     `json:"tags,omitempty"`
+	CustomFields                   map[string]interface{}          `json:"custom_fields,omitempty"`
+	Created                        NullableTime                    `json:"created"`
+	LastUpdated                    NullableTime                    `json:"last_updated"`
+	DeviceCount                    int64                           `json:"device_count"`
+	ConsolePortTemplateCount       int32                           `json:"console_port_template_count"`
+	ConsoleServerPortTemplateCount int32                           `json:"console_server_port_template_count"`
+	PowerPortTemplateCount         int32                           `json:"power_port_template_count"`
+	PowerOutletTemplateCount       int32                           `json:"power_outlet_template_count"`
+	InterfaceTemplateCount         int32                           `json:"interface_template_count"`
+	FrontPortTemplateCount         int32                           `json:"front_port_template_count"`
+	RearPortTemplateCount          int32                           `json:"rear_port_template_count"`
+	DeviceBayTemplateCount         int32                           `json:"device_bay_template_count"`
+	ModuleBayTemplateCount         int32                           `json:"module_bay_template_count"`
+	InventoryItemTemplateCount     int32                           `json:"inventory_item_template_count"`
+	AdditionalProperties           map[string]interface{}
 }
 
 type _DeviceType DeviceType
@@ -127,7 +127,6 @@ func (o *DeviceType) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *DeviceType) GetUrl() string {
 	if o == nil {
@@ -151,7 +150,6 @@ func (o *DeviceType) GetUrlOk() (*string, bool) {
 func (o *DeviceType) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *DeviceType) GetDisplay() string {
@@ -177,7 +175,6 @@ func (o *DeviceType) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetManufacturer returns the Manufacturer field value
 func (o *DeviceType) GetManufacturer() BriefManufacturer {
 	if o == nil {
@@ -201,7 +198,6 @@ func (o *DeviceType) GetManufacturerOk() (*BriefManufacturer, bool) {
 func (o *DeviceType) SetManufacturer(v BriefManufacturer) {
 	o.Manufacturer = v
 }
-
 
 // GetDefaultPlatform returns the DefaultPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceType) GetDefaultPlatform() BriefPlatform {
@@ -235,6 +231,7 @@ func (o *DeviceType) HasDefaultPlatform() bool {
 func (o *DeviceType) SetDefaultPlatform(v BriefPlatform) {
 	o.DefaultPlatform.Set(&v)
 }
+
 // SetDefaultPlatformNil sets the value for DefaultPlatform to be an explicit nil
 func (o *DeviceType) SetDefaultPlatformNil() {
 	o.DefaultPlatform.Set(nil)
@@ -269,7 +266,6 @@ func (o *DeviceType) SetModel(v string) {
 	o.Model = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *DeviceType) GetSlug() string {
 	if o == nil {
@@ -293,7 +289,6 @@ func (o *DeviceType) GetSlugOk() (*string, bool) {
 func (o *DeviceType) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetPartNumber returns the PartNumber field value if set, zero value otherwise.
 func (o *DeviceType) GetPartNumber() string {
@@ -455,6 +450,7 @@ func (o *DeviceType) HasSubdeviceRole() bool {
 func (o *DeviceType) SetSubdeviceRole(v DeviceTypeSubdeviceRole) {
 	o.SubdeviceRole.Set(&v)
 }
+
 // SetSubdeviceRoleNil sets the value for SubdeviceRole to be an explicit nil
 func (o *DeviceType) SetSubdeviceRoleNil() {
 	o.SubdeviceRole.Set(nil)
@@ -497,6 +493,7 @@ func (o *DeviceType) HasAirflow() bool {
 func (o *DeviceType) SetAirflow(v DeviceTypeAirflow) {
 	o.Airflow.Set(&v)
 }
+
 // SetAirflowNil sets the value for Airflow to be an explicit nil
 func (o *DeviceType) SetAirflowNil() {
 	o.Airflow.Set(nil)
@@ -539,6 +536,7 @@ func (o *DeviceType) HasWeight() bool {
 func (o *DeviceType) SetWeight(v float64) {
 	o.Weight.Set(&v)
 }
+
 // SetWeightNil sets the value for Weight to be an explicit nil
 func (o *DeviceType) SetWeightNil() {
 	o.Weight.Set(nil)
@@ -581,6 +579,7 @@ func (o *DeviceType) HasWeightUnit() bool {
 func (o *DeviceType) SetWeightUnit(v DeviceTypeWeightUnit) {
 	o.WeightUnit.Set(&v)
 }
+
 // SetWeightUnitNil sets the value for WeightUnit to be an explicit nil
 func (o *DeviceType) SetWeightUnitNil() {
 	o.WeightUnit.Set(nil)
@@ -623,6 +622,7 @@ func (o *DeviceType) HasFrontImage() bool {
 func (o *DeviceType) SetFrontImage(v string) {
 	o.FrontImage.Set(&v)
 }
+
 // SetFrontImageNil sets the value for FrontImage to be an explicit nil
 func (o *DeviceType) SetFrontImageNil() {
 	o.FrontImage.Set(nil)
@@ -665,6 +665,7 @@ func (o *DeviceType) HasRearImage() bool {
 func (o *DeviceType) SetRearImage(v string) {
 	o.RearImage.Set(&v)
 }
+
 // SetRearImageNil sets the value for RearImage to be an explicit nil
 func (o *DeviceType) SetRearImageNil() {
 	o.RearImage.Set(nil)
@@ -829,7 +830,6 @@ func (o *DeviceType) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DeviceType) GetLastUpdated() time.Time {
@@ -856,7 +856,6 @@ func (o *DeviceType) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetDeviceCount returns the DeviceCount field value
 func (o *DeviceType) GetDeviceCount() int64 {
 	if o == nil {
@@ -880,7 +879,6 @@ func (o *DeviceType) GetDeviceCountOk() (*int64, bool) {
 func (o *DeviceType) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
-
 
 // GetConsolePortTemplateCount returns the ConsolePortTemplateCount field value
 func (o *DeviceType) GetConsolePortTemplateCount() int32 {
@@ -906,7 +904,6 @@ func (o *DeviceType) SetConsolePortTemplateCount(v int32) {
 	o.ConsolePortTemplateCount = v
 }
 
-
 // GetConsoleServerPortTemplateCount returns the ConsoleServerPortTemplateCount field value
 func (o *DeviceType) GetConsoleServerPortTemplateCount() int32 {
 	if o == nil {
@@ -930,7 +927,6 @@ func (o *DeviceType) GetConsoleServerPortTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetConsoleServerPortTemplateCount(v int32) {
 	o.ConsoleServerPortTemplateCount = v
 }
-
 
 // GetPowerPortTemplateCount returns the PowerPortTemplateCount field value
 func (o *DeviceType) GetPowerPortTemplateCount() int32 {
@@ -956,7 +952,6 @@ func (o *DeviceType) SetPowerPortTemplateCount(v int32) {
 	o.PowerPortTemplateCount = v
 }
 
-
 // GetPowerOutletTemplateCount returns the PowerOutletTemplateCount field value
 func (o *DeviceType) GetPowerOutletTemplateCount() int32 {
 	if o == nil {
@@ -980,7 +975,6 @@ func (o *DeviceType) GetPowerOutletTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetPowerOutletTemplateCount(v int32) {
 	o.PowerOutletTemplateCount = v
 }
-
 
 // GetInterfaceTemplateCount returns the InterfaceTemplateCount field value
 func (o *DeviceType) GetInterfaceTemplateCount() int32 {
@@ -1006,7 +1000,6 @@ func (o *DeviceType) SetInterfaceTemplateCount(v int32) {
 	o.InterfaceTemplateCount = v
 }
 
-
 // GetFrontPortTemplateCount returns the FrontPortTemplateCount field value
 func (o *DeviceType) GetFrontPortTemplateCount() int32 {
 	if o == nil {
@@ -1030,7 +1023,6 @@ func (o *DeviceType) GetFrontPortTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetFrontPortTemplateCount(v int32) {
 	o.FrontPortTemplateCount = v
 }
-
 
 // GetRearPortTemplateCount returns the RearPortTemplateCount field value
 func (o *DeviceType) GetRearPortTemplateCount() int32 {
@@ -1056,7 +1048,6 @@ func (o *DeviceType) SetRearPortTemplateCount(v int32) {
 	o.RearPortTemplateCount = v
 }
 
-
 // GetDeviceBayTemplateCount returns the DeviceBayTemplateCount field value
 func (o *DeviceType) GetDeviceBayTemplateCount() int32 {
 	if o == nil {
@@ -1080,7 +1071,6 @@ func (o *DeviceType) GetDeviceBayTemplateCountOk() (*int32, bool) {
 func (o *DeviceType) SetDeviceBayTemplateCount(v int32) {
 	o.DeviceBayTemplateCount = v
 }
-
 
 // GetModuleBayTemplateCount returns the ModuleBayTemplateCount field value
 func (o *DeviceType) GetModuleBayTemplateCount() int32 {
@@ -1106,7 +1096,6 @@ func (o *DeviceType) SetModuleBayTemplateCount(v int32) {
 	o.ModuleBayTemplateCount = v
 }
 
-
 // GetInventoryItemTemplateCount returns the InventoryItemTemplateCount field value
 func (o *DeviceType) GetInventoryItemTemplateCount() int32 {
 	if o == nil {
@@ -1131,9 +1120,8 @@ func (o *DeviceType) SetInventoryItemTemplateCount(v int32) {
 	o.InventoryItemTemplateCount = v
 }
 
-
 func (o DeviceType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -1242,32 +1230,31 @@ func (o *DeviceType) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -1359,5 +1346,3 @@ func (v *NullableDeviceType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

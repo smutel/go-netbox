@@ -16,20 +16,20 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"reflect"
+	"strings"
+	"time"
 )
-
 
 type CircuitsAPI interface {
 
 	/*
-	CircuitsCircuitTerminationsBulkDestroy Method for CircuitsCircuitTerminationsBulkDestroy
+		CircuitsCircuitTerminationsBulkDestroy Method for CircuitsCircuitTerminationsBulkDestroy
 
-	Delete a list of circuit termination objects.
+		Delete a list of circuit termination objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTerminationsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTerminationsBulkDestroyRequest
 	*/
 	CircuitsCircuitTerminationsBulkDestroy(ctx context.Context) ApiCircuitsCircuitTerminationsBulkDestroyRequest
 
@@ -37,12 +37,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsBulkDestroyExecute(r ApiCircuitsCircuitTerminationsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsBulkPartialUpdate Method for CircuitsCircuitTerminationsBulkPartialUpdate
+		CircuitsCircuitTerminationsBulkPartialUpdate Method for CircuitsCircuitTerminationsBulkPartialUpdate
 
-	Patch a list of circuit termination objects.
+		Patch a list of circuit termination objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest
 	*/
 	CircuitsCircuitTerminationsBulkPartialUpdate(ctx context.Context) ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest
 
@@ -51,12 +51,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsBulkPartialUpdateExecute(r ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest) ([]CircuitTermination, *http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsBulkUpdate Method for CircuitsCircuitTerminationsBulkUpdate
+		CircuitsCircuitTerminationsBulkUpdate Method for CircuitsCircuitTerminationsBulkUpdate
 
-	Put a list of circuit termination objects.
+		Put a list of circuit termination objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTerminationsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTerminationsBulkUpdateRequest
 	*/
 	CircuitsCircuitTerminationsBulkUpdate(ctx context.Context) ApiCircuitsCircuitTerminationsBulkUpdateRequest
 
@@ -65,12 +65,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsBulkUpdateExecute(r ApiCircuitsCircuitTerminationsBulkUpdateRequest) ([]CircuitTermination, *http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsCreate Method for CircuitsCircuitTerminationsCreate
+		CircuitsCircuitTerminationsCreate Method for CircuitsCircuitTerminationsCreate
 
-	Post a list of circuit termination objects.
+		Post a list of circuit termination objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTerminationsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTerminationsCreateRequest
 	*/
 	CircuitsCircuitTerminationsCreate(ctx context.Context) ApiCircuitsCircuitTerminationsCreateRequest
 
@@ -79,13 +79,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsCreateExecute(r ApiCircuitsCircuitTerminationsCreateRequest) (*CircuitTermination, *http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsDestroy Method for CircuitsCircuitTerminationsDestroy
+		CircuitsCircuitTerminationsDestroy Method for CircuitsCircuitTerminationsDestroy
 
-	Delete a circuit termination object.
+		Delete a circuit termination object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit termination.
-	@return ApiCircuitsCircuitTerminationsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit termination.
+		@return ApiCircuitsCircuitTerminationsDestroyRequest
 	*/
 	CircuitsCircuitTerminationsDestroy(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsDestroyRequest
 
@@ -93,12 +93,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsDestroyExecute(r ApiCircuitsCircuitTerminationsDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsList Method for CircuitsCircuitTerminationsList
+		CircuitsCircuitTerminationsList Method for CircuitsCircuitTerminationsList
 
-	Get a list of circuit termination objects.
+		Get a list of circuit termination objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTerminationsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTerminationsListRequest
 	*/
 	CircuitsCircuitTerminationsList(ctx context.Context) ApiCircuitsCircuitTerminationsListRequest
 
@@ -107,13 +107,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsListExecute(r ApiCircuitsCircuitTerminationsListRequest) (*PaginatedCircuitTerminationList, *http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsPartialUpdate Method for CircuitsCircuitTerminationsPartialUpdate
+		CircuitsCircuitTerminationsPartialUpdate Method for CircuitsCircuitTerminationsPartialUpdate
 
-	Patch a circuit termination object.
+		Patch a circuit termination object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit termination.
-	@return ApiCircuitsCircuitTerminationsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit termination.
+		@return ApiCircuitsCircuitTerminationsPartialUpdateRequest
 	*/
 	CircuitsCircuitTerminationsPartialUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsPartialUpdateRequest
 
@@ -122,13 +122,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsPartialUpdateExecute(r ApiCircuitsCircuitTerminationsPartialUpdateRequest) (*CircuitTermination, *http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsPathsRetrieve Method for CircuitsCircuitTerminationsPathsRetrieve
+		CircuitsCircuitTerminationsPathsRetrieve Method for CircuitsCircuitTerminationsPathsRetrieve
 
-	Return all CablePaths which traverse a given pass-through port.
+		Return all CablePaths which traverse a given pass-through port.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit termination.
-	@return ApiCircuitsCircuitTerminationsPathsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit termination.
+		@return ApiCircuitsCircuitTerminationsPathsRetrieveRequest
 	*/
 	CircuitsCircuitTerminationsPathsRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsPathsRetrieveRequest
 
@@ -137,13 +137,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsPathsRetrieveExecute(r ApiCircuitsCircuitTerminationsPathsRetrieveRequest) (*CircuitTermination, *http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsRetrieve Method for CircuitsCircuitTerminationsRetrieve
+		CircuitsCircuitTerminationsRetrieve Method for CircuitsCircuitTerminationsRetrieve
 
-	Get a circuit termination object.
+		Get a circuit termination object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit termination.
-	@return ApiCircuitsCircuitTerminationsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit termination.
+		@return ApiCircuitsCircuitTerminationsRetrieveRequest
 	*/
 	CircuitsCircuitTerminationsRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsRetrieveRequest
 
@@ -152,13 +152,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsRetrieveExecute(r ApiCircuitsCircuitTerminationsRetrieveRequest) (*CircuitTermination, *http.Response, error)
 
 	/*
-	CircuitsCircuitTerminationsUpdate Method for CircuitsCircuitTerminationsUpdate
+		CircuitsCircuitTerminationsUpdate Method for CircuitsCircuitTerminationsUpdate
 
-	Put a circuit termination object.
+		Put a circuit termination object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit termination.
-	@return ApiCircuitsCircuitTerminationsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit termination.
+		@return ApiCircuitsCircuitTerminationsUpdateRequest
 	*/
 	CircuitsCircuitTerminationsUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsUpdateRequest
 
@@ -167,12 +167,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTerminationsUpdateExecute(r ApiCircuitsCircuitTerminationsUpdateRequest) (*CircuitTermination, *http.Response, error)
 
 	/*
-	CircuitsCircuitTypesBulkDestroy Method for CircuitsCircuitTypesBulkDestroy
+		CircuitsCircuitTypesBulkDestroy Method for CircuitsCircuitTypesBulkDestroy
 
-	Delete a list of circuit type objects.
+		Delete a list of circuit type objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTypesBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTypesBulkDestroyRequest
 	*/
 	CircuitsCircuitTypesBulkDestroy(ctx context.Context) ApiCircuitsCircuitTypesBulkDestroyRequest
 
@@ -180,12 +180,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesBulkDestroyExecute(r ApiCircuitsCircuitTypesBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsCircuitTypesBulkPartialUpdate Method for CircuitsCircuitTypesBulkPartialUpdate
+		CircuitsCircuitTypesBulkPartialUpdate Method for CircuitsCircuitTypesBulkPartialUpdate
 
-	Patch a list of circuit type objects.
+		Patch a list of circuit type objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTypesBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTypesBulkPartialUpdateRequest
 	*/
 	CircuitsCircuitTypesBulkPartialUpdate(ctx context.Context) ApiCircuitsCircuitTypesBulkPartialUpdateRequest
 
@@ -194,12 +194,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesBulkPartialUpdateExecute(r ApiCircuitsCircuitTypesBulkPartialUpdateRequest) ([]CircuitType, *http.Response, error)
 
 	/*
-	CircuitsCircuitTypesBulkUpdate Method for CircuitsCircuitTypesBulkUpdate
+		CircuitsCircuitTypesBulkUpdate Method for CircuitsCircuitTypesBulkUpdate
 
-	Put a list of circuit type objects.
+		Put a list of circuit type objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTypesBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTypesBulkUpdateRequest
 	*/
 	CircuitsCircuitTypesBulkUpdate(ctx context.Context) ApiCircuitsCircuitTypesBulkUpdateRequest
 
@@ -208,12 +208,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesBulkUpdateExecute(r ApiCircuitsCircuitTypesBulkUpdateRequest) ([]CircuitType, *http.Response, error)
 
 	/*
-	CircuitsCircuitTypesCreate Method for CircuitsCircuitTypesCreate
+		CircuitsCircuitTypesCreate Method for CircuitsCircuitTypesCreate
 
-	Post a list of circuit type objects.
+		Post a list of circuit type objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTypesCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTypesCreateRequest
 	*/
 	CircuitsCircuitTypesCreate(ctx context.Context) ApiCircuitsCircuitTypesCreateRequest
 
@@ -222,13 +222,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesCreateExecute(r ApiCircuitsCircuitTypesCreateRequest) (*CircuitType, *http.Response, error)
 
 	/*
-	CircuitsCircuitTypesDestroy Method for CircuitsCircuitTypesDestroy
+		CircuitsCircuitTypesDestroy Method for CircuitsCircuitTypesDestroy
 
-	Delete a circuit type object.
+		Delete a circuit type object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit type.
-	@return ApiCircuitsCircuitTypesDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit type.
+		@return ApiCircuitsCircuitTypesDestroyRequest
 	*/
 	CircuitsCircuitTypesDestroy(ctx context.Context, id int32) ApiCircuitsCircuitTypesDestroyRequest
 
@@ -236,12 +236,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesDestroyExecute(r ApiCircuitsCircuitTypesDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsCircuitTypesList Method for CircuitsCircuitTypesList
+		CircuitsCircuitTypesList Method for CircuitsCircuitTypesList
 
-	Get a list of circuit type objects.
+		Get a list of circuit type objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitTypesListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitTypesListRequest
 	*/
 	CircuitsCircuitTypesList(ctx context.Context) ApiCircuitsCircuitTypesListRequest
 
@@ -250,13 +250,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesListExecute(r ApiCircuitsCircuitTypesListRequest) (*PaginatedCircuitTypeList, *http.Response, error)
 
 	/*
-	CircuitsCircuitTypesPartialUpdate Method for CircuitsCircuitTypesPartialUpdate
+		CircuitsCircuitTypesPartialUpdate Method for CircuitsCircuitTypesPartialUpdate
 
-	Patch a circuit type object.
+		Patch a circuit type object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit type.
-	@return ApiCircuitsCircuitTypesPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit type.
+		@return ApiCircuitsCircuitTypesPartialUpdateRequest
 	*/
 	CircuitsCircuitTypesPartialUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTypesPartialUpdateRequest
 
@@ -265,13 +265,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesPartialUpdateExecute(r ApiCircuitsCircuitTypesPartialUpdateRequest) (*CircuitType, *http.Response, error)
 
 	/*
-	CircuitsCircuitTypesRetrieve Method for CircuitsCircuitTypesRetrieve
+		CircuitsCircuitTypesRetrieve Method for CircuitsCircuitTypesRetrieve
 
-	Get a circuit type object.
+		Get a circuit type object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit type.
-	@return ApiCircuitsCircuitTypesRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit type.
+		@return ApiCircuitsCircuitTypesRetrieveRequest
 	*/
 	CircuitsCircuitTypesRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitTypesRetrieveRequest
 
@@ -280,13 +280,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesRetrieveExecute(r ApiCircuitsCircuitTypesRetrieveRequest) (*CircuitType, *http.Response, error)
 
 	/*
-	CircuitsCircuitTypesUpdate Method for CircuitsCircuitTypesUpdate
+		CircuitsCircuitTypesUpdate Method for CircuitsCircuitTypesUpdate
 
-	Put a circuit type object.
+		Put a circuit type object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit type.
-	@return ApiCircuitsCircuitTypesUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit type.
+		@return ApiCircuitsCircuitTypesUpdateRequest
 	*/
 	CircuitsCircuitTypesUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTypesUpdateRequest
 
@@ -295,12 +295,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitTypesUpdateExecute(r ApiCircuitsCircuitTypesUpdateRequest) (*CircuitType, *http.Response, error)
 
 	/*
-	CircuitsCircuitsBulkDestroy Method for CircuitsCircuitsBulkDestroy
+		CircuitsCircuitsBulkDestroy Method for CircuitsCircuitsBulkDestroy
 
-	Delete a list of circuit objects.
+		Delete a list of circuit objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitsBulkDestroyRequest
 	*/
 	CircuitsCircuitsBulkDestroy(ctx context.Context) ApiCircuitsCircuitsBulkDestroyRequest
 
@@ -308,12 +308,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitsBulkDestroyExecute(r ApiCircuitsCircuitsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsCircuitsBulkPartialUpdate Method for CircuitsCircuitsBulkPartialUpdate
+		CircuitsCircuitsBulkPartialUpdate Method for CircuitsCircuitsBulkPartialUpdate
 
-	Patch a list of circuit objects.
+		Patch a list of circuit objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitsBulkPartialUpdateRequest
 	*/
 	CircuitsCircuitsBulkPartialUpdate(ctx context.Context) ApiCircuitsCircuitsBulkPartialUpdateRequest
 
@@ -322,12 +322,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitsBulkPartialUpdateExecute(r ApiCircuitsCircuitsBulkPartialUpdateRequest) ([]Circuit, *http.Response, error)
 
 	/*
-	CircuitsCircuitsBulkUpdate Method for CircuitsCircuitsBulkUpdate
+		CircuitsCircuitsBulkUpdate Method for CircuitsCircuitsBulkUpdate
 
-	Put a list of circuit objects.
+		Put a list of circuit objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitsBulkUpdateRequest
 	*/
 	CircuitsCircuitsBulkUpdate(ctx context.Context) ApiCircuitsCircuitsBulkUpdateRequest
 
@@ -336,12 +336,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitsBulkUpdateExecute(r ApiCircuitsCircuitsBulkUpdateRequest) ([]Circuit, *http.Response, error)
 
 	/*
-	CircuitsCircuitsCreate Method for CircuitsCircuitsCreate
+		CircuitsCircuitsCreate Method for CircuitsCircuitsCreate
 
-	Post a list of circuit objects.
+		Post a list of circuit objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitsCreateRequest
 	*/
 	CircuitsCircuitsCreate(ctx context.Context) ApiCircuitsCircuitsCreateRequest
 
@@ -350,13 +350,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitsCreateExecute(r ApiCircuitsCircuitsCreateRequest) (*Circuit, *http.Response, error)
 
 	/*
-	CircuitsCircuitsDestroy Method for CircuitsCircuitsDestroy
+		CircuitsCircuitsDestroy Method for CircuitsCircuitsDestroy
 
-	Delete a circuit object.
+		Delete a circuit object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit.
-	@return ApiCircuitsCircuitsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit.
+		@return ApiCircuitsCircuitsDestroyRequest
 	*/
 	CircuitsCircuitsDestroy(ctx context.Context, id int32) ApiCircuitsCircuitsDestroyRequest
 
@@ -364,12 +364,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitsDestroyExecute(r ApiCircuitsCircuitsDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsCircuitsList Method for CircuitsCircuitsList
+		CircuitsCircuitsList Method for CircuitsCircuitsList
 
-	Get a list of circuit objects.
+		Get a list of circuit objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsCircuitsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsCircuitsListRequest
 	*/
 	CircuitsCircuitsList(ctx context.Context) ApiCircuitsCircuitsListRequest
 
@@ -378,13 +378,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitsListExecute(r ApiCircuitsCircuitsListRequest) (*PaginatedCircuitList, *http.Response, error)
 
 	/*
-	CircuitsCircuitsPartialUpdate Method for CircuitsCircuitsPartialUpdate
+		CircuitsCircuitsPartialUpdate Method for CircuitsCircuitsPartialUpdate
 
-	Patch a circuit object.
+		Patch a circuit object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit.
-	@return ApiCircuitsCircuitsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit.
+		@return ApiCircuitsCircuitsPartialUpdateRequest
 	*/
 	CircuitsCircuitsPartialUpdate(ctx context.Context, id int32) ApiCircuitsCircuitsPartialUpdateRequest
 
@@ -393,13 +393,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitsPartialUpdateExecute(r ApiCircuitsCircuitsPartialUpdateRequest) (*Circuit, *http.Response, error)
 
 	/*
-	CircuitsCircuitsRetrieve Method for CircuitsCircuitsRetrieve
+		CircuitsCircuitsRetrieve Method for CircuitsCircuitsRetrieve
 
-	Get a circuit object.
+		Get a circuit object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit.
-	@return ApiCircuitsCircuitsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit.
+		@return ApiCircuitsCircuitsRetrieveRequest
 	*/
 	CircuitsCircuitsRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitsRetrieveRequest
 
@@ -408,13 +408,13 @@ type CircuitsAPI interface {
 	CircuitsCircuitsRetrieveExecute(r ApiCircuitsCircuitsRetrieveRequest) (*Circuit, *http.Response, error)
 
 	/*
-	CircuitsCircuitsUpdate Method for CircuitsCircuitsUpdate
+		CircuitsCircuitsUpdate Method for CircuitsCircuitsUpdate
 
-	Put a circuit object.
+		Put a circuit object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this circuit.
-	@return ApiCircuitsCircuitsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this circuit.
+		@return ApiCircuitsCircuitsUpdateRequest
 	*/
 	CircuitsCircuitsUpdate(ctx context.Context, id int32) ApiCircuitsCircuitsUpdateRequest
 
@@ -423,12 +423,12 @@ type CircuitsAPI interface {
 	CircuitsCircuitsUpdateExecute(r ApiCircuitsCircuitsUpdateRequest) (*Circuit, *http.Response, error)
 
 	/*
-	CircuitsProviderAccountsBulkDestroy Method for CircuitsProviderAccountsBulkDestroy
+		CircuitsProviderAccountsBulkDestroy Method for CircuitsProviderAccountsBulkDestroy
 
-	Delete a list of provider account objects.
+		Delete a list of provider account objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderAccountsBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderAccountsBulkDestroyRequest
 	*/
 	CircuitsProviderAccountsBulkDestroy(ctx context.Context) ApiCircuitsProviderAccountsBulkDestroyRequest
 
@@ -436,12 +436,12 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsBulkDestroyExecute(r ApiCircuitsProviderAccountsBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsProviderAccountsBulkPartialUpdate Method for CircuitsProviderAccountsBulkPartialUpdate
+		CircuitsProviderAccountsBulkPartialUpdate Method for CircuitsProviderAccountsBulkPartialUpdate
 
-	Patch a list of provider account objects.
+		Patch a list of provider account objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderAccountsBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderAccountsBulkPartialUpdateRequest
 	*/
 	CircuitsProviderAccountsBulkPartialUpdate(ctx context.Context) ApiCircuitsProviderAccountsBulkPartialUpdateRequest
 
@@ -450,12 +450,12 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsBulkPartialUpdateExecute(r ApiCircuitsProviderAccountsBulkPartialUpdateRequest) ([]ProviderAccount, *http.Response, error)
 
 	/*
-	CircuitsProviderAccountsBulkUpdate Method for CircuitsProviderAccountsBulkUpdate
+		CircuitsProviderAccountsBulkUpdate Method for CircuitsProviderAccountsBulkUpdate
 
-	Put a list of provider account objects.
+		Put a list of provider account objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderAccountsBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderAccountsBulkUpdateRequest
 	*/
 	CircuitsProviderAccountsBulkUpdate(ctx context.Context) ApiCircuitsProviderAccountsBulkUpdateRequest
 
@@ -464,12 +464,12 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsBulkUpdateExecute(r ApiCircuitsProviderAccountsBulkUpdateRequest) ([]ProviderAccount, *http.Response, error)
 
 	/*
-	CircuitsProviderAccountsCreate Method for CircuitsProviderAccountsCreate
+		CircuitsProviderAccountsCreate Method for CircuitsProviderAccountsCreate
 
-	Post a list of provider account objects.
+		Post a list of provider account objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderAccountsCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderAccountsCreateRequest
 	*/
 	CircuitsProviderAccountsCreate(ctx context.Context) ApiCircuitsProviderAccountsCreateRequest
 
@@ -478,13 +478,13 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsCreateExecute(r ApiCircuitsProviderAccountsCreateRequest) (*ProviderAccount, *http.Response, error)
 
 	/*
-	CircuitsProviderAccountsDestroy Method for CircuitsProviderAccountsDestroy
+		CircuitsProviderAccountsDestroy Method for CircuitsProviderAccountsDestroy
 
-	Delete a provider account object.
+		Delete a provider account object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider account.
-	@return ApiCircuitsProviderAccountsDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider account.
+		@return ApiCircuitsProviderAccountsDestroyRequest
 	*/
 	CircuitsProviderAccountsDestroy(ctx context.Context, id int32) ApiCircuitsProviderAccountsDestroyRequest
 
@@ -492,12 +492,12 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsDestroyExecute(r ApiCircuitsProviderAccountsDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsProviderAccountsList Method for CircuitsProviderAccountsList
+		CircuitsProviderAccountsList Method for CircuitsProviderAccountsList
 
-	Get a list of provider account objects.
+		Get a list of provider account objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderAccountsListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderAccountsListRequest
 	*/
 	CircuitsProviderAccountsList(ctx context.Context) ApiCircuitsProviderAccountsListRequest
 
@@ -506,13 +506,13 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsListExecute(r ApiCircuitsProviderAccountsListRequest) (*PaginatedProviderAccountList, *http.Response, error)
 
 	/*
-	CircuitsProviderAccountsPartialUpdate Method for CircuitsProviderAccountsPartialUpdate
+		CircuitsProviderAccountsPartialUpdate Method for CircuitsProviderAccountsPartialUpdate
 
-	Patch a provider account object.
+		Patch a provider account object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider account.
-	@return ApiCircuitsProviderAccountsPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider account.
+		@return ApiCircuitsProviderAccountsPartialUpdateRequest
 	*/
 	CircuitsProviderAccountsPartialUpdate(ctx context.Context, id int32) ApiCircuitsProviderAccountsPartialUpdateRequest
 
@@ -521,13 +521,13 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsPartialUpdateExecute(r ApiCircuitsProviderAccountsPartialUpdateRequest) (*ProviderAccount, *http.Response, error)
 
 	/*
-	CircuitsProviderAccountsRetrieve Method for CircuitsProviderAccountsRetrieve
+		CircuitsProviderAccountsRetrieve Method for CircuitsProviderAccountsRetrieve
 
-	Get a provider account object.
+		Get a provider account object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider account.
-	@return ApiCircuitsProviderAccountsRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider account.
+		@return ApiCircuitsProviderAccountsRetrieveRequest
 	*/
 	CircuitsProviderAccountsRetrieve(ctx context.Context, id int32) ApiCircuitsProviderAccountsRetrieveRequest
 
@@ -536,13 +536,13 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsRetrieveExecute(r ApiCircuitsProviderAccountsRetrieveRequest) (*ProviderAccount, *http.Response, error)
 
 	/*
-	CircuitsProviderAccountsUpdate Method for CircuitsProviderAccountsUpdate
+		CircuitsProviderAccountsUpdate Method for CircuitsProviderAccountsUpdate
 
-	Put a provider account object.
+		Put a provider account object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider account.
-	@return ApiCircuitsProviderAccountsUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider account.
+		@return ApiCircuitsProviderAccountsUpdateRequest
 	*/
 	CircuitsProviderAccountsUpdate(ctx context.Context, id int32) ApiCircuitsProviderAccountsUpdateRequest
 
@@ -551,12 +551,12 @@ type CircuitsAPI interface {
 	CircuitsProviderAccountsUpdateExecute(r ApiCircuitsProviderAccountsUpdateRequest) (*ProviderAccount, *http.Response, error)
 
 	/*
-	CircuitsProviderNetworksBulkDestroy Method for CircuitsProviderNetworksBulkDestroy
+		CircuitsProviderNetworksBulkDestroy Method for CircuitsProviderNetworksBulkDestroy
 
-	Delete a list of provider network objects.
+		Delete a list of provider network objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderNetworksBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderNetworksBulkDestroyRequest
 	*/
 	CircuitsProviderNetworksBulkDestroy(ctx context.Context) ApiCircuitsProviderNetworksBulkDestroyRequest
 
@@ -564,12 +564,12 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksBulkDestroyExecute(r ApiCircuitsProviderNetworksBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsProviderNetworksBulkPartialUpdate Method for CircuitsProviderNetworksBulkPartialUpdate
+		CircuitsProviderNetworksBulkPartialUpdate Method for CircuitsProviderNetworksBulkPartialUpdate
 
-	Patch a list of provider network objects.
+		Patch a list of provider network objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderNetworksBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderNetworksBulkPartialUpdateRequest
 	*/
 	CircuitsProviderNetworksBulkPartialUpdate(ctx context.Context) ApiCircuitsProviderNetworksBulkPartialUpdateRequest
 
@@ -578,12 +578,12 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksBulkPartialUpdateExecute(r ApiCircuitsProviderNetworksBulkPartialUpdateRequest) ([]ProviderNetwork, *http.Response, error)
 
 	/*
-	CircuitsProviderNetworksBulkUpdate Method for CircuitsProviderNetworksBulkUpdate
+		CircuitsProviderNetworksBulkUpdate Method for CircuitsProviderNetworksBulkUpdate
 
-	Put a list of provider network objects.
+		Put a list of provider network objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderNetworksBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderNetworksBulkUpdateRequest
 	*/
 	CircuitsProviderNetworksBulkUpdate(ctx context.Context) ApiCircuitsProviderNetworksBulkUpdateRequest
 
@@ -592,12 +592,12 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksBulkUpdateExecute(r ApiCircuitsProviderNetworksBulkUpdateRequest) ([]ProviderNetwork, *http.Response, error)
 
 	/*
-	CircuitsProviderNetworksCreate Method for CircuitsProviderNetworksCreate
+		CircuitsProviderNetworksCreate Method for CircuitsProviderNetworksCreate
 
-	Post a list of provider network objects.
+		Post a list of provider network objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderNetworksCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderNetworksCreateRequest
 	*/
 	CircuitsProviderNetworksCreate(ctx context.Context) ApiCircuitsProviderNetworksCreateRequest
 
@@ -606,13 +606,13 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksCreateExecute(r ApiCircuitsProviderNetworksCreateRequest) (*ProviderNetwork, *http.Response, error)
 
 	/*
-	CircuitsProviderNetworksDestroy Method for CircuitsProviderNetworksDestroy
+		CircuitsProviderNetworksDestroy Method for CircuitsProviderNetworksDestroy
 
-	Delete a provider network object.
+		Delete a provider network object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider network.
-	@return ApiCircuitsProviderNetworksDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider network.
+		@return ApiCircuitsProviderNetworksDestroyRequest
 	*/
 	CircuitsProviderNetworksDestroy(ctx context.Context, id int32) ApiCircuitsProviderNetworksDestroyRequest
 
@@ -620,12 +620,12 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksDestroyExecute(r ApiCircuitsProviderNetworksDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsProviderNetworksList Method for CircuitsProviderNetworksList
+		CircuitsProviderNetworksList Method for CircuitsProviderNetworksList
 
-	Get a list of provider network objects.
+		Get a list of provider network objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProviderNetworksListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProviderNetworksListRequest
 	*/
 	CircuitsProviderNetworksList(ctx context.Context) ApiCircuitsProviderNetworksListRequest
 
@@ -634,13 +634,13 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksListExecute(r ApiCircuitsProviderNetworksListRequest) (*PaginatedProviderNetworkList, *http.Response, error)
 
 	/*
-	CircuitsProviderNetworksPartialUpdate Method for CircuitsProviderNetworksPartialUpdate
+		CircuitsProviderNetworksPartialUpdate Method for CircuitsProviderNetworksPartialUpdate
 
-	Patch a provider network object.
+		Patch a provider network object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider network.
-	@return ApiCircuitsProviderNetworksPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider network.
+		@return ApiCircuitsProviderNetworksPartialUpdateRequest
 	*/
 	CircuitsProviderNetworksPartialUpdate(ctx context.Context, id int32) ApiCircuitsProviderNetworksPartialUpdateRequest
 
@@ -649,13 +649,13 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksPartialUpdateExecute(r ApiCircuitsProviderNetworksPartialUpdateRequest) (*ProviderNetwork, *http.Response, error)
 
 	/*
-	CircuitsProviderNetworksRetrieve Method for CircuitsProviderNetworksRetrieve
+		CircuitsProviderNetworksRetrieve Method for CircuitsProviderNetworksRetrieve
 
-	Get a provider network object.
+		Get a provider network object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider network.
-	@return ApiCircuitsProviderNetworksRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider network.
+		@return ApiCircuitsProviderNetworksRetrieveRequest
 	*/
 	CircuitsProviderNetworksRetrieve(ctx context.Context, id int32) ApiCircuitsProviderNetworksRetrieveRequest
 
@@ -664,13 +664,13 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksRetrieveExecute(r ApiCircuitsProviderNetworksRetrieveRequest) (*ProviderNetwork, *http.Response, error)
 
 	/*
-	CircuitsProviderNetworksUpdate Method for CircuitsProviderNetworksUpdate
+		CircuitsProviderNetworksUpdate Method for CircuitsProviderNetworksUpdate
 
-	Put a provider network object.
+		Put a provider network object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider network.
-	@return ApiCircuitsProviderNetworksUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider network.
+		@return ApiCircuitsProviderNetworksUpdateRequest
 	*/
 	CircuitsProviderNetworksUpdate(ctx context.Context, id int32) ApiCircuitsProviderNetworksUpdateRequest
 
@@ -679,12 +679,12 @@ type CircuitsAPI interface {
 	CircuitsProviderNetworksUpdateExecute(r ApiCircuitsProviderNetworksUpdateRequest) (*ProviderNetwork, *http.Response, error)
 
 	/*
-	CircuitsProvidersBulkDestroy Method for CircuitsProvidersBulkDestroy
+		CircuitsProvidersBulkDestroy Method for CircuitsProvidersBulkDestroy
 
-	Delete a list of provider objects.
+		Delete a list of provider objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProvidersBulkDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProvidersBulkDestroyRequest
 	*/
 	CircuitsProvidersBulkDestroy(ctx context.Context) ApiCircuitsProvidersBulkDestroyRequest
 
@@ -692,12 +692,12 @@ type CircuitsAPI interface {
 	CircuitsProvidersBulkDestroyExecute(r ApiCircuitsProvidersBulkDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsProvidersBulkPartialUpdate Method for CircuitsProvidersBulkPartialUpdate
+		CircuitsProvidersBulkPartialUpdate Method for CircuitsProvidersBulkPartialUpdate
 
-	Patch a list of provider objects.
+		Patch a list of provider objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProvidersBulkPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProvidersBulkPartialUpdateRequest
 	*/
 	CircuitsProvidersBulkPartialUpdate(ctx context.Context) ApiCircuitsProvidersBulkPartialUpdateRequest
 
@@ -706,12 +706,12 @@ type CircuitsAPI interface {
 	CircuitsProvidersBulkPartialUpdateExecute(r ApiCircuitsProvidersBulkPartialUpdateRequest) ([]Provider, *http.Response, error)
 
 	/*
-	CircuitsProvidersBulkUpdate Method for CircuitsProvidersBulkUpdate
+		CircuitsProvidersBulkUpdate Method for CircuitsProvidersBulkUpdate
 
-	Put a list of provider objects.
+		Put a list of provider objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProvidersBulkUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProvidersBulkUpdateRequest
 	*/
 	CircuitsProvidersBulkUpdate(ctx context.Context) ApiCircuitsProvidersBulkUpdateRequest
 
@@ -720,12 +720,12 @@ type CircuitsAPI interface {
 	CircuitsProvidersBulkUpdateExecute(r ApiCircuitsProvidersBulkUpdateRequest) ([]Provider, *http.Response, error)
 
 	/*
-	CircuitsProvidersCreate Method for CircuitsProvidersCreate
+		CircuitsProvidersCreate Method for CircuitsProvidersCreate
 
-	Post a list of provider objects.
+		Post a list of provider objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProvidersCreateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProvidersCreateRequest
 	*/
 	CircuitsProvidersCreate(ctx context.Context) ApiCircuitsProvidersCreateRequest
 
@@ -734,13 +734,13 @@ type CircuitsAPI interface {
 	CircuitsProvidersCreateExecute(r ApiCircuitsProvidersCreateRequest) (*Provider, *http.Response, error)
 
 	/*
-	CircuitsProvidersDestroy Method for CircuitsProvidersDestroy
+		CircuitsProvidersDestroy Method for CircuitsProvidersDestroy
 
-	Delete a provider object.
+		Delete a provider object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider.
-	@return ApiCircuitsProvidersDestroyRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider.
+		@return ApiCircuitsProvidersDestroyRequest
 	*/
 	CircuitsProvidersDestroy(ctx context.Context, id int32) ApiCircuitsProvidersDestroyRequest
 
@@ -748,12 +748,12 @@ type CircuitsAPI interface {
 	CircuitsProvidersDestroyExecute(r ApiCircuitsProvidersDestroyRequest) (*http.Response, error)
 
 	/*
-	CircuitsProvidersList Method for CircuitsProvidersList
+		CircuitsProvidersList Method for CircuitsProvidersList
 
-	Get a list of provider objects.
+		Get a list of provider objects.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiCircuitsProvidersListRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiCircuitsProvidersListRequest
 	*/
 	CircuitsProvidersList(ctx context.Context) ApiCircuitsProvidersListRequest
 
@@ -762,13 +762,13 @@ type CircuitsAPI interface {
 	CircuitsProvidersListExecute(r ApiCircuitsProvidersListRequest) (*PaginatedProviderList, *http.Response, error)
 
 	/*
-	CircuitsProvidersPartialUpdate Method for CircuitsProvidersPartialUpdate
+		CircuitsProvidersPartialUpdate Method for CircuitsProvidersPartialUpdate
 
-	Patch a provider object.
+		Patch a provider object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider.
-	@return ApiCircuitsProvidersPartialUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider.
+		@return ApiCircuitsProvidersPartialUpdateRequest
 	*/
 	CircuitsProvidersPartialUpdate(ctx context.Context, id int32) ApiCircuitsProvidersPartialUpdateRequest
 
@@ -777,13 +777,13 @@ type CircuitsAPI interface {
 	CircuitsProvidersPartialUpdateExecute(r ApiCircuitsProvidersPartialUpdateRequest) (*Provider, *http.Response, error)
 
 	/*
-	CircuitsProvidersRetrieve Method for CircuitsProvidersRetrieve
+		CircuitsProvidersRetrieve Method for CircuitsProvidersRetrieve
 
-	Get a provider object.
+		Get a provider object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider.
-	@return ApiCircuitsProvidersRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider.
+		@return ApiCircuitsProvidersRetrieveRequest
 	*/
 	CircuitsProvidersRetrieve(ctx context.Context, id int32) ApiCircuitsProvidersRetrieveRequest
 
@@ -792,13 +792,13 @@ type CircuitsAPI interface {
 	CircuitsProvidersRetrieveExecute(r ApiCircuitsProvidersRetrieveRequest) (*Provider, *http.Response, error)
 
 	/*
-	CircuitsProvidersUpdate Method for CircuitsProvidersUpdate
+		CircuitsProvidersUpdate Method for CircuitsProvidersUpdate
 
-	Put a provider object.
+		Put a provider object.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@param id A unique integer value identifying this provider.
-	@return ApiCircuitsProvidersUpdateRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@param id A unique integer value identifying this provider.
+		@return ApiCircuitsProvidersUpdateRequest
 	*/
 	CircuitsProvidersUpdate(ctx context.Context, id int32) ApiCircuitsProvidersUpdateRequest
 
@@ -811,8 +811,8 @@ type CircuitsAPI interface {
 type CircuitsAPIService service
 
 type ApiCircuitsCircuitTerminationsBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                       context.Context
+	ApiService                CircuitsAPI
 	circuitTerminationRequest *[]CircuitTerminationRequest
 }
 
@@ -830,22 +830,22 @@ CircuitsCircuitTerminationsBulkDestroy Method for CircuitsCircuitTerminationsBul
 
 Delete a list of circuit termination objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTerminationsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTerminationsBulkDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkDestroy(ctx context.Context) ApiCircuitsCircuitTerminationsBulkDestroyRequest {
 	return ApiCircuitsCircuitTerminationsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkDestroyExecute(r ApiCircuitsCircuitTerminationsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsBulkDestroy")
@@ -924,8 +924,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkDestroyExecute(r Api
 }
 
 type ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                       context.Context
+	ApiService                CircuitsAPI
 	circuitTerminationRequest *[]CircuitTerminationRequest
 }
 
@@ -943,24 +943,25 @@ CircuitsCircuitTerminationsBulkPartialUpdate Method for CircuitsCircuitTerminati
 
 Patch a list of circuit termination objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkPartialUpdate(ctx context.Context) ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest {
 	return ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CircuitTermination
+//
+//	@return []CircuitTermination
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkPartialUpdateExecute(r ApiCircuitsCircuitTerminationsBulkPartialUpdateRequest) ([]CircuitTermination, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []CircuitTermination
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []CircuitTermination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsBulkPartialUpdate")
@@ -1048,8 +1049,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkPartialUpdateExecute
 }
 
 type ApiCircuitsCircuitTerminationsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                       context.Context
+	ApiService                CircuitsAPI
 	circuitTerminationRequest *[]CircuitTerminationRequest
 }
 
@@ -1067,24 +1068,25 @@ CircuitsCircuitTerminationsBulkUpdate Method for CircuitsCircuitTerminationsBulk
 
 Put a list of circuit termination objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTerminationsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTerminationsBulkUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkUpdate(ctx context.Context) ApiCircuitsCircuitTerminationsBulkUpdateRequest {
 	return ApiCircuitsCircuitTerminationsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CircuitTermination
+//
+//	@return []CircuitTermination
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkUpdateExecute(r ApiCircuitsCircuitTerminationsBulkUpdateRequest) ([]CircuitTermination, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []CircuitTermination
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []CircuitTermination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsBulkUpdate")
@@ -1172,8 +1174,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsBulkUpdateExecute(r ApiC
 }
 
 type ApiCircuitsCircuitTerminationsCreateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                       context.Context
+	ApiService                CircuitsAPI
 	circuitTerminationRequest *CircuitTerminationRequest
 }
 
@@ -1191,24 +1193,25 @@ CircuitsCircuitTerminationsCreate Method for CircuitsCircuitTerminationsCreate
 
 Post a list of circuit termination objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTerminationsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTerminationsCreateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsCreate(ctx context.Context) ApiCircuitsCircuitTerminationsCreateRequest {
 	return ApiCircuitsCircuitTerminationsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitTermination
+//
+//	@return CircuitTermination
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsCreateExecute(r ApiCircuitsCircuitTerminationsCreateRequest) (*CircuitTermination, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitTermination
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitTermination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsCreate")
@@ -1296,9 +1299,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsCreateExecute(r ApiCircu
 }
 
 type ApiCircuitsCircuitTerminationsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsCircuitTerminationsDestroyRequest) Execute() (*http.Response, error) {
@@ -1310,24 +1313,24 @@ CircuitsCircuitTerminationsDestroy Method for CircuitsCircuitTerminationsDestroy
 
 Delete a circuit termination object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit termination.
- @return ApiCircuitsCircuitTerminationsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit termination.
+	@return ApiCircuitsCircuitTerminationsDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsDestroy(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsDestroyRequest {
 	return ApiCircuitsCircuitTerminationsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsDestroyExecute(r ApiCircuitsCircuitTerminationsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsDestroy")
@@ -1402,106 +1405,106 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsDestroyExecute(r ApiCirc
 }
 
 type ApiCircuitsCircuitTerminationsListRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	cableEnd *CircuitsCircuitTerminationsListCableEndParameter
-	cableEndN *CircuitsCircuitTerminationsListCableEndParameter
-	cableId *[]*int32
-	cableIdN *[]*int32
-	cabled *bool
-	circuitId *[]int32
-	circuitIdN *[]int32
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
-	markConnected *bool
-	modifiedByRequest *string
-	occupied *bool
-	offset *int32
-	ordering *string
-	portSpeed *[]int32
-	portSpeedEmpty *bool
-	portSpeedGt *[]int32
-	portSpeedGte *[]int32
-	portSpeedLt *[]int32
-	portSpeedLte *[]int32
-	portSpeedN *[]int32
-	ppInfo *[]string
-	ppInfoEmpty *bool
-	ppInfoIc *[]string
-	ppInfoIe *[]string
-	ppInfoIew *[]string
-	ppInfoIsw *[]string
-	ppInfoN *[]string
-	ppInfoNic *[]string
-	ppInfoNie *[]string
-	ppInfoNiew *[]string
-	ppInfoNisw *[]string
-	provider *[]string
-	providerN *[]string
-	providerId *[]int32
-	providerIdN *[]int32
-	providerNetworkId *[]*int32
+	ctx                context.Context
+	ApiService         CircuitsAPI
+	cableEnd           *CircuitsCircuitTerminationsListCableEndParameter
+	cableEndN          *CircuitsCircuitTerminationsListCableEndParameter
+	cableId            *[]*int32
+	cableIdN           *[]*int32
+	cabled             *bool
+	circuitId          *[]int32
+	circuitIdN         *[]int32
+	created            *[]time.Time
+	createdEmpty       *[]time.Time
+	createdGt          *[]time.Time
+	createdGte         *[]time.Time
+	createdLt          *[]time.Time
+	createdLte         *[]time.Time
+	createdN           *[]time.Time
+	createdByRequest   *string
+	description        *[]string
+	descriptionEmpty   *bool
+	descriptionIc      *[]string
+	descriptionIe      *[]string
+	descriptionIew     *[]string
+	descriptionIsw     *[]string
+	descriptionN       *[]string
+	descriptionNic     *[]string
+	descriptionNie     *[]string
+	descriptionNiew    *[]string
+	descriptionNisw    *[]string
+	id                 *[]int32
+	idEmpty            *bool
+	idGt               *[]int32
+	idGte              *[]int32
+	idLt               *[]int32
+	idLte              *[]int32
+	idN                *[]int32
+	lastUpdated        *[]time.Time
+	lastUpdatedEmpty   *[]time.Time
+	lastUpdatedGt      *[]time.Time
+	lastUpdatedGte     *[]time.Time
+	lastUpdatedLt      *[]time.Time
+	lastUpdatedLte     *[]time.Time
+	lastUpdatedN       *[]time.Time
+	limit              *int32
+	markConnected      *bool
+	modifiedByRequest  *string
+	occupied           *bool
+	offset             *int32
+	ordering           *string
+	portSpeed          *[]int32
+	portSpeedEmpty     *bool
+	portSpeedGt        *[]int32
+	portSpeedGte       *[]int32
+	portSpeedLt        *[]int32
+	portSpeedLte       *[]int32
+	portSpeedN         *[]int32
+	ppInfo             *[]string
+	ppInfoEmpty        *bool
+	ppInfoIc           *[]string
+	ppInfoIe           *[]string
+	ppInfoIew          *[]string
+	ppInfoIsw          *[]string
+	ppInfoN            *[]string
+	ppInfoNic          *[]string
+	ppInfoNie          *[]string
+	ppInfoNiew         *[]string
+	ppInfoNisw         *[]string
+	provider           *[]string
+	providerN          *[]string
+	providerId         *[]int32
+	providerIdN        *[]int32
+	providerNetworkId  *[]*int32
 	providerNetworkIdN *[]*int32
-	q *string
-	site *[]string
-	siteN *[]string
-	siteId *[]*int32
-	siteIdN *[]*int32
-	tag *[]string
-	tagN *[]string
-	termSide *Termination
-	termSideN *Termination
-	updatedByRequest *string
-	upstreamSpeed *[]int32
+	q                  *string
+	site               *[]string
+	siteN              *[]string
+	siteId             *[]*int32
+	siteIdN            *[]*int32
+	tag                *[]string
+	tagN               *[]string
+	termSide           *Termination
+	termSideN          *Termination
+	updatedByRequest   *string
+	upstreamSpeed      *[]int32
 	upstreamSpeedEmpty *bool
-	upstreamSpeedGt *[]int32
-	upstreamSpeedGte *[]int32
-	upstreamSpeedLt *[]int32
-	upstreamSpeedLte *[]int32
-	upstreamSpeedN *[]int32
-	xconnectId *[]string
-	xconnectIdEmpty *bool
-	xconnectIdIc *[]string
-	xconnectIdIe *[]string
-	xconnectIdIew *[]string
-	xconnectIdIsw *[]string
-	xconnectIdN *[]string
-	xconnectIdNic *[]string
-	xconnectIdNie *[]string
-	xconnectIdNiew *[]string
-	xconnectIdNisw *[]string
+	upstreamSpeedGt    *[]int32
+	upstreamSpeedGte   *[]int32
+	upstreamSpeedLt    *[]int32
+	upstreamSpeedLte   *[]int32
+	upstreamSpeedN     *[]int32
+	xconnectId         *[]string
+	xconnectIdEmpty    *bool
+	xconnectIdIc       *[]string
+	xconnectIdIe       *[]string
+	xconnectIdIew      *[]string
+	xconnectIdIsw      *[]string
+	xconnectIdN        *[]string
+	xconnectIdNic      *[]string
+	xconnectIdNie      *[]string
+	xconnectIdNiew     *[]string
+	xconnectIdNisw     *[]string
 }
 
 // * &#x60;A&#x60; - A * &#x60;B&#x60; - B
@@ -2025,24 +2028,25 @@ CircuitsCircuitTerminationsList Method for CircuitsCircuitTerminationsList
 
 Get a list of circuit termination objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTerminationsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTerminationsListRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsList(ctx context.Context) ApiCircuitsCircuitTerminationsListRequest {
 	return ApiCircuitsCircuitTerminationsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCircuitTerminationList
+//
+//	@return PaginatedCircuitTerminationList
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsListExecute(r ApiCircuitsCircuitTerminationsListRequest) (*PaginatedCircuitTerminationList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCircuitTerminationList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCircuitTerminationList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsList")
@@ -3043,9 +3047,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsListExecute(r ApiCircuit
 }
 
 type ApiCircuitsCircuitTerminationsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                              context.Context
+	ApiService                       CircuitsAPI
+	id                               int32
 	patchedCircuitTerminationRequest *PatchedCircuitTerminationRequest
 }
 
@@ -3063,26 +3067,27 @@ CircuitsCircuitTerminationsPartialUpdate Method for CircuitsCircuitTerminationsP
 
 Patch a circuit termination object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit termination.
- @return ApiCircuitsCircuitTerminationsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit termination.
+	@return ApiCircuitsCircuitTerminationsPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsPartialUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsPartialUpdateRequest {
 	return ApiCircuitsCircuitTerminationsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitTermination
+//
+//	@return CircuitTermination
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsPartialUpdateExecute(r ApiCircuitsCircuitTerminationsPartialUpdateRequest) (*CircuitTermination, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitTermination
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitTermination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsPartialUpdate")
@@ -3168,9 +3173,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsPartialUpdateExecute(r A
 }
 
 type ApiCircuitsCircuitTerminationsPathsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsCircuitTerminationsPathsRetrieveRequest) Execute() (*CircuitTermination, *http.Response, error) {
@@ -3182,26 +3187,27 @@ CircuitsCircuitTerminationsPathsRetrieve Method for CircuitsCircuitTerminationsP
 
 Return all CablePaths which traverse a given pass-through port.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit termination.
- @return ApiCircuitsCircuitTerminationsPathsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit termination.
+	@return ApiCircuitsCircuitTerminationsPathsRetrieveRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsPathsRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsPathsRetrieveRequest {
 	return ApiCircuitsCircuitTerminationsPathsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitTermination
+//
+//	@return CircuitTermination
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsPathsRetrieveExecute(r ApiCircuitsCircuitTerminationsPathsRetrieveRequest) (*CircuitTermination, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitTermination
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitTermination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsPathsRetrieve")
@@ -3285,9 +3291,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsPathsRetrieveExecute(r A
 }
 
 type ApiCircuitsCircuitTerminationsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsCircuitTerminationsRetrieveRequest) Execute() (*CircuitTermination, *http.Response, error) {
@@ -3299,26 +3305,27 @@ CircuitsCircuitTerminationsRetrieve Method for CircuitsCircuitTerminationsRetrie
 
 Get a circuit termination object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit termination.
- @return ApiCircuitsCircuitTerminationsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit termination.
+	@return ApiCircuitsCircuitTerminationsRetrieveRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsRetrieveRequest {
 	return ApiCircuitsCircuitTerminationsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitTermination
+//
+//	@return CircuitTermination
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsRetrieveExecute(r ApiCircuitsCircuitTerminationsRetrieveRequest) (*CircuitTermination, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitTermination
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitTermination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsRetrieve")
@@ -3402,9 +3409,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsRetrieveExecute(r ApiCir
 }
 
 type ApiCircuitsCircuitTerminationsUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                       context.Context
+	ApiService                CircuitsAPI
+	id                        int32
 	circuitTerminationRequest *CircuitTerminationRequest
 }
 
@@ -3422,26 +3429,27 @@ CircuitsCircuitTerminationsUpdate Method for CircuitsCircuitTerminationsUpdate
 
 Put a circuit termination object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit termination.
- @return ApiCircuitsCircuitTerminationsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit termination.
+	@return ApiCircuitsCircuitTerminationsUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTerminationsUpdateRequest {
 	return ApiCircuitsCircuitTerminationsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitTermination
+//
+//	@return CircuitTermination
 func (a *CircuitsAPIService) CircuitsCircuitTerminationsUpdateExecute(r ApiCircuitsCircuitTerminationsUpdateRequest) (*CircuitTermination, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitTermination
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitTermination
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTerminationsUpdate")
@@ -3530,8 +3538,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTerminationsUpdateExecute(r ApiCircu
 }
 
 type ApiCircuitsCircuitTypesBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                context.Context
+	ApiService         CircuitsAPI
 	circuitTypeRequest *[]CircuitTypeRequest
 }
 
@@ -3549,22 +3557,22 @@ CircuitsCircuitTypesBulkDestroy Method for CircuitsCircuitTypesBulkDestroy
 
 Delete a list of circuit type objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTypesBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTypesBulkDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesBulkDestroy(ctx context.Context) ApiCircuitsCircuitTypesBulkDestroyRequest {
 	return ApiCircuitsCircuitTypesBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsCircuitTypesBulkDestroyExecute(r ApiCircuitsCircuitTypesBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesBulkDestroy")
@@ -3643,8 +3651,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesBulkDestroyExecute(r ApiCircuit
 }
 
 type ApiCircuitsCircuitTypesBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                context.Context
+	ApiService         CircuitsAPI
 	circuitTypeRequest *[]CircuitTypeRequest
 }
 
@@ -3662,24 +3670,25 @@ CircuitsCircuitTypesBulkPartialUpdate Method for CircuitsCircuitTypesBulkPartial
 
 Patch a list of circuit type objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTypesBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTypesBulkPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesBulkPartialUpdate(ctx context.Context) ApiCircuitsCircuitTypesBulkPartialUpdateRequest {
 	return ApiCircuitsCircuitTypesBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CircuitType
+//
+//	@return []CircuitType
 func (a *CircuitsAPIService) CircuitsCircuitTypesBulkPartialUpdateExecute(r ApiCircuitsCircuitTypesBulkPartialUpdateRequest) ([]CircuitType, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []CircuitType
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []CircuitType
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesBulkPartialUpdate")
@@ -3767,8 +3776,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesBulkPartialUpdateExecute(r ApiC
 }
 
 type ApiCircuitsCircuitTypesBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                context.Context
+	ApiService         CircuitsAPI
 	circuitTypeRequest *[]CircuitTypeRequest
 }
 
@@ -3786,24 +3795,25 @@ CircuitsCircuitTypesBulkUpdate Method for CircuitsCircuitTypesBulkUpdate
 
 Put a list of circuit type objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTypesBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTypesBulkUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesBulkUpdate(ctx context.Context) ApiCircuitsCircuitTypesBulkUpdateRequest {
 	return ApiCircuitsCircuitTypesBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []CircuitType
+//
+//	@return []CircuitType
 func (a *CircuitsAPIService) CircuitsCircuitTypesBulkUpdateExecute(r ApiCircuitsCircuitTypesBulkUpdateRequest) ([]CircuitType, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []CircuitType
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []CircuitType
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesBulkUpdate")
@@ -3891,8 +3901,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesBulkUpdateExecute(r ApiCircuits
 }
 
 type ApiCircuitsCircuitTypesCreateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                context.Context
+	ApiService         CircuitsAPI
 	circuitTypeRequest *CircuitTypeRequest
 }
 
@@ -3910,24 +3920,25 @@ CircuitsCircuitTypesCreate Method for CircuitsCircuitTypesCreate
 
 Post a list of circuit type objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTypesCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTypesCreateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesCreate(ctx context.Context) ApiCircuitsCircuitTypesCreateRequest {
 	return ApiCircuitsCircuitTypesCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitType
+//
+//	@return CircuitType
 func (a *CircuitsAPIService) CircuitsCircuitTypesCreateExecute(r ApiCircuitsCircuitTypesCreateRequest) (*CircuitType, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitType
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitType
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesCreate")
@@ -4015,9 +4026,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesCreateExecute(r ApiCircuitsCirc
 }
 
 type ApiCircuitsCircuitTypesDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsCircuitTypesDestroyRequest) Execute() (*http.Response, error) {
@@ -4029,24 +4040,24 @@ CircuitsCircuitTypesDestroy Method for CircuitsCircuitTypesDestroy
 
 Delete a circuit type object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit type.
- @return ApiCircuitsCircuitTypesDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit type.
+	@return ApiCircuitsCircuitTypesDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesDestroy(ctx context.Context, id int32) ApiCircuitsCircuitTypesDestroyRequest {
 	return ApiCircuitsCircuitTypesDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsCircuitTypesDestroyExecute(r ApiCircuitsCircuitTypesDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesDestroy")
@@ -4121,82 +4132,82 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesDestroyExecute(r ApiCircuitsCir
 }
 
 type ApiCircuitsCircuitTypesListRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	color *[]string
-	colorEmpty *bool
-	colorIc *[]string
-	colorIe *[]string
-	colorIew *[]string
-	colorIsw *[]string
-	colorN *[]string
-	colorNic *[]string
-	colorNie *[]string
-	colorNiew *[]string
-	colorNisw *[]string
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        CircuitsAPI
+	color             *[]string
+	colorEmpty        *bool
+	colorIc           *[]string
+	colorIe           *[]string
+	colorIew          *[]string
+	colorIsw          *[]string
+	colorN            *[]string
+	colorNic          *[]string
+	colorNie          *[]string
+	colorNiew         *[]string
+	colorNisw         *[]string
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	slug *[]string
-	slugEmpty *bool
-	slugIc *[]string
-	slugIe *[]string
-	slugIew *[]string
-	slugIsw *[]string
-	slugN *[]string
-	slugNic *[]string
-	slugNie *[]string
-	slugNiew *[]string
-	slugNisw *[]string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	slug              *[]string
+	slugEmpty         *bool
+	slugIc            *[]string
+	slugIe            *[]string
+	slugIew           *[]string
+	slugIsw           *[]string
+	slugN             *[]string
+	slugNic           *[]string
+	slugNie           *[]string
+	slugNiew          *[]string
+	slugNisw          *[]string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 func (r ApiCircuitsCircuitTypesListRequest) Color(color []string) ApiCircuitsCircuitTypesListRequest {
@@ -4582,24 +4593,25 @@ CircuitsCircuitTypesList Method for CircuitsCircuitTypesList
 
 Get a list of circuit type objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitTypesListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitTypesListRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesList(ctx context.Context) ApiCircuitsCircuitTypesListRequest {
 	return ApiCircuitsCircuitTypesListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCircuitTypeList
+//
+//	@return PaginatedCircuitTypeList
 func (a *CircuitsAPIService) CircuitsCircuitTypesListExecute(r ApiCircuitsCircuitTypesListRequest) (*PaginatedCircuitTypeList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCircuitTypeList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCircuitTypeList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesList")
@@ -5400,9 +5412,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesListExecute(r ApiCircuitsCircui
 }
 
 type ApiCircuitsCircuitTypesPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                       context.Context
+	ApiService                CircuitsAPI
+	id                        int32
 	patchedCircuitTypeRequest *PatchedCircuitTypeRequest
 }
 
@@ -5420,26 +5432,27 @@ CircuitsCircuitTypesPartialUpdate Method for CircuitsCircuitTypesPartialUpdate
 
 Patch a circuit type object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit type.
- @return ApiCircuitsCircuitTypesPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit type.
+	@return ApiCircuitsCircuitTypesPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesPartialUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTypesPartialUpdateRequest {
 	return ApiCircuitsCircuitTypesPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitType
+//
+//	@return CircuitType
 func (a *CircuitsAPIService) CircuitsCircuitTypesPartialUpdateExecute(r ApiCircuitsCircuitTypesPartialUpdateRequest) (*CircuitType, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitType
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitType
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesPartialUpdate")
@@ -5525,9 +5538,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesPartialUpdateExecute(r ApiCircu
 }
 
 type ApiCircuitsCircuitTypesRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsCircuitTypesRetrieveRequest) Execute() (*CircuitType, *http.Response, error) {
@@ -5539,26 +5552,27 @@ CircuitsCircuitTypesRetrieve Method for CircuitsCircuitTypesRetrieve
 
 Get a circuit type object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit type.
- @return ApiCircuitsCircuitTypesRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit type.
+	@return ApiCircuitsCircuitTypesRetrieveRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitTypesRetrieveRequest {
 	return ApiCircuitsCircuitTypesRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitType
+//
+//	@return CircuitType
 func (a *CircuitsAPIService) CircuitsCircuitTypesRetrieveExecute(r ApiCircuitsCircuitTypesRetrieveRequest) (*CircuitType, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitType
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitType
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesRetrieve")
@@ -5642,9 +5656,9 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesRetrieveExecute(r ApiCircuitsCi
 }
 
 type ApiCircuitsCircuitTypesUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                context.Context
+	ApiService         CircuitsAPI
+	id                 int32
 	circuitTypeRequest *CircuitTypeRequest
 }
 
@@ -5662,26 +5676,27 @@ CircuitsCircuitTypesUpdate Method for CircuitsCircuitTypesUpdate
 
 Put a circuit type object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit type.
- @return ApiCircuitsCircuitTypesUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit type.
+	@return ApiCircuitsCircuitTypesUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitTypesUpdate(ctx context.Context, id int32) ApiCircuitsCircuitTypesUpdateRequest {
 	return ApiCircuitsCircuitTypesUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return CircuitType
+//
+//	@return CircuitType
 func (a *CircuitsAPIService) CircuitsCircuitTypesUpdateExecute(r ApiCircuitsCircuitTypesUpdateRequest) (*CircuitType, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *CircuitType
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *CircuitType
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitTypesUpdate")
@@ -5770,8 +5785,8 @@ func (a *CircuitsAPIService) CircuitsCircuitTypesUpdateExecute(r ApiCircuitsCirc
 }
 
 type ApiCircuitsCircuitsBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx            context.Context
+	ApiService     CircuitsAPI
 	circuitRequest *[]CircuitRequest
 }
 
@@ -5789,22 +5804,22 @@ CircuitsCircuitsBulkDestroy Method for CircuitsCircuitsBulkDestroy
 
 Delete a list of circuit objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitsBulkDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsBulkDestroy(ctx context.Context) ApiCircuitsCircuitsBulkDestroyRequest {
 	return ApiCircuitsCircuitsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsCircuitsBulkDestroyExecute(r ApiCircuitsCircuitsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsBulkDestroy")
@@ -5883,8 +5898,8 @@ func (a *CircuitsAPIService) CircuitsCircuitsBulkDestroyExecute(r ApiCircuitsCir
 }
 
 type ApiCircuitsCircuitsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx            context.Context
+	ApiService     CircuitsAPI
 	circuitRequest *[]CircuitRequest
 }
 
@@ -5902,24 +5917,25 @@ CircuitsCircuitsBulkPartialUpdate Method for CircuitsCircuitsBulkPartialUpdate
 
 Patch a list of circuit objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitsBulkPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsBulkPartialUpdate(ctx context.Context) ApiCircuitsCircuitsBulkPartialUpdateRequest {
 	return ApiCircuitsCircuitsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Circuit
+//
+//	@return []Circuit
 func (a *CircuitsAPIService) CircuitsCircuitsBulkPartialUpdateExecute(r ApiCircuitsCircuitsBulkPartialUpdateRequest) ([]Circuit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Circuit
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Circuit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsBulkPartialUpdate")
@@ -6007,8 +6023,8 @@ func (a *CircuitsAPIService) CircuitsCircuitsBulkPartialUpdateExecute(r ApiCircu
 }
 
 type ApiCircuitsCircuitsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx            context.Context
+	ApiService     CircuitsAPI
 	circuitRequest *[]CircuitRequest
 }
 
@@ -6026,24 +6042,25 @@ CircuitsCircuitsBulkUpdate Method for CircuitsCircuitsBulkUpdate
 
 Put a list of circuit objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitsBulkUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsBulkUpdate(ctx context.Context) ApiCircuitsCircuitsBulkUpdateRequest {
 	return ApiCircuitsCircuitsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Circuit
+//
+//	@return []Circuit
 func (a *CircuitsAPIService) CircuitsCircuitsBulkUpdateExecute(r ApiCircuitsCircuitsBulkUpdateRequest) ([]Circuit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Circuit
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Circuit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsBulkUpdate")
@@ -6131,8 +6148,8 @@ func (a *CircuitsAPIService) CircuitsCircuitsBulkUpdateExecute(r ApiCircuitsCirc
 }
 
 type ApiCircuitsCircuitsCreateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	writableCircuitRequest *WritableCircuitRequest
 }
 
@@ -6150,24 +6167,25 @@ CircuitsCircuitsCreate Method for CircuitsCircuitsCreate
 
 Post a list of circuit objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitsCreateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsCreate(ctx context.Context) ApiCircuitsCircuitsCreateRequest {
 	return ApiCircuitsCircuitsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Circuit
+//
+//	@return Circuit
 func (a *CircuitsAPIService) CircuitsCircuitsCreateExecute(r ApiCircuitsCircuitsCreateRequest) (*Circuit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Circuit
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Circuit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsCreate")
@@ -6255,9 +6273,9 @@ func (a *CircuitsAPIService) CircuitsCircuitsCreateExecute(r ApiCircuitsCircuits
 }
 
 type ApiCircuitsCircuitsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsCircuitsDestroyRequest) Execute() (*http.Response, error) {
@@ -6269,24 +6287,24 @@ CircuitsCircuitsDestroy Method for CircuitsCircuitsDestroy
 
 Delete a circuit object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit.
- @return ApiCircuitsCircuitsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit.
+	@return ApiCircuitsCircuitsDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsDestroy(ctx context.Context, id int32) ApiCircuitsCircuitsDestroyRequest {
 	return ApiCircuitsCircuitsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsCircuitsDestroyExecute(r ApiCircuitsCircuitsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsDestroy")
@@ -6361,127 +6379,127 @@ func (a *CircuitsAPIService) CircuitsCircuitsDestroyExecute(r ApiCircuitsCircuit
 }
 
 type ApiCircuitsCircuitsListRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	cid *[]string
-	cidEmpty *bool
-	cidIc *[]string
-	cidIe *[]string
-	cidIew *[]string
-	cidIsw *[]string
-	cidN *[]string
-	cidNic *[]string
-	cidNie *[]string
-	cidNiew *[]string
-	cidNisw *[]string
-	commitRate *[]int32
-	commitRateEmpty *bool
-	commitRateGt *[]int32
-	commitRateGte *[]int32
-	commitRateLt *[]int32
-	commitRateLte *[]int32
-	commitRateN *[]int32
-	contact *[]int32
-	contactN *[]int32
-	contactGroup *[]string
-	contactGroupN *[]string
-	contactRole *[]int32
-	contactRoleN *[]int32
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	installDate *[]string
-	installDateEmpty *bool
-	installDateGt *[]string
-	installDateGte *[]string
-	installDateLt *[]string
-	installDateLte *[]string
-	installDateN *[]string
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
-	modifiedByRequest *string
-	offset *int32
-	ordering *string
-	provider *[]string
-	providerN *[]string
-	providerAccount *[]string
-	providerAccountN *[]string
-	providerAccountId *[]int32
-	providerAccountIdN *[]int32
-	providerId *[]int32
-	providerIdN *[]int32
-	providerNetworkId *[]int32
-	providerNetworkIdN *[]int32
-	q *string
-	region *[]string
-	regionN *[]string
-	regionId *[]string
-	regionIdN *[]string
-	site *[]string
-	siteN *[]string
-	siteGroup *[]string
-	siteGroupN *[]string
-	siteGroupId *[]string
-	siteGroupIdN *[]string
-	siteId *[]int32
-	siteIdN *[]int32
-	status *[]string
-	statusN *[]string
-	tag *[]string
-	tagN *[]string
-	tenant *[]string
-	tenantN *[]string
-	tenantGroup *[]string
-	tenantGroupN *[]string
-	tenantGroupId *[]string
-	tenantGroupIdN *[]string
-	tenantId *[]*int32
-	tenantIdN *[]*int32
-	terminationAId *[]*int32
-	terminationAIdN *[]*int32
-	terminationDate *[]string
+	ctx                  context.Context
+	ApiService           CircuitsAPI
+	cid                  *[]string
+	cidEmpty             *bool
+	cidIc                *[]string
+	cidIe                *[]string
+	cidIew               *[]string
+	cidIsw               *[]string
+	cidN                 *[]string
+	cidNic               *[]string
+	cidNie               *[]string
+	cidNiew              *[]string
+	cidNisw              *[]string
+	commitRate           *[]int32
+	commitRateEmpty      *bool
+	commitRateGt         *[]int32
+	commitRateGte        *[]int32
+	commitRateLt         *[]int32
+	commitRateLte        *[]int32
+	commitRateN          *[]int32
+	contact              *[]int32
+	contactN             *[]int32
+	contactGroup         *[]string
+	contactGroupN        *[]string
+	contactRole          *[]int32
+	contactRoleN         *[]int32
+	created              *[]time.Time
+	createdEmpty         *[]time.Time
+	createdGt            *[]time.Time
+	createdGte           *[]time.Time
+	createdLt            *[]time.Time
+	createdLte           *[]time.Time
+	createdN             *[]time.Time
+	createdByRequest     *string
+	description          *[]string
+	descriptionEmpty     *bool
+	descriptionIc        *[]string
+	descriptionIe        *[]string
+	descriptionIew       *[]string
+	descriptionIsw       *[]string
+	descriptionN         *[]string
+	descriptionNic       *[]string
+	descriptionNie       *[]string
+	descriptionNiew      *[]string
+	descriptionNisw      *[]string
+	id                   *[]int32
+	idEmpty              *bool
+	idGt                 *[]int32
+	idGte                *[]int32
+	idLt                 *[]int32
+	idLte                *[]int32
+	idN                  *[]int32
+	installDate          *[]string
+	installDateEmpty     *bool
+	installDateGt        *[]string
+	installDateGte       *[]string
+	installDateLt        *[]string
+	installDateLte       *[]string
+	installDateN         *[]string
+	lastUpdated          *[]time.Time
+	lastUpdatedEmpty     *[]time.Time
+	lastUpdatedGt        *[]time.Time
+	lastUpdatedGte       *[]time.Time
+	lastUpdatedLt        *[]time.Time
+	lastUpdatedLte       *[]time.Time
+	lastUpdatedN         *[]time.Time
+	limit                *int32
+	modifiedByRequest    *string
+	offset               *int32
+	ordering             *string
+	provider             *[]string
+	providerN            *[]string
+	providerAccount      *[]string
+	providerAccountN     *[]string
+	providerAccountId    *[]int32
+	providerAccountIdN   *[]int32
+	providerId           *[]int32
+	providerIdN          *[]int32
+	providerNetworkId    *[]int32
+	providerNetworkIdN   *[]int32
+	q                    *string
+	region               *[]string
+	regionN              *[]string
+	regionId             *[]string
+	regionIdN            *[]string
+	site                 *[]string
+	siteN                *[]string
+	siteGroup            *[]string
+	siteGroupN           *[]string
+	siteGroupId          *[]string
+	siteGroupIdN         *[]string
+	siteId               *[]int32
+	siteIdN              *[]int32
+	status               *[]string
+	statusN              *[]string
+	tag                  *[]string
+	tagN                 *[]string
+	tenant               *[]string
+	tenantN              *[]string
+	tenantGroup          *[]string
+	tenantGroupN         *[]string
+	tenantGroupId        *[]string
+	tenantGroupIdN       *[]string
+	tenantId             *[]*int32
+	tenantIdN            *[]*int32
+	terminationAId       *[]*int32
+	terminationAIdN      *[]*int32
+	terminationDate      *[]string
 	terminationDateEmpty *bool
-	terminationDateGt *[]string
-	terminationDateGte *[]string
-	terminationDateLt *[]string
-	terminationDateLte *[]string
-	terminationDateN *[]string
-	terminationZId *[]*int32
-	terminationZIdN *[]*int32
-	type_ *[]string
-	typeN *[]string
-	typeId *[]int32
-	typeIdN *[]int32
-	updatedByRequest *string
+	terminationDateGt    *[]string
+	terminationDateGte   *[]string
+	terminationDateLt    *[]string
+	terminationDateLte   *[]string
+	terminationDateN     *[]string
+	terminationZId       *[]*int32
+	terminationZIdN      *[]*int32
+	type_                *[]string
+	typeN                *[]string
+	typeId               *[]int32
+	typeIdN              *[]int32
+	updatedByRequest     *string
 }
 
 func (r ApiCircuitsCircuitsListRequest) Cid(cid []string) ApiCircuitsCircuitsListRequest {
@@ -7122,24 +7140,25 @@ CircuitsCircuitsList Method for CircuitsCircuitsList
 
 Get a list of circuit objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsCircuitsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsCircuitsListRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsList(ctx context.Context) ApiCircuitsCircuitsListRequest {
 	return ApiCircuitsCircuitsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedCircuitList
+//
+//	@return PaginatedCircuitList
 func (a *CircuitsAPIService) CircuitsCircuitsListExecute(r ApiCircuitsCircuitsListRequest) (*PaginatedCircuitList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedCircuitList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedCircuitList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsList")
@@ -8427,9 +8446,9 @@ func (a *CircuitsAPIService) CircuitsCircuitsListExecute(r ApiCircuitsCircuitsLi
 }
 
 type ApiCircuitsCircuitsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                           context.Context
+	ApiService                    CircuitsAPI
+	id                            int32
 	patchedWritableCircuitRequest *PatchedWritableCircuitRequest
 }
 
@@ -8447,26 +8466,27 @@ CircuitsCircuitsPartialUpdate Method for CircuitsCircuitsPartialUpdate
 
 Patch a circuit object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit.
- @return ApiCircuitsCircuitsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit.
+	@return ApiCircuitsCircuitsPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsPartialUpdate(ctx context.Context, id int32) ApiCircuitsCircuitsPartialUpdateRequest {
 	return ApiCircuitsCircuitsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Circuit
+//
+//	@return Circuit
 func (a *CircuitsAPIService) CircuitsCircuitsPartialUpdateExecute(r ApiCircuitsCircuitsPartialUpdateRequest) (*Circuit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Circuit
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Circuit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsPartialUpdate")
@@ -8552,9 +8572,9 @@ func (a *CircuitsAPIService) CircuitsCircuitsPartialUpdateExecute(r ApiCircuitsC
 }
 
 type ApiCircuitsCircuitsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsCircuitsRetrieveRequest) Execute() (*Circuit, *http.Response, error) {
@@ -8566,26 +8586,27 @@ CircuitsCircuitsRetrieve Method for CircuitsCircuitsRetrieve
 
 Get a circuit object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit.
- @return ApiCircuitsCircuitsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit.
+	@return ApiCircuitsCircuitsRetrieveRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsRetrieve(ctx context.Context, id int32) ApiCircuitsCircuitsRetrieveRequest {
 	return ApiCircuitsCircuitsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Circuit
+//
+//	@return Circuit
 func (a *CircuitsAPIService) CircuitsCircuitsRetrieveExecute(r ApiCircuitsCircuitsRetrieveRequest) (*Circuit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Circuit
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Circuit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsRetrieve")
@@ -8669,9 +8690,9 @@ func (a *CircuitsAPIService) CircuitsCircuitsRetrieveExecute(r ApiCircuitsCircui
 }
 
 type ApiCircuitsCircuitsUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                    context.Context
+	ApiService             CircuitsAPI
+	id                     int32
 	writableCircuitRequest *WritableCircuitRequest
 }
 
@@ -8689,26 +8710,27 @@ CircuitsCircuitsUpdate Method for CircuitsCircuitsUpdate
 
 Put a circuit object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this circuit.
- @return ApiCircuitsCircuitsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this circuit.
+	@return ApiCircuitsCircuitsUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsCircuitsUpdate(ctx context.Context, id int32) ApiCircuitsCircuitsUpdateRequest {
 	return ApiCircuitsCircuitsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Circuit
+//
+//	@return Circuit
 func (a *CircuitsAPIService) CircuitsCircuitsUpdateExecute(r ApiCircuitsCircuitsUpdateRequest) (*Circuit, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Circuit
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Circuit
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsCircuitsUpdate")
@@ -8797,8 +8819,8 @@ func (a *CircuitsAPIService) CircuitsCircuitsUpdateExecute(r ApiCircuitsCircuits
 }
 
 type ApiCircuitsProviderAccountsBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerAccountRequest *[]ProviderAccountRequest
 }
 
@@ -8816,22 +8838,22 @@ CircuitsProviderAccountsBulkDestroy Method for CircuitsProviderAccountsBulkDestr
 
 Delete a list of provider account objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderAccountsBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderAccountsBulkDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsBulkDestroy(ctx context.Context) ApiCircuitsProviderAccountsBulkDestroyRequest {
 	return ApiCircuitsProviderAccountsBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsProviderAccountsBulkDestroyExecute(r ApiCircuitsProviderAccountsBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsBulkDestroy")
@@ -8910,8 +8932,8 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsBulkDestroyExecute(r ApiCir
 }
 
 type ApiCircuitsProviderAccountsBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerAccountRequest *[]ProviderAccountRequest
 }
 
@@ -8929,24 +8951,25 @@ CircuitsProviderAccountsBulkPartialUpdate Method for CircuitsProviderAccountsBul
 
 Patch a list of provider account objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderAccountsBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderAccountsBulkPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsBulkPartialUpdate(ctx context.Context) ApiCircuitsProviderAccountsBulkPartialUpdateRequest {
 	return ApiCircuitsProviderAccountsBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ProviderAccount
+//
+//	@return []ProviderAccount
 func (a *CircuitsAPIService) CircuitsProviderAccountsBulkPartialUpdateExecute(r ApiCircuitsProviderAccountsBulkPartialUpdateRequest) ([]ProviderAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ProviderAccount
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ProviderAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsBulkPartialUpdate")
@@ -9034,8 +9057,8 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsBulkPartialUpdateExecute(r 
 }
 
 type ApiCircuitsProviderAccountsBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerAccountRequest *[]ProviderAccountRequest
 }
 
@@ -9053,24 +9076,25 @@ CircuitsProviderAccountsBulkUpdate Method for CircuitsProviderAccountsBulkUpdate
 
 Put a list of provider account objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderAccountsBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderAccountsBulkUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsBulkUpdate(ctx context.Context) ApiCircuitsProviderAccountsBulkUpdateRequest {
 	return ApiCircuitsProviderAccountsBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ProviderAccount
+//
+//	@return []ProviderAccount
 func (a *CircuitsAPIService) CircuitsProviderAccountsBulkUpdateExecute(r ApiCircuitsProviderAccountsBulkUpdateRequest) ([]ProviderAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ProviderAccount
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ProviderAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsBulkUpdate")
@@ -9158,8 +9182,8 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsBulkUpdateExecute(r ApiCirc
 }
 
 type ApiCircuitsProviderAccountsCreateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerAccountRequest *ProviderAccountRequest
 }
 
@@ -9177,24 +9201,25 @@ CircuitsProviderAccountsCreate Method for CircuitsProviderAccountsCreate
 
 Post a list of provider account objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderAccountsCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderAccountsCreateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsCreate(ctx context.Context) ApiCircuitsProviderAccountsCreateRequest {
 	return ApiCircuitsProviderAccountsCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderAccount
+//
+//	@return ProviderAccount
 func (a *CircuitsAPIService) CircuitsProviderAccountsCreateExecute(r ApiCircuitsProviderAccountsCreateRequest) (*ProviderAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderAccount
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsCreate")
@@ -9282,9 +9307,9 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsCreateExecute(r ApiCircuits
 }
 
 type ApiCircuitsProviderAccountsDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsProviderAccountsDestroyRequest) Execute() (*http.Response, error) {
@@ -9296,24 +9321,24 @@ CircuitsProviderAccountsDestroy Method for CircuitsProviderAccountsDestroy
 
 Delete a provider account object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider account.
- @return ApiCircuitsProviderAccountsDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider account.
+	@return ApiCircuitsProviderAccountsDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsDestroy(ctx context.Context, id int32) ApiCircuitsProviderAccountsDestroyRequest {
 	return ApiCircuitsProviderAccountsDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsProviderAccountsDestroyExecute(r ApiCircuitsProviderAccountsDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsDestroy")
@@ -9388,75 +9413,75 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsDestroyExecute(r ApiCircuit
 }
 
 type ApiCircuitsProviderAccountsListRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	account *[]string
-	accountEmpty *bool
-	accountIc *[]string
-	accountIe *[]string
-	accountIew *[]string
-	accountIsw *[]string
-	accountN *[]string
-	accountNic *[]string
-	accountNie *[]string
-	accountNiew *[]string
-	accountNisw *[]string
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        CircuitsAPI
+	account           *[]string
+	accountEmpty      *bool
+	accountIc         *[]string
+	accountIe         *[]string
+	accountIew        *[]string
+	accountIsw        *[]string
+	accountN          *[]string
+	accountNic        *[]string
+	accountNie        *[]string
+	accountNiew       *[]string
+	accountNisw       *[]string
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	provider *[]string
-	providerN *[]string
-	providerId *[]int32
-	providerIdN *[]int32
-	q *string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	provider          *[]string
+	providerN         *[]string
+	providerId        *[]int32
+	providerIdN       *[]int32
+	q                 *string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 func (r ApiCircuitsProviderAccountsListRequest) Account(account []string) ApiCircuitsProviderAccountsListRequest {
@@ -9811,24 +9836,25 @@ CircuitsProviderAccountsList Method for CircuitsProviderAccountsList
 
 Get a list of provider account objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderAccountsListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderAccountsListRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsList(ctx context.Context) ApiCircuitsProviderAccountsListRequest {
 	return ApiCircuitsProviderAccountsListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedProviderAccountList
+//
+//	@return PaginatedProviderAccountList
 func (a *CircuitsAPIService) CircuitsProviderAccountsListExecute(r ApiCircuitsProviderAccountsListRequest) (*PaginatedProviderAccountList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedProviderAccountList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedProviderAccountList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsList")
@@ -10560,9 +10586,9 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsListExecute(r ApiCircuitsPr
 }
 
 type ApiCircuitsProviderAccountsPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                           context.Context
+	ApiService                    CircuitsAPI
+	id                            int32
 	patchedProviderAccountRequest *PatchedProviderAccountRequest
 }
 
@@ -10580,26 +10606,27 @@ CircuitsProviderAccountsPartialUpdate Method for CircuitsProviderAccountsPartial
 
 Patch a provider account object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider account.
- @return ApiCircuitsProviderAccountsPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider account.
+	@return ApiCircuitsProviderAccountsPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsPartialUpdate(ctx context.Context, id int32) ApiCircuitsProviderAccountsPartialUpdateRequest {
 	return ApiCircuitsProviderAccountsPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderAccount
+//
+//	@return ProviderAccount
 func (a *CircuitsAPIService) CircuitsProviderAccountsPartialUpdateExecute(r ApiCircuitsProviderAccountsPartialUpdateRequest) (*ProviderAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderAccount
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsPartialUpdate")
@@ -10685,9 +10712,9 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsPartialUpdateExecute(r ApiC
 }
 
 type ApiCircuitsProviderAccountsRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsProviderAccountsRetrieveRequest) Execute() (*ProviderAccount, *http.Response, error) {
@@ -10699,26 +10726,27 @@ CircuitsProviderAccountsRetrieve Method for CircuitsProviderAccountsRetrieve
 
 Get a provider account object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider account.
- @return ApiCircuitsProviderAccountsRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider account.
+	@return ApiCircuitsProviderAccountsRetrieveRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsRetrieve(ctx context.Context, id int32) ApiCircuitsProviderAccountsRetrieveRequest {
 	return ApiCircuitsProviderAccountsRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderAccount
+//
+//	@return ProviderAccount
 func (a *CircuitsAPIService) CircuitsProviderAccountsRetrieveExecute(r ApiCircuitsProviderAccountsRetrieveRequest) (*ProviderAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderAccount
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsRetrieve")
@@ -10802,9 +10830,9 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsRetrieveExecute(r ApiCircui
 }
 
 type ApiCircuitsProviderAccountsUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                    context.Context
+	ApiService             CircuitsAPI
+	id                     int32
 	providerAccountRequest *ProviderAccountRequest
 }
 
@@ -10822,26 +10850,27 @@ CircuitsProviderAccountsUpdate Method for CircuitsProviderAccountsUpdate
 
 Put a provider account object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider account.
- @return ApiCircuitsProviderAccountsUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider account.
+	@return ApiCircuitsProviderAccountsUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderAccountsUpdate(ctx context.Context, id int32) ApiCircuitsProviderAccountsUpdateRequest {
 	return ApiCircuitsProviderAccountsUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderAccount
+//
+//	@return ProviderAccount
 func (a *CircuitsAPIService) CircuitsProviderAccountsUpdateExecute(r ApiCircuitsProviderAccountsUpdateRequest) (*ProviderAccount, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderAccount
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderAccount
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderAccountsUpdate")
@@ -10930,8 +10959,8 @@ func (a *CircuitsAPIService) CircuitsProviderAccountsUpdateExecute(r ApiCircuits
 }
 
 type ApiCircuitsProviderNetworksBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerNetworkRequest *[]ProviderNetworkRequest
 }
 
@@ -10949,22 +10978,22 @@ CircuitsProviderNetworksBulkDestroy Method for CircuitsProviderNetworksBulkDestr
 
 Delete a list of provider network objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderNetworksBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderNetworksBulkDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksBulkDestroy(ctx context.Context) ApiCircuitsProviderNetworksBulkDestroyRequest {
 	return ApiCircuitsProviderNetworksBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsProviderNetworksBulkDestroyExecute(r ApiCircuitsProviderNetworksBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksBulkDestroy")
@@ -11043,8 +11072,8 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksBulkDestroyExecute(r ApiCir
 }
 
 type ApiCircuitsProviderNetworksBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerNetworkRequest *[]ProviderNetworkRequest
 }
 
@@ -11062,24 +11091,25 @@ CircuitsProviderNetworksBulkPartialUpdate Method for CircuitsProviderNetworksBul
 
 Patch a list of provider network objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderNetworksBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderNetworksBulkPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksBulkPartialUpdate(ctx context.Context) ApiCircuitsProviderNetworksBulkPartialUpdateRequest {
 	return ApiCircuitsProviderNetworksBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ProviderNetwork
+//
+//	@return []ProviderNetwork
 func (a *CircuitsAPIService) CircuitsProviderNetworksBulkPartialUpdateExecute(r ApiCircuitsProviderNetworksBulkPartialUpdateRequest) ([]ProviderNetwork, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ProviderNetwork
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ProviderNetwork
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksBulkPartialUpdate")
@@ -11167,8 +11197,8 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksBulkPartialUpdateExecute(r 
 }
 
 type ApiCircuitsProviderNetworksBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerNetworkRequest *[]ProviderNetworkRequest
 }
 
@@ -11186,24 +11216,25 @@ CircuitsProviderNetworksBulkUpdate Method for CircuitsProviderNetworksBulkUpdate
 
 Put a list of provider network objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderNetworksBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderNetworksBulkUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksBulkUpdate(ctx context.Context) ApiCircuitsProviderNetworksBulkUpdateRequest {
 	return ApiCircuitsProviderNetworksBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []ProviderNetwork
+//
+//	@return []ProviderNetwork
 func (a *CircuitsAPIService) CircuitsProviderNetworksBulkUpdateExecute(r ApiCircuitsProviderNetworksBulkUpdateRequest) ([]ProviderNetwork, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []ProviderNetwork
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []ProviderNetwork
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksBulkUpdate")
@@ -11291,8 +11322,8 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksBulkUpdateExecute(r ApiCirc
 }
 
 type ApiCircuitsProviderNetworksCreateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx                    context.Context
+	ApiService             CircuitsAPI
 	providerNetworkRequest *ProviderNetworkRequest
 }
 
@@ -11310,24 +11341,25 @@ CircuitsProviderNetworksCreate Method for CircuitsProviderNetworksCreate
 
 Post a list of provider network objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderNetworksCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderNetworksCreateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksCreate(ctx context.Context) ApiCircuitsProviderNetworksCreateRequest {
 	return ApiCircuitsProviderNetworksCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderNetwork
+//
+//	@return ProviderNetwork
 func (a *CircuitsAPIService) CircuitsProviderNetworksCreateExecute(r ApiCircuitsProviderNetworksCreateRequest) (*ProviderNetwork, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderNetwork
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderNetwork
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksCreate")
@@ -11415,9 +11447,9 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksCreateExecute(r ApiCircuits
 }
 
 type ApiCircuitsProviderNetworksDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsProviderNetworksDestroyRequest) Execute() (*http.Response, error) {
@@ -11429,24 +11461,24 @@ CircuitsProviderNetworksDestroy Method for CircuitsProviderNetworksDestroy
 
 Delete a provider network object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider network.
- @return ApiCircuitsProviderNetworksDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider network.
+	@return ApiCircuitsProviderNetworksDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksDestroy(ctx context.Context, id int32) ApiCircuitsProviderNetworksDestroyRequest {
 	return ApiCircuitsProviderNetworksDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsProviderNetworksDestroyExecute(r ApiCircuitsProviderNetworksDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksDestroy")
@@ -11521,75 +11553,75 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksDestroyExecute(r ApiCircuit
 }
 
 type ApiCircuitsProviderNetworksListRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        CircuitsAPI
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	provider *[]string
-	providerN *[]string
-	providerId *[]int32
-	providerIdN *[]int32
-	q *string
-	serviceId *[]string
-	serviceIdEmpty *bool
-	serviceIdIc *[]string
-	serviceIdIe *[]string
-	serviceIdIew *[]string
-	serviceIdIsw *[]string
-	serviceIdN *[]string
-	serviceIdNic *[]string
-	serviceIdNie *[]string
-	serviceIdNiew *[]string
-	serviceIdNisw *[]string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	provider          *[]string
+	providerN         *[]string
+	providerId        *[]int32
+	providerIdN       *[]int32
+	q                 *string
+	serviceId         *[]string
+	serviceIdEmpty    *bool
+	serviceIdIc       *[]string
+	serviceIdIe       *[]string
+	serviceIdIew      *[]string
+	serviceIdIsw      *[]string
+	serviceIdN        *[]string
+	serviceIdNic      *[]string
+	serviceIdNie      *[]string
+	serviceIdNiew     *[]string
+	serviceIdNisw     *[]string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 func (r ApiCircuitsProviderNetworksListRequest) Created(created []time.Time) ApiCircuitsProviderNetworksListRequest {
@@ -11944,24 +11976,25 @@ CircuitsProviderNetworksList Method for CircuitsProviderNetworksList
 
 Get a list of provider network objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProviderNetworksListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProviderNetworksListRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksList(ctx context.Context) ApiCircuitsProviderNetworksListRequest {
 	return ApiCircuitsProviderNetworksListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedProviderNetworkList
+//
+//	@return PaginatedProviderNetworkList
 func (a *CircuitsAPIService) CircuitsProviderNetworksListExecute(r ApiCircuitsProviderNetworksListRequest) (*PaginatedProviderNetworkList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedProviderNetworkList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedProviderNetworkList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksList")
@@ -12693,9 +12726,9 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksListExecute(r ApiCircuitsPr
 }
 
 type ApiCircuitsProviderNetworksPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                           context.Context
+	ApiService                    CircuitsAPI
+	id                            int32
 	patchedProviderNetworkRequest *PatchedProviderNetworkRequest
 }
 
@@ -12713,26 +12746,27 @@ CircuitsProviderNetworksPartialUpdate Method for CircuitsProviderNetworksPartial
 
 Patch a provider network object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider network.
- @return ApiCircuitsProviderNetworksPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider network.
+	@return ApiCircuitsProviderNetworksPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksPartialUpdate(ctx context.Context, id int32) ApiCircuitsProviderNetworksPartialUpdateRequest {
 	return ApiCircuitsProviderNetworksPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderNetwork
+//
+//	@return ProviderNetwork
 func (a *CircuitsAPIService) CircuitsProviderNetworksPartialUpdateExecute(r ApiCircuitsProviderNetworksPartialUpdateRequest) (*ProviderNetwork, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderNetwork
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderNetwork
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksPartialUpdate")
@@ -12818,9 +12852,9 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksPartialUpdateExecute(r ApiC
 }
 
 type ApiCircuitsProviderNetworksRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsProviderNetworksRetrieveRequest) Execute() (*ProviderNetwork, *http.Response, error) {
@@ -12832,26 +12866,27 @@ CircuitsProviderNetworksRetrieve Method for CircuitsProviderNetworksRetrieve
 
 Get a provider network object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider network.
- @return ApiCircuitsProviderNetworksRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider network.
+	@return ApiCircuitsProviderNetworksRetrieveRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksRetrieve(ctx context.Context, id int32) ApiCircuitsProviderNetworksRetrieveRequest {
 	return ApiCircuitsProviderNetworksRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderNetwork
+//
+//	@return ProviderNetwork
 func (a *CircuitsAPIService) CircuitsProviderNetworksRetrieveExecute(r ApiCircuitsProviderNetworksRetrieveRequest) (*ProviderNetwork, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderNetwork
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderNetwork
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksRetrieve")
@@ -12935,9 +12970,9 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksRetrieveExecute(r ApiCircui
 }
 
 type ApiCircuitsProviderNetworksUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                    context.Context
+	ApiService             CircuitsAPI
+	id                     int32
 	providerNetworkRequest *ProviderNetworkRequest
 }
 
@@ -12955,26 +12990,27 @@ CircuitsProviderNetworksUpdate Method for CircuitsProviderNetworksUpdate
 
 Put a provider network object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider network.
- @return ApiCircuitsProviderNetworksUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider network.
+	@return ApiCircuitsProviderNetworksUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProviderNetworksUpdate(ctx context.Context, id int32) ApiCircuitsProviderNetworksUpdateRequest {
 	return ApiCircuitsProviderNetworksUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return ProviderNetwork
+//
+//	@return ProviderNetwork
 func (a *CircuitsAPIService) CircuitsProviderNetworksUpdateExecute(r ApiCircuitsProviderNetworksUpdateRequest) (*ProviderNetwork, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ProviderNetwork
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *ProviderNetwork
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProviderNetworksUpdate")
@@ -13063,8 +13099,8 @@ func (a *CircuitsAPIService) CircuitsProviderNetworksUpdateExecute(r ApiCircuits
 }
 
 type ApiCircuitsProvidersBulkDestroyRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx             context.Context
+	ApiService      CircuitsAPI
 	providerRequest *[]ProviderRequest
 }
 
@@ -13082,22 +13118,22 @@ CircuitsProvidersBulkDestroy Method for CircuitsProvidersBulkDestroy
 
 Delete a list of provider objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProvidersBulkDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProvidersBulkDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersBulkDestroy(ctx context.Context) ApiCircuitsProvidersBulkDestroyRequest {
 	return ApiCircuitsProvidersBulkDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsProvidersBulkDestroyExecute(r ApiCircuitsProvidersBulkDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersBulkDestroy")
@@ -13176,8 +13212,8 @@ func (a *CircuitsAPIService) CircuitsProvidersBulkDestroyExecute(r ApiCircuitsPr
 }
 
 type ApiCircuitsProvidersBulkPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx             context.Context
+	ApiService      CircuitsAPI
 	providerRequest *[]ProviderRequest
 }
 
@@ -13195,24 +13231,25 @@ CircuitsProvidersBulkPartialUpdate Method for CircuitsProvidersBulkPartialUpdate
 
 Patch a list of provider objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProvidersBulkPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProvidersBulkPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersBulkPartialUpdate(ctx context.Context) ApiCircuitsProvidersBulkPartialUpdateRequest {
 	return ApiCircuitsProvidersBulkPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Provider
+//
+//	@return []Provider
 func (a *CircuitsAPIService) CircuitsProvidersBulkPartialUpdateExecute(r ApiCircuitsProvidersBulkPartialUpdateRequest) ([]Provider, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Provider
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Provider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersBulkPartialUpdate")
@@ -13300,8 +13337,8 @@ func (a *CircuitsAPIService) CircuitsProvidersBulkPartialUpdateExecute(r ApiCirc
 }
 
 type ApiCircuitsProvidersBulkUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx             context.Context
+	ApiService      CircuitsAPI
 	providerRequest *[]ProviderRequest
 }
 
@@ -13319,24 +13356,25 @@ CircuitsProvidersBulkUpdate Method for CircuitsProvidersBulkUpdate
 
 Put a list of provider objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProvidersBulkUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProvidersBulkUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersBulkUpdate(ctx context.Context) ApiCircuitsProvidersBulkUpdateRequest {
 	return ApiCircuitsProvidersBulkUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return []Provider
+//
+//	@return []Provider
 func (a *CircuitsAPIService) CircuitsProvidersBulkUpdateExecute(r ApiCircuitsProvidersBulkUpdateRequest) ([]Provider, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  []Provider
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue []Provider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersBulkUpdate")
@@ -13424,8 +13462,8 @@ func (a *CircuitsAPIService) CircuitsProvidersBulkUpdateExecute(r ApiCircuitsPro
 }
 
 type ApiCircuitsProvidersCreateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
+	ctx             context.Context
+	ApiService      CircuitsAPI
 	providerRequest *ProviderRequest
 }
 
@@ -13443,24 +13481,25 @@ CircuitsProvidersCreate Method for CircuitsProvidersCreate
 
 Post a list of provider objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProvidersCreateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProvidersCreateRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersCreate(ctx context.Context) ApiCircuitsProvidersCreateRequest {
 	return ApiCircuitsProvidersCreateRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return Provider
+//
+//	@return Provider
 func (a *CircuitsAPIService) CircuitsProvidersCreateExecute(r ApiCircuitsProvidersCreateRequest) (*Provider, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPost
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Provider
+		localVarHTTPMethod  = http.MethodPost
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Provider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersCreate")
@@ -13548,9 +13587,9 @@ func (a *CircuitsAPIService) CircuitsProvidersCreateExecute(r ApiCircuitsProvide
 }
 
 type ApiCircuitsProvidersDestroyRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsProvidersDestroyRequest) Execute() (*http.Response, error) {
@@ -13562,24 +13601,24 @@ CircuitsProvidersDestroy Method for CircuitsProvidersDestroy
 
 Delete a provider object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider.
- @return ApiCircuitsProvidersDestroyRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider.
+	@return ApiCircuitsProvidersDestroyRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersDestroy(ctx context.Context, id int32) ApiCircuitsProvidersDestroyRequest {
 	return ApiCircuitsProvidersDestroyRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
 func (a *CircuitsAPIService) CircuitsProvidersDestroyExecute(r ApiCircuitsProvidersDestroyRequest) (*http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodDelete
-		localVarPostBody     interface{}
-		formFiles            []formFile
+		localVarHTTPMethod = http.MethodDelete
+		localVarPostBody   interface{}
+		formFiles          []formFile
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersDestroy")
@@ -13654,93 +13693,93 @@ func (a *CircuitsAPIService) CircuitsProvidersDestroyExecute(r ApiCircuitsProvid
 }
 
 type ApiCircuitsProvidersListRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	asn *[]int64
-	asnN *[]int64
-	asnId *[]int32
-	asnIdN *[]int32
-	contact *[]int32
-	contactN *[]int32
-	contactGroup *[]string
-	contactGroupN *[]string
-	contactRole *[]int32
-	contactRoleN *[]int32
-	created *[]time.Time
-	createdEmpty *[]time.Time
-	createdGt *[]time.Time
-	createdGte *[]time.Time
-	createdLt *[]time.Time
-	createdLte *[]time.Time
-	createdN *[]time.Time
-	createdByRequest *string
-	description *[]string
-	descriptionEmpty *bool
-	descriptionIc *[]string
-	descriptionIe *[]string
-	descriptionIew *[]string
-	descriptionIsw *[]string
-	descriptionN *[]string
-	descriptionNic *[]string
-	descriptionNie *[]string
-	descriptionNiew *[]string
-	descriptionNisw *[]string
-	id *[]int32
-	idEmpty *bool
-	idGt *[]int32
-	idGte *[]int32
-	idLt *[]int32
-	idLte *[]int32
-	idN *[]int32
-	lastUpdated *[]time.Time
-	lastUpdatedEmpty *[]time.Time
-	lastUpdatedGt *[]time.Time
-	lastUpdatedGte *[]time.Time
-	lastUpdatedLt *[]time.Time
-	lastUpdatedLte *[]time.Time
-	lastUpdatedN *[]time.Time
-	limit *int32
+	ctx               context.Context
+	ApiService        CircuitsAPI
+	asn               *[]int64
+	asnN              *[]int64
+	asnId             *[]int32
+	asnIdN            *[]int32
+	contact           *[]int32
+	contactN          *[]int32
+	contactGroup      *[]string
+	contactGroupN     *[]string
+	contactRole       *[]int32
+	contactRoleN      *[]int32
+	created           *[]time.Time
+	createdEmpty      *[]time.Time
+	createdGt         *[]time.Time
+	createdGte        *[]time.Time
+	createdLt         *[]time.Time
+	createdLte        *[]time.Time
+	createdN          *[]time.Time
+	createdByRequest  *string
+	description       *[]string
+	descriptionEmpty  *bool
+	descriptionIc     *[]string
+	descriptionIe     *[]string
+	descriptionIew    *[]string
+	descriptionIsw    *[]string
+	descriptionN      *[]string
+	descriptionNic    *[]string
+	descriptionNie    *[]string
+	descriptionNiew   *[]string
+	descriptionNisw   *[]string
+	id                *[]int32
+	idEmpty           *bool
+	idGt              *[]int32
+	idGte             *[]int32
+	idLt              *[]int32
+	idLte             *[]int32
+	idN               *[]int32
+	lastUpdated       *[]time.Time
+	lastUpdatedEmpty  *[]time.Time
+	lastUpdatedGt     *[]time.Time
+	lastUpdatedGte    *[]time.Time
+	lastUpdatedLt     *[]time.Time
+	lastUpdatedLte    *[]time.Time
+	lastUpdatedN      *[]time.Time
+	limit             *int32
 	modifiedByRequest *string
-	name *[]string
-	nameEmpty *bool
-	nameIc *[]string
-	nameIe *[]string
-	nameIew *[]string
-	nameIsw *[]string
-	nameN *[]string
-	nameNic *[]string
-	nameNie *[]string
-	nameNiew *[]string
-	nameNisw *[]string
-	offset *int32
-	ordering *string
-	q *string
-	region *[]string
-	regionN *[]string
-	regionId *[]string
-	regionIdN *[]string
-	site *[]string
-	siteN *[]string
-	siteGroup *[]string
-	siteGroupN *[]string
-	siteGroupId *[]string
-	siteGroupIdN *[]string
-	siteId *[]int32
-	siteIdN *[]int32
-	slug *[]string
-	slugEmpty *bool
-	slugIc *[]string
-	slugIe *[]string
-	slugIew *[]string
-	slugIsw *[]string
-	slugN *[]string
-	slugNic *[]string
-	slugNie *[]string
-	slugNiew *[]string
-	slugNisw *[]string
-	tag *[]string
-	tagN *[]string
-	updatedByRequest *string
+	name              *[]string
+	nameEmpty         *bool
+	nameIc            *[]string
+	nameIe            *[]string
+	nameIew           *[]string
+	nameIsw           *[]string
+	nameN             *[]string
+	nameNic           *[]string
+	nameNie           *[]string
+	nameNiew          *[]string
+	nameNisw          *[]string
+	offset            *int32
+	ordering          *string
+	q                 *string
+	region            *[]string
+	regionN           *[]string
+	regionId          *[]string
+	regionIdN         *[]string
+	site              *[]string
+	siteN             *[]string
+	siteGroup         *[]string
+	siteGroupN        *[]string
+	siteGroupId       *[]string
+	siteGroupIdN      *[]string
+	siteId            *[]int32
+	siteIdN           *[]int32
+	slug              *[]string
+	slugEmpty         *bool
+	slugIc            *[]string
+	slugIe            *[]string
+	slugIew           *[]string
+	slugIsw           *[]string
+	slugN             *[]string
+	slugNic           *[]string
+	slugNie           *[]string
+	slugNiew          *[]string
+	slugNisw          *[]string
+	tag               *[]string
+	tagN              *[]string
+	updatedByRequest  *string
 }
 
 // ASN
@@ -14193,24 +14232,25 @@ CircuitsProvidersList Method for CircuitsProvidersList
 
 Get a list of provider objects.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiCircuitsProvidersListRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiCircuitsProvidersListRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersList(ctx context.Context) ApiCircuitsProvidersListRequest {
 	return ApiCircuitsProvidersListRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return PaginatedProviderList
+//
+//	@return PaginatedProviderList
 func (a *CircuitsAPIService) CircuitsProvidersListExecute(r ApiCircuitsProvidersListRequest) (*PaginatedProviderList, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *PaginatedProviderList
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *PaginatedProviderList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersList")
@@ -15140,9 +15180,9 @@ func (a *CircuitsAPIService) CircuitsProvidersListExecute(r ApiCircuitsProviders
 }
 
 type ApiCircuitsProvidersPartialUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx                    context.Context
+	ApiService             CircuitsAPI
+	id                     int32
 	patchedProviderRequest *PatchedProviderRequest
 }
 
@@ -15160,26 +15200,27 @@ CircuitsProvidersPartialUpdate Method for CircuitsProvidersPartialUpdate
 
 Patch a provider object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider.
- @return ApiCircuitsProvidersPartialUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider.
+	@return ApiCircuitsProvidersPartialUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersPartialUpdate(ctx context.Context, id int32) ApiCircuitsProvidersPartialUpdateRequest {
 	return ApiCircuitsProvidersPartialUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Provider
+//
+//	@return Provider
 func (a *CircuitsAPIService) CircuitsProvidersPartialUpdateExecute(r ApiCircuitsProvidersPartialUpdateRequest) (*Provider, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPatch
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Provider
+		localVarHTTPMethod  = http.MethodPatch
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Provider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersPartialUpdate")
@@ -15265,9 +15306,9 @@ func (a *CircuitsAPIService) CircuitsProvidersPartialUpdateExecute(r ApiCircuits
 }
 
 type ApiCircuitsProvidersRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService CircuitsAPI
-	id int32
+	id         int32
 }
 
 func (r ApiCircuitsProvidersRetrieveRequest) Execute() (*Provider, *http.Response, error) {
@@ -15279,26 +15320,27 @@ CircuitsProvidersRetrieve Method for CircuitsProvidersRetrieve
 
 Get a provider object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider.
- @return ApiCircuitsProvidersRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider.
+	@return ApiCircuitsProvidersRetrieveRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersRetrieve(ctx context.Context, id int32) ApiCircuitsProvidersRetrieveRequest {
 	return ApiCircuitsProvidersRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Provider
+//
+//	@return Provider
 func (a *CircuitsAPIService) CircuitsProvidersRetrieveExecute(r ApiCircuitsProvidersRetrieveRequest) (*Provider, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Provider
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Provider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersRetrieve")
@@ -15382,9 +15424,9 @@ func (a *CircuitsAPIService) CircuitsProvidersRetrieveExecute(r ApiCircuitsProvi
 }
 
 type ApiCircuitsProvidersUpdateRequest struct {
-	ctx context.Context
-	ApiService CircuitsAPI
-	id int32
+	ctx             context.Context
+	ApiService      CircuitsAPI
+	id              int32
 	providerRequest *ProviderRequest
 }
 
@@ -15402,26 +15444,27 @@ CircuitsProvidersUpdate Method for CircuitsProvidersUpdate
 
 Put a provider object.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param id A unique integer value identifying this provider.
- @return ApiCircuitsProvidersUpdateRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@param id A unique integer value identifying this provider.
+	@return ApiCircuitsProvidersUpdateRequest
 */
 func (a *CircuitsAPIService) CircuitsProvidersUpdate(ctx context.Context, id int32) ApiCircuitsProvidersUpdateRequest {
 	return ApiCircuitsProvidersUpdateRequest{
 		ApiService: a,
-		ctx: ctx,
-		id: id,
+		ctx:        ctx,
+		id:         id,
 	}
 }
 
 // Execute executes the request
-//  @return Provider
+//
+//	@return Provider
 func (a *CircuitsAPIService) CircuitsProvidersUpdateExecute(r ApiCircuitsProvidersUpdateRequest) (*Provider, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodPut
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *Provider
+		localVarHTTPMethod  = http.MethodPut
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue *Provider
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CircuitsAPIService.CircuitsProvidersUpdate")

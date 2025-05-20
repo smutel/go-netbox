@@ -20,9 +20,9 @@ type WirelessLANAuthCipherValue string
 
 // List of WirelessLAN_auth_cipher_value
 const (
-	WIRELESSLANAUTHCIPHERVALUE_AUTO WirelessLANAuthCipherValue = "auto"
-	WIRELESSLANAUTHCIPHERVALUE_TKIP WirelessLANAuthCipherValue = "tkip"
-	WIRELESSLANAUTHCIPHERVALUE_AES WirelessLANAuthCipherValue = "aes"
+	WIRELESSLANAUTHCIPHERVALUE_AUTO  WirelessLANAuthCipherValue = "auto"
+	WIRELESSLANAUTHCIPHERVALUE_TKIP  WirelessLANAuthCipherValue = "tkip"
+	WIRELESSLANAUTHCIPHERVALUE_AES   WirelessLANAuthCipherValue = "aes"
 	WIRELESSLANAUTHCIPHERVALUE_EMPTY WirelessLANAuthCipherValue = ""
 )
 
@@ -112,4 +112,3 @@ func (v *NullableWirelessLANAuthCipherValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,17 +20,17 @@ var _ MappedNullable = &IPSecProposalRequest{}
 
 // IPSecProposalRequest Adds support for custom fields and tags.
 type IPSecProposalRequest struct {
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
-	EncryptionAlgorithm IKEProposalEncryptionAlgorithmValue `json:"encryption_algorithm"`
+	Name                    string                                  `json:"name"`
+	Description             *string                                 `json:"description,omitempty"`
+	EncryptionAlgorithm     IKEProposalEncryptionAlgorithmValue     `json:"encryption_algorithm"`
 	AuthenticationAlgorithm IKEProposalAuthenticationAlgorithmValue `json:"authentication_algorithm"`
 	// Security association lifetime (seconds)
 	SaLifetimeSeconds NullableInt32 `json:"sa_lifetime_seconds,omitempty"`
 	// Security association lifetime (in kilobytes)
-	SaLifetimeData NullableInt32 `json:"sa_lifetime_data,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	SaLifetimeData       NullableInt32          `json:"sa_lifetime_data,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -79,7 +79,6 @@ func (o *IPSecProposalRequest) GetNameOk() (*string, bool) {
 func (o *IPSecProposalRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *IPSecProposalRequest) GetDescription() string {
@@ -137,7 +136,6 @@ func (o *IPSecProposalRequest) SetEncryptionAlgorithm(v IKEProposalEncryptionAlg
 	o.EncryptionAlgorithm = v
 }
 
-
 // GetAuthenticationAlgorithm returns the AuthenticationAlgorithm field value
 func (o *IPSecProposalRequest) GetAuthenticationAlgorithm() IKEProposalAuthenticationAlgorithmValue {
 	if o == nil {
@@ -161,7 +159,6 @@ func (o *IPSecProposalRequest) GetAuthenticationAlgorithmOk() (*IKEProposalAuthe
 func (o *IPSecProposalRequest) SetAuthenticationAlgorithm(v IKEProposalAuthenticationAlgorithmValue) {
 	o.AuthenticationAlgorithm = v
 }
-
 
 // GetSaLifetimeSeconds returns the SaLifetimeSeconds field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *IPSecProposalRequest) GetSaLifetimeSeconds() int32 {
@@ -195,6 +192,7 @@ func (o *IPSecProposalRequest) HasSaLifetimeSeconds() bool {
 func (o *IPSecProposalRequest) SetSaLifetimeSeconds(v int32) {
 	o.SaLifetimeSeconds.Set(&v)
 }
+
 // SetSaLifetimeSecondsNil sets the value for SaLifetimeSeconds to be an explicit nil
 func (o *IPSecProposalRequest) SetSaLifetimeSecondsNil() {
 	o.SaLifetimeSeconds.Set(nil)
@@ -237,6 +235,7 @@ func (o *IPSecProposalRequest) HasSaLifetimeData() bool {
 func (o *IPSecProposalRequest) SetSaLifetimeData(v int32) {
 	o.SaLifetimeData.Set(&v)
 }
+
 // SetSaLifetimeDataNil sets the value for SaLifetimeData to be an explicit nil
 func (o *IPSecProposalRequest) SetSaLifetimeDataNil() {
 	o.SaLifetimeData.Set(nil)
@@ -344,7 +343,7 @@ func (o *IPSecProposalRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o IPSecProposalRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -394,32 +393,31 @@ func (o *IPSecProposalRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -486,5 +484,3 @@ func (v *NullableIPSecProposalRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

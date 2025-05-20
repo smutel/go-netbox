@@ -20,12 +20,12 @@ type RackTypeLabel string
 
 // List of Rack_type_label
 const (
-	RACKTYPELABEL__2_POST_FRAME RackTypeLabel = "2-post frame"
-	RACKTYPELABEL__4_POST_FRAME RackTypeLabel = "4-post frame"
-	RACKTYPELABEL__4_POST_CABINET RackTypeLabel = "4-post cabinet"
-	RACKTYPELABEL_WALL_MOUNTED_FRAME RackTypeLabel = "Wall-mounted frame"
-	RACKTYPELABEL_WALL_MOUNTED_FRAME__VERTICAL RackTypeLabel = "Wall-mounted frame (vertical)"
-	RACKTYPELABEL_WALL_MOUNTED_CABINET RackTypeLabel = "Wall-mounted cabinet"
+	RACKTYPELABEL__2_POST_FRAME                  RackTypeLabel = "2-post frame"
+	RACKTYPELABEL__4_POST_FRAME                  RackTypeLabel = "4-post frame"
+	RACKTYPELABEL__4_POST_CABINET                RackTypeLabel = "4-post cabinet"
+	RACKTYPELABEL_WALL_MOUNTED_FRAME             RackTypeLabel = "Wall-mounted frame"
+	RACKTYPELABEL_WALL_MOUNTED_FRAME__VERTICAL   RackTypeLabel = "Wall-mounted frame (vertical)"
+	RACKTYPELABEL_WALL_MOUNTED_CABINET           RackTypeLabel = "Wall-mounted cabinet"
 	RACKTYPELABEL_WALL_MOUNTED_CABINET__VERTICAL RackTypeLabel = "Wall-mounted cabinet (vertical)"
 )
 
@@ -118,4 +118,3 @@ func (v *NullableRackTypeLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

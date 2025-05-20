@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the ExportTemplate type satisfies the MappedNullable interface at compile time
@@ -21,12 +21,12 @@ var _ MappedNullable = &ExportTemplate{}
 
 // ExportTemplate Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type ExportTemplate struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
+	Id          int32    `json:"id"`
+	Url         string   `json:"url"`
+	Display     string   `json:"display"`
 	ObjectTypes []string `json:"object_types"`
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
+	Name        string   `json:"name"`
+	Description *string  `json:"description,omitempty"`
 	// Jinja2 template code. The list of objects being exported is passed as a context variable named <code>queryset</code>.
 	TemplateCode string `json:"template_code"`
 	// Defaults to <code>text/plain; charset=utf-8</code>
@@ -34,14 +34,14 @@ type ExportTemplate struct {
 	// Extension to append to the rendered filename
 	FileExtension *string `json:"file_extension,omitempty"`
 	// Download file as attachment
-	AsAttachment *bool `json:"as_attachment,omitempty"`
-	DataSource *BriefDataSource `json:"data_source,omitempty"`
+	AsAttachment *bool            `json:"as_attachment,omitempty"`
+	DataSource   *BriefDataSource `json:"data_source,omitempty"`
 	// Path to remote file (relative to data source root)
-	DataPath string `json:"data_path"`
-	DataFile BriefDataFile `json:"data_file"`
-	DataSynced NullableTime `json:"data_synced"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	DataPath             string        `json:"data_path"`
+	DataFile             BriefDataFile `json:"data_file"`
+	DataSynced           NullableTime  `json:"data_synced"`
+	Created              NullableTime  `json:"created"`
+	LastUpdated          NullableTime  `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -99,7 +99,6 @@ func (o *ExportTemplate) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ExportTemplate) GetUrl() string {
 	if o == nil {
@@ -123,7 +122,6 @@ func (o *ExportTemplate) GetUrlOk() (*string, bool) {
 func (o *ExportTemplate) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *ExportTemplate) GetDisplay() string {
@@ -149,7 +147,6 @@ func (o *ExportTemplate) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetObjectTypes returns the ObjectTypes field value
 func (o *ExportTemplate) GetObjectTypes() []string {
 	if o == nil {
@@ -174,7 +171,6 @@ func (o *ExportTemplate) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
-
 // GetName returns the Name field value
 func (o *ExportTemplate) GetName() string {
 	if o == nil {
@@ -198,7 +194,6 @@ func (o *ExportTemplate) GetNameOk() (*string, bool) {
 func (o *ExportTemplate) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *ExportTemplate) GetDescription() string {
@@ -255,7 +250,6 @@ func (o *ExportTemplate) GetTemplateCodeOk() (*string, bool) {
 func (o *ExportTemplate) SetTemplateCode(v string) {
 	o.TemplateCode = v
 }
-
 
 // GetMimeType returns the MimeType field value if set, zero value otherwise.
 func (o *ExportTemplate) GetMimeType() string {
@@ -409,7 +403,6 @@ func (o *ExportTemplate) SetDataPath(v string) {
 	o.DataPath = v
 }
 
-
 // GetDataFile returns the DataFile field value
 func (o *ExportTemplate) GetDataFile() BriefDataFile {
 	if o == nil {
@@ -433,7 +426,6 @@ func (o *ExportTemplate) GetDataFileOk() (*BriefDataFile, bool) {
 func (o *ExportTemplate) SetDataFile(v BriefDataFile) {
 	o.DataFile = v
 }
-
 
 // GetDataSynced returns the DataSynced field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -461,7 +453,6 @@ func (o *ExportTemplate) SetDataSynced(v time.Time) {
 	o.DataSynced.Set(&v)
 }
 
-
 // GetCreated returns the Created field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ExportTemplate) GetCreated() time.Time {
@@ -487,7 +478,6 @@ func (o *ExportTemplate) GetCreatedOk() (*time.Time, bool) {
 func (o *ExportTemplate) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
-
 
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
@@ -515,9 +505,8 @@ func (o *ExportTemplate) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o ExportTemplate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -580,32 +569,31 @@ func (o *ExportTemplate) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -679,5 +667,3 @@ func (v *NullableExportTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

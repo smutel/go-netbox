@@ -20,12 +20,12 @@ type Authentication string
 
 // List of Authentication
 const (
-	AUTHENTICATION_HMAC_SHA1 Authentication = "hmac-sha1"
+	AUTHENTICATION_HMAC_SHA1   Authentication = "hmac-sha1"
 	AUTHENTICATION_HMAC_SHA256 Authentication = "hmac-sha256"
 	AUTHENTICATION_HMAC_SHA384 Authentication = "hmac-sha384"
 	AUTHENTICATION_HMAC_SHA512 Authentication = "hmac-sha512"
-	AUTHENTICATION_HMAC_MD5 Authentication = "hmac-md5"
-	AUTHENTICATION_EMPTY Authentication = ""
+	AUTHENTICATION_HMAC_MD5    Authentication = "hmac-md5"
+	AUTHENTICATION_EMPTY       Authentication = ""
 )
 
 // All allowed values of Authentication enum
@@ -116,4 +116,3 @@ func (v *NullableAuthentication) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

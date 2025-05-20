@@ -21,7 +21,7 @@ type RackUnitFaceValue string
 // List of RackUnit_face_value
 const (
 	RACKUNITFACEVALUE_FRONT RackUnitFaceValue = "front"
-	RACKUNITFACEVALUE_REAR RackUnitFaceValue = "rear"
+	RACKUNITFACEVALUE_REAR  RackUnitFaceValue = "rear"
 )
 
 // All allowed values of RackUnitFaceValue enum
@@ -108,4 +108,3 @@ func (v *NullableRackUnitFaceValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

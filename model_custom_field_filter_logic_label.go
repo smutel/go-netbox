@@ -21,8 +21,8 @@ type CustomFieldFilterLogicLabel string
 // List of CustomField_filter_logic_label
 const (
 	CUSTOMFIELDFILTERLOGICLABEL_DISABLED CustomFieldFilterLogicLabel = "Disabled"
-	CUSTOMFIELDFILTERLOGICLABEL_LOOSE CustomFieldFilterLogicLabel = "Loose"
-	CUSTOMFIELDFILTERLOGICLABEL_EXACT CustomFieldFilterLogicLabel = "Exact"
+	CUSTOMFIELDFILTERLOGICLABEL_LOOSE    CustomFieldFilterLogicLabel = "Loose"
+	CUSTOMFIELDFILTERLOGICLABEL_EXACT    CustomFieldFilterLogicLabel = "Exact"
 )
 
 // All allowed values of CustomFieldFilterLogicLabel enum
@@ -110,4 +110,3 @@ func (v *NullableCustomFieldFilterLogicLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

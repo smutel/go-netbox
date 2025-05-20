@@ -20,16 +20,16 @@ var _ MappedNullable = &PatchedWritableSiteRequest{}
 // PatchedWritableSiteRequest Adds support for custom fields and tags.
 type PatchedWritableSiteRequest struct {
 	// Full name of the site
-	Name *string `json:"name,omitempty"`
-	Slug *string `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Status *LocationStatusValue `json:"status,omitempty"`
-	Region NullableBriefRegionRequest `json:"region,omitempty"`
-	Group NullableBriefSiteGroupRequest `json:"group,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Name   *string                       `json:"name,omitempty"`
+	Slug   *string                       `json:"slug,omitempty" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Status *LocationStatusValue          `json:"status,omitempty"`
+	Region NullableBriefRegionRequest    `json:"region,omitempty"`
+	Group  NullableBriefSiteGroupRequest `json:"group,omitempty"`
+	Tenant NullableBriefTenantRequest    `json:"tenant,omitempty"`
 	// Local facility ID or description
-	Facility *string `json:"facility,omitempty"`
-	TimeZone NullableString `json:"time_zone,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Facility    *string        `json:"facility,omitempty"`
+	TimeZone    NullableString `json:"time_zone,omitempty"`
+	Description *string        `json:"description,omitempty"`
 	// Physical location of the building
 	PhysicalAddress *string `json:"physical_address,omitempty"`
 	// If different from the physical address
@@ -37,11 +37,11 @@ type PatchedWritableSiteRequest struct {
 	// GPS coordinate in decimal format (xx.yyyyyy)
 	Latitude NullableFloat64 `json:"latitude,omitempty"`
 	// GPS coordinate in decimal format (xx.yyyyyy)
-	Longitude NullableFloat64 `json:"longitude,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Asns []int32 `json:"asns,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Longitude            NullableFloat64        `json:"longitude,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Asns                 []int32                `json:"asns,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -192,6 +192,7 @@ func (o *PatchedWritableSiteRequest) HasRegion() bool {
 func (o *PatchedWritableSiteRequest) SetRegion(v BriefRegionRequest) {
 	o.Region.Set(&v)
 }
+
 // SetRegionNil sets the value for Region to be an explicit nil
 func (o *PatchedWritableSiteRequest) SetRegionNil() {
 	o.Region.Set(nil)
@@ -234,6 +235,7 @@ func (o *PatchedWritableSiteRequest) HasGroup() bool {
 func (o *PatchedWritableSiteRequest) SetGroup(v BriefSiteGroupRequest) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *PatchedWritableSiteRequest) SetGroupNil() {
 	o.Group.Set(nil)
@@ -276,6 +278,7 @@ func (o *PatchedWritableSiteRequest) HasTenant() bool {
 func (o *PatchedWritableSiteRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedWritableSiteRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -350,6 +353,7 @@ func (o *PatchedWritableSiteRequest) HasTimeZone() bool {
 func (o *PatchedWritableSiteRequest) SetTimeZone(v string) {
 	o.TimeZone.Set(&v)
 }
+
 // SetTimeZoneNil sets the value for TimeZone to be an explicit nil
 func (o *PatchedWritableSiteRequest) SetTimeZoneNil() {
 	o.TimeZone.Set(nil)
@@ -488,6 +492,7 @@ func (o *PatchedWritableSiteRequest) HasLatitude() bool {
 func (o *PatchedWritableSiteRequest) SetLatitude(v float64) {
 	o.Latitude.Set(&v)
 }
+
 // SetLatitudeNil sets the value for Latitude to be an explicit nil
 func (o *PatchedWritableSiteRequest) SetLatitudeNil() {
 	o.Latitude.Set(nil)
@@ -530,6 +535,7 @@ func (o *PatchedWritableSiteRequest) HasLongitude() bool {
 func (o *PatchedWritableSiteRequest) SetLongitude(v float64) {
 	o.Longitude.Set(&v)
 }
+
 // SetLongitudeNil sets the value for Longitude to be an explicit nil
 func (o *PatchedWritableSiteRequest) SetLongitudeNil() {
 	o.Longitude.Set(nil)
@@ -669,7 +675,7 @@ func (o *PatchedWritableSiteRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o PatchedWritableSiteRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -809,5 +815,3 @@ func (v *NullablePatchedWritableSiteRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

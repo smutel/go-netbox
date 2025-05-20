@@ -19,24 +19,24 @@ var _ MappedNullable = &PatchedWritablePowerFeedRequest{}
 
 // PatchedWritablePowerFeedRequest Adds support for custom fields and tags.
 type PatchedWritablePowerFeedRequest struct {
-	PowerPanel *BriefPowerPanelRequest `json:"power_panel,omitempty"`
-	Rack NullableBriefRackRequest `json:"rack,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Status *PatchedWritablePowerFeedRequestStatus `json:"status,omitempty"`
-	Type *PatchedWritablePowerFeedRequestType `json:"type,omitempty"`
-	Supply *PatchedWritablePowerFeedRequestSupply `json:"supply,omitempty"`
-	Phase *PatchedWritablePowerFeedRequestPhase `json:"phase,omitempty"`
-	Voltage *int32 `json:"voltage,omitempty"`
-	Amperage *int32 `json:"amperage,omitempty"`
+	PowerPanel *BriefPowerPanelRequest                `json:"power_panel,omitempty"`
+	Rack       NullableBriefRackRequest               `json:"rack,omitempty"`
+	Name       *string                                `json:"name,omitempty"`
+	Status     *PatchedWritablePowerFeedRequestStatus `json:"status,omitempty"`
+	Type       *PatchedWritablePowerFeedRequestType   `json:"type,omitempty"`
+	Supply     *PatchedWritablePowerFeedRequestSupply `json:"supply,omitempty"`
+	Phase      *PatchedWritablePowerFeedRequestPhase  `json:"phase,omitempty"`
+	Voltage    *int32                                 `json:"voltage,omitempty"`
+	Amperage   *int32                                 `json:"amperage,omitempty"`
 	// Maximum permissible draw (percentage)
 	MaxUtilization *int32 `json:"max_utilization,omitempty"`
 	// Treat as if a cable is connected
-	MarkConnected *bool `json:"mark_connected,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MarkConnected        *bool                      `json:"mark_connected,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -123,6 +123,7 @@ func (o *PatchedWritablePowerFeedRequest) HasRack() bool {
 func (o *PatchedWritablePowerFeedRequest) SetRack(v BriefRackRequest) {
 	o.Rack.Set(&v)
 }
+
 // SetRackNil sets the value for Rack to be an explicit nil
 func (o *PatchedWritablePowerFeedRequest) SetRackNil() {
 	o.Rack.Set(nil)
@@ -485,6 +486,7 @@ func (o *PatchedWritablePowerFeedRequest) HasTenant() bool {
 func (o *PatchedWritablePowerFeedRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedWritablePowerFeedRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -592,7 +594,7 @@ func (o *PatchedWritablePowerFeedRequest) SetCustomFields(v map[string]interface
 }
 
 func (o PatchedWritablePowerFeedRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -728,5 +730,3 @@ func (v *NullablePatchedWritablePowerFeedRequest) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

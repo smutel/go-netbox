@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the RearPort type satisfies the MappedNullable interface at compile time
@@ -21,31 +21,31 @@ var _ MappedNullable = &RearPort{}
 
 // RearPort Adds support for custom fields and tags.
 type RearPort struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Device BriefDevice `json:"device"`
-	Module NullableBriefModule `json:"module,omitempty"`
-	Name string `json:"name"`
+	Id      int32               `json:"id"`
+	Url     string              `json:"url"`
+	Display string              `json:"display"`
+	Device  BriefDevice         `json:"device"`
+	Module  NullableBriefModule `json:"module,omitempty"`
+	Name    string              `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type FrontPortType `json:"type"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Label *string       `json:"label,omitempty"`
+	Type  FrontPortType `json:"type"`
+	Color *string       `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	// Number of front ports which may be mapped
-	Positions *int32 `json:"positions,omitempty"`
+	Positions   *int32  `json:"positions,omitempty"`
 	Description *string `json:"description,omitempty"`
 	// Treat as if a cable is connected
-	MarkConnected *bool `json:"mark_connected,omitempty"`
-	Cable NullableBriefCable `json:"cable"`
-	CableEnd string `json:"cable_end"`
-	LinkPeers []interface{} `json:"link_peers"`
+	MarkConnected *bool              `json:"mark_connected,omitempty"`
+	Cable         NullableBriefCable `json:"cable"`
+	CableEnd      string             `json:"cable_end"`
+	LinkPeers     []interface{}      `json:"link_peers"`
 	// Return the type of the peer link terminations, or None.
-	LinkPeersType NullableString `json:"link_peers_type"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	Occupied bool `json:"_occupied"`
+	LinkPeersType        NullableString         `json:"link_peers_type"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	Occupied             bool                   `json:"_occupied"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -105,7 +105,6 @@ func (o *RearPort) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *RearPort) GetUrl() string {
 	if o == nil {
@@ -129,7 +128,6 @@ func (o *RearPort) GetUrlOk() (*string, bool) {
 func (o *RearPort) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *RearPort) GetDisplay() string {
@@ -155,7 +153,6 @@ func (o *RearPort) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetDevice returns the Device field value
 func (o *RearPort) GetDevice() BriefDevice {
 	if o == nil {
@@ -179,7 +176,6 @@ func (o *RearPort) GetDeviceOk() (*BriefDevice, bool) {
 func (o *RearPort) SetDevice(v BriefDevice) {
 	o.Device = v
 }
-
 
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *RearPort) GetModule() BriefModule {
@@ -213,6 +209,7 @@ func (o *RearPort) HasModule() bool {
 func (o *RearPort) SetModule(v BriefModule) {
 	o.Module.Set(&v)
 }
+
 // SetModuleNil sets the value for Module to be an explicit nil
 func (o *RearPort) SetModuleNil() {
 	o.Module.Set(nil)
@@ -246,7 +243,6 @@ func (o *RearPort) GetNameOk() (*string, bool) {
 func (o *RearPort) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *RearPort) GetLabel() string {
@@ -303,7 +299,6 @@ func (o *RearPort) GetTypeOk() (*FrontPortType, bool) {
 func (o *RearPort) SetType(v FrontPortType) {
 	o.Type = v
 }
-
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *RearPort) GetColor() string {
@@ -459,7 +454,6 @@ func (o *RearPort) SetCable(v BriefCable) {
 	o.Cable.Set(&v)
 }
 
-
 // GetCableEnd returns the CableEnd field value
 func (o *RearPort) GetCableEnd() string {
 	if o == nil {
@@ -484,7 +478,6 @@ func (o *RearPort) SetCableEnd(v string) {
 	o.CableEnd = v
 }
 
-
 // GetLinkPeers returns the LinkPeers field value
 func (o *RearPort) GetLinkPeers() []interface{} {
 	if o == nil {
@@ -508,7 +501,6 @@ func (o *RearPort) GetLinkPeersOk() ([]interface{}, bool) {
 func (o *RearPort) SetLinkPeers(v []interface{}) {
 	o.LinkPeers = v
 }
-
 
 // GetLinkPeersType returns the LinkPeersType field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -535,7 +527,6 @@ func (o *RearPort) GetLinkPeersTypeOk() (*string, bool) {
 func (o *RearPort) SetLinkPeersType(v string) {
 	o.LinkPeersType.Set(&v)
 }
-
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *RearPort) GetTags() []NestedTag {
@@ -627,7 +618,6 @@ func (o *RearPort) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *RearPort) GetLastUpdated() time.Time {
@@ -654,7 +644,6 @@ func (o *RearPort) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetOccupied returns the Occupied field value
 func (o *RearPort) GetOccupied() bool {
 	if o == nil {
@@ -679,9 +668,8 @@ func (o *RearPort) SetOccupied(v bool) {
 	o.Occupied = v
 }
 
-
 func (o RearPort) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -757,32 +745,31 @@ func (o *RearPort) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -861,5 +848,3 @@ func (v *NullableRearPort) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

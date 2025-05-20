@@ -21,8 +21,8 @@ type ExtrasCustomFieldsListFilterLogicParameter string
 // List of extras_custom_fields_list_filter_logic_parameter
 const (
 	EXTRASCUSTOMFIELDSLISTFILTERLOGICPARAMETER_DISABLED ExtrasCustomFieldsListFilterLogicParameter = "disabled"
-	EXTRASCUSTOMFIELDSLISTFILTERLOGICPARAMETER_EXACT ExtrasCustomFieldsListFilterLogicParameter = "exact"
-	EXTRASCUSTOMFIELDSLISTFILTERLOGICPARAMETER_LOOSE ExtrasCustomFieldsListFilterLogicParameter = "loose"
+	EXTRASCUSTOMFIELDSLISTFILTERLOGICPARAMETER_EXACT    ExtrasCustomFieldsListFilterLogicParameter = "exact"
+	EXTRASCUSTOMFIELDSLISTFILTERLOGICPARAMETER_LOOSE    ExtrasCustomFieldsListFilterLogicParameter = "loose"
 )
 
 // All allowed values of ExtrasCustomFieldsListFilterLogicParameter enum
@@ -110,4 +110,3 @@ func (v *NullableExtrasCustomFieldsListFilterLogicParameter) UnmarshalJSON(src [
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

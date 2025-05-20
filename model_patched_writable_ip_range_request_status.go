@@ -20,8 +20,8 @@ type PatchedWritableIPRangeRequestStatus string
 
 // List of PatchedWritableIPRangeRequest_status
 const (
-	PATCHEDWRITABLEIPRANGEREQUESTSTATUS_ACTIVE PatchedWritableIPRangeRequestStatus = "active"
-	PATCHEDWRITABLEIPRANGEREQUESTSTATUS_RESERVED PatchedWritableIPRangeRequestStatus = "reserved"
+	PATCHEDWRITABLEIPRANGEREQUESTSTATUS_ACTIVE     PatchedWritableIPRangeRequestStatus = "active"
+	PATCHEDWRITABLEIPRANGEREQUESTSTATUS_RESERVED   PatchedWritableIPRangeRequestStatus = "reserved"
 	PATCHEDWRITABLEIPRANGEREQUESTSTATUS_DEPRECATED PatchedWritableIPRangeRequestStatus = "deprecated"
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableIPRangeRequestStatus) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,8 +20,8 @@ type PatchedWritableTunnelRequestStatus string
 
 // List of PatchedWritableTunnelRequest_status
 const (
-	PATCHEDWRITABLETUNNELREQUESTSTATUS_PLANNED PatchedWritableTunnelRequestStatus = "planned"
-	PATCHEDWRITABLETUNNELREQUESTSTATUS_ACTIVE PatchedWritableTunnelRequestStatus = "active"
+	PATCHEDWRITABLETUNNELREQUESTSTATUS_PLANNED  PatchedWritableTunnelRequestStatus = "planned"
+	PATCHEDWRITABLETUNNELREQUESTSTATUS_ACTIVE   PatchedWritableTunnelRequestStatus = "active"
 	PATCHEDWRITABLETUNNELREQUESTSTATUS_DISABLED PatchedWritableTunnelRequestStatus = "disabled"
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableTunnelRequestStatus) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

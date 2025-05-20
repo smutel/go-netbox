@@ -21,7 +21,7 @@ type EventRuleActionTypeValue string
 // List of EventRule_action_type_value
 const (
 	EVENTRULEACTIONTYPEVALUE_WEBHOOK EventRuleActionTypeValue = "webhook"
-	EVENTRULEACTIONTYPEVALUE_SCRIPT EventRuleActionTypeValue = "script"
+	EVENTRULEACTIONTYPEVALUE_SCRIPT  EventRuleActionTypeValue = "script"
 )
 
 // All allowed values of EventRuleActionTypeValue enum
@@ -108,4 +108,3 @@ func (v *NullableEventRuleActionTypeValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

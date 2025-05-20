@@ -20,8 +20,8 @@ type PatchedWritableVLANRequestStatus string
 
 // List of PatchedWritableVLANRequest_status
 const (
-	PATCHEDWRITABLEVLANREQUESTSTATUS_ACTIVE PatchedWritableVLANRequestStatus = "active"
-	PATCHEDWRITABLEVLANREQUESTSTATUS_RESERVED PatchedWritableVLANRequestStatus = "reserved"
+	PATCHEDWRITABLEVLANREQUESTSTATUS_ACTIVE     PatchedWritableVLANRequestStatus = "active"
+	PATCHEDWRITABLEVLANREQUESTSTATUS_RESERVED   PatchedWritableVLANRequestStatus = "reserved"
 	PATCHEDWRITABLEVLANREQUESTSTATUS_DEPRECATED PatchedWritableVLANRequestStatus = "deprecated"
 )
 
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableVLANRequestStatus) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

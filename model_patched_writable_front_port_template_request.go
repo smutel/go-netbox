@@ -24,12 +24,12 @@ type PatchedWritableFrontPortTemplateRequest struct {
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
 	Name *string `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *FrontPortTypeValue `json:"type,omitempty"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
-	RearPort *BriefRearPortTemplateRequest `json:"rear_port,omitempty"`
-	RearPortPosition *int32 `json:"rear_port_position,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Label                *string                       `json:"label,omitempty"`
+	Type                 *FrontPortTypeValue           `json:"type,omitempty"`
+	Color                *string                       `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	RearPort             *BriefRearPortTemplateRequest `json:"rear_port,omitempty"`
+	RearPortPosition     *int32                        `json:"rear_port_position,omitempty"`
+	Description          *string                       `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -88,6 +88,7 @@ func (o *PatchedWritableFrontPortTemplateRequest) HasDeviceType() bool {
 func (o *PatchedWritableFrontPortTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest) {
 	o.DeviceType.Set(&v)
 }
+
 // SetDeviceTypeNil sets the value for DeviceType to be an explicit nil
 func (o *PatchedWritableFrontPortTemplateRequest) SetDeviceTypeNil() {
 	o.DeviceType.Set(nil)
@@ -130,6 +131,7 @@ func (o *PatchedWritableFrontPortTemplateRequest) HasModuleType() bool {
 func (o *PatchedWritableFrontPortTemplateRequest) SetModuleType(v BriefModuleTypeRequest) {
 	o.ModuleType.Set(&v)
 }
+
 // SetModuleTypeNil sets the value for ModuleType to be an explicit nil
 func (o *PatchedWritableFrontPortTemplateRequest) SetModuleTypeNil() {
 	o.ModuleType.Set(nil)
@@ -365,7 +367,7 @@ func (o *PatchedWritableFrontPortTemplateRequest) SetDescription(v string) {
 }
 
 func (o PatchedWritableFrontPortTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -473,5 +475,3 @@ func (v *NullablePatchedWritableFrontPortTemplateRequest) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

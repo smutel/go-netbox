@@ -21,18 +21,18 @@ var _ MappedNullable = &CustomLinkRequest{}
 // CustomLinkRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type CustomLinkRequest struct {
 	ObjectTypes []string `json:"object_types"`
-	Name string `json:"name"`
-	Enabled *bool `json:"enabled,omitempty"`
+	Name        string   `json:"name"`
+	Enabled     *bool    `json:"enabled,omitempty"`
 	// Jinja2 template code for link text
 	LinkText string `json:"link_text"`
 	// Jinja2 template code for link URL
 	LinkUrl string `json:"link_url"`
-	Weight *int32 `json:"weight,omitempty"`
+	Weight  *int32 `json:"weight,omitempty"`
 	// Links with the same group will appear as a dropdown menu
-	GroupName *string `json:"group_name,omitempty"`
+	GroupName   *string                `json:"group_name,omitempty"`
 	ButtonClass *CustomLinkButtonClass `json:"button_class,omitempty"`
 	// Force link to open in a new window
-	NewWindow *bool `json:"new_window,omitempty"`
+	NewWindow            *bool `json:"new_window,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,7 +83,6 @@ func (o *CustomLinkRequest) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
-
 // GetName returns the Name field value
 func (o *CustomLinkRequest) GetName() string {
 	if o == nil {
@@ -107,7 +106,6 @@ func (o *CustomLinkRequest) GetNameOk() (*string, bool) {
 func (o *CustomLinkRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *CustomLinkRequest) GetEnabled() bool {
@@ -165,7 +163,6 @@ func (o *CustomLinkRequest) SetLinkText(v string) {
 	o.LinkText = v
 }
 
-
 // GetLinkUrl returns the LinkUrl field value
 func (o *CustomLinkRequest) GetLinkUrl() string {
 	if o == nil {
@@ -189,7 +186,6 @@ func (o *CustomLinkRequest) GetLinkUrlOk() (*string, bool) {
 func (o *CustomLinkRequest) SetLinkUrl(v string) {
 	o.LinkUrl = v
 }
-
 
 // GetWeight returns the Weight field value if set, zero value otherwise.
 func (o *CustomLinkRequest) GetWeight() int32 {
@@ -320,7 +316,7 @@ func (o *CustomLinkRequest) SetNewWindow(v bool) {
 }
 
 func (o CustomLinkRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -369,32 +365,31 @@ func (o *CustomLinkRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -461,5 +456,3 @@ func (v *NullableCustomLinkRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

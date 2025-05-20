@@ -20,9 +20,9 @@ type WirelessRole string
 
 // List of Wireless_role
 const (
-	WIRELESSROLE_AP WirelessRole = "ap"
+	WIRELESSROLE_AP      WirelessRole = "ap"
 	WIRELESSROLE_STATION WirelessRole = "station"
-	WIRELESSROLE_EMPTY WirelessRole = ""
+	WIRELESSROLE_EMPTY   WirelessRole = ""
 )
 
 // All allowed values of WirelessRole enum
@@ -110,4 +110,3 @@ func (v *NullableWirelessRole) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the DataSource type satisfies the MappedNullable interface at compile time
@@ -21,23 +21,23 @@ var _ MappedNullable = &DataSource{}
 
 // DataSource Adds support for custom fields and tags.
 type DataSource struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Type DataSourceType `json:"type"`
-	SourceUrl string `json:"source_url"`
-	Enabled *bool `json:"enabled,omitempty"`
-	Status DataSourceStatus `json:"status"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Parameters interface{} `json:"parameters,omitempty"`
+	Id          int32            `json:"id"`
+	Url         string           `json:"url"`
+	Display     string           `json:"display"`
+	Name        string           `json:"name"`
+	Type        DataSourceType   `json:"type"`
+	SourceUrl   string           `json:"source_url"`
+	Enabled     *bool            `json:"enabled,omitempty"`
+	Status      DataSourceStatus `json:"status"`
+	Description *string          `json:"description,omitempty"`
+	Comments    *string          `json:"comments,omitempty"`
+	Parameters  interface{}      `json:"parameters,omitempty"`
 	// Patterns (one per line) matching files to ignore when syncing
-	IgnoreRules *string `json:"ignore_rules,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	FileCount int64 `json:"file_count"`
+	IgnoreRules          *string                `json:"ignore_rules,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	FileCount            int64                  `json:"file_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -94,7 +94,6 @@ func (o *DataSource) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *DataSource) GetUrl() string {
 	if o == nil {
@@ -118,7 +117,6 @@ func (o *DataSource) GetUrlOk() (*string, bool) {
 func (o *DataSource) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *DataSource) GetDisplay() string {
@@ -144,7 +142,6 @@ func (o *DataSource) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *DataSource) GetName() string {
 	if o == nil {
@@ -168,7 +165,6 @@ func (o *DataSource) GetNameOk() (*string, bool) {
 func (o *DataSource) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetType returns the Type field value
 func (o *DataSource) GetType() DataSourceType {
@@ -194,7 +190,6 @@ func (o *DataSource) SetType(v DataSourceType) {
 	o.Type = v
 }
 
-
 // GetSourceUrl returns the SourceUrl field value
 func (o *DataSource) GetSourceUrl() string {
 	if o == nil {
@@ -218,7 +213,6 @@ func (o *DataSource) GetSourceUrlOk() (*string, bool) {
 func (o *DataSource) SetSourceUrl(v string) {
 	o.SourceUrl = v
 }
-
 
 // GetEnabled returns the Enabled field value if set, zero value otherwise.
 func (o *DataSource) GetEnabled() bool {
@@ -275,7 +269,6 @@ func (o *DataSource) GetStatusOk() (*DataSourceStatus, bool) {
 func (o *DataSource) SetStatus(v DataSourceStatus) {
 	o.Status = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *DataSource) GetDescription() string {
@@ -464,7 +457,6 @@ func (o *DataSource) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DataSource) GetLastUpdated() time.Time {
@@ -491,7 +483,6 @@ func (o *DataSource) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetFileCount returns the FileCount field value
 func (o *DataSource) GetFileCount() int64 {
 	if o == nil {
@@ -516,9 +507,8 @@ func (o *DataSource) SetFileCount(v int64) {
 	o.FileCount = v
 }
 
-
 func (o DataSource) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -582,32 +572,31 @@ func (o *DataSource) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -681,5 +670,3 @@ func (v *NullableDataSource) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

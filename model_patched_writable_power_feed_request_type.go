@@ -20,7 +20,7 @@ type PatchedWritablePowerFeedRequestType string
 
 // List of PatchedWritablePowerFeedRequest_type
 const (
-	PATCHEDWRITABLEPOWERFEEDREQUESTTYPE_PRIMARY PatchedWritablePowerFeedRequestType = "primary"
+	PATCHEDWRITABLEPOWERFEEDREQUESTTYPE_PRIMARY   PatchedWritablePowerFeedRequestType = "primary"
 	PATCHEDWRITABLEPOWERFEEDREQUESTTYPE_REDUNDANT PatchedWritablePowerFeedRequestType = "redundant"
 )
 
@@ -108,4 +108,3 @@ func (v *NullablePatchedWritablePowerFeedRequestType) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

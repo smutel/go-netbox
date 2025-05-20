@@ -20,10 +20,10 @@ type PatchedWritableCustomFieldChoiceSetRequestBaseChoices string
 
 // List of PatchedWritableCustomFieldChoiceSetRequest_base_choices
 const (
-	PATCHEDWRITABLECUSTOMFIELDCHOICESETREQUESTBASECHOICES_IATA PatchedWritableCustomFieldChoiceSetRequestBaseChoices = "IATA"
-	PATCHEDWRITABLECUSTOMFIELDCHOICESETREQUESTBASECHOICES_ISO_3166 PatchedWritableCustomFieldChoiceSetRequestBaseChoices = "ISO_3166"
+	PATCHEDWRITABLECUSTOMFIELDCHOICESETREQUESTBASECHOICES_IATA      PatchedWritableCustomFieldChoiceSetRequestBaseChoices = "IATA"
+	PATCHEDWRITABLECUSTOMFIELDCHOICESETREQUESTBASECHOICES_ISO_3166  PatchedWritableCustomFieldChoiceSetRequestBaseChoices = "ISO_3166"
 	PATCHEDWRITABLECUSTOMFIELDCHOICESETREQUESTBASECHOICES_UN_LOCODE PatchedWritableCustomFieldChoiceSetRequestBaseChoices = "UN_LOCODE"
-	PATCHEDWRITABLECUSTOMFIELDCHOICESETREQUESTBASECHOICES_EMPTY PatchedWritableCustomFieldChoiceSetRequestBaseChoices = ""
+	PATCHEDWRITABLECUSTOMFIELDCHOICESETREQUESTBASECHOICES_EMPTY     PatchedWritableCustomFieldChoiceSetRequestBaseChoices = ""
 )
 
 // All allowed values of PatchedWritableCustomFieldChoiceSetRequestBaseChoices enum
@@ -112,4 +112,3 @@ func (v *NullablePatchedWritableCustomFieldChoiceSetRequestBaseChoices) Unmarsha
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

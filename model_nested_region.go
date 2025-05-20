@@ -20,12 +20,12 @@ var _ MappedNullable = &NestedRegion{}
 
 // NestedRegion Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a dictionary of attributes which can be used to uniquely identify the related object. This class should be subclassed to return a full representation of the related object on read.
 type NestedRegion struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Depth int32 `json:"_depth"`
+	Id                   int32  `json:"id"`
+	Url                  string `json:"url"`
+	Display              string `json:"display"`
+	Name                 string `json:"name"`
+	Slug                 string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Depth                int32  `json:"_depth"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,7 +78,6 @@ func (o *NestedRegion) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *NestedRegion) GetUrl() string {
 	if o == nil {
@@ -102,7 +101,6 @@ func (o *NestedRegion) GetUrlOk() (*string, bool) {
 func (o *NestedRegion) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *NestedRegion) GetDisplay() string {
@@ -128,7 +126,6 @@ func (o *NestedRegion) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *NestedRegion) GetName() string {
 	if o == nil {
@@ -152,7 +149,6 @@ func (o *NestedRegion) GetNameOk() (*string, bool) {
 func (o *NestedRegion) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetSlug returns the Slug field value
 func (o *NestedRegion) GetSlug() string {
@@ -178,7 +174,6 @@ func (o *NestedRegion) SetSlug(v string) {
 	o.Slug = v
 }
 
-
 // GetDepth returns the Depth field value
 func (o *NestedRegion) GetDepth() int32 {
 	if o == nil {
@@ -203,9 +198,8 @@ func (o *NestedRegion) SetDepth(v int32) {
 	o.Depth = v
 }
 
-
 func (o NestedRegion) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -243,32 +237,31 @@ func (o *NestedRegion) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -332,5 +325,3 @@ func (v *NullableNestedRegion) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

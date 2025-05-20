@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the VirtualChassis type satisfies the MappedNullable interface at compile time
@@ -21,20 +21,20 @@ var _ MappedNullable = &VirtualChassis{}
 
 // VirtualChassis Adds support for custom fields and tags.
 type VirtualChassis struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Domain *string `json:"domain,omitempty"`
-	Master NullableNestedDevice `json:"master,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	MemberCount int32 `json:"member_count"`
-	Members []NestedDevice `json:"members"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Name                 string                 `json:"name"`
+	Domain               *string                `json:"domain,omitempty"`
+	Master               NullableNestedDevice   `json:"master,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	MemberCount          int32                  `json:"member_count"`
+	Members              []NestedDevice         `json:"members"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -89,7 +89,6 @@ func (o *VirtualChassis) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *VirtualChassis) GetUrl() string {
 	if o == nil {
@@ -113,7 +112,6 @@ func (o *VirtualChassis) GetUrlOk() (*string, bool) {
 func (o *VirtualChassis) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *VirtualChassis) GetDisplay() string {
@@ -139,7 +137,6 @@ func (o *VirtualChassis) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *VirtualChassis) GetName() string {
 	if o == nil {
@@ -163,7 +160,6 @@ func (o *VirtualChassis) GetNameOk() (*string, bool) {
 func (o *VirtualChassis) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDomain returns the Domain field value if set, zero value otherwise.
 func (o *VirtualChassis) GetDomain() string {
@@ -229,6 +225,7 @@ func (o *VirtualChassis) HasMaster() bool {
 func (o *VirtualChassis) SetMaster(v NestedDevice) {
 	o.Master.Set(&v)
 }
+
 // SetMasterNil sets the value for Master to be an explicit nil
 func (o *VirtualChassis) SetMasterNil() {
 	o.Master.Set(nil)
@@ -393,7 +390,6 @@ func (o *VirtualChassis) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *VirtualChassis) GetLastUpdated() time.Time {
@@ -420,7 +416,6 @@ func (o *VirtualChassis) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetMemberCount returns the MemberCount field value
 func (o *VirtualChassis) GetMemberCount() int32 {
 	if o == nil {
@@ -444,7 +439,6 @@ func (o *VirtualChassis) GetMemberCountOk() (*int32, bool) {
 func (o *VirtualChassis) SetMemberCount(v int32) {
 	o.MemberCount = v
 }
-
 
 // GetMembers returns the Members field value
 func (o *VirtualChassis) GetMembers() []NestedDevice {
@@ -470,9 +464,8 @@ func (o *VirtualChassis) SetMembers(v []NestedDevice) {
 	o.Members = v
 }
 
-
 func (o VirtualChassis) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -532,32 +525,31 @@ func (o *VirtualChassis) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -629,5 +621,3 @@ func (v *NullableVirtualChassis) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

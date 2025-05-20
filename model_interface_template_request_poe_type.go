@@ -28,7 +28,7 @@ const (
 	INTERFACETEMPLATEREQUESTPOETYPE_PASSIVE_24V_4PAIR InterfaceTemplateRequestPoeType = "passive-24v-4pair"
 	INTERFACETEMPLATEREQUESTPOETYPE_PASSIVE_48V_2PAIR InterfaceTemplateRequestPoeType = "passive-48v-2pair"
 	INTERFACETEMPLATEREQUESTPOETYPE_PASSIVE_48V_4PAIR InterfaceTemplateRequestPoeType = "passive-48v-4pair"
-	INTERFACETEMPLATEREQUESTPOETYPE_EMPTY InterfaceTemplateRequestPoeType = ""
+	INTERFACETEMPLATEREQUESTPOETYPE_EMPTY             InterfaceTemplateRequestPoeType = ""
 )
 
 // All allowed values of InterfaceTemplateRequestPoeType enum
@@ -122,4 +122,3 @@ func (v *NullableInterfaceTemplateRequestPoeType) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

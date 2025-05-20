@@ -19,14 +19,14 @@ var _ MappedNullable = &PatchedWritableIPSecProfileRequest{}
 
 // PatchedWritableIPSecProfileRequest Adds support for custom fields and tags.
 type PatchedWritableIPSecProfileRequest struct {
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Mode *IPSecProfileModeValue `json:"mode,omitempty"`
-	IkePolicy *BriefIKEPolicyRequest `json:"ike_policy,omitempty"`
-	IpsecPolicy *BriefIPSecPolicyRequest `json:"ipsec_policy,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                  `json:"name,omitempty"`
+	Description          *string                  `json:"description,omitempty"`
+	Mode                 *IPSecProfileModeValue   `json:"mode,omitempty"`
+	IkePolicy            *BriefIKEPolicyRequest   `json:"ike_policy,omitempty"`
+	IpsecPolicy          *BriefIPSecPolicyRequest `json:"ipsec_policy,omitempty"`
+	Comments             *string                  `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest       `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}   `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -306,7 +306,7 @@ func (o *PatchedWritableIPSecProfileRequest) SetCustomFields(v map[string]interf
 }
 
 func (o PatchedWritableIPSecProfileRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -410,5 +410,3 @@ func (v *NullablePatchedWritableIPSecProfileRequest) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

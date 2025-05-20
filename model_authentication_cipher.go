@@ -20,9 +20,9 @@ type AuthenticationCipher string
 
 // List of Authentication_cipher
 const (
-	AUTHENTICATIONCIPHER_AUTO AuthenticationCipher = "auto"
-	AUTHENTICATIONCIPHER_TKIP AuthenticationCipher = "tkip"
-	AUTHENTICATIONCIPHER_AES AuthenticationCipher = "aes"
+	AUTHENTICATIONCIPHER_AUTO  AuthenticationCipher = "auto"
+	AUTHENTICATIONCIPHER_TKIP  AuthenticationCipher = "tkip"
+	AUTHENTICATIONCIPHER_AES   AuthenticationCipher = "aes"
 	AUTHENTICATIONCIPHER_EMPTY AuthenticationCipher = ""
 )
 
@@ -112,4 +112,3 @@ func (v *NullableAuthenticationCipher) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,10 +20,10 @@ var _ MappedNullable = &BriefL2VPNTermination{}
 
 // BriefL2VPNTermination Adds support for custom fields and tags.
 type BriefL2VPNTermination struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	L2vpn BriefL2VPN `json:"l2vpn"`
+	Id                   int32      `json:"id"`
+	Url                  string     `json:"url"`
+	Display              string     `json:"display"`
+	L2vpn                BriefL2VPN `json:"l2vpn"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -74,7 +74,6 @@ func (o *BriefL2VPNTermination) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *BriefL2VPNTermination) GetUrl() string {
 	if o == nil {
@@ -98,7 +97,6 @@ func (o *BriefL2VPNTermination) GetUrlOk() (*string, bool) {
 func (o *BriefL2VPNTermination) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *BriefL2VPNTermination) GetDisplay() string {
@@ -124,7 +122,6 @@ func (o *BriefL2VPNTermination) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetL2vpn returns the L2vpn field value
 func (o *BriefL2VPNTermination) GetL2vpn() BriefL2VPN {
 	if o == nil {
@@ -149,9 +146,8 @@ func (o *BriefL2VPNTermination) SetL2vpn(v BriefL2VPN) {
 	o.L2vpn = v
 }
 
-
 func (o BriefL2VPNTermination) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -185,32 +181,31 @@ func (o *BriefL2VPNTermination) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -272,5 +267,3 @@ func (v *NullableBriefL2VPNTermination) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

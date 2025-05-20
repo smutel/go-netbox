@@ -11,10 +11,11 @@ package netbox
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/smutel/go-netbox/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/smutel/go-netbox/v4"
 )
 
 func Test_netbox_StatusAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_netbox_StatusAPIService(t *testing.T) {
 
 	t.Run("Test StatusAPIService StatusRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.StatusAPI.StatusRetrieve(context.Background()).Execute()
 

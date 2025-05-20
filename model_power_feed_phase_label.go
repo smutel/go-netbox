@@ -21,7 +21,7 @@ type PowerFeedPhaseLabel string
 // List of PowerFeed_phase_label
 const (
 	POWERFEEDPHASELABEL_SINGLE_PHASE PowerFeedPhaseLabel = "Single phase"
-	POWERFEEDPHASELABEL_THREE_PHASE PowerFeedPhaseLabel = "Three-phase"
+	POWERFEEDPHASELABEL_THREE_PHASE  PowerFeedPhaseLabel = "Three-phase"
 )
 
 // All allowed values of PowerFeedPhaseLabel enum
@@ -108,4 +108,3 @@ func (v *NullablePowerFeedPhaseLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

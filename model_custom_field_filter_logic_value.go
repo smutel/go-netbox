@@ -21,8 +21,8 @@ type CustomFieldFilterLogicValue string
 // List of CustomField_filter_logic_value
 const (
 	CUSTOMFIELDFILTERLOGICVALUE_DISABLED CustomFieldFilterLogicValue = "disabled"
-	CUSTOMFIELDFILTERLOGICVALUE_LOOSE CustomFieldFilterLogicValue = "loose"
-	CUSTOMFIELDFILTERLOGICVALUE_EXACT CustomFieldFilterLogicValue = "exact"
+	CUSTOMFIELDFILTERLOGICVALUE_LOOSE    CustomFieldFilterLogicValue = "loose"
+	CUSTOMFIELDFILTERLOGICVALUE_EXACT    CustomFieldFilterLogicValue = "exact"
 )
 
 // All allowed values of CustomFieldFilterLogicValue enum
@@ -110,4 +110,3 @@ func (v *NullableCustomFieldFilterLogicValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

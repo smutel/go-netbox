@@ -20,13 +20,13 @@ var _ MappedNullable = &FrontPortRearPort{}
 
 // FrontPortRearPort NestedRearPortSerializer but with parent device omitted (since front and rear ports must belong to same device)
 type FrontPortRearPort struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
+	Id      int32  `json:"id"`
+	Url     string `json:"url"`
 	Display string `json:"display"`
-	Name string `json:"name"`
+	Name    string `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Label                *string `json:"label,omitempty"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -77,7 +77,6 @@ func (o *FrontPortRearPort) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *FrontPortRearPort) GetUrl() string {
 	if o == nil {
@@ -101,7 +100,6 @@ func (o *FrontPortRearPort) GetUrlOk() (*string, bool) {
 func (o *FrontPortRearPort) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *FrontPortRearPort) GetDisplay() string {
@@ -127,7 +125,6 @@ func (o *FrontPortRearPort) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *FrontPortRearPort) GetName() string {
 	if o == nil {
@@ -151,7 +148,6 @@ func (o *FrontPortRearPort) GetNameOk() (*string, bool) {
 func (o *FrontPortRearPort) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *FrontPortRearPort) GetLabel() string {
@@ -218,7 +214,7 @@ func (o *FrontPortRearPort) SetDescription(v string) {
 }
 
 func (o FrontPortRearPort) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -258,32 +254,31 @@ func (o *FrontPortRearPort) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -347,5 +342,3 @@ func (v *NullableFrontPortRearPort) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

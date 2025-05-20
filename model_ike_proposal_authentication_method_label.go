@@ -21,9 +21,9 @@ type IKEProposalAuthenticationMethodLabel string
 // List of IKEProposal_authentication_method_label
 const (
 	IKEPROPOSALAUTHENTICATIONMETHODLABEL_PRE_SHARED_KEYS IKEProposalAuthenticationMethodLabel = "Pre-shared keys"
-	IKEPROPOSALAUTHENTICATIONMETHODLABEL_CERTIFICATES IKEProposalAuthenticationMethodLabel = "Certificates"
-	IKEPROPOSALAUTHENTICATIONMETHODLABEL_RSA_SIGNATURES IKEProposalAuthenticationMethodLabel = "RSA signatures"
-	IKEPROPOSALAUTHENTICATIONMETHODLABEL_DSA_SIGNATURES IKEProposalAuthenticationMethodLabel = "DSA signatures"
+	IKEPROPOSALAUTHENTICATIONMETHODLABEL_CERTIFICATES    IKEProposalAuthenticationMethodLabel = "Certificates"
+	IKEPROPOSALAUTHENTICATIONMETHODLABEL_RSA_SIGNATURES  IKEProposalAuthenticationMethodLabel = "RSA signatures"
+	IKEPROPOSALAUTHENTICATIONMETHODLABEL_DSA_SIGNATURES  IKEProposalAuthenticationMethodLabel = "DSA signatures"
 )
 
 // All allowed values of IKEProposalAuthenticationMethodLabel enum
@@ -112,4 +112,3 @@ func (v *NullableIKEProposalAuthenticationMethodLabel) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

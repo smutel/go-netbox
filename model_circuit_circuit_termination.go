@@ -20,18 +20,18 @@ var _ MappedNullable = &CircuitCircuitTermination{}
 
 // CircuitCircuitTermination Represents an object related through a ForeignKey field. On write, it accepts a primary key (PK) value or a dictionary of attributes which can be used to uniquely identify the related object. This class should be subclassed to return a full representation of the related object on read.
 type CircuitCircuitTermination struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Site NullableBriefSite `json:"site"`
+	Id              int32                        `json:"id"`
+	Url             string                       `json:"url"`
+	Display         string                       `json:"display"`
+	Site            NullableBriefSite            `json:"site"`
 	ProviderNetwork NullableBriefProviderNetwork `json:"provider_network"`
 	// Physical circuit speed
 	PortSpeed NullableInt32 `json:"port_speed,omitempty"`
 	// Upstream speed, if different from port speed
 	UpstreamSpeed NullableInt32 `json:"upstream_speed,omitempty"`
 	// ID of the local cross-connect
-	XconnectId *string `json:"xconnect_id,omitempty"`
-	Description *string `json:"description,omitempty"`
+	XconnectId           *string `json:"xconnect_id,omitempty"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -83,7 +83,6 @@ func (o *CircuitCircuitTermination) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *CircuitCircuitTermination) GetUrl() string {
 	if o == nil {
@@ -108,7 +107,6 @@ func (o *CircuitCircuitTermination) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *CircuitCircuitTermination) GetDisplay() string {
 	if o == nil {
@@ -132,7 +130,6 @@ func (o *CircuitCircuitTermination) GetDisplayOk() (*string, bool) {
 func (o *CircuitCircuitTermination) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetSite returns the Site field value
 // If the value is explicit nil, the zero value for BriefSite will be returned
@@ -160,7 +157,6 @@ func (o *CircuitCircuitTermination) SetSite(v BriefSite) {
 	o.Site.Set(&v)
 }
 
-
 // GetProviderNetwork returns the ProviderNetwork field value
 // If the value is explicit nil, the zero value for BriefProviderNetwork will be returned
 func (o *CircuitCircuitTermination) GetProviderNetwork() BriefProviderNetwork {
@@ -186,7 +182,6 @@ func (o *CircuitCircuitTermination) GetProviderNetworkOk() (*BriefProviderNetwor
 func (o *CircuitCircuitTermination) SetProviderNetwork(v BriefProviderNetwork) {
 	o.ProviderNetwork.Set(&v)
 }
-
 
 // GetPortSpeed returns the PortSpeed field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitCircuitTermination) GetPortSpeed() int32 {
@@ -220,6 +215,7 @@ func (o *CircuitCircuitTermination) HasPortSpeed() bool {
 func (o *CircuitCircuitTermination) SetPortSpeed(v int32) {
 	o.PortSpeed.Set(&v)
 }
+
 // SetPortSpeedNil sets the value for PortSpeed to be an explicit nil
 func (o *CircuitCircuitTermination) SetPortSpeedNil() {
 	o.PortSpeed.Set(nil)
@@ -262,6 +258,7 @@ func (o *CircuitCircuitTermination) HasUpstreamSpeed() bool {
 func (o *CircuitCircuitTermination) SetUpstreamSpeed(v int32) {
 	o.UpstreamSpeed.Set(&v)
 }
+
 // SetUpstreamSpeedNil sets the value for UpstreamSpeed to be an explicit nil
 func (o *CircuitCircuitTermination) SetUpstreamSpeedNil() {
 	o.UpstreamSpeed.Set(nil)
@@ -337,7 +334,7 @@ func (o *CircuitCircuitTermination) SetDescription(v string) {
 }
 
 func (o CircuitCircuitTermination) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -385,32 +382,31 @@ func (o *CircuitCircuitTermination) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -477,5 +473,3 @@ func (v *NullableCircuitCircuitTermination) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

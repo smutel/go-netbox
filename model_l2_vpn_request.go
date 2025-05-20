@@ -20,17 +20,17 @@ var _ MappedNullable = &L2VPNRequest{}
 
 // L2VPNRequest Adds support for custom fields and tags.
 type L2VPNRequest struct {
-	Identifier NullableInt64 `json:"identifier,omitempty"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Type *BriefL2VPNTypeValue `json:"type,omitempty"`
-	ImportTargets []int32 `json:"import_targets,omitempty"`
-	ExportTargets []int32 `json:"export_targets,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Identifier           NullableInt64              `json:"identifier,omitempty"`
+	Name                 string                     `json:"name"`
+	Slug                 string                     `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Type                 *BriefL2VPNTypeValue       `json:"type,omitempty"`
+	ImportTargets        []int32                    `json:"import_targets,omitempty"`
+	ExportTargets        []int32                    `json:"export_targets,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Comments             *string                    `json:"comments,omitempty"`
+	Tenant               NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Tags                 []NestedTagRequest         `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -87,6 +87,7 @@ func (o *L2VPNRequest) HasIdentifier() bool {
 func (o *L2VPNRequest) SetIdentifier(v int64) {
 	o.Identifier.Set(&v)
 }
+
 // SetIdentifierNil sets the value for Identifier to be an explicit nil
 func (o *L2VPNRequest) SetIdentifierNil() {
 	o.Identifier.Set(nil)
@@ -121,7 +122,6 @@ func (o *L2VPNRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *L2VPNRequest) GetSlug() string {
 	if o == nil {
@@ -145,7 +145,6 @@ func (o *L2VPNRequest) GetSlugOk() (*string, bool) {
 func (o *L2VPNRequest) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *L2VPNRequest) GetType() BriefL2VPNTypeValue {
@@ -339,6 +338,7 @@ func (o *L2VPNRequest) HasTenant() bool {
 func (o *L2VPNRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *L2VPNRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -414,7 +414,7 @@ func (o *L2VPNRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o L2VPNRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -471,32 +471,31 @@ func (o *L2VPNRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -565,5 +564,3 @@ func (v *NullableL2VPNRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

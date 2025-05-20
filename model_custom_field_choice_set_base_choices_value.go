@@ -20,8 +20,8 @@ type CustomFieldChoiceSetBaseChoicesValue string
 
 // List of CustomFieldChoiceSet_base_choices_value
 const (
-	CUSTOMFIELDCHOICESETBASECHOICESVALUE_IATA CustomFieldChoiceSetBaseChoicesValue = "IATA"
-	CUSTOMFIELDCHOICESETBASECHOICESVALUE_ISO_3166 CustomFieldChoiceSetBaseChoicesValue = "ISO_3166"
+	CUSTOMFIELDCHOICESETBASECHOICESVALUE_IATA      CustomFieldChoiceSetBaseChoicesValue = "IATA"
+	CUSTOMFIELDCHOICESETBASECHOICESVALUE_ISO_3166  CustomFieldChoiceSetBaseChoicesValue = "ISO_3166"
 	CUSTOMFIELDCHOICESETBASECHOICESVALUE_UN_LOCODE CustomFieldChoiceSetBaseChoicesValue = "UN_LOCODE"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableCustomFieldChoiceSetBaseChoicesValue) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

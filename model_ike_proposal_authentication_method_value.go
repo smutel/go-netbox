@@ -21,7 +21,7 @@ type IKEProposalAuthenticationMethodValue string
 // List of IKEProposal_authentication_method_value
 const (
 	IKEPROPOSALAUTHENTICATIONMETHODVALUE_PRESHARED_KEYS IKEProposalAuthenticationMethodValue = "preshared-keys"
-	IKEPROPOSALAUTHENTICATIONMETHODVALUE_CERTIFICATES IKEProposalAuthenticationMethodValue = "certificates"
+	IKEPROPOSALAUTHENTICATIONMETHODVALUE_CERTIFICATES   IKEProposalAuthenticationMethodValue = "certificates"
 	IKEPROPOSALAUTHENTICATIONMETHODVALUE_RSA_SIGNATURES IKEProposalAuthenticationMethodValue = "rsa-signatures"
 	IKEPROPOSALAUTHENTICATIONMETHODVALUE_DSA_SIGNATURES IKEProposalAuthenticationMethodValue = "dsa-signatures"
 )
@@ -112,4 +112,3 @@ func (v *NullableIKEProposalAuthenticationMethodValue) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

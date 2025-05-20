@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Tenant type satisfies the MappedNullable interface at compile time
@@ -21,28 +21,28 @@ var _ MappedNullable = &Tenant{}
 
 // Tenant Adds support for custom fields and tags.
 type Tenant struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Group NullableBriefTenantGroup `json:"group,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	CircuitCount int64 `json:"circuit_count"`
-	DeviceCount int64 `json:"device_count"`
-	IpaddressCount int64 `json:"ipaddress_count"`
-	PrefixCount int64 `json:"prefix_count"`
-	RackCount int64 `json:"rack_count"`
-	SiteCount int64 `json:"site_count"`
-	VirtualmachineCount int64 `json:"virtualmachine_count"`
-	VlanCount int64 `json:"vlan_count"`
-	VrfCount int64 `json:"vrf_count"`
-	ClusterCount int64 `json:"cluster_count"`
+	Id                   int32                    `json:"id"`
+	Url                  string                   `json:"url"`
+	Display              string                   `json:"display"`
+	Name                 string                   `json:"name"`
+	Slug                 string                   `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Group                NullableBriefTenantGroup `json:"group,omitempty"`
+	Description          *string                  `json:"description,omitempty"`
+	Comments             *string                  `json:"comments,omitempty"`
+	Tags                 []NestedTag              `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}   `json:"custom_fields,omitempty"`
+	Created              NullableTime             `json:"created"`
+	LastUpdated          NullableTime             `json:"last_updated"`
+	CircuitCount         int64                    `json:"circuit_count"`
+	DeviceCount          int64                    `json:"device_count"`
+	IpaddressCount       int64                    `json:"ipaddress_count"`
+	PrefixCount          int64                    `json:"prefix_count"`
+	RackCount            int64                    `json:"rack_count"`
+	SiteCount            int64                    `json:"site_count"`
+	VirtualmachineCount  int64                    `json:"virtualmachine_count"`
+	VlanCount            int64                    `json:"vlan_count"`
+	VrfCount             int64                    `json:"vrf_count"`
+	ClusterCount         int64                    `json:"cluster_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -106,7 +106,6 @@ func (o *Tenant) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Tenant) GetUrl() string {
 	if o == nil {
@@ -130,7 +129,6 @@ func (o *Tenant) GetUrlOk() (*string, bool) {
 func (o *Tenant) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Tenant) GetDisplay() string {
@@ -156,7 +154,6 @@ func (o *Tenant) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *Tenant) GetName() string {
 	if o == nil {
@@ -181,7 +178,6 @@ func (o *Tenant) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *Tenant) GetSlug() string {
 	if o == nil {
@@ -205,7 +201,6 @@ func (o *Tenant) GetSlugOk() (*string, bool) {
 func (o *Tenant) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Tenant) GetGroup() BriefTenantGroup {
@@ -239,6 +234,7 @@ func (o *Tenant) HasGroup() bool {
 func (o *Tenant) SetGroup(v BriefTenantGroup) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *Tenant) SetGroupNil() {
 	o.Group.Set(nil)
@@ -403,7 +399,6 @@ func (o *Tenant) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Tenant) GetLastUpdated() time.Time {
@@ -430,7 +425,6 @@ func (o *Tenant) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetCircuitCount returns the CircuitCount field value
 func (o *Tenant) GetCircuitCount() int64 {
 	if o == nil {
@@ -454,7 +448,6 @@ func (o *Tenant) GetCircuitCountOk() (*int64, bool) {
 func (o *Tenant) SetCircuitCount(v int64) {
 	o.CircuitCount = v
 }
-
 
 // GetDeviceCount returns the DeviceCount field value
 func (o *Tenant) GetDeviceCount() int64 {
@@ -480,7 +473,6 @@ func (o *Tenant) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
 
-
 // GetIpaddressCount returns the IpaddressCount field value
 func (o *Tenant) GetIpaddressCount() int64 {
 	if o == nil {
@@ -504,7 +496,6 @@ func (o *Tenant) GetIpaddressCountOk() (*int64, bool) {
 func (o *Tenant) SetIpaddressCount(v int64) {
 	o.IpaddressCount = v
 }
-
 
 // GetPrefixCount returns the PrefixCount field value
 func (o *Tenant) GetPrefixCount() int64 {
@@ -530,7 +521,6 @@ func (o *Tenant) SetPrefixCount(v int64) {
 	o.PrefixCount = v
 }
 
-
 // GetRackCount returns the RackCount field value
 func (o *Tenant) GetRackCount() int64 {
 	if o == nil {
@@ -554,7 +544,6 @@ func (o *Tenant) GetRackCountOk() (*int64, bool) {
 func (o *Tenant) SetRackCount(v int64) {
 	o.RackCount = v
 }
-
 
 // GetSiteCount returns the SiteCount field value
 func (o *Tenant) GetSiteCount() int64 {
@@ -580,7 +569,6 @@ func (o *Tenant) SetSiteCount(v int64) {
 	o.SiteCount = v
 }
 
-
 // GetVirtualmachineCount returns the VirtualmachineCount field value
 func (o *Tenant) GetVirtualmachineCount() int64 {
 	if o == nil {
@@ -604,7 +592,6 @@ func (o *Tenant) GetVirtualmachineCountOk() (*int64, bool) {
 func (o *Tenant) SetVirtualmachineCount(v int64) {
 	o.VirtualmachineCount = v
 }
-
 
 // GetVlanCount returns the VlanCount field value
 func (o *Tenant) GetVlanCount() int64 {
@@ -630,7 +617,6 @@ func (o *Tenant) SetVlanCount(v int64) {
 	o.VlanCount = v
 }
 
-
 // GetVrfCount returns the VrfCount field value
 func (o *Tenant) GetVrfCount() int64 {
 	if o == nil {
@@ -654,7 +640,6 @@ func (o *Tenant) GetVrfCountOk() (*int64, bool) {
 func (o *Tenant) SetVrfCount(v int64) {
 	o.VrfCount = v
 }
-
 
 // GetClusterCount returns the ClusterCount field value
 func (o *Tenant) GetClusterCount() int64 {
@@ -680,9 +665,8 @@ func (o *Tenant) SetClusterCount(v int64) {
 	o.ClusterCount = v
 }
 
-
 func (o Tenant) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -757,32 +741,31 @@ func (o *Tenant) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -862,5 +845,3 @@ func (v *NullableTenant) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

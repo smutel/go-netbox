@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"os"
 	"fmt"
+	"os"
 )
 
 // checks if the DeviceTypeRequest type satisfies the MappedNullable interface at compile time
@@ -21,27 +21,27 @@ var _ MappedNullable = &DeviceTypeRequest{}
 
 // DeviceTypeRequest Adds support for custom fields and tags.
 type DeviceTypeRequest struct {
-	Manufacturer BriefManufacturerRequest `json:"manufacturer"`
+	Manufacturer    BriefManufacturerRequest     `json:"manufacturer"`
 	DefaultPlatform NullableBriefPlatformRequest `json:"default_platform,omitempty"`
-	Model string `json:"model"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Model           string                       `json:"model"`
+	Slug            string                       `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
 	// Discrete part number (optional)
-	PartNumber *string `json:"part_number,omitempty"`
-	UHeight *float64 `json:"u_height,omitempty"`
+	PartNumber *string  `json:"part_number,omitempty"`
+	UHeight    *float64 `json:"u_height,omitempty"`
 	// Devices of this type are excluded when calculating rack utilization.
 	ExcludeFromUtilization *bool `json:"exclude_from_utilization,omitempty"`
 	// Device consumes both front and rear rack faces.
-	IsFullDepth *bool `json:"is_full_depth,omitempty"`
-	SubdeviceRole NullableDeviceTypeRequestSubdeviceRole `json:"subdevice_role,omitempty"`
-	Airflow NullableDeviceTypeRequestAirflow `json:"airflow,omitempty"`
-	Weight NullableFloat64 `json:"weight,omitempty"`
-	WeightUnit NullableDeviceTypeRequestWeightUnit `json:"weight_unit,omitempty"`
-	FrontImage **os.File `json:"front_image,omitempty"`
-	RearImage **os.File `json:"rear_image,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	IsFullDepth          *bool                                  `json:"is_full_depth,omitempty"`
+	SubdeviceRole        NullableDeviceTypeRequestSubdeviceRole `json:"subdevice_role,omitempty"`
+	Airflow              NullableDeviceTypeRequestAirflow       `json:"airflow,omitempty"`
+	Weight               NullableFloat64                        `json:"weight,omitempty"`
+	WeightUnit           NullableDeviceTypeRequestWeightUnit    `json:"weight_unit,omitempty"`
+	FrontImage           **os.File                              `json:"front_image,omitempty"`
+	RearImage            **os.File                              `json:"rear_image,omitempty"`
+	Description          *string                                `json:"description,omitempty"`
+	Comments             *string                                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest                     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                 `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -95,7 +95,6 @@ func (o *DeviceTypeRequest) SetManufacturer(v BriefManufacturerRequest) {
 	o.Manufacturer = v
 }
 
-
 // GetDefaultPlatform returns the DefaultPlatform field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *DeviceTypeRequest) GetDefaultPlatform() BriefPlatformRequest {
 	if o == nil || IsNil(o.DefaultPlatform.Get()) {
@@ -128,6 +127,7 @@ func (o *DeviceTypeRequest) HasDefaultPlatform() bool {
 func (o *DeviceTypeRequest) SetDefaultPlatform(v BriefPlatformRequest) {
 	o.DefaultPlatform.Set(&v)
 }
+
 // SetDefaultPlatformNil sets the value for DefaultPlatform to be an explicit nil
 func (o *DeviceTypeRequest) SetDefaultPlatformNil() {
 	o.DefaultPlatform.Set(nil)
@@ -162,7 +162,6 @@ func (o *DeviceTypeRequest) SetModel(v string) {
 	o.Model = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *DeviceTypeRequest) GetSlug() string {
 	if o == nil {
@@ -186,7 +185,6 @@ func (o *DeviceTypeRequest) GetSlugOk() (*string, bool) {
 func (o *DeviceTypeRequest) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetPartNumber returns the PartNumber field value if set, zero value otherwise.
 func (o *DeviceTypeRequest) GetPartNumber() string {
@@ -348,6 +346,7 @@ func (o *DeviceTypeRequest) HasSubdeviceRole() bool {
 func (o *DeviceTypeRequest) SetSubdeviceRole(v DeviceTypeRequestSubdeviceRole) {
 	o.SubdeviceRole.Set(&v)
 }
+
 // SetSubdeviceRoleNil sets the value for SubdeviceRole to be an explicit nil
 func (o *DeviceTypeRequest) SetSubdeviceRoleNil() {
 	o.SubdeviceRole.Set(nil)
@@ -390,6 +389,7 @@ func (o *DeviceTypeRequest) HasAirflow() bool {
 func (o *DeviceTypeRequest) SetAirflow(v DeviceTypeRequestAirflow) {
 	o.Airflow.Set(&v)
 }
+
 // SetAirflowNil sets the value for Airflow to be an explicit nil
 func (o *DeviceTypeRequest) SetAirflowNil() {
 	o.Airflow.Set(nil)
@@ -432,6 +432,7 @@ func (o *DeviceTypeRequest) HasWeight() bool {
 func (o *DeviceTypeRequest) SetWeight(v float64) {
 	o.Weight.Set(&v)
 }
+
 // SetWeightNil sets the value for Weight to be an explicit nil
 func (o *DeviceTypeRequest) SetWeightNil() {
 	o.Weight.Set(nil)
@@ -474,6 +475,7 @@ func (o *DeviceTypeRequest) HasWeightUnit() bool {
 func (o *DeviceTypeRequest) SetWeightUnit(v DeviceTypeRequestWeightUnit) {
 	o.WeightUnit.Set(&v)
 }
+
 // SetWeightUnitNil sets the value for WeightUnit to be an explicit nil
 func (o *DeviceTypeRequest) SetWeightUnitNil() {
 	o.WeightUnit.Set(nil)
@@ -677,7 +679,7 @@ func (o *DeviceTypeRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o DeviceTypeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -754,32 +756,31 @@ func (o *DeviceTypeRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -855,5 +856,3 @@ func (v *NullableDeviceTypeRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,13 +21,13 @@ type DcimConsolePortsListSpeedParameter int32
 // List of dcim_console_ports_list_speed_parameter
 const (
 	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__115200 DcimConsolePortsListSpeedParameter = 115200
-	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__1200 DcimConsolePortsListSpeedParameter = 1200
-	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__19200 DcimConsolePortsListSpeedParameter = 19200
-	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__2400 DcimConsolePortsListSpeedParameter = 2400
-	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__38400 DcimConsolePortsListSpeedParameter = 38400
-	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__4800 DcimConsolePortsListSpeedParameter = 4800
-	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__57600 DcimConsolePortsListSpeedParameter = 57600
-	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__9600 DcimConsolePortsListSpeedParameter = 9600
+	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__1200   DcimConsolePortsListSpeedParameter = 1200
+	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__19200  DcimConsolePortsListSpeedParameter = 19200
+	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__2400   DcimConsolePortsListSpeedParameter = 2400
+	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__38400  DcimConsolePortsListSpeedParameter = 38400
+	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__4800   DcimConsolePortsListSpeedParameter = 4800
+	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__57600  DcimConsolePortsListSpeedParameter = 57600
+	DCIMCONSOLEPORTSLISTSPEEDPARAMETER__9600   DcimConsolePortsListSpeedParameter = 9600
 )
 
 // All allowed values of DcimConsolePortsListSpeedParameter enum
@@ -120,4 +120,3 @@ func (v *NullableDcimConsolePortsListSpeedParameter) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

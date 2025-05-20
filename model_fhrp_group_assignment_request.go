@@ -20,10 +20,10 @@ var _ MappedNullable = &FHRPGroupAssignmentRequest{}
 
 // FHRPGroupAssignmentRequest Adds support for custom fields and tags.
 type FHRPGroupAssignmentRequest struct {
-	Group BriefFHRPGroupRequest `json:"group"`
-	InterfaceType string `json:"interface_type"`
-	InterfaceId int64 `json:"interface_id"`
-	Priority int32 `json:"priority"`
+	Group                BriefFHRPGroupRequest `json:"group"`
+	InterfaceType        string                `json:"interface_type"`
+	InterfaceId          int64                 `json:"interface_id"`
+	Priority             int32                 `json:"priority"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -74,7 +74,6 @@ func (o *FHRPGroupAssignmentRequest) SetGroup(v BriefFHRPGroupRequest) {
 	o.Group = v
 }
 
-
 // GetInterfaceType returns the InterfaceType field value
 func (o *FHRPGroupAssignmentRequest) GetInterfaceType() string {
 	if o == nil {
@@ -98,7 +97,6 @@ func (o *FHRPGroupAssignmentRequest) GetInterfaceTypeOk() (*string, bool) {
 func (o *FHRPGroupAssignmentRequest) SetInterfaceType(v string) {
 	o.InterfaceType = v
 }
-
 
 // GetInterfaceId returns the InterfaceId field value
 func (o *FHRPGroupAssignmentRequest) GetInterfaceId() int64 {
@@ -124,7 +122,6 @@ func (o *FHRPGroupAssignmentRequest) SetInterfaceId(v int64) {
 	o.InterfaceId = v
 }
 
-
 // GetPriority returns the Priority field value
 func (o *FHRPGroupAssignmentRequest) GetPriority() int32 {
 	if o == nil {
@@ -149,9 +146,8 @@ func (o *FHRPGroupAssignmentRequest) SetPriority(v int32) {
 	o.Priority = v
 }
 
-
 func (o FHRPGroupAssignmentRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -185,32 +181,31 @@ func (o *FHRPGroupAssignmentRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -272,5 +267,3 @@ func (v *NullableFHRPGroupAssignmentRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

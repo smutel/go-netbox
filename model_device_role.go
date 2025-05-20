@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the DeviceRole type satisfies the MappedNullable interface at compile time
@@ -21,22 +21,22 @@ var _ MappedNullable = &DeviceRole{}
 
 // DeviceRole Adds support for custom fields and tags.
 type DeviceRole struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Id      int32   `json:"id"`
+	Url     string  `json:"url"`
+	Display string  `json:"display"`
+	Name    string  `json:"name"`
+	Slug    string  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Color   *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	// Virtual machines may be assigned to this role
-	VmRole *bool `json:"vm_role,omitempty"`
-	ConfigTemplate NullableBriefConfigTemplate `json:"config_template,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	DeviceCount int64 `json:"device_count"`
-	VirtualmachineCount int64 `json:"virtualmachine_count"`
+	VmRole               *bool                       `json:"vm_role,omitempty"`
+	ConfigTemplate       NullableBriefConfigTemplate `json:"config_template,omitempty"`
+	Description          *string                     `json:"description,omitempty"`
+	Tags                 []NestedTag                 `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}      `json:"custom_fields,omitempty"`
+	Created              NullableTime                `json:"created"`
+	LastUpdated          NullableTime                `json:"last_updated"`
+	DeviceCount          int64                       `json:"device_count"`
+	VirtualmachineCount  int64                       `json:"virtualmachine_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -92,7 +92,6 @@ func (o *DeviceRole) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *DeviceRole) GetUrl() string {
 	if o == nil {
@@ -116,7 +115,6 @@ func (o *DeviceRole) GetUrlOk() (*string, bool) {
 func (o *DeviceRole) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *DeviceRole) GetDisplay() string {
@@ -142,7 +140,6 @@ func (o *DeviceRole) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *DeviceRole) GetName() string {
 	if o == nil {
@@ -167,7 +164,6 @@ func (o *DeviceRole) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *DeviceRole) GetSlug() string {
 	if o == nil {
@@ -191,7 +187,6 @@ func (o *DeviceRole) GetSlugOk() (*string, bool) {
 func (o *DeviceRole) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetColor returns the Color field value if set, zero value otherwise.
 func (o *DeviceRole) GetColor() string {
@@ -289,6 +284,7 @@ func (o *DeviceRole) HasConfigTemplate() bool {
 func (o *DeviceRole) SetConfigTemplate(v BriefConfigTemplate) {
 	o.ConfigTemplate.Set(&v)
 }
+
 // SetConfigTemplateNil sets the value for ConfigTemplate to be an explicit nil
 func (o *DeviceRole) SetConfigTemplateNil() {
 	o.ConfigTemplate.Set(nil)
@@ -421,7 +417,6 @@ func (o *DeviceRole) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *DeviceRole) GetLastUpdated() time.Time {
@@ -448,7 +443,6 @@ func (o *DeviceRole) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetDeviceCount returns the DeviceCount field value
 func (o *DeviceRole) GetDeviceCount() int64 {
 	if o == nil {
@@ -472,7 +466,6 @@ func (o *DeviceRole) GetDeviceCountOk() (*int64, bool) {
 func (o *DeviceRole) SetDeviceCount(v int64) {
 	o.DeviceCount = v
 }
-
 
 // GetVirtualmachineCount returns the VirtualmachineCount field value
 func (o *DeviceRole) GetVirtualmachineCount() int64 {
@@ -498,9 +491,8 @@ func (o *DeviceRole) SetVirtualmachineCount(v int64) {
 	o.VirtualmachineCount = v
 }
 
-
 func (o DeviceRole) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -562,32 +554,31 @@ func (o *DeviceRole) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -660,5 +651,3 @@ func (v *NullableDeviceRole) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

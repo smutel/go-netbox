@@ -19,10 +19,10 @@ var _ MappedNullable = &PatchedFHRPGroupAssignmentRequest{}
 
 // PatchedFHRPGroupAssignmentRequest Adds support for custom fields and tags.
 type PatchedFHRPGroupAssignmentRequest struct {
-	Group *BriefFHRPGroupRequest `json:"group,omitempty"`
-	InterfaceType *string `json:"interface_type,omitempty"`
-	InterfaceId *int64 `json:"interface_id,omitempty"`
-	Priority *int32 `json:"priority,omitempty"`
+	Group                *BriefFHRPGroupRequest `json:"group,omitempty"`
+	InterfaceType        *string                `json:"interface_type,omitempty"`
+	InterfaceId          *int64                 `json:"interface_id,omitempty"`
+	Priority             *int32                 `json:"priority,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -174,7 +174,7 @@ func (o *PatchedFHRPGroupAssignmentRequest) SetPriority(v int32) {
 }
 
 func (o PatchedFHRPGroupAssignmentRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -262,5 +262,3 @@ func (v *NullablePatchedFHRPGroupAssignmentRequest) UnmarshalJSON(src []byte) er
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

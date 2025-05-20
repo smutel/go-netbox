@@ -20,15 +20,15 @@ var _ MappedNullable = &Script{}
 
 // Script Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type Script struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Module int32 `json:"module"`
-	Name string `json:"name"`
-	Description NullableString `json:"description"`
-	Vars interface{} `json:"vars"`
-	Result BriefJob `json:"result"`
-	Display string `json:"display"`
-	IsExecutable bool `json:"is_executable"`
+	Id                   int32          `json:"id"`
+	Url                  string         `json:"url"`
+	Module               int32          `json:"module"`
+	Name                 string         `json:"name"`
+	Description          NullableString `json:"description"`
+	Vars                 interface{}    `json:"vars"`
+	Result               BriefJob       `json:"result"`
+	Display              string         `json:"display"`
+	IsExecutable         bool           `json:"is_executable"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -84,7 +84,6 @@ func (o *Script) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Script) GetUrl() string {
 	if o == nil {
@@ -108,7 +107,6 @@ func (o *Script) GetUrlOk() (*string, bool) {
 func (o *Script) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetModule returns the Module field value
 func (o *Script) GetModule() int32 {
@@ -134,7 +132,6 @@ func (o *Script) SetModule(v int32) {
 	o.Module = v
 }
 
-
 // GetName returns the Name field value
 func (o *Script) GetName() string {
 	if o == nil {
@@ -158,7 +155,6 @@ func (o *Script) GetNameOk() (*string, bool) {
 func (o *Script) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value
 // If the value is explicit nil, the zero value for string will be returned
@@ -186,7 +182,6 @@ func (o *Script) SetDescription(v string) {
 	o.Description.Set(&v)
 }
 
-
 // GetVars returns the Vars field value
 // If the value is explicit nil, the zero value for interface{} will be returned
 func (o *Script) GetVars() interface{} {
@@ -213,7 +208,6 @@ func (o *Script) SetVars(v interface{}) {
 	o.Vars = v
 }
 
-
 // GetResult returns the Result field value
 func (o *Script) GetResult() BriefJob {
 	if o == nil {
@@ -237,7 +231,6 @@ func (o *Script) GetResultOk() (*BriefJob, bool) {
 func (o *Script) SetResult(v BriefJob) {
 	o.Result = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Script) GetDisplay() string {
@@ -263,7 +256,6 @@ func (o *Script) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetIsExecutable returns the IsExecutable field value
 func (o *Script) GetIsExecutable() bool {
 	if o == nil {
@@ -288,9 +280,8 @@ func (o *Script) SetIsExecutable(v bool) {
 	o.IsExecutable = v
 }
 
-
 func (o Script) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -336,32 +327,31 @@ func (o *Script) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -428,5 +418,3 @@ func (v *NullableScript) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

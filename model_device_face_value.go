@@ -21,7 +21,7 @@ type DeviceFaceValue string
 // List of Device_face_value
 const (
 	DEVICEFACEVALUE_FRONT DeviceFaceValue = "front"
-	DEVICEFACEVALUE_REAR DeviceFaceValue = "rear"
+	DEVICEFACEVALUE_REAR  DeviceFaceValue = "rear"
 	DEVICEFACEVALUE_EMPTY DeviceFaceValue = ""
 )
 
@@ -110,4 +110,3 @@ func (v *NullableDeviceFaceValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -20,9 +20,9 @@ var _ MappedNullable = &BriefModuleTypeRequest{}
 
 // BriefModuleTypeRequest Adds support for custom fields and tags.
 type BriefModuleTypeRequest struct {
-	Manufacturer BriefManufacturerRequest `json:"manufacturer"`
-	Model string `json:"model"`
-	Description *string `json:"description,omitempty"`
+	Manufacturer         BriefManufacturerRequest `json:"manufacturer"`
+	Model                string                   `json:"model"`
+	Description          *string                  `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -71,7 +71,6 @@ func (o *BriefModuleTypeRequest) SetManufacturer(v BriefManufacturerRequest) {
 	o.Manufacturer = v
 }
 
-
 // GetModel returns the Model field value
 func (o *BriefModuleTypeRequest) GetModel() string {
 	if o == nil {
@@ -95,7 +94,6 @@ func (o *BriefModuleTypeRequest) GetModelOk() (*string, bool) {
 func (o *BriefModuleTypeRequest) SetModel(v string) {
 	o.Model = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefModuleTypeRequest) GetDescription() string {
@@ -130,7 +128,7 @@ func (o *BriefModuleTypeRequest) SetDescription(v string) {
 }
 
 func (o BriefModuleTypeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -163,32 +161,31 @@ func (o *BriefModuleTypeRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -249,5 +246,3 @@ func (v *NullableBriefModuleTypeRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

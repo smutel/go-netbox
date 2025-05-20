@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the WirelessLAN type satisfies the MappedNullable interface at compile time
@@ -21,23 +21,23 @@ var _ MappedNullable = &WirelessLAN{}
 
 // WirelessLAN Adds support for custom fields and tags.
 type WirelessLAN struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Ssid string `json:"ssid"`
-	Description *string `json:"description,omitempty"`
-	Group NullableBriefWirelessLANGroup `json:"group,omitempty"`
-	Status *WirelessLANStatus `json:"status,omitempty"`
-	Vlan NullableBriefVLAN `json:"vlan,omitempty"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	AuthType *WirelessLANAuthType `json:"auth_type,omitempty"`
-	AuthCipher *WirelessLANAuthCipher `json:"auth_cipher,omitempty"`
-	AuthPsk *string `json:"auth_psk,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Id                   int32                         `json:"id"`
+	Url                  string                        `json:"url"`
+	Display              string                        `json:"display"`
+	Ssid                 string                        `json:"ssid"`
+	Description          *string                       `json:"description,omitempty"`
+	Group                NullableBriefWirelessLANGroup `json:"group,omitempty"`
+	Status               *WirelessLANStatus            `json:"status,omitempty"`
+	Vlan                 NullableBriefVLAN             `json:"vlan,omitempty"`
+	Tenant               NullableBriefTenant           `json:"tenant,omitempty"`
+	AuthType             *WirelessLANAuthType          `json:"auth_type,omitempty"`
+	AuthCipher           *WirelessLANAuthCipher        `json:"auth_cipher,omitempty"`
+	AuthPsk              *string                       `json:"auth_psk,omitempty"`
+	Comments             *string                       `json:"comments,omitempty"`
+	Tags                 []NestedTag                   `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}        `json:"custom_fields,omitempty"`
+	Created              NullableTime                  `json:"created"`
+	LastUpdated          NullableTime                  `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -90,7 +90,6 @@ func (o *WirelessLAN) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *WirelessLAN) GetUrl() string {
 	if o == nil {
@@ -114,7 +113,6 @@ func (o *WirelessLAN) GetUrlOk() (*string, bool) {
 func (o *WirelessLAN) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *WirelessLAN) GetDisplay() string {
@@ -140,7 +138,6 @@ func (o *WirelessLAN) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetSsid returns the Ssid field value
 func (o *WirelessLAN) GetSsid() string {
 	if o == nil {
@@ -164,7 +161,6 @@ func (o *WirelessLAN) GetSsidOk() (*string, bool) {
 func (o *WirelessLAN) SetSsid(v string) {
 	o.Ssid = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WirelessLAN) GetDescription() string {
@@ -230,6 +226,7 @@ func (o *WirelessLAN) HasGroup() bool {
 func (o *WirelessLAN) SetGroup(v BriefWirelessLANGroup) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *WirelessLAN) SetGroupNil() {
 	o.Group.Set(nil)
@@ -304,6 +301,7 @@ func (o *WirelessLAN) HasVlan() bool {
 func (o *WirelessLAN) SetVlan(v BriefVLAN) {
 	o.Vlan.Set(&v)
 }
+
 // SetVlanNil sets the value for Vlan to be an explicit nil
 func (o *WirelessLAN) SetVlanNil() {
 	o.Vlan.Set(nil)
@@ -346,6 +344,7 @@ func (o *WirelessLAN) HasTenant() bool {
 func (o *WirelessLAN) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *WirelessLAN) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -574,7 +573,6 @@ func (o *WirelessLAN) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *WirelessLAN) GetLastUpdated() time.Time {
@@ -601,9 +599,8 @@ func (o *WirelessLAN) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o WirelessLAN) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -674,32 +671,31 @@ func (o *WirelessLAN) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -774,5 +770,3 @@ func (v *NullableWirelessLAN) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

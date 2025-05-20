@@ -21,8 +21,8 @@ type AuthenticationType string
 // List of Authentication_type
 const (
 	AUTHENTICATIONTYPE_PLAINTEXT AuthenticationType = "plaintext"
-	AUTHENTICATIONTYPE_MD5 AuthenticationType = "md5"
-	AUTHENTICATIONTYPE_EMPTY AuthenticationType = ""
+	AUTHENTICATIONTYPE_MD5       AuthenticationType = "md5"
+	AUTHENTICATIONTYPE_EMPTY     AuthenticationType = ""
 )
 
 // All allowed values of AuthenticationType enum
@@ -110,4 +110,3 @@ func (v *NullableAuthenticationType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

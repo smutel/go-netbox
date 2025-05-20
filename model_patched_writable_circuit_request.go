@@ -20,20 +20,20 @@ var _ MappedNullable = &PatchedWritableCircuitRequest{}
 // PatchedWritableCircuitRequest Adds support for custom fields and tags.
 type PatchedWritableCircuitRequest struct {
 	// Unique circuit ID
-	Cid *string `json:"cid,omitempty"`
-	Provider *BriefProviderRequest `json:"provider,omitempty"`
+	Cid             *string                             `json:"cid,omitempty"`
+	Provider        *BriefProviderRequest               `json:"provider,omitempty"`
 	ProviderAccount NullableBriefProviderAccountRequest `json:"provider_account,omitempty"`
-	Type *BriefCircuitTypeRequest `json:"type,omitempty"`
-	Status *CircuitStatusValue `json:"status,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	InstallDate NullableString `json:"install_date,omitempty"`
-	TerminationDate NullableString `json:"termination_date,omitempty"`
+	Type            *BriefCircuitTypeRequest            `json:"type,omitempty"`
+	Status          *CircuitStatusValue                 `json:"status,omitempty"`
+	Tenant          NullableBriefTenantRequest          `json:"tenant,omitempty"`
+	InstallDate     NullableString                      `json:"install_date,omitempty"`
+	TerminationDate NullableString                      `json:"termination_date,omitempty"`
 	// Committed rate
-	CommitRate NullableInt32 `json:"commit_rate,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	CommitRate           NullableInt32          `json:"commit_rate,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -152,6 +152,7 @@ func (o *PatchedWritableCircuitRequest) HasProviderAccount() bool {
 func (o *PatchedWritableCircuitRequest) SetProviderAccount(v BriefProviderAccountRequest) {
 	o.ProviderAccount.Set(&v)
 }
+
 // SetProviderAccountNil sets the value for ProviderAccount to be an explicit nil
 func (o *PatchedWritableCircuitRequest) SetProviderAccountNil() {
 	o.ProviderAccount.Set(nil)
@@ -258,6 +259,7 @@ func (o *PatchedWritableCircuitRequest) HasTenant() bool {
 func (o *PatchedWritableCircuitRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *PatchedWritableCircuitRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -300,6 +302,7 @@ func (o *PatchedWritableCircuitRequest) HasInstallDate() bool {
 func (o *PatchedWritableCircuitRequest) SetInstallDate(v string) {
 	o.InstallDate.Set(&v)
 }
+
 // SetInstallDateNil sets the value for InstallDate to be an explicit nil
 func (o *PatchedWritableCircuitRequest) SetInstallDateNil() {
 	o.InstallDate.Set(nil)
@@ -342,6 +345,7 @@ func (o *PatchedWritableCircuitRequest) HasTerminationDate() bool {
 func (o *PatchedWritableCircuitRequest) SetTerminationDate(v string) {
 	o.TerminationDate.Set(&v)
 }
+
 // SetTerminationDateNil sets the value for TerminationDate to be an explicit nil
 func (o *PatchedWritableCircuitRequest) SetTerminationDateNil() {
 	o.TerminationDate.Set(nil)
@@ -384,6 +388,7 @@ func (o *PatchedWritableCircuitRequest) HasCommitRate() bool {
 func (o *PatchedWritableCircuitRequest) SetCommitRate(v int32) {
 	o.CommitRate.Set(&v)
 }
+
 // SetCommitRateNil sets the value for CommitRate to be an explicit nil
 func (o *PatchedWritableCircuitRequest) SetCommitRateNil() {
 	o.CommitRate.Set(nil)
@@ -523,7 +528,7 @@ func (o *PatchedWritableCircuitRequest) SetCustomFields(v map[string]interface{}
 }
 
 func (o PatchedWritableCircuitRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -647,5 +652,3 @@ func (v *NullablePatchedWritableCircuitRequest) UnmarshalJSON(src []byte) error 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

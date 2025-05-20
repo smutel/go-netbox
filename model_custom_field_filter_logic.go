@@ -19,8 +19,8 @@ var _ MappedNullable = &CustomFieldFilterLogic{}
 
 // CustomFieldFilterLogic struct for CustomFieldFilterLogic
 type CustomFieldFilterLogic struct {
-	Value *CustomFieldFilterLogicValue `json:"value,omitempty"`
-	Label *CustomFieldFilterLogicLabel `json:"label,omitempty"`
+	Value                *CustomFieldFilterLogicValue `json:"value,omitempty"`
+	Label                *CustomFieldFilterLogicLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *CustomFieldFilterLogic) SetLabel(v CustomFieldFilterLogicLabel) {
 }
 
 func (o CustomFieldFilterLogic) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableCustomFieldFilterLogic) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

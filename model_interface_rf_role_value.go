@@ -20,9 +20,9 @@ type InterfaceRfRoleValue string
 
 // List of Interface_rf_role_value
 const (
-	INTERFACERFROLEVALUE_AP InterfaceRfRoleValue = "ap"
+	INTERFACERFROLEVALUE_AP      InterfaceRfRoleValue = "ap"
 	INTERFACERFROLEVALUE_STATION InterfaceRfRoleValue = "station"
-	INTERFACERFROLEVALUE_EMPTY InterfaceRfRoleValue = ""
+	INTERFACERFROLEVALUE_EMPTY   InterfaceRfRoleValue = ""
 )
 
 // All allowed values of InterfaceRfRoleValue enum
@@ -110,4 +110,3 @@ func (v *NullableInterfaceRfRoleValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

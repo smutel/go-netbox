@@ -20,12 +20,12 @@ var _ MappedNullable = &BriefRearPortTemplate{}
 
 // BriefRearPortTemplate Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type BriefRearPortTemplate struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
+	Id      int32  `json:"id"`
+	Url     string `json:"url"`
 	Display string `json:"display"`
 	// {module} is accepted as a substitution for the module bay position when attached to a module type.
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
+	Name                 string  `json:"name"`
+	Description          *string `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,6 @@ func (o *BriefRearPortTemplate) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *BriefRearPortTemplate) GetUrl() string {
 	if o == nil {
@@ -100,7 +99,6 @@ func (o *BriefRearPortTemplate) GetUrlOk() (*string, bool) {
 func (o *BriefRearPortTemplate) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *BriefRearPortTemplate) GetDisplay() string {
@@ -126,7 +124,6 @@ func (o *BriefRearPortTemplate) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *BriefRearPortTemplate) GetName() string {
 	if o == nil {
@@ -150,7 +147,6 @@ func (o *BriefRearPortTemplate) GetNameOk() (*string, bool) {
 func (o *BriefRearPortTemplate) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *BriefRearPortTemplate) GetDescription() string {
@@ -185,7 +181,7 @@ func (o *BriefRearPortTemplate) SetDescription(v string) {
 }
 
 func (o BriefRearPortTemplate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -222,32 +218,31 @@ func (o *BriefRearPortTemplate) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -310,5 +305,3 @@ func (v *NullableBriefRearPortTemplate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

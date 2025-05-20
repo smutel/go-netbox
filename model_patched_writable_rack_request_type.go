@@ -20,14 +20,14 @@ type PatchedWritableRackRequestType string
 
 // List of PatchedWritableRackRequest_type
 const (
-	PATCHEDWRITABLERACKREQUESTTYPE__2_POST_FRAME PatchedWritableRackRequestType = "2-post-frame"
-	PATCHEDWRITABLERACKREQUESTTYPE__4_POST_FRAME PatchedWritableRackRequestType = "4-post-frame"
-	PATCHEDWRITABLERACKREQUESTTYPE__4_POST_CABINET PatchedWritableRackRequestType = "4-post-cabinet"
-	PATCHEDWRITABLERACKREQUESTTYPE_WALL_FRAME PatchedWritableRackRequestType = "wall-frame"
-	PATCHEDWRITABLERACKREQUESTTYPE_WALL_FRAME_VERTICAL PatchedWritableRackRequestType = "wall-frame-vertical"
-	PATCHEDWRITABLERACKREQUESTTYPE_WALL_CABINET PatchedWritableRackRequestType = "wall-cabinet"
+	PATCHEDWRITABLERACKREQUESTTYPE__2_POST_FRAME         PatchedWritableRackRequestType = "2-post-frame"
+	PATCHEDWRITABLERACKREQUESTTYPE__4_POST_FRAME         PatchedWritableRackRequestType = "4-post-frame"
+	PATCHEDWRITABLERACKREQUESTTYPE__4_POST_CABINET       PatchedWritableRackRequestType = "4-post-cabinet"
+	PATCHEDWRITABLERACKREQUESTTYPE_WALL_FRAME            PatchedWritableRackRequestType = "wall-frame"
+	PATCHEDWRITABLERACKREQUESTTYPE_WALL_FRAME_VERTICAL   PatchedWritableRackRequestType = "wall-frame-vertical"
+	PATCHEDWRITABLERACKREQUESTTYPE_WALL_CABINET          PatchedWritableRackRequestType = "wall-cabinet"
 	PATCHEDWRITABLERACKREQUESTTYPE_WALL_CABINET_VERTICAL PatchedWritableRackRequestType = "wall-cabinet-vertical"
-	PATCHEDWRITABLERACKREQUESTTYPE_EMPTY PatchedWritableRackRequestType = ""
+	PATCHEDWRITABLERACKREQUESTTYPE_EMPTY                 PatchedWritableRackRequestType = ""
 )
 
 // All allowed values of PatchedWritableRackRequestType enum
@@ -120,4 +120,3 @@ func (v *NullablePatchedWritableRackRequestType) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

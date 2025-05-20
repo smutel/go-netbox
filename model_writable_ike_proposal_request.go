@@ -20,17 +20,17 @@ var _ MappedNullable = &WritableIKEProposalRequest{}
 
 // WritableIKEProposalRequest Adds support for custom fields and tags.
 type WritableIKEProposalRequest struct {
-	Name string `json:"name"`
-	Description *string `json:"description,omitempty"`
-	AuthenticationMethod IKEProposalAuthenticationMethodValue `json:"authentication_method"`
-	EncryptionAlgorithm IKEProposalEncryptionAlgorithmValue `json:"encryption_algorithm"`
+	Name                    string                                                    `json:"name"`
+	Description             *string                                                   `json:"description,omitempty"`
+	AuthenticationMethod    IKEProposalAuthenticationMethodValue                      `json:"authentication_method"`
+	EncryptionAlgorithm     IKEProposalEncryptionAlgorithmValue                       `json:"encryption_algorithm"`
 	AuthenticationAlgorithm *PatchedWritableIKEProposalRequestAuthenticationAlgorithm `json:"authentication_algorithm,omitempty"`
-	Group PatchedWritableIKEProposalRequestGroup `json:"group"`
+	Group                   PatchedWritableIKEProposalRequestGroup                    `json:"group"`
 	// Security association lifetime (in seconds)
-	SaLifetime NullableInt32 `json:"sa_lifetime,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	SaLifetime           NullableInt32          `json:"sa_lifetime,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,6 @@ func (o *WritableIKEProposalRequest) GetNameOk() (*string, bool) {
 func (o *WritableIKEProposalRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *WritableIKEProposalRequest) GetDescription() string {
@@ -138,7 +137,6 @@ func (o *WritableIKEProposalRequest) SetAuthenticationMethod(v IKEProposalAuthen
 	o.AuthenticationMethod = v
 }
 
-
 // GetEncryptionAlgorithm returns the EncryptionAlgorithm field value
 func (o *WritableIKEProposalRequest) GetEncryptionAlgorithm() IKEProposalEncryptionAlgorithmValue {
 	if o == nil {
@@ -162,7 +160,6 @@ func (o *WritableIKEProposalRequest) GetEncryptionAlgorithmOk() (*IKEProposalEnc
 func (o *WritableIKEProposalRequest) SetEncryptionAlgorithm(v IKEProposalEncryptionAlgorithmValue) {
 	o.EncryptionAlgorithm = v
 }
-
 
 // GetAuthenticationAlgorithm returns the AuthenticationAlgorithm field value if set, zero value otherwise.
 func (o *WritableIKEProposalRequest) GetAuthenticationAlgorithm() PatchedWritableIKEProposalRequestAuthenticationAlgorithm {
@@ -220,7 +217,6 @@ func (o *WritableIKEProposalRequest) SetGroup(v PatchedWritableIKEProposalReques
 	o.Group = v
 }
 
-
 // GetSaLifetime returns the SaLifetime field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableIKEProposalRequest) GetSaLifetime() int32 {
 	if o == nil || IsNil(o.SaLifetime.Get()) {
@@ -253,6 +249,7 @@ func (o *WritableIKEProposalRequest) HasSaLifetime() bool {
 func (o *WritableIKEProposalRequest) SetSaLifetime(v int32) {
 	o.SaLifetime.Set(&v)
 }
+
 // SetSaLifetimeNil sets the value for SaLifetime to be an explicit nil
 func (o *WritableIKEProposalRequest) SetSaLifetimeNil() {
 	o.SaLifetime.Set(nil)
@@ -360,7 +357,7 @@ func (o *WritableIKEProposalRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o WritableIKEProposalRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -412,32 +409,31 @@ func (o *WritableIKEProposalRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -505,5 +501,3 @@ func (v *NullableWritableIKEProposalRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

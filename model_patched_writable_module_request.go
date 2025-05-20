@@ -19,17 +19,17 @@ var _ MappedNullable = &PatchedWritableModuleRequest{}
 
 // PatchedWritableModuleRequest Adds support for custom fields and tags.
 type PatchedWritableModuleRequest struct {
-	Device *BriefDeviceRequest `json:"device,omitempty"`
-	ModuleBay *int32 `json:"module_bay,omitempty"`
+	Device     *BriefDeviceRequest     `json:"device,omitempty"`
+	ModuleBay  *int32                  `json:"module_bay,omitempty"`
 	ModuleType *BriefModuleTypeRequest `json:"module_type,omitempty"`
-	Status *ModuleStatusValue `json:"status,omitempty"`
-	Serial *string `json:"serial,omitempty"`
+	Status     *ModuleStatusValue      `json:"status,omitempty"`
+	Serial     *string                 `json:"serial,omitempty"`
 	// A unique tag used to identify this device
-	AssetTag NullableString `json:"asset_tag,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	AssetTag             NullableString         `json:"asset_tag,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -244,6 +244,7 @@ func (o *PatchedWritableModuleRequest) HasAssetTag() bool {
 func (o *PatchedWritableModuleRequest) SetAssetTag(v string) {
 	o.AssetTag.Set(&v)
 }
+
 // SetAssetTagNil sets the value for AssetTag to be an explicit nil
 func (o *PatchedWritableModuleRequest) SetAssetTagNil() {
 	o.AssetTag.Set(nil)
@@ -383,7 +384,7 @@ func (o *PatchedWritableModuleRequest) SetCustomFields(v map[string]interface{})
 }
 
 func (o PatchedWritableModuleRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -495,5 +496,3 @@ func (v *NullablePatchedWritableModuleRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

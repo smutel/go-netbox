@@ -19,8 +19,8 @@ var _ MappedNullable = &WirelessLANAuthType{}
 
 // WirelessLANAuthType struct for WirelessLANAuthType
 type WirelessLANAuthType struct {
-	Value *WirelessLANAuthTypeValue `json:"value,omitempty"`
-	Label *WirelessLANAuthTypeLabel `json:"label,omitempty"`
+	Value                *WirelessLANAuthTypeValue `json:"value,omitempty"`
+	Label                *WirelessLANAuthTypeLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *WirelessLANAuthType) SetLabel(v WirelessLANAuthTypeLabel) {
 }
 
 func (o WirelessLANAuthType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableWirelessLANAuthType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

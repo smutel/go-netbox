@@ -19,8 +19,8 @@ var _ MappedNullable = &InterfaceTemplatePoeType{}
 
 // InterfaceTemplatePoeType struct for InterfaceTemplatePoeType
 type InterfaceTemplatePoeType struct {
-	Value *InterfacePoeTypeValue `json:"value,omitempty"`
-	Label *InterfacePoeTypeLabel `json:"label,omitempty"`
+	Value                *InterfacePoeTypeValue `json:"value,omitempty"`
+	Label                *InterfacePoeTypeLabel `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *InterfaceTemplatePoeType) SetLabel(v InterfacePoeTypeLabel) {
 }
 
 func (o InterfaceTemplatePoeType) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableInterfaceTemplatePoeType) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

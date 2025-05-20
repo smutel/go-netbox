@@ -18,16 +18,15 @@ import (
 	"net/url"
 )
 
-
 type StatusAPI interface {
 
 	/*
-	StatusRetrieve Method for StatusRetrieve
+		StatusRetrieve Method for StatusRetrieve
 
-	A lightweight read-only endpoint for conveying NetBox's current operational status.
+		A lightweight read-only endpoint for conveying NetBox's current operational status.
 
-	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	@return ApiStatusRetrieveRequest
+		@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+		@return ApiStatusRetrieveRequest
 	*/
 	StatusRetrieve(ctx context.Context) ApiStatusRetrieveRequest
 
@@ -40,7 +39,7 @@ type StatusAPI interface {
 type StatusAPIService service
 
 type ApiStatusRetrieveRequest struct {
-	ctx context.Context
+	ctx        context.Context
 	ApiService StatusAPI
 }
 
@@ -53,24 +52,25 @@ StatusRetrieve Method for StatusRetrieve
 
 A lightweight read-only endpoint for conveying NetBox's current operational status.
 
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiStatusRetrieveRequest
+	@param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+	@return ApiStatusRetrieveRequest
 */
 func (a *StatusAPIService) StatusRetrieve(ctx context.Context) ApiStatusRetrieveRequest {
 	return ApiStatusRetrieveRequest{
 		ApiService: a,
-		ctx: ctx,
+		ctx:        ctx,
 	}
 }
 
 // Execute executes the request
-//  @return map[string]interface{}
+//
+//	@return map[string]interface{}
 func (a *StatusAPIService) StatusRetrieveExecute(r ApiStatusRetrieveRequest) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  map[string]interface{}
+		localVarHTTPMethod  = http.MethodGet
+		localVarPostBody    interface{}
+		formFiles           []formFile
+		localVarReturnValue map[string]interface{}
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "StatusAPIService.StatusRetrieve")

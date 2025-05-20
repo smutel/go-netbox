@@ -19,20 +19,20 @@ var _ MappedNullable = &PatchedWritableRearPortRequest{}
 
 // PatchedWritableRearPortRequest Adds support for custom fields and tags.
 type PatchedWritableRearPortRequest struct {
-	Device *BriefDeviceRequest `json:"device,omitempty"`
+	Device *BriefDeviceRequest        `json:"device,omitempty"`
 	Module NullableBriefModuleRequest `json:"module,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name   *string                    `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *FrontPortTypeValue `json:"type,omitempty"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	Label *string             `json:"label,omitempty"`
+	Type  *FrontPortTypeValue `json:"type,omitempty"`
+	Color *string             `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
 	// Number of front ports which may be mapped
-	Positions *int32 `json:"positions,omitempty"`
+	Positions   *int32  `json:"positions,omitempty"`
 	Description *string `json:"description,omitempty"`
 	// Treat as if a cable is connected
-	MarkConnected *bool `json:"mark_connected,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MarkConnected        *bool                  `json:"mark_connected,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -119,6 +119,7 @@ func (o *PatchedWritableRearPortRequest) HasModule() bool {
 func (o *PatchedWritableRearPortRequest) SetModule(v BriefModuleRequest) {
 	o.Module.Set(&v)
 }
+
 // SetModuleNil sets the value for Module to be an explicit nil
 func (o *PatchedWritableRearPortRequest) SetModuleNil() {
 	o.Module.Set(nil)
@@ -418,7 +419,7 @@ func (o *PatchedWritableRearPortRequest) SetCustomFields(v map[string]interface{
 }
 
 func (o PatchedWritableRearPortRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -534,5 +535,3 @@ func (v *NullablePatchedWritableRearPortRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

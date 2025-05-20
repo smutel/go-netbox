@@ -19,11 +19,11 @@ var _ MappedNullable = &PatchedL2VPNTerminationRequest{}
 
 // PatchedL2VPNTerminationRequest Adds support for custom fields and tags.
 type PatchedL2VPNTerminationRequest struct {
-	L2vpn *BriefL2VPNRequest `json:"l2vpn,omitempty"`
-	AssignedObjectType *string `json:"assigned_object_type,omitempty"`
-	AssignedObjectId *int64 `json:"assigned_object_id,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	L2vpn                *BriefL2VPNRequest     `json:"l2vpn,omitempty"`
+	AssignedObjectType   *string                `json:"assigned_object_type,omitempty"`
+	AssignedObjectId     *int64                 `json:"assigned_object_id,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -207,7 +207,7 @@ func (o *PatchedL2VPNTerminationRequest) SetCustomFields(v map[string]interface{
 }
 
 func (o PatchedL2VPNTerminationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -299,5 +299,3 @@ func (v *NullablePatchedL2VPNTerminationRequest) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

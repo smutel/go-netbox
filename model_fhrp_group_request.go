@@ -20,15 +20,15 @@ var _ MappedNullable = &FHRPGroupRequest{}
 
 // FHRPGroupRequest Adds support for custom fields and tags.
 type FHRPGroupRequest struct {
-	Name *string `json:"name,omitempty"`
-	Protocol BriefFHRPGroupProtocol `json:"protocol"`
-	GroupId int32 `json:"group_id"`
-	AuthType *AuthenticationType `json:"auth_type,omitempty"`
-	AuthKey *string `json:"auth_key,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                `json:"name,omitempty"`
+	Protocol             BriefFHRPGroupProtocol `json:"protocol"`
+	GroupId              int32                  `json:"group_id"`
+	AuthType             *AuthenticationType    `json:"auth_type,omitempty"`
+	AuthKey              *string                `json:"auth_key,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -109,7 +109,6 @@ func (o *FHRPGroupRequest) SetProtocol(v BriefFHRPGroupProtocol) {
 	o.Protocol = v
 }
 
-
 // GetGroupId returns the GroupId field value
 func (o *FHRPGroupRequest) GetGroupId() int32 {
 	if o == nil {
@@ -133,7 +132,6 @@ func (o *FHRPGroupRequest) GetGroupIdOk() (*int32, bool) {
 func (o *FHRPGroupRequest) SetGroupId(v int32) {
 	o.GroupId = v
 }
-
 
 // GetAuthType returns the AuthType field value if set, zero value otherwise.
 func (o *FHRPGroupRequest) GetAuthType() AuthenticationType {
@@ -328,7 +326,7 @@ func (o *FHRPGroupRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o FHRPGroupRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,32 +377,31 @@ func (o *FHRPGroupRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -471,5 +468,3 @@ func (v *NullableFHRPGroupRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

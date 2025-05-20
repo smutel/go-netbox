@@ -20,11 +20,11 @@ var _ MappedNullable = &BriefDevice{}
 
 // BriefDevice Adds support for custom fields and tags.
 type BriefDevice struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name NullableString `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Id                   int32          `json:"id"`
+	Url                  string         `json:"url"`
+	Display              string         `json:"display"`
+	Name                 NullableString `json:"name,omitempty"`
+	Description          *string        `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -74,7 +74,6 @@ func (o *BriefDevice) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *BriefDevice) GetUrl() string {
 	if o == nil {
@@ -99,7 +98,6 @@ func (o *BriefDevice) SetUrl(v string) {
 	o.Url = v
 }
 
-
 // GetDisplay returns the Display field value
 func (o *BriefDevice) GetDisplay() string {
 	if o == nil {
@@ -123,7 +121,6 @@ func (o *BriefDevice) GetDisplayOk() (*string, bool) {
 func (o *BriefDevice) SetDisplay(v string) {
 	o.Display = v
 }
-
 
 // GetName returns the Name field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefDevice) GetName() string {
@@ -157,6 +154,7 @@ func (o *BriefDevice) HasName() bool {
 func (o *BriefDevice) SetName(v string) {
 	o.Name.Set(&v)
 }
+
 // SetNameNil sets the value for Name to be an explicit nil
 func (o *BriefDevice) SetNameNil() {
 	o.Name.Set(nil)
@@ -200,7 +198,7 @@ func (o *BriefDevice) SetDescription(v string) {
 }
 
 func (o BriefDevice) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -238,32 +236,31 @@ func (o *BriefDevice) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -326,5 +323,3 @@ func (v *NullableBriefDevice) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

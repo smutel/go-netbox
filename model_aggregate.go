@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Aggregate type satisfies the MappedNullable interface at compile time
@@ -21,20 +21,20 @@ var _ MappedNullable = &Aggregate{}
 
 // Aggregate Adds support for custom fields and tags.
 type Aggregate struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Family AggregateFamily `json:"family"`
-	Prefix string `json:"prefix"`
-	Rir BriefRIR `json:"rir"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
-	DateAdded NullableString `json:"date_added,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	Family               AggregateFamily        `json:"family"`
+	Prefix               string                 `json:"prefix"`
+	Rir                  BriefRIR               `json:"rir"`
+	Tenant               NullableBriefTenant    `json:"tenant,omitempty"`
+	DateAdded            NullableString         `json:"date_added,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -89,7 +89,6 @@ func (o *Aggregate) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Aggregate) GetUrl() string {
 	if o == nil {
@@ -113,7 +112,6 @@ func (o *Aggregate) GetUrlOk() (*string, bool) {
 func (o *Aggregate) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Aggregate) GetDisplay() string {
@@ -139,7 +137,6 @@ func (o *Aggregate) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetFamily returns the Family field value
 func (o *Aggregate) GetFamily() AggregateFamily {
 	if o == nil {
@@ -163,7 +160,6 @@ func (o *Aggregate) GetFamilyOk() (*AggregateFamily, bool) {
 func (o *Aggregate) SetFamily(v AggregateFamily) {
 	o.Family = v
 }
-
 
 // GetPrefix returns the Prefix field value
 func (o *Aggregate) GetPrefix() string {
@@ -189,7 +185,6 @@ func (o *Aggregate) SetPrefix(v string) {
 	o.Prefix = v
 }
 
-
 // GetRir returns the Rir field value
 func (o *Aggregate) GetRir() BriefRIR {
 	if o == nil {
@@ -213,7 +208,6 @@ func (o *Aggregate) GetRirOk() (*BriefRIR, bool) {
 func (o *Aggregate) SetRir(v BriefRIR) {
 	o.Rir = v
 }
-
 
 // GetTenant returns the Tenant field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Aggregate) GetTenant() BriefTenant {
@@ -247,6 +241,7 @@ func (o *Aggregate) HasTenant() bool {
 func (o *Aggregate) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *Aggregate) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -289,6 +284,7 @@ func (o *Aggregate) HasDateAdded() bool {
 func (o *Aggregate) SetDateAdded(v string) {
 	o.DateAdded.Set(&v)
 }
+
 // SetDateAddedNil sets the value for DateAdded to be an explicit nil
 func (o *Aggregate) SetDateAddedNil() {
 	o.DateAdded.Set(nil)
@@ -453,7 +449,6 @@ func (o *Aggregate) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Aggregate) GetLastUpdated() time.Time {
@@ -480,9 +475,8 @@ func (o *Aggregate) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o Aggregate) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -542,32 +536,31 @@ func (o *Aggregate) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -639,5 +632,3 @@ func (v *NullableAggregate) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

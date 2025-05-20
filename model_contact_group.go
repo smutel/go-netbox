@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the ContactGroup type satisfies the MappedNullable interface at compile time
@@ -21,19 +21,19 @@ var _ MappedNullable = &ContactGroup{}
 
 // ContactGroup Extends PrimaryModelSerializer to include MPTT support.
 type ContactGroup struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Parent NullableNestedContactGroup `json:"parent,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	ContactCount int32 `json:"contact_count"`
-	Depth int32 `json:"_depth"`
+	Id                   int32                      `json:"id"`
+	Url                  string                     `json:"url"`
+	Display              string                     `json:"display"`
+	Name                 string                     `json:"name"`
+	Slug                 string                     `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Parent               NullableNestedContactGroup `json:"parent,omitempty"`
+	Description          *string                    `json:"description,omitempty"`
+	Tags                 []NestedTag                `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}     `json:"custom_fields,omitempty"`
+	Created              NullableTime               `json:"created"`
+	LastUpdated          NullableTime               `json:"last_updated"`
+	ContactCount         int32                      `json:"contact_count"`
+	Depth                int32                      `json:"_depth"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -89,7 +89,6 @@ func (o *ContactGroup) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *ContactGroup) GetUrl() string {
 	if o == nil {
@@ -113,7 +112,6 @@ func (o *ContactGroup) GetUrlOk() (*string, bool) {
 func (o *ContactGroup) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *ContactGroup) GetDisplay() string {
@@ -139,7 +137,6 @@ func (o *ContactGroup) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *ContactGroup) GetName() string {
 	if o == nil {
@@ -164,7 +161,6 @@ func (o *ContactGroup) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *ContactGroup) GetSlug() string {
 	if o == nil {
@@ -188,7 +184,6 @@ func (o *ContactGroup) GetSlugOk() (*string, bool) {
 func (o *ContactGroup) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ContactGroup) GetParent() NestedContactGroup {
@@ -222,6 +217,7 @@ func (o *ContactGroup) HasParent() bool {
 func (o *ContactGroup) SetParent(v NestedContactGroup) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *ContactGroup) SetParentNil() {
 	o.Parent.Set(nil)
@@ -354,7 +350,6 @@ func (o *ContactGroup) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *ContactGroup) GetLastUpdated() time.Time {
@@ -381,7 +376,6 @@ func (o *ContactGroup) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetContactCount returns the ContactCount field value
 func (o *ContactGroup) GetContactCount() int32 {
 	if o == nil {
@@ -405,7 +399,6 @@ func (o *ContactGroup) GetContactCountOk() (*int32, bool) {
 func (o *ContactGroup) SetContactCount(v int32) {
 	o.ContactCount = v
 }
-
 
 // GetDepth returns the Depth field value
 func (o *ContactGroup) GetDepth() int32 {
@@ -431,9 +424,8 @@ func (o *ContactGroup) SetDepth(v int32) {
 	o.Depth = v
 }
 
-
 func (o ContactGroup) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -489,32 +481,31 @@ func (o *ContactGroup) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -585,5 +576,3 @@ func (v *NullableContactGroup) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

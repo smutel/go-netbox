@@ -11,10 +11,11 @@ package netbox
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/smutel/go-netbox/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/smutel/go-netbox/v4"
 )
 
 func Test_netbox_VpnAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnIkePoliciesBulkDestroy(context.Background()).Execute()
 
@@ -35,7 +36,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkePoliciesBulkPartialUpdate(context.Background()).Execute()
 
@@ -47,7 +48,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkePoliciesBulkUpdate(context.Background()).Execute()
 
@@ -59,7 +60,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkePoliciesCreate(context.Background()).Execute()
 
@@ -71,7 +72,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -84,7 +85,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkePoliciesList(context.Background()).Execute()
 
@@ -96,7 +97,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -110,7 +111,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -124,7 +125,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkePoliciesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -138,7 +139,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnIkeProposalsBulkDestroy(context.Background()).Execute()
 
@@ -149,7 +150,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkeProposalsBulkPartialUpdate(context.Background()).Execute()
 
@@ -161,7 +162,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkeProposalsBulkUpdate(context.Background()).Execute()
 
@@ -173,7 +174,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkeProposalsCreate(context.Background()).Execute()
 
@@ -185,7 +186,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -198,7 +199,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIkeProposalsList(context.Background()).Execute()
 
@@ -210,7 +211,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -224,7 +225,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -238,7 +239,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIkeProposalsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -252,7 +253,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnIpsecPoliciesBulkDestroy(context.Background()).Execute()
 
@@ -263,7 +264,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecPoliciesBulkPartialUpdate(context.Background()).Execute()
 
@@ -275,7 +276,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecPoliciesBulkUpdate(context.Background()).Execute()
 
@@ -287,7 +288,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecPoliciesCreate(context.Background()).Execute()
 
@@ -299,7 +300,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -312,7 +313,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecPoliciesList(context.Background()).Execute()
 
@@ -324,7 +325,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -338,7 +339,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -352,7 +353,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecPoliciesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -366,7 +367,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnIpsecProfilesBulkDestroy(context.Background()).Execute()
 
@@ -377,7 +378,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProfilesBulkPartialUpdate(context.Background()).Execute()
 
@@ -389,7 +390,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProfilesBulkUpdate(context.Background()).Execute()
 
@@ -401,7 +402,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProfilesCreate(context.Background()).Execute()
 
@@ -413,7 +414,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -426,7 +427,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProfilesList(context.Background()).Execute()
 
@@ -438,7 +439,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -452,7 +453,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -466,7 +467,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProfilesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -480,7 +481,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnIpsecProposalsBulkDestroy(context.Background()).Execute()
 
@@ -491,7 +492,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProposalsBulkPartialUpdate(context.Background()).Execute()
 
@@ -503,7 +504,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProposalsBulkUpdate(context.Background()).Execute()
 
@@ -515,7 +516,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProposalsCreate(context.Background()).Execute()
 
@@ -527,7 +528,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -540,7 +541,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnIpsecProposalsList(context.Background()).Execute()
 
@@ -552,7 +553,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -566,7 +567,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -580,7 +581,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnIpsecProposalsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -594,7 +595,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnL2vpnTerminationsBulkDestroy(context.Background()).Execute()
 
@@ -605,7 +606,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnTerminationsBulkPartialUpdate(context.Background()).Execute()
 
@@ -617,7 +618,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnTerminationsBulkUpdate(context.Background()).Execute()
 
@@ -629,7 +630,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnTerminationsCreate(context.Background()).Execute()
 
@@ -641,7 +642,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -654,7 +655,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnTerminationsList(context.Background()).Execute()
 
@@ -666,7 +667,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -680,7 +681,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -694,7 +695,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnTerminationsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -708,7 +709,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnL2vpnsBulkDestroy(context.Background()).Execute()
 
@@ -719,7 +720,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnsBulkPartialUpdate(context.Background()).Execute()
 
@@ -731,7 +732,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnsBulkUpdate(context.Background()).Execute()
 
@@ -743,7 +744,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnsCreate(context.Background()).Execute()
 
@@ -755,7 +756,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -768,7 +769,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnL2vpnsList(context.Background()).Execute()
 
@@ -780,7 +781,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -794,7 +795,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -808,7 +809,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnL2vpnsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -822,7 +823,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnTunnelGroupsBulkDestroy(context.Background()).Execute()
 
@@ -833,7 +834,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelGroupsBulkPartialUpdate(context.Background()).Execute()
 
@@ -845,7 +846,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelGroupsBulkUpdate(context.Background()).Execute()
 
@@ -857,7 +858,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelGroupsCreate(context.Background()).Execute()
 
@@ -869,7 +870,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -882,7 +883,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelGroupsList(context.Background()).Execute()
 
@@ -894,7 +895,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -908,7 +909,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -922,7 +923,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelGroupsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -936,7 +937,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnTunnelTerminationsBulkDestroy(context.Background()).Execute()
 
@@ -947,7 +948,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelTerminationsBulkPartialUpdate(context.Background()).Execute()
 
@@ -959,7 +960,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelTerminationsBulkUpdate(context.Background()).Execute()
 
@@ -971,7 +972,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelTerminationsCreate(context.Background()).Execute()
 
@@ -983,7 +984,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -996,7 +997,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelTerminationsList(context.Background()).Execute()
 
@@ -1008,7 +1009,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1022,7 +1023,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1036,7 +1037,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelTerminationsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1050,7 +1051,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.VpnAPI.VpnTunnelsBulkDestroy(context.Background()).Execute()
 
@@ -1061,7 +1062,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelsBulkPartialUpdate(context.Background()).Execute()
 
@@ -1073,7 +1074,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelsBulkUpdate(context.Background()).Execute()
 
@@ -1085,7 +1086,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelsCreate(context.Background()).Execute()
 
@@ -1097,7 +1098,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1110,7 +1111,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.VpnAPI.VpnTunnelsList(context.Background()).Execute()
 
@@ -1122,7 +1123,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1136,7 +1137,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1150,7 +1151,7 @@ func Test_netbox_VpnAPIService(t *testing.T) {
 
 	t.Run("Test VpnAPIService VpnTunnelsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 

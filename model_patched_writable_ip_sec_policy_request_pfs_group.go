@@ -20,9 +20,9 @@ type PatchedWritableIPSecPolicyRequestPfsGroup int32
 
 // List of PatchedWritableIPSecPolicyRequest_pfs_group
 const (
-	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__1 PatchedWritableIPSecPolicyRequestPfsGroup = 1
-	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__2 PatchedWritableIPSecPolicyRequestPfsGroup = 2
-	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__5 PatchedWritableIPSecPolicyRequestPfsGroup = 5
+	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__1  PatchedWritableIPSecPolicyRequestPfsGroup = 1
+	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__2  PatchedWritableIPSecPolicyRequestPfsGroup = 2
+	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__5  PatchedWritableIPSecPolicyRequestPfsGroup = 5
 	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__14 PatchedWritableIPSecPolicyRequestPfsGroup = 14
 	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__15 PatchedWritableIPSecPolicyRequestPfsGroup = 15
 	PATCHEDWRITABLEIPSECPOLICYREQUESTPFSGROUP__16 PatchedWritableIPSecPolicyRequestPfsGroup = 16
@@ -152,4 +152,3 @@ func (v *NullablePatchedWritableIPSecPolicyRequestPfsGroup) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

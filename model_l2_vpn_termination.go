@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the L2VPNTermination type satisfies the MappedNullable interface at compile time
@@ -21,17 +21,17 @@ var _ MappedNullable = &L2VPNTermination{}
 
 // L2VPNTermination Adds support for custom fields and tags.
 type L2VPNTermination struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	L2vpn BriefL2VPN `json:"l2vpn"`
-	AssignedObjectType string `json:"assigned_object_type"`
-	AssignedObjectId int64 `json:"assigned_object_id"`
-	AssignedObject interface{} `json:"assigned_object"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
+	Id                   int32                  `json:"id"`
+	Url                  string                 `json:"url"`
+	Display              string                 `json:"display"`
+	L2vpn                BriefL2VPN             `json:"l2vpn"`
+	AssignedObjectType   string                 `json:"assigned_object_type"`
+	AssignedObjectId     int64                  `json:"assigned_object_id"`
+	AssignedObject       interface{}            `json:"assigned_object"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -87,7 +87,6 @@ func (o *L2VPNTermination) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *L2VPNTermination) GetUrl() string {
 	if o == nil {
@@ -111,7 +110,6 @@ func (o *L2VPNTermination) GetUrlOk() (*string, bool) {
 func (o *L2VPNTermination) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *L2VPNTermination) GetDisplay() string {
@@ -137,7 +135,6 @@ func (o *L2VPNTermination) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetL2vpn returns the L2vpn field value
 func (o *L2VPNTermination) GetL2vpn() BriefL2VPN {
 	if o == nil {
@@ -161,7 +158,6 @@ func (o *L2VPNTermination) GetL2vpnOk() (*BriefL2VPN, bool) {
 func (o *L2VPNTermination) SetL2vpn(v BriefL2VPN) {
 	o.L2vpn = v
 }
-
 
 // GetAssignedObjectType returns the AssignedObjectType field value
 func (o *L2VPNTermination) GetAssignedObjectType() string {
@@ -187,7 +183,6 @@ func (o *L2VPNTermination) SetAssignedObjectType(v string) {
 	o.AssignedObjectType = v
 }
 
-
 // GetAssignedObjectId returns the AssignedObjectId field value
 func (o *L2VPNTermination) GetAssignedObjectId() int64 {
 	if o == nil {
@@ -211,7 +206,6 @@ func (o *L2VPNTermination) GetAssignedObjectIdOk() (*int64, bool) {
 func (o *L2VPNTermination) SetAssignedObjectId(v int64) {
 	o.AssignedObjectId = v
 }
-
 
 // GetAssignedObject returns the AssignedObject field value
 // If the value is explicit nil, the zero value for interface{} will be returned
@@ -238,7 +232,6 @@ func (o *L2VPNTermination) GetAssignedObjectOk() (*interface{}, bool) {
 func (o *L2VPNTermination) SetAssignedObject(v interface{}) {
 	o.AssignedObject = v
 }
-
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *L2VPNTermination) GetTags() []NestedTag {
@@ -330,7 +323,6 @@ func (o *L2VPNTermination) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *L2VPNTermination) GetLastUpdated() time.Time {
@@ -357,9 +349,8 @@ func (o *L2VPNTermination) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 func (o L2VPNTermination) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -411,32 +402,31 @@ func (o *L2VPNTermination) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -505,5 +495,3 @@ func (v *NullableL2VPNTermination) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

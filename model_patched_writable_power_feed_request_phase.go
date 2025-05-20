@@ -21,7 +21,7 @@ type PatchedWritablePowerFeedRequestPhase string
 // List of PatchedWritablePowerFeedRequest_phase
 const (
 	PATCHEDWRITABLEPOWERFEEDREQUESTPHASE_SINGLE_PHASE PatchedWritablePowerFeedRequestPhase = "single-phase"
-	PATCHEDWRITABLEPOWERFEEDREQUESTPHASE_THREE_PHASE PatchedWritablePowerFeedRequestPhase = "three-phase"
+	PATCHEDWRITABLEPOWERFEEDREQUESTPHASE_THREE_PHASE  PatchedWritablePowerFeedRequestPhase = "three-phase"
 )
 
 // All allowed values of PatchedWritablePowerFeedRequestPhase enum
@@ -108,4 +108,3 @@ func (v *NullablePatchedWritablePowerFeedRequestPhase) UnmarshalJSON(src []byte)
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

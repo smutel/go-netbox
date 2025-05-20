@@ -19,8 +19,8 @@ var _ MappedNullable = &ServiceProtocol{}
 
 // ServiceProtocol struct for ServiceProtocol
 type ServiceProtocol struct {
-	Value *PatchedWritableServiceRequestProtocol `json:"value,omitempty"`
-	Label *ServiceProtocolLabel `json:"label,omitempty"`
+	Value                *PatchedWritableServiceRequestProtocol `json:"value,omitempty"`
+	Label                *ServiceProtocolLabel                  `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *ServiceProtocol) SetLabel(v ServiceProtocolLabel) {
 }
 
 func (o ServiceProtocol) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableServiceProtocol) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

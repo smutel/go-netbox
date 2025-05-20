@@ -20,8 +20,8 @@ type InterfaceModeLabel string
 
 // List of Interface_mode_label
 const (
-	INTERFACEMODELABEL_ACCESS InterfaceModeLabel = "Access"
-	INTERFACEMODELABEL_TAGGED InterfaceModeLabel = "Tagged"
+	INTERFACEMODELABEL_ACCESS      InterfaceModeLabel = "Access"
+	INTERFACEMODELABEL_TAGGED      InterfaceModeLabel = "Tagged"
 	INTERFACEMODELABEL_TAGGED__ALL InterfaceModeLabel = "Tagged (All)"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableInterfaceModeLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

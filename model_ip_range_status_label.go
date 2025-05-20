@@ -20,8 +20,8 @@ type IPRangeStatusLabel string
 
 // List of IPRange_status_label
 const (
-	IPRANGESTATUSLABEL_ACTIVE IPRangeStatusLabel = "Active"
-	IPRANGESTATUSLABEL_RESERVED IPRangeStatusLabel = "Reserved"
+	IPRANGESTATUSLABEL_ACTIVE     IPRangeStatusLabel = "Active"
+	IPRANGESTATUSLABEL_RESERVED   IPRangeStatusLabel = "Reserved"
 	IPRANGESTATUSLABEL_DEPRECATED IPRangeStatusLabel = "Deprecated"
 )
 
@@ -110,4 +110,3 @@ func (v *NullableIPRangeStatusLabel) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

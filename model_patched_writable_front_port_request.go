@@ -19,21 +19,21 @@ var _ MappedNullable = &PatchedWritableFrontPortRequest{}
 
 // PatchedWritableFrontPortRequest Adds support for custom fields and tags.
 type PatchedWritableFrontPortRequest struct {
-	Device *BriefDeviceRequest `json:"device,omitempty"`
+	Device *BriefDeviceRequest        `json:"device,omitempty"`
 	Module NullableBriefModuleRequest `json:"module,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name   *string                    `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *FrontPortTypeValue `json:"type,omitempty"`
-	Color *string `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
-	RearPort *int32 `json:"rear_port,omitempty"`
+	Label    *string             `json:"label,omitempty"`
+	Type     *FrontPortTypeValue `json:"type,omitempty"`
+	Color    *string             `json:"color,omitempty" validate:"regexp=^[0-9a-f]{6}$"`
+	RearPort *int32              `json:"rear_port,omitempty"`
 	// Mapped position on corresponding rear port
-	RearPortPosition *int32 `json:"rear_port_position,omitempty"`
-	Description *string `json:"description,omitempty"`
+	RearPortPosition *int32  `json:"rear_port_position,omitempty"`
+	Description      *string `json:"description,omitempty"`
 	// Treat as if a cable is connected
-	MarkConnected *bool `json:"mark_connected,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MarkConnected        *bool                  `json:"mark_connected,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -124,6 +124,7 @@ func (o *PatchedWritableFrontPortRequest) HasModule() bool {
 func (o *PatchedWritableFrontPortRequest) SetModule(v BriefModuleRequest) {
 	o.Module.Set(&v)
 }
+
 // SetModuleNil sets the value for Module to be an explicit nil
 func (o *PatchedWritableFrontPortRequest) SetModuleNil() {
 	o.Module.Set(nil)
@@ -455,7 +456,7 @@ func (o *PatchedWritableFrontPortRequest) SetCustomFields(v map[string]interface
 }
 
 func (o PatchedWritableFrontPortRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -575,5 +576,3 @@ func (v *NullablePatchedWritableFrontPortRequest) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

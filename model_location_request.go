@@ -20,17 +20,17 @@ var _ MappedNullable = &LocationRequest{}
 
 // LocationRequest Extends PrimaryModelSerializer to include MPTT support.
 type LocationRequest struct {
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Site BriefSiteRequest `json:"site"`
+	Name   string                        `json:"name"`
+	Slug   string                        `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Site   BriefSiteRequest              `json:"site"`
 	Parent NullableNestedLocationRequest `json:"parent,omitempty"`
-	Status *LocationStatusValue `json:"status,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Status *LocationStatusValue          `json:"status,omitempty"`
+	Tenant NullableBriefTenantRequest    `json:"tenant,omitempty"`
 	// Local facility ID or description
-	Facility *string `json:"facility,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Facility             *string                `json:"facility,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,6 @@ func (o *LocationRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *LocationRequest) GetSlug() string {
 	if o == nil {
@@ -105,7 +104,6 @@ func (o *LocationRequest) SetSlug(v string) {
 	o.Slug = v
 }
 
-
 // GetSite returns the Site field value
 func (o *LocationRequest) GetSite() BriefSiteRequest {
 	if o == nil {
@@ -129,7 +127,6 @@ func (o *LocationRequest) GetSiteOk() (*BriefSiteRequest, bool) {
 func (o *LocationRequest) SetSite(v BriefSiteRequest) {
 	o.Site = v
 }
-
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *LocationRequest) GetParent() NestedLocationRequest {
@@ -163,6 +160,7 @@ func (o *LocationRequest) HasParent() bool {
 func (o *LocationRequest) SetParent(v NestedLocationRequest) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *LocationRequest) SetParentNil() {
 	o.Parent.Set(nil)
@@ -237,6 +235,7 @@ func (o *LocationRequest) HasTenant() bool {
 func (o *LocationRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *LocationRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -376,7 +375,7 @@ func (o *LocationRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o LocationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -429,32 +428,31 @@ func (o *LocationRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -522,5 +520,3 @@ func (v *NullableLocationRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

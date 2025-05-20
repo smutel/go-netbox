@@ -21,7 +21,7 @@ type IKEPolicyModeValue string
 // List of IKEPolicy_mode_value
 const (
 	IKEPOLICYMODEVALUE_AGGRESSIVE IKEPolicyModeValue = "aggressive"
-	IKEPOLICYMODEVALUE_MAIN IKEPolicyModeValue = "main"
+	IKEPOLICYMODEVALUE_MAIN       IKEPolicyModeValue = "main"
 )
 
 // All allowed values of IKEPolicyModeValue enum
@@ -108,4 +108,3 @@ func (v *NullableIKEPolicyModeValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

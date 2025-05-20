@@ -20,16 +20,16 @@ var _ MappedNullable = &ClusterRequest{}
 
 // ClusterRequest Adds support for custom fields and tags.
 type ClusterRequest struct {
-	Name string `json:"name"`
-	Type BriefClusterTypeRequest `json:"type"`
-	Group NullableBriefClusterGroupRequest `json:"group,omitempty"`
-	Status *ClusterStatusValue `json:"status,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Site NullableBriefSiteRequest `json:"site,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 string                           `json:"name"`
+	Type                 BriefClusterTypeRequest          `json:"type"`
+	Group                NullableBriefClusterGroupRequest `json:"group,omitempty"`
+	Status               *ClusterStatusValue              `json:"status,omitempty"`
+	Tenant               NullableBriefTenantRequest       `json:"tenant,omitempty"`
+	Site                 NullableBriefSiteRequest         `json:"site,omitempty"`
+	Description          *string                          `json:"description,omitempty"`
+	Comments             *string                          `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest               `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}           `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -78,7 +78,6 @@ func (o *ClusterRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetType returns the Type field value
 func (o *ClusterRequest) GetType() BriefClusterTypeRequest {
 	if o == nil {
@@ -102,7 +101,6 @@ func (o *ClusterRequest) GetTypeOk() (*BriefClusterTypeRequest, bool) {
 func (o *ClusterRequest) SetType(v BriefClusterTypeRequest) {
 	o.Type = v
 }
-
 
 // GetGroup returns the Group field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ClusterRequest) GetGroup() BriefClusterGroupRequest {
@@ -136,6 +134,7 @@ func (o *ClusterRequest) HasGroup() bool {
 func (o *ClusterRequest) SetGroup(v BriefClusterGroupRequest) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *ClusterRequest) SetGroupNil() {
 	o.Group.Set(nil)
@@ -210,6 +209,7 @@ func (o *ClusterRequest) HasTenant() bool {
 func (o *ClusterRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *ClusterRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -252,6 +252,7 @@ func (o *ClusterRequest) HasSite() bool {
 func (o *ClusterRequest) SetSite(v BriefSiteRequest) {
 	o.Site.Set(&v)
 }
+
 // SetSiteNil sets the value for Site to be an explicit nil
 func (o *ClusterRequest) SetSiteNil() {
 	o.Site.Set(nil)
@@ -391,7 +392,7 @@ func (o *ClusterRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o ClusterRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -445,32 +446,31 @@ func (o *ClusterRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -538,5 +538,3 @@ func (v *NullableClusterRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,11 +20,11 @@ var _ MappedNullable = &L2VPNTerminationRequest{}
 
 // L2VPNTerminationRequest Adds support for custom fields and tags.
 type L2VPNTerminationRequest struct {
-	L2vpn BriefL2VPNRequest `json:"l2vpn"`
-	AssignedObjectType string `json:"assigned_object_type"`
-	AssignedObjectId int64 `json:"assigned_object_id"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	L2vpn                BriefL2VPNRequest      `json:"l2vpn"`
+	AssignedObjectType   string                 `json:"assigned_object_type"`
+	AssignedObjectId     int64                  `json:"assigned_object_id"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -74,7 +74,6 @@ func (o *L2VPNTerminationRequest) SetL2vpn(v BriefL2VPNRequest) {
 	o.L2vpn = v
 }
 
-
 // GetAssignedObjectType returns the AssignedObjectType field value
 func (o *L2VPNTerminationRequest) GetAssignedObjectType() string {
 	if o == nil {
@@ -99,7 +98,6 @@ func (o *L2VPNTerminationRequest) SetAssignedObjectType(v string) {
 	o.AssignedObjectType = v
 }
 
-
 // GetAssignedObjectId returns the AssignedObjectId field value
 func (o *L2VPNTerminationRequest) GetAssignedObjectId() int64 {
 	if o == nil {
@@ -123,7 +121,6 @@ func (o *L2VPNTerminationRequest) GetAssignedObjectIdOk() (*int64, bool) {
 func (o *L2VPNTerminationRequest) SetAssignedObjectId(v int64) {
 	o.AssignedObjectId = v
 }
-
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *L2VPNTerminationRequest) GetTags() []NestedTagRequest {
@@ -190,7 +187,7 @@ func (o *L2VPNTerminationRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o L2VPNTerminationRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -228,32 +225,31 @@ func (o *L2VPNTerminationRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -316,5 +312,3 @@ func (v *NullableL2VPNTerminationRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,18 +20,18 @@ var _ MappedNullable = &ConsolePortRequest{}
 
 // ConsolePortRequest Adds support for custom fields and tags.
 type ConsolePortRequest struct {
-	Device BriefDeviceRequest `json:"device"`
+	Device BriefDeviceRequest         `json:"device"`
 	Module NullableBriefModuleRequest `json:"module,omitempty"`
-	Name string `json:"name"`
+	Name   string                     `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *ConsolePortTypeValue `json:"type,omitempty"`
-	Speed NullableConsolePortRequestSpeed `json:"speed,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Label       *string                         `json:"label,omitempty"`
+	Type        *ConsolePortTypeValue           `json:"type,omitempty"`
+	Speed       NullableConsolePortRequestSpeed `json:"speed,omitempty"`
+	Description *string                         `json:"description,omitempty"`
 	// Treat as if a cable is connected
-	MarkConnected *bool `json:"mark_connected,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MarkConnected        *bool                  `json:"mark_connected,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,6 @@ func (o *ConsolePortRequest) SetDevice(v BriefDeviceRequest) {
 	o.Device = v
 }
 
-
 // GetModule returns the Module field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *ConsolePortRequest) GetModule() BriefModuleRequest {
 	if o == nil || IsNil(o.Module.Get()) {
@@ -113,6 +112,7 @@ func (o *ConsolePortRequest) HasModule() bool {
 func (o *ConsolePortRequest) SetModule(v BriefModuleRequest) {
 	o.Module.Set(&v)
 }
+
 // SetModuleNil sets the value for Module to be an explicit nil
 func (o *ConsolePortRequest) SetModuleNil() {
 	o.Module.Set(nil)
@@ -146,7 +146,6 @@ func (o *ConsolePortRequest) GetNameOk() (*string, bool) {
 func (o *ConsolePortRequest) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *ConsolePortRequest) GetLabel() string {
@@ -244,6 +243,7 @@ func (o *ConsolePortRequest) HasSpeed() bool {
 func (o *ConsolePortRequest) SetSpeed(v ConsolePortRequestSpeed) {
 	o.Speed.Set(&v)
 }
+
 // SetSpeedNil sets the value for Speed to be an explicit nil
 func (o *ConsolePortRequest) SetSpeedNil() {
 	o.Speed.Set(nil)
@@ -383,7 +383,7 @@ func (o *ConsolePortRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o ConsolePortRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -437,32 +437,31 @@ func (o *ConsolePortRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -530,5 +529,3 @@ func (v *NullableConsolePortRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

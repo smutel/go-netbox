@@ -11,10 +11,11 @@ package netbox
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/smutel/go-netbox/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/smutel/go-netbox/v4"
 )
 
 func Test_netbox_IpamAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamAggregatesBulkDestroy(context.Background()).Execute()
 
@@ -35,7 +36,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAggregatesBulkPartialUpdate(context.Background()).Execute()
 
@@ -47,7 +48,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAggregatesBulkUpdate(context.Background()).Execute()
 
@@ -59,7 +60,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAggregatesCreate(context.Background()).Execute()
 
@@ -71,7 +72,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -84,7 +85,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAggregatesList(context.Background()).Execute()
 
@@ -96,7 +97,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -110,7 +111,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -124,7 +125,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAggregatesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -138,7 +139,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesAvailableAsnsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -152,7 +153,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesAvailableAsnsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -166,7 +167,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamAsnRangesBulkDestroy(context.Background()).Execute()
 
@@ -177,7 +178,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnRangesBulkPartialUpdate(context.Background()).Execute()
 
@@ -189,7 +190,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnRangesBulkUpdate(context.Background()).Execute()
 
@@ -201,7 +202,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnRangesCreate(context.Background()).Execute()
 
@@ -213,7 +214,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -226,7 +227,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnRangesList(context.Background()).Execute()
 
@@ -238,7 +239,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -252,7 +253,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -266,7 +267,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnRangesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -280,7 +281,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamAsnsBulkDestroy(context.Background()).Execute()
 
@@ -291,7 +292,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnsBulkPartialUpdate(context.Background()).Execute()
 
@@ -303,7 +304,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnsBulkUpdate(context.Background()).Execute()
 
@@ -315,7 +316,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnsCreate(context.Background()).Execute()
 
@@ -327,7 +328,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -340,7 +341,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamAsnsList(context.Background()).Execute()
 
@@ -352,7 +353,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -366,7 +367,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -380,7 +381,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamAsnsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -394,7 +395,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsBulkDestroy(context.Background()).Execute()
 
@@ -405,7 +406,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsBulkPartialUpdate(context.Background()).Execute()
 
@@ -417,7 +418,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsBulkUpdate(context.Background()).Execute()
 
@@ -429,7 +430,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsCreate(context.Background()).Execute()
 
@@ -441,7 +442,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -454,7 +455,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsList(context.Background()).Execute()
 
@@ -466,7 +467,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -480,7 +481,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -494,7 +495,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupAssignmentsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -508,7 +509,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamFhrpGroupsBulkDestroy(context.Background()).Execute()
 
@@ -519,7 +520,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupsBulkPartialUpdate(context.Background()).Execute()
 
@@ -531,7 +532,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupsBulkUpdate(context.Background()).Execute()
 
@@ -543,7 +544,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupsCreate(context.Background()).Execute()
 
@@ -555,7 +556,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -568,7 +569,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamFhrpGroupsList(context.Background()).Execute()
 
@@ -580,7 +581,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -594,7 +595,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -608,7 +609,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamFhrpGroupsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -622,7 +623,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamIpAddressesBulkDestroy(context.Background()).Execute()
 
@@ -633,7 +634,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpAddressesBulkPartialUpdate(context.Background()).Execute()
 
@@ -645,7 +646,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpAddressesBulkUpdate(context.Background()).Execute()
 
@@ -657,7 +658,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpAddressesCreate(context.Background()).Execute()
 
@@ -669,7 +670,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -682,7 +683,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpAddressesList(context.Background()).Execute()
 
@@ -694,7 +695,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -708,7 +709,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -722,7 +723,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpAddressesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -736,7 +737,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesAvailableIpsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -750,7 +751,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesAvailableIpsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -764,7 +765,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamIpRangesBulkDestroy(context.Background()).Execute()
 
@@ -775,7 +776,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpRangesBulkPartialUpdate(context.Background()).Execute()
 
@@ -787,7 +788,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpRangesBulkUpdate(context.Background()).Execute()
 
@@ -799,7 +800,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpRangesCreate(context.Background()).Execute()
 
@@ -811,7 +812,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -824,7 +825,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamIpRangesList(context.Background()).Execute()
 
@@ -836,7 +837,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -850,7 +851,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -864,7 +865,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamIpRangesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -878,7 +879,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesAvailableIpsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -892,7 +893,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesAvailableIpsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -906,7 +907,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesAvailablePrefixesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -920,7 +921,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesAvailablePrefixesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -934,7 +935,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamPrefixesBulkDestroy(context.Background()).Execute()
 
@@ -945,7 +946,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamPrefixesBulkPartialUpdate(context.Background()).Execute()
 
@@ -957,7 +958,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamPrefixesBulkUpdate(context.Background()).Execute()
 
@@ -969,7 +970,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamPrefixesCreate(context.Background()).Execute()
 
@@ -981,7 +982,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -994,7 +995,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamPrefixesList(context.Background()).Execute()
 
@@ -1006,7 +1007,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1020,7 +1021,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1034,7 +1035,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamPrefixesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1048,7 +1049,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamRirsBulkDestroy(context.Background()).Execute()
 
@@ -1059,7 +1060,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRirsBulkPartialUpdate(context.Background()).Execute()
 
@@ -1071,7 +1072,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRirsBulkUpdate(context.Background()).Execute()
 
@@ -1083,7 +1084,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRirsCreate(context.Background()).Execute()
 
@@ -1095,7 +1096,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1108,7 +1109,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRirsList(context.Background()).Execute()
 
@@ -1120,7 +1121,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1134,7 +1135,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1148,7 +1149,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRirsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1162,7 +1163,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamRolesBulkDestroy(context.Background()).Execute()
 
@@ -1173,7 +1174,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRolesBulkPartialUpdate(context.Background()).Execute()
 
@@ -1185,7 +1186,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRolesBulkUpdate(context.Background()).Execute()
 
@@ -1197,7 +1198,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRolesCreate(context.Background()).Execute()
 
@@ -1209,7 +1210,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1222,7 +1223,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRolesList(context.Background()).Execute()
 
@@ -1234,7 +1235,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1248,7 +1249,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1262,7 +1263,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRolesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1276,7 +1277,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamRouteTargetsBulkDestroy(context.Background()).Execute()
 
@@ -1287,7 +1288,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRouteTargetsBulkPartialUpdate(context.Background()).Execute()
 
@@ -1299,7 +1300,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRouteTargetsBulkUpdate(context.Background()).Execute()
 
@@ -1311,7 +1312,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRouteTargetsCreate(context.Background()).Execute()
 
@@ -1323,7 +1324,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1336,7 +1337,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamRouteTargetsList(context.Background()).Execute()
 
@@ -1348,7 +1349,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1362,7 +1363,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1376,7 +1377,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamRouteTargetsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1390,7 +1391,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamServiceTemplatesBulkDestroy(context.Background()).Execute()
 
@@ -1401,7 +1402,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServiceTemplatesBulkPartialUpdate(context.Background()).Execute()
 
@@ -1413,7 +1414,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServiceTemplatesBulkUpdate(context.Background()).Execute()
 
@@ -1425,7 +1426,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServiceTemplatesCreate(context.Background()).Execute()
 
@@ -1437,7 +1438,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1450,7 +1451,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServiceTemplatesList(context.Background()).Execute()
 
@@ -1462,7 +1463,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1476,7 +1477,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1490,7 +1491,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServiceTemplatesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1504,7 +1505,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamServicesBulkDestroy(context.Background()).Execute()
 
@@ -1515,7 +1516,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServicesBulkPartialUpdate(context.Background()).Execute()
 
@@ -1527,7 +1528,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServicesBulkUpdate(context.Background()).Execute()
 
@@ -1539,7 +1540,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServicesCreate(context.Background()).Execute()
 
@@ -1551,7 +1552,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1564,7 +1565,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamServicesList(context.Background()).Execute()
 
@@ -1576,7 +1577,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1590,7 +1591,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1604,7 +1605,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamServicesUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1618,7 +1619,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsAvailableVlansCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1632,7 +1633,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsAvailableVlansList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1646,7 +1647,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamVlanGroupsBulkDestroy(context.Background()).Execute()
 
@@ -1657,7 +1658,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlanGroupsBulkPartialUpdate(context.Background()).Execute()
 
@@ -1669,7 +1670,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlanGroupsBulkUpdate(context.Background()).Execute()
 
@@ -1681,7 +1682,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlanGroupsCreate(context.Background()).Execute()
 
@@ -1693,7 +1694,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1706,7 +1707,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlanGroupsList(context.Background()).Execute()
 
@@ -1718,7 +1719,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1732,7 +1733,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1746,7 +1747,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlanGroupsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1760,7 +1761,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamVlansBulkDestroy(context.Background()).Execute()
 
@@ -1771,7 +1772,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlansBulkPartialUpdate(context.Background()).Execute()
 
@@ -1783,7 +1784,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlansBulkUpdate(context.Background()).Execute()
 
@@ -1795,7 +1796,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlansCreate(context.Background()).Execute()
 
@@ -1807,7 +1808,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1820,7 +1821,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVlansList(context.Background()).Execute()
 
@@ -1832,7 +1833,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1846,7 +1847,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1860,7 +1861,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVlansUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1874,7 +1875,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.IpamAPI.IpamVrfsBulkDestroy(context.Background()).Execute()
 
@@ -1885,7 +1886,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVrfsBulkPartialUpdate(context.Background()).Execute()
 
@@ -1897,7 +1898,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVrfsBulkUpdate(context.Background()).Execute()
 
@@ -1909,7 +1910,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVrfsCreate(context.Background()).Execute()
 
@@ -1921,7 +1922,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1934,7 +1935,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.IpamAPI.IpamVrfsList(context.Background()).Execute()
 
@@ -1946,7 +1947,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1960,7 +1961,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -1974,7 +1975,7 @@ func Test_netbox_IpamAPIService(t *testing.T) {
 
 	t.Run("Test IpamAPIService IpamVrfsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 

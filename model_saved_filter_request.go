@@ -20,15 +20,15 @@ var _ MappedNullable = &SavedFilterRequest{}
 
 // SavedFilterRequest Extends the built-in ModelSerializer to enforce calling full_clean() on a copy of the associated instance during validation. (DRF does not do this by default; see https://github.com/encode/django-rest-framework/issues/3144)
 type SavedFilterRequest struct {
-	ObjectTypes []string `json:"object_types"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Description *string `json:"description,omitempty"`
-	User NullableInt32 `json:"user,omitempty"`
-	Weight *int32 `json:"weight,omitempty"`
-	Enabled *bool `json:"enabled,omitempty"`
-	Shared *bool `json:"shared,omitempty"`
-	Parameters interface{} `json:"parameters"`
+	ObjectTypes          []string      `json:"object_types"`
+	Name                 string        `json:"name"`
+	Slug                 string        `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Description          *string       `json:"description,omitempty"`
+	User                 NullableInt32 `json:"user,omitempty"`
+	Weight               *int32        `json:"weight,omitempty"`
+	Enabled              *bool         `json:"enabled,omitempty"`
+	Shared               *bool         `json:"shared,omitempty"`
+	Parameters           interface{}   `json:"parameters"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -79,7 +79,6 @@ func (o *SavedFilterRequest) SetObjectTypes(v []string) {
 	o.ObjectTypes = v
 }
 
-
 // GetName returns the Name field value
 func (o *SavedFilterRequest) GetName() string {
 	if o == nil {
@@ -104,7 +103,6 @@ func (o *SavedFilterRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *SavedFilterRequest) GetSlug() string {
 	if o == nil {
@@ -128,7 +126,6 @@ func (o *SavedFilterRequest) GetSlugOk() (*string, bool) {
 func (o *SavedFilterRequest) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetDescription returns the Description field value if set, zero value otherwise.
 func (o *SavedFilterRequest) GetDescription() string {
@@ -194,6 +191,7 @@ func (o *SavedFilterRequest) HasUser() bool {
 func (o *SavedFilterRequest) SetUser(v int32) {
 	o.User.Set(&v)
 }
+
 // SetUserNil sets the value for User to be an explicit nil
 func (o *SavedFilterRequest) SetUserNil() {
 	o.User.Set(nil)
@@ -326,9 +324,8 @@ func (o *SavedFilterRequest) SetParameters(v interface{}) {
 	o.Parameters = v
 }
 
-
 func (o SavedFilterRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -379,32 +376,31 @@ func (o *SavedFilterRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -471,5 +467,3 @@ func (v *NullableSavedFilterRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,10 +20,10 @@ type ContactAssignmentPriorityLabel string
 
 // List of ContactAssignment_priority_label
 const (
-	CONTACTASSIGNMENTPRIORITYLABEL_PRIMARY ContactAssignmentPriorityLabel = "Primary"
+	CONTACTASSIGNMENTPRIORITYLABEL_PRIMARY   ContactAssignmentPriorityLabel = "Primary"
 	CONTACTASSIGNMENTPRIORITYLABEL_SECONDARY ContactAssignmentPriorityLabel = "Secondary"
-	CONTACTASSIGNMENTPRIORITYLABEL_TERTIARY ContactAssignmentPriorityLabel = "Tertiary"
-	CONTACTASSIGNMENTPRIORITYLABEL_INACTIVE ContactAssignmentPriorityLabel = "Inactive"
+	CONTACTASSIGNMENTPRIORITYLABEL_TERTIARY  ContactAssignmentPriorityLabel = "Tertiary"
+	CONTACTASSIGNMENTPRIORITYLABEL_INACTIVE  ContactAssignmentPriorityLabel = "Inactive"
 )
 
 // All allowed values of ContactAssignmentPriorityLabel enum
@@ -112,4 +112,3 @@ func (v *NullableContactAssignmentPriorityLabel) UnmarshalJSON(src []byte) error
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

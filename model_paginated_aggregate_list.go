@@ -20,10 +20,10 @@ var _ MappedNullable = &PaginatedAggregateList{}
 
 // PaginatedAggregateList struct for PaginatedAggregateList
 type PaginatedAggregateList struct {
-	Count int32 `json:"count"`
-	Next NullableString `json:"next,omitempty"`
-	Previous NullableString `json:"previous,omitempty"`
-	Results []Aggregate `json:"results"`
+	Count                int32          `json:"count"`
+	Next                 NullableString `json:"next,omitempty"`
+	Previous             NullableString `json:"previous,omitempty"`
+	Results              []Aggregate    `json:"results"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -72,7 +72,6 @@ func (o *PaginatedAggregateList) SetCount(v int32) {
 	o.Count = v
 }
 
-
 // GetNext returns the Next field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *PaginatedAggregateList) GetNext() string {
 	if o == nil || IsNil(o.Next.Get()) {
@@ -105,6 +104,7 @@ func (o *PaginatedAggregateList) HasNext() bool {
 func (o *PaginatedAggregateList) SetNext(v string) {
 	o.Next.Set(&v)
 }
+
 // SetNextNil sets the value for Next to be an explicit nil
 func (o *PaginatedAggregateList) SetNextNil() {
 	o.Next.Set(nil)
@@ -147,6 +147,7 @@ func (o *PaginatedAggregateList) HasPrevious() bool {
 func (o *PaginatedAggregateList) SetPrevious(v string) {
 	o.Previous.Set(&v)
 }
+
 // SetPreviousNil sets the value for Previous to be an explicit nil
 func (o *PaginatedAggregateList) SetPreviousNil() {
 	o.Previous.Set(nil)
@@ -181,9 +182,8 @@ func (o *PaginatedAggregateList) SetResults(v []Aggregate) {
 	o.Results = v
 }
 
-
 func (o PaginatedAggregateList) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -219,32 +219,31 @@ func (o *PaginatedAggregateList) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -306,5 +305,3 @@ func (v *NullablePaginatedAggregateList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -19,18 +19,18 @@ var _ MappedNullable = &PatchedWritableConsoleServerPortRequest{}
 
 // PatchedWritableConsoleServerPortRequest Adds support for custom fields and tags.
 type PatchedWritableConsoleServerPortRequest struct {
-	Device *BriefDeviceRequest `json:"device,omitempty"`
+	Device *BriefDeviceRequest        `json:"device,omitempty"`
 	Module NullableBriefModuleRequest `json:"module,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Name   *string                    `json:"name,omitempty"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Type *PatchedWritableConsolePortRequestType `json:"type,omitempty"`
-	Speed NullablePatchedWritableConsolePortRequestSpeed `json:"speed,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Label       *string                                        `json:"label,omitempty"`
+	Type        *PatchedWritableConsolePortRequestType         `json:"type,omitempty"`
+	Speed       NullablePatchedWritableConsolePortRequestSpeed `json:"speed,omitempty"`
+	Description *string                                        `json:"description,omitempty"`
 	// Treat as if a cable is connected
-	MarkConnected *bool `json:"mark_connected,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	MarkConnected        *bool                  `json:"mark_connected,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -117,6 +117,7 @@ func (o *PatchedWritableConsoleServerPortRequest) HasModule() bool {
 func (o *PatchedWritableConsoleServerPortRequest) SetModule(v BriefModuleRequest) {
 	o.Module.Set(&v)
 }
+
 // SetModuleNil sets the value for Module to be an explicit nil
 func (o *PatchedWritableConsoleServerPortRequest) SetModuleNil() {
 	o.Module.Set(nil)
@@ -255,6 +256,7 @@ func (o *PatchedWritableConsoleServerPortRequest) HasSpeed() bool {
 func (o *PatchedWritableConsoleServerPortRequest) SetSpeed(v PatchedWritableConsolePortRequestSpeed) {
 	o.Speed.Set(&v)
 }
+
 // SetSpeedNil sets the value for Speed to be an explicit nil
 func (o *PatchedWritableConsoleServerPortRequest) SetSpeedNil() {
 	o.Speed.Set(nil)
@@ -394,7 +396,7 @@ func (o *PatchedWritableConsoleServerPortRequest) SetCustomFields(v map[string]i
 }
 
 func (o PatchedWritableConsoleServerPortRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -506,5 +508,3 @@ func (v *NullablePatchedWritableConsoleServerPortRequest) UnmarshalJSON(src []by
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

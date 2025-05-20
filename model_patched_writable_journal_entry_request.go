@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedWritableJournalEntryRequest{}
 
 // PatchedWritableJournalEntryRequest Adds support for custom fields and tags.
 type PatchedWritableJournalEntryRequest struct {
-	AssignedObjectType *string `json:"assigned_object_type,omitempty"`
-	AssignedObjectId *int64 `json:"assigned_object_id,omitempty"`
-	CreatedBy NullableInt32 `json:"created_by,omitempty"`
-	Kind *JournalEntryKindValue `json:"kind,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	AssignedObjectType   *string                `json:"assigned_object_type,omitempty"`
+	AssignedObjectId     *int64                 `json:"assigned_object_id,omitempty"`
+	CreatedBy            NullableInt32          `json:"created_by,omitempty"`
+	Kind                 *JournalEntryKindValue `json:"kind,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -144,6 +144,7 @@ func (o *PatchedWritableJournalEntryRequest) HasCreatedBy() bool {
 func (o *PatchedWritableJournalEntryRequest) SetCreatedBy(v int32) {
 	o.CreatedBy.Set(&v)
 }
+
 // SetCreatedByNil sets the value for CreatedBy to be an explicit nil
 func (o *PatchedWritableJournalEntryRequest) SetCreatedByNil() {
 	o.CreatedBy.Set(nil)
@@ -283,7 +284,7 @@ func (o *PatchedWritableJournalEntryRequest) SetCustomFields(v map[string]interf
 }
 
 func (o PatchedWritableJournalEntryRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -383,5 +384,3 @@ func (v *NullablePatchedWritableJournalEntryRequest) UnmarshalJSON(src []byte) e
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -21,9 +21,9 @@ type PatchedWritableTunnelRequestEncapsulation string
 // List of PatchedWritableTunnelRequest_encapsulation
 const (
 	PATCHEDWRITABLETUNNELREQUESTENCAPSULATION_IPSEC_TRANSPORT PatchedWritableTunnelRequestEncapsulation = "ipsec-transport"
-	PATCHEDWRITABLETUNNELREQUESTENCAPSULATION_IPSEC_TUNNEL PatchedWritableTunnelRequestEncapsulation = "ipsec-tunnel"
-	PATCHEDWRITABLETUNNELREQUESTENCAPSULATION_IP_IP PatchedWritableTunnelRequestEncapsulation = "ip-ip"
-	PATCHEDWRITABLETUNNELREQUESTENCAPSULATION_GRE PatchedWritableTunnelRequestEncapsulation = "gre"
+	PATCHEDWRITABLETUNNELREQUESTENCAPSULATION_IPSEC_TUNNEL    PatchedWritableTunnelRequestEncapsulation = "ipsec-tunnel"
+	PATCHEDWRITABLETUNNELREQUESTENCAPSULATION_IP_IP           PatchedWritableTunnelRequestEncapsulation = "ip-ip"
+	PATCHEDWRITABLETUNNELREQUESTENCAPSULATION_GRE             PatchedWritableTunnelRequestEncapsulation = "gre"
 )
 
 // All allowed values of PatchedWritableTunnelRequestEncapsulation enum
@@ -112,4 +112,3 @@ func (v *NullablePatchedWritableTunnelRequestEncapsulation) UnmarshalJSON(src []
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

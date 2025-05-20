@@ -20,13 +20,13 @@ var _ MappedNullable = &JournalEntryRequest{}
 
 // JournalEntryRequest Adds support for custom fields and tags.
 type JournalEntryRequest struct {
-	AssignedObjectType string `json:"assigned_object_type"`
-	AssignedObjectId int64 `json:"assigned_object_id"`
-	CreatedBy NullableInt32 `json:"created_by,omitempty"`
-	Kind *JournalEntryKindValue `json:"kind,omitempty"`
-	Comments string `json:"comments"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	AssignedObjectType   string                 `json:"assigned_object_type"`
+	AssignedObjectId     int64                  `json:"assigned_object_id"`
+	CreatedBy            NullableInt32          `json:"created_by,omitempty"`
+	Kind                 *JournalEntryKindValue `json:"kind,omitempty"`
+	Comments             string                 `json:"comments"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -76,7 +76,6 @@ func (o *JournalEntryRequest) SetAssignedObjectType(v string) {
 	o.AssignedObjectType = v
 }
 
-
 // GetAssignedObjectId returns the AssignedObjectId field value
 func (o *JournalEntryRequest) GetAssignedObjectId() int64 {
 	if o == nil {
@@ -100,7 +99,6 @@ func (o *JournalEntryRequest) GetAssignedObjectIdOk() (*int64, bool) {
 func (o *JournalEntryRequest) SetAssignedObjectId(v int64) {
 	o.AssignedObjectId = v
 }
-
 
 // GetCreatedBy returns the CreatedBy field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *JournalEntryRequest) GetCreatedBy() int32 {
@@ -134,6 +132,7 @@ func (o *JournalEntryRequest) HasCreatedBy() bool {
 func (o *JournalEntryRequest) SetCreatedBy(v int32) {
 	o.CreatedBy.Set(&v)
 }
+
 // SetCreatedByNil sets the value for CreatedBy to be an explicit nil
 func (o *JournalEntryRequest) SetCreatedByNil() {
 	o.CreatedBy.Set(nil)
@@ -200,7 +199,6 @@ func (o *JournalEntryRequest) SetComments(v string) {
 	o.Comments = v
 }
 
-
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *JournalEntryRequest) GetTags() []NestedTagRequest {
 	if o == nil || IsNil(o.Tags) {
@@ -266,7 +264,7 @@ func (o *JournalEntryRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o JournalEntryRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -310,32 +308,31 @@ func (o *JournalEntryRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -400,5 +397,3 @@ func (v *NullableJournalEntryRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

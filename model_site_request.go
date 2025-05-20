@@ -21,16 +21,16 @@ var _ MappedNullable = &SiteRequest{}
 // SiteRequest Adds support for custom fields and tags.
 type SiteRequest struct {
 	// Full name of the site
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Status *LocationStatusValue `json:"status,omitempty"`
-	Region NullableBriefRegionRequest `json:"region,omitempty"`
-	Group NullableBriefSiteGroupRequest `json:"group,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
+	Name   string                        `json:"name"`
+	Slug   string                        `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Status *LocationStatusValue          `json:"status,omitempty"`
+	Region NullableBriefRegionRequest    `json:"region,omitempty"`
+	Group  NullableBriefSiteGroupRequest `json:"group,omitempty"`
+	Tenant NullableBriefTenantRequest    `json:"tenant,omitempty"`
 	// Local facility ID or description
-	Facility *string `json:"facility,omitempty"`
-	TimeZone NullableString `json:"time_zone,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Facility    *string        `json:"facility,omitempty"`
+	TimeZone    NullableString `json:"time_zone,omitempty"`
+	Description *string        `json:"description,omitempty"`
 	// Physical location of the building
 	PhysicalAddress *string `json:"physical_address,omitempty"`
 	// If different from the physical address
@@ -38,11 +38,11 @@ type SiteRequest struct {
 	// GPS coordinate in decimal format (xx.yyyyyy)
 	Latitude NullableFloat64 `json:"latitude,omitempty"`
 	// GPS coordinate in decimal format (xx.yyyyyy)
-	Longitude NullableFloat64 `json:"longitude,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Asns []int32 `json:"asns,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Longitude            NullableFloat64        `json:"longitude,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Asns                 []int32                `json:"asns,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -91,7 +91,6 @@ func (o *SiteRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *SiteRequest) GetSlug() string {
 	if o == nil {
@@ -115,7 +114,6 @@ func (o *SiteRequest) GetSlugOk() (*string, bool) {
 func (o *SiteRequest) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetStatus returns the Status field value if set, zero value otherwise.
 func (o *SiteRequest) GetStatus() LocationStatusValue {
@@ -181,6 +179,7 @@ func (o *SiteRequest) HasRegion() bool {
 func (o *SiteRequest) SetRegion(v BriefRegionRequest) {
 	o.Region.Set(&v)
 }
+
 // SetRegionNil sets the value for Region to be an explicit nil
 func (o *SiteRequest) SetRegionNil() {
 	o.Region.Set(nil)
@@ -223,6 +222,7 @@ func (o *SiteRequest) HasGroup() bool {
 func (o *SiteRequest) SetGroup(v BriefSiteGroupRequest) {
 	o.Group.Set(&v)
 }
+
 // SetGroupNil sets the value for Group to be an explicit nil
 func (o *SiteRequest) SetGroupNil() {
 	o.Group.Set(nil)
@@ -265,6 +265,7 @@ func (o *SiteRequest) HasTenant() bool {
 func (o *SiteRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *SiteRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -339,6 +340,7 @@ func (o *SiteRequest) HasTimeZone() bool {
 func (o *SiteRequest) SetTimeZone(v string) {
 	o.TimeZone.Set(&v)
 }
+
 // SetTimeZoneNil sets the value for TimeZone to be an explicit nil
 func (o *SiteRequest) SetTimeZoneNil() {
 	o.TimeZone.Set(nil)
@@ -477,6 +479,7 @@ func (o *SiteRequest) HasLatitude() bool {
 func (o *SiteRequest) SetLatitude(v float64) {
 	o.Latitude.Set(&v)
 }
+
 // SetLatitudeNil sets the value for Latitude to be an explicit nil
 func (o *SiteRequest) SetLatitudeNil() {
 	o.Latitude.Set(nil)
@@ -519,6 +522,7 @@ func (o *SiteRequest) HasLongitude() bool {
 func (o *SiteRequest) SetLongitude(v float64) {
 	o.Longitude.Set(&v)
 }
+
 // SetLongitudeNil sets the value for Longitude to be an explicit nil
 func (o *SiteRequest) SetLongitudeNil() {
 	o.Longitude.Set(nil)
@@ -658,7 +662,7 @@ func (o *SiteRequest) SetCustomFields(v map[string]interface{}) {
 }
 
 func (o SiteRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -733,32 +737,31 @@ func (o *SiteRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -833,5 +836,3 @@ func (v *NullableSiteRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

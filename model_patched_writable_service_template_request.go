@@ -19,13 +19,13 @@ var _ MappedNullable = &PatchedWritableServiceTemplateRequest{}
 
 // PatchedWritableServiceTemplateRequest Adds support for custom fields and tags.
 type PatchedWritableServiceTemplateRequest struct {
-	Name *string `json:"name,omitempty"`
-	Protocol *PatchedWritableServiceRequestProtocol `json:"protocol,omitempty"`
-	Ports []int32 `json:"ports,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	Name                 *string                                `json:"name,omitempty"`
+	Protocol             *PatchedWritableServiceRequestProtocol `json:"protocol,omitempty"`
+	Ports                []int32                                `json:"ports,omitempty"`
+	Description          *string                                `json:"description,omitempty"`
+	Comments             *string                                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest                     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}                 `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -273,7 +273,7 @@ func (o *PatchedWritableServiceTemplateRequest) SetCustomFields(v map[string]int
 }
 
 func (o PatchedWritableServiceTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -373,5 +373,3 @@ func (v *NullablePatchedWritableServiceTemplateRequest) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

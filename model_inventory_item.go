@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the InventoryItem type satisfies the MappedNullable interface at compile time
@@ -21,32 +21,32 @@ var _ MappedNullable = &InventoryItem{}
 
 // InventoryItem Adds support for custom fields and tags.
 type InventoryItem struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Device BriefDevice `json:"device"`
-	Parent NullableInt32 `json:"parent,omitempty"`
-	Name string `json:"name"`
+	Id      int32         `json:"id"`
+	Url     string        `json:"url"`
+	Display string        `json:"display"`
+	Device  BriefDevice   `json:"device"`
+	Parent  NullableInt32 `json:"parent,omitempty"`
+	Name    string        `json:"name"`
 	// Physical label
-	Label *string `json:"label,omitempty"`
-	Role NullableBriefInventoryItemRole `json:"role,omitempty"`
-	Manufacturer NullableBriefManufacturer `json:"manufacturer,omitempty"`
+	Label        *string                        `json:"label,omitempty"`
+	Role         NullableBriefInventoryItemRole `json:"role,omitempty"`
+	Manufacturer NullableBriefManufacturer      `json:"manufacturer,omitempty"`
 	// Manufacturer-assigned part identifier
 	PartId *string `json:"part_id,omitempty"`
 	Serial *string `json:"serial,omitempty"`
 	// A unique tag used to identify this item
 	AssetTag NullableString `json:"asset_tag,omitempty"`
 	// This item was automatically discovered
-	Discovered *bool `json:"discovered,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ComponentType NullableString `json:"component_type,omitempty"`
-	ComponentId NullableInt64 `json:"component_id,omitempty"`
-	Component interface{} `json:"component"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	Depth int32 `json:"_depth"`
+	Discovered           *bool                  `json:"discovered,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	ComponentType        NullableString         `json:"component_type,omitempty"`
+	ComponentId          NullableInt64          `json:"component_id,omitempty"`
+	Component            interface{}            `json:"component"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	Depth                int32                  `json:"_depth"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -102,7 +102,6 @@ func (o *InventoryItem) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *InventoryItem) GetUrl() string {
 	if o == nil {
@@ -126,7 +125,6 @@ func (o *InventoryItem) GetUrlOk() (*string, bool) {
 func (o *InventoryItem) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *InventoryItem) GetDisplay() string {
@@ -152,7 +150,6 @@ func (o *InventoryItem) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetDevice returns the Device field value
 func (o *InventoryItem) GetDevice() BriefDevice {
 	if o == nil {
@@ -176,7 +173,6 @@ func (o *InventoryItem) GetDeviceOk() (*BriefDevice, bool) {
 func (o *InventoryItem) SetDevice(v BriefDevice) {
 	o.Device = v
 }
-
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *InventoryItem) GetParent() int32 {
@@ -210,6 +206,7 @@ func (o *InventoryItem) HasParent() bool {
 func (o *InventoryItem) SetParent(v int32) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *InventoryItem) SetParentNil() {
 	o.Parent.Set(nil)
@@ -243,7 +240,6 @@ func (o *InventoryItem) GetNameOk() (*string, bool) {
 func (o *InventoryItem) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetLabel returns the Label field value if set, zero value otherwise.
 func (o *InventoryItem) GetLabel() string {
@@ -309,6 +305,7 @@ func (o *InventoryItem) HasRole() bool {
 func (o *InventoryItem) SetRole(v BriefInventoryItemRole) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *InventoryItem) SetRoleNil() {
 	o.Role.Set(nil)
@@ -351,6 +348,7 @@ func (o *InventoryItem) HasManufacturer() bool {
 func (o *InventoryItem) SetManufacturer(v BriefManufacturer) {
 	o.Manufacturer.Set(&v)
 }
+
 // SetManufacturerNil sets the value for Manufacturer to be an explicit nil
 func (o *InventoryItem) SetManufacturerNil() {
 	o.Manufacturer.Set(nil)
@@ -457,6 +455,7 @@ func (o *InventoryItem) HasAssetTag() bool {
 func (o *InventoryItem) SetAssetTag(v string) {
 	o.AssetTag.Set(&v)
 }
+
 // SetAssetTagNil sets the value for AssetTag to be an explicit nil
 func (o *InventoryItem) SetAssetTagNil() {
 	o.AssetTag.Set(nil)
@@ -563,6 +562,7 @@ func (o *InventoryItem) HasComponentType() bool {
 func (o *InventoryItem) SetComponentType(v string) {
 	o.ComponentType.Set(&v)
 }
+
 // SetComponentTypeNil sets the value for ComponentType to be an explicit nil
 func (o *InventoryItem) SetComponentTypeNil() {
 	o.ComponentType.Set(nil)
@@ -605,6 +605,7 @@ func (o *InventoryItem) HasComponentId() bool {
 func (o *InventoryItem) SetComponentId(v int64) {
 	o.ComponentId.Set(&v)
 }
+
 // SetComponentIdNil sets the value for ComponentId to be an explicit nil
 func (o *InventoryItem) SetComponentIdNil() {
 	o.ComponentId.Set(nil)
@@ -640,7 +641,6 @@ func (o *InventoryItem) GetComponentOk() (*interface{}, bool) {
 func (o *InventoryItem) SetComponent(v interface{}) {
 	o.Component = v
 }
-
 
 // GetTags returns the Tags field value if set, zero value otherwise.
 func (o *InventoryItem) GetTags() []NestedTag {
@@ -732,7 +732,6 @@ func (o *InventoryItem) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *InventoryItem) GetLastUpdated() time.Time {
@@ -759,7 +758,6 @@ func (o *InventoryItem) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetDepth returns the Depth field value
 func (o *InventoryItem) GetDepth() int32 {
 	if o == nil {
@@ -784,9 +782,8 @@ func (o *InventoryItem) SetDepth(v int32) {
 	o.Depth = v
 }
 
-
 func (o InventoryItem) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -871,32 +868,31 @@ func (o *InventoryItem) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -976,5 +972,3 @@ func (v *NullableInventoryItem) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

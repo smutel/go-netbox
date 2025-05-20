@@ -21,9 +21,9 @@ type PatchedWritablePowerFeedRequestStatus string
 // List of PatchedWritablePowerFeedRequest_status
 const (
 	PATCHEDWRITABLEPOWERFEEDREQUESTSTATUS_OFFLINE PatchedWritablePowerFeedRequestStatus = "offline"
-	PATCHEDWRITABLEPOWERFEEDREQUESTSTATUS_ACTIVE PatchedWritablePowerFeedRequestStatus = "active"
+	PATCHEDWRITABLEPOWERFEEDREQUESTSTATUS_ACTIVE  PatchedWritablePowerFeedRequestStatus = "active"
 	PATCHEDWRITABLEPOWERFEEDREQUESTSTATUS_PLANNED PatchedWritablePowerFeedRequestStatus = "planned"
-	PATCHEDWRITABLEPOWERFEEDREQUESTSTATUS_FAILED PatchedWritablePowerFeedRequestStatus = "failed"
+	PATCHEDWRITABLEPOWERFEEDREQUESTSTATUS_FAILED  PatchedWritablePowerFeedRequestStatus = "failed"
 )
 
 // All allowed values of PatchedWritablePowerFeedRequestStatus enum
@@ -112,4 +112,3 @@ func (v *NullablePatchedWritablePowerFeedRequestStatus) UnmarshalJSON(src []byte
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,14 +19,14 @@ var _ MappedNullable = &PatchedConfigTemplateRequest{}
 
 // PatchedConfigTemplateRequest Introduces support for Tag assignment. Adds `tags` serialization, and handles tag assignment on create() and update().
 type PatchedConfigTemplateRequest struct {
-	Name *string `json:"name,omitempty"`
+	Name        *string `json:"name,omitempty"`
 	Description *string `json:"description,omitempty"`
 	// Any <a href=\"https://jinja.palletsprojects.com/en/3.1.x/api/#jinja2.Environment\">additional parameters</a> to pass when constructing the Jinja2 environment.
 	EnvironmentParams interface{} `json:"environment_params,omitempty"`
 	// Jinja2 template code.
-	TemplateCode *string `json:"template_code,omitempty"`
-	DataSource *BriefDataSourceRequest `json:"data_source,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
+	TemplateCode         *string                 `json:"template_code,omitempty"`
+	DataSource           *BriefDataSourceRequest `json:"data_source,omitempty"`
+	Tags                 []NestedTagRequest      `json:"tags,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -243,7 +243,7 @@ func (o *PatchedConfigTemplateRequest) SetTags(v []NestedTagRequest) {
 }
 
 func (o PatchedConfigTemplateRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -339,5 +339,3 @@ func (v *NullablePatchedConfigTemplateRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

@@ -20,18 +20,18 @@ var _ MappedNullable = &WritableIPRangeRequest{}
 
 // WritableIPRangeRequest Adds support for custom fields and tags.
 type WritableIPRangeRequest struct {
-	StartAddress string `json:"start_address"`
-	EndAddress string `json:"end_address"`
-	Vrf NullableBriefVRFRequest `json:"vrf,omitempty"`
-	Tenant NullableBriefTenantRequest `json:"tenant,omitempty"`
-	Status *PatchedWritableIPRangeRequestStatus `json:"status,omitempty"`
-	Role NullableBriefRoleRequest `json:"role,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	StartAddress string                               `json:"start_address"`
+	EndAddress   string                               `json:"end_address"`
+	Vrf          NullableBriefVRFRequest              `json:"vrf,omitempty"`
+	Tenant       NullableBriefTenantRequest           `json:"tenant,omitempty"`
+	Status       *PatchedWritableIPRangeRequestStatus `json:"status,omitempty"`
+	Role         NullableBriefRoleRequest             `json:"role,omitempty"`
+	Description  *string                              `json:"description,omitempty"`
+	Comments     *string                              `json:"comments,omitempty"`
+	Tags         []NestedTagRequest                   `json:"tags,omitempty"`
+	CustomFields map[string]interface{}               `json:"custom_fields,omitempty"`
 	// Treat as fully utilized
-	MarkUtilized *bool `json:"mark_utilized,omitempty"`
+	MarkUtilized         *bool `json:"mark_utilized,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -80,7 +80,6 @@ func (o *WritableIPRangeRequest) SetStartAddress(v string) {
 	o.StartAddress = v
 }
 
-
 // GetEndAddress returns the EndAddress field value
 func (o *WritableIPRangeRequest) GetEndAddress() string {
 	if o == nil {
@@ -104,7 +103,6 @@ func (o *WritableIPRangeRequest) GetEndAddressOk() (*string, bool) {
 func (o *WritableIPRangeRequest) SetEndAddress(v string) {
 	o.EndAddress = v
 }
-
 
 // GetVrf returns the Vrf field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *WritableIPRangeRequest) GetVrf() BriefVRFRequest {
@@ -138,6 +136,7 @@ func (o *WritableIPRangeRequest) HasVrf() bool {
 func (o *WritableIPRangeRequest) SetVrf(v BriefVRFRequest) {
 	o.Vrf.Set(&v)
 }
+
 // SetVrfNil sets the value for Vrf to be an explicit nil
 func (o *WritableIPRangeRequest) SetVrfNil() {
 	o.Vrf.Set(nil)
@@ -180,6 +179,7 @@ func (o *WritableIPRangeRequest) HasTenant() bool {
 func (o *WritableIPRangeRequest) SetTenant(v BriefTenantRequest) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *WritableIPRangeRequest) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -254,6 +254,7 @@ func (o *WritableIPRangeRequest) HasRole() bool {
 func (o *WritableIPRangeRequest) SetRole(v BriefRoleRequest) {
 	o.Role.Set(&v)
 }
+
 // SetRoleNil sets the value for Role to be an explicit nil
 func (o *WritableIPRangeRequest) SetRoleNil() {
 	o.Role.Set(nil)
@@ -425,7 +426,7 @@ func (o *WritableIPRangeRequest) SetMarkUtilized(v bool) {
 }
 
 func (o WritableIPRangeRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -482,32 +483,31 @@ func (o *WritableIPRangeRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -576,5 +576,3 @@ func (v *NullableWritableIPRangeRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

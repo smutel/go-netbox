@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Provider type satisfies the MappedNullable interface at compile time
@@ -21,21 +21,21 @@ var _ MappedNullable = &Provider{}
 
 // Provider Adds support for custom fields and tags.
 type Provider struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
+	Id      int32  `json:"id"`
+	Url     string `json:"url"`
 	Display string `json:"display"`
 	// Full name of the provider
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Accounts []NestedProviderAccount `json:"accounts,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Asns []ASN `json:"asns,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	CircuitCount int64 `json:"circuit_count"`
+	Name                 string                  `json:"name"`
+	Slug                 string                  `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Accounts             []NestedProviderAccount `json:"accounts,omitempty"`
+	Description          *string                 `json:"description,omitempty"`
+	Comments             *string                 `json:"comments,omitempty"`
+	Asns                 []ASN                   `json:"asns,omitempty"`
+	Tags                 []NestedTag             `json:"tags,omitempty"`
+	CustomFields         map[string]interface{}  `json:"custom_fields,omitempty"`
+	Created              NullableTime            `json:"created"`
+	LastUpdated          NullableTime            `json:"last_updated"`
+	CircuitCount         int64                   `json:"circuit_count"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -90,7 +90,6 @@ func (o *Provider) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Provider) GetUrl() string {
 	if o == nil {
@@ -114,7 +113,6 @@ func (o *Provider) GetUrlOk() (*string, bool) {
 func (o *Provider) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Provider) GetDisplay() string {
@@ -140,7 +138,6 @@ func (o *Provider) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *Provider) GetName() string {
 	if o == nil {
@@ -165,7 +162,6 @@ func (o *Provider) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetSlug returns the Slug field value
 func (o *Provider) GetSlug() string {
 	if o == nil {
@@ -189,7 +185,6 @@ func (o *Provider) GetSlugOk() (*string, bool) {
 func (o *Provider) SetSlug(v string) {
 	o.Slug = v
 }
-
 
 // GetAccounts returns the Accounts field value if set, zero value otherwise.
 func (o *Provider) GetAccounts() []NestedProviderAccount {
@@ -409,7 +404,6 @@ func (o *Provider) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Provider) GetLastUpdated() time.Time {
@@ -436,7 +430,6 @@ func (o *Provider) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetCircuitCount returns the CircuitCount field value
 func (o *Provider) GetCircuitCount() int64 {
 	if o == nil {
@@ -461,9 +454,8 @@ func (o *Provider) SetCircuitCount(v int64) {
 	o.CircuitCount = v
 }
 
-
 func (o Provider) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -523,32 +515,31 @@ func (o *Provider) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -620,5 +611,3 @@ func (v *NullableProvider) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

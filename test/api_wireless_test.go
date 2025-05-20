@@ -11,10 +11,11 @@ package netbox
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/smutel/go-netbox/v4"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/smutel/go-netbox/v4"
 )
 
 func Test_netbox_WirelessAPIService(t *testing.T) {
@@ -24,7 +25,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsBulkDestroy(context.Background()).Execute()
 
@@ -35,7 +36,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsBulkPartialUpdate(context.Background()).Execute()
 
@@ -47,7 +48,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsBulkUpdate(context.Background()).Execute()
 
@@ -59,7 +60,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsCreate(context.Background()).Execute()
 
@@ -71,7 +72,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -84,7 +85,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsList(context.Background()).Execute()
 
@@ -96,7 +97,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -110,7 +111,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -124,7 +125,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLanGroupsUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -138,7 +139,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.WirelessAPI.WirelessWirelessLansBulkDestroy(context.Background()).Execute()
 
@@ -149,7 +150,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLansBulkPartialUpdate(context.Background()).Execute()
 
@@ -161,7 +162,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLansBulkUpdate(context.Background()).Execute()
 
@@ -173,7 +174,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLansCreate(context.Background()).Execute()
 
@@ -185,7 +186,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -198,7 +199,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLansList(context.Background()).Execute()
 
@@ -210,7 +211,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -224,7 +225,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -238,7 +239,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLansUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -252,7 +253,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksBulkDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		httpRes, err := apiClient.WirelessAPI.WirelessWirelessLinksBulkDestroy(context.Background()).Execute()
 
@@ -263,7 +264,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksBulkPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLinksBulkPartialUpdate(context.Background()).Execute()
 
@@ -275,7 +276,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksBulkUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLinksBulkUpdate(context.Background()).Execute()
 
@@ -287,7 +288,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksCreate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLinksCreate(context.Background()).Execute()
 
@@ -299,7 +300,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksDestroy", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -312,7 +313,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		resp, httpRes, err := apiClient.WirelessAPI.WirelessWirelessLinksList(context.Background()).Execute()
 
@@ -324,7 +325,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksPartialUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -338,7 +339,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksRetrieve", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 
@@ -352,7 +353,7 @@ func Test_netbox_WirelessAPIService(t *testing.T) {
 
 	t.Run("Test WirelessAPIService WirelessWirelessLinksUpdate", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var id int32
 

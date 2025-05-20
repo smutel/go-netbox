@@ -20,10 +20,10 @@ type PatchedWebhookRequestHttpMethod string
 
 // List of PatchedWebhookRequest_http_method
 const (
-	PATCHEDWEBHOOKREQUESTHTTPMETHOD_GET PatchedWebhookRequestHttpMethod = "GET"
-	PATCHEDWEBHOOKREQUESTHTTPMETHOD_POST PatchedWebhookRequestHttpMethod = "POST"
-	PATCHEDWEBHOOKREQUESTHTTPMETHOD_PUT PatchedWebhookRequestHttpMethod = "PUT"
-	PATCHEDWEBHOOKREQUESTHTTPMETHOD_PATCH PatchedWebhookRequestHttpMethod = "PATCH"
+	PATCHEDWEBHOOKREQUESTHTTPMETHOD_GET    PatchedWebhookRequestHttpMethod = "GET"
+	PATCHEDWEBHOOKREQUESTHTTPMETHOD_POST   PatchedWebhookRequestHttpMethod = "POST"
+	PATCHEDWEBHOOKREQUESTHTTPMETHOD_PUT    PatchedWebhookRequestHttpMethod = "PUT"
+	PATCHEDWEBHOOKREQUESTHTTPMETHOD_PATCH  PatchedWebhookRequestHttpMethod = "PATCH"
 	PATCHEDWEBHOOKREQUESTHTTPMETHOD_DELETE PatchedWebhookRequestHttpMethod = "DELETE"
 )
 
@@ -114,4 +114,3 @@ func (v *NullablePatchedWebhookRequestHttpMethod) UnmarshalJSON(src []byte) erro
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

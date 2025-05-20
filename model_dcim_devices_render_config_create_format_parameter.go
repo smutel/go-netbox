@@ -21,7 +21,7 @@ type DcimDevicesRenderConfigCreateFormatParameter string
 // List of dcim_devices_render_config_create_format_parameter
 const (
 	DCIMDEVICESRENDERCONFIGCREATEFORMATPARAMETER_JSON DcimDevicesRenderConfigCreateFormatParameter = "json"
-	DCIMDEVICESRENDERCONFIGCREATEFORMATPARAMETER_TXT DcimDevicesRenderConfigCreateFormatParameter = "txt"
+	DCIMDEVICESRENDERCONFIGCREATEFORMATPARAMETER_TXT  DcimDevicesRenderConfigCreateFormatParameter = "txt"
 )
 
 // All allowed values of DcimDevicesRenderConfigCreateFormatParameter enum
@@ -108,4 +108,3 @@ func (v *NullableDcimDevicesRenderConfigCreateFormatParameter) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

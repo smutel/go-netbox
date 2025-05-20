@@ -20,12 +20,12 @@ type PatchedWritableIKEProposalRequestAuthenticationAlgorithm string
 
 // List of PatchedWritableIKEProposalRequest_authentication_algorithm
 const (
-	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_HMAC_SHA1 PatchedWritableIKEProposalRequestAuthenticationAlgorithm = "hmac-sha1"
+	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_HMAC_SHA1   PatchedWritableIKEProposalRequestAuthenticationAlgorithm = "hmac-sha1"
 	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_HMAC_SHA256 PatchedWritableIKEProposalRequestAuthenticationAlgorithm = "hmac-sha256"
 	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_HMAC_SHA384 PatchedWritableIKEProposalRequestAuthenticationAlgorithm = "hmac-sha384"
 	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_HMAC_SHA512 PatchedWritableIKEProposalRequestAuthenticationAlgorithm = "hmac-sha512"
-	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_HMAC_MD5 PatchedWritableIKEProposalRequestAuthenticationAlgorithm = "hmac-md5"
-	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_EMPTY PatchedWritableIKEProposalRequestAuthenticationAlgorithm = ""
+	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_HMAC_MD5    PatchedWritableIKEProposalRequestAuthenticationAlgorithm = "hmac-md5"
+	PATCHEDWRITABLEIKEPROPOSALREQUESTAUTHENTICATIONALGORITHM_EMPTY       PatchedWritableIKEProposalRequestAuthenticationAlgorithm = ""
 )
 
 // All allowed values of PatchedWritableIKEProposalRequestAuthenticationAlgorithm enum
@@ -116,4 +116,3 @@ func (v *NullablePatchedWritableIKEProposalRequestAuthenticationAlgorithm) Unmar
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

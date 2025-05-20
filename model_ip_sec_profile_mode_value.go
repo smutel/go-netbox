@@ -21,7 +21,7 @@ type IPSecProfileModeValue string
 // List of IPSecProfile_mode_value
 const (
 	IPSECPROFILEMODEVALUE_ESP IPSecProfileModeValue = "esp"
-	IPSECPROFILEMODEVALUE_AH IPSecProfileModeValue = "ah"
+	IPSECPROFILEMODEVALUE_AH  IPSecProfileModeValue = "ah"
 )
 
 // All allowed values of IPSecProfileModeValue enum
@@ -108,4 +108,3 @@ func (v *NullableIPSecProfileModeValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

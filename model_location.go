@@ -12,8 +12,8 @@ package netbox
 
 import (
 	"encoding/json"
-	"time"
 	"fmt"
+	"time"
 )
 
 // checks if the Location type satisfies the MappedNullable interface at compile time
@@ -21,25 +21,25 @@ var _ MappedNullable = &Location{}
 
 // Location Extends PrimaryModelSerializer to include MPTT support.
 type Location struct {
-	Id int32 `json:"id"`
-	Url string `json:"url"`
-	Display string `json:"display"`
-	Name string `json:"name"`
-	Slug string `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
-	Site BriefSite `json:"site"`
-	Parent NullableNestedLocation `json:"parent,omitempty"`
-	Status *LocationStatus `json:"status,omitempty"`
-	Tenant NullableBriefTenant `json:"tenant,omitempty"`
+	Id      int32                  `json:"id"`
+	Url     string                 `json:"url"`
+	Display string                 `json:"display"`
+	Name    string                 `json:"name"`
+	Slug    string                 `json:"slug" validate:"regexp=^[-a-zA-Z0-9_]+$"`
+	Site    BriefSite              `json:"site"`
+	Parent  NullableNestedLocation `json:"parent,omitempty"`
+	Status  *LocationStatus        `json:"status,omitempty"`
+	Tenant  NullableBriefTenant    `json:"tenant,omitempty"`
 	// Local facility ID or description
-	Facility *string `json:"facility,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Tags []NestedTag `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
-	Created NullableTime `json:"created"`
-	LastUpdated NullableTime `json:"last_updated"`
-	RackCount int32 `json:"rack_count"`
-	DeviceCount int32 `json:"device_count"`
-	Depth int32 `json:"_depth"`
+	Facility             *string                `json:"facility,omitempty"`
+	Description          *string                `json:"description,omitempty"`
+	Tags                 []NestedTag            `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
+	Created              NullableTime           `json:"created"`
+	LastUpdated          NullableTime           `json:"last_updated"`
+	RackCount            int32                  `json:"rack_count"`
+	DeviceCount          int32                  `json:"device_count"`
+	Depth                int32                  `json:"_depth"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -97,7 +97,6 @@ func (o *Location) SetId(v int32) {
 	o.Id = v
 }
 
-
 // GetUrl returns the Url field value
 func (o *Location) GetUrl() string {
 	if o == nil {
@@ -121,7 +120,6 @@ func (o *Location) GetUrlOk() (*string, bool) {
 func (o *Location) SetUrl(v string) {
 	o.Url = v
 }
-
 
 // GetDisplay returns the Display field value
 func (o *Location) GetDisplay() string {
@@ -147,7 +145,6 @@ func (o *Location) SetDisplay(v string) {
 	o.Display = v
 }
 
-
 // GetName returns the Name field value
 func (o *Location) GetName() string {
 	if o == nil {
@@ -171,7 +168,6 @@ func (o *Location) GetNameOk() (*string, bool) {
 func (o *Location) SetName(v string) {
 	o.Name = v
 }
-
 
 // GetSlug returns the Slug field value
 func (o *Location) GetSlug() string {
@@ -197,7 +193,6 @@ func (o *Location) SetSlug(v string) {
 	o.Slug = v
 }
 
-
 // GetSite returns the Site field value
 func (o *Location) GetSite() BriefSite {
 	if o == nil {
@@ -221,7 +216,6 @@ func (o *Location) GetSiteOk() (*BriefSite, bool) {
 func (o *Location) SetSite(v BriefSite) {
 	o.Site = v
 }
-
 
 // GetParent returns the Parent field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Location) GetParent() NestedLocation {
@@ -255,6 +249,7 @@ func (o *Location) HasParent() bool {
 func (o *Location) SetParent(v NestedLocation) {
 	o.Parent.Set(&v)
 }
+
 // SetParentNil sets the value for Parent to be an explicit nil
 func (o *Location) SetParentNil() {
 	o.Parent.Set(nil)
@@ -329,6 +324,7 @@ func (o *Location) HasTenant() bool {
 func (o *Location) SetTenant(v BriefTenant) {
 	o.Tenant.Set(&v)
 }
+
 // SetTenantNil sets the value for Tenant to be an explicit nil
 func (o *Location) SetTenantNil() {
 	o.Tenant.Set(nil)
@@ -493,7 +489,6 @@ func (o *Location) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-
 // GetLastUpdated returns the LastUpdated field value
 // If the value is explicit nil, the zero value for time.Time will be returned
 func (o *Location) GetLastUpdated() time.Time {
@@ -520,7 +515,6 @@ func (o *Location) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
 }
 
-
 // GetRackCount returns the RackCount field value
 func (o *Location) GetRackCount() int32 {
 	if o == nil {
@@ -544,7 +538,6 @@ func (o *Location) GetRackCountOk() (*int32, bool) {
 func (o *Location) SetRackCount(v int32) {
 	o.RackCount = v
 }
-
 
 // GetDeviceCount returns the DeviceCount field value
 func (o *Location) GetDeviceCount() int32 {
@@ -570,7 +563,6 @@ func (o *Location) SetDeviceCount(v int32) {
 	o.DeviceCount = v
 }
 
-
 // GetDepth returns the Depth field value
 func (o *Location) GetDepth() int32 {
 	if o == nil {
@@ -595,9 +587,8 @@ func (o *Location) SetDepth(v int32) {
 	o.Depth = v
 }
 
-
 func (o Location) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -666,32 +657,31 @@ func (o *Location) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -767,5 +757,3 @@ func (v *NullableLocation) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

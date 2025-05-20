@@ -21,8 +21,8 @@ type PatchedWritableCustomFieldRequestFilterLogic string
 // List of PatchedWritableCustomFieldRequest_filter_logic
 const (
 	PATCHEDWRITABLECUSTOMFIELDREQUESTFILTERLOGIC_DISABLED PatchedWritableCustomFieldRequestFilterLogic = "disabled"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTFILTERLOGIC_LOOSE PatchedWritableCustomFieldRequestFilterLogic = "loose"
-	PATCHEDWRITABLECUSTOMFIELDREQUESTFILTERLOGIC_EXACT PatchedWritableCustomFieldRequestFilterLogic = "exact"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTFILTERLOGIC_LOOSE    PatchedWritableCustomFieldRequestFilterLogic = "loose"
+	PATCHEDWRITABLECUSTOMFIELDREQUESTFILTERLOGIC_EXACT    PatchedWritableCustomFieldRequestFilterLogic = "exact"
 )
 
 // All allowed values of PatchedWritableCustomFieldRequestFilterLogic enum
@@ -110,4 +110,3 @@ func (v *NullablePatchedWritableCustomFieldRequestFilterLogic) UnmarshalJSON(src
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

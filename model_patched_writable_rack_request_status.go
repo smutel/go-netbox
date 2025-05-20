@@ -20,10 +20,10 @@ type PatchedWritableRackRequestStatus string
 
 // List of PatchedWritableRackRequest_status
 const (
-	PATCHEDWRITABLERACKREQUESTSTATUS_RESERVED PatchedWritableRackRequestStatus = "reserved"
-	PATCHEDWRITABLERACKREQUESTSTATUS_AVAILABLE PatchedWritableRackRequestStatus = "available"
-	PATCHEDWRITABLERACKREQUESTSTATUS_PLANNED PatchedWritableRackRequestStatus = "planned"
-	PATCHEDWRITABLERACKREQUESTSTATUS_ACTIVE PatchedWritableRackRequestStatus = "active"
+	PATCHEDWRITABLERACKREQUESTSTATUS_RESERVED   PatchedWritableRackRequestStatus = "reserved"
+	PATCHEDWRITABLERACKREQUESTSTATUS_AVAILABLE  PatchedWritableRackRequestStatus = "available"
+	PATCHEDWRITABLERACKREQUESTSTATUS_PLANNED    PatchedWritableRackRequestStatus = "planned"
+	PATCHEDWRITABLERACKREQUESTSTATUS_ACTIVE     PatchedWritableRackRequestStatus = "active"
 	PATCHEDWRITABLERACKREQUESTSTATUS_DEPRECATED PatchedWritableRackRequestStatus = "deprecated"
 )
 
@@ -114,4 +114,3 @@ func (v *NullablePatchedWritableRackRequestStatus) UnmarshalJSON(src []byte) err
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-

@@ -19,17 +19,17 @@ var _ MappedNullable = &PatchedWritableIPSecProposalRequest{}
 
 // PatchedWritableIPSecProposalRequest Adds support for custom fields and tags.
 type PatchedWritableIPSecProposalRequest struct {
-	Name *string `json:"name,omitempty"`
-	Description *string `json:"description,omitempty"`
-	EncryptionAlgorithm *Encryption `json:"encryption_algorithm,omitempty"`
+	Name                    *string         `json:"name,omitempty"`
+	Description             *string         `json:"description,omitempty"`
+	EncryptionAlgorithm     *Encryption     `json:"encryption_algorithm,omitempty"`
 	AuthenticationAlgorithm *Authentication `json:"authentication_algorithm,omitempty"`
 	// Security association lifetime (seconds)
 	SaLifetimeSeconds NullableInt32 `json:"sa_lifetime_seconds,omitempty"`
 	// Security association lifetime (in kilobytes)
-	SaLifetimeData NullableInt32 `json:"sa_lifetime_data,omitempty"`
-	Comments *string `json:"comments,omitempty"`
-	Tags []NestedTagRequest `json:"tags,omitempty"`
-	CustomFields map[string]interface{} `json:"custom_fields,omitempty"`
+	SaLifetimeData       NullableInt32          `json:"sa_lifetime_data,omitempty"`
+	Comments             *string                `json:"comments,omitempty"`
+	Tags                 []NestedTagRequest     `json:"tags,omitempty"`
+	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -212,6 +212,7 @@ func (o *PatchedWritableIPSecProposalRequest) HasSaLifetimeSeconds() bool {
 func (o *PatchedWritableIPSecProposalRequest) SetSaLifetimeSeconds(v int32) {
 	o.SaLifetimeSeconds.Set(&v)
 }
+
 // SetSaLifetimeSecondsNil sets the value for SaLifetimeSeconds to be an explicit nil
 func (o *PatchedWritableIPSecProposalRequest) SetSaLifetimeSecondsNil() {
 	o.SaLifetimeSeconds.Set(nil)
@@ -254,6 +255,7 @@ func (o *PatchedWritableIPSecProposalRequest) HasSaLifetimeData() bool {
 func (o *PatchedWritableIPSecProposalRequest) SetSaLifetimeData(v int32) {
 	o.SaLifetimeData.Set(&v)
 }
+
 // SetSaLifetimeDataNil sets the value for SaLifetimeData to be an explicit nil
 func (o *PatchedWritableIPSecProposalRequest) SetSaLifetimeDataNil() {
 	o.SaLifetimeData.Set(nil)
@@ -361,7 +363,7 @@ func (o *PatchedWritableIPSecProposalRequest) SetCustomFields(v map[string]inter
 }
 
 func (o PatchedWritableIPSecProposalRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -469,5 +471,3 @@ func (v *NullablePatchedWritableIPSecProposalRequest) UnmarshalJSON(src []byte) 
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

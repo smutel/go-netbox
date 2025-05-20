@@ -20,9 +20,9 @@ var _ MappedNullable = &BriefVirtualChassisRequest{}
 
 // BriefVirtualChassisRequest Adds support for custom fields and tags.
 type BriefVirtualChassisRequest struct {
-	Name string `json:"name"`
-	Master NullableNestedDeviceRequest `json:"master,omitempty"`
-	Description *string `json:"description,omitempty"`
+	Name                 string                      `json:"name"`
+	Master               NullableNestedDeviceRequest `json:"master,omitempty"`
+	Description          *string                     `json:"description,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -70,7 +70,6 @@ func (o *BriefVirtualChassisRequest) SetName(v string) {
 	o.Name = v
 }
 
-
 // GetMaster returns the Master field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *BriefVirtualChassisRequest) GetMaster() NestedDeviceRequest {
 	if o == nil || IsNil(o.Master.Get()) {
@@ -103,6 +102,7 @@ func (o *BriefVirtualChassisRequest) HasMaster() bool {
 func (o *BriefVirtualChassisRequest) SetMaster(v NestedDeviceRequest) {
 	o.Master.Set(&v)
 }
+
 // SetMasterNil sets the value for Master to be an explicit nil
 func (o *BriefVirtualChassisRequest) SetMasterNil() {
 	o.Master.Set(nil)
@@ -146,7 +146,7 @@ func (o *BriefVirtualChassisRequest) SetDescription(v string) {
 }
 
 func (o BriefVirtualChassisRequest) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -180,32 +180,31 @@ func (o *BriefVirtualChassisRequest) UnmarshalJSON(data []byte) (err error) {
 
 	// defaultValueFuncMap captures the default values for required properties.
 	// These values are used when required properties are missing from the payload.
-	defaultValueFuncMap := map[string]func() interface{} {
-	}
+	defaultValueFuncMap := map[string]func() interface{}{}
 	var defaultValueApplied bool
 	allProperties := make(map[string]interface{})
 
 	err = json.Unmarshal(data, &allProperties)
 
 	if err != nil {
-		return err;
+		return err
 	}
 
-	for _, requiredProperty := range(requiredProperties) {
+	for _, requiredProperty := range requiredProperties {
 		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			if _, ok := defaultValueFuncMap[requiredProperty]; ok {
 				allProperties[requiredProperty] = defaultValueFuncMap[requiredProperty]()
 				defaultValueApplied = true
 			}
 		}
-		if value, exists := allProperties[requiredProperty]; !exists || value == ""{
+		if value, exists := allProperties[requiredProperty]; !exists || value == "" {
 			return fmt.Errorf("no value given for required property %v", requiredProperty)
 		}
 	}
 
 	if defaultValueApplied {
 		data, err = json.Marshal(allProperties)
-		if err != nil{
+		if err != nil {
 			return err
 		}
 	}
@@ -266,5 +265,3 @@ func (v *NullableBriefVirtualChassisRequest) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

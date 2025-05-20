@@ -19,8 +19,8 @@ var _ MappedNullable = &RackUnitFace{}
 
 // RackUnitFace struct for RackUnitFace
 type RackUnitFace struct {
-	Value *RackUnitFaceValue `json:"value,omitempty"`
-	Label *DeviceFaceLabel `json:"label,omitempty"`
+	Value                *RackUnitFaceValue `json:"value,omitempty"`
+	Label                *DeviceFaceLabel   `json:"label,omitempty"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -108,7 +108,7 @@ func (o *RackUnitFace) SetLabel(v DeviceFaceLabel) {
 }
 
 func (o RackUnitFace) MarshalJSON() ([]byte, error) {
-	toSerialize,err := o.ToMap()
+	toSerialize, err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
 	}
@@ -188,5 +188,3 @@ func (v *NullableRackUnitFace) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
-

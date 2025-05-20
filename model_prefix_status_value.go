@@ -20,9 +20,9 @@ type PrefixStatusValue string
 
 // List of Prefix_status_value
 const (
-	PREFIXSTATUSVALUE_CONTAINER PrefixStatusValue = "container"
-	PREFIXSTATUSVALUE_ACTIVE PrefixStatusValue = "active"
-	PREFIXSTATUSVALUE_RESERVED PrefixStatusValue = "reserved"
+	PREFIXSTATUSVALUE_CONTAINER  PrefixStatusValue = "container"
+	PREFIXSTATUSVALUE_ACTIVE     PrefixStatusValue = "active"
+	PREFIXSTATUSVALUE_RESERVED   PrefixStatusValue = "reserved"
 	PREFIXSTATUSVALUE_DEPRECATED PrefixStatusValue = "deprecated"
 )
 
@@ -112,4 +112,3 @@ func (v *NullablePrefixStatusValue) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }
-
