@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/smutel/go-netbox/compare/v4.0.0...v4.0.1) (2025-05-21)
+
+
+### Features
+
+* Execute goimports on generated library ([72bf4ac](https://github.com/smutel/go-netbox/commit/72bf4ac660f38ce97f3497423976b47afe537fae))
+
 ## [4.0.0](https://github.com/smutel/go-netbox/compare/v3.4.0...v4.0.0) (2025-05-20)
 
 
