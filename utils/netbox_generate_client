@@ -10,10 +10,9 @@ get_last_netbox_version() {
   NEXT=""
   max=0
   i=0
-  while [ "$NEXT" != "null" ]
-  do
-    i=$((i+1))
-    JSON=$(curl https://registry.hub.docker.com/v2/repositories/netboxcommunity/netbox/tags/?page=$i\&page_size=1000 2>/dev/null)
+  while [ "$NEXT" != "null" ]; do
+    i=$((i + 1))
+    JSON=$(curl https://registry.hub.docker.com/v2/repositories/netboxcommunity/netbox/tags/?page=$i\&page_size=10 2>/dev/null)
     tags="$tags $(echo "$JSON" | jq -r '."results"[]["name"]' | grep "$version" | grep -E "^v[0-9]+\.[0-9]+\.[0-9]+-[0-9]+\.[0-9]+\.[0-9]+$")"
     NEXT=$(echo "$JSON" | jq '."next"')
   done
@@ -45,11 +44,11 @@ echo "Purge old lib generated ..."
 if [ -f "${PROJECT_ROOT}/.openapi-generator/files" ]; then
   while read -r file; do
     rm -f "${PROJECT_ROOT}/$file"
-  done < "${PROJECT_ROOT}"/.openapi-generator/files
+  done <"${PROJECT_ROOT}"/.openapi-generator/files
 fi
 
-rm -rf "${PROJECT_ROOT}/api" && mkdir -p "${PROJECT_ROOT}/api" \
-  && touch "${PROJECT_ROOT}/api/.gitkeep"
+rm -rf "${PROJECT_ROOT}/api" && mkdir -p "${PROJECT_ROOT}/api" &&
+  touch "${PROJECT_ROOT}/api/.gitkeep"
 
 if [ ! -f "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml" ]; then
   echo "Get github project netbox-docker ..."
@@ -63,12 +62,12 @@ if [ ! -f "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml" ]; then
   sed -i 's/netbox-postgres-data/gonetbox-postgres-data/g' docker-compose.yml
   sed -i 's/netbox-redis-data/gonetbox-redis-data/g' docker-compose.yml
   sed -i 's/netbox-redis-cache-data/gonetbox-redis-cache-data/g' docker-compose.yml
-  sed -i 's/start_period: 60s/start_period: 600s/g' docker-compose.yml
+  sed -i 's/start_period: [0-9]*s/start_period: 600s/g' docker-compose.yml
   docker compose down -v
   docker compose up -d --quiet-pull
 
   echo "Get openapi from netbox docker ..."
-  while ! curl -s http://localhost:8000/api/schema/ -o openapi.yaml 2> /dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
+  while ! curl -s http://localhost:8000/api/schema/ -o openapi.yaml 2>/dev/null; do sleep 1 && echo "Waiting docker to be up..."; done
   cp openapi.yaml "${PROJECT_ROOT}/openapi/openapi-${VERSION}.yaml"
   rm openapi.yaml
   docker compose down -v
@@ -83,13 +82,15 @@ cd "${PROJECT_ROOT}"/utils
 ./fix-spec.py
 
 # Generate library
-docker run --rm --env JAVA_OPTS=-DmaxYamlCodePoints=9999999 -v "${PROJECT_ROOT}:/local" openapitools/openapi-generator-cli:v7.13.0 \
-    generate \
-    --config /local/.openapi-generator/config.yaml \
-    --input-spec /local/api/openapi.yaml \
-    --output /local \
-    --inline-schema-options RESOLVE_INLINE_ENUMS=true \
-    --http-user-agent go-netbox/"$(cat ../utils/netbox_major_version)"
+docker run --rm --env JAVA_OPTS=-DmaxYamlCodePoints=9999999 -v "${PROJECT_ROOT}:/local" openapitools/openapi-generator-cli:v7.25.0 \
+  generate \
+  --config /local/.openapi-generator/config.yaml \
+  --input-spec /local/api/openapi.yaml \
+  --output /local \
+  --inline-schema-options RESOLVE_INLINE_ENUMS=true \
+  --http-user-agent go-netbox/"$(cat ../utils/netbox_major_version)"
+sudo chown $(id -un):$(id -gn) ../*.go
+sudo chmod 644 ../*.go
 
 echo "Apply patches manually ..."
 sudo cp "${PROJECT_ROOT}"/patches/* "${PROJECT_ROOT}"
