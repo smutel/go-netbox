@@ -8,13 +8,21 @@ Name | Type | Description | Notes
 **Url** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **AppLabel** | **string** |  | 
+**AppName** | **string** |  | [readonly] 
 **Model** | **string** |  | 
+**ModelName** | **string** |  | [readonly] 
+**ModelNamePlural** | **string** |  | [readonly] 
+**Public** | **bool** |  | [readonly] 
+**Features** | **[]string** |  | [readonly] 
+**IsPluginModel** | **bool** |  | [readonly] 
+**RestApiEndpoint** | **string** |  | [readonly] 
+**Description** | **string** |  | [readonly] 
 
 ## Methods
 
 ### NewObjectType
 
-`func NewObjectType(id int32, url string, display string, appLabel string, model string, ) *ObjectType`
+`func NewObjectType(id int32, url string, display string, appLabel string, appName string, model string, modelName string, modelNamePlural string, public bool, features []string, isPluginModel bool, restApiEndpoint string, description string, ) *ObjectType`
 
 NewObjectType instantiates a new ObjectType object
 This constructor will assign default values to properties that have it defined,
@@ -109,6 +117,26 @@ and a boolean to check if the value has been set.
 SetAppLabel sets AppLabel field to given value.
 
 
+### GetAppName
+
+`func (o *ObjectType) GetAppName() string`
+
+GetAppName returns the AppName field if non-nil, zero value otherwise.
+
+### GetAppNameOk
+
+`func (o *ObjectType) GetAppNameOk() (*string, bool)`
+
+GetAppNameOk returns a tuple with the AppName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppName
+
+`func (o *ObjectType) SetAppName(v string)`
+
+SetAppName sets AppName field to given value.
+
+
 ### GetModel
 
 `func (o *ObjectType) GetModel() string`
@@ -127,6 +155,146 @@ and a boolean to check if the value has been set.
 `func (o *ObjectType) SetModel(v string)`
 
 SetModel sets Model field to given value.
+
+
+### GetModelName
+
+`func (o *ObjectType) GetModelName() string`
+
+GetModelName returns the ModelName field if non-nil, zero value otherwise.
+
+### GetModelNameOk
+
+`func (o *ObjectType) GetModelNameOk() (*string, bool)`
+
+GetModelNameOk returns a tuple with the ModelName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModelName
+
+`func (o *ObjectType) SetModelName(v string)`
+
+SetModelName sets ModelName field to given value.
+
+
+### GetModelNamePlural
+
+`func (o *ObjectType) GetModelNamePlural() string`
+
+GetModelNamePlural returns the ModelNamePlural field if non-nil, zero value otherwise.
+
+### GetModelNamePluralOk
+
+`func (o *ObjectType) GetModelNamePluralOk() (*string, bool)`
+
+GetModelNamePluralOk returns a tuple with the ModelNamePlural field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModelNamePlural
+
+`func (o *ObjectType) SetModelNamePlural(v string)`
+
+SetModelNamePlural sets ModelNamePlural field to given value.
+
+
+### GetPublic
+
+`func (o *ObjectType) GetPublic() bool`
+
+GetPublic returns the Public field if non-nil, zero value otherwise.
+
+### GetPublicOk
+
+`func (o *ObjectType) GetPublicOk() (*bool, bool)`
+
+GetPublicOk returns a tuple with the Public field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPublic
+
+`func (o *ObjectType) SetPublic(v bool)`
+
+SetPublic sets Public field to given value.
+
+
+### GetFeatures
+
+`func (o *ObjectType) GetFeatures() []string`
+
+GetFeatures returns the Features field if non-nil, zero value otherwise.
+
+### GetFeaturesOk
+
+`func (o *ObjectType) GetFeaturesOk() (*[]string, bool)`
+
+GetFeaturesOk returns a tuple with the Features field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFeatures
+
+`func (o *ObjectType) SetFeatures(v []string)`
+
+SetFeatures sets Features field to given value.
+
+
+### GetIsPluginModel
+
+`func (o *ObjectType) GetIsPluginModel() bool`
+
+GetIsPluginModel returns the IsPluginModel field if non-nil, zero value otherwise.
+
+### GetIsPluginModelOk
+
+`func (o *ObjectType) GetIsPluginModelOk() (*bool, bool)`
+
+GetIsPluginModelOk returns a tuple with the IsPluginModel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsPluginModel
+
+`func (o *ObjectType) SetIsPluginModel(v bool)`
+
+SetIsPluginModel sets IsPluginModel field to given value.
+
+
+### GetRestApiEndpoint
+
+`func (o *ObjectType) GetRestApiEndpoint() string`
+
+GetRestApiEndpoint returns the RestApiEndpoint field if non-nil, zero value otherwise.
+
+### GetRestApiEndpointOk
+
+`func (o *ObjectType) GetRestApiEndpointOk() (*string, bool)`
+
+GetRestApiEndpointOk returns a tuple with the RestApiEndpoint field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRestApiEndpoint
+
+`func (o *ObjectType) SetRestApiEndpoint(v string)`
+
+SetRestApiEndpoint sets RestApiEndpoint field to given value.
+
+
+### GetDescription
+
+`func (o *ObjectType) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ObjectType) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ObjectType) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
 
 
 

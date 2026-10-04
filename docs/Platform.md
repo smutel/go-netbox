@@ -6,24 +6,29 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
+**Parent** | Pointer to [**NullableNestedPlatform**](NestedPlatform.md) |  | [optional] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Manufacturer** | Pointer to [**NullableBriefManufacturer**](BriefManufacturer.md) |  | [optional] 
 **ConfigTemplate** | Pointer to [**NullableBriefConfigTemplate**](BriefConfigTemplate.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
-**DeviceCount** | **int64** |  | [readonly] 
-**VirtualmachineCount** | **int64** |  | [readonly] 
+**DeviceCount** | **int32** |  | [readonly] [default to 0]
+**VirtualmachineCount** | **int32** |  | [readonly] [default to 0]
+**Depth** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewPlatform
 
-`func NewPlatform(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, deviceCount int64, virtualmachineCount int64, ) *Platform`
+`func NewPlatform(id int32, url string, displayUrl string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, deviceCount int32, virtualmachineCount int32, depth int32, ) *Platform`
 
 NewPlatform instantiates a new Platform object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +83,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *Platform) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Platform) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Platform) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *Platform) GetDisplay() string`
@@ -98,6 +123,41 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
+### GetParent
+
+`func (o *Platform) GetParent() NestedPlatform`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *Platform) GetParentOk() (*NestedPlatform, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParent
+
+`func (o *Platform) SetParent(v NestedPlatform)`
+
+SetParent sets Parent field to given value.
+
+### HasParent
+
+`func (o *Platform) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
+
+### SetParentNil
+
+`func (o *Platform) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *Platform) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetName
 
 `func (o *Platform) GetName() string`
@@ -233,6 +293,66 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Platform) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Platform) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Platform) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Platform) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Platform) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Platform) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *Platform) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *Platform) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *Platform) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *Platform) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
 ### GetTags
 
 `func (o *Platform) GetTags() []NestedTag`
@@ -345,42 +465,62 @@ SetLastUpdated sets LastUpdated field to given value.
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
 ### GetDeviceCount
 
-`func (o *Platform) GetDeviceCount() int64`
+`func (o *Platform) GetDeviceCount() int32`
 
 GetDeviceCount returns the DeviceCount field if non-nil, zero value otherwise.
 
 ### GetDeviceCountOk
 
-`func (o *Platform) GetDeviceCountOk() (*int64, bool)`
+`func (o *Platform) GetDeviceCountOk() (*int32, bool)`
 
 GetDeviceCountOk returns a tuple with the DeviceCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceCount
 
-`func (o *Platform) SetDeviceCount(v int64)`
+`func (o *Platform) SetDeviceCount(v int32)`
 
 SetDeviceCount sets DeviceCount field to given value.
 
 
 ### GetVirtualmachineCount
 
-`func (o *Platform) GetVirtualmachineCount() int64`
+`func (o *Platform) GetVirtualmachineCount() int32`
 
 GetVirtualmachineCount returns the VirtualmachineCount field if non-nil, zero value otherwise.
 
 ### GetVirtualmachineCountOk
 
-`func (o *Platform) GetVirtualmachineCountOk() (*int64, bool)`
+`func (o *Platform) GetVirtualmachineCountOk() (*int32, bool)`
 
 GetVirtualmachineCountOk returns a tuple with the VirtualmachineCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVirtualmachineCount
 
-`func (o *Platform) SetVirtualmachineCount(v int64)`
+`func (o *Platform) SetVirtualmachineCount(v int32)`
 
 SetVirtualmachineCount sets VirtualmachineCount field to given value.
+
+
+### GetDepth
+
+`func (o *Platform) GetDepth() int32`
+
+GetDepth returns the Depth field if non-nil, zero value otherwise.
+
+### GetDepthOk
+
+`func (o *Platform) GetDepthOk() (*int32, bool)`
+
+GetDepthOk returns a tuple with the Depth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDepth
+
+`func (o *Platform) SetDepth(v int32)`
+
+SetDepth sets Depth field to given value.
 
 
 

@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**EncryptionAlgorithm** | Pointer to [**Encryption**](Encryption.md) |  | [optional] 
-**AuthenticationAlgorithm** | Pointer to [**Authentication**](Authentication.md) |  | [optional] 
+**EncryptionAlgorithm** | Pointer to [**NullableEncryption**](Encryption.md) |  | [optional] 
+**AuthenticationAlgorithm** | Pointer to [**NullableAuthentication**](Authentication.md) |  | [optional] 
 **SaLifetimeSeconds** | Pointer to **NullableInt32** | Security association lifetime (seconds) | [optional] 
 **SaLifetimeData** | Pointer to **NullableInt32** | Security association lifetime (in kilobytes) | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -108,6 +109,16 @@ SetEncryptionAlgorithm sets EncryptionAlgorithm field to given value.
 
 HasEncryptionAlgorithm returns a boolean if a field has been set.
 
+### SetEncryptionAlgorithmNil
+
+`func (o *PatchedWritableIPSecProposalRequest) SetEncryptionAlgorithmNil(b bool)`
+
+ SetEncryptionAlgorithmNil sets the value for EncryptionAlgorithm to be an explicit nil
+
+### UnsetEncryptionAlgorithm
+`func (o *PatchedWritableIPSecProposalRequest) UnsetEncryptionAlgorithm()`
+
+UnsetEncryptionAlgorithm ensures that no value is present for EncryptionAlgorithm, not even an explicit nil
 ### GetAuthenticationAlgorithm
 
 `func (o *PatchedWritableIPSecProposalRequest) GetAuthenticationAlgorithm() Authentication`
@@ -133,6 +144,16 @@ SetAuthenticationAlgorithm sets AuthenticationAlgorithm field to given value.
 
 HasAuthenticationAlgorithm returns a boolean if a field has been set.
 
+### SetAuthenticationAlgorithmNil
+
+`func (o *PatchedWritableIPSecProposalRequest) SetAuthenticationAlgorithmNil(b bool)`
+
+ SetAuthenticationAlgorithmNil sets the value for AuthenticationAlgorithm to be an explicit nil
+
+### UnsetAuthenticationAlgorithm
+`func (o *PatchedWritableIPSecProposalRequest) UnsetAuthenticationAlgorithm()`
+
+UnsetAuthenticationAlgorithm ensures that no value is present for AuthenticationAlgorithm, not even an explicit nil
 ### GetSaLifetimeSeconds
 
 `func (o *PatchedWritableIPSecProposalRequest) GetSaLifetimeSeconds() int32`
@@ -203,6 +224,41 @@ HasSaLifetimeData returns a boolean if a field has been set.
 `func (o *PatchedWritableIPSecProposalRequest) UnsetSaLifetimeData()`
 
 UnsetSaLifetimeData ensures that no value is present for SaLifetimeData, not even an explicit nil
+### GetOwner
+
+`func (o *PatchedWritableIPSecProposalRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableIPSecProposalRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableIPSecProposalRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableIPSecProposalRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableIPSecProposalRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableIPSecProposalRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableIPSecProposalRequest) GetComments() string`

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Group** | Pointer to [**BriefFHRPGroupRequest**](BriefFHRPGroupRequest.md) |  | [optional] 
+**Group** | Pointer to [**BulkFHRPGroupAssignmentRequestGroup**](BulkFHRPGroupAssignmentRequestGroup.md) |  | [optional] 
 **InterfaceType** | Pointer to **string** |  | [optional] 
 **InterfaceId** | Pointer to **int64** |  | [optional] 
 **Priority** | Pointer to **int32** |  | [optional] 
@@ -30,20 +30,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetGroup
 
-`func (o *PatchedFHRPGroupAssignmentRequest) GetGroup() BriefFHRPGroupRequest`
+`func (o *PatchedFHRPGroupAssignmentRequest) GetGroup() BulkFHRPGroupAssignmentRequestGroup`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *PatchedFHRPGroupAssignmentRequest) GetGroupOk() (*BriefFHRPGroupRequest, bool)`
+`func (o *PatchedFHRPGroupAssignmentRequest) GetGroupOk() (*BulkFHRPGroupAssignmentRequestGroup, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *PatchedFHRPGroupAssignmentRequest) SetGroup(v BriefFHRPGroupRequest)`
+`func (o *PatchedFHRPGroupAssignmentRequest) SetGroup(v BulkFHRPGroupAssignmentRequestGroup)`
 
 SetGroup sets Group field to given value.
 

@@ -6,15 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**PayloadUrl** | Pointer to **string** | This URL will be called using the HTTP method defined when the webhook is called. Jinja2 template processing is supported with the same context as the request body. | [optional] 
-**HttpMethod** | Pointer to [**PatchedWebhookRequestHttpMethod**](PatchedWebhookRequestHttpMethod.md) |  | [optional] 
+**PayloadUrl** | Pointer to **string** | This URL will be called using the HTTP method defined when the webhook is called. Must be http:// or https://. Jinja2 template processing is supported (with the same context as the request body) for part or all of the URL. | [optional] 
+**HttpMethod** | Pointer to [**BulkWebhookRequestHttpMethod**](BulkWebhookRequestHttpMethod.md) |  | [optional] 
 **HttpContentType** | Pointer to **string** | The complete list of official content types is available &lt;a href&#x3D;\&quot;https://www.iana.org/assignments/media-types/media-types.xhtml\&quot;&gt;here&lt;/a&gt;. | [optional] 
-**AdditionalHeaders** | Pointer to **string** | User-supplied HTTP headers to be sent with the request in addition to the HTTP content type. Headers should be defined in the format &lt;code&gt;Name: Value&lt;/code&gt;. Jinja2 template processing is supported with the same context as the request body (below). | [optional] 
-**BodyTemplate** | Pointer to **string** | Jinja2 template for a custom request body. If blank, a JSON object representing the change will be included. Available context data includes: &lt;code&gt;event&lt;/code&gt;, &lt;code&gt;model&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;username&lt;/code&gt;, &lt;code&gt;request_id&lt;/code&gt;, and &lt;code&gt;data&lt;/code&gt;. | [optional] 
+**AdditionalHeaders** | Pointer to **string** | User-supplied HTTP headers to be sent with the request in addition to the HTTP content type. Headers should be defined in the format &lt;code&gt;Name: Value&lt;/code&gt;. Jinja2 template processing is supported with the same context as the request body (below). When interpolating untrusted data (such as object attributes) into a header value, apply the &lt;code&gt;header_safe&lt;/code&gt; filter to guard against HTTP header injection, e.g. &lt;code&gt;X-Object: {{ data.name | header_safe }}&lt;/code&gt;. | [optional] 
+**BodyTemplate** | Pointer to **string** | Jinja2 template for a custom request body. If blank, a JSON object representing the change will be included. Available context data includes: &lt;code&gt;event&lt;/code&gt;, &lt;code&gt;model&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;request&lt;/code&gt;, and &lt;code&gt;data&lt;/code&gt;. | [optional] 
 **Secret** | Pointer to **string** | When provided, the request will include a &lt;code&gt;X-Hook-Signature&lt;/code&gt; header containing a HMAC hex digest of the payload body using the secret as the key. The secret is not transmitted in the request. | [optional] 
 **SslVerification** | Pointer to **bool** | Enable SSL certificate verification. Disable with caution! | [optional] 
 **CaFilePath** | Pointer to **NullableString** | The specific CA certificate file to use for SSL verification. Leave blank to use the system defaults. | [optional] 
+**Timeout** | Pointer to **NullableInt32** | The maximum time (in seconds) to wait for a response before failing the request. Leave blank to use the system default (60 seconds). | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 
 ## Methods
@@ -113,20 +115,20 @@ HasPayloadUrl returns a boolean if a field has been set.
 
 ### GetHttpMethod
 
-`func (o *PatchedWebhookRequest) GetHttpMethod() PatchedWebhookRequestHttpMethod`
+`func (o *PatchedWebhookRequest) GetHttpMethod() BulkWebhookRequestHttpMethod`
 
 GetHttpMethod returns the HttpMethod field if non-nil, zero value otherwise.
 
 ### GetHttpMethodOk
 
-`func (o *PatchedWebhookRequest) GetHttpMethodOk() (*PatchedWebhookRequestHttpMethod, bool)`
+`func (o *PatchedWebhookRequest) GetHttpMethodOk() (*BulkWebhookRequestHttpMethod, bool)`
 
 GetHttpMethodOk returns a tuple with the HttpMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHttpMethod
 
-`func (o *PatchedWebhookRequest) SetHttpMethod(v PatchedWebhookRequestHttpMethod)`
+`func (o *PatchedWebhookRequest) SetHttpMethod(v BulkWebhookRequestHttpMethod)`
 
 SetHttpMethod sets HttpMethod field to given value.
 
@@ -296,6 +298,41 @@ HasCaFilePath returns a boolean if a field has been set.
 `func (o *PatchedWebhookRequest) UnsetCaFilePath()`
 
 UnsetCaFilePath ensures that no value is present for CaFilePath, not even an explicit nil
+### GetTimeout
+
+`func (o *PatchedWebhookRequest) GetTimeout() int32`
+
+GetTimeout returns the Timeout field if non-nil, zero value otherwise.
+
+### GetTimeoutOk
+
+`func (o *PatchedWebhookRequest) GetTimeoutOk() (*int32, bool)`
+
+GetTimeoutOk returns a tuple with the Timeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeout
+
+`func (o *PatchedWebhookRequest) SetTimeout(v int32)`
+
+SetTimeout sets Timeout field to given value.
+
+### HasTimeout
+
+`func (o *PatchedWebhookRequest) HasTimeout() bool`
+
+HasTimeout returns a boolean if a field has been set.
+
+### SetTimeoutNil
+
+`func (o *PatchedWebhookRequest) SetTimeoutNil(b bool)`
+
+ SetTimeoutNil sets the value for Timeout to be an explicit nil
+
+### UnsetTimeout
+`func (o *PatchedWebhookRequest) UnsetTimeout()`
+
+UnsetTimeout ensures that no value is present for Timeout, not even an explicit nil
 ### GetCustomFields
 
 `func (o *PatchedWebhookRequest) GetCustomFields() map[string]interface{}`
@@ -321,6 +358,41 @@ SetCustomFields sets CustomFields field to given value.
 
 HasCustomFields returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWebhookRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWebhookRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWebhookRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWebhookRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWebhookRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWebhookRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PatchedWebhookRequest) GetTags() []NestedTagRequest`

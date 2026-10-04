@@ -10,14 +10,14 @@ Name | Type | Description | Notes
 **Identifier** | Pointer to **NullableInt64** |  | [optional] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
-**Type** | Pointer to [**BriefL2VPNType**](BriefL2VPNType.md) |  | [optional] 
+**Type** | [**BriefL2VPNType**](BriefL2VPNType.md) |  | 
 **Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewBriefL2VPN
 
-`func NewBriefL2VPN(id int32, url string, display string, name string, slug string, ) *BriefL2VPN`
+`func NewBriefL2VPN(id int32, url string, display string, name string, slug string, type_ BriefL2VPNType, ) *BriefL2VPN`
 
 NewBriefL2VPN instantiates a new BriefL2VPN object
 This constructor will assign default values to properties that have it defined,
@@ -186,11 +186,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *BriefL2VPN) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### GetDescription
 

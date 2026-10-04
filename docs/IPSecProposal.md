@@ -6,13 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**EncryptionAlgorithm** | [**IKEProposalEncryptionAlgorithm**](IKEProposalEncryptionAlgorithm.md) |  | 
-**AuthenticationAlgorithm** | [**IKEProposalAuthenticationAlgorithm**](IKEProposalAuthenticationAlgorithm.md) |  | 
+**EncryptionAlgorithm** | Pointer to [**IKEProposalEncryptionAlgorithm**](IKEProposalEncryptionAlgorithm.md) |  | [optional] 
+**AuthenticationAlgorithm** | Pointer to [**IKEProposalAuthenticationAlgorithm**](IKEProposalAuthenticationAlgorithm.md) |  | [optional] 
 **SaLifetimeSeconds** | Pointer to **NullableInt32** | Security association lifetime (seconds) | [optional] 
 **SaLifetimeData** | Pointer to **NullableInt32** | Security association lifetime (in kilobytes) | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewIPSecProposal
 
-`func NewIPSecProposal(id int32, url string, display string, name string, encryptionAlgorithm IKEProposalEncryptionAlgorithm, authenticationAlgorithm IKEProposalAuthenticationAlgorithm, created NullableTime, lastUpdated NullableTime, ) *IPSecProposal`
+`func NewIPSecProposal(id int32, url string, displayUrl string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *IPSecProposal`
 
 NewIPSecProposal instantiates a new IPSecProposal object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *IPSecProposal) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *IPSecProposal) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *IPSecProposal) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *IPSecProposal) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -162,6 +184,11 @@ and a boolean to check if the value has been set.
 
 SetEncryptionAlgorithm sets EncryptionAlgorithm field to given value.
 
+### HasEncryptionAlgorithm
+
+`func (o *IPSecProposal) HasEncryptionAlgorithm() bool`
+
+HasEncryptionAlgorithm returns a boolean if a field has been set.
 
 ### GetAuthenticationAlgorithm
 
@@ -182,6 +209,11 @@ and a boolean to check if the value has been set.
 
 SetAuthenticationAlgorithm sets AuthenticationAlgorithm field to given value.
 
+### HasAuthenticationAlgorithm
+
+`func (o *IPSecProposal) HasAuthenticationAlgorithm() bool`
+
+HasAuthenticationAlgorithm returns a boolean if a field has been set.
 
 ### GetSaLifetimeSeconds
 
@@ -253,6 +285,41 @@ HasSaLifetimeData returns a boolean if a field has been set.
 `func (o *IPSecProposal) UnsetSaLifetimeData()`
 
 UnsetSaLifetimeData ensures that no value is present for SaLifetimeData, not even an explicit nil
+### GetOwner
+
+`func (o *IPSecProposal) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IPSecProposal) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IPSecProposal) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IPSecProposal) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IPSecProposal) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IPSecProposal) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IPSecProposal) GetComments() string`

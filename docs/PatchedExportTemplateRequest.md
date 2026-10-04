@@ -7,11 +7,15 @@ Name | Type | Description | Notes
 **ObjectTypes** | Pointer to **[]string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**TemplateCode** | Pointer to **string** | Jinja2 template code. The list of objects being exported is passed as a context variable named &lt;code&gt;queryset&lt;/code&gt;. | [optional] 
+**EnvironmentParams** | Pointer to **interface{}** | Any &lt;a href&#x3D;\&quot;https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment\&quot;&gt;additional parameters&lt;/a&gt; to pass when constructing the Jinja environment | [optional] 
+**TemplateCode** | Pointer to **string** | Jinja template code. | [optional] 
 **MimeType** | Pointer to **string** | Defaults to &lt;code&gt;text/plain; charset&#x3D;utf-8&lt;/code&gt; | [optional] 
+**FileName** | Pointer to **string** | Filename to give to the rendered export file | [optional] 
 **FileExtension** | Pointer to **string** | Extension to append to the rendered filename | [optional] 
 **AsAttachment** | Pointer to **bool** | Download file as attachment | [optional] 
-**DataSource** | Pointer to [**BriefDataSourceRequest**](BriefDataSourceRequest.md) |  | [optional] 
+**DataSource** | Pointer to [**BulkConfigContextProfileRequestDataSource**](BulkConfigContextProfileRequestDataSource.md) |  | [optional] 
+**AutoSyncEnabled** | Pointer to **bool** | Enable automatic synchronization of data when the data file is updated | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 
 ## Methods
 
@@ -107,6 +111,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetEnvironmentParams
+
+`func (o *PatchedExportTemplateRequest) GetEnvironmentParams() interface{}`
+
+GetEnvironmentParams returns the EnvironmentParams field if non-nil, zero value otherwise.
+
+### GetEnvironmentParamsOk
+
+`func (o *PatchedExportTemplateRequest) GetEnvironmentParamsOk() (*interface{}, bool)`
+
+GetEnvironmentParamsOk returns a tuple with the EnvironmentParams field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentParams
+
+`func (o *PatchedExportTemplateRequest) SetEnvironmentParams(v interface{})`
+
+SetEnvironmentParams sets EnvironmentParams field to given value.
+
+### HasEnvironmentParams
+
+`func (o *PatchedExportTemplateRequest) HasEnvironmentParams() bool`
+
+HasEnvironmentParams returns a boolean if a field has been set.
+
+### SetEnvironmentParamsNil
+
+`func (o *PatchedExportTemplateRequest) SetEnvironmentParamsNil(b bool)`
+
+ SetEnvironmentParamsNil sets the value for EnvironmentParams to be an explicit nil
+
+### UnsetEnvironmentParams
+`func (o *PatchedExportTemplateRequest) UnsetEnvironmentParams()`
+
+UnsetEnvironmentParams ensures that no value is present for EnvironmentParams, not even an explicit nil
 ### GetTemplateCode
 
 `func (o *PatchedExportTemplateRequest) GetTemplateCode() string`
@@ -156,6 +195,31 @@ SetMimeType sets MimeType field to given value.
 `func (o *PatchedExportTemplateRequest) HasMimeType() bool`
 
 HasMimeType returns a boolean if a field has been set.
+
+### GetFileName
+
+`func (o *PatchedExportTemplateRequest) GetFileName() string`
+
+GetFileName returns the FileName field if non-nil, zero value otherwise.
+
+### GetFileNameOk
+
+`func (o *PatchedExportTemplateRequest) GetFileNameOk() (*string, bool)`
+
+GetFileNameOk returns a tuple with the FileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileName
+
+`func (o *PatchedExportTemplateRequest) SetFileName(v string)`
+
+SetFileName sets FileName field to given value.
+
+### HasFileName
+
+`func (o *PatchedExportTemplateRequest) HasFileName() bool`
+
+HasFileName returns a boolean if a field has been set.
 
 ### GetFileExtension
 
@@ -209,20 +273,20 @@ HasAsAttachment returns a boolean if a field has been set.
 
 ### GetDataSource
 
-`func (o *PatchedExportTemplateRequest) GetDataSource() BriefDataSourceRequest`
+`func (o *PatchedExportTemplateRequest) GetDataSource() BulkConfigContextProfileRequestDataSource`
 
 GetDataSource returns the DataSource field if non-nil, zero value otherwise.
 
 ### GetDataSourceOk
 
-`func (o *PatchedExportTemplateRequest) GetDataSourceOk() (*BriefDataSourceRequest, bool)`
+`func (o *PatchedExportTemplateRequest) GetDataSourceOk() (*BulkConfigContextProfileRequestDataSource, bool)`
 
 GetDataSourceOk returns a tuple with the DataSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataSource
 
-`func (o *PatchedExportTemplateRequest) SetDataSource(v BriefDataSourceRequest)`
+`func (o *PatchedExportTemplateRequest) SetDataSource(v BulkConfigContextProfileRequestDataSource)`
 
 SetDataSource sets DataSource field to given value.
 
@@ -232,6 +296,66 @@ SetDataSource sets DataSource field to given value.
 
 HasDataSource returns a boolean if a field has been set.
 
+### GetAutoSyncEnabled
+
+`func (o *PatchedExportTemplateRequest) GetAutoSyncEnabled() bool`
+
+GetAutoSyncEnabled returns the AutoSyncEnabled field if non-nil, zero value otherwise.
+
+### GetAutoSyncEnabledOk
+
+`func (o *PatchedExportTemplateRequest) GetAutoSyncEnabledOk() (*bool, bool)`
+
+GetAutoSyncEnabledOk returns a tuple with the AutoSyncEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoSyncEnabled
+
+`func (o *PatchedExportTemplateRequest) SetAutoSyncEnabled(v bool)`
+
+SetAutoSyncEnabled sets AutoSyncEnabled field to given value.
+
+### HasAutoSyncEnabled
+
+`func (o *PatchedExportTemplateRequest) HasAutoSyncEnabled() bool`
+
+HasAutoSyncEnabled returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *PatchedExportTemplateRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedExportTemplateRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedExportTemplateRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedExportTemplateRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedExportTemplateRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedExportTemplateRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritableTunnelRequestEncapsulation**](PatchedWritableTunnelRequestEncapsulation.md) |  | [optional] 
+**Value** | Pointer to [**BulkTunnelRequestEncapsulation**](BulkTunnelRequestEncapsulation.md) |  | [optional] 
 **Label** | Pointer to [**TunnelEncapsulationLabel**](TunnelEncapsulationLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *TunnelEncapsulation) GetValue() PatchedWritableTunnelRequestEncapsulation`
+`func (o *TunnelEncapsulation) GetValue() BulkTunnelRequestEncapsulation`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *TunnelEncapsulation) GetValueOk() (*PatchedWritableTunnelRequestEncapsulation, bool)`
+`func (o *TunnelEncapsulation) GetValueOk() (*BulkTunnelRequestEncapsulation, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *TunnelEncapsulation) SetValue(v PatchedWritableTunnelRequestEncapsulation)`
+`func (o *TunnelEncapsulation) SetValue(v BulkTunnelRequestEncapsulation)`
 
 SetValue sets Value field to given value.
 

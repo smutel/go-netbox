@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Identifier** | Pointer to **NullableInt64** |  | [optional] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
-**Type** | Pointer to [**BriefL2VPNTypeValue**](BriefL2VPNTypeValue.md) |  | [optional] 
+**Type** | [**BriefL2VPNTypeValue**](BriefL2VPNTypeValue.md) |  | 
 **Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewBriefL2VPNRequest
 
-`func NewBriefL2VPNRequest(name string, slug string, ) *BriefL2VPNRequest`
+`func NewBriefL2VPNRequest(name string, slug string, type_ BriefL2VPNTypeValue, ) *BriefL2VPNRequest`
 
 NewBriefL2VPNRequest instantiates a new BriefL2VPNRequest object
 This constructor will assign default values to properties that have it defined,
@@ -123,11 +123,6 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
-
-`func (o *BriefL2VPNRequest) HasType() bool`
-
-HasType returns a boolean if a field has been set.
 
 ### GetDescription
 

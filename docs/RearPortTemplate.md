@@ -12,8 +12,9 @@ Name | Type | Description | Notes
 **Name** | **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Type** | [**FrontPortType**](FrontPortType.md) |  | 
-**Color** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
 **Positions** | Pointer to **int32** |  | [optional] 
+**FrontPorts** | Pointer to [**[]RearPortTemplateMapping**](RearPortTemplateMapping.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
@@ -234,20 +235,20 @@ SetType sets Type field to given value.
 
 ### GetColor
 
-`func (o *RearPortTemplate) GetColor() string`
+`func (o *RearPortTemplate) GetColor() BriefModuleBayTypeColor`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *RearPortTemplate) GetColorOk() (*string, bool)`
+`func (o *RearPortTemplate) GetColorOk() (*BriefModuleBayTypeColor, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *RearPortTemplate) SetColor(v string)`
+`func (o *RearPortTemplate) SetColor(v BriefModuleBayTypeColor)`
 
 SetColor sets Color field to given value.
 
@@ -281,6 +282,31 @@ SetPositions sets Positions field to given value.
 `func (o *RearPortTemplate) HasPositions() bool`
 
 HasPositions returns a boolean if a field has been set.
+
+### GetFrontPorts
+
+`func (o *RearPortTemplate) GetFrontPorts() []RearPortTemplateMapping`
+
+GetFrontPorts returns the FrontPorts field if non-nil, zero value otherwise.
+
+### GetFrontPortsOk
+
+`func (o *RearPortTemplate) GetFrontPortsOk() (*[]RearPortTemplateMapping, bool)`
+
+GetFrontPortsOk returns a tuple with the FrontPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrontPorts
+
+`func (o *RearPortTemplate) SetFrontPorts(v []RearPortTemplateMapping)`
+
+SetFrontPorts sets FrontPorts field to given value.
+
+### HasFrontPorts
+
+`func (o *RearPortTemplate) HasFrontPorts() bool`
+
+HasFrontPorts returns a boolean if a field has been set.
 
 ### GetDescription
 

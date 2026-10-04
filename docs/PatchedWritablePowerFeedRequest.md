@@ -4,19 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PowerPanel** | Pointer to [**BriefPowerPanelRequest**](BriefPowerPanelRequest.md) |  | [optional] 
-**Rack** | Pointer to [**NullableBriefRackRequest**](BriefRackRequest.md) |  | [optional] 
+**PowerPanel** | Pointer to [**BulkPowerFeedRequestPowerPanel**](BulkPowerFeedRequestPowerPanel.md) |  | [optional] 
+**Rack** | Pointer to [**NullableBulkCoolingFeedRequestRack**](BulkCoolingFeedRequestRack.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to [**PatchedWritablePowerFeedRequestStatus**](PatchedWritablePowerFeedRequestStatus.md) |  | [optional] 
-**Type** | Pointer to [**PatchedWritablePowerFeedRequestType**](PatchedWritablePowerFeedRequestType.md) |  | [optional] 
-**Supply** | Pointer to [**PatchedWritablePowerFeedRequestSupply**](PatchedWritablePowerFeedRequestSupply.md) |  | [optional] 
-**Phase** | Pointer to [**PatchedWritablePowerFeedRequestPhase**](PatchedWritablePowerFeedRequestPhase.md) |  | [optional] 
+**Status** | Pointer to [**BulkCoolingFeedRequestStatus**](BulkCoolingFeedRequestStatus.md) |  | [optional] 
+**Type** | Pointer to [**BulkPowerFeedRequestType**](BulkPowerFeedRequestType.md) |  | [optional] 
+**Supply** | Pointer to [**BulkPowerFeedRequestSupply**](BulkPowerFeedRequestSupply.md) |  | [optional] 
+**Phase** | Pointer to [**BulkPowerFeedRequestPhase**](BulkPowerFeedRequestPhase.md) |  | [optional] 
 **Voltage** | Pointer to **int32** |  | [optional] 
 **Amperage** | Pointer to **int32** |  | [optional] 
 **MaxUtilization** | Pointer to **int32** | Maximum permissible draw (percentage) | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -42,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetPowerPanel
 
-`func (o *PatchedWritablePowerFeedRequest) GetPowerPanel() BriefPowerPanelRequest`
+`func (o *PatchedWritablePowerFeedRequest) GetPowerPanel() BulkPowerFeedRequestPowerPanel`
 
 GetPowerPanel returns the PowerPanel field if non-nil, zero value otherwise.
 
 ### GetPowerPanelOk
 
-`func (o *PatchedWritablePowerFeedRequest) GetPowerPanelOk() (*BriefPowerPanelRequest, bool)`
+`func (o *PatchedWritablePowerFeedRequest) GetPowerPanelOk() (*BulkPowerFeedRequestPowerPanel, bool)`
 
 GetPowerPanelOk returns a tuple with the PowerPanel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPowerPanel
 
-`func (o *PatchedWritablePowerFeedRequest) SetPowerPanel(v BriefPowerPanelRequest)`
+`func (o *PatchedWritablePowerFeedRequest) SetPowerPanel(v BulkPowerFeedRequestPowerPanel)`
 
 SetPowerPanel sets PowerPanel field to given value.
 
@@ -67,20 +68,20 @@ HasPowerPanel returns a boolean if a field has been set.
 
 ### GetRack
 
-`func (o *PatchedWritablePowerFeedRequest) GetRack() BriefRackRequest`
+`func (o *PatchedWritablePowerFeedRequest) GetRack() BulkCoolingFeedRequestRack`
 
 GetRack returns the Rack field if non-nil, zero value otherwise.
 
 ### GetRackOk
 
-`func (o *PatchedWritablePowerFeedRequest) GetRackOk() (*BriefRackRequest, bool)`
+`func (o *PatchedWritablePowerFeedRequest) GetRackOk() (*BulkCoolingFeedRequestRack, bool)`
 
 GetRackOk returns a tuple with the Rack field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRack
 
-`func (o *PatchedWritablePowerFeedRequest) SetRack(v BriefRackRequest)`
+`func (o *PatchedWritablePowerFeedRequest) SetRack(v BulkCoolingFeedRequestRack)`
 
 SetRack sets Rack field to given value.
 
@@ -127,20 +128,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *PatchedWritablePowerFeedRequest) GetStatus() PatchedWritablePowerFeedRequestStatus`
+`func (o *PatchedWritablePowerFeedRequest) GetStatus() BulkCoolingFeedRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWritablePowerFeedRequest) GetStatusOk() (*PatchedWritablePowerFeedRequestStatus, bool)`
+`func (o *PatchedWritablePowerFeedRequest) GetStatusOk() (*BulkCoolingFeedRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWritablePowerFeedRequest) SetStatus(v PatchedWritablePowerFeedRequestStatus)`
+`func (o *PatchedWritablePowerFeedRequest) SetStatus(v BulkCoolingFeedRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -152,20 +153,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *PatchedWritablePowerFeedRequest) GetType() PatchedWritablePowerFeedRequestType`
+`func (o *PatchedWritablePowerFeedRequest) GetType() BulkPowerFeedRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PatchedWritablePowerFeedRequest) GetTypeOk() (*PatchedWritablePowerFeedRequestType, bool)`
+`func (o *PatchedWritablePowerFeedRequest) GetTypeOk() (*BulkPowerFeedRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PatchedWritablePowerFeedRequest) SetType(v PatchedWritablePowerFeedRequestType)`
+`func (o *PatchedWritablePowerFeedRequest) SetType(v BulkPowerFeedRequestType)`
 
 SetType sets Type field to given value.
 
@@ -177,20 +178,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetSupply
 
-`func (o *PatchedWritablePowerFeedRequest) GetSupply() PatchedWritablePowerFeedRequestSupply`
+`func (o *PatchedWritablePowerFeedRequest) GetSupply() BulkPowerFeedRequestSupply`
 
 GetSupply returns the Supply field if non-nil, zero value otherwise.
 
 ### GetSupplyOk
 
-`func (o *PatchedWritablePowerFeedRequest) GetSupplyOk() (*PatchedWritablePowerFeedRequestSupply, bool)`
+`func (o *PatchedWritablePowerFeedRequest) GetSupplyOk() (*BulkPowerFeedRequestSupply, bool)`
 
 GetSupplyOk returns a tuple with the Supply field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSupply
 
-`func (o *PatchedWritablePowerFeedRequest) SetSupply(v PatchedWritablePowerFeedRequestSupply)`
+`func (o *PatchedWritablePowerFeedRequest) SetSupply(v BulkPowerFeedRequestSupply)`
 
 SetSupply sets Supply field to given value.
 
@@ -202,20 +203,20 @@ HasSupply returns a boolean if a field has been set.
 
 ### GetPhase
 
-`func (o *PatchedWritablePowerFeedRequest) GetPhase() PatchedWritablePowerFeedRequestPhase`
+`func (o *PatchedWritablePowerFeedRequest) GetPhase() BulkPowerFeedRequestPhase`
 
 GetPhase returns the Phase field if non-nil, zero value otherwise.
 
 ### GetPhaseOk
 
-`func (o *PatchedWritablePowerFeedRequest) GetPhaseOk() (*PatchedWritablePowerFeedRequestPhase, bool)`
+`func (o *PatchedWritablePowerFeedRequest) GetPhaseOk() (*BulkPowerFeedRequestPhase, bool)`
 
 GetPhaseOk returns a tuple with the Phase field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPhase
 
-`func (o *PatchedWritablePowerFeedRequest) SetPhase(v PatchedWritablePowerFeedRequestPhase)`
+`func (o *PatchedWritablePowerFeedRequest) SetPhase(v BulkPowerFeedRequestPhase)`
 
 SetPhase sets Phase field to given value.
 
@@ -352,20 +353,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *PatchedWritablePowerFeedRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritablePowerFeedRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritablePowerFeedRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritablePowerFeedRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritablePowerFeedRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritablePowerFeedRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -385,6 +386,41 @@ HasTenant returns a boolean if a field has been set.
 `func (o *PatchedWritablePowerFeedRequest) UnsetTenant()`
 
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
+### GetOwner
+
+`func (o *PatchedWritablePowerFeedRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritablePowerFeedRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritablePowerFeedRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritablePowerFeedRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritablePowerFeedRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritablePowerFeedRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritablePowerFeedRequest) GetComments() string`

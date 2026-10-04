@@ -4,7 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Manufacturer** | [**BriefManufacturerRequest**](BriefManufacturerRequest.md) |  | 
+**Profile** | Pointer to [**NullableBriefModuleTypeRequestProfile**](BriefModuleTypeRequestProfile.md) |  | [optional] 
+**Manufacturer** | [**BriefDeviceTypeRequestManufacturer**](BriefDeviceTypeRequestManufacturer.md) |  | 
 **Model** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
 
@@ -12,7 +13,7 @@ Name | Type | Description | Notes
 
 ### NewBriefModuleTypeRequest
 
-`func NewBriefModuleTypeRequest(manufacturer BriefManufacturerRequest, model string, ) *BriefModuleTypeRequest`
+`func NewBriefModuleTypeRequest(manufacturer BriefDeviceTypeRequestManufacturer, model string, ) *BriefModuleTypeRequest`
 
 NewBriefModuleTypeRequest instantiates a new BriefModuleTypeRequest object
 This constructor will assign default values to properties that have it defined,
@@ -27,22 +28,57 @@ NewBriefModuleTypeRequestWithDefaults instantiates a new BriefModuleTypeRequest 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetProfile
+
+`func (o *BriefModuleTypeRequest) GetProfile() BriefModuleTypeRequestProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *BriefModuleTypeRequest) GetProfileOk() (*BriefModuleTypeRequestProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *BriefModuleTypeRequest) SetProfile(v BriefModuleTypeRequestProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *BriefModuleTypeRequest) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
+### SetProfileNil
+
+`func (o *BriefModuleTypeRequest) SetProfileNil(b bool)`
+
+ SetProfileNil sets the value for Profile to be an explicit nil
+
+### UnsetProfile
+`func (o *BriefModuleTypeRequest) UnsetProfile()`
+
+UnsetProfile ensures that no value is present for Profile, not even an explicit nil
 ### GetManufacturer
 
-`func (o *BriefModuleTypeRequest) GetManufacturer() BriefManufacturerRequest`
+`func (o *BriefModuleTypeRequest) GetManufacturer() BriefDeviceTypeRequestManufacturer`
 
 GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
 
 ### GetManufacturerOk
 
-`func (o *BriefModuleTypeRequest) GetManufacturerOk() (*BriefManufacturerRequest, bool)`
+`func (o *BriefModuleTypeRequest) GetManufacturerOk() (*BriefDeviceTypeRequestManufacturer, bool)`
 
 GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetManufacturer
 
-`func (o *BriefModuleTypeRequest) SetManufacturer(v BriefManufacturerRequest)`
+`func (o *BriefModuleTypeRequest) SetManufacturer(v BriefDeviceTypeRequestManufacturer)`
 
 SetManufacturer sets Manufacturer field to given value.
 

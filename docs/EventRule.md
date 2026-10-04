@@ -6,22 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **ObjectTypes** | **[]string** |  | 
 **Name** | **string** |  | 
-**TypeCreate** | Pointer to **bool** | Triggers when a matching object is created. | [optional] 
-**TypeUpdate** | Pointer to **bool** | Triggers when a matching object is updated. | [optional] 
-**TypeDelete** | Pointer to **bool** | Triggers when a matching object is deleted. | [optional] 
-**TypeJobStart** | Pointer to **bool** | Triggers when a job for a matching object is started. | [optional] 
-**TypeJobEnd** | Pointer to **bool** | Triggers when a job for a matching object terminates. | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
+**EventTypes** | [**[]BulkEventRuleRequestEventTypesInner**](BulkEventRuleRequestEventTypesInner.md) | The types of event which will trigger this rule. | 
 **Conditions** | Pointer to **interface{}** | A set of conditions which determine whether the event will be generated. | [optional] 
 **ActionType** | [**EventRuleActionType**](EventRuleActionType.md) |  | 
-**ActionObjectType** | **string** |  | 
+**ActionObjectType** | Pointer to **NullableString** |  | [optional] 
 **ActionObjectId** | Pointer to **NullableInt64** |  | [optional] 
-**ActionObject** | **map[string]interface{}** |  | [readonly] 
+**ActionObject** | **interface{}** |  | [readonly] 
+**ActionIsAvailable** | **bool** |  | [readonly] 
 **Description** | Pointer to **string** |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
@@ -30,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewEventRule
 
-`func NewEventRule(id int32, url string, display string, objectTypes []string, name string, actionType EventRuleActionType, actionObjectType string, actionObject map[string]interface{}, created NullableTime, lastUpdated NullableTime, ) *EventRule`
+`func NewEventRule(id int32, url string, displayUrl string, display string, objectTypes []string, name string, eventTypes []BulkEventRuleRequestEventTypesInner, actionType EventRuleActionType, actionObject interface{}, actionIsAvailable bool, created NullableTime, lastUpdated NullableTime, ) *EventRule`
 
 NewEventRule instantiates a new EventRule object
 This constructor will assign default values to properties that have it defined,
@@ -83,6 +82,26 @@ and a boolean to check if the value has been set.
 `func (o *EventRule) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *EventRule) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *EventRule) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *EventRule) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -145,131 +164,6 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetTypeCreate
-
-`func (o *EventRule) GetTypeCreate() bool`
-
-GetTypeCreate returns the TypeCreate field if non-nil, zero value otherwise.
-
-### GetTypeCreateOk
-
-`func (o *EventRule) GetTypeCreateOk() (*bool, bool)`
-
-GetTypeCreateOk returns a tuple with the TypeCreate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeCreate
-
-`func (o *EventRule) SetTypeCreate(v bool)`
-
-SetTypeCreate sets TypeCreate field to given value.
-
-### HasTypeCreate
-
-`func (o *EventRule) HasTypeCreate() bool`
-
-HasTypeCreate returns a boolean if a field has been set.
-
-### GetTypeUpdate
-
-`func (o *EventRule) GetTypeUpdate() bool`
-
-GetTypeUpdate returns the TypeUpdate field if non-nil, zero value otherwise.
-
-### GetTypeUpdateOk
-
-`func (o *EventRule) GetTypeUpdateOk() (*bool, bool)`
-
-GetTypeUpdateOk returns a tuple with the TypeUpdate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeUpdate
-
-`func (o *EventRule) SetTypeUpdate(v bool)`
-
-SetTypeUpdate sets TypeUpdate field to given value.
-
-### HasTypeUpdate
-
-`func (o *EventRule) HasTypeUpdate() bool`
-
-HasTypeUpdate returns a boolean if a field has been set.
-
-### GetTypeDelete
-
-`func (o *EventRule) GetTypeDelete() bool`
-
-GetTypeDelete returns the TypeDelete field if non-nil, zero value otherwise.
-
-### GetTypeDeleteOk
-
-`func (o *EventRule) GetTypeDeleteOk() (*bool, bool)`
-
-GetTypeDeleteOk returns a tuple with the TypeDelete field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeDelete
-
-`func (o *EventRule) SetTypeDelete(v bool)`
-
-SetTypeDelete sets TypeDelete field to given value.
-
-### HasTypeDelete
-
-`func (o *EventRule) HasTypeDelete() bool`
-
-HasTypeDelete returns a boolean if a field has been set.
-
-### GetTypeJobStart
-
-`func (o *EventRule) GetTypeJobStart() bool`
-
-GetTypeJobStart returns the TypeJobStart field if non-nil, zero value otherwise.
-
-### GetTypeJobStartOk
-
-`func (o *EventRule) GetTypeJobStartOk() (*bool, bool)`
-
-GetTypeJobStartOk returns a tuple with the TypeJobStart field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeJobStart
-
-`func (o *EventRule) SetTypeJobStart(v bool)`
-
-SetTypeJobStart sets TypeJobStart field to given value.
-
-### HasTypeJobStart
-
-`func (o *EventRule) HasTypeJobStart() bool`
-
-HasTypeJobStart returns a boolean if a field has been set.
-
-### GetTypeJobEnd
-
-`func (o *EventRule) GetTypeJobEnd() bool`
-
-GetTypeJobEnd returns the TypeJobEnd field if non-nil, zero value otherwise.
-
-### GetTypeJobEndOk
-
-`func (o *EventRule) GetTypeJobEndOk() (*bool, bool)`
-
-GetTypeJobEndOk returns a tuple with the TypeJobEnd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeJobEnd
-
-`func (o *EventRule) SetTypeJobEnd(v bool)`
-
-SetTypeJobEnd sets TypeJobEnd field to given value.
-
-### HasTypeJobEnd
-
-`func (o *EventRule) HasTypeJobEnd() bool`
-
-HasTypeJobEnd returns a boolean if a field has been set.
-
 ### GetEnabled
 
 `func (o *EventRule) GetEnabled() bool`
@@ -294,6 +188,26 @@ SetEnabled sets Enabled field to given value.
 `func (o *EventRule) HasEnabled() bool`
 
 HasEnabled returns a boolean if a field has been set.
+
+### GetEventTypes
+
+`func (o *EventRule) GetEventTypes() []BulkEventRuleRequestEventTypesInner`
+
+GetEventTypes returns the EventTypes field if non-nil, zero value otherwise.
+
+### GetEventTypesOk
+
+`func (o *EventRule) GetEventTypesOk() (*[]BulkEventRuleRequestEventTypesInner, bool)`
+
+GetEventTypesOk returns a tuple with the EventTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventTypes
+
+`func (o *EventRule) SetEventTypes(v []BulkEventRuleRequestEventTypesInner)`
+
+SetEventTypes sets EventTypes field to given value.
+
 
 ### GetConditions
 
@@ -369,7 +283,22 @@ and a boolean to check if the value has been set.
 
 SetActionObjectType sets ActionObjectType field to given value.
 
+### HasActionObjectType
 
+`func (o *EventRule) HasActionObjectType() bool`
+
+HasActionObjectType returns a boolean if a field has been set.
+
+### SetActionObjectTypeNil
+
+`func (o *EventRule) SetActionObjectTypeNil(b bool)`
+
+ SetActionObjectTypeNil sets the value for ActionObjectType to be an explicit nil
+
+### UnsetActionObjectType
+`func (o *EventRule) UnsetActionObjectType()`
+
+UnsetActionObjectType ensures that no value is present for ActionObjectType, not even an explicit nil
 ### GetActionObjectId
 
 `func (o *EventRule) GetActionObjectId() int64`
@@ -407,22 +336,52 @@ HasActionObjectId returns a boolean if a field has been set.
 UnsetActionObjectId ensures that no value is present for ActionObjectId, not even an explicit nil
 ### GetActionObject
 
-`func (o *EventRule) GetActionObject() map[string]interface{}`
+`func (o *EventRule) GetActionObject() interface{}`
 
 GetActionObject returns the ActionObject field if non-nil, zero value otherwise.
 
 ### GetActionObjectOk
 
-`func (o *EventRule) GetActionObjectOk() (*map[string]interface{}, bool)`
+`func (o *EventRule) GetActionObjectOk() (*interface{}, bool)`
 
 GetActionObjectOk returns a tuple with the ActionObject field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionObject
 
-`func (o *EventRule) SetActionObject(v map[string]interface{})`
+`func (o *EventRule) SetActionObject(v interface{})`
 
 SetActionObject sets ActionObject field to given value.
+
+
+### SetActionObjectNil
+
+`func (o *EventRule) SetActionObjectNil(b bool)`
+
+ SetActionObjectNil sets the value for ActionObject to be an explicit nil
+
+### UnsetActionObject
+`func (o *EventRule) UnsetActionObject()`
+
+UnsetActionObject ensures that no value is present for ActionObject, not even an explicit nil
+### GetActionIsAvailable
+
+`func (o *EventRule) GetActionIsAvailable() bool`
+
+GetActionIsAvailable returns the ActionIsAvailable field if non-nil, zero value otherwise.
+
+### GetActionIsAvailableOk
+
+`func (o *EventRule) GetActionIsAvailableOk() (*bool, bool)`
+
+GetActionIsAvailableOk returns a tuple with the ActionIsAvailable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActionIsAvailable
+
+`func (o *EventRule) SetActionIsAvailable(v bool)`
+
+SetActionIsAvailable sets ActionIsAvailable field to given value.
 
 
 ### GetDescription
@@ -475,6 +434,41 @@ SetCustomFields sets CustomFields field to given value.
 
 HasCustomFields returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *EventRule) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *EventRule) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *EventRule) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *EventRule) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *EventRule) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *EventRule) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *EventRule) GetTags() []NestedTag`

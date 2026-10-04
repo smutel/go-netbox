@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VirtualMachine** | Pointer to [**BriefVirtualMachineRequest**](BriefVirtualMachineRequest.md) |  | [optional] 
+**VirtualMachine** | Pointer to [**BulkVMInterfaceRequestVirtualMachine**](BulkVMInterfaceRequestVirtualMachine.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Size** | Pointer to **int32** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -32,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetVirtualMachine
 
-`func (o *PatchedVirtualDiskRequest) GetVirtualMachine() BriefVirtualMachineRequest`
+`func (o *PatchedVirtualDiskRequest) GetVirtualMachine() BulkVMInterfaceRequestVirtualMachine`
 
 GetVirtualMachine returns the VirtualMachine field if non-nil, zero value otherwise.
 
 ### GetVirtualMachineOk
 
-`func (o *PatchedVirtualDiskRequest) GetVirtualMachineOk() (*BriefVirtualMachineRequest, bool)`
+`func (o *PatchedVirtualDiskRequest) GetVirtualMachineOk() (*BulkVMInterfaceRequestVirtualMachine, bool)`
 
 GetVirtualMachineOk returns a tuple with the VirtualMachine field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVirtualMachine
 
-`func (o *PatchedVirtualDiskRequest) SetVirtualMachine(v BriefVirtualMachineRequest)`
+`func (o *PatchedVirtualDiskRequest) SetVirtualMachine(v BulkVMInterfaceRequestVirtualMachine)`
 
 SetVirtualMachine sets VirtualMachine field to given value.
 
@@ -130,6 +131,41 @@ SetSize sets Size field to given value.
 
 HasSize returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedVirtualDiskRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedVirtualDiskRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedVirtualDiskRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedVirtualDiskRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedVirtualDiskRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedVirtualDiskRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PatchedVirtualDiskRequest) GetTags() []NestedTagRequest`

@@ -10,13 +10,12 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**CircuitCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefCircuitType
 
-`func NewBriefCircuitType(id int32, url string, display string, name string, slug string, circuitCount int64, ) *BriefCircuitType`
+`func NewBriefCircuitType(id int32, url string, display string, name string, slug string, ) *BriefCircuitType`
 
 NewBriefCircuitType instantiates a new BriefCircuitType object
 This constructor will assign default values to properties that have it defined,
@@ -155,26 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefCircuitType) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetCircuitCount
-
-`func (o *BriefCircuitType) GetCircuitCount() int64`
-
-GetCircuitCount returns the CircuitCount field if non-nil, zero value otherwise.
-
-### GetCircuitCountOk
-
-`func (o *BriefCircuitType) GetCircuitCountOk() (*int64, bool)`
-
-GetCircuitCountOk returns a tuple with the CircuitCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCircuitCount
-
-`func (o *BriefCircuitType) SetCircuitCount(v int64)`
-
-SetCircuitCount sets CircuitCount field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

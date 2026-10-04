@@ -4,15 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
-**Module** | Pointer to [**NullableBriefModuleRequest**](BriefModuleRequest.md) |  | [optional] 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
+**Module** | Pointer to [**NullableBulkConsolePortRequestModule**](BulkConsolePortRequestModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | [**FrontPortTypeValue**](FrontPortTypeValue.md) |  | 
-**Color** | Pointer to **string** |  | [optional] 
-**Positions** | Pointer to **int32** | Number of front ports which may be mapped | [optional] 
+**Type** | [**BulkFrontPortRequestType**](BulkFrontPortRequestType.md) |  | 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
+**Positions** | Pointer to **int32** |  | [optional] 
+**FrontPorts** | Pointer to [**[]RearPortMappingRequest**](RearPortMappingRequest.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -20,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewWritableRearPortRequest
 
-`func NewWritableRearPortRequest(device BriefDeviceRequest, name string, type_ FrontPortTypeValue, ) *WritableRearPortRequest`
+`func NewWritableRearPortRequest(device BriefCoolingIntakeRequestDevice, name string, type_ BulkFrontPortRequestType, ) *WritableRearPortRequest`
 
 NewWritableRearPortRequest instantiates a new WritableRearPortRequest object
 This constructor will assign default values to properties that have it defined,
@@ -37,40 +39,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *WritableRearPortRequest) GetDevice() BriefDeviceRequest`
+`func (o *WritableRearPortRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *WritableRearPortRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *WritableRearPortRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *WritableRearPortRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *WritableRearPortRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
 
 ### GetModule
 
-`func (o *WritableRearPortRequest) GetModule() BriefModuleRequest`
+`func (o *WritableRearPortRequest) GetModule() BulkConsolePortRequestModule`
 
 GetModule returns the Module field if non-nil, zero value otherwise.
 
 ### GetModuleOk
 
-`func (o *WritableRearPortRequest) GetModuleOk() (*BriefModuleRequest, bool)`
+`func (o *WritableRearPortRequest) GetModuleOk() (*BulkConsolePortRequestModule, bool)`
 
 GetModuleOk returns a tuple with the Module field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModule
 
-`func (o *WritableRearPortRequest) SetModule(v BriefModuleRequest)`
+`func (o *WritableRearPortRequest) SetModule(v BulkConsolePortRequestModule)`
 
 SetModule sets Module field to given value.
 
@@ -137,40 +139,40 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *WritableRearPortRequest) GetType() FrontPortTypeValue`
+`func (o *WritableRearPortRequest) GetType() BulkFrontPortRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *WritableRearPortRequest) GetTypeOk() (*FrontPortTypeValue, bool)`
+`func (o *WritableRearPortRequest) GetTypeOk() (*BulkFrontPortRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *WritableRearPortRequest) SetType(v FrontPortTypeValue)`
+`func (o *WritableRearPortRequest) SetType(v BulkFrontPortRequestType)`
 
 SetType sets Type field to given value.
 
 
 ### GetColor
 
-`func (o *WritableRearPortRequest) GetColor() string`
+`func (o *WritableRearPortRequest) GetColor() BriefModuleBayTypeColor`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *WritableRearPortRequest) GetColorOk() (*string, bool)`
+`func (o *WritableRearPortRequest) GetColorOk() (*BriefModuleBayTypeColor, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *WritableRearPortRequest) SetColor(v string)`
+`func (o *WritableRearPortRequest) SetColor(v BriefModuleBayTypeColor)`
 
 SetColor sets Color field to given value.
 
@@ -204,6 +206,31 @@ SetPositions sets Positions field to given value.
 `func (o *WritableRearPortRequest) HasPositions() bool`
 
 HasPositions returns a boolean if a field has been set.
+
+### GetFrontPorts
+
+`func (o *WritableRearPortRequest) GetFrontPorts() []RearPortMappingRequest`
+
+GetFrontPorts returns the FrontPorts field if non-nil, zero value otherwise.
+
+### GetFrontPortsOk
+
+`func (o *WritableRearPortRequest) GetFrontPortsOk() (*[]RearPortMappingRequest, bool)`
+
+GetFrontPortsOk returns a tuple with the FrontPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrontPorts
+
+`func (o *WritableRearPortRequest) SetFrontPorts(v []RearPortMappingRequest)`
+
+SetFrontPorts sets FrontPorts field to given value.
+
+### HasFrontPorts
+
+`func (o *WritableRearPortRequest) HasFrontPorts() bool`
+
+HasFrontPorts returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -255,6 +282,41 @@ SetMarkConnected sets MarkConnected field to given value.
 
 HasMarkConnected returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WritableRearPortRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableRearPortRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableRearPortRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableRearPortRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableRearPortRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableRearPortRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *WritableRearPortRequest) GetTags() []NestedTagRequest`

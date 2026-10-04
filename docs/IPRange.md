@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Family** | [**AggregateFamily**](AggregateFamily.md) |  | 
 **StartAddress** | **string** |  | 
@@ -16,18 +17,20 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**IPRangeStatus**](IPRangeStatus.md) |  | [optional] 
 **Role** | Pointer to [**NullableBriefRole**](BriefRole.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
-**MarkUtilized** | Pointer to **bool** | Treat as fully utilized | [optional] 
+**MarkPopulated** | Pointer to **bool** | Prevent the creation of IP addresses within this range | [optional] 
+**MarkUtilized** | Pointer to **bool** | Report space as fully utilized | [optional] 
 
 ## Methods
 
 ### NewIPRange
 
-`func NewIPRange(id int32, url string, display string, family AggregateFamily, startAddress string, endAddress string, size int32, created NullableTime, lastUpdated NullableTime, ) *IPRange`
+`func NewIPRange(id int32, url string, displayUrl string, display string, family AggregateFamily, startAddress string, endAddress string, size int32, created NullableTime, lastUpdated NullableTime, ) *IPRange`
 
 NewIPRange instantiates a new IPRange object
 This constructor will assign default values to properties that have it defined,
@@ -80,6 +83,26 @@ and a boolean to check if the value has been set.
 `func (o *IPRange) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *IPRange) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *IPRange) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *IPRange) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -337,6 +360,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *IPRange) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IPRange) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IPRange) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IPRange) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IPRange) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IPRange) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IPRange) GetComments() string`
@@ -472,6 +530,31 @@ SetLastUpdated sets LastUpdated field to given value.
 `func (o *IPRange) UnsetLastUpdated()`
 
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+### GetMarkPopulated
+
+`func (o *IPRange) GetMarkPopulated() bool`
+
+GetMarkPopulated returns the MarkPopulated field if non-nil, zero value otherwise.
+
+### GetMarkPopulatedOk
+
+`func (o *IPRange) GetMarkPopulatedOk() (*bool, bool)`
+
+GetMarkPopulatedOk returns a tuple with the MarkPopulated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarkPopulated
+
+`func (o *IPRange) SetMarkPopulated(v bool)`
+
+SetMarkPopulated sets MarkPopulated field to given value.
+
+### HasMarkPopulated
+
+`func (o *IPRange) HasMarkPopulated() bool`
+
+HasMarkPopulated returns a boolean if a field has been set.
+
 ### GetMarkUtilized
 
 `func (o *IPRange) GetMarkUtilized() bool`

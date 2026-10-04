@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **ObjectTypes** | **[]string** |  | 
 **Name** | **string** |  | 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Shared** | Pointer to **bool** |  | [optional] 
 **Parameters** | **interface{}** |  | 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewSavedFilter
 
-`func NewSavedFilter(id int32, url string, display string, objectTypes []string, name string, slug string, parameters interface{}, created NullableTime, lastUpdated NullableTime, ) *SavedFilter`
+`func NewSavedFilter(id int32, url string, displayUrl string, display string, objectTypes []string, name string, slug string, parameters interface{}, created NullableTime, lastUpdated NullableTime, ) *SavedFilter`
 
 NewSavedFilter instantiates a new SavedFilter object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *SavedFilter) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *SavedFilter) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *SavedFilter) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *SavedFilter) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -323,6 +345,41 @@ SetParameters sets Parameters field to given value.
 `func (o *SavedFilter) UnsetParameters()`
 
 UnsetParameters ensures that no value is present for Parameters, not even an explicit nil
+### GetOwner
+
+`func (o *SavedFilter) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *SavedFilter) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *SavedFilter) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *SavedFilter) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *SavedFilter) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *SavedFilter) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetCreated
 
 `func (o *SavedFilter) GetCreated() time.Time`

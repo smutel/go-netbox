@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Site** | Pointer to [**NullableBriefSite**](BriefSite.md) |  | [optional] 
 **Group** | Pointer to [**NullableBriefVLANGroup**](BriefVLANGroup.md) |  | [optional] 
@@ -15,6 +16,9 @@ Name | Type | Description | Notes
 **Status** | Pointer to [**IPRangeStatus**](IPRangeStatus.md) |  | [optional] 
 **Role** | Pointer to [**NullableBriefRole**](BriefRole.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**QinqRole** | Pointer to [**NullableVLANQinqRole**](VLANQinqRole.md) |  | [optional] 
+**QinqSvlan** | Pointer to [**NullableNestedVLAN**](NestedVLAN.md) |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **L2vpnTermination** | Pointer to [**NullableBriefL2VPNTermination**](BriefL2VPNTermination.md) |  | [optional] [readonly] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
@@ -27,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewVLAN
 
-`func NewVLAN(id int32, url string, display string, vid int32, name string, ) *VLAN`
+`func NewVLAN(id int32, url string, displayUrl string, display string, vid int32, name string, ) *VLAN`
 
 NewVLAN instantiates a new VLAN object
 This constructor will assign default values to properties that have it defined,
@@ -80,6 +84,26 @@ and a boolean to check if the value has been set.
 `func (o *VLAN) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *VLAN) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *VLAN) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *VLAN) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -332,6 +356,111 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetQinqRole
+
+`func (o *VLAN) GetQinqRole() VLANQinqRole`
+
+GetQinqRole returns the QinqRole field if non-nil, zero value otherwise.
+
+### GetQinqRoleOk
+
+`func (o *VLAN) GetQinqRoleOk() (*VLANQinqRole, bool)`
+
+GetQinqRoleOk returns a tuple with the QinqRole field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqRole
+
+`func (o *VLAN) SetQinqRole(v VLANQinqRole)`
+
+SetQinqRole sets QinqRole field to given value.
+
+### HasQinqRole
+
+`func (o *VLAN) HasQinqRole() bool`
+
+HasQinqRole returns a boolean if a field has been set.
+
+### SetQinqRoleNil
+
+`func (o *VLAN) SetQinqRoleNil(b bool)`
+
+ SetQinqRoleNil sets the value for QinqRole to be an explicit nil
+
+### UnsetQinqRole
+`func (o *VLAN) UnsetQinqRole()`
+
+UnsetQinqRole ensures that no value is present for QinqRole, not even an explicit nil
+### GetQinqSvlan
+
+`func (o *VLAN) GetQinqSvlan() NestedVLAN`
+
+GetQinqSvlan returns the QinqSvlan field if non-nil, zero value otherwise.
+
+### GetQinqSvlanOk
+
+`func (o *VLAN) GetQinqSvlanOk() (*NestedVLAN, bool)`
+
+GetQinqSvlanOk returns a tuple with the QinqSvlan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqSvlan
+
+`func (o *VLAN) SetQinqSvlan(v NestedVLAN)`
+
+SetQinqSvlan sets QinqSvlan field to given value.
+
+### HasQinqSvlan
+
+`func (o *VLAN) HasQinqSvlan() bool`
+
+HasQinqSvlan returns a boolean if a field has been set.
+
+### SetQinqSvlanNil
+
+`func (o *VLAN) SetQinqSvlanNil(b bool)`
+
+ SetQinqSvlanNil sets the value for QinqSvlan to be an explicit nil
+
+### UnsetQinqSvlan
+`func (o *VLAN) UnsetQinqSvlan()`
+
+UnsetQinqSvlan ensures that no value is present for QinqSvlan, not even an explicit nil
+### GetOwner
+
+`func (o *VLAN) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *VLAN) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *VLAN) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *VLAN) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *VLAN) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *VLAN) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *VLAN) GetComments() string`

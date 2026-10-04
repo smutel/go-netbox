@@ -5,15 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | **string** |  | 
-**Vrf** | Pointer to [**NullableBriefVRFRequest**](BriefVRFRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
-**Status** | Pointer to [**IPAddressStatusValue**](IPAddressStatusValue.md) |  | [optional] 
-**Role** | Pointer to [**IPAddressRoleValue**](IPAddressRoleValue.md) |  | [optional] 
+**Vrf** | Pointer to [**NullableBulkIPAddressRequestVrf**](BulkIPAddressRequestVrf.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**Status** | Pointer to [**BulkIPAddressRequestStatus**](BulkIPAddressRequestStatus.md) |  | [optional] 
+**Role** | Pointer to [**BulkIPAddressRequestRole**](BulkIPAddressRequestRole.md) |  | [optional] 
 **AssignedObjectType** | Pointer to **NullableString** |  | [optional] 
 **AssignedObjectId** | Pointer to **NullableInt64** |  | [optional] 
 **NatInside** | Pointer to [**NullableNestedIPAddressRequest**](NestedIPAddressRequest.md) |  | [optional] 
-**DnsName** | Pointer to **string** | Hostname or FQDN (not case-sensitive) | [optional] 
+**DnsName** | Pointer to [**BriefIPAddressDnsName**](BriefIPAddressDnsName.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -59,20 +60,20 @@ SetAddress sets Address field to given value.
 
 ### GetVrf
 
-`func (o *IPAddressRequest) GetVrf() BriefVRFRequest`
+`func (o *IPAddressRequest) GetVrf() BulkIPAddressRequestVrf`
 
 GetVrf returns the Vrf field if non-nil, zero value otherwise.
 
 ### GetVrfOk
 
-`func (o *IPAddressRequest) GetVrfOk() (*BriefVRFRequest, bool)`
+`func (o *IPAddressRequest) GetVrfOk() (*BulkIPAddressRequestVrf, bool)`
 
 GetVrfOk returns a tuple with the Vrf field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVrf
 
-`func (o *IPAddressRequest) SetVrf(v BriefVRFRequest)`
+`func (o *IPAddressRequest) SetVrf(v BulkIPAddressRequestVrf)`
 
 SetVrf sets Vrf field to given value.
 
@@ -94,20 +95,20 @@ HasVrf returns a boolean if a field has been set.
 UnsetVrf ensures that no value is present for Vrf, not even an explicit nil
 ### GetTenant
 
-`func (o *IPAddressRequest) GetTenant() BriefTenantRequest`
+`func (o *IPAddressRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *IPAddressRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *IPAddressRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *IPAddressRequest) SetTenant(v BriefTenantRequest)`
+`func (o *IPAddressRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -129,20 +130,20 @@ HasTenant returns a boolean if a field has been set.
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetStatus
 
-`func (o *IPAddressRequest) GetStatus() IPAddressStatusValue`
+`func (o *IPAddressRequest) GetStatus() BulkIPAddressRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *IPAddressRequest) GetStatusOk() (*IPAddressStatusValue, bool)`
+`func (o *IPAddressRequest) GetStatusOk() (*BulkIPAddressRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *IPAddressRequest) SetStatus(v IPAddressStatusValue)`
+`func (o *IPAddressRequest) SetStatus(v BulkIPAddressRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -154,20 +155,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *IPAddressRequest) GetRole() IPAddressRoleValue`
+`func (o *IPAddressRequest) GetRole() BulkIPAddressRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *IPAddressRequest) GetRoleOk() (*IPAddressRoleValue, bool)`
+`func (o *IPAddressRequest) GetRoleOk() (*BulkIPAddressRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *IPAddressRequest) SetRole(v IPAddressRoleValue)`
+`func (o *IPAddressRequest) SetRole(v BulkIPAddressRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -284,20 +285,20 @@ HasNatInside returns a boolean if a field has been set.
 UnsetNatInside ensures that no value is present for NatInside, not even an explicit nil
 ### GetDnsName
 
-`func (o *IPAddressRequest) GetDnsName() string`
+`func (o *IPAddressRequest) GetDnsName() BriefIPAddressDnsName`
 
 GetDnsName returns the DnsName field if non-nil, zero value otherwise.
 
 ### GetDnsNameOk
 
-`func (o *IPAddressRequest) GetDnsNameOk() (*string, bool)`
+`func (o *IPAddressRequest) GetDnsNameOk() (*BriefIPAddressDnsName, bool)`
 
 GetDnsNameOk returns a tuple with the DnsName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDnsName
 
-`func (o *IPAddressRequest) SetDnsName(v string)`
+`func (o *IPAddressRequest) SetDnsName(v BriefIPAddressDnsName)`
 
 SetDnsName sets DnsName field to given value.
 
@@ -332,6 +333,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *IPAddressRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IPAddressRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IPAddressRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IPAddressRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IPAddressRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IPAddressRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IPAddressRequest) GetComments() string`

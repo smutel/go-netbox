@@ -6,11 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Tunnel** | [**BriefTunnel**](BriefTunnel.md) |  | 
 **Role** | [**TunnelTerminationRole**](TunnelTerminationRole.md) |  | 
 **TerminationType** | **string** |  | 
-**TerminationId** | **NullableInt64** |  | 
+**TerminationId** | Pointer to **NullableInt64** |  | [optional] 
 **Termination** | **interface{}** |  | [readonly] 
 **OutsideIp** | Pointer to [**NullableBriefIPAddress**](BriefIPAddress.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
@@ -22,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewTunnelTermination
 
-`func NewTunnelTermination(id int32, url string, display string, tunnel BriefTunnel, role TunnelTerminationRole, terminationType string, terminationId NullableInt64, termination interface{}, created NullableTime, lastUpdated NullableTime, ) *TunnelTermination`
+`func NewTunnelTermination(id int32, url string, displayUrl string, display string, tunnel BriefTunnel, role TunnelTerminationRole, terminationType string, termination interface{}, created NullableTime, lastUpdated NullableTime, ) *TunnelTermination`
 
 NewTunnelTermination instantiates a new TunnelTermination object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +76,26 @@ and a boolean to check if the value has been set.
 `func (o *TunnelTermination) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *TunnelTermination) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *TunnelTermination) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *TunnelTermination) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -176,6 +197,11 @@ and a boolean to check if the value has been set.
 
 SetTerminationId sets TerminationId field to given value.
 
+### HasTerminationId
+
+`func (o *TunnelTermination) HasTerminationId() bool`
+
+HasTerminationId returns a boolean if a field has been set.
 
 ### SetTerminationIdNil
 

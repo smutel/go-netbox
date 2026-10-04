@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Provider** | [**BriefProviderRequest**](BriefProviderRequest.md) |  | 
+**Provider** | [**BriefCircuitRequestProvider**](BriefCircuitRequestProvider.md) |  | 
 **Name** | **string** |  | 
 **ServiceId** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewProviderNetworkRequest
 
-`func NewProviderNetworkRequest(provider BriefProviderRequest, name string, ) *ProviderNetworkRequest`
+`func NewProviderNetworkRequest(provider BriefCircuitRequestProvider, name string, ) *ProviderNetworkRequest`
 
 NewProviderNetworkRequest instantiates a new ProviderNetworkRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetProvider
 
-`func (o *ProviderNetworkRequest) GetProvider() BriefProviderRequest`
+`func (o *ProviderNetworkRequest) GetProvider() BriefCircuitRequestProvider`
 
 GetProvider returns the Provider field if non-nil, zero value otherwise.
 
 ### GetProviderOk
 
-`func (o *ProviderNetworkRequest) GetProviderOk() (*BriefProviderRequest, bool)`
+`func (o *ProviderNetworkRequest) GetProviderOk() (*BriefCircuitRequestProvider, bool)`
 
 GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProvider
 
-`func (o *ProviderNetworkRequest) SetProvider(v BriefProviderRequest)`
+`func (o *ProviderNetworkRequest) SetProvider(v BriefCircuitRequestProvider)`
 
 SetProvider sets Provider field to given value.
 
@@ -121,6 +122,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *ProviderNetworkRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ProviderNetworkRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ProviderNetworkRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ProviderNetworkRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ProviderNetworkRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ProviderNetworkRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *ProviderNetworkRequest) GetComments() string`

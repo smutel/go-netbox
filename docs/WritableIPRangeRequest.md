@@ -6,15 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartAddress** | **string** |  | 
 **EndAddress** | **string** |  | 
-**Vrf** | Pointer to [**NullableBriefVRFRequest**](BriefVRFRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Vrf** | Pointer to [**NullableBulkIPAddressRequestVrf**](BulkIPAddressRequestVrf.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Status** | Pointer to [**PatchedWritableIPRangeRequestStatus**](PatchedWritableIPRangeRequestStatus.md) |  | [optional] 
-**Role** | Pointer to [**NullableBriefRoleRequest**](BriefRoleRequest.md) |  | [optional] 
+**Role** | Pointer to [**NullableASNRequestRole**](ASNRequestRole.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**MarkUtilized** | Pointer to **bool** | Treat as fully utilized | [optional] 
+**MarkPopulated** | Pointer to **bool** | Prevent the creation of IP addresses within this range | [optional] 
+**MarkUtilized** | Pointer to **bool** | Report space as fully utilized | [optional] 
 
 ## Methods
 
@@ -77,20 +79,20 @@ SetEndAddress sets EndAddress field to given value.
 
 ### GetVrf
 
-`func (o *WritableIPRangeRequest) GetVrf() BriefVRFRequest`
+`func (o *WritableIPRangeRequest) GetVrf() BulkIPAddressRequestVrf`
 
 GetVrf returns the Vrf field if non-nil, zero value otherwise.
 
 ### GetVrfOk
 
-`func (o *WritableIPRangeRequest) GetVrfOk() (*BriefVRFRequest, bool)`
+`func (o *WritableIPRangeRequest) GetVrfOk() (*BulkIPAddressRequestVrf, bool)`
 
 GetVrfOk returns a tuple with the Vrf field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVrf
 
-`func (o *WritableIPRangeRequest) SetVrf(v BriefVRFRequest)`
+`func (o *WritableIPRangeRequest) SetVrf(v BulkIPAddressRequestVrf)`
 
 SetVrf sets Vrf field to given value.
 
@@ -112,20 +114,20 @@ HasVrf returns a boolean if a field has been set.
 UnsetVrf ensures that no value is present for Vrf, not even an explicit nil
 ### GetTenant
 
-`func (o *WritableIPRangeRequest) GetTenant() BriefTenantRequest`
+`func (o *WritableIPRangeRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *WritableIPRangeRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *WritableIPRangeRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *WritableIPRangeRequest) SetTenant(v BriefTenantRequest)`
+`func (o *WritableIPRangeRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -172,20 +174,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *WritableIPRangeRequest) GetRole() BriefRoleRequest`
+`func (o *WritableIPRangeRequest) GetRole() ASNRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *WritableIPRangeRequest) GetRoleOk() (*BriefRoleRequest, bool)`
+`func (o *WritableIPRangeRequest) GetRoleOk() (*ASNRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *WritableIPRangeRequest) SetRole(v BriefRoleRequest)`
+`func (o *WritableIPRangeRequest) SetRole(v ASNRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -230,6 +232,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WritableIPRangeRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableIPRangeRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableIPRangeRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableIPRangeRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableIPRangeRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableIPRangeRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WritableIPRangeRequest) GetComments() string`
@@ -304,6 +341,31 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *WritableIPRangeRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetMarkPopulated
+
+`func (o *WritableIPRangeRequest) GetMarkPopulated() bool`
+
+GetMarkPopulated returns the MarkPopulated field if non-nil, zero value otherwise.
+
+### GetMarkPopulatedOk
+
+`func (o *WritableIPRangeRequest) GetMarkPopulatedOk() (*bool, bool)`
+
+GetMarkPopulatedOk returns a tuple with the MarkPopulated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMarkPopulated
+
+`func (o *WritableIPRangeRequest) SetMarkPopulated(v bool)`
+
+SetMarkPopulated sets MarkPopulated field to given value.
+
+### HasMarkPopulated
+
+`func (o *WritableIPRangeRequest) HasMarkPopulated() bool`
+
+HasMarkPopulated returns a boolean if a field has been set.
 
 ### GetMarkUtilized
 

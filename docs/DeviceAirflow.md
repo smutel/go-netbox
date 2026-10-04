@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**DeviceAirflowValue**](DeviceAirflowValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkDeviceRequestAirflow**](BulkDeviceRequestAirflow.md) |  | [optional] 
 **Label** | Pointer to [**DeviceAirflowLabel**](DeviceAirflowLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *DeviceAirflow) GetValue() DeviceAirflowValue`
+`func (o *DeviceAirflow) GetValue() BulkDeviceRequestAirflow`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *DeviceAirflow) GetValueOk() (*DeviceAirflowValue, bool)`
+`func (o *DeviceAirflow) GetValueOk() (*BulkDeviceRequestAirflow, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *DeviceAirflow) SetValue(v DeviceAirflowValue)`
+`func (o *DeviceAirflow) SetValue(v BulkDeviceRequestAirflow)`
 
 SetValue sets Value field to given value.
 

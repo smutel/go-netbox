@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to [**PatchedWritableTunnelRequestStatus**](PatchedWritableTunnelRequestStatus.md) |  | [optional] 
-**Group** | Pointer to [**NullableBriefTunnelGroupRequest**](BriefTunnelGroupRequest.md) |  | [optional] 
-**Encapsulation** | Pointer to [**PatchedWritableTunnelRequestEncapsulation**](PatchedWritableTunnelRequestEncapsulation.md) |  | [optional] 
-**IpsecProfile** | Pointer to [**NullableBriefIPSecProfileRequest**](BriefIPSecProfileRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Status** | Pointer to [**BulkTunnelRequestStatus**](BulkTunnelRequestStatus.md) |  | [optional] 
+**Group** | Pointer to [**NullableBulkTunnelRequestGroup**](BulkTunnelRequestGroup.md) |  | [optional] 
+**Encapsulation** | Pointer to [**BulkTunnelRequestEncapsulation**](BulkTunnelRequestEncapsulation.md) |  | [optional] 
+**IpsecProfile** | Pointer to [**NullableBulkTunnelRequestIpsecProfile**](BulkTunnelRequestIpsecProfile.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **TunnelId** | Pointer to **NullableInt64** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -62,20 +63,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *PatchedWritableTunnelRequest) GetStatus() PatchedWritableTunnelRequestStatus`
+`func (o *PatchedWritableTunnelRequest) GetStatus() BulkTunnelRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWritableTunnelRequest) GetStatusOk() (*PatchedWritableTunnelRequestStatus, bool)`
+`func (o *PatchedWritableTunnelRequest) GetStatusOk() (*BulkTunnelRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWritableTunnelRequest) SetStatus(v PatchedWritableTunnelRequestStatus)`
+`func (o *PatchedWritableTunnelRequest) SetStatus(v BulkTunnelRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -87,20 +88,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetGroup
 
-`func (o *PatchedWritableTunnelRequest) GetGroup() BriefTunnelGroupRequest`
+`func (o *PatchedWritableTunnelRequest) GetGroup() BulkTunnelRequestGroup`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *PatchedWritableTunnelRequest) GetGroupOk() (*BriefTunnelGroupRequest, bool)`
+`func (o *PatchedWritableTunnelRequest) GetGroupOk() (*BulkTunnelRequestGroup, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *PatchedWritableTunnelRequest) SetGroup(v BriefTunnelGroupRequest)`
+`func (o *PatchedWritableTunnelRequest) SetGroup(v BulkTunnelRequestGroup)`
 
 SetGroup sets Group field to given value.
 
@@ -122,20 +123,20 @@ HasGroup returns a boolean if a field has been set.
 UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetEncapsulation
 
-`func (o *PatchedWritableTunnelRequest) GetEncapsulation() PatchedWritableTunnelRequestEncapsulation`
+`func (o *PatchedWritableTunnelRequest) GetEncapsulation() BulkTunnelRequestEncapsulation`
 
 GetEncapsulation returns the Encapsulation field if non-nil, zero value otherwise.
 
 ### GetEncapsulationOk
 
-`func (o *PatchedWritableTunnelRequest) GetEncapsulationOk() (*PatchedWritableTunnelRequestEncapsulation, bool)`
+`func (o *PatchedWritableTunnelRequest) GetEncapsulationOk() (*BulkTunnelRequestEncapsulation, bool)`
 
 GetEncapsulationOk returns a tuple with the Encapsulation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEncapsulation
 
-`func (o *PatchedWritableTunnelRequest) SetEncapsulation(v PatchedWritableTunnelRequestEncapsulation)`
+`func (o *PatchedWritableTunnelRequest) SetEncapsulation(v BulkTunnelRequestEncapsulation)`
 
 SetEncapsulation sets Encapsulation field to given value.
 
@@ -147,20 +148,20 @@ HasEncapsulation returns a boolean if a field has been set.
 
 ### GetIpsecProfile
 
-`func (o *PatchedWritableTunnelRequest) GetIpsecProfile() BriefIPSecProfileRequest`
+`func (o *PatchedWritableTunnelRequest) GetIpsecProfile() BulkTunnelRequestIpsecProfile`
 
 GetIpsecProfile returns the IpsecProfile field if non-nil, zero value otherwise.
 
 ### GetIpsecProfileOk
 
-`func (o *PatchedWritableTunnelRequest) GetIpsecProfileOk() (*BriefIPSecProfileRequest, bool)`
+`func (o *PatchedWritableTunnelRequest) GetIpsecProfileOk() (*BulkTunnelRequestIpsecProfile, bool)`
 
 GetIpsecProfileOk returns a tuple with the IpsecProfile field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIpsecProfile
 
-`func (o *PatchedWritableTunnelRequest) SetIpsecProfile(v BriefIPSecProfileRequest)`
+`func (o *PatchedWritableTunnelRequest) SetIpsecProfile(v BulkTunnelRequestIpsecProfile)`
 
 SetIpsecProfile sets IpsecProfile field to given value.
 
@@ -182,20 +183,20 @@ HasIpsecProfile returns a boolean if a field has been set.
 UnsetIpsecProfile ensures that no value is present for IpsecProfile, not even an explicit nil
 ### GetTenant
 
-`func (o *PatchedWritableTunnelRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableTunnelRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableTunnelRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableTunnelRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableTunnelRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableTunnelRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -275,6 +276,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableTunnelRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableTunnelRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableTunnelRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableTunnelRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableTunnelRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableTunnelRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableTunnelRequest) GetComments() string`

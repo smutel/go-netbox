@@ -10,14 +10,15 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**DeviceCount** | Pointer to **int64** |  | [optional] [readonly] 
-**VirtualmachineCount** | Pointer to **int64** |  | [optional] [readonly] 
+**DeviceCount** | Pointer to **int32** |  | [optional] [readonly] [default to 0]
+**VirtualmachineCount** | Pointer to **int32** |  | [optional] [readonly] [default to 0]
+**Depth** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefPlatform
 
-`func NewBriefPlatform(id int32, url string, display string, name string, slug string, ) *BriefPlatform`
+`func NewBriefPlatform(id int32, url string, display string, name string, slug string, depth int32, ) *BriefPlatform`
 
 NewBriefPlatform instantiates a new BriefPlatform object
 This constructor will assign default values to properties that have it defined,
@@ -159,20 +160,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetDeviceCount
 
-`func (o *BriefPlatform) GetDeviceCount() int64`
+`func (o *BriefPlatform) GetDeviceCount() int32`
 
 GetDeviceCount returns the DeviceCount field if non-nil, zero value otherwise.
 
 ### GetDeviceCountOk
 
-`func (o *BriefPlatform) GetDeviceCountOk() (*int64, bool)`
+`func (o *BriefPlatform) GetDeviceCountOk() (*int32, bool)`
 
 GetDeviceCountOk returns a tuple with the DeviceCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceCount
 
-`func (o *BriefPlatform) SetDeviceCount(v int64)`
+`func (o *BriefPlatform) SetDeviceCount(v int32)`
 
 SetDeviceCount sets DeviceCount field to given value.
 
@@ -184,20 +185,20 @@ HasDeviceCount returns a boolean if a field has been set.
 
 ### GetVirtualmachineCount
 
-`func (o *BriefPlatform) GetVirtualmachineCount() int64`
+`func (o *BriefPlatform) GetVirtualmachineCount() int32`
 
 GetVirtualmachineCount returns the VirtualmachineCount field if non-nil, zero value otherwise.
 
 ### GetVirtualmachineCountOk
 
-`func (o *BriefPlatform) GetVirtualmachineCountOk() (*int64, bool)`
+`func (o *BriefPlatform) GetVirtualmachineCountOk() (*int32, bool)`
 
 GetVirtualmachineCountOk returns a tuple with the VirtualmachineCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVirtualmachineCount
 
-`func (o *BriefPlatform) SetVirtualmachineCount(v int64)`
+`func (o *BriefPlatform) SetVirtualmachineCount(v int32)`
 
 SetVirtualmachineCount sets VirtualmachineCount field to given value.
 
@@ -206,6 +207,26 @@ SetVirtualmachineCount sets VirtualmachineCount field to given value.
 `func (o *BriefPlatform) HasVirtualmachineCount() bool`
 
 HasVirtualmachineCount returns a boolean if a field has been set.
+
+### GetDepth
+
+`func (o *BriefPlatform) GetDepth() int32`
+
+GetDepth returns the Depth field if non-nil, zero value otherwise.
+
+### GetDepthOk
+
+`func (o *BriefPlatform) GetDepthOk() (*int32, bool)`
+
+GetDepthOk returns a tuple with the Depth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDepth
+
+`func (o *BriefPlatform) SetDepth(v int32)`
+
+SetDepth sets Depth field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

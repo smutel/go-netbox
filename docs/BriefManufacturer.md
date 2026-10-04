@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**DevicetypeCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -155,31 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefManufacturer) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetDevicetypeCount
-
-`func (o *BriefManufacturer) GetDevicetypeCount() int64`
-
-GetDevicetypeCount returns the DevicetypeCount field if non-nil, zero value otherwise.
-
-### GetDevicetypeCountOk
-
-`func (o *BriefManufacturer) GetDevicetypeCountOk() (*int64, bool)`
-
-GetDevicetypeCountOk returns a tuple with the DevicetypeCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDevicetypeCount
-
-`func (o *BriefManufacturer) SetDevicetypeCount(v int64)`
-
-SetDevicetypeCount sets DevicetypeCount field to given value.
-
-### HasDevicetypeCount
-
-`func (o *BriefManufacturer) HasDevicetypeCount() bool`
-
-HasDevicetypeCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

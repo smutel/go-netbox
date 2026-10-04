@@ -3,6 +3,8 @@
 ## Enum
 
 
+* `NULL` (value: `"null"`)
+
 * `PRIMARY` (value: `"primary"`)
 
 * `REDUNDANT` (value: `"redundant"`)

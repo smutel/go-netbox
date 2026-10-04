@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
@@ -16,13 +17,15 @@ Name | Type | Description | Notes
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 **WirelesslanCount** | **int32** |  | [readonly] [default to 0]
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Depth** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewWirelessLANGroup
 
-`func NewWirelessLANGroup(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, wirelesslanCount int32, depth int32, ) *WirelessLANGroup`
+`func NewWirelessLANGroup(id int32, url string, displayUrl string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, wirelesslanCount int32, depth int32, ) *WirelessLANGroup`
 
 NewWirelessLANGroup instantiates a new WirelessLANGroup object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *WirelessLANGroup) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *WirelessLANGroup) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *WirelessLANGroup) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *WirelessLANGroup) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -326,6 +349,66 @@ and a boolean to check if the value has been set.
 
 SetWirelesslanCount sets WirelesslanCount field to given value.
 
+
+### GetOwner
+
+`func (o *WirelessLANGroup) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WirelessLANGroup) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WirelessLANGroup) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WirelessLANGroup) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WirelessLANGroup) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WirelessLANGroup) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *WirelessLANGroup) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *WirelessLANGroup) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *WirelessLANGroup) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *WirelessLANGroup) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetDepth
 

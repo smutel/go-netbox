@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **VirtualMachine** | [**BriefVirtualMachine**](BriefVirtualMachine.md) |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
 **Size** | **int32** |  | 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -20,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewVirtualDisk
 
-`func NewVirtualDisk(id int32, url string, display string, virtualMachine BriefVirtualMachine, name string, size int32, created NullableTime, lastUpdated NullableTime, ) *VirtualDisk`
+`func NewVirtualDisk(id int32, url string, displayUrl string, display string, virtualMachine BriefVirtualMachine, name string, size int32, created NullableTime, lastUpdated NullableTime, ) *VirtualDisk`
 
 NewVirtualDisk instantiates a new VirtualDisk object
 This constructor will assign default values to properties that have it defined,
@@ -73,6 +75,26 @@ and a boolean to check if the value has been set.
 `func (o *VirtualDisk) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *VirtualDisk) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *VirtualDisk) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *VirtualDisk) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -180,6 +202,41 @@ and a boolean to check if the value has been set.
 SetSize sets Size field to given value.
 
 
+### GetOwner
+
+`func (o *VirtualDisk) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *VirtualDisk) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *VirtualDisk) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *VirtualDisk) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *VirtualDisk) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *VirtualDisk) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *VirtualDisk) GetTags() []NestedTag`

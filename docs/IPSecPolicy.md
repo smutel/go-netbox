@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**Proposals** | Pointer to [**[]IPSecProposal**](IPSecProposal.md) |  | [optional] 
+**Proposals** | Pointer to [**[]BriefIPSecProposal**](BriefIPSecProposal.md) |  | [optional] 
 **PfsGroup** | Pointer to [**IKEProposalGroup**](IKEProposalGroup.md) |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -21,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewIPSecPolicy
 
-`func NewIPSecPolicy(id int32, url string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *IPSecPolicy`
+`func NewIPSecPolicy(id int32, url string, displayUrl string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *IPSecPolicy`
 
 NewIPSecPolicy instantiates a new IPSecPolicy object
 This constructor will assign default values to properties that have it defined,
@@ -74,6 +76,26 @@ and a boolean to check if the value has been set.
 `func (o *IPSecPolicy) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *IPSecPolicy) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *IPSecPolicy) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *IPSecPolicy) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -143,20 +165,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetProposals
 
-`func (o *IPSecPolicy) GetProposals() []IPSecProposal`
+`func (o *IPSecPolicy) GetProposals() []BriefIPSecProposal`
 
 GetProposals returns the Proposals field if non-nil, zero value otherwise.
 
 ### GetProposalsOk
 
-`func (o *IPSecPolicy) GetProposalsOk() (*[]IPSecProposal, bool)`
+`func (o *IPSecPolicy) GetProposalsOk() (*[]BriefIPSecProposal, bool)`
 
 GetProposalsOk returns a tuple with the Proposals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProposals
 
-`func (o *IPSecPolicy) SetProposals(v []IPSecProposal)`
+`func (o *IPSecPolicy) SetProposals(v []BriefIPSecProposal)`
 
 SetProposals sets Proposals field to given value.
 
@@ -191,6 +213,41 @@ SetPfsGroup sets PfsGroup field to given value.
 
 HasPfsGroup returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *IPSecPolicy) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IPSecPolicy) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IPSecPolicy) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IPSecPolicy) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IPSecPolicy) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IPSecPolicy) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IPSecPolicy) GetComments() string`

@@ -4,6 +4,24 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CircuitsCircuitGroupAssignmentsBulkDestroy**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsBulkDestroy) | **Delete** /api/circuits/circuit-group-assignments/ | 
+[**CircuitsCircuitGroupAssignmentsBulkPartialUpdate**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsBulkPartialUpdate) | **Patch** /api/circuits/circuit-group-assignments/ | 
+[**CircuitsCircuitGroupAssignmentsBulkUpdate**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsBulkUpdate) | **Put** /api/circuits/circuit-group-assignments/ | 
+[**CircuitsCircuitGroupAssignmentsCreate**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsCreate) | **Post** /api/circuits/circuit-group-assignments/ | 
+[**CircuitsCircuitGroupAssignmentsDestroy**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsDestroy) | **Delete** /api/circuits/circuit-group-assignments/{id}/ | 
+[**CircuitsCircuitGroupAssignmentsList**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsList) | **Get** /api/circuits/circuit-group-assignments/ | 
+[**CircuitsCircuitGroupAssignmentsPartialUpdate**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsPartialUpdate) | **Patch** /api/circuits/circuit-group-assignments/{id}/ | 
+[**CircuitsCircuitGroupAssignmentsRetrieve**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsRetrieve) | **Get** /api/circuits/circuit-group-assignments/{id}/ | 
+[**CircuitsCircuitGroupAssignmentsUpdate**](CircuitsAPI.md#CircuitsCircuitGroupAssignmentsUpdate) | **Put** /api/circuits/circuit-group-assignments/{id}/ | 
+[**CircuitsCircuitGroupsBulkDestroy**](CircuitsAPI.md#CircuitsCircuitGroupsBulkDestroy) | **Delete** /api/circuits/circuit-groups/ | 
+[**CircuitsCircuitGroupsBulkPartialUpdate**](CircuitsAPI.md#CircuitsCircuitGroupsBulkPartialUpdate) | **Patch** /api/circuits/circuit-groups/ | 
+[**CircuitsCircuitGroupsBulkUpdate**](CircuitsAPI.md#CircuitsCircuitGroupsBulkUpdate) | **Put** /api/circuits/circuit-groups/ | 
+[**CircuitsCircuitGroupsCreate**](CircuitsAPI.md#CircuitsCircuitGroupsCreate) | **Post** /api/circuits/circuit-groups/ | 
+[**CircuitsCircuitGroupsDestroy**](CircuitsAPI.md#CircuitsCircuitGroupsDestroy) | **Delete** /api/circuits/circuit-groups/{id}/ | 
+[**CircuitsCircuitGroupsList**](CircuitsAPI.md#CircuitsCircuitGroupsList) | **Get** /api/circuits/circuit-groups/ | 
+[**CircuitsCircuitGroupsPartialUpdate**](CircuitsAPI.md#CircuitsCircuitGroupsPartialUpdate) | **Patch** /api/circuits/circuit-groups/{id}/ | 
+[**CircuitsCircuitGroupsRetrieve**](CircuitsAPI.md#CircuitsCircuitGroupsRetrieve) | **Get** /api/circuits/circuit-groups/{id}/ | 
+[**CircuitsCircuitGroupsUpdate**](CircuitsAPI.md#CircuitsCircuitGroupsUpdate) | **Put** /api/circuits/circuit-groups/{id}/ | 
 [**CircuitsCircuitTerminationsBulkDestroy**](CircuitsAPI.md#CircuitsCircuitTerminationsBulkDestroy) | **Delete** /api/circuits/circuit-terminations/ | 
 [**CircuitsCircuitTerminationsBulkPartialUpdate**](CircuitsAPI.md#CircuitsCircuitTerminationsBulkPartialUpdate) | **Patch** /api/circuits/circuit-terminations/ | 
 [**CircuitsCircuitTerminationsBulkUpdate**](CircuitsAPI.md#CircuitsCircuitTerminationsBulkUpdate) | **Put** /api/circuits/circuit-terminations/ | 
@@ -59,7 +77,1595 @@ Method | HTTP request | Description
 [**CircuitsProvidersPartialUpdate**](CircuitsAPI.md#CircuitsProvidersPartialUpdate) | **Patch** /api/circuits/providers/{id}/ | 
 [**CircuitsProvidersRetrieve**](CircuitsAPI.md#CircuitsProvidersRetrieve) | **Get** /api/circuits/providers/{id}/ | 
 [**CircuitsProvidersUpdate**](CircuitsAPI.md#CircuitsProvidersUpdate) | **Put** /api/circuits/providers/{id}/ | 
+[**CircuitsVirtualCircuitTerminationsBulkDestroy**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsBulkDestroy) | **Delete** /api/circuits/virtual-circuit-terminations/ | 
+[**CircuitsVirtualCircuitTerminationsBulkPartialUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsBulkPartialUpdate) | **Patch** /api/circuits/virtual-circuit-terminations/ | 
+[**CircuitsVirtualCircuitTerminationsBulkUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsBulkUpdate) | **Put** /api/circuits/virtual-circuit-terminations/ | 
+[**CircuitsVirtualCircuitTerminationsCreate**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsCreate) | **Post** /api/circuits/virtual-circuit-terminations/ | 
+[**CircuitsVirtualCircuitTerminationsDestroy**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsDestroy) | **Delete** /api/circuits/virtual-circuit-terminations/{id}/ | 
+[**CircuitsVirtualCircuitTerminationsList**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsList) | **Get** /api/circuits/virtual-circuit-terminations/ | 
+[**CircuitsVirtualCircuitTerminationsPartialUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsPartialUpdate) | **Patch** /api/circuits/virtual-circuit-terminations/{id}/ | 
+[**CircuitsVirtualCircuitTerminationsPathsRetrieve**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsPathsRetrieve) | **Get** /api/circuits/virtual-circuit-terminations/{id}/paths/ | 
+[**CircuitsVirtualCircuitTerminationsRetrieve**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsRetrieve) | **Get** /api/circuits/virtual-circuit-terminations/{id}/ | 
+[**CircuitsVirtualCircuitTerminationsUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTerminationsUpdate) | **Put** /api/circuits/virtual-circuit-terminations/{id}/ | 
+[**CircuitsVirtualCircuitTypesBulkDestroy**](CircuitsAPI.md#CircuitsVirtualCircuitTypesBulkDestroy) | **Delete** /api/circuits/virtual-circuit-types/ | 
+[**CircuitsVirtualCircuitTypesBulkPartialUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTypesBulkPartialUpdate) | **Patch** /api/circuits/virtual-circuit-types/ | 
+[**CircuitsVirtualCircuitTypesBulkUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTypesBulkUpdate) | **Put** /api/circuits/virtual-circuit-types/ | 
+[**CircuitsVirtualCircuitTypesCreate**](CircuitsAPI.md#CircuitsVirtualCircuitTypesCreate) | **Post** /api/circuits/virtual-circuit-types/ | 
+[**CircuitsVirtualCircuitTypesDestroy**](CircuitsAPI.md#CircuitsVirtualCircuitTypesDestroy) | **Delete** /api/circuits/virtual-circuit-types/{id}/ | 
+[**CircuitsVirtualCircuitTypesList**](CircuitsAPI.md#CircuitsVirtualCircuitTypesList) | **Get** /api/circuits/virtual-circuit-types/ | 
+[**CircuitsVirtualCircuitTypesPartialUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTypesPartialUpdate) | **Patch** /api/circuits/virtual-circuit-types/{id}/ | 
+[**CircuitsVirtualCircuitTypesRetrieve**](CircuitsAPI.md#CircuitsVirtualCircuitTypesRetrieve) | **Get** /api/circuits/virtual-circuit-types/{id}/ | 
+[**CircuitsVirtualCircuitTypesUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitTypesUpdate) | **Put** /api/circuits/virtual-circuit-types/{id}/ | 
+[**CircuitsVirtualCircuitsBulkDestroy**](CircuitsAPI.md#CircuitsVirtualCircuitsBulkDestroy) | **Delete** /api/circuits/virtual-circuits/ | 
+[**CircuitsVirtualCircuitsBulkPartialUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitsBulkPartialUpdate) | **Patch** /api/circuits/virtual-circuits/ | 
+[**CircuitsVirtualCircuitsBulkUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitsBulkUpdate) | **Put** /api/circuits/virtual-circuits/ | 
+[**CircuitsVirtualCircuitsCreate**](CircuitsAPI.md#CircuitsVirtualCircuitsCreate) | **Post** /api/circuits/virtual-circuits/ | 
+[**CircuitsVirtualCircuitsDestroy**](CircuitsAPI.md#CircuitsVirtualCircuitsDestroy) | **Delete** /api/circuits/virtual-circuits/{id}/ | 
+[**CircuitsVirtualCircuitsList**](CircuitsAPI.md#CircuitsVirtualCircuitsList) | **Get** /api/circuits/virtual-circuits/ | 
+[**CircuitsVirtualCircuitsPartialUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitsPartialUpdate) | **Patch** /api/circuits/virtual-circuits/{id}/ | 
+[**CircuitsVirtualCircuitsRetrieve**](CircuitsAPI.md#CircuitsVirtualCircuitsRetrieve) | **Get** /api/circuits/virtual-circuits/{id}/ | 
+[**CircuitsVirtualCircuitsUpdate**](CircuitsAPI.md#CircuitsVirtualCircuitsUpdate) | **Put** /api/circuits/virtual-circuits/{id}/ | 
 
+
+
+## CircuitsCircuitGroupAssignmentsBulkDestroy
+
+> CircuitsCircuitGroupAssignmentsBulkDestroy(ctx).CircuitGroupAssignmentRequest(circuitGroupAssignmentRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	circuitGroupAssignmentRequest := []openapiclient.CircuitGroupAssignmentRequest{*openapiclient.NewCircuitGroupAssignmentRequest(openapiclient.BriefCircuitGroupAssignmentSerializer_Request_group{BriefCircuitGroupRequest: openapiclient.NewBriefCircuitGroupRequest("Name_example")}, "MemberType_example", int64(123))} // []CircuitGroupAssignmentRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkDestroy(context.Background()).CircuitGroupAssignmentRequest(circuitGroupAssignmentRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **circuitGroupAssignmentRequest** | [**[]CircuitGroupAssignmentRequest**](CircuitGroupAssignmentRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsBulkPartialUpdate
+
+> []CircuitGroupAssignment CircuitsCircuitGroupAssignmentsBulkPartialUpdate(ctx).PatchedBulkCircuitGroupAssignmentRequest(patchedBulkCircuitGroupAssignmentRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkCircuitGroupAssignmentRequest := []openapiclient.PatchedBulkCircuitGroupAssignmentRequest{*openapiclient.NewPatchedBulkCircuitGroupAssignmentRequest(int32(123))} // []PatchedBulkCircuitGroupAssignmentRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkPartialUpdate(context.Background()).PatchedBulkCircuitGroupAssignmentRequest(patchedBulkCircuitGroupAssignmentRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupAssignmentsBulkPartialUpdate`: []CircuitGroupAssignment
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkCircuitGroupAssignmentRequest** | [**[]PatchedBulkCircuitGroupAssignmentRequest**](PatchedBulkCircuitGroupAssignmentRequest.md) |  | 
+
+### Return type
+
+[**[]CircuitGroupAssignment**](CircuitGroupAssignment.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsBulkUpdate
+
+> []CircuitGroupAssignment CircuitsCircuitGroupAssignmentsBulkUpdate(ctx).BulkCircuitGroupAssignmentRequest(bulkCircuitGroupAssignmentRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkCircuitGroupAssignmentRequest := []openapiclient.BulkCircuitGroupAssignmentRequest{*openapiclient.NewBulkCircuitGroupAssignmentRequest(int32(123), openapiclient.BriefCircuitGroupAssignmentSerializer_Request_group{BriefCircuitGroupRequest: openapiclient.NewBriefCircuitGroupRequest("Name_example")}, "MemberType_example", int64(123))} // []BulkCircuitGroupAssignmentRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkUpdate(context.Background()).BulkCircuitGroupAssignmentRequest(bulkCircuitGroupAssignmentRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupAssignmentsBulkUpdate`: []CircuitGroupAssignment
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupAssignmentsBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkCircuitGroupAssignmentRequest** | [**[]BulkCircuitGroupAssignmentRequest**](BulkCircuitGroupAssignmentRequest.md) |  | 
+
+### Return type
+
+[**[]CircuitGroupAssignment**](CircuitGroupAssignment.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsCreate
+
+> CircuitGroupAssignment CircuitsCircuitGroupAssignmentsCreate(ctx).CircuitsCircuitGroupAssignmentsCreateRequest(circuitsCircuitGroupAssignmentsCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	circuitsCircuitGroupAssignmentsCreateRequest := openapiclient.circuits_circuit_group_assignments_create_request{WritableCircuitGroupAssignmentRequest: openapiclient.NewWritableCircuitGroupAssignmentRequest(openapiclient.BriefCircuitGroupAssignmentSerializer_Request_group{BriefCircuitGroupRequest: openapiclient.NewBriefCircuitGroupRequest("Name_example")}, "MemberType_example", int64(123))} // CircuitsCircuitGroupAssignmentsCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsCreate(context.Background()).CircuitsCircuitGroupAssignmentsCreateRequest(circuitsCircuitGroupAssignmentsCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupAssignmentsCreate`: CircuitGroupAssignment
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupAssignmentsCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **circuitsCircuitGroupAssignmentsCreateRequest** | [**CircuitsCircuitGroupAssignmentsCreateRequest**](CircuitsCircuitGroupAssignmentsCreateRequest.md) |  | 
+
+### Return type
+
+[**CircuitGroupAssignment**](CircuitGroupAssignment.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsDestroy
+
+> CircuitsCircuitGroupAssignmentsDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this Circuit group assignment.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this Circuit group assignment. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsList
+
+> PaginatedCircuitGroupAssignmentList CircuitsCircuitGroupAssignmentsList(ctx).Brief(brief).Circuit(circuit).CircuitId(circuitId).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MemberId(memberId).MemberIdEmpty(memberIdEmpty).MemberIdGt(memberIdGt).MemberIdGte(memberIdGte).MemberIdLt(memberIdLt).MemberIdLte(memberIdLte).MemberIdN(memberIdN).MemberType(memberType).MemberTypeN(memberTypeN).MemberTypeId(memberTypeId).MemberTypeIdN(memberTypeIdN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityIc(priorityIc).PriorityIe(priorityIe).PriorityIew(priorityIew).PriorityIregex(priorityIregex).PriorityIsw(priorityIsw).PriorityN(priorityN).PriorityNic(priorityNic).PriorityNie(priorityNie).PriorityNiew(priorityNiew).PriorityNisw(priorityNisw).PriorityRegex(priorityRegex).Provider(provider).ProviderId(providerId).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualCircuit(virtualCircuit).VirtualCircuitId(virtualCircuitId).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	circuit := []string{"Inner_example"} // []string |  (optional)
+	circuitId := []int32{int32(123)} // []int32 |  (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	group := []string{"Inner_example"} // []string | Circuit group (slug) (optional)
+	groupN := []string{"Inner_example"} // []string | Circuit group (slug) (optional)
+	groupId := []int32{int32(123)} // []int32 | Circuit group (ID) (optional)
+	groupIdN := []int32{int32(123)} // []int32 | Circuit group (ID) (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	memberId := []int32{int32(123)} // []int32 |  (optional)
+	memberIdEmpty := true // bool |  (optional)
+	memberIdGt := []int32{int32(123)} // []int32 |  (optional)
+	memberIdGte := []int32{int32(123)} // []int32 |  (optional)
+	memberIdLt := []int32{int32(123)} // []int32 |  (optional)
+	memberIdLte := []int32{int32(123)} // []int32 |  (optional)
+	memberIdN := []int32{int32(123)} // []int32 |  (optional)
+	memberType := []string{"Inner_example"} // []string |  (optional)
+	memberTypeN := []string{"Inner_example"} // []string |  (optional)
+	memberTypeId := []int32{int32(123)} // []int32 |  (optional)
+	memberTypeIdN := []int32{int32(123)} // []int32 |  (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	priority := openapiclient.circuits_circuit_group_assignments_list_priority_parameter("inactive") // CircuitsCircuitGroupAssignmentsListPriorityParameter | * `primary` - Primary * `secondary` - Secondary * `tertiary` - Tertiary * `inactive` - Inactive (optional)
+	priorityEmpty := true // bool |  (optional)
+	priorityIc := []string{"Inner_example"} // []string |  (optional)
+	priorityIe := []string{"Inner_example"} // []string |  (optional)
+	priorityIew := []string{"Inner_example"} // []string |  (optional)
+	priorityIregex := []string{"Inner_example"} // []string |  (optional)
+	priorityIsw := []string{"Inner_example"} // []string |  (optional)
+	priorityN := openapiclient.circuits_circuit_group_assignments_list_priority_parameter("inactive") // CircuitsCircuitGroupAssignmentsListPriorityParameter | * `primary` - Primary * `secondary` - Secondary * `tertiary` - Tertiary * `inactive` - Inactive (optional)
+	priorityNic := []string{"Inner_example"} // []string |  (optional)
+	priorityNie := []string{"Inner_example"} // []string |  (optional)
+	priorityNiew := []string{"Inner_example"} // []string |  (optional)
+	priorityNisw := []string{"Inner_example"} // []string |  (optional)
+	priorityRegex := []string{"Inner_example"} // []string |  (optional)
+	provider := []string{"Inner_example"} // []string |  (optional)
+	providerId := []int32{int32(123)} // []int32 |  (optional)
+	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	virtualCircuit := []string{"Inner_example"} // []string |  (optional)
+	virtualCircuitId := []int32{int32(123)} // []int32 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsList(context.Background()).Brief(brief).Circuit(circuit).CircuitId(circuitId).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MemberId(memberId).MemberIdEmpty(memberIdEmpty).MemberIdGt(memberIdGt).MemberIdGte(memberIdGte).MemberIdLt(memberIdLt).MemberIdLte(memberIdLte).MemberIdN(memberIdN).MemberType(memberType).MemberTypeN(memberTypeN).MemberTypeId(memberTypeId).MemberTypeIdN(memberTypeIdN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityIc(priorityIc).PriorityIe(priorityIe).PriorityIew(priorityIew).PriorityIregex(priorityIregex).PriorityIsw(priorityIsw).PriorityN(priorityN).PriorityNic(priorityNic).PriorityNie(priorityNie).PriorityNiew(priorityNiew).PriorityNisw(priorityNisw).PriorityRegex(priorityRegex).Provider(provider).ProviderId(providerId).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualCircuit(virtualCircuit).VirtualCircuitId(virtualCircuitId).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupAssignmentsList`: PaginatedCircuitGroupAssignmentList
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupAssignmentsList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **circuit** | **[]string** |  | 
+ **circuitId** | **[]int32** |  | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **group** | **[]string** | Circuit group (slug) | 
+ **groupN** | **[]string** | Circuit group (slug) | 
+ **groupId** | **[]int32** | Circuit group (ID) | 
+ **groupIdN** | **[]int32** | Circuit group (ID) | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **memberId** | **[]int32** |  | 
+ **memberIdEmpty** | **bool** |  | 
+ **memberIdGt** | **[]int32** |  | 
+ **memberIdGte** | **[]int32** |  | 
+ **memberIdLt** | **[]int32** |  | 
+ **memberIdLte** | **[]int32** |  | 
+ **memberIdN** | **[]int32** |  | 
+ **memberType** | **[]string** |  | 
+ **memberTypeN** | **[]string** |  | 
+ **memberTypeId** | **[]int32** |  | 
+ **memberTypeIdN** | **[]int32** |  | 
+ **modifiedByRequest** | **string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **priority** | [**CircuitsCircuitGroupAssignmentsListPriorityParameter**](CircuitsCircuitGroupAssignmentsListPriorityParameter.md) | * &#x60;primary&#x60; - Primary * &#x60;secondary&#x60; - Secondary * &#x60;tertiary&#x60; - Tertiary * &#x60;inactive&#x60; - Inactive | 
+ **priorityEmpty** | **bool** |  | 
+ **priorityIc** | **[]string** |  | 
+ **priorityIe** | **[]string** |  | 
+ **priorityIew** | **[]string** |  | 
+ **priorityIregex** | **[]string** |  | 
+ **priorityIsw** | **[]string** |  | 
+ **priorityN** | [**CircuitsCircuitGroupAssignmentsListPriorityParameter**](CircuitsCircuitGroupAssignmentsListPriorityParameter.md) | * &#x60;primary&#x60; - Primary * &#x60;secondary&#x60; - Secondary * &#x60;tertiary&#x60; - Tertiary * &#x60;inactive&#x60; - Inactive | 
+ **priorityNic** | **[]string** |  | 
+ **priorityNie** | **[]string** |  | 
+ **priorityNiew** | **[]string** |  | 
+ **priorityNisw** | **[]string** |  | 
+ **priorityRegex** | **[]string** |  | 
+ **provider** | **[]string** |  | 
+ **providerId** | **[]int32** |  | 
+ **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **updatedByRequest** | **string** |  | 
+ **virtualCircuit** | **[]string** |  | 
+ **virtualCircuitId** | **[]int32** |  | 
+
+### Return type
+
+[**PaginatedCircuitGroupAssignmentList**](PaginatedCircuitGroupAssignmentList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsPartialUpdate
+
+> CircuitGroupAssignment CircuitsCircuitGroupAssignmentsPartialUpdate(ctx, id).PatchedWritableCircuitGroupAssignmentRequest(patchedWritableCircuitGroupAssignmentRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this Circuit group assignment.
+	patchedWritableCircuitGroupAssignmentRequest := *openapiclient.NewPatchedWritableCircuitGroupAssignmentRequest() // PatchedWritableCircuitGroupAssignmentRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsPartialUpdate(context.Background(), id).PatchedWritableCircuitGroupAssignmentRequest(patchedWritableCircuitGroupAssignmentRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupAssignmentsPartialUpdate`: CircuitGroupAssignment
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupAssignmentsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this Circuit group assignment. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedWritableCircuitGroupAssignmentRequest** | [**PatchedWritableCircuitGroupAssignmentRequest**](PatchedWritableCircuitGroupAssignmentRequest.md) |  | 
+
+### Return type
+
+[**CircuitGroupAssignment**](CircuitGroupAssignment.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsRetrieve
+
+> CircuitGroupAssignment CircuitsCircuitGroupAssignmentsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this Circuit group assignment.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupAssignmentsRetrieve`: CircuitGroupAssignment
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupAssignmentsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this Circuit group assignment. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**CircuitGroupAssignment**](CircuitGroupAssignment.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupAssignmentsUpdate
+
+> CircuitGroupAssignment CircuitsCircuitGroupAssignmentsUpdate(ctx, id).WritableCircuitGroupAssignmentRequest(writableCircuitGroupAssignmentRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this Circuit group assignment.
+	writableCircuitGroupAssignmentRequest := *openapiclient.NewWritableCircuitGroupAssignmentRequest(openapiclient.BriefCircuitGroupAssignmentSerializer_Request_group{BriefCircuitGroupRequest: openapiclient.NewBriefCircuitGroupRequest("Name_example")}, "MemberType_example", int64(123)) // WritableCircuitGroupAssignmentRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupAssignmentsUpdate(context.Background(), id).WritableCircuitGroupAssignmentRequest(writableCircuitGroupAssignmentRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupAssignmentsUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupAssignmentsUpdate`: CircuitGroupAssignment
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupAssignmentsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this Circuit group assignment. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupAssignmentsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **writableCircuitGroupAssignmentRequest** | [**WritableCircuitGroupAssignmentRequest**](WritableCircuitGroupAssignmentRequest.md) |  | 
+
+### Return type
+
+[**CircuitGroupAssignment**](CircuitGroupAssignment.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsBulkDestroy
+
+> CircuitsCircuitGroupsBulkDestroy(ctx).CircuitGroupRequest(circuitGroupRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	circuitGroupRequest := []openapiclient.CircuitGroupRequest{*openapiclient.NewCircuitGroupRequest("Name_example", "Slug_example")} // []CircuitGroupRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsBulkDestroy(context.Background()).CircuitGroupRequest(circuitGroupRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **circuitGroupRequest** | [**[]CircuitGroupRequest**](CircuitGroupRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsBulkPartialUpdate
+
+> []CircuitGroup CircuitsCircuitGroupsBulkPartialUpdate(ctx).PatchedBulkCircuitGroupRequest(patchedBulkCircuitGroupRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkCircuitGroupRequest := []openapiclient.PatchedBulkCircuitGroupRequest{*openapiclient.NewPatchedBulkCircuitGroupRequest(int32(123))} // []PatchedBulkCircuitGroupRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsBulkPartialUpdate(context.Background()).PatchedBulkCircuitGroupRequest(patchedBulkCircuitGroupRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupsBulkPartialUpdate`: []CircuitGroup
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupsBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkCircuitGroupRequest** | [**[]PatchedBulkCircuitGroupRequest**](PatchedBulkCircuitGroupRequest.md) |  | 
+
+### Return type
+
+[**[]CircuitGroup**](CircuitGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsBulkUpdate
+
+> []CircuitGroup CircuitsCircuitGroupsBulkUpdate(ctx).BulkCircuitGroupRequest(bulkCircuitGroupRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkCircuitGroupRequest := []openapiclient.BulkCircuitGroupRequest{*openapiclient.NewBulkCircuitGroupRequest(int32(123), "Name_example", "Slug_example")} // []BulkCircuitGroupRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsBulkUpdate(context.Background()).BulkCircuitGroupRequest(bulkCircuitGroupRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupsBulkUpdate`: []CircuitGroup
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupsBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkCircuitGroupRequest** | [**[]BulkCircuitGroupRequest**](BulkCircuitGroupRequest.md) |  | 
+
+### Return type
+
+[**[]CircuitGroup**](CircuitGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsCreate
+
+> CircuitGroup CircuitsCircuitGroupsCreate(ctx).CircuitsCircuitGroupsCreateRequest(circuitsCircuitGroupsCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	circuitsCircuitGroupsCreateRequest := openapiclient.circuits_circuit_groups_create_request{CircuitGroupRequest: openapiclient.NewCircuitGroupRequest("Name_example", "Slug_example")} // CircuitsCircuitGroupsCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsCreate(context.Background()).CircuitsCircuitGroupsCreateRequest(circuitsCircuitGroupsCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupsCreate`: CircuitGroup
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupsCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **circuitsCircuitGroupsCreateRequest** | [**CircuitsCircuitGroupsCreateRequest**](CircuitsCircuitGroupsCreateRequest.md) |  | 
+
+### Return type
+
+[**CircuitGroup**](CircuitGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsDestroy
+
+> CircuitsCircuitGroupsDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this circuit group.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this circuit group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsList
+
+> PaginatedCircuitGroupList CircuitsCircuitGroupsList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	description := []string{"Inner_example"} // []string |  (optional)
+	descriptionEmpty := true // bool |  (optional)
+	descriptionIc := []string{"Inner_example"} // []string |  (optional)
+	descriptionIe := []string{"Inner_example"} // []string |  (optional)
+	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
+	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
+	descriptionN := []string{"Inner_example"} // []string |  (optional)
+	descriptionNic := []string{"Inner_example"} // []string |  (optional)
+	descriptionNie := []string{"Inner_example"} // []string |  (optional)
+	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
+	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	name := []string{"Inner_example"} // []string |  (optional)
+	nameEmpty := true // bool |  (optional)
+	nameIc := []string{"Inner_example"} // []string |  (optional)
+	nameIe := []string{"Inner_example"} // []string |  (optional)
+	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
+	nameIsw := []string{"Inner_example"} // []string |  (optional)
+	nameN := []string{"Inner_example"} // []string |  (optional)
+	nameNic := []string{"Inner_example"} // []string |  (optional)
+	nameNie := []string{"Inner_example"} // []string |  (optional)
+	nameNiew := []string{"Inner_example"} // []string |  (optional)
+	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	q := "q_example" // string | Search (optional)
+	slug := []string{"Inner_example"} // []string |  (optional)
+	slugEmpty := true // bool |  (optional)
+	slugIc := []string{"Inner_example"} // []string |  (optional)
+	slugIe := []string{"Inner_example"} // []string |  (optional)
+	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
+	slugIsw := []string{"Inner_example"} // []string |  (optional)
+	slugN := []string{"Inner_example"} // []string |  (optional)
+	slugNic := []string{"Inner_example"} // []string |  (optional)
+	slugNie := []string{"Inner_example"} // []string |  (optional)
+	slugNiew := []string{"Inner_example"} // []string |  (optional)
+	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
+	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
+	tenantGroup := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupN := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupId := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupIdN := []string{"Inner_example"} // []string |  (optional)
+	tenantId := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
+	tenantIdN := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupsList`: PaginatedCircuitGroupList
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupsList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **description** | **[]string** |  | 
+ **descriptionEmpty** | **bool** |  | 
+ **descriptionIc** | **[]string** |  | 
+ **descriptionIe** | **[]string** |  | 
+ **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
+ **descriptionIsw** | **[]string** |  | 
+ **descriptionN** | **[]string** |  | 
+ **descriptionNic** | **[]string** |  | 
+ **descriptionNie** | **[]string** |  | 
+ **descriptionNiew** | **[]string** |  | 
+ **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **modifiedByRequest** | **string** |  | 
+ **name** | **[]string** |  | 
+ **nameEmpty** | **bool** |  | 
+ **nameIc** | **[]string** |  | 
+ **nameIe** | **[]string** |  | 
+ **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
+ **nameIsw** | **[]string** |  | 
+ **nameN** | **[]string** |  | 
+ **nameNic** | **[]string** |  | 
+ **nameNie** | **[]string** |  | 
+ **nameNiew** | **[]string** |  | 
+ **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **q** | **string** | Search | 
+ **slug** | **[]string** |  | 
+ **slugEmpty** | **bool** |  | 
+ **slugIc** | **[]string** |  | 
+ **slugIe** | **[]string** |  | 
+ **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
+ **slugIsw** | **[]string** |  | 
+ **slugN** | **[]string** |  | 
+ **slugNic** | **[]string** |  | 
+ **slugNie** | **[]string** |  | 
+ **slugNiew** | **[]string** |  | 
+ **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **tenant** | **[]string** | Tenant (slug) | 
+ **tenantN** | **[]string** | Tenant (slug) | 
+ **tenantGroup** | **[]string** |  | 
+ **tenantGroupN** | **[]string** |  | 
+ **tenantGroupId** | **[]string** |  | 
+ **tenantGroupIdN** | **[]string** |  | 
+ **tenantId** | **[]int32** | Tenant (ID) | 
+ **tenantIdN** | **[]int32** | Tenant (ID) | 
+ **updatedByRequest** | **string** |  | 
+
+### Return type
+
+[**PaginatedCircuitGroupList**](PaginatedCircuitGroupList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsPartialUpdate
+
+> CircuitGroup CircuitsCircuitGroupsPartialUpdate(ctx, id).PatchedCircuitGroupRequest(patchedCircuitGroupRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this circuit group.
+	patchedCircuitGroupRequest := *openapiclient.NewPatchedCircuitGroupRequest() // PatchedCircuitGroupRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsPartialUpdate(context.Background(), id).PatchedCircuitGroupRequest(patchedCircuitGroupRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupsPartialUpdate`: CircuitGroup
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this circuit group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedCircuitGroupRequest** | [**PatchedCircuitGroupRequest**](PatchedCircuitGroupRequest.md) |  | 
+
+### Return type
+
+[**CircuitGroup**](CircuitGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsRetrieve
+
+> CircuitGroup CircuitsCircuitGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this circuit group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupsRetrieve`: CircuitGroup
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this circuit group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**CircuitGroup**](CircuitGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsCircuitGroupsUpdate
+
+> CircuitGroup CircuitsCircuitGroupsUpdate(ctx, id).CircuitGroupRequest(circuitGroupRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this circuit group.
+	circuitGroupRequest := *openapiclient.NewCircuitGroupRequest("Name_example", "Slug_example") // CircuitGroupRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitGroupsUpdate(context.Background(), id).CircuitGroupRequest(circuitGroupRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitGroupsUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsCircuitGroupsUpdate`: CircuitGroup
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsCircuitGroupsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this circuit group. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsCircuitGroupsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **circuitGroupRequest** | [**CircuitGroupRequest**](CircuitGroupRequest.md) |  | 
+
+### Return type
+
+[**CircuitGroup**](CircuitGroup.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## CircuitsCircuitTerminationsBulkDestroy
@@ -83,7 +1689,7 @@ import (
 )
 
 func main() {
-	circuitTerminationRequest := []openapiclient.CircuitTerminationRequest{*openapiclient.NewCircuitTerminationRequest(*openapiclient.NewBriefCircuitRequest("Cid_example"), openapiclient.Termination_1("A"))} // []CircuitTerminationRequest | 
+	circuitTerminationRequest := []openapiclient.CircuitTerminationRequest{*openapiclient.NewCircuitTerminationRequest(openapiclient.BulkCircuitTerminationRequest_circuit{BriefCircuitRequest: openapiclient.NewBriefCircuitRequest("Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")})}, openapiclient.Termination_side_1("A"))} // []CircuitTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -119,7 +1725,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -128,7 +1734,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTerminationsBulkPartialUpdate
 
-> []CircuitTermination CircuitsCircuitTerminationsBulkPartialUpdate(ctx).CircuitTerminationRequest(circuitTerminationRequest).Execute()
+> []CircuitTermination CircuitsCircuitTerminationsBulkPartialUpdate(ctx).PatchedBulkCircuitTerminationRequest(patchedBulkCircuitTerminationRequest).Execute()
 
 
 
@@ -147,11 +1753,11 @@ import (
 )
 
 func main() {
-	circuitTerminationRequest := []openapiclient.CircuitTerminationRequest{*openapiclient.NewCircuitTerminationRequest(*openapiclient.NewBriefCircuitRequest("Cid_example"), openapiclient.Termination_1("A"))} // []CircuitTerminationRequest | 
+	patchedBulkCircuitTerminationRequest := []openapiclient.PatchedBulkCircuitTerminationRequest{*openapiclient.NewPatchedBulkCircuitTerminationRequest(int32(123))} // []PatchedBulkCircuitTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsBulkPartialUpdate(context.Background()).CircuitTerminationRequest(circuitTerminationRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsBulkPartialUpdate(context.Background()).PatchedBulkCircuitTerminationRequest(patchedBulkCircuitTerminationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTerminationsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -172,7 +1778,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTermination
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitTerminationRequest** | [**[]CircuitTerminationRequest**](CircuitTerminationRequest.md) |  | 
+ **patchedBulkCircuitTerminationRequest** | [**[]PatchedBulkCircuitTerminationRequest**](PatchedBulkCircuitTerminationRequest.md) |  | 
 
 ### Return type
 
@@ -194,7 +1800,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTerminationsBulkUpdate
 
-> []CircuitTermination CircuitsCircuitTerminationsBulkUpdate(ctx).CircuitTerminationRequest(circuitTerminationRequest).Execute()
+> []CircuitTermination CircuitsCircuitTerminationsBulkUpdate(ctx).BulkCircuitTerminationRequest(bulkCircuitTerminationRequest).Execute()
 
 
 
@@ -213,11 +1819,11 @@ import (
 )
 
 func main() {
-	circuitTerminationRequest := []openapiclient.CircuitTerminationRequest{*openapiclient.NewCircuitTerminationRequest(*openapiclient.NewBriefCircuitRequest("Cid_example"), openapiclient.Termination_1("A"))} // []CircuitTerminationRequest | 
+	bulkCircuitTerminationRequest := []openapiclient.BulkCircuitTerminationRequest{*openapiclient.NewBulkCircuitTerminationRequest(int32(123), openapiclient.BulkCircuitTerminationRequest_circuit{BriefCircuitRequest: openapiclient.NewBriefCircuitRequest("Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")})}, openapiclient.Termination_side_1("A"))} // []BulkCircuitTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsBulkUpdate(context.Background()).CircuitTerminationRequest(circuitTerminationRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsBulkUpdate(context.Background()).BulkCircuitTerminationRequest(bulkCircuitTerminationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTerminationsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -238,7 +1844,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTermination
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitTerminationRequest** | [**[]CircuitTerminationRequest**](CircuitTerminationRequest.md) |  | 
+ **bulkCircuitTerminationRequest** | [**[]BulkCircuitTerminationRequest**](BulkCircuitTerminationRequest.md) |  | 
 
 ### Return type
 
@@ -260,7 +1866,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTerminationsCreate
 
-> CircuitTermination CircuitsCircuitTerminationsCreate(ctx).CircuitTerminationRequest(circuitTerminationRequest).Execute()
+> CircuitTermination CircuitsCircuitTerminationsCreate(ctx).CircuitsCircuitTerminationsCreateRequest(circuitsCircuitTerminationsCreateRequest).Execute()
 
 
 
@@ -279,11 +1885,11 @@ import (
 )
 
 func main() {
-	circuitTerminationRequest := *openapiclient.NewCircuitTerminationRequest(*openapiclient.NewBriefCircuitRequest("Cid_example"), openapiclient.Termination_1("A")) // CircuitTerminationRequest | 
+	circuitsCircuitTerminationsCreateRequest := openapiclient.circuits_circuit_terminations_create_request{CircuitTerminationRequest: openapiclient.NewCircuitTerminationRequest(openapiclient.BulkCircuitTerminationRequest_circuit{BriefCircuitRequest: openapiclient.NewBriefCircuitRequest("Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")})}, openapiclient.Termination_side_1("A"))} // CircuitsCircuitTerminationsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsCreate(context.Background()).CircuitTerminationRequest(circuitTerminationRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsCreate(context.Background()).CircuitsCircuitTerminationsCreateRequest(circuitsCircuitTerminationsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTerminationsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -304,7 +1910,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTermination
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitTerminationRequest** | [**CircuitTerminationRequest**](CircuitTerminationRequest.md) |  | 
+ **circuitsCircuitTerminationsCreateRequest** | [**CircuitsCircuitTerminationsCreateRequest**](CircuitsCircuitTerminationsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -394,7 +2000,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTerminationsList
 
-> PaginatedCircuitTerminationList CircuitsCircuitTerminationsList(ctx).CableEnd(cableEnd).CableEndN(cableEndN).CableId(cableId).CableIdN(cableIdN).Cabled(cabled).CircuitId(circuitId).CircuitIdN(circuitIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkConnected(markConnected).ModifiedByRequest(modifiedByRequest).Occupied(occupied).Offset(offset).Ordering(ordering).PortSpeed(portSpeed).PortSpeedEmpty(portSpeedEmpty).PortSpeedGt(portSpeedGt).PortSpeedGte(portSpeedGte).PortSpeedLt(portSpeedLt).PortSpeedLte(portSpeedLte).PortSpeedN(portSpeedN).PpInfo(ppInfo).PpInfoEmpty(ppInfoEmpty).PpInfoIc(ppInfoIc).PpInfoIe(ppInfoIe).PpInfoIew(ppInfoIew).PpInfoIsw(ppInfoIsw).PpInfoN(ppInfoN).PpInfoNic(ppInfoNic).PpInfoNie(ppInfoNie).PpInfoNiew(ppInfoNiew).PpInfoNisw(ppInfoNisw).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Site(site).SiteN(siteN).SiteId(siteId).SiteIdN(siteIdN).Tag(tag).TagN(tagN).TermSide(termSide).TermSideN(termSideN).UpdatedByRequest(updatedByRequest).UpstreamSpeed(upstreamSpeed).UpstreamSpeedEmpty(upstreamSpeedEmpty).UpstreamSpeedGt(upstreamSpeedGt).UpstreamSpeedGte(upstreamSpeedGte).UpstreamSpeedLt(upstreamSpeedLt).UpstreamSpeedLte(upstreamSpeedLte).UpstreamSpeedN(upstreamSpeedN).XconnectId(xconnectId).XconnectIdEmpty(xconnectIdEmpty).XconnectIdIc(xconnectIdIc).XconnectIdIe(xconnectIdIe).XconnectIdIew(xconnectIdIew).XconnectIdIsw(xconnectIdIsw).XconnectIdN(xconnectIdN).XconnectIdNic(xconnectIdNic).XconnectIdNie(xconnectIdNie).XconnectIdNiew(xconnectIdNiew).XconnectIdNisw(xconnectIdNisw).Execute()
+> PaginatedCircuitTerminationList CircuitsCircuitTerminationsList(ctx).Brief(brief).CableConnector(cableConnector).CableConnectorEmpty(cableConnectorEmpty).CableConnectorGt(cableConnectorGt).CableConnectorGte(cableConnectorGte).CableConnectorLt(cableConnectorLt).CableConnectorLte(cableConnectorLte).CableConnectorN(cableConnectorN).CableEnd(cableEnd).CableEndEmpty(cableEndEmpty).CableEndIc(cableEndIc).CableEndIe(cableEndIe).CableEndIew(cableEndIew).CableEndIregex(cableEndIregex).CableEndIsw(cableEndIsw).CableEndN(cableEndN).CableEndNic(cableEndNic).CableEndNie(cableEndNie).CableEndNiew(cableEndNiew).CableEndNisw(cableEndNisw).CableEndRegex(cableEndRegex).CableId(cableId).CableIdN(cableIdN).Cabled(cabled).CircuitId(circuitId).CircuitIdN(circuitIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).MarkConnected(markConnected).ModifiedByRequest(modifiedByRequest).Occupied(occupied).Offset(offset).Omit(omit).Ordering(ordering).PortSpeed(portSpeed).PortSpeedEmpty(portSpeedEmpty).PortSpeedGt(portSpeedGt).PortSpeedGte(portSpeedGte).PortSpeedLt(portSpeedLt).PortSpeedLte(portSpeedLte).PortSpeedN(portSpeedN).PpInfo(ppInfo).PpInfoEmpty(ppInfoEmpty).PpInfoIc(ppInfoIc).PpInfoIe(ppInfoIe).PpInfoIew(ppInfoIew).PpInfoIregex(ppInfoIregex).PpInfoIsw(ppInfoIsw).PpInfoN(ppInfoN).PpInfoNic(ppInfoNic).PpInfoNie(ppInfoNie).PpInfoNiew(ppInfoNiew).PpInfoNisw(ppInfoNisw).PpInfoRegex(ppInfoRegex).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).TermSide(termSide).TermSideEmpty(termSideEmpty).TermSideIc(termSideIc).TermSideIe(termSideIe).TermSideIew(termSideIew).TermSideIregex(termSideIregex).TermSideIsw(termSideIsw).TermSideN(termSideN).TermSideNic(termSideNic).TermSideNie(termSideNie).TermSideNiew(termSideNiew).TermSideNisw(termSideNisw).TermSideRegex(termSideRegex).TerminationId(terminationId).TerminationIdEmpty(terminationIdEmpty).TerminationIdGt(terminationIdGt).TerminationIdGte(terminationIdGte).TerminationIdLt(terminationIdLt).TerminationIdLte(terminationIdLte).TerminationIdN(terminationIdN).TerminationType(terminationType).TerminationTypeN(terminationTypeN).UpdatedByRequest(updatedByRequest).UpstreamSpeed(upstreamSpeed).UpstreamSpeedEmpty(upstreamSpeedEmpty).UpstreamSpeedGt(upstreamSpeedGt).UpstreamSpeedGte(upstreamSpeedGte).UpstreamSpeedLt(upstreamSpeedLt).UpstreamSpeedLte(upstreamSpeedLte).UpstreamSpeedN(upstreamSpeedN).XconnectId(xconnectId).XconnectIdEmpty(xconnectIdEmpty).XconnectIdIc(xconnectIdIc).XconnectIdIe(xconnectIdIe).XconnectIdIew(xconnectIdIew).XconnectIdIregex(xconnectIdIregex).XconnectIdIsw(xconnectIdIsw).XconnectIdN(xconnectIdN).XconnectIdNic(xconnectIdNic).XconnectIdNie(xconnectIdNie).XconnectIdNiew(xconnectIdNiew).XconnectIdNisw(xconnectIdNisw).XconnectIdRegex(xconnectIdRegex).Execute()
 
 
 
@@ -414,8 +2020,27 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	cableConnector := []int32{int32(123)} // []int32 |  (optional)
+	cableConnectorEmpty := true // bool |  (optional)
+	cableConnectorGt := []int32{int32(123)} // []int32 |  (optional)
+	cableConnectorGte := []int32{int32(123)} // []int32 |  (optional)
+	cableConnectorLt := []int32{int32(123)} // []int32 |  (optional)
+	cableConnectorLte := []int32{int32(123)} // []int32 |  (optional)
+	cableConnectorN := []int32{int32(123)} // []int32 |  (optional)
 	cableEnd := openapiclient.circuits_circuit_terminations_list_cable_end_parameter("A") // CircuitsCircuitTerminationsListCableEndParameter | * `A` - A * `B` - B (optional)
+	cableEndEmpty := true // bool |  (optional)
+	cableEndIc := []string{"Inner_example"} // []string |  (optional)
+	cableEndIe := []string{"Inner_example"} // []string |  (optional)
+	cableEndIew := []string{"Inner_example"} // []string |  (optional)
+	cableEndIregex := []string{"Inner_example"} // []string |  (optional)
+	cableEndIsw := []string{"Inner_example"} // []string |  (optional)
 	cableEndN := openapiclient.circuits_circuit_terminations_list_cable_end_parameter("A") // CircuitsCircuitTerminationsListCableEndParameter | * `A` - A * `B` - B (optional)
+	cableEndNic := []string{"Inner_example"} // []string |  (optional)
+	cableEndNie := []string{"Inner_example"} // []string |  (optional)
+	cableEndNiew := []string{"Inner_example"} // []string |  (optional)
+	cableEndNisw := []string{"Inner_example"} // []string |  (optional)
+	cableEndRegex := []string{"Inner_example"} // []string |  (optional)
 	cableId := []*int32{int32(123)} // []*int32 | Cable (ID) (optional)
 	cableIdN := []*int32{int32(123)} // []*int32 | Cable (ID) (optional)
 	cabled := true // bool |  (optional)
@@ -434,12 +2059,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -455,10 +2083,15 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	location := []string{"Inner_example"} // []string |  (optional)
+	locationN := []string{"Inner_example"} // []string |  (optional)
+	locationId := []string{"Inner_example"} // []string |  (optional)
+	locationIdN := []string{"Inner_example"} // []string |  (optional)
 	markConnected := true // bool |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	occupied := true // bool |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
 	portSpeed := []int32{int32(123)} // []int32 |  (optional)
 	portSpeedEmpty := true // bool |  (optional)
@@ -472,27 +2105,62 @@ func main() {
 	ppInfoIc := []string{"Inner_example"} // []string |  (optional)
 	ppInfoIe := []string{"Inner_example"} // []string |  (optional)
 	ppInfoIew := []string{"Inner_example"} // []string |  (optional)
+	ppInfoIregex := []string{"Inner_example"} // []string |  (optional)
 	ppInfoIsw := []string{"Inner_example"} // []string |  (optional)
 	ppInfoN := []string{"Inner_example"} // []string |  (optional)
 	ppInfoNic := []string{"Inner_example"} // []string |  (optional)
 	ppInfoNie := []string{"Inner_example"} // []string |  (optional)
 	ppInfoNiew := []string{"Inner_example"} // []string |  (optional)
 	ppInfoNisw := []string{"Inner_example"} // []string |  (optional)
+	ppInfoRegex := []string{"Inner_example"} // []string |  (optional)
 	provider := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerN := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerId := []int32{int32(123)} // []int32 | Provider (ID) (optional)
 	providerIdN := []int32{int32(123)} // []int32 | Provider (ID) (optional)
-	providerNetworkId := []*int32{int32(123)} // []*int32 | ProviderNetwork (ID) (optional)
-	providerNetworkIdN := []*int32{int32(123)} // []*int32 | ProviderNetwork (ID) (optional)
+	providerNetworkId := []int32{int32(123)} // []int32 | ProviderNetwork (ID) (optional)
+	providerNetworkIdN := []int32{int32(123)} // []int32 | ProviderNetwork (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	region := []string{"Inner_example"} // []string |  (optional)
+	regionN := []string{"Inner_example"} // []string |  (optional)
+	regionId := []string{"Inner_example"} // []string |  (optional)
+	regionIdN := []string{"Inner_example"} // []string |  (optional)
 	site := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteN := []string{"Inner_example"} // []string | Site (slug) (optional)
-	siteId := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
-	siteIdN := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
+	siteGroup := []string{"Inner_example"} // []string |  (optional)
+	siteGroupN := []string{"Inner_example"} // []string |  (optional)
+	siteGroupId := []string{"Inner_example"} // []string |  (optional)
+	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
+	siteId := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	siteIdN := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
-	termSide := openapiclient.Termination("A") // Termination | * `A` - A * `Z` - Z (optional)
-	termSideN := openapiclient.Termination("A") // Termination | * `A` - A * `Z` - Z (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	termSide := openapiclient.Termination_side("A") // TerminationSide | * `A` - A * `Z` - Z (optional)
+	termSideEmpty := true // bool |  (optional)
+	termSideIc := []string{"Inner_example"} // []string |  (optional)
+	termSideIe := []string{"Inner_example"} // []string |  (optional)
+	termSideIew := []string{"Inner_example"} // []string |  (optional)
+	termSideIregex := []string{"Inner_example"} // []string |  (optional)
+	termSideIsw := []string{"Inner_example"} // []string |  (optional)
+	termSideN := openapiclient.Termination_side("A") // TerminationSide | * `A` - A * `Z` - Z (optional)
+	termSideNic := []string{"Inner_example"} // []string |  (optional)
+	termSideNie := []string{"Inner_example"} // []string |  (optional)
+	termSideNiew := []string{"Inner_example"} // []string |  (optional)
+	termSideNisw := []string{"Inner_example"} // []string |  (optional)
+	termSideRegex := []string{"Inner_example"} // []string |  (optional)
+	terminationId := []int32{int32(123)} // []int32 |  (optional)
+	terminationIdEmpty := true // bool |  (optional)
+	terminationIdGt := []int32{int32(123)} // []int32 |  (optional)
+	terminationIdGte := []int32{int32(123)} // []int32 |  (optional)
+	terminationIdLt := []int32{int32(123)} // []int32 |  (optional)
+	terminationIdLte := []int32{int32(123)} // []int32 |  (optional)
+	terminationIdN := []int32{int32(123)} // []int32 |  (optional)
+	terminationType := []string{"Inner_example"} // []string |  (optional)
+	terminationTypeN := []string{"Inner_example"} // []string |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	upstreamSpeed := []int32{int32(123)} // []int32 |  (optional)
 	upstreamSpeedEmpty := true // bool |  (optional)
@@ -506,16 +2174,18 @@ func main() {
 	xconnectIdIc := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdIe := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdIew := []string{"Inner_example"} // []string |  (optional)
+	xconnectIdIregex := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdIsw := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdN := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdNic := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdNie := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdNiew := []string{"Inner_example"} // []string |  (optional)
 	xconnectIdNisw := []string{"Inner_example"} // []string |  (optional)
+	xconnectIdRegex := []string{"Inner_example"} // []string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsList(context.Background()).CableEnd(cableEnd).CableEndN(cableEndN).CableId(cableId).CableIdN(cableIdN).Cabled(cabled).CircuitId(circuitId).CircuitIdN(circuitIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkConnected(markConnected).ModifiedByRequest(modifiedByRequest).Occupied(occupied).Offset(offset).Ordering(ordering).PortSpeed(portSpeed).PortSpeedEmpty(portSpeedEmpty).PortSpeedGt(portSpeedGt).PortSpeedGte(portSpeedGte).PortSpeedLt(portSpeedLt).PortSpeedLte(portSpeedLte).PortSpeedN(portSpeedN).PpInfo(ppInfo).PpInfoEmpty(ppInfoEmpty).PpInfoIc(ppInfoIc).PpInfoIe(ppInfoIe).PpInfoIew(ppInfoIew).PpInfoIsw(ppInfoIsw).PpInfoN(ppInfoN).PpInfoNic(ppInfoNic).PpInfoNie(ppInfoNie).PpInfoNiew(ppInfoNiew).PpInfoNisw(ppInfoNisw).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Site(site).SiteN(siteN).SiteId(siteId).SiteIdN(siteIdN).Tag(tag).TagN(tagN).TermSide(termSide).TermSideN(termSideN).UpdatedByRequest(updatedByRequest).UpstreamSpeed(upstreamSpeed).UpstreamSpeedEmpty(upstreamSpeedEmpty).UpstreamSpeedGt(upstreamSpeedGt).UpstreamSpeedGte(upstreamSpeedGte).UpstreamSpeedLt(upstreamSpeedLt).UpstreamSpeedLte(upstreamSpeedLte).UpstreamSpeedN(upstreamSpeedN).XconnectId(xconnectId).XconnectIdEmpty(xconnectIdEmpty).XconnectIdIc(xconnectIdIc).XconnectIdIe(xconnectIdIe).XconnectIdIew(xconnectIdIew).XconnectIdIsw(xconnectIdIsw).XconnectIdN(xconnectIdN).XconnectIdNic(xconnectIdNic).XconnectIdNie(xconnectIdNie).XconnectIdNiew(xconnectIdNiew).XconnectIdNisw(xconnectIdNisw).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsList(context.Background()).Brief(brief).CableConnector(cableConnector).CableConnectorEmpty(cableConnectorEmpty).CableConnectorGt(cableConnectorGt).CableConnectorGte(cableConnectorGte).CableConnectorLt(cableConnectorLt).CableConnectorLte(cableConnectorLte).CableConnectorN(cableConnectorN).CableEnd(cableEnd).CableEndEmpty(cableEndEmpty).CableEndIc(cableEndIc).CableEndIe(cableEndIe).CableEndIew(cableEndIew).CableEndIregex(cableEndIregex).CableEndIsw(cableEndIsw).CableEndN(cableEndN).CableEndNic(cableEndNic).CableEndNie(cableEndNie).CableEndNiew(cableEndNiew).CableEndNisw(cableEndNisw).CableEndRegex(cableEndRegex).CableId(cableId).CableIdN(cableIdN).Cabled(cabled).CircuitId(circuitId).CircuitIdN(circuitIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).MarkConnected(markConnected).ModifiedByRequest(modifiedByRequest).Occupied(occupied).Offset(offset).Omit(omit).Ordering(ordering).PortSpeed(portSpeed).PortSpeedEmpty(portSpeedEmpty).PortSpeedGt(portSpeedGt).PortSpeedGte(portSpeedGte).PortSpeedLt(portSpeedLt).PortSpeedLte(portSpeedLte).PortSpeedN(portSpeedN).PpInfo(ppInfo).PpInfoEmpty(ppInfoEmpty).PpInfoIc(ppInfoIc).PpInfoIe(ppInfoIe).PpInfoIew(ppInfoIew).PpInfoIregex(ppInfoIregex).PpInfoIsw(ppInfoIsw).PpInfoN(ppInfoN).PpInfoNic(ppInfoNic).PpInfoNie(ppInfoNie).PpInfoNiew(ppInfoNiew).PpInfoNisw(ppInfoNisw).PpInfoRegex(ppInfoRegex).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).TermSide(termSide).TermSideEmpty(termSideEmpty).TermSideIc(termSideIc).TermSideIe(termSideIe).TermSideIew(termSideIew).TermSideIregex(termSideIregex).TermSideIsw(termSideIsw).TermSideN(termSideN).TermSideNic(termSideNic).TermSideNie(termSideNie).TermSideNiew(termSideNiew).TermSideNisw(termSideNisw).TermSideRegex(termSideRegex).TerminationId(terminationId).TerminationIdEmpty(terminationIdEmpty).TerminationIdGt(terminationIdGt).TerminationIdGte(terminationIdGte).TerminationIdLt(terminationIdLt).TerminationIdLte(terminationIdLte).TerminationIdN(terminationIdN).TerminationType(terminationType).TerminationTypeN(terminationTypeN).UpdatedByRequest(updatedByRequest).UpstreamSpeed(upstreamSpeed).UpstreamSpeedEmpty(upstreamSpeedEmpty).UpstreamSpeedGt(upstreamSpeedGt).UpstreamSpeedGte(upstreamSpeedGte).UpstreamSpeedLt(upstreamSpeedLt).UpstreamSpeedLte(upstreamSpeedLte).UpstreamSpeedN(upstreamSpeedN).XconnectId(xconnectId).XconnectIdEmpty(xconnectIdEmpty).XconnectIdIc(xconnectIdIc).XconnectIdIe(xconnectIdIe).XconnectIdIew(xconnectIdIew).XconnectIdIregex(xconnectIdIregex).XconnectIdIsw(xconnectIdIsw).XconnectIdN(xconnectIdN).XconnectIdNic(xconnectIdNic).XconnectIdNie(xconnectIdNie).XconnectIdNiew(xconnectIdNiew).XconnectIdNisw(xconnectIdNisw).XconnectIdRegex(xconnectIdRegex).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTerminationsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -536,8 +2206,27 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTermination
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **cableConnector** | **[]int32** |  | 
+ **cableConnectorEmpty** | **bool** |  | 
+ **cableConnectorGt** | **[]int32** |  | 
+ **cableConnectorGte** | **[]int32** |  | 
+ **cableConnectorLt** | **[]int32** |  | 
+ **cableConnectorLte** | **[]int32** |  | 
+ **cableConnectorN** | **[]int32** |  | 
  **cableEnd** | [**CircuitsCircuitTerminationsListCableEndParameter**](CircuitsCircuitTerminationsListCableEndParameter.md) | * &#x60;A&#x60; - A * &#x60;B&#x60; - B | 
+ **cableEndEmpty** | **bool** |  | 
+ **cableEndIc** | **[]string** |  | 
+ **cableEndIe** | **[]string** |  | 
+ **cableEndIew** | **[]string** |  | 
+ **cableEndIregex** | **[]string** |  | 
+ **cableEndIsw** | **[]string** |  | 
  **cableEndN** | [**CircuitsCircuitTerminationsListCableEndParameter**](CircuitsCircuitTerminationsListCableEndParameter.md) | * &#x60;A&#x60; - A * &#x60;B&#x60; - B | 
+ **cableEndNic** | **[]string** |  | 
+ **cableEndNie** | **[]string** |  | 
+ **cableEndNiew** | **[]string** |  | 
+ **cableEndNisw** | **[]string** |  | 
+ **cableEndRegex** | **[]string** |  | 
  **cableId** | **[]int32** | Cable (ID) | 
  **cableIdN** | **[]int32** | Cable (ID) | 
  **cabled** | **bool** |  | 
@@ -556,12 +2245,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -577,10 +2269,15 @@ Name | Type | Description  | Notes
  **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **location** | **[]string** |  | 
+ **locationN** | **[]string** |  | 
+ **locationId** | **[]string** |  | 
+ **locationIdN** | **[]string** |  | 
  **markConnected** | **bool** |  | 
  **modifiedByRequest** | **string** |  | 
  **occupied** | **bool** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **portSpeed** | **[]int32** |  | 
  **portSpeedEmpty** | **bool** |  | 
@@ -594,12 +2291,14 @@ Name | Type | Description  | Notes
  **ppInfoIc** | **[]string** |  | 
  **ppInfoIe** | **[]string** |  | 
  **ppInfoIew** | **[]string** |  | 
+ **ppInfoIregex** | **[]string** |  | 
  **ppInfoIsw** | **[]string** |  | 
  **ppInfoN** | **[]string** |  | 
  **ppInfoNic** | **[]string** |  | 
  **ppInfoNie** | **[]string** |  | 
  **ppInfoNiew** | **[]string** |  | 
  **ppInfoNisw** | **[]string** |  | 
+ **ppInfoRegex** | **[]string** |  | 
  **provider** | **[]string** | Provider (slug) | 
  **providerN** | **[]string** | Provider (slug) | 
  **providerId** | **[]int32** | Provider (ID) | 
@@ -607,14 +2306,47 @@ Name | Type | Description  | Notes
  **providerNetworkId** | **[]int32** | ProviderNetwork (ID) | 
  **providerNetworkIdN** | **[]int32** | ProviderNetwork (ID) | 
  **q** | **string** | Search | 
+ **region** | **[]string** |  | 
+ **regionN** | **[]string** |  | 
+ **regionId** | **[]string** |  | 
+ **regionIdN** | **[]string** |  | 
  **site** | **[]string** | Site (slug) | 
  **siteN** | **[]string** | Site (slug) | 
+ **siteGroup** | **[]string** |  | 
+ **siteGroupN** | **[]string** |  | 
+ **siteGroupId** | **[]string** |  | 
+ **siteGroupIdN** | **[]string** |  | 
  **siteId** | **[]int32** | Site (ID) | 
  **siteIdN** | **[]int32** | Site (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
- **termSide** | [**Termination**](Termination.md) | * &#x60;A&#x60; - A * &#x60;Z&#x60; - Z | 
- **termSideN** | [**Termination**](Termination.md) | * &#x60;A&#x60; - A * &#x60;Z&#x60; - Z | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **termSide** | [**TerminationSide**](TerminationSide.md) | * &#x60;A&#x60; - A * &#x60;Z&#x60; - Z | 
+ **termSideEmpty** | **bool** |  | 
+ **termSideIc** | **[]string** |  | 
+ **termSideIe** | **[]string** |  | 
+ **termSideIew** | **[]string** |  | 
+ **termSideIregex** | **[]string** |  | 
+ **termSideIsw** | **[]string** |  | 
+ **termSideN** | [**TerminationSide**](TerminationSide.md) | * &#x60;A&#x60; - A * &#x60;Z&#x60; - Z | 
+ **termSideNic** | **[]string** |  | 
+ **termSideNie** | **[]string** |  | 
+ **termSideNiew** | **[]string** |  | 
+ **termSideNisw** | **[]string** |  | 
+ **termSideRegex** | **[]string** |  | 
+ **terminationId** | **[]int32** |  | 
+ **terminationIdEmpty** | **bool** |  | 
+ **terminationIdGt** | **[]int32** |  | 
+ **terminationIdGte** | **[]int32** |  | 
+ **terminationIdLt** | **[]int32** |  | 
+ **terminationIdLte** | **[]int32** |  | 
+ **terminationIdN** | **[]int32** |  | 
+ **terminationType** | **[]string** |  | 
+ **terminationTypeN** | **[]string** |  | 
  **updatedByRequest** | **string** |  | 
  **upstreamSpeed** | **[]int32** |  | 
  **upstreamSpeedEmpty** | **bool** |  | 
@@ -628,12 +2360,14 @@ Name | Type | Description  | Notes
  **xconnectIdIc** | **[]string** |  | 
  **xconnectIdIe** | **[]string** |  | 
  **xconnectIdIew** | **[]string** |  | 
+ **xconnectIdIregex** | **[]string** |  | 
  **xconnectIdIsw** | **[]string** |  | 
  **xconnectIdN** | **[]string** |  | 
  **xconnectIdNic** | **[]string** |  | 
  **xconnectIdNie** | **[]string** |  | 
  **xconnectIdNiew** | **[]string** |  | 
  **xconnectIdNisw** | **[]string** |  | 
+ **xconnectIdRegex** | **[]string** |  | 
 
 ### Return type
 
@@ -727,7 +2461,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTerminationsPathsRetrieve
 
-> CircuitTermination CircuitsCircuitTerminationsPathsRetrieve(ctx, id).Execute()
+> CircuitTermination CircuitsCircuitTerminationsPathsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -747,10 +2481,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this circuit termination.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsPathsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsPathsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTerminationsPathsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -776,6 +2513,9 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTermination
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -797,7 +2537,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTerminationsRetrieve
 
-> CircuitTermination CircuitsCircuitTerminationsRetrieve(ctx, id).Execute()
+> CircuitTermination CircuitsCircuitTerminationsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -817,10 +2557,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this circuit termination.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTerminationsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTerminationsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -846,6 +2589,9 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTermination
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -887,7 +2633,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this circuit termination.
-	circuitTerminationRequest := *openapiclient.NewCircuitTerminationRequest(*openapiclient.NewBriefCircuitRequest("Cid_example"), openapiclient.Termination_1("A")) // CircuitTerminationRequest | 
+	circuitTerminationRequest := *openapiclient.NewCircuitTerminationRequest(openapiclient.BulkCircuitTerminationRequest_circuit{BriefCircuitRequest: openapiclient.NewBriefCircuitRequest("Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")})}, openapiclient.Termination_side_1("A")) // CircuitTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -994,7 +2740,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1003,7 +2749,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTypesBulkPartialUpdate
 
-> []CircuitType CircuitsCircuitTypesBulkPartialUpdate(ctx).CircuitTypeRequest(circuitTypeRequest).Execute()
+> []CircuitType CircuitsCircuitTypesBulkPartialUpdate(ctx).PatchedBulkCircuitTypeRequest(patchedBulkCircuitTypeRequest).Execute()
 
 
 
@@ -1022,11 +2768,11 @@ import (
 )
 
 func main() {
-	circuitTypeRequest := []openapiclient.CircuitTypeRequest{*openapiclient.NewCircuitTypeRequest("Name_example", "Slug_example")} // []CircuitTypeRequest | 
+	patchedBulkCircuitTypeRequest := []openapiclient.PatchedBulkCircuitTypeRequest{*openapiclient.NewPatchedBulkCircuitTypeRequest(int32(123))} // []PatchedBulkCircuitTypeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesBulkPartialUpdate(context.Background()).CircuitTypeRequest(circuitTypeRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesBulkPartialUpdate(context.Background()).PatchedBulkCircuitTypeRequest(patchedBulkCircuitTypeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTypesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1047,7 +2793,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTypesBulkPa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitTypeRequest** | [**[]CircuitTypeRequest**](CircuitTypeRequest.md) |  | 
+ **patchedBulkCircuitTypeRequest** | [**[]PatchedBulkCircuitTypeRequest**](PatchedBulkCircuitTypeRequest.md) |  | 
 
 ### Return type
 
@@ -1069,7 +2815,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTypesBulkUpdate
 
-> []CircuitType CircuitsCircuitTypesBulkUpdate(ctx).CircuitTypeRequest(circuitTypeRequest).Execute()
+> []CircuitType CircuitsCircuitTypesBulkUpdate(ctx).BulkCircuitTypeRequest(bulkCircuitTypeRequest).Execute()
 
 
 
@@ -1088,11 +2834,11 @@ import (
 )
 
 func main() {
-	circuitTypeRequest := []openapiclient.CircuitTypeRequest{*openapiclient.NewCircuitTypeRequest("Name_example", "Slug_example")} // []CircuitTypeRequest | 
+	bulkCircuitTypeRequest := []openapiclient.BulkCircuitTypeRequest{*openapiclient.NewBulkCircuitTypeRequest(int32(123), "Name_example", "Slug_example")} // []BulkCircuitTypeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesBulkUpdate(context.Background()).CircuitTypeRequest(circuitTypeRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesBulkUpdate(context.Background()).BulkCircuitTypeRequest(bulkCircuitTypeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTypesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1113,7 +2859,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTypesBulkUp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitTypeRequest** | [**[]CircuitTypeRequest**](CircuitTypeRequest.md) |  | 
+ **bulkCircuitTypeRequest** | [**[]BulkCircuitTypeRequest**](BulkCircuitTypeRequest.md) |  | 
 
 ### Return type
 
@@ -1135,7 +2881,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTypesCreate
 
-> CircuitType CircuitsCircuitTypesCreate(ctx).CircuitTypeRequest(circuitTypeRequest).Execute()
+> CircuitType CircuitsCircuitTypesCreate(ctx).CircuitsCircuitTypesCreateRequest(circuitsCircuitTypesCreateRequest).Execute()
 
 
 
@@ -1154,11 +2900,11 @@ import (
 )
 
 func main() {
-	circuitTypeRequest := *openapiclient.NewCircuitTypeRequest("Name_example", "Slug_example") // CircuitTypeRequest | 
+	circuitsCircuitTypesCreateRequest := openapiclient.circuits_circuit_types_create_request{CircuitTypeRequest: openapiclient.NewCircuitTypeRequest("Name_example", "Slug_example")} // CircuitsCircuitTypesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesCreate(context.Background()).CircuitTypeRequest(circuitTypeRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesCreate(context.Background()).CircuitsCircuitTypesCreateRequest(circuitsCircuitTypesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTypesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1179,7 +2925,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTypesCreate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitTypeRequest** | [**CircuitTypeRequest**](CircuitTypeRequest.md) |  | 
+ **circuitsCircuitTypesCreateRequest** | [**CircuitsCircuitTypesCreateRequest**](CircuitsCircuitTypesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1269,7 +3015,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTypesList
 
-> PaginatedCircuitTypeList CircuitsCircuitTypesList(ctx).Color(color).ColorEmpty(colorEmpty).ColorIc(colorIc).ColorIe(colorIe).ColorIew(colorIew).ColorIsw(colorIsw).ColorN(colorN).ColorNic(colorNic).ColorNie(colorNie).ColorNiew(colorNiew).ColorNisw(colorNisw).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedCircuitTypeList CircuitsCircuitTypesList(ctx).Brief(brief).Color(color).ColorEmpty(colorEmpty).ColorIc(colorIc).ColorIe(colorIe).ColorIew(colorIew).ColorIregex(colorIregex).ColorIsw(colorIsw).ColorN(colorN).ColorNic(colorNic).ColorNie(colorNie).ColorNiew(colorNiew).ColorNisw(colorNisw).ColorRegex(colorRegex).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1289,17 +3035,20 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	color := []string{"Inner_example"} // []string |  (optional)
 	colorEmpty := true // bool |  (optional)
 	colorIc := []string{"Inner_example"} // []string |  (optional)
 	colorIe := []string{"Inner_example"} // []string |  (optional)
 	colorIew := []string{"Inner_example"} // []string |  (optional)
+	colorIregex := []string{"Inner_example"} // []string |  (optional)
 	colorIsw := []string{"Inner_example"} // []string |  (optional)
 	colorN := []string{"Inner_example"} // []string |  (optional)
 	colorNic := []string{"Inner_example"} // []string |  (optional)
 	colorNie := []string{"Inner_example"} // []string |  (optional)
 	colorNiew := []string{"Inner_example"} // []string |  (optional)
 	colorNisw := []string{"Inner_example"} // []string |  (optional)
+	colorRegex := []string{"Inner_example"} // []string |  (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1313,12 +3062,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1340,33 +3092,51 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesList(context.Background()).Color(color).ColorEmpty(colorEmpty).ColorIc(colorIc).ColorIe(colorIe).ColorIew(colorIew).ColorIsw(colorIsw).ColorN(colorN).ColorNic(colorNic).ColorNie(colorNie).ColorNiew(colorNiew).ColorNisw(colorNisw).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesList(context.Background()).Brief(brief).Color(color).ColorEmpty(colorEmpty).ColorIc(colorIc).ColorIe(colorIe).ColorIew(colorIew).ColorIregex(colorIregex).ColorIsw(colorIsw).ColorN(colorN).ColorNic(colorNic).ColorNie(colorNie).ColorNiew(colorNiew).ColorNisw(colorNisw).ColorRegex(colorRegex).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTypesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1387,17 +3157,20 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTypesListRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **color** | **[]string** |  | 
  **colorEmpty** | **bool** |  | 
  **colorIc** | **[]string** |  | 
  **colorIe** | **[]string** |  | 
  **colorIew** | **[]string** |  | 
+ **colorIregex** | **[]string** |  | 
  **colorIsw** | **[]string** |  | 
  **colorN** | **[]string** |  | 
  **colorNic** | **[]string** |  | 
  **colorNie** | **[]string** |  | 
  **colorNiew** | **[]string** |  | 
  **colorNisw** | **[]string** |  | 
+ **colorRegex** | **[]string** |  | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -1411,12 +3184,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -1438,28 +3214,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -1554,7 +3348,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitTypesRetrieve
 
-> CircuitType CircuitsCircuitTypesRetrieve(ctx, id).Execute()
+> CircuitType CircuitsCircuitTypesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -1574,10 +3368,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this circuit type.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitTypesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitTypesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1603,6 +3400,9 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitTypesRetrie
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1715,7 +3515,7 @@ import (
 )
 
 func main() {
-	circuitRequest := []openapiclient.CircuitRequest{*openapiclient.NewCircuitRequest("Cid_example", *openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), *openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example"))} // []CircuitRequest | 
+	circuitRequest := []openapiclient.CircuitRequest{*openapiclient.NewCircuitRequest("Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, openapiclient.BulkCircuitRequest_type{BriefCircuitTypeRequest: openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example")})} // []CircuitRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1751,7 +3551,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1760,7 +3560,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitsBulkPartialUpdate
 
-> []Circuit CircuitsCircuitsBulkPartialUpdate(ctx).CircuitRequest(circuitRequest).Execute()
+> []Circuit CircuitsCircuitsBulkPartialUpdate(ctx).PatchedBulkCircuitRequest(patchedBulkCircuitRequest).Execute()
 
 
 
@@ -1779,11 +3579,11 @@ import (
 )
 
 func main() {
-	circuitRequest := []openapiclient.CircuitRequest{*openapiclient.NewCircuitRequest("Cid_example", *openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), *openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example"))} // []CircuitRequest | 
+	patchedBulkCircuitRequest := []openapiclient.PatchedBulkCircuitRequest{*openapiclient.NewPatchedBulkCircuitRequest(int32(123))} // []PatchedBulkCircuitRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsBulkPartialUpdate(context.Background()).CircuitRequest(circuitRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsBulkPartialUpdate(context.Background()).PatchedBulkCircuitRequest(patchedBulkCircuitRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1804,7 +3604,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitsBulkPartia
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitRequest** | [**[]CircuitRequest**](CircuitRequest.md) |  | 
+ **patchedBulkCircuitRequest** | [**[]PatchedBulkCircuitRequest**](PatchedBulkCircuitRequest.md) |  | 
 
 ### Return type
 
@@ -1826,7 +3626,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitsBulkUpdate
 
-> []Circuit CircuitsCircuitsBulkUpdate(ctx).CircuitRequest(circuitRequest).Execute()
+> []Circuit CircuitsCircuitsBulkUpdate(ctx).BulkCircuitRequest(bulkCircuitRequest).Execute()
 
 
 
@@ -1845,11 +3645,11 @@ import (
 )
 
 func main() {
-	circuitRequest := []openapiclient.CircuitRequest{*openapiclient.NewCircuitRequest("Cid_example", *openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), *openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example"))} // []CircuitRequest | 
+	bulkCircuitRequest := []openapiclient.BulkCircuitRequest{*openapiclient.NewBulkCircuitRequest(int32(123), "Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, openapiclient.BulkCircuitRequest_type{BriefCircuitTypeRequest: openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example")})} // []BulkCircuitRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsBulkUpdate(context.Background()).CircuitRequest(circuitRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsBulkUpdate(context.Background()).BulkCircuitRequest(bulkCircuitRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1870,7 +3670,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitsBulkUpdate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **circuitRequest** | [**[]CircuitRequest**](CircuitRequest.md) |  | 
+ **bulkCircuitRequest** | [**[]BulkCircuitRequest**](BulkCircuitRequest.md) |  | 
 
 ### Return type
 
@@ -1892,7 +3692,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitsCreate
 
-> Circuit CircuitsCircuitsCreate(ctx).WritableCircuitRequest(writableCircuitRequest).Execute()
+> Circuit CircuitsCircuitsCreate(ctx).CircuitsCircuitsCreateRequest(circuitsCircuitsCreateRequest).Execute()
 
 
 
@@ -1911,11 +3711,11 @@ import (
 )
 
 func main() {
-	writableCircuitRequest := *openapiclient.NewWritableCircuitRequest("Cid_example", *openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), *openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example")) // WritableCircuitRequest | 
+	circuitsCircuitsCreateRequest := openapiclient.circuits_circuits_create_request{WritableCircuitRequest: openapiclient.NewWritableCircuitRequest("Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, openapiclient.BulkCircuitRequest_type{BriefCircuitTypeRequest: openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example")})} // CircuitsCircuitsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsCreate(context.Background()).WritableCircuitRequest(writableCircuitRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsCreate(context.Background()).CircuitsCircuitsCreateRequest(circuitsCircuitsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1936,7 +3736,7 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitsCreateRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableCircuitRequest** | [**WritableCircuitRequest**](WritableCircuitRequest.md) |  | 
+ **circuitsCircuitsCreateRequest** | [**CircuitsCircuitsCreateRequest**](CircuitsCircuitsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -2026,7 +3826,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitsList
 
-> PaginatedCircuitList CircuitsCircuitsList(ctx).Cid(cid).CidEmpty(cidEmpty).CidIc(cidIc).CidIe(cidIe).CidIew(cidIew).CidIsw(cidIsw).CidN(cidN).CidNic(cidNic).CidNie(cidNie).CidNiew(cidNiew).CidNisw(cidNisw).CommitRate(commitRate).CommitRateEmpty(commitRateEmpty).CommitRateGt(commitRateGt).CommitRateGte(commitRateGte).CommitRateLt(commitRateLt).CommitRateLte(commitRateLte).CommitRateN(commitRateN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InstallDate(installDate).InstallDateEmpty(installDateEmpty).InstallDateGt(installDateGt).InstallDateGte(installDateGte).InstallDateLt(installDateLt).InstallDateLte(installDateLte).InstallDateN(installDateN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TerminationAId(terminationAId).TerminationAIdN(terminationAIdN).TerminationDate(terminationDate).TerminationDateEmpty(terminationDateEmpty).TerminationDateGt(terminationDateGt).TerminationDateGte(terminationDateGte).TerminationDateLt(terminationDateLt).TerminationDateLte(terminationDateLte).TerminationDateN(terminationDateN).TerminationZId(terminationZId).TerminationZIdN(terminationZIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedCircuitList CircuitsCircuitsList(ctx).Brief(brief).Cid(cid).CidEmpty(cidEmpty).CidIc(cidIc).CidIe(cidIe).CidIew(cidIew).CidIregex(cidIregex).CidIsw(cidIsw).CidN(cidN).CidNic(cidNic).CidNie(cidNie).CidNiew(cidNiew).CidNisw(cidNisw).CidRegex(cidRegex).CommitRate(commitRate).CommitRateEmpty(commitRateEmpty).CommitRateGt(commitRateGt).CommitRateGte(commitRateGte).CommitRateLt(commitRateLt).CommitRateLte(commitRateLte).CommitRateN(commitRateN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Distance(distance).DistanceEmpty(distanceEmpty).DistanceGt(distanceGt).DistanceGte(distanceGte).DistanceLt(distanceLt).DistanceLte(distanceLte).DistanceN(distanceN).DistanceUnit(distanceUnit).DistanceUnitEmpty(distanceUnitEmpty).DistanceUnitIc(distanceUnitIc).DistanceUnitIe(distanceUnitIe).DistanceUnitIew(distanceUnitIew).DistanceUnitIregex(distanceUnitIregex).DistanceUnitIsw(distanceUnitIsw).DistanceUnitN(distanceUnitN).DistanceUnitNic(distanceUnitNic).DistanceUnitNie(distanceUnitNie).DistanceUnitNiew(distanceUnitNiew).DistanceUnitNisw(distanceUnitNisw).DistanceUnitRegex(distanceUnitRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InstallDate(installDate).InstallDateEmpty(installDateEmpty).InstallDateGt(installDateGt).InstallDateGte(installDateGte).InstallDateLt(installDateLt).InstallDateLte(installDateLte).InstallDateN(installDateN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocationId(locationId).LocationIdN(locationIdN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TerminationAId(terminationAId).TerminationAIdN(terminationAIdN).TerminationDate(terminationDate).TerminationDateEmpty(terminationDateEmpty).TerminationDateGt(terminationDateGt).TerminationDateGte(terminationDateGte).TerminationDateLt(terminationDateLt).TerminationDateLte(terminationDateLte).TerminationDateN(terminationDateN).TerminationZId(terminationZId).TerminationZIdN(terminationZIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -2046,17 +3846,20 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	cid := []string{"Inner_example"} // []string |  (optional)
 	cidEmpty := true // bool |  (optional)
 	cidIc := []string{"Inner_example"} // []string |  (optional)
 	cidIe := []string{"Inner_example"} // []string |  (optional)
 	cidIew := []string{"Inner_example"} // []string |  (optional)
+	cidIregex := []string{"Inner_example"} // []string |  (optional)
 	cidIsw := []string{"Inner_example"} // []string |  (optional)
 	cidN := []string{"Inner_example"} // []string |  (optional)
 	cidNic := []string{"Inner_example"} // []string |  (optional)
 	cidNie := []string{"Inner_example"} // []string |  (optional)
 	cidNiew := []string{"Inner_example"} // []string |  (optional)
 	cidNisw := []string{"Inner_example"} // []string |  (optional)
+	cidRegex := []string{"Inner_example"} // []string |  (optional)
 	commitRate := []int32{int32(123)} // []int32 |  (optional)
 	commitRateEmpty := true // bool |  (optional)
 	commitRateGt := []int32{int32(123)} // []int32 |  (optional)
@@ -2083,12 +3886,35 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	distance := []float64{float64(123)} // []float64 |  (optional)
+	distanceEmpty := true // bool |  (optional)
+	distanceGt := []float64{float64(123)} // []float64 |  (optional)
+	distanceGte := []float64{float64(123)} // []float64 |  (optional)
+	distanceLt := []float64{float64(123)} // []float64 |  (optional)
+	distanceLte := []float64{float64(123)} // []float64 |  (optional)
+	distanceN := []float64{float64(123)} // []float64 |  (optional)
+	distanceUnit := openapiclient.circuits_circuits_list_distance_unit_parameter("ft") // CircuitsCircuitsListDistanceUnitParameter | * `km` - Kilometers * `m` - Meters * `mi` - Miles * `ft` - Feet (optional)
+	distanceUnitEmpty := true // bool |  (optional)
+	distanceUnitIc := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIe := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIew := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIregex := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIsw := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitN := openapiclient.circuits_circuits_list_distance_unit_parameter("ft") // CircuitsCircuitsListDistanceUnitParameter | * `km` - Kilometers * `m` - Meters * `mi` - Miles * `ft` - Feet (optional)
+	distanceUnitNic := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitNie := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitNiew := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitNisw := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -2111,9 +3937,20 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	locationId := []int32{int32(123)} // []int32 | Location (ID) (optional)
+	locationIdN := []int32{int32(123)} // []int32 | Location (ID) (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	provider := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerN := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerAccount := []string{"Inner_example"} // []string | Provider account (account) (optional)
@@ -2137,10 +3974,26 @@ func main() {
 	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
 	siteId := []int32{int32(123)} // []int32 | Site (ID) (optional)
 	siteIdN := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -2168,7 +4021,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsList(context.Background()).Cid(cid).CidEmpty(cidEmpty).CidIc(cidIc).CidIe(cidIe).CidIew(cidIew).CidIsw(cidIsw).CidN(cidN).CidNic(cidNic).CidNie(cidNie).CidNiew(cidNiew).CidNisw(cidNisw).CommitRate(commitRate).CommitRateEmpty(commitRateEmpty).CommitRateGt(commitRateGt).CommitRateGte(commitRateGte).CommitRateLt(commitRateLt).CommitRateLte(commitRateLte).CommitRateN(commitRateN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InstallDate(installDate).InstallDateEmpty(installDateEmpty).InstallDateGt(installDateGt).InstallDateGte(installDateGte).InstallDateLt(installDateLt).InstallDateLte(installDateLte).InstallDateN(installDateN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TerminationAId(terminationAId).TerminationAIdN(terminationAIdN).TerminationDate(terminationDate).TerminationDateEmpty(terminationDateEmpty).TerminationDateGt(terminationDateGt).TerminationDateGte(terminationDateGte).TerminationDateLt(terminationDateLt).TerminationDateLte(terminationDateLte).TerminationDateN(terminationDateN).TerminationZId(terminationZId).TerminationZIdN(terminationZIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsList(context.Background()).Brief(brief).Cid(cid).CidEmpty(cidEmpty).CidIc(cidIc).CidIe(cidIe).CidIew(cidIew).CidIregex(cidIregex).CidIsw(cidIsw).CidN(cidN).CidNic(cidNic).CidNie(cidNie).CidNiew(cidNiew).CidNisw(cidNisw).CidRegex(cidRegex).CommitRate(commitRate).CommitRateEmpty(commitRateEmpty).CommitRateGt(commitRateGt).CommitRateGte(commitRateGte).CommitRateLt(commitRateLt).CommitRateLte(commitRateLte).CommitRateN(commitRateN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Distance(distance).DistanceEmpty(distanceEmpty).DistanceGt(distanceGt).DistanceGte(distanceGte).DistanceLt(distanceLt).DistanceLte(distanceLte).DistanceN(distanceN).DistanceUnit(distanceUnit).DistanceUnitEmpty(distanceUnitEmpty).DistanceUnitIc(distanceUnitIc).DistanceUnitIe(distanceUnitIe).DistanceUnitIew(distanceUnitIew).DistanceUnitIregex(distanceUnitIregex).DistanceUnitIsw(distanceUnitIsw).DistanceUnitN(distanceUnitN).DistanceUnitNic(distanceUnitNic).DistanceUnitNie(distanceUnitNie).DistanceUnitNiew(distanceUnitNiew).DistanceUnitNisw(distanceUnitNisw).DistanceUnitRegex(distanceUnitRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InstallDate(installDate).InstallDateEmpty(installDateEmpty).InstallDateGt(installDateGt).InstallDateGte(installDateGte).InstallDateLt(installDateLt).InstallDateLte(installDateLte).InstallDateN(installDateN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocationId(locationId).LocationIdN(locationIdN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TerminationAId(terminationAId).TerminationAIdN(terminationAIdN).TerminationDate(terminationDate).TerminationDateEmpty(terminationDateEmpty).TerminationDateGt(terminationDateGt).TerminationDateGte(terminationDateGte).TerminationDateLt(terminationDateLt).TerminationDateLte(terminationDateLte).TerminationDateN(terminationDateN).TerminationZId(terminationZId).TerminationZIdN(terminationZIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2189,17 +4042,20 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitsListReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **cid** | **[]string** |  | 
  **cidEmpty** | **bool** |  | 
  **cidIc** | **[]string** |  | 
  **cidIe** | **[]string** |  | 
  **cidIew** | **[]string** |  | 
+ **cidIregex** | **[]string** |  | 
  **cidIsw** | **[]string** |  | 
  **cidN** | **[]string** |  | 
  **cidNic** | **[]string** |  | 
  **cidNie** | **[]string** |  | 
  **cidNiew** | **[]string** |  | 
  **cidNisw** | **[]string** |  | 
+ **cidRegex** | **[]string** |  | 
  **commitRate** | **[]int32** |  | 
  **commitRateEmpty** | **bool** |  | 
  **commitRateGt** | **[]int32** |  | 
@@ -2226,12 +4082,35 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **distance** | **[]float64** |  | 
+ **distanceEmpty** | **bool** |  | 
+ **distanceGt** | **[]float64** |  | 
+ **distanceGte** | **[]float64** |  | 
+ **distanceLt** | **[]float64** |  | 
+ **distanceLte** | **[]float64** |  | 
+ **distanceN** | **[]float64** |  | 
+ **distanceUnit** | [**CircuitsCircuitsListDistanceUnitParameter**](CircuitsCircuitsListDistanceUnitParameter.md) | * &#x60;km&#x60; - Kilometers * &#x60;m&#x60; - Meters * &#x60;mi&#x60; - Miles * &#x60;ft&#x60; - Feet | 
+ **distanceUnitEmpty** | **bool** |  | 
+ **distanceUnitIc** | **[]string** |  | 
+ **distanceUnitIe** | **[]string** |  | 
+ **distanceUnitIew** | **[]string** |  | 
+ **distanceUnitIregex** | **[]string** |  | 
+ **distanceUnitIsw** | **[]string** |  | 
+ **distanceUnitN** | [**CircuitsCircuitsListDistanceUnitParameter**](CircuitsCircuitsListDistanceUnitParameter.md) | * &#x60;km&#x60; - Kilometers * &#x60;m&#x60; - Meters * &#x60;mi&#x60; - Miles * &#x60;ft&#x60; - Feet | 
+ **distanceUnitNic** | **[]string** |  | 
+ **distanceUnitNie** | **[]string** |  | 
+ **distanceUnitNiew** | **[]string** |  | 
+ **distanceUnitNisw** | **[]string** |  | 
+ **distanceUnitRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -2254,9 +4133,20 @@ Name | Type | Description  | Notes
  **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **locationId** | **[]int32** | Location (ID) | 
+ **locationIdN** | **[]int32** | Location (ID) | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **provider** | **[]string** | Provider (slug) | 
  **providerN** | **[]string** | Provider (slug) | 
  **providerAccount** | **[]string** | Provider account (account) | 
@@ -2280,10 +4170,26 @@ Name | Type | Description  | Notes
  **siteGroupIdN** | **[]string** |  | 
  **siteId** | **[]int32** | Site (ID) | 
  **siteIdN** | **[]int32** | Site (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -2401,7 +4307,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsCircuitsRetrieve
 
-> Circuit CircuitsCircuitsRetrieve(ctx, id).Execute()
+> Circuit CircuitsCircuitsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2421,10 +4327,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this circuit.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsCircuitsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsCircuitsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2450,6 +4359,9 @@ Other parameters are passed through a pointer to a apiCircuitsCircuitsRetrieveRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -2491,7 +4403,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this circuit.
-	writableCircuitRequest := *openapiclient.NewWritableCircuitRequest("Cid_example", *openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), *openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example")) // WritableCircuitRequest | 
+	writableCircuitRequest := *openapiclient.NewWritableCircuitRequest("Cid_example", openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, openapiclient.BulkCircuitRequest_type{BriefCircuitTypeRequest: openapiclient.NewBriefCircuitTypeRequest("Name_example", "Slug_example")}) // WritableCircuitRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2562,7 +4474,7 @@ import (
 )
 
 func main() {
-	providerAccountRequest := []openapiclient.ProviderAccountRequest{*openapiclient.NewProviderAccountRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Account_example")} // []ProviderAccountRequest | 
+	providerAccountRequest := []openapiclient.ProviderAccountRequest{*openapiclient.NewProviderAccountRequest(openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Account_example")} // []ProviderAccountRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2598,7 +4510,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -2607,7 +4519,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderAccountsBulkPartialUpdate
 
-> []ProviderAccount CircuitsProviderAccountsBulkPartialUpdate(ctx).ProviderAccountRequest(providerAccountRequest).Execute()
+> []ProviderAccount CircuitsProviderAccountsBulkPartialUpdate(ctx).PatchedBulkProviderAccountRequest(patchedBulkProviderAccountRequest).Execute()
 
 
 
@@ -2626,11 +4538,11 @@ import (
 )
 
 func main() {
-	providerAccountRequest := []openapiclient.ProviderAccountRequest{*openapiclient.NewProviderAccountRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Account_example")} // []ProviderAccountRequest | 
+	patchedBulkProviderAccountRequest := []openapiclient.PatchedBulkProviderAccountRequest{*openapiclient.NewPatchedBulkProviderAccountRequest(int32(123))} // []PatchedBulkProviderAccountRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsBulkPartialUpdate(context.Background()).ProviderAccountRequest(providerAccountRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsBulkPartialUpdate(context.Background()).PatchedBulkProviderAccountRequest(patchedBulkProviderAccountRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderAccountsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2651,7 +4563,7 @@ Other parameters are passed through a pointer to a apiCircuitsProviderAccountsBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerAccountRequest** | [**[]ProviderAccountRequest**](ProviderAccountRequest.md) |  | 
+ **patchedBulkProviderAccountRequest** | [**[]PatchedBulkProviderAccountRequest**](PatchedBulkProviderAccountRequest.md) |  | 
 
 ### Return type
 
@@ -2673,7 +4585,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderAccountsBulkUpdate
 
-> []ProviderAccount CircuitsProviderAccountsBulkUpdate(ctx).ProviderAccountRequest(providerAccountRequest).Execute()
+> []ProviderAccount CircuitsProviderAccountsBulkUpdate(ctx).BulkProviderAccountRequest(bulkProviderAccountRequest).Execute()
 
 
 
@@ -2692,11 +4604,11 @@ import (
 )
 
 func main() {
-	providerAccountRequest := []openapiclient.ProviderAccountRequest{*openapiclient.NewProviderAccountRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Account_example")} // []ProviderAccountRequest | 
+	bulkProviderAccountRequest := []openapiclient.BulkProviderAccountRequest{*openapiclient.NewBulkProviderAccountRequest(int32(123), openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Account_example")} // []BulkProviderAccountRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsBulkUpdate(context.Background()).ProviderAccountRequest(providerAccountRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsBulkUpdate(context.Background()).BulkProviderAccountRequest(bulkProviderAccountRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderAccountsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2717,7 +4629,7 @@ Other parameters are passed through a pointer to a apiCircuitsProviderAccountsBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerAccountRequest** | [**[]ProviderAccountRequest**](ProviderAccountRequest.md) |  | 
+ **bulkProviderAccountRequest** | [**[]BulkProviderAccountRequest**](BulkProviderAccountRequest.md) |  | 
 
 ### Return type
 
@@ -2739,7 +4651,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderAccountsCreate
 
-> ProviderAccount CircuitsProviderAccountsCreate(ctx).ProviderAccountRequest(providerAccountRequest).Execute()
+> ProviderAccount CircuitsProviderAccountsCreate(ctx).CircuitsProviderAccountsCreateRequest(circuitsProviderAccountsCreateRequest).Execute()
 
 
 
@@ -2758,11 +4670,11 @@ import (
 )
 
 func main() {
-	providerAccountRequest := *openapiclient.NewProviderAccountRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Account_example") // ProviderAccountRequest | 
+	circuitsProviderAccountsCreateRequest := openapiclient.circuits_provider_accounts_create_request{ProviderAccountRequest: openapiclient.NewProviderAccountRequest(openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Account_example")} // CircuitsProviderAccountsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsCreate(context.Background()).ProviderAccountRequest(providerAccountRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsCreate(context.Background()).CircuitsProviderAccountsCreateRequest(circuitsProviderAccountsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderAccountsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2783,7 +4695,7 @@ Other parameters are passed through a pointer to a apiCircuitsProviderAccountsCr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerAccountRequest** | [**ProviderAccountRequest**](ProviderAccountRequest.md) |  | 
+ **circuitsProviderAccountsCreateRequest** | [**CircuitsProviderAccountsCreateRequest**](CircuitsProviderAccountsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -2873,7 +4785,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderAccountsList
 
-> PaginatedProviderAccountList CircuitsProviderAccountsList(ctx).Account(account).AccountEmpty(accountEmpty).AccountIc(accountIc).AccountIe(accountIe).AccountIew(accountIew).AccountIsw(accountIsw).AccountN(accountN).AccountNic(accountNic).AccountNie(accountNie).AccountNiew(accountNiew).AccountNisw(accountNisw).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedProviderAccountList CircuitsProviderAccountsList(ctx).Account(account).AccountEmpty(accountEmpty).AccountIc(accountIc).AccountIe(accountIe).AccountIew(accountIew).AccountIregex(accountIregex).AccountIsw(accountIsw).AccountN(accountN).AccountNic(accountNic).AccountNie(accountNie).AccountNiew(accountNiew).AccountNisw(accountNisw).AccountRegex(accountRegex).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -2898,12 +4810,21 @@ func main() {
 	accountIc := []string{"Inner_example"} // []string |  (optional)
 	accountIe := []string{"Inner_example"} // []string |  (optional)
 	accountIew := []string{"Inner_example"} // []string |  (optional)
+	accountIregex := []string{"Inner_example"} // []string |  (optional)
 	accountIsw := []string{"Inner_example"} // []string |  (optional)
 	accountN := []string{"Inner_example"} // []string |  (optional)
 	accountNic := []string{"Inner_example"} // []string |  (optional)
 	accountNie := []string{"Inner_example"} // []string |  (optional)
 	accountNiew := []string{"Inner_example"} // []string |  (optional)
 	accountNisw := []string{"Inner_example"} // []string |  (optional)
+	accountRegex := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -2917,12 +4838,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -2944,26 +4868,42 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	provider := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerN := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerId := []int32{int32(123)} // []int32 | Provider (ID) (optional)
 	providerIdN := []int32{int32(123)} // []int32 | Provider (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsList(context.Background()).Account(account).AccountEmpty(accountEmpty).AccountIc(accountIc).AccountIe(accountIe).AccountIew(accountIew).AccountIsw(accountIsw).AccountN(accountN).AccountNic(accountNic).AccountNie(accountNie).AccountNiew(accountNiew).AccountNisw(accountNisw).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsList(context.Background()).Account(account).AccountEmpty(accountEmpty).AccountIc(accountIc).AccountIe(accountIe).AccountIew(accountIew).AccountIregex(accountIregex).AccountIsw(accountIsw).AccountN(accountN).AccountNic(accountNic).AccountNie(accountNie).AccountNiew(accountNiew).AccountNisw(accountNisw).AccountRegex(accountRegex).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderAccountsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2989,12 +4929,21 @@ Name | Type | Description  | Notes
  **accountIc** | **[]string** |  | 
  **accountIe** | **[]string** |  | 
  **accountIew** | **[]string** |  | 
+ **accountIregex** | **[]string** |  | 
  **accountIsw** | **[]string** |  | 
  **accountN** | **[]string** |  | 
  **accountNic** | **[]string** |  | 
  **accountNie** | **[]string** |  | 
  **accountNiew** | **[]string** |  | 
  **accountNisw** | **[]string** |  | 
+ **accountRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3008,12 +4957,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -3035,21 +4987,37 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **provider** | **[]string** | Provider (slug) | 
  **providerN** | **[]string** | Provider (slug) | 
  **providerId** | **[]int32** | Provider (ID) | 
  **providerIdN** | **[]int32** | Provider (ID) | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -3144,7 +5112,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderAccountsRetrieve
 
-> ProviderAccount CircuitsProviderAccountsRetrieve(ctx, id).Execute()
+> ProviderAccount CircuitsProviderAccountsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3164,10 +5132,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this provider account.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderAccountsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderAccountsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3193,6 +5164,9 @@ Other parameters are passed through a pointer to a apiCircuitsProviderAccountsRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3234,7 +5208,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this provider account.
-	providerAccountRequest := *openapiclient.NewProviderAccountRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Account_example") // ProviderAccountRequest | 
+	providerAccountRequest := *openapiclient.NewProviderAccountRequest(openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Account_example") // ProviderAccountRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3305,7 +5279,7 @@ import (
 )
 
 func main() {
-	providerNetworkRequest := []openapiclient.ProviderNetworkRequest{*openapiclient.NewProviderNetworkRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Name_example")} // []ProviderNetworkRequest | 
+	providerNetworkRequest := []openapiclient.ProviderNetworkRequest{*openapiclient.NewProviderNetworkRequest(openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Name_example")} // []ProviderNetworkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3341,7 +5315,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3350,7 +5324,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderNetworksBulkPartialUpdate
 
-> []ProviderNetwork CircuitsProviderNetworksBulkPartialUpdate(ctx).ProviderNetworkRequest(providerNetworkRequest).Execute()
+> []ProviderNetwork CircuitsProviderNetworksBulkPartialUpdate(ctx).PatchedBulkProviderNetworkRequest(patchedBulkProviderNetworkRequest).Execute()
 
 
 
@@ -3369,11 +5343,11 @@ import (
 )
 
 func main() {
-	providerNetworkRequest := []openapiclient.ProviderNetworkRequest{*openapiclient.NewProviderNetworkRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Name_example")} // []ProviderNetworkRequest | 
+	patchedBulkProviderNetworkRequest := []openapiclient.PatchedBulkProviderNetworkRequest{*openapiclient.NewPatchedBulkProviderNetworkRequest(int32(123))} // []PatchedBulkProviderNetworkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksBulkPartialUpdate(context.Background()).ProviderNetworkRequest(providerNetworkRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksBulkPartialUpdate(context.Background()).PatchedBulkProviderNetworkRequest(patchedBulkProviderNetworkRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderNetworksBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3394,7 +5368,7 @@ Other parameters are passed through a pointer to a apiCircuitsProviderNetworksBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerNetworkRequest** | [**[]ProviderNetworkRequest**](ProviderNetworkRequest.md) |  | 
+ **patchedBulkProviderNetworkRequest** | [**[]PatchedBulkProviderNetworkRequest**](PatchedBulkProviderNetworkRequest.md) |  | 
 
 ### Return type
 
@@ -3416,7 +5390,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderNetworksBulkUpdate
 
-> []ProviderNetwork CircuitsProviderNetworksBulkUpdate(ctx).ProviderNetworkRequest(providerNetworkRequest).Execute()
+> []ProviderNetwork CircuitsProviderNetworksBulkUpdate(ctx).BulkProviderNetworkRequest(bulkProviderNetworkRequest).Execute()
 
 
 
@@ -3435,11 +5409,11 @@ import (
 )
 
 func main() {
-	providerNetworkRequest := []openapiclient.ProviderNetworkRequest{*openapiclient.NewProviderNetworkRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Name_example")} // []ProviderNetworkRequest | 
+	bulkProviderNetworkRequest := []openapiclient.BulkProviderNetworkRequest{*openapiclient.NewBulkProviderNetworkRequest(int32(123), openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Name_example")} // []BulkProviderNetworkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksBulkUpdate(context.Background()).ProviderNetworkRequest(providerNetworkRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksBulkUpdate(context.Background()).BulkProviderNetworkRequest(bulkProviderNetworkRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderNetworksBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3460,7 +5434,7 @@ Other parameters are passed through a pointer to a apiCircuitsProviderNetworksBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerNetworkRequest** | [**[]ProviderNetworkRequest**](ProviderNetworkRequest.md) |  | 
+ **bulkProviderNetworkRequest** | [**[]BulkProviderNetworkRequest**](BulkProviderNetworkRequest.md) |  | 
 
 ### Return type
 
@@ -3482,7 +5456,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderNetworksCreate
 
-> ProviderNetwork CircuitsProviderNetworksCreate(ctx).ProviderNetworkRequest(providerNetworkRequest).Execute()
+> ProviderNetwork CircuitsProviderNetworksCreate(ctx).CircuitsProviderNetworksCreateRequest(circuitsProviderNetworksCreateRequest).Execute()
 
 
 
@@ -3501,11 +5475,11 @@ import (
 )
 
 func main() {
-	providerNetworkRequest := *openapiclient.NewProviderNetworkRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Name_example") // ProviderNetworkRequest | 
+	circuitsProviderNetworksCreateRequest := openapiclient.circuits_provider_networks_create_request{ProviderNetworkRequest: openapiclient.NewProviderNetworkRequest(openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Name_example")} // CircuitsProviderNetworksCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksCreate(context.Background()).ProviderNetworkRequest(providerNetworkRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksCreate(context.Background()).CircuitsProviderNetworksCreateRequest(circuitsProviderNetworksCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderNetworksCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3526,7 +5500,7 @@ Other parameters are passed through a pointer to a apiCircuitsProviderNetworksCr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerNetworkRequest** | [**ProviderNetworkRequest**](ProviderNetworkRequest.md) |  | 
+ **circuitsProviderNetworksCreateRequest** | [**CircuitsProviderNetworksCreateRequest**](CircuitsProviderNetworksCreateRequest.md) |  | 
 
 ### Return type
 
@@ -3616,7 +5590,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderNetworksList
 
-> PaginatedProviderNetworkList CircuitsProviderNetworksList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).ServiceId(serviceId).ServiceIdEmpty(serviceIdEmpty).ServiceIdIc(serviceIdIc).ServiceIdIe(serviceIdIe).ServiceIdIew(serviceIdIew).ServiceIdIsw(serviceIdIsw).ServiceIdN(serviceIdN).ServiceIdNic(serviceIdNic).ServiceIdNie(serviceIdNie).ServiceIdNiew(serviceIdNiew).ServiceIdNisw(serviceIdNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedProviderNetworkList CircuitsProviderNetworksList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).ServiceId(serviceId).ServiceIdEmpty(serviceIdEmpty).ServiceIdIc(serviceIdIc).ServiceIdIe(serviceIdIe).ServiceIdIew(serviceIdIew).ServiceIdIregex(serviceIdIregex).ServiceIdIsw(serviceIdIsw).ServiceIdN(serviceIdN).ServiceIdNic(serviceIdNic).ServiceIdNie(serviceIdNie).ServiceIdNiew(serviceIdNiew).ServiceIdNisw(serviceIdNisw).ServiceIdRegex(serviceIdRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -3636,6 +5610,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -3649,12 +5624,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -3676,14 +5654,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	provider := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerN := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerId := []int32{int32(123)} // []int32 | Provider (ID) (optional)
@@ -3694,19 +5683,26 @@ func main() {
 	serviceIdIc := []string{"Inner_example"} // []string |  (optional)
 	serviceIdIe := []string{"Inner_example"} // []string |  (optional)
 	serviceIdIew := []string{"Inner_example"} // []string |  (optional)
+	serviceIdIregex := []string{"Inner_example"} // []string |  (optional)
 	serviceIdIsw := []string{"Inner_example"} // []string |  (optional)
 	serviceIdN := []string{"Inner_example"} // []string |  (optional)
 	serviceIdNic := []string{"Inner_example"} // []string |  (optional)
 	serviceIdNie := []string{"Inner_example"} // []string |  (optional)
 	serviceIdNiew := []string{"Inner_example"} // []string |  (optional)
 	serviceIdNisw := []string{"Inner_example"} // []string |  (optional)
+	serviceIdRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).ServiceId(serviceId).ServiceIdEmpty(serviceIdEmpty).ServiceIdIc(serviceIdIc).ServiceIdIe(serviceIdIe).ServiceIdIew(serviceIdIew).ServiceIdIsw(serviceIdIsw).ServiceIdN(serviceIdN).ServiceIdNic(serviceIdNic).ServiceIdNie(serviceIdNie).ServiceIdNiew(serviceIdNiew).ServiceIdNisw(serviceIdNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).ServiceId(serviceId).ServiceIdEmpty(serviceIdEmpty).ServiceIdIc(serviceIdIc).ServiceIdIe(serviceIdIe).ServiceIdIew(serviceIdIew).ServiceIdIregex(serviceIdIregex).ServiceIdIsw(serviceIdIsw).ServiceIdN(serviceIdN).ServiceIdNic(serviceIdNic).ServiceIdNie(serviceIdNie).ServiceIdNiew(serviceIdNiew).ServiceIdNisw(serviceIdNisw).ServiceIdRegex(serviceIdRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderNetworksList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3727,6 +5723,7 @@ Other parameters are passed through a pointer to a apiCircuitsProviderNetworksLi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3740,12 +5737,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -3767,14 +5767,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **provider** | **[]string** | Provider (slug) | 
  **providerN** | **[]string** | Provider (slug) | 
  **providerId** | **[]int32** | Provider (ID) | 
@@ -3785,14 +5796,21 @@ Name | Type | Description  | Notes
  **serviceIdIc** | **[]string** |  | 
  **serviceIdIe** | **[]string** |  | 
  **serviceIdIew** | **[]string** |  | 
+ **serviceIdIregex** | **[]string** |  | 
  **serviceIdIsw** | **[]string** |  | 
  **serviceIdN** | **[]string** |  | 
  **serviceIdNic** | **[]string** |  | 
  **serviceIdNie** | **[]string** |  | 
  **serviceIdNiew** | **[]string** |  | 
  **serviceIdNisw** | **[]string** |  | 
+ **serviceIdRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -3887,7 +5905,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProviderNetworksRetrieve
 
-> ProviderNetwork CircuitsProviderNetworksRetrieve(ctx, id).Execute()
+> ProviderNetwork CircuitsProviderNetworksRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3907,10 +5925,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this provider network.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProviderNetworksRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProviderNetworksRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3936,6 +5957,9 @@ Other parameters are passed through a pointer to a apiCircuitsProviderNetworksRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3977,7 +6001,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this provider network.
-	providerNetworkRequest := *openapiclient.NewProviderNetworkRequest(*openapiclient.NewBriefProviderRequest("Name_example", "Slug_example"), "Name_example") // ProviderNetworkRequest | 
+	providerNetworkRequest := *openapiclient.NewProviderNetworkRequest(openapiclient.BriefCircuitRequest_provider{BriefProviderRequest: openapiclient.NewBriefProviderRequest("Name_example", "Slug_example")}, "Name_example") // ProviderNetworkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4084,7 +6108,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4093,7 +6117,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProvidersBulkPartialUpdate
 
-> []Provider CircuitsProvidersBulkPartialUpdate(ctx).ProviderRequest(providerRequest).Execute()
+> []Provider CircuitsProvidersBulkPartialUpdate(ctx).PatchedBulkProviderRequest(patchedBulkProviderRequest).Execute()
 
 
 
@@ -4112,11 +6136,11 @@ import (
 )
 
 func main() {
-	providerRequest := []openapiclient.ProviderRequest{*openapiclient.NewProviderRequest("Name_example", "Slug_example")} // []ProviderRequest | 
+	patchedBulkProviderRequest := []openapiclient.PatchedBulkProviderRequest{*openapiclient.NewPatchedBulkProviderRequest(int32(123))} // []PatchedBulkProviderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersBulkPartialUpdate(context.Background()).ProviderRequest(providerRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersBulkPartialUpdate(context.Background()).PatchedBulkProviderRequest(patchedBulkProviderRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProvidersBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4137,7 +6161,7 @@ Other parameters are passed through a pointer to a apiCircuitsProvidersBulkParti
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerRequest** | [**[]ProviderRequest**](ProviderRequest.md) |  | 
+ **patchedBulkProviderRequest** | [**[]PatchedBulkProviderRequest**](PatchedBulkProviderRequest.md) |  | 
 
 ### Return type
 
@@ -4159,7 +6183,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProvidersBulkUpdate
 
-> []Provider CircuitsProvidersBulkUpdate(ctx).ProviderRequest(providerRequest).Execute()
+> []Provider CircuitsProvidersBulkUpdate(ctx).BulkProviderRequest(bulkProviderRequest).Execute()
 
 
 
@@ -4178,11 +6202,11 @@ import (
 )
 
 func main() {
-	providerRequest := []openapiclient.ProviderRequest{*openapiclient.NewProviderRequest("Name_example", "Slug_example")} // []ProviderRequest | 
+	bulkProviderRequest := []openapiclient.BulkProviderRequest{*openapiclient.NewBulkProviderRequest(int32(123), "Name_example", "Slug_example")} // []BulkProviderRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersBulkUpdate(context.Background()).ProviderRequest(providerRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersBulkUpdate(context.Background()).BulkProviderRequest(bulkProviderRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProvidersBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4203,7 +6227,7 @@ Other parameters are passed through a pointer to a apiCircuitsProvidersBulkUpdat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerRequest** | [**[]ProviderRequest**](ProviderRequest.md) |  | 
+ **bulkProviderRequest** | [**[]BulkProviderRequest**](BulkProviderRequest.md) |  | 
 
 ### Return type
 
@@ -4225,7 +6249,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProvidersCreate
 
-> Provider CircuitsProvidersCreate(ctx).ProviderRequest(providerRequest).Execute()
+> Provider CircuitsProvidersCreate(ctx).CircuitsProvidersCreateRequest(circuitsProvidersCreateRequest).Execute()
 
 
 
@@ -4244,11 +6268,11 @@ import (
 )
 
 func main() {
-	providerRequest := *openapiclient.NewProviderRequest("Name_example", "Slug_example") // ProviderRequest | 
+	circuitsProvidersCreateRequest := openapiclient.circuits_providers_create_request{ProviderRequest: openapiclient.NewProviderRequest("Name_example", "Slug_example")} // CircuitsProvidersCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersCreate(context.Background()).ProviderRequest(providerRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersCreate(context.Background()).CircuitsProvidersCreateRequest(circuitsProvidersCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProvidersCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4269,7 +6293,7 @@ Other parameters are passed through a pointer to a apiCircuitsProvidersCreateReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **providerRequest** | [**ProviderRequest**](ProviderRequest.md) |  | 
+ **circuitsProvidersCreateRequest** | [**CircuitsProvidersCreateRequest**](CircuitsProvidersCreateRequest.md) |  | 
 
 ### Return type
 
@@ -4359,7 +6383,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProvidersList
 
-> PaginatedProviderList CircuitsProvidersList(ctx).Asn(asn).AsnN(asnN).AsnId(asnId).AsnIdN(asnIdN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedProviderList CircuitsProvidersList(ctx).Asn(asn).AsnN(asnN).AsnId(asnId).AsnIdN(asnIdN).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -4383,6 +6407,7 @@ func main() {
 	asnN := []int64{int64(123)} // []int64 | ASN (optional)
 	asnId := []int32{int32(123)} // []int32 | ASN (ID) (optional)
 	asnIdN := []int32{int32(123)} // []int32 | ASN (ID) (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	contact := []int32{int32(123)} // []int32 | Contact (optional)
 	contactN := []int32{int32(123)} // []int32 | Contact (optional)
 	contactGroup := []string{"Inner_example"} // []string |  (optional)
@@ -4402,12 +6427,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -4429,14 +6457,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	region := []string{"Inner_example"} // []string |  (optional)
 	regionN := []string{"Inner_example"} // []string |  (optional)
@@ -4455,19 +6494,26 @@ func main() {
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersList(context.Background()).Asn(asn).AsnN(asnN).AsnId(asnId).AsnIdN(asnIdN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersList(context.Background()).Asn(asn).AsnN(asnN).AsnId(asnId).AsnIdN(asnIdN).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProvidersList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4492,6 +6538,7 @@ Name | Type | Description  | Notes
  **asnN** | **[]int64** | ASN | 
  **asnId** | **[]int32** | ASN (ID) | 
  **asnIdN** | **[]int32** | ASN (ID) | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **contact** | **[]int32** | Contact | 
  **contactN** | **[]int32** | Contact | 
  **contactGroup** | **[]string** |  | 
@@ -4511,12 +6558,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -4538,14 +6588,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **region** | **[]string** |  | 
  **regionN** | **[]string** |  | 
@@ -4564,14 +6625,21 @@ Name | Type | Description  | Notes
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -4666,7 +6734,7 @@ Name | Type | Description  | Notes
 
 ## CircuitsProvidersRetrieve
 
-> Provider CircuitsProvidersRetrieve(ctx, id).Execute()
+> Provider CircuitsProvidersRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -4686,10 +6754,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this provider.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CircuitsAPI.CircuitsProvidersRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsProvidersRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4715,6 +6786,9 @@ Other parameters are passed through a pointer to a apiCircuitsProvidersRetrieveR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -4791,6 +6865,2493 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Provider**](Provider.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsBulkDestroy
+
+> CircuitsVirtualCircuitTerminationsBulkDestroy(ctx).VirtualCircuitTerminationRequest(virtualCircuitTerminationRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	virtualCircuitTerminationRequest := []openapiclient.VirtualCircuitTerminationRequest{*openapiclient.NewVirtualCircuitTerminationRequest(openapiclient.BulkVirtualCircuitTerminationRequest_virtual_circuit{BriefVirtualCircuitRequest: openapiclient.NewBriefVirtualCircuitRequest("Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")})}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")})} // []VirtualCircuitTerminationRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkDestroy(context.Background()).VirtualCircuitTerminationRequest(virtualCircuitTerminationRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtualCircuitTerminationRequest** | [**[]VirtualCircuitTerminationRequest**](VirtualCircuitTerminationRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsBulkPartialUpdate
+
+> []VirtualCircuitTermination CircuitsVirtualCircuitTerminationsBulkPartialUpdate(ctx).PatchedBulkVirtualCircuitTerminationRequest(patchedBulkVirtualCircuitTerminationRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkVirtualCircuitTerminationRequest := []openapiclient.PatchedBulkVirtualCircuitTerminationRequest{*openapiclient.NewPatchedBulkVirtualCircuitTerminationRequest(int32(123))} // []PatchedBulkVirtualCircuitTerminationRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkPartialUpdate(context.Background()).PatchedBulkVirtualCircuitTerminationRequest(patchedBulkVirtualCircuitTerminationRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsBulkPartialUpdate`: []VirtualCircuitTermination
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkVirtualCircuitTerminationRequest** | [**[]PatchedBulkVirtualCircuitTerminationRequest**](PatchedBulkVirtualCircuitTerminationRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualCircuitTermination**](VirtualCircuitTermination.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsBulkUpdate
+
+> []VirtualCircuitTermination CircuitsVirtualCircuitTerminationsBulkUpdate(ctx).BulkVirtualCircuitTerminationRequest(bulkVirtualCircuitTerminationRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkVirtualCircuitTerminationRequest := []openapiclient.BulkVirtualCircuitTerminationRequest{*openapiclient.NewBulkVirtualCircuitTerminationRequest(int32(123), openapiclient.BulkVirtualCircuitTerminationRequest_virtual_circuit{BriefVirtualCircuitRequest: openapiclient.NewBriefVirtualCircuitRequest("Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")})}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")})} // []BulkVirtualCircuitTerminationRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkUpdate(context.Background()).BulkVirtualCircuitTerminationRequest(bulkVirtualCircuitTerminationRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsBulkUpdate`: []VirtualCircuitTermination
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkVirtualCircuitTerminationRequest** | [**[]BulkVirtualCircuitTerminationRequest**](BulkVirtualCircuitTerminationRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualCircuitTermination**](VirtualCircuitTermination.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsCreate
+
+> VirtualCircuitTermination CircuitsVirtualCircuitTerminationsCreate(ctx).CircuitsVirtualCircuitTerminationsCreateRequest(circuitsVirtualCircuitTerminationsCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	circuitsVirtualCircuitTerminationsCreateRequest := openapiclient.circuits_virtual_circuit_terminations_create_request{WritableVirtualCircuitTerminationRequest: openapiclient.NewWritableVirtualCircuitTerminationRequest(openapiclient.BulkVirtualCircuitTerminationRequest_virtual_circuit{BriefVirtualCircuitRequest: openapiclient.NewBriefVirtualCircuitRequest("Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")})}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")})} // CircuitsVirtualCircuitTerminationsCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsCreate(context.Background()).CircuitsVirtualCircuitTerminationsCreateRequest(circuitsVirtualCircuitTerminationsCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsCreate`: VirtualCircuitTermination
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **circuitsVirtualCircuitTerminationsCreateRequest** | [**CircuitsVirtualCircuitTerminationsCreateRequest**](CircuitsVirtualCircuitTerminationsCreateRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuitTermination**](VirtualCircuitTermination.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsDestroy
+
+> CircuitsVirtualCircuitTerminationsDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit termination.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit termination. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsList
+
+> PaginatedVirtualCircuitTerminationList CircuitsVirtualCircuitTerminationsList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Role(role).RoleEmpty(roleEmpty).RoleIc(roleIc).RoleIe(roleIe).RoleIew(roleIew).RoleIregex(roleIregex).RoleIsw(roleIsw).RoleN(roleN).RoleNic(roleNic).RoleNie(roleNie).RoleNiew(roleNiew).RoleNisw(roleNisw).RoleRegex(roleRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualCircuitId(virtualCircuitId).VirtualCircuitIdN(virtualCircuitIdN).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	description := []string{"Inner_example"} // []string |  (optional)
+	descriptionEmpty := true // bool |  (optional)
+	descriptionIc := []string{"Inner_example"} // []string |  (optional)
+	descriptionIe := []string{"Inner_example"} // []string |  (optional)
+	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
+	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
+	descriptionN := []string{"Inner_example"} // []string |  (optional)
+	descriptionNic := []string{"Inner_example"} // []string |  (optional)
+	descriptionNie := []string{"Inner_example"} // []string |  (optional)
+	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
+	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	interfaceId := []int32{int32(123)} // []int32 | Interface (ID) (optional)
+	interfaceIdN := []int32{int32(123)} // []int32 | Interface (ID) (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	provider := []string{"Inner_example"} // []string | Provider (slug) (optional)
+	providerN := []string{"Inner_example"} // []string | Provider (slug) (optional)
+	providerAccount := []string{"Inner_example"} // []string | Provider account (account) (optional)
+	providerAccountN := []string{"Inner_example"} // []string | Provider account (account) (optional)
+	providerAccountId := []int32{int32(123)} // []int32 | Provider account (ID) (optional)
+	providerAccountIdN := []int32{int32(123)} // []int32 | Provider account (ID) (optional)
+	providerId := []int32{int32(123)} // []int32 | Provider (ID) (optional)
+	providerIdN := []int32{int32(123)} // []int32 | Provider (ID) (optional)
+	providerNetworkId := []int32{int32(123)} // []int32 | Provider network (ID) (optional)
+	providerNetworkIdN := []int32{int32(123)} // []int32 | Provider network (ID) (optional)
+	q := "q_example" // string | Search (optional)
+	role := []string{"Inner_example"} // []string |  (optional)
+	roleEmpty := true // bool |  (optional)
+	roleIc := []string{"Inner_example"} // []string |  (optional)
+	roleIe := []string{"Inner_example"} // []string |  (optional)
+	roleIew := []string{"Inner_example"} // []string |  (optional)
+	roleIregex := []string{"Inner_example"} // []string |  (optional)
+	roleIsw := []string{"Inner_example"} // []string |  (optional)
+	roleN := []string{"Inner_example"} // []string |  (optional)
+	roleNic := []string{"Inner_example"} // []string |  (optional)
+	roleNie := []string{"Inner_example"} // []string |  (optional)
+	roleNiew := []string{"Inner_example"} // []string |  (optional)
+	roleNisw := []string{"Inner_example"} // []string |  (optional)
+	roleRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	virtualCircuitId := []int32{int32(123)} // []int32 | Virtual circuit (optional)
+	virtualCircuitIdN := []int32{int32(123)} // []int32 | Virtual circuit (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Role(role).RoleEmpty(roleEmpty).RoleIc(roleIc).RoleIe(roleIe).RoleIew(roleIew).RoleIregex(roleIregex).RoleIsw(roleIsw).RoleN(roleN).RoleNic(roleNic).RoleNie(roleNie).RoleNiew(roleNiew).RoleNisw(roleNisw).RoleRegex(roleRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualCircuitId(virtualCircuitId).VirtualCircuitIdN(virtualCircuitIdN).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsList`: PaginatedVirtualCircuitTerminationList
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **description** | **[]string** |  | 
+ **descriptionEmpty** | **bool** |  | 
+ **descriptionIc** | **[]string** |  | 
+ **descriptionIe** | **[]string** |  | 
+ **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
+ **descriptionIsw** | **[]string** |  | 
+ **descriptionN** | **[]string** |  | 
+ **descriptionNic** | **[]string** |  | 
+ **descriptionNie** | **[]string** |  | 
+ **descriptionNiew** | **[]string** |  | 
+ **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **interfaceId** | **[]int32** | Interface (ID) | 
+ **interfaceIdN** | **[]int32** | Interface (ID) | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **modifiedByRequest** | **string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **provider** | **[]string** | Provider (slug) | 
+ **providerN** | **[]string** | Provider (slug) | 
+ **providerAccount** | **[]string** | Provider account (account) | 
+ **providerAccountN** | **[]string** | Provider account (account) | 
+ **providerAccountId** | **[]int32** | Provider account (ID) | 
+ **providerAccountIdN** | **[]int32** | Provider account (ID) | 
+ **providerId** | **[]int32** | Provider (ID) | 
+ **providerIdN** | **[]int32** | Provider (ID) | 
+ **providerNetworkId** | **[]int32** | Provider network (ID) | 
+ **providerNetworkIdN** | **[]int32** | Provider network (ID) | 
+ **q** | **string** | Search | 
+ **role** | **[]string** |  | 
+ **roleEmpty** | **bool** |  | 
+ **roleIc** | **[]string** |  | 
+ **roleIe** | **[]string** |  | 
+ **roleIew** | **[]string** |  | 
+ **roleIregex** | **[]string** |  | 
+ **roleIsw** | **[]string** |  | 
+ **roleN** | **[]string** |  | 
+ **roleNic** | **[]string** |  | 
+ **roleNie** | **[]string** |  | 
+ **roleNiew** | **[]string** |  | 
+ **roleNisw** | **[]string** |  | 
+ **roleRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **updatedByRequest** | **string** |  | 
+ **virtualCircuitId** | **[]int32** | Virtual circuit | 
+ **virtualCircuitIdN** | **[]int32** | Virtual circuit | 
+
+### Return type
+
+[**PaginatedVirtualCircuitTerminationList**](PaginatedVirtualCircuitTerminationList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsPartialUpdate
+
+> VirtualCircuitTermination CircuitsVirtualCircuitTerminationsPartialUpdate(ctx, id).PatchedWritableVirtualCircuitTerminationRequest(patchedWritableVirtualCircuitTerminationRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit termination.
+	patchedWritableVirtualCircuitTerminationRequest := *openapiclient.NewPatchedWritableVirtualCircuitTerminationRequest() // PatchedWritableVirtualCircuitTerminationRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsPartialUpdate(context.Background(), id).PatchedWritableVirtualCircuitTerminationRequest(patchedWritableVirtualCircuitTerminationRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsPartialUpdate`: VirtualCircuitTermination
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit termination. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedWritableVirtualCircuitTerminationRequest** | [**PatchedWritableVirtualCircuitTerminationRequest**](PatchedWritableVirtualCircuitTerminationRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuitTermination**](VirtualCircuitTermination.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsPathsRetrieve
+
+> VirtualCircuitTermination CircuitsVirtualCircuitTerminationsPathsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit termination.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsPathsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsPathsRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsPathsRetrieve`: VirtualCircuitTermination
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsPathsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit termination. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsPathsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**VirtualCircuitTermination**](VirtualCircuitTermination.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsRetrieve
+
+> VirtualCircuitTermination CircuitsVirtualCircuitTerminationsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit termination.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsRetrieve`: VirtualCircuitTermination
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit termination. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**VirtualCircuitTermination**](VirtualCircuitTermination.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTerminationsUpdate
+
+> VirtualCircuitTermination CircuitsVirtualCircuitTerminationsUpdate(ctx, id).WritableVirtualCircuitTerminationRequest(writableVirtualCircuitTerminationRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit termination.
+	writableVirtualCircuitTerminationRequest := *openapiclient.NewWritableVirtualCircuitTerminationRequest(openapiclient.BulkVirtualCircuitTerminationRequest_virtual_circuit{BriefVirtualCircuitRequest: openapiclient.NewBriefVirtualCircuitRequest("Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")})}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")}) // WritableVirtualCircuitTerminationRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTerminationsUpdate(context.Background(), id).WritableVirtualCircuitTerminationRequest(writableVirtualCircuitTerminationRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTerminationsUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTerminationsUpdate`: VirtualCircuitTermination
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTerminationsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit termination. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTerminationsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **writableVirtualCircuitTerminationRequest** | [**WritableVirtualCircuitTerminationRequest**](WritableVirtualCircuitTerminationRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuitTermination**](VirtualCircuitTermination.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesBulkDestroy
+
+> CircuitsVirtualCircuitTypesBulkDestroy(ctx).VirtualCircuitTypeRequest(virtualCircuitTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	virtualCircuitTypeRequest := []openapiclient.VirtualCircuitTypeRequest{*openapiclient.NewVirtualCircuitTypeRequest("Name_example", "Slug_example")} // []VirtualCircuitTypeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesBulkDestroy(context.Background()).VirtualCircuitTypeRequest(virtualCircuitTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtualCircuitTypeRequest** | [**[]VirtualCircuitTypeRequest**](VirtualCircuitTypeRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesBulkPartialUpdate
+
+> []VirtualCircuitType CircuitsVirtualCircuitTypesBulkPartialUpdate(ctx).PatchedBulkVirtualCircuitTypeRequest(patchedBulkVirtualCircuitTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkVirtualCircuitTypeRequest := []openapiclient.PatchedBulkVirtualCircuitTypeRequest{*openapiclient.NewPatchedBulkVirtualCircuitTypeRequest(int32(123))} // []PatchedBulkVirtualCircuitTypeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesBulkPartialUpdate(context.Background()).PatchedBulkVirtualCircuitTypeRequest(patchedBulkVirtualCircuitTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTypesBulkPartialUpdate`: []VirtualCircuitType
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTypesBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkVirtualCircuitTypeRequest** | [**[]PatchedBulkVirtualCircuitTypeRequest**](PatchedBulkVirtualCircuitTypeRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualCircuitType**](VirtualCircuitType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesBulkUpdate
+
+> []VirtualCircuitType CircuitsVirtualCircuitTypesBulkUpdate(ctx).BulkVirtualCircuitTypeRequest(bulkVirtualCircuitTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkVirtualCircuitTypeRequest := []openapiclient.BulkVirtualCircuitTypeRequest{*openapiclient.NewBulkVirtualCircuitTypeRequest(int32(123), "Name_example", "Slug_example")} // []BulkVirtualCircuitTypeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesBulkUpdate(context.Background()).BulkVirtualCircuitTypeRequest(bulkVirtualCircuitTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTypesBulkUpdate`: []VirtualCircuitType
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTypesBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkVirtualCircuitTypeRequest** | [**[]BulkVirtualCircuitTypeRequest**](BulkVirtualCircuitTypeRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualCircuitType**](VirtualCircuitType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesCreate
+
+> VirtualCircuitType CircuitsVirtualCircuitTypesCreate(ctx).CircuitsVirtualCircuitTypesCreateRequest(circuitsVirtualCircuitTypesCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	circuitsVirtualCircuitTypesCreateRequest := openapiclient.circuits_virtual_circuit_types_create_request{VirtualCircuitTypeRequest: openapiclient.NewVirtualCircuitTypeRequest("Name_example", "Slug_example")} // CircuitsVirtualCircuitTypesCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesCreate(context.Background()).CircuitsVirtualCircuitTypesCreateRequest(circuitsVirtualCircuitTypesCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTypesCreate`: VirtualCircuitType
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTypesCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **circuitsVirtualCircuitTypesCreateRequest** | [**CircuitsVirtualCircuitTypesCreateRequest**](CircuitsVirtualCircuitTypesCreateRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuitType**](VirtualCircuitType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesDestroy
+
+> CircuitsVirtualCircuitTypesDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit type.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesList
+
+> PaginatedVirtualCircuitTypeList CircuitsVirtualCircuitTypesList(ctx).Brief(brief).Color(color).ColorEmpty(colorEmpty).ColorIc(colorIc).ColorIe(colorIe).ColorIew(colorIew).ColorIregex(colorIregex).ColorIsw(colorIsw).ColorN(colorN).ColorNic(colorNic).ColorNie(colorNie).ColorNiew(colorNiew).ColorNisw(colorNisw).ColorRegex(colorRegex).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	color := []string{"Inner_example"} // []string |  (optional)
+	colorEmpty := true // bool |  (optional)
+	colorIc := []string{"Inner_example"} // []string |  (optional)
+	colorIe := []string{"Inner_example"} // []string |  (optional)
+	colorIew := []string{"Inner_example"} // []string |  (optional)
+	colorIregex := []string{"Inner_example"} // []string |  (optional)
+	colorIsw := []string{"Inner_example"} // []string |  (optional)
+	colorN := []string{"Inner_example"} // []string |  (optional)
+	colorNic := []string{"Inner_example"} // []string |  (optional)
+	colorNie := []string{"Inner_example"} // []string |  (optional)
+	colorNiew := []string{"Inner_example"} // []string |  (optional)
+	colorNisw := []string{"Inner_example"} // []string |  (optional)
+	colorRegex := []string{"Inner_example"} // []string |  (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	description := []string{"Inner_example"} // []string |  (optional)
+	descriptionEmpty := true // bool |  (optional)
+	descriptionIc := []string{"Inner_example"} // []string |  (optional)
+	descriptionIe := []string{"Inner_example"} // []string |  (optional)
+	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
+	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
+	descriptionN := []string{"Inner_example"} // []string |  (optional)
+	descriptionNic := []string{"Inner_example"} // []string |  (optional)
+	descriptionNie := []string{"Inner_example"} // []string |  (optional)
+	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
+	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	name := []string{"Inner_example"} // []string |  (optional)
+	nameEmpty := true // bool |  (optional)
+	nameIc := []string{"Inner_example"} // []string |  (optional)
+	nameIe := []string{"Inner_example"} // []string |  (optional)
+	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
+	nameIsw := []string{"Inner_example"} // []string |  (optional)
+	nameN := []string{"Inner_example"} // []string |  (optional)
+	nameNic := []string{"Inner_example"} // []string |  (optional)
+	nameNie := []string{"Inner_example"} // []string |  (optional)
+	nameNiew := []string{"Inner_example"} // []string |  (optional)
+	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	q := "q_example" // string | Search (optional)
+	slug := []string{"Inner_example"} // []string |  (optional)
+	slugEmpty := true // bool |  (optional)
+	slugIc := []string{"Inner_example"} // []string |  (optional)
+	slugIe := []string{"Inner_example"} // []string |  (optional)
+	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
+	slugIsw := []string{"Inner_example"} // []string |  (optional)
+	slugN := []string{"Inner_example"} // []string |  (optional)
+	slugNic := []string{"Inner_example"} // []string |  (optional)
+	slugNie := []string{"Inner_example"} // []string |  (optional)
+	slugNiew := []string{"Inner_example"} // []string |  (optional)
+	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesList(context.Background()).Brief(brief).Color(color).ColorEmpty(colorEmpty).ColorIc(colorIc).ColorIe(colorIe).ColorIew(colorIew).ColorIregex(colorIregex).ColorIsw(colorIsw).ColorN(colorN).ColorNic(colorNic).ColorNie(colorNie).ColorNiew(colorNiew).ColorNisw(colorNisw).ColorRegex(colorRegex).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTypesList`: PaginatedVirtualCircuitTypeList
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTypesList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **color** | **[]string** |  | 
+ **colorEmpty** | **bool** |  | 
+ **colorIc** | **[]string** |  | 
+ **colorIe** | **[]string** |  | 
+ **colorIew** | **[]string** |  | 
+ **colorIregex** | **[]string** |  | 
+ **colorIsw** | **[]string** |  | 
+ **colorN** | **[]string** |  | 
+ **colorNic** | **[]string** |  | 
+ **colorNie** | **[]string** |  | 
+ **colorNiew** | **[]string** |  | 
+ **colorNisw** | **[]string** |  | 
+ **colorRegex** | **[]string** |  | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **description** | **[]string** |  | 
+ **descriptionEmpty** | **bool** |  | 
+ **descriptionIc** | **[]string** |  | 
+ **descriptionIe** | **[]string** |  | 
+ **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
+ **descriptionIsw** | **[]string** |  | 
+ **descriptionN** | **[]string** |  | 
+ **descriptionNic** | **[]string** |  | 
+ **descriptionNie** | **[]string** |  | 
+ **descriptionNiew** | **[]string** |  | 
+ **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **modifiedByRequest** | **string** |  | 
+ **name** | **[]string** |  | 
+ **nameEmpty** | **bool** |  | 
+ **nameIc** | **[]string** |  | 
+ **nameIe** | **[]string** |  | 
+ **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
+ **nameIsw** | **[]string** |  | 
+ **nameN** | **[]string** |  | 
+ **nameNic** | **[]string** |  | 
+ **nameNie** | **[]string** |  | 
+ **nameNiew** | **[]string** |  | 
+ **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **q** | **string** | Search | 
+ **slug** | **[]string** |  | 
+ **slugEmpty** | **bool** |  | 
+ **slugIc** | **[]string** |  | 
+ **slugIe** | **[]string** |  | 
+ **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
+ **slugIsw** | **[]string** |  | 
+ **slugN** | **[]string** |  | 
+ **slugNic** | **[]string** |  | 
+ **slugNie** | **[]string** |  | 
+ **slugNiew** | **[]string** |  | 
+ **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **updatedByRequest** | **string** |  | 
+
+### Return type
+
+[**PaginatedVirtualCircuitTypeList**](PaginatedVirtualCircuitTypeList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesPartialUpdate
+
+> VirtualCircuitType CircuitsVirtualCircuitTypesPartialUpdate(ctx, id).PatchedVirtualCircuitTypeRequest(patchedVirtualCircuitTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit type.
+	patchedVirtualCircuitTypeRequest := *openapiclient.NewPatchedVirtualCircuitTypeRequest() // PatchedVirtualCircuitTypeRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesPartialUpdate(context.Background(), id).PatchedVirtualCircuitTypeRequest(patchedVirtualCircuitTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTypesPartialUpdate`: VirtualCircuitType
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTypesPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedVirtualCircuitTypeRequest** | [**PatchedVirtualCircuitTypeRequest**](PatchedVirtualCircuitTypeRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuitType**](VirtualCircuitType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesRetrieve
+
+> VirtualCircuitType CircuitsVirtualCircuitTypesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit type.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTypesRetrieve`: VirtualCircuitType
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTypesRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**VirtualCircuitType**](VirtualCircuitType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitTypesUpdate
+
+> VirtualCircuitType CircuitsVirtualCircuitTypesUpdate(ctx, id).VirtualCircuitTypeRequest(virtualCircuitTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit type.
+	virtualCircuitTypeRequest := *openapiclient.NewVirtualCircuitTypeRequest("Name_example", "Slug_example") // VirtualCircuitTypeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitTypesUpdate(context.Background(), id).VirtualCircuitTypeRequest(virtualCircuitTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitTypesUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitTypesUpdate`: VirtualCircuitType
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitTypesUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitTypesUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **virtualCircuitTypeRequest** | [**VirtualCircuitTypeRequest**](VirtualCircuitTypeRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuitType**](VirtualCircuitType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsBulkDestroy
+
+> CircuitsVirtualCircuitsBulkDestroy(ctx).VirtualCircuitRequest(virtualCircuitRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	virtualCircuitRequest := []openapiclient.VirtualCircuitRequest{*openapiclient.NewVirtualCircuitRequest("Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")}, openapiclient.BulkVirtualCircuitRequest_type{BriefVirtualCircuitTypeRequest: openapiclient.NewBriefVirtualCircuitTypeRequest("Name_example", "Slug_example")})} // []VirtualCircuitRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsBulkDestroy(context.Background()).VirtualCircuitRequest(virtualCircuitRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtualCircuitRequest** | [**[]VirtualCircuitRequest**](VirtualCircuitRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsBulkPartialUpdate
+
+> []VirtualCircuit CircuitsVirtualCircuitsBulkPartialUpdate(ctx).PatchedBulkVirtualCircuitRequest(patchedBulkVirtualCircuitRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkVirtualCircuitRequest := []openapiclient.PatchedBulkVirtualCircuitRequest{*openapiclient.NewPatchedBulkVirtualCircuitRequest(int32(123))} // []PatchedBulkVirtualCircuitRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsBulkPartialUpdate(context.Background()).PatchedBulkVirtualCircuitRequest(patchedBulkVirtualCircuitRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitsBulkPartialUpdate`: []VirtualCircuit
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitsBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkVirtualCircuitRequest** | [**[]PatchedBulkVirtualCircuitRequest**](PatchedBulkVirtualCircuitRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualCircuit**](VirtualCircuit.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsBulkUpdate
+
+> []VirtualCircuit CircuitsVirtualCircuitsBulkUpdate(ctx).BulkVirtualCircuitRequest(bulkVirtualCircuitRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkVirtualCircuitRequest := []openapiclient.BulkVirtualCircuitRequest{*openapiclient.NewBulkVirtualCircuitRequest(int32(123), "Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")}, openapiclient.BulkVirtualCircuitRequest_type{BriefVirtualCircuitTypeRequest: openapiclient.NewBriefVirtualCircuitTypeRequest("Name_example", "Slug_example")})} // []BulkVirtualCircuitRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsBulkUpdate(context.Background()).BulkVirtualCircuitRequest(bulkVirtualCircuitRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitsBulkUpdate`: []VirtualCircuit
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitsBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkVirtualCircuitRequest** | [**[]BulkVirtualCircuitRequest**](BulkVirtualCircuitRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualCircuit**](VirtualCircuit.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsCreate
+
+> VirtualCircuit CircuitsVirtualCircuitsCreate(ctx).CircuitsVirtualCircuitsCreateRequest(circuitsVirtualCircuitsCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	circuitsVirtualCircuitsCreateRequest := openapiclient.circuits_virtual_circuits_create_request{WritableVirtualCircuitRequest: openapiclient.NewWritableVirtualCircuitRequest("Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")}, openapiclient.BulkVirtualCircuitRequest_type{BriefVirtualCircuitTypeRequest: openapiclient.NewBriefVirtualCircuitTypeRequest("Name_example", "Slug_example")})} // CircuitsVirtualCircuitsCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsCreate(context.Background()).CircuitsVirtualCircuitsCreateRequest(circuitsVirtualCircuitsCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitsCreate`: VirtualCircuit
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitsCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **circuitsVirtualCircuitsCreateRequest** | [**CircuitsVirtualCircuitsCreateRequest**](CircuitsVirtualCircuitsCreateRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuit**](VirtualCircuit.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsDestroy
+
+> CircuitsVirtualCircuitsDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsList
+
+> PaginatedVirtualCircuitList CircuitsVirtualCircuitsList(ctx).Brief(brief).Cid(cid).CidEmpty(cidEmpty).CidIc(cidIc).CidIe(cidIe).CidIew(cidIew).CidIregex(cidIregex).CidIsw(cidIsw).CidN(cidN).CidNic(cidNic).CidNie(cidNie).CidNiew(cidNiew).CidNisw(cidNisw).CidRegex(cidRegex).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	cid := []string{"Inner_example"} // []string |  (optional)
+	cidEmpty := true // bool |  (optional)
+	cidIc := []string{"Inner_example"} // []string |  (optional)
+	cidIe := []string{"Inner_example"} // []string |  (optional)
+	cidIew := []string{"Inner_example"} // []string |  (optional)
+	cidIregex := []string{"Inner_example"} // []string |  (optional)
+	cidIsw := []string{"Inner_example"} // []string |  (optional)
+	cidN := []string{"Inner_example"} // []string |  (optional)
+	cidNic := []string{"Inner_example"} // []string |  (optional)
+	cidNie := []string{"Inner_example"} // []string |  (optional)
+	cidNiew := []string{"Inner_example"} // []string |  (optional)
+	cidNisw := []string{"Inner_example"} // []string |  (optional)
+	cidRegex := []string{"Inner_example"} // []string |  (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	description := []string{"Inner_example"} // []string |  (optional)
+	descriptionEmpty := true // bool |  (optional)
+	descriptionIc := []string{"Inner_example"} // []string |  (optional)
+	descriptionIe := []string{"Inner_example"} // []string |  (optional)
+	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
+	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
+	descriptionN := []string{"Inner_example"} // []string |  (optional)
+	descriptionNic := []string{"Inner_example"} // []string |  (optional)
+	descriptionNie := []string{"Inner_example"} // []string |  (optional)
+	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
+	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	provider := []string{"Inner_example"} // []string | Provider (slug) (optional)
+	providerN := []string{"Inner_example"} // []string | Provider (slug) (optional)
+	providerAccount := []string{"Inner_example"} // []string | Provider account (account) (optional)
+	providerAccountN := []string{"Inner_example"} // []string | Provider account (account) (optional)
+	providerAccountId := []int32{int32(123)} // []int32 | Provider account (ID) (optional)
+	providerAccountIdN := []int32{int32(123)} // []int32 | Provider account (ID) (optional)
+	providerId := []int32{int32(123)} // []int32 | Provider (ID) (optional)
+	providerIdN := []int32{int32(123)} // []int32 | Provider (ID) (optional)
+	providerNetworkId := []int32{int32(123)} // []int32 | Provider network (ID) (optional)
+	providerNetworkIdN := []int32{int32(123)} // []int32 | Provider network (ID) (optional)
+	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
+	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
+	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
+	tenantGroup := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupN := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupId := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupIdN := []string{"Inner_example"} // []string |  (optional)
+	tenantId := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
+	tenantIdN := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
+	type_ := []string{"Inner_example"} // []string | Virtual circuit type (slug) (optional)
+	typeN := []string{"Inner_example"} // []string | Virtual circuit type (slug) (optional)
+	typeId := []int32{int32(123)} // []int32 | Virtual circuit type (ID) (optional)
+	typeIdN := []int32{int32(123)} // []int32 | Virtual circuit type (ID) (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsList(context.Background()).Brief(brief).Cid(cid).CidEmpty(cidEmpty).CidIc(cidIc).CidIe(cidIe).CidIew(cidIew).CidIregex(cidIregex).CidIsw(cidIsw).CidN(cidN).CidNic(cidNic).CidNie(cidNie).CidNiew(cidNiew).CidNisw(cidNisw).CidRegex(cidRegex).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderAccount(providerAccount).ProviderAccountN(providerAccountN).ProviderAccountId(providerAccountId).ProviderAccountIdN(providerAccountIdN).ProviderId(providerId).ProviderIdN(providerIdN).ProviderNetworkId(providerNetworkId).ProviderNetworkIdN(providerNetworkIdN).Q(q).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitsList`: PaginatedVirtualCircuitList
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitsList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **cid** | **[]string** |  | 
+ **cidEmpty** | **bool** |  | 
+ **cidIc** | **[]string** |  | 
+ **cidIe** | **[]string** |  | 
+ **cidIew** | **[]string** |  | 
+ **cidIregex** | **[]string** |  | 
+ **cidIsw** | **[]string** |  | 
+ **cidN** | **[]string** |  | 
+ **cidNic** | **[]string** |  | 
+ **cidNie** | **[]string** |  | 
+ **cidNiew** | **[]string** |  | 
+ **cidNisw** | **[]string** |  | 
+ **cidRegex** | **[]string** |  | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **description** | **[]string** |  | 
+ **descriptionEmpty** | **bool** |  | 
+ **descriptionIc** | **[]string** |  | 
+ **descriptionIe** | **[]string** |  | 
+ **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
+ **descriptionIsw** | **[]string** |  | 
+ **descriptionN** | **[]string** |  | 
+ **descriptionNic** | **[]string** |  | 
+ **descriptionNie** | **[]string** |  | 
+ **descriptionNiew** | **[]string** |  | 
+ **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **modifiedByRequest** | **string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **provider** | **[]string** | Provider (slug) | 
+ **providerN** | **[]string** | Provider (slug) | 
+ **providerAccount** | **[]string** | Provider account (account) | 
+ **providerAccountN** | **[]string** | Provider account (account) | 
+ **providerAccountId** | **[]int32** | Provider account (ID) | 
+ **providerAccountIdN** | **[]int32** | Provider account (ID) | 
+ **providerId** | **[]int32** | Provider (ID) | 
+ **providerIdN** | **[]int32** | Provider (ID) | 
+ **providerNetworkId** | **[]int32** | Provider network (ID) | 
+ **providerNetworkIdN** | **[]int32** | Provider network (ID) | 
+ **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
+ **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **tenant** | **[]string** | Tenant (slug) | 
+ **tenantN** | **[]string** | Tenant (slug) | 
+ **tenantGroup** | **[]string** |  | 
+ **tenantGroupN** | **[]string** |  | 
+ **tenantGroupId** | **[]string** |  | 
+ **tenantGroupIdN** | **[]string** |  | 
+ **tenantId** | **[]int32** | Tenant (ID) | 
+ **tenantIdN** | **[]int32** | Tenant (ID) | 
+ **type_** | **[]string** | Virtual circuit type (slug) | 
+ **typeN** | **[]string** | Virtual circuit type (slug) | 
+ **typeId** | **[]int32** | Virtual circuit type (ID) | 
+ **typeIdN** | **[]int32** | Virtual circuit type (ID) | 
+ **updatedByRequest** | **string** |  | 
+
+### Return type
+
+[**PaginatedVirtualCircuitList**](PaginatedVirtualCircuitList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsPartialUpdate
+
+> VirtualCircuit CircuitsVirtualCircuitsPartialUpdate(ctx, id).PatchedWritableVirtualCircuitRequest(patchedWritableVirtualCircuitRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit.
+	patchedWritableVirtualCircuitRequest := *openapiclient.NewPatchedWritableVirtualCircuitRequest() // PatchedWritableVirtualCircuitRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsPartialUpdate(context.Background(), id).PatchedWritableVirtualCircuitRequest(patchedWritableVirtualCircuitRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitsPartialUpdate`: VirtualCircuit
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitsPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedWritableVirtualCircuitRequest** | [**PatchedWritableVirtualCircuitRequest**](PatchedWritableVirtualCircuitRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuit**](VirtualCircuit.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsRetrieve
+
+> VirtualCircuit CircuitsVirtualCircuitsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitsRetrieve`: VirtualCircuit
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitsRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**VirtualCircuit**](VirtualCircuit.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CircuitsVirtualCircuitsUpdate
+
+> VirtualCircuit CircuitsVirtualCircuitsUpdate(ctx, id).WritableVirtualCircuitRequest(writableVirtualCircuitRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual circuit.
+	writableVirtualCircuitRequest := *openapiclient.NewWritableVirtualCircuitRequest("Cid_example", openapiclient.BriefVirtualCircuitRequest_provider_network{BriefProviderNetworkRequest: openapiclient.NewBriefProviderNetworkRequest("Name_example")}, openapiclient.BulkVirtualCircuitRequest_type{BriefVirtualCircuitTypeRequest: openapiclient.NewBriefVirtualCircuitTypeRequest("Name_example", "Slug_example")}) // WritableVirtualCircuitRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CircuitsAPI.CircuitsVirtualCircuitsUpdate(context.Background(), id).WritableVirtualCircuitRequest(writableVirtualCircuitRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CircuitsAPI.CircuitsVirtualCircuitsUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CircuitsVirtualCircuitsUpdate`: VirtualCircuit
+	fmt.Fprintf(os.Stdout, "Response from `CircuitsAPI.CircuitsVirtualCircuitsUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual circuit. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCircuitsVirtualCircuitsUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **writableVirtualCircuitRequest** | [**WritableVirtualCircuitRequest**](WritableVirtualCircuitRequest.md) |  | 
+
+### Return type
+
+[**VirtualCircuit**](VirtualCircuit.md)
 
 ### Authorization
 

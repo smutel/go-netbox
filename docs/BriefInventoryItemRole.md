@@ -10,13 +10,12 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**InventoryitemCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefInventoryItemRole
 
-`func NewBriefInventoryItemRole(id int32, url string, display string, name string, slug string, inventoryitemCount int64, ) *BriefInventoryItemRole`
+`func NewBriefInventoryItemRole(id int32, url string, display string, name string, slug string, ) *BriefInventoryItemRole`
 
 NewBriefInventoryItemRole instantiates a new BriefInventoryItemRole object
 This constructor will assign default values to properties that have it defined,
@@ -155,26 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefInventoryItemRole) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetInventoryitemCount
-
-`func (o *BriefInventoryItemRole) GetInventoryitemCount() int64`
-
-GetInventoryitemCount returns the InventoryitemCount field if non-nil, zero value otherwise.
-
-### GetInventoryitemCountOk
-
-`func (o *BriefInventoryItemRole) GetInventoryitemCountOk() (*int64, bool)`
-
-GetInventoryitemCountOk returns a tuple with the InventoryitemCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInventoryitemCount
-
-`func (o *BriefInventoryItemRole) SetInventoryitemCount(v int64)`
-
-SetInventoryitemCount sets InventoryitemCount field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

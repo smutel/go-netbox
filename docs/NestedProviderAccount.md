@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | Pointer to **string** |  | [optional] 
 **Account** | **string** |  | 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewNestedProviderAccount
 
-`func NewNestedProviderAccount(id int32, url string, display string, account string, ) *NestedProviderAccount`
+`func NewNestedProviderAccount(id int32, url string, displayUrl string, display string, account string, ) *NestedProviderAccount`
 
 NewNestedProviderAccount instantiates a new NestedProviderAccount object
 This constructor will assign default values to properties that have it defined,
@@ -67,6 +68,26 @@ and a boolean to check if the value has been set.
 `func (o *NestedProviderAccount) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *NestedProviderAccount) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *NestedProviderAccount) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *NestedProviderAccount) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay

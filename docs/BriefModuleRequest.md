@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
 **ModuleBay** | [**NestedModuleBayRequest**](NestedModuleBayRequest.md) |  | 
 
 ## Methods
 
 ### NewBriefModuleRequest
 
-`func NewBriefModuleRequest(device BriefDeviceRequest, moduleBay NestedModuleBayRequest, ) *BriefModuleRequest`
+`func NewBriefModuleRequest(device BriefCoolingIntakeRequestDevice, moduleBay NestedModuleBayRequest, ) *BriefModuleRequest`
 
 NewBriefModuleRequest instantiates a new BriefModuleRequest object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *BriefModuleRequest) GetDevice() BriefDeviceRequest`
+`func (o *BriefModuleRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *BriefModuleRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *BriefModuleRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *BriefModuleRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *BriefModuleRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 

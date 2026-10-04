@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Tunnel** | [**BriefTunnelRequest**](BriefTunnelRequest.md) |  | 
-**Role** | [**PatchedWritableTunnelTerminationRequestRole**](PatchedWritableTunnelTerminationRequestRole.md) |  | 
+**Tunnel** | [**BulkTunnelTerminationRequestTunnel**](BulkTunnelTerminationRequestTunnel.md) |  | 
+**Role** | [**BulkTunnelTerminationRequestRole**](BulkTunnelTerminationRequestRole.md) |  | 
 **TerminationType** | **string** |  | 
-**TerminationId** | **NullableInt64** |  | 
-**OutsideIp** | Pointer to [**NullableBriefIPAddressRequest**](BriefIPAddressRequest.md) |  | [optional] 
+**TerminationId** | Pointer to **NullableInt64** |  | [optional] 
+**OutsideIp** | Pointer to [**NullableBulkDeviceRequestPrimaryIp4**](BulkDeviceRequestPrimaryIp4.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewTunnelTerminationRequest
 
-`func NewTunnelTerminationRequest(tunnel BriefTunnelRequest, role PatchedWritableTunnelTerminationRequestRole, terminationType string, terminationId NullableInt64, ) *TunnelTerminationRequest`
+`func NewTunnelTerminationRequest(tunnel BulkTunnelTerminationRequestTunnel, role BulkTunnelTerminationRequestRole, terminationType string, ) *TunnelTerminationRequest`
 
 NewTunnelTerminationRequest instantiates a new TunnelTerminationRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,40 +33,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTunnel
 
-`func (o *TunnelTerminationRequest) GetTunnel() BriefTunnelRequest`
+`func (o *TunnelTerminationRequest) GetTunnel() BulkTunnelTerminationRequestTunnel`
 
 GetTunnel returns the Tunnel field if non-nil, zero value otherwise.
 
 ### GetTunnelOk
 
-`func (o *TunnelTerminationRequest) GetTunnelOk() (*BriefTunnelRequest, bool)`
+`func (o *TunnelTerminationRequest) GetTunnelOk() (*BulkTunnelTerminationRequestTunnel, bool)`
 
 GetTunnelOk returns a tuple with the Tunnel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTunnel
 
-`func (o *TunnelTerminationRequest) SetTunnel(v BriefTunnelRequest)`
+`func (o *TunnelTerminationRequest) SetTunnel(v BulkTunnelTerminationRequestTunnel)`
 
 SetTunnel sets Tunnel field to given value.
 
 
 ### GetRole
 
-`func (o *TunnelTerminationRequest) GetRole() PatchedWritableTunnelTerminationRequestRole`
+`func (o *TunnelTerminationRequest) GetRole() BulkTunnelTerminationRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *TunnelTerminationRequest) GetRoleOk() (*PatchedWritableTunnelTerminationRequestRole, bool)`
+`func (o *TunnelTerminationRequest) GetRoleOk() (*BulkTunnelTerminationRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *TunnelTerminationRequest) SetRole(v PatchedWritableTunnelTerminationRequestRole)`
+`func (o *TunnelTerminationRequest) SetRole(v BulkTunnelTerminationRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -110,6 +110,11 @@ and a boolean to check if the value has been set.
 
 SetTerminationId sets TerminationId field to given value.
 
+### HasTerminationId
+
+`func (o *TunnelTerminationRequest) HasTerminationId() bool`
+
+HasTerminationId returns a boolean if a field has been set.
 
 ### SetTerminationIdNil
 
@@ -123,20 +128,20 @@ SetTerminationId sets TerminationId field to given value.
 UnsetTerminationId ensures that no value is present for TerminationId, not even an explicit nil
 ### GetOutsideIp
 
-`func (o *TunnelTerminationRequest) GetOutsideIp() BriefIPAddressRequest`
+`func (o *TunnelTerminationRequest) GetOutsideIp() BulkDeviceRequestPrimaryIp4`
 
 GetOutsideIp returns the OutsideIp field if non-nil, zero value otherwise.
 
 ### GetOutsideIpOk
 
-`func (o *TunnelTerminationRequest) GetOutsideIpOk() (*BriefIPAddressRequest, bool)`
+`func (o *TunnelTerminationRequest) GetOutsideIpOk() (*BulkDeviceRequestPrimaryIp4, bool)`
 
 GetOutsideIpOk returns a tuple with the OutsideIp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOutsideIp
 
-`func (o *TunnelTerminationRequest) SetOutsideIp(v BriefIPAddressRequest)`
+`func (o *TunnelTerminationRequest) SetOutsideIp(v BulkDeviceRequestPrimaryIp4)`
 
 SetOutsideIp sets OutsideIp field to given value.
 

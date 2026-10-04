@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **Name** | **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Type** | Pointer to [**NullablePowerOutletType**](PowerOutletType.md) |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
 **PowerPort** | Pointer to [**NullableBriefPowerPortTemplate**](BriefPowerPortTemplate.md) |  | [optional] 
 **FeedLeg** | Pointer to [**NullablePowerOutletFeedLeg**](PowerOutletFeedLeg.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -247,6 +248,31 @@ HasType returns a boolean if a field has been set.
 `func (o *PowerOutletTemplate) UnsetType()`
 
 UnsetType ensures that no value is present for Type, not even an explicit nil
+### GetColor
+
+`func (o *PowerOutletTemplate) GetColor() BriefModuleBayTypeColor`
+
+GetColor returns the Color field if non-nil, zero value otherwise.
+
+### GetColorOk
+
+`func (o *PowerOutletTemplate) GetColorOk() (*BriefModuleBayTypeColor, bool)`
+
+GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColor
+
+`func (o *PowerOutletTemplate) SetColor(v BriefModuleBayTypeColor)`
+
+SetColor sets Color field to given value.
+
+### HasColor
+
+`func (o *PowerOutletTemplate) HasColor() bool`
+
+HasColor returns a boolean if a field has been set.
+
 ### GetPowerPort
 
 `func (o *PowerOutletTemplate) GetPowerPort() BriefPowerPortTemplate`

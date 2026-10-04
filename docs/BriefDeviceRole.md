@@ -10,14 +10,15 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**DeviceCount** | Pointer to **int64** |  | [optional] [readonly] 
-**VirtualmachineCount** | Pointer to **int64** |  | [optional] [readonly] 
+**DeviceCount** | Pointer to **int32** |  | [optional] [readonly] [default to 0]
+**VirtualmachineCount** | Pointer to **int32** |  | [optional] [readonly] [default to 0]
+**Depth** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefDeviceRole
 
-`func NewBriefDeviceRole(id int32, url string, display string, name string, slug string, ) *BriefDeviceRole`
+`func NewBriefDeviceRole(id int32, url string, display string, name string, slug string, depth int32, ) *BriefDeviceRole`
 
 NewBriefDeviceRole instantiates a new BriefDeviceRole object
 This constructor will assign default values to properties that have it defined,
@@ -159,20 +160,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetDeviceCount
 
-`func (o *BriefDeviceRole) GetDeviceCount() int64`
+`func (o *BriefDeviceRole) GetDeviceCount() int32`
 
 GetDeviceCount returns the DeviceCount field if non-nil, zero value otherwise.
 
 ### GetDeviceCountOk
 
-`func (o *BriefDeviceRole) GetDeviceCountOk() (*int64, bool)`
+`func (o *BriefDeviceRole) GetDeviceCountOk() (*int32, bool)`
 
 GetDeviceCountOk returns a tuple with the DeviceCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceCount
 
-`func (o *BriefDeviceRole) SetDeviceCount(v int64)`
+`func (o *BriefDeviceRole) SetDeviceCount(v int32)`
 
 SetDeviceCount sets DeviceCount field to given value.
 
@@ -184,20 +185,20 @@ HasDeviceCount returns a boolean if a field has been set.
 
 ### GetVirtualmachineCount
 
-`func (o *BriefDeviceRole) GetVirtualmachineCount() int64`
+`func (o *BriefDeviceRole) GetVirtualmachineCount() int32`
 
 GetVirtualmachineCount returns the VirtualmachineCount field if non-nil, zero value otherwise.
 
 ### GetVirtualmachineCountOk
 
-`func (o *BriefDeviceRole) GetVirtualmachineCountOk() (*int64, bool)`
+`func (o *BriefDeviceRole) GetVirtualmachineCountOk() (*int32, bool)`
 
 GetVirtualmachineCountOk returns a tuple with the VirtualmachineCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVirtualmachineCount
 
-`func (o *BriefDeviceRole) SetVirtualmachineCount(v int64)`
+`func (o *BriefDeviceRole) SetVirtualmachineCount(v int32)`
 
 SetVirtualmachineCount sets VirtualmachineCount field to given value.
 
@@ -206,6 +207,26 @@ SetVirtualmachineCount sets VirtualmachineCount field to given value.
 `func (o *BriefDeviceRole) HasVirtualmachineCount() bool`
 
 HasVirtualmachineCount returns a boolean if a field has been set.
+
+### GetDepth
+
+`func (o *BriefDeviceRole) GetDepth() int32`
+
+GetDepth returns the Depth field if non-nil, zero value otherwise.
+
+### GetDepthOk
+
+`func (o *BriefDeviceRole) GetDepthOk() (*int32, bool)`
+
+GetDepthOk returns a tuple with the Depth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDepth
+
+`func (o *BriefDeviceRole) SetDepth(v int32)`
+
+SetDepth sets Depth field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

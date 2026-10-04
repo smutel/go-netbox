@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritablePowerFeedRequestPhase**](PatchedWritablePowerFeedRequestPhase.md) |  | [optional] 
+**Value** | Pointer to [**BulkPowerFeedRequestPhase**](BulkPowerFeedRequestPhase.md) |  | [optional] 
 **Label** | Pointer to [**PowerFeedPhaseLabel**](PowerFeedPhaseLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *PowerFeedPhase) GetValue() PatchedWritablePowerFeedRequestPhase`
+`func (o *PowerFeedPhase) GetValue() BulkPowerFeedRequestPhase`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *PowerFeedPhase) GetValueOk() (*PatchedWritablePowerFeedRequestPhase, bool)`
+`func (o *PowerFeedPhase) GetValueOk() (*BulkPowerFeedRequestPhase, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *PowerFeedPhase) SetValue(v PatchedWritablePowerFeedRequestPhase)`
+`func (o *PowerFeedPhase) SetValue(v BulkPowerFeedRequestPhase)`
 
 SetValue sets Value field to given value.
 

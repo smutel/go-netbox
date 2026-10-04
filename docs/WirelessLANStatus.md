@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**WirelessLANStatusValue**](WirelessLANStatusValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkWirelessLANRequestStatus**](BulkWirelessLANRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**WirelessLANStatusLabel**](WirelessLANStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *WirelessLANStatus) GetValue() WirelessLANStatusValue`
+`func (o *WirelessLANStatus) GetValue() BulkWirelessLANRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *WirelessLANStatus) GetValueOk() (*WirelessLANStatusValue, bool)`
+`func (o *WirelessLANStatus) GetValueOk() (*BulkWirelessLANRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *WirelessLANStatus) SetValue(v WirelessLANStatusValue)`
+`func (o *WirelessLANStatus) SetValue(v BulkWirelessLANRequestStatus)`
 
 SetValue sets Value field to given value.
 

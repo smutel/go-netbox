@@ -6,18 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjectTypes** | Pointer to **[]string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**TypeCreate** | Pointer to **bool** | Triggers when a matching object is created. | [optional] 
-**TypeUpdate** | Pointer to **bool** | Triggers when a matching object is updated. | [optional] 
-**TypeDelete** | Pointer to **bool** | Triggers when a matching object is deleted. | [optional] 
-**TypeJobStart** | Pointer to **bool** | Triggers when a job for a matching object is started. | [optional] 
-**TypeJobEnd** | Pointer to **bool** | Triggers when a job for a matching object terminates. | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
+**EventTypes** | Pointer to [**[]BulkEventRuleRequestEventTypesInner**](BulkEventRuleRequestEventTypesInner.md) | The types of event which will trigger this rule. | [optional] 
 **Conditions** | Pointer to **interface{}** | A set of conditions which determine whether the event will be generated. | [optional] 
-**ActionType** | Pointer to [**EventRuleActionTypeValue**](EventRuleActionTypeValue.md) |  | [optional] 
-**ActionObjectType** | Pointer to **string** |  | [optional] 
+**ActionType** | Pointer to [**BulkEventRuleRequestActionType**](BulkEventRuleRequestActionType.md) |  | [optional] 
+**ActionObjectType** | Pointer to **NullableString** |  | [optional] 
 **ActionObjectId** | Pointer to **NullableInt64** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 
 ## Methods
@@ -89,131 +86,6 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetTypeCreate
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeCreate() bool`
-
-GetTypeCreate returns the TypeCreate field if non-nil, zero value otherwise.
-
-### GetTypeCreateOk
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeCreateOk() (*bool, bool)`
-
-GetTypeCreateOk returns a tuple with the TypeCreate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeCreate
-
-`func (o *PatchedWritableEventRuleRequest) SetTypeCreate(v bool)`
-
-SetTypeCreate sets TypeCreate field to given value.
-
-### HasTypeCreate
-
-`func (o *PatchedWritableEventRuleRequest) HasTypeCreate() bool`
-
-HasTypeCreate returns a boolean if a field has been set.
-
-### GetTypeUpdate
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeUpdate() bool`
-
-GetTypeUpdate returns the TypeUpdate field if non-nil, zero value otherwise.
-
-### GetTypeUpdateOk
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeUpdateOk() (*bool, bool)`
-
-GetTypeUpdateOk returns a tuple with the TypeUpdate field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeUpdate
-
-`func (o *PatchedWritableEventRuleRequest) SetTypeUpdate(v bool)`
-
-SetTypeUpdate sets TypeUpdate field to given value.
-
-### HasTypeUpdate
-
-`func (o *PatchedWritableEventRuleRequest) HasTypeUpdate() bool`
-
-HasTypeUpdate returns a boolean if a field has been set.
-
-### GetTypeDelete
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeDelete() bool`
-
-GetTypeDelete returns the TypeDelete field if non-nil, zero value otherwise.
-
-### GetTypeDeleteOk
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeDeleteOk() (*bool, bool)`
-
-GetTypeDeleteOk returns a tuple with the TypeDelete field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeDelete
-
-`func (o *PatchedWritableEventRuleRequest) SetTypeDelete(v bool)`
-
-SetTypeDelete sets TypeDelete field to given value.
-
-### HasTypeDelete
-
-`func (o *PatchedWritableEventRuleRequest) HasTypeDelete() bool`
-
-HasTypeDelete returns a boolean if a field has been set.
-
-### GetTypeJobStart
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeJobStart() bool`
-
-GetTypeJobStart returns the TypeJobStart field if non-nil, zero value otherwise.
-
-### GetTypeJobStartOk
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeJobStartOk() (*bool, bool)`
-
-GetTypeJobStartOk returns a tuple with the TypeJobStart field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeJobStart
-
-`func (o *PatchedWritableEventRuleRequest) SetTypeJobStart(v bool)`
-
-SetTypeJobStart sets TypeJobStart field to given value.
-
-### HasTypeJobStart
-
-`func (o *PatchedWritableEventRuleRequest) HasTypeJobStart() bool`
-
-HasTypeJobStart returns a boolean if a field has been set.
-
-### GetTypeJobEnd
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeJobEnd() bool`
-
-GetTypeJobEnd returns the TypeJobEnd field if non-nil, zero value otherwise.
-
-### GetTypeJobEndOk
-
-`func (o *PatchedWritableEventRuleRequest) GetTypeJobEndOk() (*bool, bool)`
-
-GetTypeJobEndOk returns a tuple with the TypeJobEnd field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTypeJobEnd
-
-`func (o *PatchedWritableEventRuleRequest) SetTypeJobEnd(v bool)`
-
-SetTypeJobEnd sets TypeJobEnd field to given value.
-
-### HasTypeJobEnd
-
-`func (o *PatchedWritableEventRuleRequest) HasTypeJobEnd() bool`
-
-HasTypeJobEnd returns a boolean if a field has been set.
-
 ### GetEnabled
 
 `func (o *PatchedWritableEventRuleRequest) GetEnabled() bool`
@@ -238,6 +110,31 @@ SetEnabled sets Enabled field to given value.
 `func (o *PatchedWritableEventRuleRequest) HasEnabled() bool`
 
 HasEnabled returns a boolean if a field has been set.
+
+### GetEventTypes
+
+`func (o *PatchedWritableEventRuleRequest) GetEventTypes() []BulkEventRuleRequestEventTypesInner`
+
+GetEventTypes returns the EventTypes field if non-nil, zero value otherwise.
+
+### GetEventTypesOk
+
+`func (o *PatchedWritableEventRuleRequest) GetEventTypesOk() (*[]BulkEventRuleRequestEventTypesInner, bool)`
+
+GetEventTypesOk returns a tuple with the EventTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventTypes
+
+`func (o *PatchedWritableEventRuleRequest) SetEventTypes(v []BulkEventRuleRequestEventTypesInner)`
+
+SetEventTypes sets EventTypes field to given value.
+
+### HasEventTypes
+
+`func (o *PatchedWritableEventRuleRequest) HasEventTypes() bool`
+
+HasEventTypes returns a boolean if a field has been set.
 
 ### GetConditions
 
@@ -276,20 +173,20 @@ HasConditions returns a boolean if a field has been set.
 UnsetConditions ensures that no value is present for Conditions, not even an explicit nil
 ### GetActionType
 
-`func (o *PatchedWritableEventRuleRequest) GetActionType() EventRuleActionTypeValue`
+`func (o *PatchedWritableEventRuleRequest) GetActionType() BulkEventRuleRequestActionType`
 
 GetActionType returns the ActionType field if non-nil, zero value otherwise.
 
 ### GetActionTypeOk
 
-`func (o *PatchedWritableEventRuleRequest) GetActionTypeOk() (*EventRuleActionTypeValue, bool)`
+`func (o *PatchedWritableEventRuleRequest) GetActionTypeOk() (*BulkEventRuleRequestActionType, bool)`
 
 GetActionTypeOk returns a tuple with the ActionType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetActionType
 
-`func (o *PatchedWritableEventRuleRequest) SetActionType(v EventRuleActionTypeValue)`
+`func (o *PatchedWritableEventRuleRequest) SetActionType(v BulkEventRuleRequestActionType)`
 
 SetActionType sets ActionType field to given value.
 
@@ -324,6 +221,16 @@ SetActionObjectType sets ActionObjectType field to given value.
 
 HasActionObjectType returns a boolean if a field has been set.
 
+### SetActionObjectTypeNil
+
+`func (o *PatchedWritableEventRuleRequest) SetActionObjectTypeNil(b bool)`
+
+ SetActionObjectTypeNil sets the value for ActionObjectType to be an explicit nil
+
+### UnsetActionObjectType
+`func (o *PatchedWritableEventRuleRequest) UnsetActionObjectType()`
+
+UnsetActionObjectType ensures that no value is present for ActionObjectType, not even an explicit nil
 ### GetActionObjectId
 
 `func (o *PatchedWritableEventRuleRequest) GetActionObjectId() int64`
@@ -409,6 +316,41 @@ SetCustomFields sets CustomFields field to given value.
 
 HasCustomFields returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableEventRuleRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableEventRuleRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableEventRuleRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableEventRuleRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableEventRuleRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableEventRuleRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PatchedWritableEventRuleRequest) GetTags() []NestedTagRequest`

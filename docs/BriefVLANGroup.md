@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**VlanCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -155,31 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefVLANGroup) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetVlanCount
-
-`func (o *BriefVLANGroup) GetVlanCount() int64`
-
-GetVlanCount returns the VlanCount field if non-nil, zero value otherwise.
-
-### GetVlanCountOk
-
-`func (o *BriefVLANGroup) GetVlanCountOk() (*int64, bool)`
-
-GetVlanCountOk returns a tuple with the VlanCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVlanCount
-
-`func (o *BriefVLANGroup) SetVlanCount(v int64)`
-
-SetVlanCount sets VlanCount field to given value.
-
-### HasVlanCount
-
-`func (o *BriefVLANGroup) HasVlanCount() bool`
-
-HasVlanCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

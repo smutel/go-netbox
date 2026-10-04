@@ -6,24 +6,43 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
+**Profile** | Pointer to [**NullableBriefModuleTypeProfile**](BriefModuleTypeProfile.md) |  | [optional] 
 **Manufacturer** | [**BriefManufacturer**](BriefManufacturer.md) |  | 
 **Model** | **string** |  | 
 **PartNumber** | Pointer to **string** | Discrete part number (optional) | [optional] 
+**Airflow** | Pointer to [**NullableModuleTypeAirflow**](ModuleTypeAirflow.md) |  | [optional] 
+**CoolingMethod** | Pointer to [**NullableDeviceCoolingMethod**](DeviceCoolingMethod.md) |  | [optional] 
 **Weight** | Pointer to **NullableFloat64** |  | [optional] 
 **WeightUnit** | Pointer to [**NullableDeviceTypeWeightUnit**](DeviceTypeWeightUnit.md) |  | [optional] 
+**EndOfLife** | Pointer to **NullableString** | The date after which this module type is no longer supported by the manufacturer | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Attributes** | Pointer to **interface{}** |  | [optional] 
+**ModuleBayTypes** | Pointer to [**[]BriefModuleBayType**](BriefModuleBayType.md) |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
+**ModuleCount** | **int32** |  | [readonly] 
+**ConsolePortTemplateCount** | **int32** |  | [readonly] 
+**ConsoleServerPortTemplateCount** | **int32** |  | [readonly] 
+**PowerPortTemplateCount** | **int32** |  | [readonly] 
+**PowerOutletTemplateCount** | **int32** |  | [readonly] 
+**CoolingIntakeTemplateCount** | **int32** |  | [readonly] 
+**CoolingOutflowTemplateCount** | **int32** |  | [readonly] 
+**InterfaceTemplateCount** | **int32** |  | [readonly] 
+**FrontPortTemplateCount** | **int32** |  | [readonly] 
+**RearPortTemplateCount** | **int32** |  | [readonly] 
+**ModuleBayTemplateCount** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewModuleType
 
-`func NewModuleType(id int32, url string, display string, manufacturer BriefManufacturer, model string, created NullableTime, lastUpdated NullableTime, ) *ModuleType`
+`func NewModuleType(id int32, url string, displayUrl string, display string, manufacturer BriefManufacturer, model string, created NullableTime, lastUpdated NullableTime, moduleCount int32, consolePortTemplateCount int32, consoleServerPortTemplateCount int32, powerPortTemplateCount int32, powerOutletTemplateCount int32, coolingIntakeTemplateCount int32, coolingOutflowTemplateCount int32, interfaceTemplateCount int32, frontPortTemplateCount int32, rearPortTemplateCount int32, moduleBayTemplateCount int32, ) *ModuleType`
 
 NewModuleType instantiates a new ModuleType object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +97,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *ModuleType) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *ModuleType) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *ModuleType) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *ModuleType) GetDisplay() string`
@@ -98,6 +137,41 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
+### GetProfile
+
+`func (o *ModuleType) GetProfile() BriefModuleTypeProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *ModuleType) GetProfileOk() (*BriefModuleTypeProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *ModuleType) SetProfile(v BriefModuleTypeProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *ModuleType) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
+### SetProfileNil
+
+`func (o *ModuleType) SetProfileNil(b bool)`
+
+ SetProfileNil sets the value for Profile to be an explicit nil
+
+### UnsetProfile
+`func (o *ModuleType) UnsetProfile()`
+
+UnsetProfile ensures that no value is present for Profile, not even an explicit nil
 ### GetManufacturer
 
 `func (o *ModuleType) GetManufacturer() BriefManufacturer`
@@ -163,6 +237,76 @@ SetPartNumber sets PartNumber field to given value.
 
 HasPartNumber returns a boolean if a field has been set.
 
+### GetAirflow
+
+`func (o *ModuleType) GetAirflow() ModuleTypeAirflow`
+
+GetAirflow returns the Airflow field if non-nil, zero value otherwise.
+
+### GetAirflowOk
+
+`func (o *ModuleType) GetAirflowOk() (*ModuleTypeAirflow, bool)`
+
+GetAirflowOk returns a tuple with the Airflow field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAirflow
+
+`func (o *ModuleType) SetAirflow(v ModuleTypeAirflow)`
+
+SetAirflow sets Airflow field to given value.
+
+### HasAirflow
+
+`func (o *ModuleType) HasAirflow() bool`
+
+HasAirflow returns a boolean if a field has been set.
+
+### SetAirflowNil
+
+`func (o *ModuleType) SetAirflowNil(b bool)`
+
+ SetAirflowNil sets the value for Airflow to be an explicit nil
+
+### UnsetAirflow
+`func (o *ModuleType) UnsetAirflow()`
+
+UnsetAirflow ensures that no value is present for Airflow, not even an explicit nil
+### GetCoolingMethod
+
+`func (o *ModuleType) GetCoolingMethod() DeviceCoolingMethod`
+
+GetCoolingMethod returns the CoolingMethod field if non-nil, zero value otherwise.
+
+### GetCoolingMethodOk
+
+`func (o *ModuleType) GetCoolingMethodOk() (*DeviceCoolingMethod, bool)`
+
+GetCoolingMethodOk returns a tuple with the CoolingMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingMethod
+
+`func (o *ModuleType) SetCoolingMethod(v DeviceCoolingMethod)`
+
+SetCoolingMethod sets CoolingMethod field to given value.
+
+### HasCoolingMethod
+
+`func (o *ModuleType) HasCoolingMethod() bool`
+
+HasCoolingMethod returns a boolean if a field has been set.
+
+### SetCoolingMethodNil
+
+`func (o *ModuleType) SetCoolingMethodNil(b bool)`
+
+ SetCoolingMethodNil sets the value for CoolingMethod to be an explicit nil
+
+### UnsetCoolingMethod
+`func (o *ModuleType) UnsetCoolingMethod()`
+
+UnsetCoolingMethod ensures that no value is present for CoolingMethod, not even an explicit nil
 ### GetWeight
 
 `func (o *ModuleType) GetWeight() float64`
@@ -233,6 +377,41 @@ HasWeightUnit returns a boolean if a field has been set.
 `func (o *ModuleType) UnsetWeightUnit()`
 
 UnsetWeightUnit ensures that no value is present for WeightUnit, not even an explicit nil
+### GetEndOfLife
+
+`func (o *ModuleType) GetEndOfLife() string`
+
+GetEndOfLife returns the EndOfLife field if non-nil, zero value otherwise.
+
+### GetEndOfLifeOk
+
+`func (o *ModuleType) GetEndOfLifeOk() (*string, bool)`
+
+GetEndOfLifeOk returns a tuple with the EndOfLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndOfLife
+
+`func (o *ModuleType) SetEndOfLife(v string)`
+
+SetEndOfLife sets EndOfLife field to given value.
+
+### HasEndOfLife
+
+`func (o *ModuleType) HasEndOfLife() bool`
+
+HasEndOfLife returns a boolean if a field has been set.
+
+### SetEndOfLifeNil
+
+`func (o *ModuleType) SetEndOfLifeNil(b bool)`
+
+ SetEndOfLifeNil sets the value for EndOfLife to be an explicit nil
+
+### UnsetEndOfLife
+`func (o *ModuleType) UnsetEndOfLife()`
+
+UnsetEndOfLife ensures that no value is present for EndOfLife, not even an explicit nil
 ### GetDescription
 
 `func (o *ModuleType) GetDescription() string`
@@ -258,6 +437,101 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetAttributes
+
+`func (o *ModuleType) GetAttributes() interface{}`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *ModuleType) GetAttributesOk() (*interface{}, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *ModuleType) SetAttributes(v interface{})`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *ModuleType) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
+
+### SetAttributesNil
+
+`func (o *ModuleType) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *ModuleType) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
+### GetModuleBayTypes
+
+`func (o *ModuleType) GetModuleBayTypes() []BriefModuleBayType`
+
+GetModuleBayTypes returns the ModuleBayTypes field if non-nil, zero value otherwise.
+
+### GetModuleBayTypesOk
+
+`func (o *ModuleType) GetModuleBayTypesOk() (*[]BriefModuleBayType, bool)`
+
+GetModuleBayTypesOk returns a tuple with the ModuleBayTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleBayTypes
+
+`func (o *ModuleType) SetModuleBayTypes(v []BriefModuleBayType)`
+
+SetModuleBayTypes sets ModuleBayTypes field to given value.
+
+### HasModuleBayTypes
+
+`func (o *ModuleType) HasModuleBayTypes() bool`
+
+HasModuleBayTypes returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *ModuleType) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ModuleType) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ModuleType) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ModuleType) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ModuleType) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ModuleType) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *ModuleType) GetComments() string`
@@ -393,6 +667,226 @@ SetLastUpdated sets LastUpdated field to given value.
 `func (o *ModuleType) UnsetLastUpdated()`
 
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+### GetModuleCount
+
+`func (o *ModuleType) GetModuleCount() int32`
+
+GetModuleCount returns the ModuleCount field if non-nil, zero value otherwise.
+
+### GetModuleCountOk
+
+`func (o *ModuleType) GetModuleCountOk() (*int32, bool)`
+
+GetModuleCountOk returns a tuple with the ModuleCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleCount
+
+`func (o *ModuleType) SetModuleCount(v int32)`
+
+SetModuleCount sets ModuleCount field to given value.
+
+
+### GetConsolePortTemplateCount
+
+`func (o *ModuleType) GetConsolePortTemplateCount() int32`
+
+GetConsolePortTemplateCount returns the ConsolePortTemplateCount field if non-nil, zero value otherwise.
+
+### GetConsolePortTemplateCountOk
+
+`func (o *ModuleType) GetConsolePortTemplateCountOk() (*int32, bool)`
+
+GetConsolePortTemplateCountOk returns a tuple with the ConsolePortTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConsolePortTemplateCount
+
+`func (o *ModuleType) SetConsolePortTemplateCount(v int32)`
+
+SetConsolePortTemplateCount sets ConsolePortTemplateCount field to given value.
+
+
+### GetConsoleServerPortTemplateCount
+
+`func (o *ModuleType) GetConsoleServerPortTemplateCount() int32`
+
+GetConsoleServerPortTemplateCount returns the ConsoleServerPortTemplateCount field if non-nil, zero value otherwise.
+
+### GetConsoleServerPortTemplateCountOk
+
+`func (o *ModuleType) GetConsoleServerPortTemplateCountOk() (*int32, bool)`
+
+GetConsoleServerPortTemplateCountOk returns a tuple with the ConsoleServerPortTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConsoleServerPortTemplateCount
+
+`func (o *ModuleType) SetConsoleServerPortTemplateCount(v int32)`
+
+SetConsoleServerPortTemplateCount sets ConsoleServerPortTemplateCount field to given value.
+
+
+### GetPowerPortTemplateCount
+
+`func (o *ModuleType) GetPowerPortTemplateCount() int32`
+
+GetPowerPortTemplateCount returns the PowerPortTemplateCount field if non-nil, zero value otherwise.
+
+### GetPowerPortTemplateCountOk
+
+`func (o *ModuleType) GetPowerPortTemplateCountOk() (*int32, bool)`
+
+GetPowerPortTemplateCountOk returns a tuple with the PowerPortTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPowerPortTemplateCount
+
+`func (o *ModuleType) SetPowerPortTemplateCount(v int32)`
+
+SetPowerPortTemplateCount sets PowerPortTemplateCount field to given value.
+
+
+### GetPowerOutletTemplateCount
+
+`func (o *ModuleType) GetPowerOutletTemplateCount() int32`
+
+GetPowerOutletTemplateCount returns the PowerOutletTemplateCount field if non-nil, zero value otherwise.
+
+### GetPowerOutletTemplateCountOk
+
+`func (o *ModuleType) GetPowerOutletTemplateCountOk() (*int32, bool)`
+
+GetPowerOutletTemplateCountOk returns a tuple with the PowerOutletTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPowerOutletTemplateCount
+
+`func (o *ModuleType) SetPowerOutletTemplateCount(v int32)`
+
+SetPowerOutletTemplateCount sets PowerOutletTemplateCount field to given value.
+
+
+### GetCoolingIntakeTemplateCount
+
+`func (o *ModuleType) GetCoolingIntakeTemplateCount() int32`
+
+GetCoolingIntakeTemplateCount returns the CoolingIntakeTemplateCount field if non-nil, zero value otherwise.
+
+### GetCoolingIntakeTemplateCountOk
+
+`func (o *ModuleType) GetCoolingIntakeTemplateCountOk() (*int32, bool)`
+
+GetCoolingIntakeTemplateCountOk returns a tuple with the CoolingIntakeTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingIntakeTemplateCount
+
+`func (o *ModuleType) SetCoolingIntakeTemplateCount(v int32)`
+
+SetCoolingIntakeTemplateCount sets CoolingIntakeTemplateCount field to given value.
+
+
+### GetCoolingOutflowTemplateCount
+
+`func (o *ModuleType) GetCoolingOutflowTemplateCount() int32`
+
+GetCoolingOutflowTemplateCount returns the CoolingOutflowTemplateCount field if non-nil, zero value otherwise.
+
+### GetCoolingOutflowTemplateCountOk
+
+`func (o *ModuleType) GetCoolingOutflowTemplateCountOk() (*int32, bool)`
+
+GetCoolingOutflowTemplateCountOk returns a tuple with the CoolingOutflowTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingOutflowTemplateCount
+
+`func (o *ModuleType) SetCoolingOutflowTemplateCount(v int32)`
+
+SetCoolingOutflowTemplateCount sets CoolingOutflowTemplateCount field to given value.
+
+
+### GetInterfaceTemplateCount
+
+`func (o *ModuleType) GetInterfaceTemplateCount() int32`
+
+GetInterfaceTemplateCount returns the InterfaceTemplateCount field if non-nil, zero value otherwise.
+
+### GetInterfaceTemplateCountOk
+
+`func (o *ModuleType) GetInterfaceTemplateCountOk() (*int32, bool)`
+
+GetInterfaceTemplateCountOk returns a tuple with the InterfaceTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInterfaceTemplateCount
+
+`func (o *ModuleType) SetInterfaceTemplateCount(v int32)`
+
+SetInterfaceTemplateCount sets InterfaceTemplateCount field to given value.
+
+
+### GetFrontPortTemplateCount
+
+`func (o *ModuleType) GetFrontPortTemplateCount() int32`
+
+GetFrontPortTemplateCount returns the FrontPortTemplateCount field if non-nil, zero value otherwise.
+
+### GetFrontPortTemplateCountOk
+
+`func (o *ModuleType) GetFrontPortTemplateCountOk() (*int32, bool)`
+
+GetFrontPortTemplateCountOk returns a tuple with the FrontPortTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrontPortTemplateCount
+
+`func (o *ModuleType) SetFrontPortTemplateCount(v int32)`
+
+SetFrontPortTemplateCount sets FrontPortTemplateCount field to given value.
+
+
+### GetRearPortTemplateCount
+
+`func (o *ModuleType) GetRearPortTemplateCount() int32`
+
+GetRearPortTemplateCount returns the RearPortTemplateCount field if non-nil, zero value otherwise.
+
+### GetRearPortTemplateCountOk
+
+`func (o *ModuleType) GetRearPortTemplateCountOk() (*int32, bool)`
+
+GetRearPortTemplateCountOk returns a tuple with the RearPortTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRearPortTemplateCount
+
+`func (o *ModuleType) SetRearPortTemplateCount(v int32)`
+
+SetRearPortTemplateCount sets RearPortTemplateCount field to given value.
+
+
+### GetModuleBayTemplateCount
+
+`func (o *ModuleType) GetModuleBayTemplateCount() int32`
+
+GetModuleBayTemplateCount returns the ModuleBayTemplateCount field if non-nil, zero value otherwise.
+
+### GetModuleBayTemplateCountOk
+
+`func (o *ModuleType) GetModuleBayTemplateCountOk() (*int32, bool)`
+
+GetModuleBayTemplateCountOk returns a tuple with the ModuleBayTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleBayTemplateCount
+
+`func (o *ModuleType) SetModuleBayTemplateCount(v int32)`
+
+SetModuleBayTemplateCount sets ModuleBayTemplateCount field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

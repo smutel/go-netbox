@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Family** | [**AggregateFamily**](AggregateFamily.md) |  | 
 **Address** | **string** |  | 
@@ -18,8 +19,9 @@ Name | Type | Description | Notes
 **AssignedObject** | **interface{}** |  | [readonly] 
 **NatInside** | Pointer to [**NullableNestedIPAddress**](NestedIPAddress.md) |  | [optional] 
 **NatOutside** | [**[]NestedIPAddress**](NestedIPAddress.md) |  | [readonly] 
-**DnsName** | Pointer to **string** | Hostname or FQDN (not case-sensitive) | [optional] 
+**DnsName** | Pointer to [**BriefIPAddressDnsName**](BriefIPAddressDnsName.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -30,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewIPAddress
 
-`func NewIPAddress(id int32, url string, display string, family AggregateFamily, address string, assignedObject interface{}, natOutside []NestedIPAddress, created NullableTime, lastUpdated NullableTime, ) *IPAddress`
+`func NewIPAddress(id int32, url string, displayUrl string, display string, family AggregateFamily, address string, assignedObject interface{}, natOutside []NestedIPAddress, created NullableTime, lastUpdated NullableTime, ) *IPAddress`
 
 NewIPAddress instantiates a new IPAddress object
 This constructor will assign default values to properties that have it defined,
@@ -83,6 +85,26 @@ and a boolean to check if the value has been set.
 `func (o *IPAddress) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *IPAddress) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *IPAddress) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *IPAddress) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -422,20 +444,20 @@ SetNatOutside sets NatOutside field to given value.
 
 ### GetDnsName
 
-`func (o *IPAddress) GetDnsName() string`
+`func (o *IPAddress) GetDnsName() BriefIPAddressDnsName`
 
 GetDnsName returns the DnsName field if non-nil, zero value otherwise.
 
 ### GetDnsNameOk
 
-`func (o *IPAddress) GetDnsNameOk() (*string, bool)`
+`func (o *IPAddress) GetDnsNameOk() (*BriefIPAddressDnsName, bool)`
 
 GetDnsNameOk returns a tuple with the DnsName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDnsName
 
-`func (o *IPAddress) SetDnsName(v string)`
+`func (o *IPAddress) SetDnsName(v BriefIPAddressDnsName)`
 
 SetDnsName sets DnsName field to given value.
 
@@ -470,6 +492,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *IPAddress) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IPAddress) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IPAddress) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IPAddress) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IPAddress) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IPAddress) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IPAddress) GetComments() string`

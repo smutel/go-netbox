@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**BaseChoices** | Pointer to [**CustomFieldChoiceSetBaseChoicesValue**](CustomFieldChoiceSetBaseChoicesValue.md) |  | [optional] 
+**BaseChoices** | Pointer to [**NullableBulkCustomFieldChoiceSetRequestBaseChoices**](BulkCustomFieldChoiceSetRequestBaseChoices.md) |  | [optional] 
 **ExtraChoices** | **[][]interface{}** |  | 
+**ChoiceColors** | Pointer to [**map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue**](BulkCustomFieldChoiceSetRequestChoiceColorsValue.md) |  | [optional] 
 **OrderAlphabetically** | Pointer to **bool** | Choices are automatically ordered alphabetically | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 
 ## Methods
 
@@ -76,20 +78,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetBaseChoices
 
-`func (o *CustomFieldChoiceSetRequest) GetBaseChoices() CustomFieldChoiceSetBaseChoicesValue`
+`func (o *CustomFieldChoiceSetRequest) GetBaseChoices() BulkCustomFieldChoiceSetRequestBaseChoices`
 
 GetBaseChoices returns the BaseChoices field if non-nil, zero value otherwise.
 
 ### GetBaseChoicesOk
 
-`func (o *CustomFieldChoiceSetRequest) GetBaseChoicesOk() (*CustomFieldChoiceSetBaseChoicesValue, bool)`
+`func (o *CustomFieldChoiceSetRequest) GetBaseChoicesOk() (*BulkCustomFieldChoiceSetRequestBaseChoices, bool)`
 
 GetBaseChoicesOk returns a tuple with the BaseChoices field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetBaseChoices
 
-`func (o *CustomFieldChoiceSetRequest) SetBaseChoices(v CustomFieldChoiceSetBaseChoicesValue)`
+`func (o *CustomFieldChoiceSetRequest) SetBaseChoices(v BulkCustomFieldChoiceSetRequestBaseChoices)`
 
 SetBaseChoices sets BaseChoices field to given value.
 
@@ -99,6 +101,16 @@ SetBaseChoices sets BaseChoices field to given value.
 
 HasBaseChoices returns a boolean if a field has been set.
 
+### SetBaseChoicesNil
+
+`func (o *CustomFieldChoiceSetRequest) SetBaseChoicesNil(b bool)`
+
+ SetBaseChoicesNil sets the value for BaseChoices to be an explicit nil
+
+### UnsetBaseChoices
+`func (o *CustomFieldChoiceSetRequest) UnsetBaseChoices()`
+
+UnsetBaseChoices ensures that no value is present for BaseChoices, not even an explicit nil
 ### GetExtraChoices
 
 `func (o *CustomFieldChoiceSetRequest) GetExtraChoices() [][]interface{}`
@@ -118,6 +130,31 @@ and a boolean to check if the value has been set.
 
 SetExtraChoices sets ExtraChoices field to given value.
 
+
+### GetChoiceColors
+
+`func (o *CustomFieldChoiceSetRequest) GetChoiceColors() map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue`
+
+GetChoiceColors returns the ChoiceColors field if non-nil, zero value otherwise.
+
+### GetChoiceColorsOk
+
+`func (o *CustomFieldChoiceSetRequest) GetChoiceColorsOk() (*map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue, bool)`
+
+GetChoiceColorsOk returns a tuple with the ChoiceColors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChoiceColors
+
+`func (o *CustomFieldChoiceSetRequest) SetChoiceColors(v map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue)`
+
+SetChoiceColors sets ChoiceColors field to given value.
+
+### HasChoiceColors
+
+`func (o *CustomFieldChoiceSetRequest) HasChoiceColors() bool`
+
+HasChoiceColors returns a boolean if a field has been set.
 
 ### GetOrderAlphabetically
 
@@ -144,6 +181,41 @@ SetOrderAlphabetically sets OrderAlphabetically field to given value.
 
 HasOrderAlphabetically returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *CustomFieldChoiceSetRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *CustomFieldChoiceSetRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *CustomFieldChoiceSetRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *CustomFieldChoiceSetRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *CustomFieldChoiceSetRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *CustomFieldChoiceSetRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

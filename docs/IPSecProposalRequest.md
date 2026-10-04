@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**EncryptionAlgorithm** | [**IKEProposalEncryptionAlgorithmValue**](IKEProposalEncryptionAlgorithmValue.md) |  | 
-**AuthenticationAlgorithm** | [**IKEProposalAuthenticationAlgorithmValue**](IKEProposalAuthenticationAlgorithmValue.md) |  | 
+**EncryptionAlgorithm** | Pointer to [**BulkIKEProposalRequestEncryptionAlgorithm**](BulkIKEProposalRequestEncryptionAlgorithm.md) |  | [optional] 
+**AuthenticationAlgorithm** | Pointer to [**BulkIKEProposalRequestAuthenticationAlgorithm**](BulkIKEProposalRequestAuthenticationAlgorithm.md) |  | [optional] 
 **SaLifetimeSeconds** | Pointer to **NullableInt32** | Security association lifetime (seconds) | [optional] 
 **SaLifetimeData** | Pointer to **NullableInt32** | Security association lifetime (in kilobytes) | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewIPSecProposalRequest
 
-`func NewIPSecProposalRequest(name string, encryptionAlgorithm IKEProposalEncryptionAlgorithmValue, authenticationAlgorithm IKEProposalAuthenticationAlgorithmValue, ) *IPSecProposalRequest`
+`func NewIPSecProposalRequest(name string, ) *IPSecProposalRequest`
 
 NewIPSecProposalRequest instantiates a new IPSecProposalRequest object
 This constructor will assign default values to properties that have it defined,
@@ -80,43 +81,53 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetEncryptionAlgorithm
 
-`func (o *IPSecProposalRequest) GetEncryptionAlgorithm() IKEProposalEncryptionAlgorithmValue`
+`func (o *IPSecProposalRequest) GetEncryptionAlgorithm() BulkIKEProposalRequestEncryptionAlgorithm`
 
 GetEncryptionAlgorithm returns the EncryptionAlgorithm field if non-nil, zero value otherwise.
 
 ### GetEncryptionAlgorithmOk
 
-`func (o *IPSecProposalRequest) GetEncryptionAlgorithmOk() (*IKEProposalEncryptionAlgorithmValue, bool)`
+`func (o *IPSecProposalRequest) GetEncryptionAlgorithmOk() (*BulkIKEProposalRequestEncryptionAlgorithm, bool)`
 
 GetEncryptionAlgorithmOk returns a tuple with the EncryptionAlgorithm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEncryptionAlgorithm
 
-`func (o *IPSecProposalRequest) SetEncryptionAlgorithm(v IKEProposalEncryptionAlgorithmValue)`
+`func (o *IPSecProposalRequest) SetEncryptionAlgorithm(v BulkIKEProposalRequestEncryptionAlgorithm)`
 
 SetEncryptionAlgorithm sets EncryptionAlgorithm field to given value.
 
+### HasEncryptionAlgorithm
+
+`func (o *IPSecProposalRequest) HasEncryptionAlgorithm() bool`
+
+HasEncryptionAlgorithm returns a boolean if a field has been set.
 
 ### GetAuthenticationAlgorithm
 
-`func (o *IPSecProposalRequest) GetAuthenticationAlgorithm() IKEProposalAuthenticationAlgorithmValue`
+`func (o *IPSecProposalRequest) GetAuthenticationAlgorithm() BulkIKEProposalRequestAuthenticationAlgorithm`
 
 GetAuthenticationAlgorithm returns the AuthenticationAlgorithm field if non-nil, zero value otherwise.
 
 ### GetAuthenticationAlgorithmOk
 
-`func (o *IPSecProposalRequest) GetAuthenticationAlgorithmOk() (*IKEProposalAuthenticationAlgorithmValue, bool)`
+`func (o *IPSecProposalRequest) GetAuthenticationAlgorithmOk() (*BulkIKEProposalRequestAuthenticationAlgorithm, bool)`
 
 GetAuthenticationAlgorithmOk returns a tuple with the AuthenticationAlgorithm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthenticationAlgorithm
 
-`func (o *IPSecProposalRequest) SetAuthenticationAlgorithm(v IKEProposalAuthenticationAlgorithmValue)`
+`func (o *IPSecProposalRequest) SetAuthenticationAlgorithm(v BulkIKEProposalRequestAuthenticationAlgorithm)`
 
 SetAuthenticationAlgorithm sets AuthenticationAlgorithm field to given value.
 
+### HasAuthenticationAlgorithm
+
+`func (o *IPSecProposalRequest) HasAuthenticationAlgorithm() bool`
+
+HasAuthenticationAlgorithm returns a boolean if a field has been set.
 
 ### GetSaLifetimeSeconds
 
@@ -188,6 +199,41 @@ HasSaLifetimeData returns a boolean if a field has been set.
 `func (o *IPSecProposalRequest) UnsetSaLifetimeData()`
 
 UnsetSaLifetimeData ensures that no value is present for SaLifetimeData, not even an explicit nil
+### GetOwner
+
+`func (o *IPSecProposalRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IPSecProposalRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IPSecProposalRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IPSecProposalRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IPSecProposalRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IPSecProposalRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IPSecProposalRequest) GetComments() string`

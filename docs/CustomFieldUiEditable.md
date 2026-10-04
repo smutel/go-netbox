@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**CustomFieldUiEditableValue**](CustomFieldUiEditableValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkCustomFieldRequestUiEditable**](BulkCustomFieldRequestUiEditable.md) |  | [optional] 
 **Label** | Pointer to [**CustomFieldUiEditableLabel**](CustomFieldUiEditableLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *CustomFieldUiEditable) GetValue() CustomFieldUiEditableValue`
+`func (o *CustomFieldUiEditable) GetValue() BulkCustomFieldRequestUiEditable`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *CustomFieldUiEditable) GetValueOk() (*CustomFieldUiEditableValue, bool)`
+`func (o *CustomFieldUiEditable) GetValueOk() (*BulkCustomFieldRequestUiEditable, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *CustomFieldUiEditable) SetValue(v CustomFieldUiEditableValue)`
+`func (o *CustomFieldUiEditable) SetValue(v BulkCustomFieldRequestUiEditable)`
 
 SetValue sets Value field to given value.
 

@@ -118,7 +118,7 @@ import (
 )
 
 func main() {
-	iKEPolicyRequest := []openapiclient.IKEPolicyRequest{*openapiclient.NewIKEPolicyRequest("Name_example", openapiclient.IKEPolicy_version_value(1))} // []IKEPolicyRequest | 
+	iKEPolicyRequest := []openapiclient.IKEPolicyRequest{*openapiclient.NewIKEPolicyRequest("Name_example", openapiclient.BulkIKEPolicyRequest_version(1))} // []IKEPolicyRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkePoliciesBulkPartialUpdate
 
-> []IKEPolicy VpnIkePoliciesBulkPartialUpdate(ctx).IKEPolicyRequest(iKEPolicyRequest).Execute()
+> []IKEPolicy VpnIkePoliciesBulkPartialUpdate(ctx).PatchedBulkIKEPolicyRequest(patchedBulkIKEPolicyRequest).Execute()
 
 
 
@@ -182,11 +182,11 @@ import (
 )
 
 func main() {
-	iKEPolicyRequest := []openapiclient.IKEPolicyRequest{*openapiclient.NewIKEPolicyRequest("Name_example", openapiclient.IKEPolicy_version_value(1))} // []IKEPolicyRequest | 
+	patchedBulkIKEPolicyRequest := []openapiclient.PatchedBulkIKEPolicyRequest{*openapiclient.NewPatchedBulkIKEPolicyRequest(int32(123))} // []PatchedBulkIKEPolicyRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesBulkPartialUpdate(context.Background()).IKEPolicyRequest(iKEPolicyRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesBulkPartialUpdate(context.Background()).PatchedBulkIKEPolicyRequest(patchedBulkIKEPolicyRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkePoliciesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -207,7 +207,7 @@ Other parameters are passed through a pointer to a apiVpnIkePoliciesBulkPartialU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iKEPolicyRequest** | [**[]IKEPolicyRequest**](IKEPolicyRequest.md) |  | 
+ **patchedBulkIKEPolicyRequest** | [**[]PatchedBulkIKEPolicyRequest**](PatchedBulkIKEPolicyRequest.md) |  | 
 
 ### Return type
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkePoliciesBulkUpdate
 
-> []IKEPolicy VpnIkePoliciesBulkUpdate(ctx).IKEPolicyRequest(iKEPolicyRequest).Execute()
+> []IKEPolicy VpnIkePoliciesBulkUpdate(ctx).BulkIKEPolicyRequest(bulkIKEPolicyRequest).Execute()
 
 
 
@@ -248,11 +248,11 @@ import (
 )
 
 func main() {
-	iKEPolicyRequest := []openapiclient.IKEPolicyRequest{*openapiclient.NewIKEPolicyRequest("Name_example", openapiclient.IKEPolicy_version_value(1))} // []IKEPolicyRequest | 
+	bulkIKEPolicyRequest := []openapiclient.BulkIKEPolicyRequest{*openapiclient.NewBulkIKEPolicyRequest(int32(123), "Name_example", openapiclient.BulkIKEPolicyRequest_version(1))} // []BulkIKEPolicyRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesBulkUpdate(context.Background()).IKEPolicyRequest(iKEPolicyRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesBulkUpdate(context.Background()).BulkIKEPolicyRequest(bulkIKEPolicyRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkePoliciesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -273,7 +273,7 @@ Other parameters are passed through a pointer to a apiVpnIkePoliciesBulkUpdateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iKEPolicyRequest** | [**[]IKEPolicyRequest**](IKEPolicyRequest.md) |  | 
+ **bulkIKEPolicyRequest** | [**[]BulkIKEPolicyRequest**](BulkIKEPolicyRequest.md) |  | 
 
 ### Return type
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkePoliciesCreate
 
-> IKEPolicy VpnIkePoliciesCreate(ctx).WritableIKEPolicyRequest(writableIKEPolicyRequest).Execute()
+> IKEPolicy VpnIkePoliciesCreate(ctx).VpnIkePoliciesCreateRequest(vpnIkePoliciesCreateRequest).Execute()
 
 
 
@@ -314,11 +314,11 @@ import (
 )
 
 func main() {
-	writableIKEPolicyRequest := *openapiclient.NewWritableIKEPolicyRequest("Name_example") // WritableIKEPolicyRequest | 
+	vpnIkePoliciesCreateRequest := openapiclient.vpn_ike_policies_create_request{WritableIKEPolicyRequest: openapiclient.NewWritableIKEPolicyRequest("Name_example")} // VpnIkePoliciesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesCreate(context.Background()).WritableIKEPolicyRequest(writableIKEPolicyRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesCreate(context.Background()).VpnIkePoliciesCreateRequest(vpnIkePoliciesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkePoliciesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -339,7 +339,7 @@ Other parameters are passed through a pointer to a apiVpnIkePoliciesCreateReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableIKEPolicyRequest** | [**WritableIKEPolicyRequest**](WritableIKEPolicyRequest.md) |  | 
+ **vpnIkePoliciesCreateRequest** | [**VpnIkePoliciesCreateRequest**](VpnIkePoliciesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -429,7 +429,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkePoliciesList
 
-> PaginatedIKEPolicyList VpnIkePoliciesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkeProposal(ikeProposal).IkeProposalN(ikeProposalN).IkeProposalId(ikeProposalId).IkeProposalIdN(ikeProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeN(modeN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).PresharedKey(presharedKey).PresharedKeyIc(presharedKeyIc).PresharedKeyIe(presharedKeyIe).PresharedKeyIew(presharedKeyIew).PresharedKeyIsw(presharedKeyIsw).PresharedKeyN(presharedKeyN).PresharedKeyNic(presharedKeyNic).PresharedKeyNie(presharedKeyNie).PresharedKeyNiew(presharedKeyNiew).PresharedKeyNisw(presharedKeyNisw).Proposal(proposal).ProposalN(proposalN).ProposalId(proposalId).ProposalIdN(proposalIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Version(version).VersionN(versionN).Execute()
+> PaginatedIKEPolicyList VpnIkePoliciesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkeProposal(ikeProposal).IkeProposalN(ikeProposalN).IkeProposalId(ikeProposalId).IkeProposalIdN(ikeProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeEmpty(modeEmpty).ModeIc(modeIc).ModeIe(modeIe).ModeIew(modeIew).ModeIregex(modeIregex).ModeIsw(modeIsw).ModeN(modeN).ModeNic(modeNic).ModeNie(modeNie).ModeNiew(modeNiew).ModeNisw(modeNisw).ModeRegex(modeRegex).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).PresharedKey(presharedKey).PresharedKeyIc(presharedKeyIc).PresharedKeyIe(presharedKeyIe).PresharedKeyIew(presharedKeyIew).PresharedKeyIregex(presharedKeyIregex).PresharedKeyIsw(presharedKeyIsw).PresharedKeyN(presharedKeyN).PresharedKeyNic(presharedKeyNic).PresharedKeyNie(presharedKeyNie).PresharedKeyNiew(presharedKeyNiew).PresharedKeyNisw(presharedKeyNisw).PresharedKeyRegex(presharedKeyRegex).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Version(version).VersionIc(versionIc).VersionIe(versionIe).VersionIew(versionIew).VersionIregex(versionIregex).VersionIsw(versionIsw).VersionN(versionN).VersionNic(versionNic).VersionNie(versionNie).VersionNiew(versionNiew).VersionNisw(versionNisw).VersionRegex(versionRegex).Execute()
 
 
 
@@ -449,6 +449,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -462,12 +463,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -487,46 +491,81 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
-	mode := []string{"Inner_example"} // []string |  (optional)
-	modeN := []string{"Inner_example"} // []string |  (optional)
+	mode := []*string{"Inner_example"} // []*string |  (optional)
+	modeEmpty := true // bool |  (optional)
+	modeIc := []*string{"Inner_example"} // []*string |  (optional)
+	modeIe := []*string{"Inner_example"} // []*string |  (optional)
+	modeIew := []*string{"Inner_example"} // []*string |  (optional)
+	modeIregex := []*string{"Inner_example"} // []*string |  (optional)
+	modeIsw := []*string{"Inner_example"} // []*string |  (optional)
+	modeN := []*string{"Inner_example"} // []*string |  (optional)
+	modeNic := []*string{"Inner_example"} // []*string |  (optional)
+	modeNie := []*string{"Inner_example"} // []*string |  (optional)
+	modeNiew := []*string{"Inner_example"} // []*string |  (optional)
+	modeNisw := []*string{"Inner_example"} // []*string |  (optional)
+	modeRegex := []*string{"Inner_example"} // []*string |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	name := []string{"Inner_example"} // []string |  (optional)
 	nameEmpty := true // bool |  (optional)
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	presharedKey := "presharedKey_example" // string |  (optional)
 	presharedKeyIc := "presharedKeyIc_example" // string |  (optional)
 	presharedKeyIe := "presharedKeyIe_example" // string |  (optional)
 	presharedKeyIew := "presharedKeyIew_example" // string |  (optional)
+	presharedKeyIregex := "presharedKeyIregex_example" // string |  (optional)
 	presharedKeyIsw := "presharedKeyIsw_example" // string |  (optional)
 	presharedKeyN := "presharedKeyN_example" // string |  (optional)
 	presharedKeyNic := "presharedKeyNic_example" // string |  (optional)
 	presharedKeyNie := "presharedKeyNie_example" // string |  (optional)
 	presharedKeyNiew := "presharedKeyNiew_example" // string |  (optional)
 	presharedKeyNisw := "presharedKeyNisw_example" // string |  (optional)
-	proposal := []string{"Inner_example"} // []string |  (optional)
-	proposalN := []string{"Inner_example"} // []string |  (optional)
-	proposalId := []int32{int32(123)} // []int32 |  (optional)
-	proposalIdN := []int32{int32(123)} // []int32 |  (optional)
+	presharedKeyRegex := "presharedKeyRegex_example" // string |  (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	version := []int32{int32(123)} // []int32 |  (optional)
+	versionIc := []int32{int32(123)} // []int32 |  (optional)
+	versionIe := []int32{int32(123)} // []int32 |  (optional)
+	versionIew := []int32{int32(123)} // []int32 |  (optional)
+	versionIregex := []int32{int32(123)} // []int32 |  (optional)
+	versionIsw := []int32{int32(123)} // []int32 |  (optional)
 	versionN := []int32{int32(123)} // []int32 |  (optional)
+	versionNic := []int32{int32(123)} // []int32 |  (optional)
+	versionNie := []int32{int32(123)} // []int32 |  (optional)
+	versionNiew := []int32{int32(123)} // []int32 |  (optional)
+	versionNisw := []int32{int32(123)} // []int32 |  (optional)
+	versionRegex := []int32{int32(123)} // []int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkeProposal(ikeProposal).IkeProposalN(ikeProposalN).IkeProposalId(ikeProposalId).IkeProposalIdN(ikeProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeN(modeN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).PresharedKey(presharedKey).PresharedKeyIc(presharedKeyIc).PresharedKeyIe(presharedKeyIe).PresharedKeyIew(presharedKeyIew).PresharedKeyIsw(presharedKeyIsw).PresharedKeyN(presharedKeyN).PresharedKeyNic(presharedKeyNic).PresharedKeyNie(presharedKeyNie).PresharedKeyNiew(presharedKeyNiew).PresharedKeyNisw(presharedKeyNisw).Proposal(proposal).ProposalN(proposalN).ProposalId(proposalId).ProposalIdN(proposalIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Version(version).VersionN(versionN).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkeProposal(ikeProposal).IkeProposalN(ikeProposalN).IkeProposalId(ikeProposalId).IkeProposalIdN(ikeProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeEmpty(modeEmpty).ModeIc(modeIc).ModeIe(modeIe).ModeIew(modeIew).ModeIregex(modeIregex).ModeIsw(modeIsw).ModeN(modeN).ModeNic(modeNic).ModeNie(modeNie).ModeNiew(modeNiew).ModeNisw(modeNisw).ModeRegex(modeRegex).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).PresharedKey(presharedKey).PresharedKeyIc(presharedKeyIc).PresharedKeyIe(presharedKeyIe).PresharedKeyIew(presharedKeyIew).PresharedKeyIregex(presharedKeyIregex).PresharedKeyIsw(presharedKeyIsw).PresharedKeyN(presharedKeyN).PresharedKeyNic(presharedKeyNic).PresharedKeyNie(presharedKeyNie).PresharedKeyNiew(presharedKeyNiew).PresharedKeyNisw(presharedKeyNisw).PresharedKeyRegex(presharedKeyRegex).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Version(version).VersionIc(versionIc).VersionIe(versionIe).VersionIew(versionIew).VersionIregex(versionIregex).VersionIsw(versionIsw).VersionN(versionN).VersionNic(versionNic).VersionNie(versionNie).VersionNiew(versionNiew).VersionNisw(versionNisw).VersionRegex(versionRegex).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkePoliciesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -547,6 +586,7 @@ Other parameters are passed through a pointer to a apiVpnIkePoliciesListRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -560,12 +600,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -586,41 +629,76 @@ Name | Type | Description  | Notes
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **mode** | **[]string** |  | 
+ **modeEmpty** | **bool** |  | 
+ **modeIc** | **[]string** |  | 
+ **modeIe** | **[]string** |  | 
+ **modeIew** | **[]string** |  | 
+ **modeIregex** | **[]string** |  | 
+ **modeIsw** | **[]string** |  | 
  **modeN** | **[]string** |  | 
+ **modeNic** | **[]string** |  | 
+ **modeNie** | **[]string** |  | 
+ **modeNiew** | **[]string** |  | 
+ **modeNisw** | **[]string** |  | 
+ **modeRegex** | **[]string** |  | 
  **modifiedByRequest** | **string** |  | 
  **name** | **[]string** |  | 
  **nameEmpty** | **bool** |  | 
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **presharedKey** | **string** |  | 
  **presharedKeyIc** | **string** |  | 
  **presharedKeyIe** | **string** |  | 
  **presharedKeyIew** | **string** |  | 
+ **presharedKeyIregex** | **string** |  | 
  **presharedKeyIsw** | **string** |  | 
  **presharedKeyN** | **string** |  | 
  **presharedKeyNic** | **string** |  | 
  **presharedKeyNie** | **string** |  | 
  **presharedKeyNiew** | **string** |  | 
  **presharedKeyNisw** | **string** |  | 
- **proposal** | **[]string** |  | 
- **proposalN** | **[]string** |  | 
- **proposalId** | **[]int32** |  | 
- **proposalIdN** | **[]int32** |  | 
+ **presharedKeyRegex** | **string** |  | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
  **version** | **[]int32** |  | 
+ **versionIc** | **[]int32** |  | 
+ **versionIe** | **[]int32** |  | 
+ **versionIew** | **[]int32** |  | 
+ **versionIregex** | **[]int32** |  | 
+ **versionIsw** | **[]int32** |  | 
  **versionN** | **[]int32** |  | 
+ **versionNic** | **[]int32** |  | 
+ **versionNie** | **[]int32** |  | 
+ **versionNiew** | **[]int32** |  | 
+ **versionNisw** | **[]int32** |  | 
+ **versionRegex** | **[]int32** |  | 
 
 ### Return type
 
@@ -714,7 +792,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkePoliciesRetrieve
 
-> IKEPolicy VpnIkePoliciesRetrieve(ctx, id).Execute()
+> IKEPolicy VpnIkePoliciesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -734,10 +812,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IKE policy.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkePoliciesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkePoliciesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -763,6 +844,9 @@ Other parameters are passed through a pointer to a apiVpnIkePoliciesRetrieveRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -875,7 +959,7 @@ import (
 )
 
 func main() {
-	iKEProposalRequest := []openapiclient.IKEProposalRequest{*openapiclient.NewIKEProposalRequest("Name_example", openapiclient.IKEProposal_authentication_method_value("preshared-keys"), openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.IKEProposal_group_value(1))} // []IKEProposalRequest | 
+	iKEProposalRequest := []openapiclient.IKEProposalRequest{*openapiclient.NewIKEProposalRequest("Name_example", openapiclient.BulkIKEProposalRequest_authentication_method("preshared-keys"), openapiclient.BulkIKEProposalRequest_encryption_algorithm("aes-128-cbc"), openapiclient.BulkIKEProposalRequest_group(1))} // []IKEProposalRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -911,7 +995,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -920,7 +1004,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkeProposalsBulkPartialUpdate
 
-> []IKEProposal VpnIkeProposalsBulkPartialUpdate(ctx).IKEProposalRequest(iKEProposalRequest).Execute()
+> []IKEProposal VpnIkeProposalsBulkPartialUpdate(ctx).PatchedBulkIKEProposalRequest(patchedBulkIKEProposalRequest).Execute()
 
 
 
@@ -939,11 +1023,11 @@ import (
 )
 
 func main() {
-	iKEProposalRequest := []openapiclient.IKEProposalRequest{*openapiclient.NewIKEProposalRequest("Name_example", openapiclient.IKEProposal_authentication_method_value("preshared-keys"), openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.IKEProposal_group_value(1))} // []IKEProposalRequest | 
+	patchedBulkIKEProposalRequest := []openapiclient.PatchedBulkIKEProposalRequest{*openapiclient.NewPatchedBulkIKEProposalRequest(int32(123))} // []PatchedBulkIKEProposalRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsBulkPartialUpdate(context.Background()).IKEProposalRequest(iKEProposalRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsBulkPartialUpdate(context.Background()).PatchedBulkIKEProposalRequest(patchedBulkIKEProposalRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkeProposalsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -964,7 +1048,7 @@ Other parameters are passed through a pointer to a apiVpnIkeProposalsBulkPartial
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iKEProposalRequest** | [**[]IKEProposalRequest**](IKEProposalRequest.md) |  | 
+ **patchedBulkIKEProposalRequest** | [**[]PatchedBulkIKEProposalRequest**](PatchedBulkIKEProposalRequest.md) |  | 
 
 ### Return type
 
@@ -986,7 +1070,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkeProposalsBulkUpdate
 
-> []IKEProposal VpnIkeProposalsBulkUpdate(ctx).IKEProposalRequest(iKEProposalRequest).Execute()
+> []IKEProposal VpnIkeProposalsBulkUpdate(ctx).BulkIKEProposalRequest(bulkIKEProposalRequest).Execute()
 
 
 
@@ -1005,11 +1089,11 @@ import (
 )
 
 func main() {
-	iKEProposalRequest := []openapiclient.IKEProposalRequest{*openapiclient.NewIKEProposalRequest("Name_example", openapiclient.IKEProposal_authentication_method_value("preshared-keys"), openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.IKEProposal_group_value(1))} // []IKEProposalRequest | 
+	bulkIKEProposalRequest := []openapiclient.BulkIKEProposalRequest{*openapiclient.NewBulkIKEProposalRequest(int32(123), "Name_example", openapiclient.BulkIKEProposalRequest_authentication_method("preshared-keys"), openapiclient.BulkIKEProposalRequest_encryption_algorithm("aes-128-cbc"), openapiclient.BulkIKEProposalRequest_group(1))} // []BulkIKEProposalRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsBulkUpdate(context.Background()).IKEProposalRequest(iKEProposalRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsBulkUpdate(context.Background()).BulkIKEProposalRequest(bulkIKEProposalRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkeProposalsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1030,7 +1114,7 @@ Other parameters are passed through a pointer to a apiVpnIkeProposalsBulkUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iKEProposalRequest** | [**[]IKEProposalRequest**](IKEProposalRequest.md) |  | 
+ **bulkIKEProposalRequest** | [**[]BulkIKEProposalRequest**](BulkIKEProposalRequest.md) |  | 
 
 ### Return type
 
@@ -1052,7 +1136,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkeProposalsCreate
 
-> IKEProposal VpnIkeProposalsCreate(ctx).WritableIKEProposalRequest(writableIKEProposalRequest).Execute()
+> IKEProposal VpnIkeProposalsCreate(ctx).VpnIkeProposalsCreateRequest(vpnIkeProposalsCreateRequest).Execute()
 
 
 
@@ -1071,11 +1155,11 @@ import (
 )
 
 func main() {
-	writableIKEProposalRequest := *openapiclient.NewWritableIKEProposalRequest("Name_example", openapiclient.IKEProposal_authentication_method_value("preshared-keys"), openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.PatchedWritableIKEProposalRequest_group(1)) // WritableIKEProposalRequest | 
+	vpnIkeProposalsCreateRequest := openapiclient.vpn_ike_proposals_create_request{WritableIKEProposalRequest: openapiclient.NewWritableIKEProposalRequest("Name_example", openapiclient.BulkIKEProposalRequest_authentication_method("preshared-keys"), openapiclient.BulkIKEProposalRequest_encryption_algorithm("aes-128-cbc"), openapiclient.PatchedWritableIKEProposalRequest_group(1))} // VpnIkeProposalsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsCreate(context.Background()).WritableIKEProposalRequest(writableIKEProposalRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsCreate(context.Background()).VpnIkeProposalsCreateRequest(vpnIkeProposalsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkeProposalsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1096,7 +1180,7 @@ Other parameters are passed through a pointer to a apiVpnIkeProposalsCreateReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableIKEProposalRequest** | [**WritableIKEProposalRequest**](WritableIKEProposalRequest.md) |  | 
+ **vpnIkeProposalsCreateRequest** | [**VpnIkeProposalsCreateRequest**](VpnIkeProposalsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1186,7 +1270,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkeProposalsList
 
-> PaginatedIKEProposalList VpnIkeProposalsList(ctx).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmN(authenticationAlgorithmN).AuthenticationMethod(authenticationMethod).AuthenticationMethodN(authenticationMethodN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmN(encryptionAlgorithmN).Group(group).GroupN(groupN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).SaLifetime(saLifetime).SaLifetimeEmpty(saLifetimeEmpty).SaLifetimeGt(saLifetimeGt).SaLifetimeGte(saLifetimeGte).SaLifetimeLt(saLifetimeLt).SaLifetimeLte(saLifetimeLte).SaLifetimeN(saLifetimeN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedIKEProposalList VpnIkeProposalsList(ctx).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmEmpty(authenticationAlgorithmEmpty).AuthenticationAlgorithmIc(authenticationAlgorithmIc).AuthenticationAlgorithmIe(authenticationAlgorithmIe).AuthenticationAlgorithmIew(authenticationAlgorithmIew).AuthenticationAlgorithmIregex(authenticationAlgorithmIregex).AuthenticationAlgorithmIsw(authenticationAlgorithmIsw).AuthenticationAlgorithmN(authenticationAlgorithmN).AuthenticationAlgorithmNic(authenticationAlgorithmNic).AuthenticationAlgorithmNie(authenticationAlgorithmNie).AuthenticationAlgorithmNiew(authenticationAlgorithmNiew).AuthenticationAlgorithmNisw(authenticationAlgorithmNisw).AuthenticationAlgorithmRegex(authenticationAlgorithmRegex).AuthenticationMethod(authenticationMethod).AuthenticationMethodEmpty(authenticationMethodEmpty).AuthenticationMethodIc(authenticationMethodIc).AuthenticationMethodIe(authenticationMethodIe).AuthenticationMethodIew(authenticationMethodIew).AuthenticationMethodIregex(authenticationMethodIregex).AuthenticationMethodIsw(authenticationMethodIsw).AuthenticationMethodN(authenticationMethodN).AuthenticationMethodNic(authenticationMethodNic).AuthenticationMethodNie(authenticationMethodNie).AuthenticationMethodNiew(authenticationMethodNiew).AuthenticationMethodNisw(authenticationMethodNisw).AuthenticationMethodRegex(authenticationMethodRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmEmpty(encryptionAlgorithmEmpty).EncryptionAlgorithmIc(encryptionAlgorithmIc).EncryptionAlgorithmIe(encryptionAlgorithmIe).EncryptionAlgorithmIew(encryptionAlgorithmIew).EncryptionAlgorithmIregex(encryptionAlgorithmIregex).EncryptionAlgorithmIsw(encryptionAlgorithmIsw).EncryptionAlgorithmN(encryptionAlgorithmN).EncryptionAlgorithmNic(encryptionAlgorithmNic).EncryptionAlgorithmNie(encryptionAlgorithmNie).EncryptionAlgorithmNiew(encryptionAlgorithmNiew).EncryptionAlgorithmNisw(encryptionAlgorithmNisw).EncryptionAlgorithmRegex(encryptionAlgorithmRegex).Fields(fields).Group(group).GroupIc(groupIc).GroupIe(groupIe).GroupIew(groupIew).GroupIregex(groupIregex).GroupIsw(groupIsw).GroupN(groupN).GroupNic(groupNic).GroupNie(groupNie).GroupNiew(groupNiew).GroupNisw(groupNisw).GroupRegex(groupRegex).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).SaLifetime(saLifetime).SaLifetimeEmpty(saLifetimeEmpty).SaLifetimeGt(saLifetimeGt).SaLifetimeGte(saLifetimeGte).SaLifetimeLt(saLifetimeLt).SaLifetimeLte(saLifetimeLte).SaLifetimeN(saLifetimeN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1206,10 +1290,33 @@ import (
 )
 
 func main() {
-	authenticationAlgorithm := []string{"Inner_example"} // []string |  (optional)
-	authenticationAlgorithmN := []string{"Inner_example"} // []string |  (optional)
+	authenticationAlgorithm := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmEmpty := true // bool |  (optional)
+	authenticationAlgorithmIc := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIe := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIew := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIregex := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIsw := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmN := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNic := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNie := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNiew := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNisw := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmRegex := []*string{"Inner_example"} // []*string |  (optional)
 	authenticationMethod := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodEmpty := true // bool |  (optional)
+	authenticationMethodIc := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodIe := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodIew := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodIregex := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodIsw := []string{"Inner_example"} // []string |  (optional)
 	authenticationMethodN := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodNic := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodNie := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodNiew := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodNisw := []string{"Inner_example"} // []string |  (optional)
+	authenticationMethodRegex := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1223,16 +1330,40 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	encryptionAlgorithm := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmEmpty := true // bool |  (optional)
+	encryptionAlgorithmIc := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmIe := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmIew := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmIregex := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmIsw := []string{"Inner_example"} // []string |  (optional)
 	encryptionAlgorithmN := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmNic := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmNie := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmNiew := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmNisw := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithmRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupIc := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupIe := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupIew := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupIregex := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupIsw := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
 	groupN := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupNic := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupNie := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupNiew := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupNisw := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
+	groupRegex := []int32{int32(123)} // []int32 | Diffie-Hellman group ID (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1258,14 +1389,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	saLifetime := []int32{int32(123)} // []int32 |  (optional)
 	saLifetimeEmpty := true // bool |  (optional)
@@ -1274,13 +1416,18 @@ func main() {
 	saLifetimeLt := []int32{int32(123)} // []int32 |  (optional)
 	saLifetimeLte := []int32{int32(123)} // []int32 |  (optional)
 	saLifetimeN := []int32{int32(123)} // []int32 |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsList(context.Background()).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmN(authenticationAlgorithmN).AuthenticationMethod(authenticationMethod).AuthenticationMethodN(authenticationMethodN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmN(encryptionAlgorithmN).Group(group).GroupN(groupN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).SaLifetime(saLifetime).SaLifetimeEmpty(saLifetimeEmpty).SaLifetimeGt(saLifetimeGt).SaLifetimeGte(saLifetimeGte).SaLifetimeLt(saLifetimeLt).SaLifetimeLte(saLifetimeLte).SaLifetimeN(saLifetimeN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsList(context.Background()).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmEmpty(authenticationAlgorithmEmpty).AuthenticationAlgorithmIc(authenticationAlgorithmIc).AuthenticationAlgorithmIe(authenticationAlgorithmIe).AuthenticationAlgorithmIew(authenticationAlgorithmIew).AuthenticationAlgorithmIregex(authenticationAlgorithmIregex).AuthenticationAlgorithmIsw(authenticationAlgorithmIsw).AuthenticationAlgorithmN(authenticationAlgorithmN).AuthenticationAlgorithmNic(authenticationAlgorithmNic).AuthenticationAlgorithmNie(authenticationAlgorithmNie).AuthenticationAlgorithmNiew(authenticationAlgorithmNiew).AuthenticationAlgorithmNisw(authenticationAlgorithmNisw).AuthenticationAlgorithmRegex(authenticationAlgorithmRegex).AuthenticationMethod(authenticationMethod).AuthenticationMethodEmpty(authenticationMethodEmpty).AuthenticationMethodIc(authenticationMethodIc).AuthenticationMethodIe(authenticationMethodIe).AuthenticationMethodIew(authenticationMethodIew).AuthenticationMethodIregex(authenticationMethodIregex).AuthenticationMethodIsw(authenticationMethodIsw).AuthenticationMethodN(authenticationMethodN).AuthenticationMethodNic(authenticationMethodNic).AuthenticationMethodNie(authenticationMethodNie).AuthenticationMethodNiew(authenticationMethodNiew).AuthenticationMethodNisw(authenticationMethodNisw).AuthenticationMethodRegex(authenticationMethodRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmEmpty(encryptionAlgorithmEmpty).EncryptionAlgorithmIc(encryptionAlgorithmIc).EncryptionAlgorithmIe(encryptionAlgorithmIe).EncryptionAlgorithmIew(encryptionAlgorithmIew).EncryptionAlgorithmIregex(encryptionAlgorithmIregex).EncryptionAlgorithmIsw(encryptionAlgorithmIsw).EncryptionAlgorithmN(encryptionAlgorithmN).EncryptionAlgorithmNic(encryptionAlgorithmNic).EncryptionAlgorithmNie(encryptionAlgorithmNie).EncryptionAlgorithmNiew(encryptionAlgorithmNiew).EncryptionAlgorithmNisw(encryptionAlgorithmNisw).EncryptionAlgorithmRegex(encryptionAlgorithmRegex).Fields(fields).Group(group).GroupIc(groupIc).GroupIe(groupIe).GroupIew(groupIew).GroupIregex(groupIregex).GroupIsw(groupIsw).GroupN(groupN).GroupNic(groupNic).GroupNie(groupNie).GroupNiew(groupNiew).GroupNisw(groupNisw).GroupRegex(groupRegex).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).SaLifetime(saLifetime).SaLifetimeEmpty(saLifetimeEmpty).SaLifetimeGt(saLifetimeGt).SaLifetimeGte(saLifetimeGte).SaLifetimeLt(saLifetimeLt).SaLifetimeLte(saLifetimeLte).SaLifetimeN(saLifetimeN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkeProposalsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1302,9 +1449,32 @@ Other parameters are passed through a pointer to a apiVpnIkeProposalsListRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authenticationAlgorithm** | **[]string** |  | 
+ **authenticationAlgorithmEmpty** | **bool** |  | 
+ **authenticationAlgorithmIc** | **[]string** |  | 
+ **authenticationAlgorithmIe** | **[]string** |  | 
+ **authenticationAlgorithmIew** | **[]string** |  | 
+ **authenticationAlgorithmIregex** | **[]string** |  | 
+ **authenticationAlgorithmIsw** | **[]string** |  | 
  **authenticationAlgorithmN** | **[]string** |  | 
+ **authenticationAlgorithmNic** | **[]string** |  | 
+ **authenticationAlgorithmNie** | **[]string** |  | 
+ **authenticationAlgorithmNiew** | **[]string** |  | 
+ **authenticationAlgorithmNisw** | **[]string** |  | 
+ **authenticationAlgorithmRegex** | **[]string** |  | 
  **authenticationMethod** | **[]string** |  | 
+ **authenticationMethodEmpty** | **bool** |  | 
+ **authenticationMethodIc** | **[]string** |  | 
+ **authenticationMethodIe** | **[]string** |  | 
+ **authenticationMethodIew** | **[]string** |  | 
+ **authenticationMethodIregex** | **[]string** |  | 
+ **authenticationMethodIsw** | **[]string** |  | 
  **authenticationMethodN** | **[]string** |  | 
+ **authenticationMethodNic** | **[]string** |  | 
+ **authenticationMethodNie** | **[]string** |  | 
+ **authenticationMethodNiew** | **[]string** |  | 
+ **authenticationMethodNisw** | **[]string** |  | 
+ **authenticationMethodRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -1318,16 +1488,40 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **encryptionAlgorithm** | **[]string** |  | 
+ **encryptionAlgorithmEmpty** | **bool** |  | 
+ **encryptionAlgorithmIc** | **[]string** |  | 
+ **encryptionAlgorithmIe** | **[]string** |  | 
+ **encryptionAlgorithmIew** | **[]string** |  | 
+ **encryptionAlgorithmIregex** | **[]string** |  | 
+ **encryptionAlgorithmIsw** | **[]string** |  | 
  **encryptionAlgorithmN** | **[]string** |  | 
+ **encryptionAlgorithmNic** | **[]string** |  | 
+ **encryptionAlgorithmNie** | **[]string** |  | 
+ **encryptionAlgorithmNiew** | **[]string** |  | 
+ **encryptionAlgorithmNisw** | **[]string** |  | 
+ **encryptionAlgorithmRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]int32** | Diffie-Hellman group ID | 
+ **groupIc** | **[]int32** | Diffie-Hellman group ID | 
+ **groupIe** | **[]int32** | Diffie-Hellman group ID | 
+ **groupIew** | **[]int32** | Diffie-Hellman group ID | 
+ **groupIregex** | **[]int32** | Diffie-Hellman group ID | 
+ **groupIsw** | **[]int32** | Diffie-Hellman group ID | 
  **groupN** | **[]int32** | Diffie-Hellman group ID | 
+ **groupNic** | **[]int32** | Diffie-Hellman group ID | 
+ **groupNie** | **[]int32** | Diffie-Hellman group ID | 
+ **groupNiew** | **[]int32** | Diffie-Hellman group ID | 
+ **groupNisw** | **[]int32** | Diffie-Hellman group ID | 
+ **groupRegex** | **[]int32** | Diffie-Hellman group ID | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -1353,14 +1547,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **saLifetime** | **[]int32** |  | 
  **saLifetimeEmpty** | **bool** |  | 
@@ -1369,8 +1574,13 @@ Name | Type | Description  | Notes
  **saLifetimeLt** | **[]int32** |  | 
  **saLifetimeLte** | **[]int32** |  | 
  **saLifetimeN** | **[]int32** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -1465,7 +1675,7 @@ Name | Type | Description  | Notes
 
 ## VpnIkeProposalsRetrieve
 
-> IKEProposal VpnIkeProposalsRetrieve(ctx, id).Execute()
+> IKEProposal VpnIkeProposalsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -1485,10 +1695,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IKE proposal.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIkeProposalsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIkeProposalsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1514,6 +1727,9 @@ Other parameters are passed through a pointer to a apiVpnIkeProposalsRetrieveReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1555,7 +1771,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IKE proposal.
-	writableIKEProposalRequest := *openapiclient.NewWritableIKEProposalRequest("Name_example", openapiclient.IKEProposal_authentication_method_value("preshared-keys"), openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.PatchedWritableIKEProposalRequest_group(1)) // WritableIKEProposalRequest | 
+	writableIKEProposalRequest := *openapiclient.NewWritableIKEProposalRequest("Name_example", openapiclient.BulkIKEProposalRequest_authentication_method("preshared-keys"), openapiclient.BulkIKEProposalRequest_encryption_algorithm("aes-128-cbc"), openapiclient.PatchedWritableIKEProposalRequest_group(1)) // WritableIKEProposalRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1662,7 +1878,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1671,7 +1887,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecPoliciesBulkPartialUpdate
 
-> []IPSecPolicy VpnIpsecPoliciesBulkPartialUpdate(ctx).IPSecPolicyRequest(iPSecPolicyRequest).Execute()
+> []IPSecPolicy VpnIpsecPoliciesBulkPartialUpdate(ctx).PatchedBulkIPSecPolicyRequest(patchedBulkIPSecPolicyRequest).Execute()
 
 
 
@@ -1690,11 +1906,11 @@ import (
 )
 
 func main() {
-	iPSecPolicyRequest := []openapiclient.IPSecPolicyRequest{*openapiclient.NewIPSecPolicyRequest("Name_example")} // []IPSecPolicyRequest | 
+	patchedBulkIPSecPolicyRequest := []openapiclient.PatchedBulkIPSecPolicyRequest{*openapiclient.NewPatchedBulkIPSecPolicyRequest(int32(123))} // []PatchedBulkIPSecPolicyRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesBulkPartialUpdate(context.Background()).IPSecPolicyRequest(iPSecPolicyRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesBulkPartialUpdate(context.Background()).PatchedBulkIPSecPolicyRequest(patchedBulkIPSecPolicyRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecPoliciesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1715,7 +1931,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecPoliciesBulkPartia
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPSecPolicyRequest** | [**[]IPSecPolicyRequest**](IPSecPolicyRequest.md) |  | 
+ **patchedBulkIPSecPolicyRequest** | [**[]PatchedBulkIPSecPolicyRequest**](PatchedBulkIPSecPolicyRequest.md) |  | 
 
 ### Return type
 
@@ -1737,7 +1953,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecPoliciesBulkUpdate
 
-> []IPSecPolicy VpnIpsecPoliciesBulkUpdate(ctx).IPSecPolicyRequest(iPSecPolicyRequest).Execute()
+> []IPSecPolicy VpnIpsecPoliciesBulkUpdate(ctx).BulkIPSecPolicyRequest(bulkIPSecPolicyRequest).Execute()
 
 
 
@@ -1756,11 +1972,11 @@ import (
 )
 
 func main() {
-	iPSecPolicyRequest := []openapiclient.IPSecPolicyRequest{*openapiclient.NewIPSecPolicyRequest("Name_example")} // []IPSecPolicyRequest | 
+	bulkIPSecPolicyRequest := []openapiclient.BulkIPSecPolicyRequest{*openapiclient.NewBulkIPSecPolicyRequest(int32(123), "Name_example")} // []BulkIPSecPolicyRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesBulkUpdate(context.Background()).IPSecPolicyRequest(iPSecPolicyRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesBulkUpdate(context.Background()).BulkIPSecPolicyRequest(bulkIPSecPolicyRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecPoliciesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1781,7 +1997,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecPoliciesBulkUpdate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPSecPolicyRequest** | [**[]IPSecPolicyRequest**](IPSecPolicyRequest.md) |  | 
+ **bulkIPSecPolicyRequest** | [**[]BulkIPSecPolicyRequest**](BulkIPSecPolicyRequest.md) |  | 
 
 ### Return type
 
@@ -1803,7 +2019,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecPoliciesCreate
 
-> IPSecPolicy VpnIpsecPoliciesCreate(ctx).WritableIPSecPolicyRequest(writableIPSecPolicyRequest).Execute()
+> IPSecPolicy VpnIpsecPoliciesCreate(ctx).VpnIpsecPoliciesCreateRequest(vpnIpsecPoliciesCreateRequest).Execute()
 
 
 
@@ -1822,11 +2038,11 @@ import (
 )
 
 func main() {
-	writableIPSecPolicyRequest := *openapiclient.NewWritableIPSecPolicyRequest("Name_example") // WritableIPSecPolicyRequest | 
+	vpnIpsecPoliciesCreateRequest := openapiclient.vpn_ipsec_policies_create_request{WritableIPSecPolicyRequest: openapiclient.NewWritableIPSecPolicyRequest("Name_example")} // VpnIpsecPoliciesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesCreate(context.Background()).WritableIPSecPolicyRequest(writableIPSecPolicyRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesCreate(context.Background()).VpnIpsecPoliciesCreateRequest(vpnIpsecPoliciesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecPoliciesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1847,7 +2063,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecPoliciesCreateRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableIPSecPolicyRequest** | [**WritableIPSecPolicyRequest**](WritableIPSecPolicyRequest.md) |  | 
+ **vpnIpsecPoliciesCreateRequest** | [**VpnIpsecPoliciesCreateRequest**](VpnIpsecPoliciesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1937,7 +2153,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecPoliciesList
 
-> PaginatedIPSecPolicyList VpnIpsecPoliciesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProposal(ipsecProposal).IpsecProposalN(ipsecProposalN).IpsecProposalId(ipsecProposalId).IpsecProposalIdN(ipsecProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).PfsGroup(pfsGroup).PfsGroupN(pfsGroupN).Proposal(proposal).ProposalN(proposalN).ProposalId(proposalId).ProposalIdN(proposalIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedIPSecPolicyList VpnIpsecPoliciesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProposal(ipsecProposal).IpsecProposalN(ipsecProposalN).IpsecProposalId(ipsecProposalId).IpsecProposalIdN(ipsecProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).PfsGroup(pfsGroup).PfsGroupIc(pfsGroupIc).PfsGroupIe(pfsGroupIe).PfsGroupIew(pfsGroupIew).PfsGroupIregex(pfsGroupIregex).PfsGroupIsw(pfsGroupIsw).PfsGroupN(pfsGroupN).PfsGroupNic(pfsGroupNic).PfsGroupNie(pfsGroupNie).PfsGroupNiew(pfsGroupNiew).PfsGroupNisw(pfsGroupNisw).PfsGroupRegex(pfsGroupRegex).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1957,6 +2173,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1970,12 +2187,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -2001,28 +2221,50 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	pfsGroup := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupIc := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupIe := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupIew := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupIregex := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupIsw := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
 	pfsGroupN := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
-	proposal := []string{"Inner_example"} // []string |  (optional)
-	proposalN := []string{"Inner_example"} // []string |  (optional)
-	proposalId := []int32{int32(123)} // []int32 |  (optional)
-	proposalIdN := []int32{int32(123)} // []int32 |  (optional)
+	pfsGroupNic := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupNie := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupNiew := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupNisw := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
+	pfsGroupRegex := []*int32{int32(123)} // []*int32 | Diffie-Hellman group for Perfect Forward Secrecy (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProposal(ipsecProposal).IpsecProposalN(ipsecProposalN).IpsecProposalId(ipsecProposalId).IpsecProposalIdN(ipsecProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).PfsGroup(pfsGroup).PfsGroupN(pfsGroupN).Proposal(proposal).ProposalN(proposalN).ProposalId(proposalId).ProposalIdN(proposalIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProposal(ipsecProposal).IpsecProposalN(ipsecProposalN).IpsecProposalId(ipsecProposalId).IpsecProposalIdN(ipsecProposalIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).PfsGroup(pfsGroup).PfsGroupIc(pfsGroupIc).PfsGroupIe(pfsGroupIe).PfsGroupIew(pfsGroupIew).PfsGroupIregex(pfsGroupIregex).PfsGroupIsw(pfsGroupIsw).PfsGroupN(pfsGroupN).PfsGroupNic(pfsGroupNic).PfsGroupNie(pfsGroupNie).PfsGroupNiew(pfsGroupNiew).PfsGroupNisw(pfsGroupNisw).PfsGroupRegex(pfsGroupRegex).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecPoliciesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2043,6 +2285,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecPoliciesListReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -2056,12 +2299,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -2087,23 +2333,45 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **pfsGroup** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupIc** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupIe** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupIew** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupIregex** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupIsw** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
  **pfsGroupN** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
- **proposal** | **[]string** |  | 
- **proposalN** | **[]string** |  | 
- **proposalId** | **[]int32** |  | 
- **proposalIdN** | **[]int32** |  | 
+ **pfsGroupNic** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupNie** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupNiew** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupNisw** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
+ **pfsGroupRegex** | **[]int32** | Diffie-Hellman group for Perfect Forward Secrecy | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -2198,7 +2466,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecPoliciesRetrieve
 
-> IPSecPolicy VpnIpsecPoliciesRetrieve(ctx, id).Execute()
+> IPSecPolicy VpnIpsecPoliciesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2218,10 +2486,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IPSec policy.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecPoliciesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecPoliciesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2247,6 +2518,9 @@ Other parameters are passed through a pointer to a apiVpnIpsecPoliciesRetrieveRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -2359,7 +2633,7 @@ import (
 )
 
 func main() {
-	iPSecProfileRequest := []openapiclient.IPSecProfileRequest{*openapiclient.NewIPSecProfileRequest("Name_example", openapiclient.IPSecProfile_mode_value("esp"), *openapiclient.NewBriefIKEPolicyRequest("Name_example"), *openapiclient.NewBriefIPSecPolicyRequest("Name_example"))} // []IPSecProfileRequest | 
+	iPSecProfileRequest := []openapiclient.IPSecProfileRequest{*openapiclient.NewIPSecProfileRequest("Name_example", openapiclient.BulkIPSecProfileRequest_mode("esp"), openapiclient.BulkIPSecProfileRequest_ike_policy{BriefIKEPolicyRequest: openapiclient.NewBriefIKEPolicyRequest("Name_example")}, openapiclient.BulkIPSecProfileRequest_ipsec_policy{BriefIPSecPolicyRequest: openapiclient.NewBriefIPSecPolicyRequest("Name_example")})} // []IPSecProfileRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2395,7 +2669,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -2404,7 +2678,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProfilesBulkPartialUpdate
 
-> []IPSecProfile VpnIpsecProfilesBulkPartialUpdate(ctx).IPSecProfileRequest(iPSecProfileRequest).Execute()
+> []IPSecProfile VpnIpsecProfilesBulkPartialUpdate(ctx).PatchedBulkIPSecProfileRequest(patchedBulkIPSecProfileRequest).Execute()
 
 
 
@@ -2423,11 +2697,11 @@ import (
 )
 
 func main() {
-	iPSecProfileRequest := []openapiclient.IPSecProfileRequest{*openapiclient.NewIPSecProfileRequest("Name_example", openapiclient.IPSecProfile_mode_value("esp"), *openapiclient.NewBriefIKEPolicyRequest("Name_example"), *openapiclient.NewBriefIPSecPolicyRequest("Name_example"))} // []IPSecProfileRequest | 
+	patchedBulkIPSecProfileRequest := []openapiclient.PatchedBulkIPSecProfileRequest{*openapiclient.NewPatchedBulkIPSecProfileRequest(int32(123))} // []PatchedBulkIPSecProfileRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesBulkPartialUpdate(context.Background()).IPSecProfileRequest(iPSecProfileRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesBulkPartialUpdate(context.Background()).PatchedBulkIPSecProfileRequest(patchedBulkIPSecProfileRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProfilesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2448,7 +2722,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecProfilesBulkPartia
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPSecProfileRequest** | [**[]IPSecProfileRequest**](IPSecProfileRequest.md) |  | 
+ **patchedBulkIPSecProfileRequest** | [**[]PatchedBulkIPSecProfileRequest**](PatchedBulkIPSecProfileRequest.md) |  | 
 
 ### Return type
 
@@ -2470,7 +2744,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProfilesBulkUpdate
 
-> []IPSecProfile VpnIpsecProfilesBulkUpdate(ctx).IPSecProfileRequest(iPSecProfileRequest).Execute()
+> []IPSecProfile VpnIpsecProfilesBulkUpdate(ctx).BulkIPSecProfileRequest(bulkIPSecProfileRequest).Execute()
 
 
 
@@ -2489,11 +2763,11 @@ import (
 )
 
 func main() {
-	iPSecProfileRequest := []openapiclient.IPSecProfileRequest{*openapiclient.NewIPSecProfileRequest("Name_example", openapiclient.IPSecProfile_mode_value("esp"), *openapiclient.NewBriefIKEPolicyRequest("Name_example"), *openapiclient.NewBriefIPSecPolicyRequest("Name_example"))} // []IPSecProfileRequest | 
+	bulkIPSecProfileRequest := []openapiclient.BulkIPSecProfileRequest{*openapiclient.NewBulkIPSecProfileRequest(int32(123), "Name_example", openapiclient.BulkIPSecProfileRequest_mode("esp"), openapiclient.BulkIPSecProfileRequest_ike_policy{BriefIKEPolicyRequest: openapiclient.NewBriefIKEPolicyRequest("Name_example")}, openapiclient.BulkIPSecProfileRequest_ipsec_policy{BriefIPSecPolicyRequest: openapiclient.NewBriefIPSecPolicyRequest("Name_example")})} // []BulkIPSecProfileRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesBulkUpdate(context.Background()).IPSecProfileRequest(iPSecProfileRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesBulkUpdate(context.Background()).BulkIPSecProfileRequest(bulkIPSecProfileRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProfilesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2514,7 +2788,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecProfilesBulkUpdate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPSecProfileRequest** | [**[]IPSecProfileRequest**](IPSecProfileRequest.md) |  | 
+ **bulkIPSecProfileRequest** | [**[]BulkIPSecProfileRequest**](BulkIPSecProfileRequest.md) |  | 
 
 ### Return type
 
@@ -2536,7 +2810,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProfilesCreate
 
-> IPSecProfile VpnIpsecProfilesCreate(ctx).WritableIPSecProfileRequest(writableIPSecProfileRequest).Execute()
+> IPSecProfile VpnIpsecProfilesCreate(ctx).VpnIpsecProfilesCreateRequest(vpnIpsecProfilesCreateRequest).Execute()
 
 
 
@@ -2555,11 +2829,11 @@ import (
 )
 
 func main() {
-	writableIPSecProfileRequest := *openapiclient.NewWritableIPSecProfileRequest("Name_example", openapiclient.IPSecProfile_mode_value("esp"), *openapiclient.NewBriefIKEPolicyRequest("Name_example"), *openapiclient.NewBriefIPSecPolicyRequest("Name_example")) // WritableIPSecProfileRequest | 
+	vpnIpsecProfilesCreateRequest := openapiclient.vpn_ipsec_profiles_create_request{WritableIPSecProfileRequest: openapiclient.NewWritableIPSecProfileRequest("Name_example", openapiclient.BulkIPSecProfileRequest_mode("esp"), openapiclient.BulkIPSecProfileRequest_ike_policy{BriefIKEPolicyRequest: openapiclient.NewBriefIKEPolicyRequest("Name_example")}, openapiclient.BulkIPSecProfileRequest_ipsec_policy{BriefIPSecPolicyRequest: openapiclient.NewBriefIPSecPolicyRequest("Name_example")})} // VpnIpsecProfilesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesCreate(context.Background()).WritableIPSecProfileRequest(writableIPSecProfileRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesCreate(context.Background()).VpnIpsecProfilesCreateRequest(vpnIpsecProfilesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProfilesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2580,7 +2854,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecProfilesCreateRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableIPSecProfileRequest** | [**WritableIPSecProfileRequest**](WritableIPSecProfileRequest.md) |  | 
+ **vpnIpsecProfilesCreateRequest** | [**VpnIpsecProfilesCreateRequest**](VpnIpsecProfilesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -2670,7 +2944,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProfilesList
 
-> PaginatedIPSecProfileList VpnIpsecProfilesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeN(modeN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedIPSecProfileList VpnIpsecProfilesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeEmpty(modeEmpty).ModeIc(modeIc).ModeIe(modeIe).ModeIew(modeIew).ModeIregex(modeIregex).ModeIsw(modeIsw).ModeN(modeN).ModeNic(modeNic).ModeNie(modeNie).ModeNiew(modeNiew).ModeNisw(modeNisw).ModeRegex(modeRegex).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -2690,6 +2964,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -2703,12 +2978,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -2733,29 +3011,56 @@ func main() {
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	mode := []string{"Inner_example"} // []string |  (optional)
+	modeEmpty := true // bool |  (optional)
+	modeIc := []string{"Inner_example"} // []string |  (optional)
+	modeIe := []string{"Inner_example"} // []string |  (optional)
+	modeIew := []string{"Inner_example"} // []string |  (optional)
+	modeIregex := []string{"Inner_example"} // []string |  (optional)
+	modeIsw := []string{"Inner_example"} // []string |  (optional)
 	modeN := []string{"Inner_example"} // []string |  (optional)
+	modeNic := []string{"Inner_example"} // []string |  (optional)
+	modeNie := []string{"Inner_example"} // []string |  (optional)
+	modeNiew := []string{"Inner_example"} // []string |  (optional)
+	modeNisw := []string{"Inner_example"} // []string |  (optional)
+	modeRegex := []string{"Inner_example"} // []string |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	name := []string{"Inner_example"} // []string |  (optional)
 	nameEmpty := true // bool |  (optional)
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeN(modeN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IkePolicy(ikePolicy).IkePolicyN(ikePolicyN).IkePolicyId(ikePolicyId).IkePolicyIdN(ikePolicyIdN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Mode(mode).ModeEmpty(modeEmpty).ModeIc(modeIc).ModeIe(modeIe).ModeIew(modeIew).ModeIregex(modeIregex).ModeIsw(modeIsw).ModeN(modeN).ModeNic(modeNic).ModeNie(modeNie).ModeNiew(modeNiew).ModeNisw(modeNisw).ModeRegex(modeRegex).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProfilesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2776,6 +3081,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecProfilesListReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -2789,12 +3095,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -2819,24 +3128,51 @@ Name | Type | Description  | Notes
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
  **mode** | **[]string** |  | 
+ **modeEmpty** | **bool** |  | 
+ **modeIc** | **[]string** |  | 
+ **modeIe** | **[]string** |  | 
+ **modeIew** | **[]string** |  | 
+ **modeIregex** | **[]string** |  | 
+ **modeIsw** | **[]string** |  | 
  **modeN** | **[]string** |  | 
+ **modeNic** | **[]string** |  | 
+ **modeNie** | **[]string** |  | 
+ **modeNiew** | **[]string** |  | 
+ **modeNisw** | **[]string** |  | 
+ **modeRegex** | **[]string** |  | 
  **modifiedByRequest** | **string** |  | 
  **name** | **[]string** |  | 
  **nameEmpty** | **bool** |  | 
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -2931,7 +3267,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProfilesRetrieve
 
-> IPSecProfile VpnIpsecProfilesRetrieve(ctx, id).Execute()
+> IPSecProfile VpnIpsecProfilesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2951,10 +3287,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IPSec profile.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProfilesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProfilesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2980,6 +3319,9 @@ Other parameters are passed through a pointer to a apiVpnIpsecProfilesRetrieveRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3021,7 +3363,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IPSec profile.
-	writableIPSecProfileRequest := *openapiclient.NewWritableIPSecProfileRequest("Name_example", openapiclient.IPSecProfile_mode_value("esp"), *openapiclient.NewBriefIKEPolicyRequest("Name_example"), *openapiclient.NewBriefIPSecPolicyRequest("Name_example")) // WritableIPSecProfileRequest | 
+	writableIPSecProfileRequest := *openapiclient.NewWritableIPSecProfileRequest("Name_example", openapiclient.BulkIPSecProfileRequest_mode("esp"), openapiclient.BulkIPSecProfileRequest_ike_policy{BriefIKEPolicyRequest: openapiclient.NewBriefIKEPolicyRequest("Name_example")}, openapiclient.BulkIPSecProfileRequest_ipsec_policy{BriefIPSecPolicyRequest: openapiclient.NewBriefIPSecPolicyRequest("Name_example")}) // WritableIPSecProfileRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3092,7 +3434,7 @@ import (
 )
 
 func main() {
-	iPSecProposalRequest := []openapiclient.IPSecProposalRequest{*openapiclient.NewIPSecProposalRequest("Name_example", openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.IKEProposal_authentication_algorithm_value("hmac-sha1"))} // []IPSecProposalRequest | 
+	iPSecProposalRequest := []openapiclient.IPSecProposalRequest{*openapiclient.NewIPSecProposalRequest("Name_example")} // []IPSecProposalRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3128,7 +3470,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3137,7 +3479,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProposalsBulkPartialUpdate
 
-> []IPSecProposal VpnIpsecProposalsBulkPartialUpdate(ctx).IPSecProposalRequest(iPSecProposalRequest).Execute()
+> []IPSecProposal VpnIpsecProposalsBulkPartialUpdate(ctx).PatchedBulkIPSecProposalRequest(patchedBulkIPSecProposalRequest).Execute()
 
 
 
@@ -3156,11 +3498,11 @@ import (
 )
 
 func main() {
-	iPSecProposalRequest := []openapiclient.IPSecProposalRequest{*openapiclient.NewIPSecProposalRequest("Name_example", openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.IKEProposal_authentication_algorithm_value("hmac-sha1"))} // []IPSecProposalRequest | 
+	patchedBulkIPSecProposalRequest := []openapiclient.PatchedBulkIPSecProposalRequest{*openapiclient.NewPatchedBulkIPSecProposalRequest(int32(123))} // []PatchedBulkIPSecProposalRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsBulkPartialUpdate(context.Background()).IPSecProposalRequest(iPSecProposalRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsBulkPartialUpdate(context.Background()).PatchedBulkIPSecProposalRequest(patchedBulkIPSecProposalRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProposalsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3181,7 +3523,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecProposalsBulkParti
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPSecProposalRequest** | [**[]IPSecProposalRequest**](IPSecProposalRequest.md) |  | 
+ **patchedBulkIPSecProposalRequest** | [**[]PatchedBulkIPSecProposalRequest**](PatchedBulkIPSecProposalRequest.md) |  | 
 
 ### Return type
 
@@ -3203,7 +3545,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProposalsBulkUpdate
 
-> []IPSecProposal VpnIpsecProposalsBulkUpdate(ctx).IPSecProposalRequest(iPSecProposalRequest).Execute()
+> []IPSecProposal VpnIpsecProposalsBulkUpdate(ctx).BulkIPSecProposalRequest(bulkIPSecProposalRequest).Execute()
 
 
 
@@ -3222,11 +3564,11 @@ import (
 )
 
 func main() {
-	iPSecProposalRequest := []openapiclient.IPSecProposalRequest{*openapiclient.NewIPSecProposalRequest("Name_example", openapiclient.IKEProposal_encryption_algorithm_value("aes-128-cbc"), openapiclient.IKEProposal_authentication_algorithm_value("hmac-sha1"))} // []IPSecProposalRequest | 
+	bulkIPSecProposalRequest := []openapiclient.BulkIPSecProposalRequest{*openapiclient.NewBulkIPSecProposalRequest(int32(123), "Name_example")} // []BulkIPSecProposalRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsBulkUpdate(context.Background()).IPSecProposalRequest(iPSecProposalRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsBulkUpdate(context.Background()).BulkIPSecProposalRequest(bulkIPSecProposalRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProposalsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3247,7 +3589,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecProposalsBulkUpdat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPSecProposalRequest** | [**[]IPSecProposalRequest**](IPSecProposalRequest.md) |  | 
+ **bulkIPSecProposalRequest** | [**[]BulkIPSecProposalRequest**](BulkIPSecProposalRequest.md) |  | 
 
 ### Return type
 
@@ -3269,7 +3611,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProposalsCreate
 
-> IPSecProposal VpnIpsecProposalsCreate(ctx).WritableIPSecProposalRequest(writableIPSecProposalRequest).Execute()
+> IPSecProposal VpnIpsecProposalsCreate(ctx).VpnIpsecProposalsCreateRequest(vpnIpsecProposalsCreateRequest).Execute()
 
 
 
@@ -3288,11 +3630,11 @@ import (
 )
 
 func main() {
-	writableIPSecProposalRequest := *openapiclient.NewWritableIPSecProposalRequest("Name_example") // WritableIPSecProposalRequest | 
+	vpnIpsecProposalsCreateRequest := openapiclient.vpn_ipsec_proposals_create_request{WritableIPSecProposalRequest: openapiclient.NewWritableIPSecProposalRequest("Name_example")} // VpnIpsecProposalsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsCreate(context.Background()).WritableIPSecProposalRequest(writableIPSecProposalRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsCreate(context.Background()).VpnIpsecProposalsCreateRequest(vpnIpsecProposalsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProposalsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3313,7 +3655,7 @@ Other parameters are passed through a pointer to a apiVpnIpsecProposalsCreateReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableIPSecProposalRequest** | [**WritableIPSecProposalRequest**](WritableIPSecProposalRequest.md) |  | 
+ **vpnIpsecProposalsCreateRequest** | [**VpnIpsecProposalsCreateRequest**](VpnIpsecProposalsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -3403,7 +3745,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProposalsList
 
-> PaginatedIPSecProposalList VpnIpsecProposalsList(ctx).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmN(authenticationAlgorithmN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmN(encryptionAlgorithmN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).SaLifetimeData(saLifetimeData).SaLifetimeDataEmpty(saLifetimeDataEmpty).SaLifetimeDataGt(saLifetimeDataGt).SaLifetimeDataGte(saLifetimeDataGte).SaLifetimeDataLt(saLifetimeDataLt).SaLifetimeDataLte(saLifetimeDataLte).SaLifetimeDataN(saLifetimeDataN).SaLifetimeSeconds(saLifetimeSeconds).SaLifetimeSecondsEmpty(saLifetimeSecondsEmpty).SaLifetimeSecondsGt(saLifetimeSecondsGt).SaLifetimeSecondsGte(saLifetimeSecondsGte).SaLifetimeSecondsLt(saLifetimeSecondsLt).SaLifetimeSecondsLte(saLifetimeSecondsLte).SaLifetimeSecondsN(saLifetimeSecondsN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedIPSecProposalList VpnIpsecProposalsList(ctx).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmEmpty(authenticationAlgorithmEmpty).AuthenticationAlgorithmIc(authenticationAlgorithmIc).AuthenticationAlgorithmIe(authenticationAlgorithmIe).AuthenticationAlgorithmIew(authenticationAlgorithmIew).AuthenticationAlgorithmIregex(authenticationAlgorithmIregex).AuthenticationAlgorithmIsw(authenticationAlgorithmIsw).AuthenticationAlgorithmN(authenticationAlgorithmN).AuthenticationAlgorithmNic(authenticationAlgorithmNic).AuthenticationAlgorithmNie(authenticationAlgorithmNie).AuthenticationAlgorithmNiew(authenticationAlgorithmNiew).AuthenticationAlgorithmNisw(authenticationAlgorithmNisw).AuthenticationAlgorithmRegex(authenticationAlgorithmRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmEmpty(encryptionAlgorithmEmpty).EncryptionAlgorithmIc(encryptionAlgorithmIc).EncryptionAlgorithmIe(encryptionAlgorithmIe).EncryptionAlgorithmIew(encryptionAlgorithmIew).EncryptionAlgorithmIregex(encryptionAlgorithmIregex).EncryptionAlgorithmIsw(encryptionAlgorithmIsw).EncryptionAlgorithmN(encryptionAlgorithmN).EncryptionAlgorithmNic(encryptionAlgorithmNic).EncryptionAlgorithmNie(encryptionAlgorithmNie).EncryptionAlgorithmNiew(encryptionAlgorithmNiew).EncryptionAlgorithmNisw(encryptionAlgorithmNisw).EncryptionAlgorithmRegex(encryptionAlgorithmRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).SaLifetimeData(saLifetimeData).SaLifetimeDataEmpty(saLifetimeDataEmpty).SaLifetimeDataGt(saLifetimeDataGt).SaLifetimeDataGte(saLifetimeDataGte).SaLifetimeDataLt(saLifetimeDataLt).SaLifetimeDataLte(saLifetimeDataLte).SaLifetimeDataN(saLifetimeDataN).SaLifetimeSeconds(saLifetimeSeconds).SaLifetimeSecondsEmpty(saLifetimeSecondsEmpty).SaLifetimeSecondsGt(saLifetimeSecondsGt).SaLifetimeSecondsGte(saLifetimeSecondsGte).SaLifetimeSecondsLt(saLifetimeSecondsLt).SaLifetimeSecondsLte(saLifetimeSecondsLte).SaLifetimeSecondsN(saLifetimeSecondsN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -3423,8 +3765,20 @@ import (
 )
 
 func main() {
-	authenticationAlgorithm := []string{"Inner_example"} // []string |  (optional)
-	authenticationAlgorithmN := []string{"Inner_example"} // []string |  (optional)
+	authenticationAlgorithm := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmEmpty := true // bool |  (optional)
+	authenticationAlgorithmIc := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIe := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIew := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIregex := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmIsw := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmN := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNic := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNie := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNiew := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmNisw := []*string{"Inner_example"} // []*string |  (optional)
+	authenticationAlgorithmRegex := []*string{"Inner_example"} // []*string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -3438,14 +3792,28 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
-	encryptionAlgorithm := []string{"Inner_example"} // []string |  (optional)
-	encryptionAlgorithmN := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	encryptionAlgorithm := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmEmpty := true // bool |  (optional)
+	encryptionAlgorithmIc := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmIe := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmIew := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmIregex := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmIsw := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmN := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmNic := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmNie := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmNiew := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmNisw := []*string{"Inner_example"} // []*string |  (optional)
+	encryptionAlgorithmRegex := []*string{"Inner_example"} // []*string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -3471,14 +3839,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	saLifetimeData := []int32{int32(123)} // []int32 |  (optional)
 	saLifetimeDataEmpty := true // bool |  (optional)
@@ -3494,13 +3873,18 @@ func main() {
 	saLifetimeSecondsLt := []int32{int32(123)} // []int32 |  (optional)
 	saLifetimeSecondsLte := []int32{int32(123)} // []int32 |  (optional)
 	saLifetimeSecondsN := []int32{int32(123)} // []int32 |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsList(context.Background()).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmN(authenticationAlgorithmN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmN(encryptionAlgorithmN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).SaLifetimeData(saLifetimeData).SaLifetimeDataEmpty(saLifetimeDataEmpty).SaLifetimeDataGt(saLifetimeDataGt).SaLifetimeDataGte(saLifetimeDataGte).SaLifetimeDataLt(saLifetimeDataLt).SaLifetimeDataLte(saLifetimeDataLte).SaLifetimeDataN(saLifetimeDataN).SaLifetimeSeconds(saLifetimeSeconds).SaLifetimeSecondsEmpty(saLifetimeSecondsEmpty).SaLifetimeSecondsGt(saLifetimeSecondsGt).SaLifetimeSecondsGte(saLifetimeSecondsGte).SaLifetimeSecondsLt(saLifetimeSecondsLt).SaLifetimeSecondsLte(saLifetimeSecondsLte).SaLifetimeSecondsN(saLifetimeSecondsN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsList(context.Background()).AuthenticationAlgorithm(authenticationAlgorithm).AuthenticationAlgorithmEmpty(authenticationAlgorithmEmpty).AuthenticationAlgorithmIc(authenticationAlgorithmIc).AuthenticationAlgorithmIe(authenticationAlgorithmIe).AuthenticationAlgorithmIew(authenticationAlgorithmIew).AuthenticationAlgorithmIregex(authenticationAlgorithmIregex).AuthenticationAlgorithmIsw(authenticationAlgorithmIsw).AuthenticationAlgorithmN(authenticationAlgorithmN).AuthenticationAlgorithmNic(authenticationAlgorithmNic).AuthenticationAlgorithmNie(authenticationAlgorithmNie).AuthenticationAlgorithmNiew(authenticationAlgorithmNiew).AuthenticationAlgorithmNisw(authenticationAlgorithmNisw).AuthenticationAlgorithmRegex(authenticationAlgorithmRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EncryptionAlgorithm(encryptionAlgorithm).EncryptionAlgorithmEmpty(encryptionAlgorithmEmpty).EncryptionAlgorithmIc(encryptionAlgorithmIc).EncryptionAlgorithmIe(encryptionAlgorithmIe).EncryptionAlgorithmIew(encryptionAlgorithmIew).EncryptionAlgorithmIregex(encryptionAlgorithmIregex).EncryptionAlgorithmIsw(encryptionAlgorithmIsw).EncryptionAlgorithmN(encryptionAlgorithmN).EncryptionAlgorithmNic(encryptionAlgorithmNic).EncryptionAlgorithmNie(encryptionAlgorithmNie).EncryptionAlgorithmNiew(encryptionAlgorithmNiew).EncryptionAlgorithmNisw(encryptionAlgorithmNisw).EncryptionAlgorithmRegex(encryptionAlgorithmRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecPolicy(ipsecPolicy).IpsecPolicyN(ipsecPolicyN).IpsecPolicyId(ipsecPolicyId).IpsecPolicyIdN(ipsecPolicyIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).SaLifetimeData(saLifetimeData).SaLifetimeDataEmpty(saLifetimeDataEmpty).SaLifetimeDataGt(saLifetimeDataGt).SaLifetimeDataGte(saLifetimeDataGte).SaLifetimeDataLt(saLifetimeDataLt).SaLifetimeDataLte(saLifetimeDataLte).SaLifetimeDataN(saLifetimeDataN).SaLifetimeSeconds(saLifetimeSeconds).SaLifetimeSecondsEmpty(saLifetimeSecondsEmpty).SaLifetimeSecondsGt(saLifetimeSecondsGt).SaLifetimeSecondsGte(saLifetimeSecondsGte).SaLifetimeSecondsLt(saLifetimeSecondsLt).SaLifetimeSecondsLte(saLifetimeSecondsLte).SaLifetimeSecondsN(saLifetimeSecondsN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProposalsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3522,7 +3906,19 @@ Other parameters are passed through a pointer to a apiVpnIpsecProposalsListReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authenticationAlgorithm** | **[]string** |  | 
+ **authenticationAlgorithmEmpty** | **bool** |  | 
+ **authenticationAlgorithmIc** | **[]string** |  | 
+ **authenticationAlgorithmIe** | **[]string** |  | 
+ **authenticationAlgorithmIew** | **[]string** |  | 
+ **authenticationAlgorithmIregex** | **[]string** |  | 
+ **authenticationAlgorithmIsw** | **[]string** |  | 
  **authenticationAlgorithmN** | **[]string** |  | 
+ **authenticationAlgorithmNic** | **[]string** |  | 
+ **authenticationAlgorithmNie** | **[]string** |  | 
+ **authenticationAlgorithmNiew** | **[]string** |  | 
+ **authenticationAlgorithmNisw** | **[]string** |  | 
+ **authenticationAlgorithmRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3536,14 +3932,28 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **encryptionAlgorithm** | **[]string** |  | 
+ **encryptionAlgorithmEmpty** | **bool** |  | 
+ **encryptionAlgorithmIc** | **[]string** |  | 
+ **encryptionAlgorithmIe** | **[]string** |  | 
+ **encryptionAlgorithmIew** | **[]string** |  | 
+ **encryptionAlgorithmIregex** | **[]string** |  | 
+ **encryptionAlgorithmIsw** | **[]string** |  | 
  **encryptionAlgorithmN** | **[]string** |  | 
+ **encryptionAlgorithmNic** | **[]string** |  | 
+ **encryptionAlgorithmNie** | **[]string** |  | 
+ **encryptionAlgorithmNiew** | **[]string** |  | 
+ **encryptionAlgorithmNisw** | **[]string** |  | 
+ **encryptionAlgorithmRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -3569,14 +3979,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **saLifetimeData** | **[]int32** |  | 
  **saLifetimeDataEmpty** | **bool** |  | 
@@ -3592,8 +4013,13 @@ Name | Type | Description  | Notes
  **saLifetimeSecondsLt** | **[]int32** |  | 
  **saLifetimeSecondsLte** | **[]int32** |  | 
  **saLifetimeSecondsN** | **[]int32** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -3688,7 +4114,7 @@ Name | Type | Description  | Notes
 
 ## VpnIpsecProposalsRetrieve
 
-> IPSecProposal VpnIpsecProposalsRetrieve(ctx, id).Execute()
+> IPSecProposal VpnIpsecProposalsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3708,10 +4134,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IPSec proposal.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnIpsecProposalsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnIpsecProposalsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3737,6 +4166,9 @@ Other parameters are passed through a pointer to a apiVpnIpsecProposalsRetrieveR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3849,7 +4281,7 @@ import (
 )
 
 func main() {
-	l2VPNTerminationRequest := []openapiclient.L2VPNTerminationRequest{*openapiclient.NewL2VPNTerminationRequest(*openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example"), "AssignedObjectType_example", int64(123))} // []L2VPNTerminationRequest | 
+	l2VPNTerminationRequest := []openapiclient.L2VPNTerminationRequest{*openapiclient.NewL2VPNTerminationRequest(openapiclient.BriefL2VPNTerminationRequest_l2vpn{BriefL2VPNRequest: openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws"))}, "AssignedObjectType_example", int64(123))} // []L2VPNTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3885,7 +4317,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3894,7 +4326,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnTerminationsBulkPartialUpdate
 
-> []L2VPNTermination VpnL2vpnTerminationsBulkPartialUpdate(ctx).L2VPNTerminationRequest(l2VPNTerminationRequest).Execute()
+> []L2VPNTermination VpnL2vpnTerminationsBulkPartialUpdate(ctx).PatchedBulkL2VPNTerminationRequest(patchedBulkL2VPNTerminationRequest).Execute()
 
 
 
@@ -3913,11 +4345,11 @@ import (
 )
 
 func main() {
-	l2VPNTerminationRequest := []openapiclient.L2VPNTerminationRequest{*openapiclient.NewL2VPNTerminationRequest(*openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example"), "AssignedObjectType_example", int64(123))} // []L2VPNTerminationRequest | 
+	patchedBulkL2VPNTerminationRequest := []openapiclient.PatchedBulkL2VPNTerminationRequest{*openapiclient.NewPatchedBulkL2VPNTerminationRequest(int32(123))} // []PatchedBulkL2VPNTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsBulkPartialUpdate(context.Background()).L2VPNTerminationRequest(l2VPNTerminationRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsBulkPartialUpdate(context.Background()).PatchedBulkL2VPNTerminationRequest(patchedBulkL2VPNTerminationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnTerminationsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3938,7 +4370,7 @@ Other parameters are passed through a pointer to a apiVpnL2vpnTerminationsBulkPa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **l2VPNTerminationRequest** | [**[]L2VPNTerminationRequest**](L2VPNTerminationRequest.md) |  | 
+ **patchedBulkL2VPNTerminationRequest** | [**[]PatchedBulkL2VPNTerminationRequest**](PatchedBulkL2VPNTerminationRequest.md) |  | 
 
 ### Return type
 
@@ -3960,7 +4392,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnTerminationsBulkUpdate
 
-> []L2VPNTermination VpnL2vpnTerminationsBulkUpdate(ctx).L2VPNTerminationRequest(l2VPNTerminationRequest).Execute()
+> []L2VPNTermination VpnL2vpnTerminationsBulkUpdate(ctx).BulkL2VPNTerminationRequest(bulkL2VPNTerminationRequest).Execute()
 
 
 
@@ -3979,11 +4411,11 @@ import (
 )
 
 func main() {
-	l2VPNTerminationRequest := []openapiclient.L2VPNTerminationRequest{*openapiclient.NewL2VPNTerminationRequest(*openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example"), "AssignedObjectType_example", int64(123))} // []L2VPNTerminationRequest | 
+	bulkL2VPNTerminationRequest := []openapiclient.BulkL2VPNTerminationRequest{*openapiclient.NewBulkL2VPNTerminationRequest(int32(123), openapiclient.BriefL2VPNTerminationRequest_l2vpn{BriefL2VPNRequest: openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws"))}, "AssignedObjectType_example", int64(123))} // []BulkL2VPNTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsBulkUpdate(context.Background()).L2VPNTerminationRequest(l2VPNTerminationRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsBulkUpdate(context.Background()).BulkL2VPNTerminationRequest(bulkL2VPNTerminationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnTerminationsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4004,7 +4436,7 @@ Other parameters are passed through a pointer to a apiVpnL2vpnTerminationsBulkUp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **l2VPNTerminationRequest** | [**[]L2VPNTerminationRequest**](L2VPNTerminationRequest.md) |  | 
+ **bulkL2VPNTerminationRequest** | [**[]BulkL2VPNTerminationRequest**](BulkL2VPNTerminationRequest.md) |  | 
 
 ### Return type
 
@@ -4026,7 +4458,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnTerminationsCreate
 
-> L2VPNTermination VpnL2vpnTerminationsCreate(ctx).L2VPNTerminationRequest(l2VPNTerminationRequest).Execute()
+> L2VPNTermination VpnL2vpnTerminationsCreate(ctx).VpnL2vpnTerminationsCreateRequest(vpnL2vpnTerminationsCreateRequest).Execute()
 
 
 
@@ -4045,11 +4477,11 @@ import (
 )
 
 func main() {
-	l2VPNTerminationRequest := *openapiclient.NewL2VPNTerminationRequest(*openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example"), "AssignedObjectType_example", int64(123)) // L2VPNTerminationRequest | 
+	vpnL2vpnTerminationsCreateRequest := openapiclient.vpn_l2vpn_terminations_create_request{L2VPNTerminationRequest: openapiclient.NewL2VPNTerminationRequest(openapiclient.BriefL2VPNTerminationRequest_l2vpn{BriefL2VPNRequest: openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws"))}, "AssignedObjectType_example", int64(123))} // VpnL2vpnTerminationsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsCreate(context.Background()).L2VPNTerminationRequest(l2VPNTerminationRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsCreate(context.Background()).VpnL2vpnTerminationsCreateRequest(vpnL2vpnTerminationsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnTerminationsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4070,7 +4502,7 @@ Other parameters are passed through a pointer to a apiVpnL2vpnTerminationsCreate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **l2VPNTerminationRequest** | [**L2VPNTerminationRequest**](L2VPNTerminationRequest.md) |  | 
+ **vpnL2vpnTerminationsCreateRequest** | [**VpnL2vpnTerminationsCreateRequest**](VpnL2vpnTerminationsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -4160,7 +4592,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnTerminationsList
 
-> PaginatedL2VPNTerminationList VpnL2vpnTerminationsList(ctx).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionId(regionId).Site(site).SiteId(siteId).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanN(vlanN).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
+> PaginatedL2VPNTerminationList VpnL2vpnTerminationsList(ctx).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).AssignedObjectTypeId(assignedObjectTypeId).AssignedObjectTypeIdN(assignedObjectTypeIdN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Q(q).Region(region).RegionId(regionId).Site(site).SiteId(siteId).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanN(vlanN).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
 
 
 
@@ -4187,8 +4619,11 @@ func main() {
 	assignedObjectIdLt := []int32{int32(123)} // []int32 |  (optional)
 	assignedObjectIdLte := []int32{int32(123)} // []int32 |  (optional)
 	assignedObjectIdN := []int32{int32(123)} // []int32 |  (optional)
-	assignedObjectType := "assignedObjectType_example" // string |  (optional)
-	assignedObjectTypeN := "assignedObjectTypeN_example" // string |  (optional)
+	assignedObjectType := []string{"Inner_example"} // []string |  (optional)
+	assignedObjectTypeN := []string{"Inner_example"} // []string |  (optional)
+	assignedObjectTypeId := []int32{int32(123)} // []int32 |  (optional)
+	assignedObjectTypeIdN := []int32{int32(123)} // []int32 |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -4201,6 +4636,7 @@ func main() {
 	deviceN := []*string{"Inner_example"} // []*string | Device (name) (optional)
 	deviceId := []int32{int32(123)} // []int32 | Device (ID) (optional)
 	deviceIdN := []int32{int32(123)} // []int32 | Device (ID) (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -4226,14 +4662,20 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
 	q := "q_example" // string | Search (optional)
 	region := []string{"Inner_example"} // []string |  (optional)
 	regionId := []int32{int32(123)} // []int32 |  (optional)
 	site := []string{"Inner_example"} // []string |  (optional)
 	siteId := []int32{int32(123)} // []int32 |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	virtualMachine := []string{"Inner_example"} // []string | Virtual machine (name) (optional)
 	virtualMachineN := []string{"Inner_example"} // []string | Virtual machine (name) (optional)
@@ -4257,7 +4699,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsList(context.Background()).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionId(regionId).Site(site).SiteId(siteId).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanN(vlanN).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsList(context.Background()).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).AssignedObjectTypeId(assignedObjectTypeId).AssignedObjectTypeIdN(assignedObjectTypeIdN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Q(q).Region(region).RegionId(regionId).Site(site).SiteId(siteId).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanN(vlanN).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnTerminationsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4285,8 +4727,11 @@ Name | Type | Description  | Notes
  **assignedObjectIdLt** | **[]int32** |  | 
  **assignedObjectIdLte** | **[]int32** |  | 
  **assignedObjectIdN** | **[]int32** |  | 
- **assignedObjectType** | **string** |  | 
- **assignedObjectTypeN** | **string** |  | 
+ **assignedObjectType** | **[]string** |  | 
+ **assignedObjectTypeN** | **[]string** |  | 
+ **assignedObjectTypeId** | **[]int32** |  | 
+ **assignedObjectTypeIdN** | **[]int32** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -4299,6 +4744,7 @@ Name | Type | Description  | Notes
  **deviceN** | **[]string** | Device (name) | 
  **deviceId** | **[]int32** | Device (ID) | 
  **deviceIdN** | **[]int32** | Device (ID) | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -4324,14 +4770,20 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **q** | **string** | Search | 
  **region** | **[]string** |  | 
  **regionId** | **[]int32** |  | 
  **site** | **[]string** |  | 
  **siteId** | **[]int32** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
  **virtualMachine** | **[]string** | Virtual machine (name) | 
  **virtualMachineN** | **[]string** | Virtual machine (name) | 
@@ -4445,7 +4897,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnTerminationsRetrieve
 
-> L2VPNTermination VpnL2vpnTerminationsRetrieve(ctx, id).Execute()
+> L2VPNTermination VpnL2vpnTerminationsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -4465,10 +4917,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this L2VPN termination.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnTerminationsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnTerminationsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4494,6 +4949,9 @@ Other parameters are passed through a pointer to a apiVpnL2vpnTerminationsRetrie
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -4535,7 +4993,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this L2VPN termination.
-	l2VPNTerminationRequest := *openapiclient.NewL2VPNTerminationRequest(*openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example"), "AssignedObjectType_example", int64(123)) // L2VPNTerminationRequest | 
+	l2VPNTerminationRequest := *openapiclient.NewL2VPNTerminationRequest(openapiclient.BriefL2VPNTerminationRequest_l2vpn{BriefL2VPNRequest: openapiclient.NewBriefL2VPNRequest("Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws"))}, "AssignedObjectType_example", int64(123)) // L2VPNTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4606,7 +5064,7 @@ import (
 )
 
 func main() {
-	l2VPNRequest := []openapiclient.L2VPNRequest{*openapiclient.NewL2VPNRequest("Name_example", "Slug_example")} // []L2VPNRequest | 
+	l2VPNRequest := []openapiclient.L2VPNRequest{*openapiclient.NewL2VPNRequest("Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws"))} // []L2VPNRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -4642,7 +5100,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4651,7 +5109,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnsBulkPartialUpdate
 
-> []L2VPN VpnL2vpnsBulkPartialUpdate(ctx).L2VPNRequest(l2VPNRequest).Execute()
+> []L2VPN VpnL2vpnsBulkPartialUpdate(ctx).PatchedBulkL2VPNRequest(patchedBulkL2VPNRequest).Execute()
 
 
 
@@ -4670,11 +5128,11 @@ import (
 )
 
 func main() {
-	l2VPNRequest := []openapiclient.L2VPNRequest{*openapiclient.NewL2VPNRequest("Name_example", "Slug_example")} // []L2VPNRequest | 
+	patchedBulkL2VPNRequest := []openapiclient.PatchedBulkL2VPNRequest{*openapiclient.NewPatchedBulkL2VPNRequest(int32(123))} // []PatchedBulkL2VPNRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnsBulkPartialUpdate(context.Background()).L2VPNRequest(l2VPNRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnsBulkPartialUpdate(context.Background()).PatchedBulkL2VPNRequest(patchedBulkL2VPNRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4695,7 +5153,7 @@ Other parameters are passed through a pointer to a apiVpnL2vpnsBulkPartialUpdate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **l2VPNRequest** | [**[]L2VPNRequest**](L2VPNRequest.md) |  | 
+ **patchedBulkL2VPNRequest** | [**[]PatchedBulkL2VPNRequest**](PatchedBulkL2VPNRequest.md) |  | 
 
 ### Return type
 
@@ -4717,7 +5175,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnsBulkUpdate
 
-> []L2VPN VpnL2vpnsBulkUpdate(ctx).L2VPNRequest(l2VPNRequest).Execute()
+> []L2VPN VpnL2vpnsBulkUpdate(ctx).BulkL2VPNRequest(bulkL2VPNRequest).Execute()
 
 
 
@@ -4736,11 +5194,11 @@ import (
 )
 
 func main() {
-	l2VPNRequest := []openapiclient.L2VPNRequest{*openapiclient.NewL2VPNRequest("Name_example", "Slug_example")} // []L2VPNRequest | 
+	bulkL2VPNRequest := []openapiclient.BulkL2VPNRequest{*openapiclient.NewBulkL2VPNRequest(int32(123), "Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws"))} // []BulkL2VPNRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnsBulkUpdate(context.Background()).L2VPNRequest(l2VPNRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnsBulkUpdate(context.Background()).BulkL2VPNRequest(bulkL2VPNRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4761,7 +5219,7 @@ Other parameters are passed through a pointer to a apiVpnL2vpnsBulkUpdateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **l2VPNRequest** | [**[]L2VPNRequest**](L2VPNRequest.md) |  | 
+ **bulkL2VPNRequest** | [**[]BulkL2VPNRequest**](BulkL2VPNRequest.md) |  | 
 
 ### Return type
 
@@ -4783,7 +5241,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnsCreate
 
-> L2VPN VpnL2vpnsCreate(ctx).WritableL2VPNRequest(writableL2VPNRequest).Execute()
+> L2VPN VpnL2vpnsCreate(ctx).VpnL2vpnsCreateRequest(vpnL2vpnsCreateRequest).Execute()
 
 
 
@@ -4802,11 +5260,11 @@ import (
 )
 
 func main() {
-	writableL2VPNRequest := *openapiclient.NewWritableL2VPNRequest("Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws")) // WritableL2VPNRequest | 
+	vpnL2vpnsCreateRequest := openapiclient.vpn_l2vpns_create_request{WritableL2VPNRequest: openapiclient.NewWritableL2VPNRequest("Name_example", "Slug_example", openapiclient.BriefL2VPN_type_value("vpws"))} // VpnL2vpnsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnsCreate(context.Background()).WritableL2VPNRequest(writableL2VPNRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnsCreate(context.Background()).VpnL2vpnsCreateRequest(vpnL2vpnsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4827,7 +5285,7 @@ Other parameters are passed through a pointer to a apiVpnL2vpnsCreateRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableL2VPNRequest** | [**WritableL2VPNRequest**](WritableL2VPNRequest.md) |  | 
+ **vpnL2vpnsCreateRequest** | [**VpnL2vpnsCreateRequest**](VpnL2vpnsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -4917,7 +5375,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnsList
 
-> PaginatedL2VPNList VpnL2vpnsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Identifier(identifier).IdentifierEmpty(identifierEmpty).IdentifierGt(identifierGt).IdentifierGte(identifierGte).IdentifierLt(identifierLt).IdentifierLte(identifierLte).IdentifierN(identifierN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedL2VPNList VpnL2vpnsList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Identifier(identifier).IdentifierEmpty(identifierEmpty).IdentifierGt(identifierGt).IdentifierGte(identifierGte).IdentifierLt(identifierLt).IdentifierLte(identifierLte).IdentifierN(identifierN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeEmpty(typeEmpty).TypeIc(typeIc).TypeIe(typeIe).TypeIew(typeIew).TypeIregex(typeIregex).TypeIsw(typeIsw).TypeN(typeN).TypeNic(typeNic).TypeNie(typeNie).TypeNiew(typeNiew).TypeNisw(typeNisw).TypeRegex(typeRegex).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -4937,6 +5395,13 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -4950,16 +5415,19 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	exportTarget := []string{"Inner_example"} // []string | Export target (name) (optional)
 	exportTargetN := []string{"Inner_example"} // []string | Export target (name) (optional)
 	exportTargetId := []int32{int32(123)} // []int32 | Export target (optional)
 	exportTargetIdN := []int32{int32(123)} // []int32 | Export target (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -4992,28 +5460,59 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
+	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -5023,12 +5522,23 @@ func main() {
 	tenantId := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
 	tenantIdN := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
 	type_ := []string{"Inner_example"} // []string |  (optional)
+	typeEmpty := true // bool |  (optional)
+	typeIc := []string{"Inner_example"} // []string |  (optional)
+	typeIe := []string{"Inner_example"} // []string |  (optional)
+	typeIew := []string{"Inner_example"} // []string |  (optional)
+	typeIregex := []string{"Inner_example"} // []string |  (optional)
+	typeIsw := []string{"Inner_example"} // []string |  (optional)
 	typeN := []string{"Inner_example"} // []string |  (optional)
+	typeNic := []string{"Inner_example"} // []string |  (optional)
+	typeNie := []string{"Inner_example"} // []string |  (optional)
+	typeNiew := []string{"Inner_example"} // []string |  (optional)
+	typeNisw := []string{"Inner_example"} // []string |  (optional)
+	typeRegex := []string{"Inner_example"} // []string |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Identifier(identifier).IdentifierEmpty(identifierEmpty).IdentifierGt(identifierGt).IdentifierGte(identifierGte).IdentifierLt(identifierLt).IdentifierLte(identifierLte).IdentifierN(identifierN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnsList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Identifier(identifier).IdentifierEmpty(identifierEmpty).IdentifierGt(identifierGt).IdentifierGte(identifierGte).IdentifierLt(identifierLt).IdentifierLte(identifierLte).IdentifierN(identifierN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeEmpty(typeEmpty).TypeIc(typeIc).TypeIe(typeIe).TypeIew(typeIew).TypeIregex(typeIregex).TypeIsw(typeIsw).TypeN(typeN).TypeNic(typeNic).TypeNie(typeNie).TypeNiew(typeNiew).TypeNisw(typeNisw).TypeRegex(typeRegex).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5049,6 +5559,13 @@ Other parameters are passed through a pointer to a apiVpnL2vpnsListRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -5062,16 +5579,19 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **exportTarget** | **[]string** | Export target (name) | 
  **exportTargetN** | **[]string** | Export target (name) | 
  **exportTargetId** | **[]int32** | Export target | 
  **exportTargetIdN** | **[]int32** | Export target | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -5104,28 +5624,59 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
+ **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -5135,7 +5686,18 @@ Name | Type | Description  | Notes
  **tenantId** | **[]int32** | Tenant (ID) | 
  **tenantIdN** | **[]int32** | Tenant (ID) | 
  **type_** | **[]string** |  | 
+ **typeEmpty** | **bool** |  | 
+ **typeIc** | **[]string** |  | 
+ **typeIe** | **[]string** |  | 
+ **typeIew** | **[]string** |  | 
+ **typeIregex** | **[]string** |  | 
+ **typeIsw** | **[]string** |  | 
  **typeN** | **[]string** |  | 
+ **typeNic** | **[]string** |  | 
+ **typeNie** | **[]string** |  | 
+ **typeNiew** | **[]string** |  | 
+ **typeNisw** | **[]string** |  | 
+ **typeRegex** | **[]string** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -5230,7 +5792,7 @@ Name | Type | Description  | Notes
 
 ## VpnL2vpnsRetrieve
 
-> L2VPN VpnL2vpnsRetrieve(ctx, id).Execute()
+> L2VPN VpnL2vpnsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -5250,10 +5812,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this L2VPN.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnL2vpnsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnL2vpnsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnL2vpnsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5279,6 +5844,9 @@ Other parameters are passed through a pointer to a apiVpnL2vpnsRetrieveRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -5427,7 +5995,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5436,7 +6004,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelGroupsBulkPartialUpdate
 
-> []TunnelGroup VpnTunnelGroupsBulkPartialUpdate(ctx).TunnelGroupRequest(tunnelGroupRequest).Execute()
+> []TunnelGroup VpnTunnelGroupsBulkPartialUpdate(ctx).PatchedBulkTunnelGroupRequest(patchedBulkTunnelGroupRequest).Execute()
 
 
 
@@ -5455,11 +6023,11 @@ import (
 )
 
 func main() {
-	tunnelGroupRequest := []openapiclient.TunnelGroupRequest{*openapiclient.NewTunnelGroupRequest("Name_example", "Slug_example")} // []TunnelGroupRequest | 
+	patchedBulkTunnelGroupRequest := []openapiclient.PatchedBulkTunnelGroupRequest{*openapiclient.NewPatchedBulkTunnelGroupRequest(int32(123))} // []PatchedBulkTunnelGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsBulkPartialUpdate(context.Background()).TunnelGroupRequest(tunnelGroupRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsBulkPartialUpdate(context.Background()).PatchedBulkTunnelGroupRequest(patchedBulkTunnelGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelGroupsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5480,7 +6048,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelGroupsBulkPartial
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tunnelGroupRequest** | [**[]TunnelGroupRequest**](TunnelGroupRequest.md) |  | 
+ **patchedBulkTunnelGroupRequest** | [**[]PatchedBulkTunnelGroupRequest**](PatchedBulkTunnelGroupRequest.md) |  | 
 
 ### Return type
 
@@ -5502,7 +6070,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelGroupsBulkUpdate
 
-> []TunnelGroup VpnTunnelGroupsBulkUpdate(ctx).TunnelGroupRequest(tunnelGroupRequest).Execute()
+> []TunnelGroup VpnTunnelGroupsBulkUpdate(ctx).BulkTunnelGroupRequest(bulkTunnelGroupRequest).Execute()
 
 
 
@@ -5521,11 +6089,11 @@ import (
 )
 
 func main() {
-	tunnelGroupRequest := []openapiclient.TunnelGroupRequest{*openapiclient.NewTunnelGroupRequest("Name_example", "Slug_example")} // []TunnelGroupRequest | 
+	bulkTunnelGroupRequest := []openapiclient.BulkTunnelGroupRequest{*openapiclient.NewBulkTunnelGroupRequest(int32(123), "Name_example", "Slug_example")} // []BulkTunnelGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsBulkUpdate(context.Background()).TunnelGroupRequest(tunnelGroupRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsBulkUpdate(context.Background()).BulkTunnelGroupRequest(bulkTunnelGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelGroupsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5546,7 +6114,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelGroupsBulkUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tunnelGroupRequest** | [**[]TunnelGroupRequest**](TunnelGroupRequest.md) |  | 
+ **bulkTunnelGroupRequest** | [**[]BulkTunnelGroupRequest**](BulkTunnelGroupRequest.md) |  | 
 
 ### Return type
 
@@ -5568,7 +6136,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelGroupsCreate
 
-> TunnelGroup VpnTunnelGroupsCreate(ctx).TunnelGroupRequest(tunnelGroupRequest).Execute()
+> TunnelGroup VpnTunnelGroupsCreate(ctx).VpnTunnelGroupsCreateRequest(vpnTunnelGroupsCreateRequest).Execute()
 
 
 
@@ -5587,11 +6155,11 @@ import (
 )
 
 func main() {
-	tunnelGroupRequest := *openapiclient.NewTunnelGroupRequest("Name_example", "Slug_example") // TunnelGroupRequest | 
+	vpnTunnelGroupsCreateRequest := openapiclient.vpn_tunnel_groups_create_request{TunnelGroupRequest: openapiclient.NewTunnelGroupRequest("Name_example", "Slug_example")} // VpnTunnelGroupsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsCreate(context.Background()).TunnelGroupRequest(tunnelGroupRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsCreate(context.Background()).VpnTunnelGroupsCreateRequest(vpnTunnelGroupsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelGroupsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5612,7 +6180,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelGroupsCreateReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tunnelGroupRequest** | [**TunnelGroupRequest**](TunnelGroupRequest.md) |  | 
+ **vpnTunnelGroupsCreateRequest** | [**VpnTunnelGroupsCreateRequest**](VpnTunnelGroupsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -5702,7 +6270,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelGroupsList
 
-> PaginatedTunnelGroupList VpnTunnelGroupsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedTunnelGroupList VpnTunnelGroupsList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -5722,6 +6290,13 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -5735,12 +6310,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -5762,33 +6340,51 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelGroupsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5809,6 +6405,13 @@ Other parameters are passed through a pointer to a apiVpnTunnelGroupsListRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -5822,12 +6425,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -5849,28 +6455,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -5965,7 +6589,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelGroupsRetrieve
 
-> TunnelGroup VpnTunnelGroupsRetrieve(ctx, id).Execute()
+> TunnelGroup VpnTunnelGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -5985,10 +6609,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tunnel group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelGroupsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6014,6 +6641,9 @@ Other parameters are passed through a pointer to a apiVpnTunnelGroupsRetrieveReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -6126,7 +6756,7 @@ import (
 )
 
 func main() {
-	tunnelTerminationRequest := []openapiclient.TunnelTerminationRequest{*openapiclient.NewTunnelTerminationRequest(*openapiclient.NewBriefTunnelRequest("Name_example"), openapiclient.PatchedWritableTunnelTerminationRequest_role("peer"), "TerminationType_example", NullableInt64(123))} // []TunnelTerminationRequest | 
+	tunnelTerminationRequest := []openapiclient.TunnelTerminationRequest{*openapiclient.NewTunnelTerminationRequest(openapiclient.BulkTunnelTerminationRequest_tunnel{BriefTunnelRequest: openapiclient.NewBriefTunnelRequest("Name_example")}, openapiclient.BulkTunnelTerminationRequest_role("peer"), "TerminationType_example")} // []TunnelTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6162,7 +6792,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6171,7 +6801,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelTerminationsBulkPartialUpdate
 
-> []TunnelTermination VpnTunnelTerminationsBulkPartialUpdate(ctx).TunnelTerminationRequest(tunnelTerminationRequest).Execute()
+> []TunnelTermination VpnTunnelTerminationsBulkPartialUpdate(ctx).PatchedBulkTunnelTerminationRequest(patchedBulkTunnelTerminationRequest).Execute()
 
 
 
@@ -6190,11 +6820,11 @@ import (
 )
 
 func main() {
-	tunnelTerminationRequest := []openapiclient.TunnelTerminationRequest{*openapiclient.NewTunnelTerminationRequest(*openapiclient.NewBriefTunnelRequest("Name_example"), openapiclient.PatchedWritableTunnelTerminationRequest_role("peer"), "TerminationType_example", NullableInt64(123))} // []TunnelTerminationRequest | 
+	patchedBulkTunnelTerminationRequest := []openapiclient.PatchedBulkTunnelTerminationRequest{*openapiclient.NewPatchedBulkTunnelTerminationRequest(int32(123))} // []PatchedBulkTunnelTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsBulkPartialUpdate(context.Background()).TunnelTerminationRequest(tunnelTerminationRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsBulkPartialUpdate(context.Background()).PatchedBulkTunnelTerminationRequest(patchedBulkTunnelTerminationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelTerminationsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6215,7 +6845,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelTerminationsBulkP
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tunnelTerminationRequest** | [**[]TunnelTerminationRequest**](TunnelTerminationRequest.md) |  | 
+ **patchedBulkTunnelTerminationRequest** | [**[]PatchedBulkTunnelTerminationRequest**](PatchedBulkTunnelTerminationRequest.md) |  | 
 
 ### Return type
 
@@ -6237,7 +6867,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelTerminationsBulkUpdate
 
-> []TunnelTermination VpnTunnelTerminationsBulkUpdate(ctx).TunnelTerminationRequest(tunnelTerminationRequest).Execute()
+> []TunnelTermination VpnTunnelTerminationsBulkUpdate(ctx).BulkTunnelTerminationRequest(bulkTunnelTerminationRequest).Execute()
 
 
 
@@ -6256,11 +6886,11 @@ import (
 )
 
 func main() {
-	tunnelTerminationRequest := []openapiclient.TunnelTerminationRequest{*openapiclient.NewTunnelTerminationRequest(*openapiclient.NewBriefTunnelRequest("Name_example"), openapiclient.PatchedWritableTunnelTerminationRequest_role("peer"), "TerminationType_example", NullableInt64(123))} // []TunnelTerminationRequest | 
+	bulkTunnelTerminationRequest := []openapiclient.BulkTunnelTerminationRequest{*openapiclient.NewBulkTunnelTerminationRequest(int32(123), openapiclient.BulkTunnelTerminationRequest_tunnel{BriefTunnelRequest: openapiclient.NewBriefTunnelRequest("Name_example")}, openapiclient.BulkTunnelTerminationRequest_role("peer"), "TerminationType_example")} // []BulkTunnelTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsBulkUpdate(context.Background()).TunnelTerminationRequest(tunnelTerminationRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsBulkUpdate(context.Background()).BulkTunnelTerminationRequest(bulkTunnelTerminationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelTerminationsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6281,7 +6911,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelTerminationsBulkU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tunnelTerminationRequest** | [**[]TunnelTerminationRequest**](TunnelTerminationRequest.md) |  | 
+ **bulkTunnelTerminationRequest** | [**[]BulkTunnelTerminationRequest**](BulkTunnelTerminationRequest.md) |  | 
 
 ### Return type
 
@@ -6303,7 +6933,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelTerminationsCreate
 
-> TunnelTermination VpnTunnelTerminationsCreate(ctx).WritableTunnelTerminationRequest(writableTunnelTerminationRequest).Execute()
+> TunnelTermination VpnTunnelTerminationsCreate(ctx).VpnTunnelTerminationsCreateRequest(vpnTunnelTerminationsCreateRequest).Execute()
 
 
 
@@ -6322,11 +6952,11 @@ import (
 )
 
 func main() {
-	writableTunnelTerminationRequest := *openapiclient.NewWritableTunnelTerminationRequest(*openapiclient.NewBriefTunnelRequest("Name_example"), "TerminationType_example", NullableInt64(123)) // WritableTunnelTerminationRequest | 
+	vpnTunnelTerminationsCreateRequest := openapiclient.vpn_tunnel_terminations_create_request{WritableTunnelTerminationRequest: openapiclient.NewWritableTunnelTerminationRequest(openapiclient.BulkTunnelTerminationRequest_tunnel{BriefTunnelRequest: openapiclient.NewBriefTunnelRequest("Name_example")}, "TerminationType_example")} // VpnTunnelTerminationsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsCreate(context.Background()).WritableTunnelTerminationRequest(writableTunnelTerminationRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsCreate(context.Background()).VpnTunnelTerminationsCreateRequest(vpnTunnelTerminationsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelTerminationsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6347,7 +6977,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelTerminationsCreat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableTunnelTerminationRequest** | [**WritableTunnelTerminationRequest**](WritableTunnelTerminationRequest.md) |  | 
+ **vpnTunnelTerminationsCreateRequest** | [**VpnTunnelTerminationsCreateRequest**](VpnTunnelTerminationsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -6437,7 +7067,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelTerminationsList
 
-> PaginatedTunnelTerminationList VpnTunnelTerminationsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).OutsideIpId(outsideIpId).OutsideIpIdN(outsideIpIdN).Q(q).Role(role).RoleN(roleN).Tag(tag).TagN(tagN).TerminationId(terminationId).TerminationIdEmpty(terminationIdEmpty).TerminationIdGt(terminationIdGt).TerminationIdGte(terminationIdGte).TerminationIdLt(terminationIdLt).TerminationIdLte(terminationIdLte).TerminationIdN(terminationIdN).TerminationType(terminationType).TerminationTypeN(terminationTypeN).Tunnel(tunnel).TunnelN(tunnelN).TunnelId(tunnelId).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
+> PaginatedTunnelTerminationList VpnTunnelTerminationsList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).OutsideIpId(outsideIpId).OutsideIpIdN(outsideIpIdN).Q(q).Role(role).RoleEmpty(roleEmpty).RoleIc(roleIc).RoleIe(roleIe).RoleIew(roleIew).RoleIregex(roleIregex).RoleIsw(roleIsw).RoleN(roleN).RoleNic(roleNic).RoleNie(roleNie).RoleNiew(roleNiew).RoleNisw(roleNisw).RoleRegex(roleRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).TerminationId(terminationId).TerminationIdEmpty(terminationIdEmpty).TerminationIdGt(terminationIdGt).TerminationIdGte(terminationIdGte).TerminationIdLt(terminationIdLt).TerminationIdLte(terminationIdLte).TerminationIdN(terminationIdN).TerminationType(terminationType).TerminationTypeN(terminationTypeN).Tunnel(tunnel).TunnelN(tunnelN).TunnelId(tunnelId).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
 
 
 
@@ -6457,6 +7087,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -6465,6 +7096,7 @@ func main() {
 	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -6486,14 +7118,31 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
 	outsideIpId := []int32{int32(123)} // []int32 | Outside IP (ID) (optional)
 	outsideIpIdN := []int32{int32(123)} // []int32 | Outside IP (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	role := []string{"Inner_example"} // []string |  (optional)
+	roleEmpty := true // bool |  (optional)
+	roleIc := []string{"Inner_example"} // []string |  (optional)
+	roleIe := []string{"Inner_example"} // []string |  (optional)
+	roleIew := []string{"Inner_example"} // []string |  (optional)
+	roleIregex := []string{"Inner_example"} // []string |  (optional)
+	roleIsw := []string{"Inner_example"} // []string |  (optional)
 	roleN := []string{"Inner_example"} // []string |  (optional)
+	roleNic := []string{"Inner_example"} // []string |  (optional)
+	roleNie := []string{"Inner_example"} // []string |  (optional)
+	roleNiew := []string{"Inner_example"} // []string |  (optional)
+	roleNisw := []string{"Inner_example"} // []string |  (optional)
+	roleRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	terminationId := []int32{int32(123)} // []int32 |  (optional)
 	terminationIdEmpty := true // bool |  (optional)
 	terminationIdGt := []int32{int32(123)} // []int32 |  (optional)
@@ -6501,8 +7150,8 @@ func main() {
 	terminationIdLt := []int32{int32(123)} // []int32 |  (optional)
 	terminationIdLte := []int32{int32(123)} // []int32 |  (optional)
 	terminationIdN := []int32{int32(123)} // []int32 |  (optional)
-	terminationType := "terminationType_example" // string |  (optional)
-	terminationTypeN := "terminationTypeN_example" // string |  (optional)
+	terminationType := []string{"Inner_example"} // []string |  (optional)
+	terminationTypeN := []string{"Inner_example"} // []string |  (optional)
 	tunnel := []string{"Inner_example"} // []string | Tunnel (name) (optional)
 	tunnelN := []string{"Inner_example"} // []string | Tunnel (name) (optional)
 	tunnelId := []int32{int32(123)} // []int32 | Tunnel (ID) (optional)
@@ -6515,7 +7164,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).OutsideIpId(outsideIpId).OutsideIpIdN(outsideIpIdN).Q(q).Role(role).RoleN(roleN).Tag(tag).TagN(tagN).TerminationId(terminationId).TerminationIdEmpty(terminationIdEmpty).TerminationIdGt(terminationIdGt).TerminationIdGte(terminationIdGte).TerminationIdLt(terminationIdLt).TerminationIdLte(terminationIdLte).TerminationIdN(terminationIdN).TerminationType(terminationType).TerminationTypeN(terminationTypeN).Tunnel(tunnel).TunnelN(tunnelN).TunnelId(tunnelId).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).OutsideIpId(outsideIpId).OutsideIpIdN(outsideIpIdN).Q(q).Role(role).RoleEmpty(roleEmpty).RoleIc(roleIc).RoleIe(roleIe).RoleIew(roleIew).RoleIregex(roleIregex).RoleIsw(roleIsw).RoleN(roleN).RoleNic(roleNic).RoleNie(roleNie).RoleNiew(roleNiew).RoleNisw(roleNisw).RoleRegex(roleRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).TerminationId(terminationId).TerminationIdEmpty(terminationIdEmpty).TerminationIdGt(terminationIdGt).TerminationIdGte(terminationIdGte).TerminationIdLt(terminationIdLt).TerminationIdLte(terminationIdLte).TerminationIdN(terminationIdN).TerminationType(terminationType).TerminationTypeN(terminationTypeN).Tunnel(tunnel).TunnelN(tunnelN).TunnelId(tunnelId).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelTerminationsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6536,6 +7185,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelTerminationsListR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -6544,6 +7194,7 @@ Name | Type | Description  | Notes
  **createdLte** | [**[]time.Time**](time.Time.md) |  | 
  **createdN** | [**[]time.Time**](time.Time.md) |  | 
  **createdByRequest** | **string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -6565,14 +7216,31 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **outsideIpId** | **[]int32** | Outside IP (ID) | 
  **outsideIpIdN** | **[]int32** | Outside IP (ID) | 
  **q** | **string** | Search | 
  **role** | **[]string** |  | 
+ **roleEmpty** | **bool** |  | 
+ **roleIc** | **[]string** |  | 
+ **roleIe** | **[]string** |  | 
+ **roleIew** | **[]string** |  | 
+ **roleIregex** | **[]string** |  | 
+ **roleIsw** | **[]string** |  | 
  **roleN** | **[]string** |  | 
+ **roleNic** | **[]string** |  | 
+ **roleNie** | **[]string** |  | 
+ **roleNiew** | **[]string** |  | 
+ **roleNisw** | **[]string** |  | 
+ **roleRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **terminationId** | **[]int32** |  | 
  **terminationIdEmpty** | **bool** |  | 
  **terminationIdGt** | **[]int32** |  | 
@@ -6580,8 +7248,8 @@ Name | Type | Description  | Notes
  **terminationIdLt** | **[]int32** |  | 
  **terminationIdLte** | **[]int32** |  | 
  **terminationIdN** | **[]int32** |  | 
- **terminationType** | **string** |  | 
- **terminationTypeN** | **string** |  | 
+ **terminationType** | **[]string** |  | 
+ **terminationTypeN** | **[]string** |  | 
  **tunnel** | **[]string** | Tunnel (name) | 
  **tunnelN** | **[]string** | Tunnel (name) | 
  **tunnelId** | **[]int32** | Tunnel (ID) | 
@@ -6684,7 +7352,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelTerminationsRetrieve
 
-> TunnelTermination VpnTunnelTerminationsRetrieve(ctx, id).Execute()
+> TunnelTermination VpnTunnelTerminationsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -6704,10 +7372,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tunnel termination.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelTerminationsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelTerminationsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6733,6 +7404,9 @@ Other parameters are passed through a pointer to a apiVpnTunnelTerminationsRetri
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -6774,7 +7448,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tunnel termination.
-	writableTunnelTerminationRequest := *openapiclient.NewWritableTunnelTerminationRequest(*openapiclient.NewBriefTunnelRequest("Name_example"), "TerminationType_example", NullableInt64(123)) // WritableTunnelTerminationRequest | 
+	writableTunnelTerminationRequest := *openapiclient.NewWritableTunnelTerminationRequest(openapiclient.BulkTunnelTerminationRequest_tunnel{BriefTunnelRequest: openapiclient.NewBriefTunnelRequest("Name_example")}, "TerminationType_example") // WritableTunnelTerminationRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6845,7 +7519,7 @@ import (
 )
 
 func main() {
-	tunnelRequest := []openapiclient.TunnelRequest{*openapiclient.NewTunnelRequest("Name_example", openapiclient.PatchedWritableTunnelRequest_status("planned"), openapiclient.PatchedWritableTunnelRequest_encapsulation("ipsec-transport"))} // []TunnelRequest | 
+	tunnelRequest := []openapiclient.TunnelRequest{*openapiclient.NewTunnelRequest("Name_example", openapiclient.BulkTunnelRequest_status("planned"), openapiclient.BulkTunnelRequest_encapsulation("ipsec-transport"))} // []TunnelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -6881,7 +7555,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6890,7 +7564,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelsBulkPartialUpdate
 
-> []Tunnel VpnTunnelsBulkPartialUpdate(ctx).TunnelRequest(tunnelRequest).Execute()
+> []Tunnel VpnTunnelsBulkPartialUpdate(ctx).PatchedBulkTunnelRequest(patchedBulkTunnelRequest).Execute()
 
 
 
@@ -6909,11 +7583,11 @@ import (
 )
 
 func main() {
-	tunnelRequest := []openapiclient.TunnelRequest{*openapiclient.NewTunnelRequest("Name_example", openapiclient.PatchedWritableTunnelRequest_status("planned"), openapiclient.PatchedWritableTunnelRequest_encapsulation("ipsec-transport"))} // []TunnelRequest | 
+	patchedBulkTunnelRequest := []openapiclient.PatchedBulkTunnelRequest{*openapiclient.NewPatchedBulkTunnelRequest(int32(123))} // []PatchedBulkTunnelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelsBulkPartialUpdate(context.Background()).TunnelRequest(tunnelRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelsBulkPartialUpdate(context.Background()).PatchedBulkTunnelRequest(patchedBulkTunnelRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6934,7 +7608,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelsBulkPartialUpdat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tunnelRequest** | [**[]TunnelRequest**](TunnelRequest.md) |  | 
+ **patchedBulkTunnelRequest** | [**[]PatchedBulkTunnelRequest**](PatchedBulkTunnelRequest.md) |  | 
 
 ### Return type
 
@@ -6956,7 +7630,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelsBulkUpdate
 
-> []Tunnel VpnTunnelsBulkUpdate(ctx).TunnelRequest(tunnelRequest).Execute()
+> []Tunnel VpnTunnelsBulkUpdate(ctx).BulkTunnelRequest(bulkTunnelRequest).Execute()
 
 
 
@@ -6975,11 +7649,11 @@ import (
 )
 
 func main() {
-	tunnelRequest := []openapiclient.TunnelRequest{*openapiclient.NewTunnelRequest("Name_example", openapiclient.PatchedWritableTunnelRequest_status("planned"), openapiclient.PatchedWritableTunnelRequest_encapsulation("ipsec-transport"))} // []TunnelRequest | 
+	bulkTunnelRequest := []openapiclient.BulkTunnelRequest{*openapiclient.NewBulkTunnelRequest(int32(123), "Name_example", openapiclient.BulkTunnelRequest_status("planned"), openapiclient.BulkTunnelRequest_encapsulation("ipsec-transport"))} // []BulkTunnelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelsBulkUpdate(context.Background()).TunnelRequest(tunnelRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelsBulkUpdate(context.Background()).BulkTunnelRequest(bulkTunnelRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7000,7 +7674,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelsBulkUpdateReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tunnelRequest** | [**[]TunnelRequest**](TunnelRequest.md) |  | 
+ **bulkTunnelRequest** | [**[]BulkTunnelRequest**](BulkTunnelRequest.md) |  | 
 
 ### Return type
 
@@ -7022,7 +7696,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelsCreate
 
-> Tunnel VpnTunnelsCreate(ctx).WritableTunnelRequest(writableTunnelRequest).Execute()
+> Tunnel VpnTunnelsCreate(ctx).VpnTunnelsCreateRequest(vpnTunnelsCreateRequest).Execute()
 
 
 
@@ -7041,11 +7715,11 @@ import (
 )
 
 func main() {
-	writableTunnelRequest := *openapiclient.NewWritableTunnelRequest("Name_example", openapiclient.PatchedWritableTunnelRequest_encapsulation("ipsec-transport")) // WritableTunnelRequest | 
+	vpnTunnelsCreateRequest := openapiclient.vpn_tunnels_create_request{WritableTunnelRequest: openapiclient.NewWritableTunnelRequest("Name_example", openapiclient.BulkTunnelRequest_encapsulation("ipsec-transport"))} // VpnTunnelsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelsCreate(context.Background()).WritableTunnelRequest(writableTunnelRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelsCreate(context.Background()).VpnTunnelsCreateRequest(vpnTunnelsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7066,7 +7740,7 @@ Other parameters are passed through a pointer to a apiVpnTunnelsCreateRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableTunnelRequest** | [**WritableTunnelRequest**](WritableTunnelRequest.md) |  | 
+ **vpnTunnelsCreateRequest** | [**VpnTunnelsCreateRequest**](VpnTunnelsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -7156,7 +7830,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelsList
 
-> PaginatedTunnelList VpnTunnelsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Encapsulation(encapsulation).EncapsulationN(encapsulationN).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProfile(ipsecProfile).IpsecProfileN(ipsecProfileN).IpsecProfileId(ipsecProfileId).IpsecProfileIdN(ipsecProfileIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TunnelId(tunnelId).TunnelIdEmpty(tunnelIdEmpty).TunnelIdGt(tunnelIdGt).TunnelIdGte(tunnelIdGte).TunnelIdLt(tunnelIdLt).TunnelIdLte(tunnelIdLte).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedTunnelList VpnTunnelsList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Encapsulation(encapsulation).EncapsulationEmpty(encapsulationEmpty).EncapsulationIc(encapsulationIc).EncapsulationIe(encapsulationIe).EncapsulationIew(encapsulationIew).EncapsulationIregex(encapsulationIregex).EncapsulationIsw(encapsulationIsw).EncapsulationN(encapsulationN).EncapsulationNic(encapsulationNic).EncapsulationNie(encapsulationNie).EncapsulationNiew(encapsulationNiew).EncapsulationNisw(encapsulationNisw).EncapsulationRegex(encapsulationRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProfile(ipsecProfile).IpsecProfileN(ipsecProfileN).IpsecProfileId(ipsecProfileId).IpsecProfileIdN(ipsecProfileIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TunnelId(tunnelId).TunnelIdEmpty(tunnelIdEmpty).TunnelIdGt(tunnelIdGt).TunnelIdGte(tunnelIdGte).TunnelIdLt(tunnelIdLt).TunnelIdLte(tunnelIdLte).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -7176,6 +7850,13 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -7189,14 +7870,28 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	encapsulation := []string{"Inner_example"} // []string |  (optional)
+	encapsulationEmpty := true // bool |  (optional)
+	encapsulationIc := []string{"Inner_example"} // []string |  (optional)
+	encapsulationIe := []string{"Inner_example"} // []string |  (optional)
+	encapsulationIew := []string{"Inner_example"} // []string |  (optional)
+	encapsulationIregex := []string{"Inner_example"} // []string |  (optional)
+	encapsulationIsw := []string{"Inner_example"} // []string |  (optional)
 	encapsulationN := []string{"Inner_example"} // []string |  (optional)
+	encapsulationNic := []string{"Inner_example"} // []string |  (optional)
+	encapsulationNie := []string{"Inner_example"} // []string |  (optional)
+	encapsulationNiew := []string{"Inner_example"} // []string |  (optional)
+	encapsulationNisw := []string{"Inner_example"} // []string |  (optional)
+	encapsulationRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []string{"Inner_example"} // []string | Tunnel group (slug) (optional)
 	groupN := []string{"Inner_example"} // []string | Tunnel group (slug) (optional)
 	groupId := []*int32{int32(123)} // []*int32 | Tunnel group (ID) (optional)
@@ -7226,19 +7921,46 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -7258,7 +7980,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Encapsulation(encapsulation).EncapsulationN(encapsulationN).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProfile(ipsecProfile).IpsecProfileN(ipsecProfileN).IpsecProfileId(ipsecProfileId).IpsecProfileIdN(ipsecProfileIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TunnelId(tunnelId).TunnelIdEmpty(tunnelIdEmpty).TunnelIdGt(tunnelIdGt).TunnelIdGte(tunnelIdGte).TunnelIdLt(tunnelIdLt).TunnelIdLte(tunnelIdLte).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelsList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Encapsulation(encapsulation).EncapsulationEmpty(encapsulationEmpty).EncapsulationIc(encapsulationIc).EncapsulationIe(encapsulationIe).EncapsulationIew(encapsulationIew).EncapsulationIregex(encapsulationIregex).EncapsulationIsw(encapsulationIsw).EncapsulationN(encapsulationN).EncapsulationNic(encapsulationNic).EncapsulationNie(encapsulationNie).EncapsulationNiew(encapsulationNiew).EncapsulationNisw(encapsulationNisw).EncapsulationRegex(encapsulationRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpsecProfile(ipsecProfile).IpsecProfileN(ipsecProfileN).IpsecProfileId(ipsecProfileId).IpsecProfileIdN(ipsecProfileIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TunnelId(tunnelId).TunnelIdEmpty(tunnelIdEmpty).TunnelIdGt(tunnelIdGt).TunnelIdGte(tunnelIdGte).TunnelIdLt(tunnelIdLt).TunnelIdLte(tunnelIdLte).TunnelIdN(tunnelIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7279,6 +8001,13 @@ Other parameters are passed through a pointer to a apiVpnTunnelsListRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -7292,14 +8021,28 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **encapsulation** | **[]string** |  | 
+ **encapsulationEmpty** | **bool** |  | 
+ **encapsulationIc** | **[]string** |  | 
+ **encapsulationIe** | **[]string** |  | 
+ **encapsulationIew** | **[]string** |  | 
+ **encapsulationIregex** | **[]string** |  | 
+ **encapsulationIsw** | **[]string** |  | 
  **encapsulationN** | **[]string** |  | 
+ **encapsulationNic** | **[]string** |  | 
+ **encapsulationNie** | **[]string** |  | 
+ **encapsulationNiew** | **[]string** |  | 
+ **encapsulationNisw** | **[]string** |  | 
+ **encapsulationRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]string** | Tunnel group (slug) | 
  **groupN** | **[]string** | Tunnel group (slug) | 
  **groupId** | **[]int32** | Tunnel group (ID) | 
@@ -7329,19 +8072,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -7451,7 +8221,7 @@ Name | Type | Description  | Notes
 
 ## VpnTunnelsRetrieve
 
-> Tunnel VpnTunnelsRetrieve(ctx, id).Execute()
+> Tunnel VpnTunnelsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -7471,10 +8241,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tunnel.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VpnAPI.VpnTunnelsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VpnAPI.VpnTunnelsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VpnAPI.VpnTunnelsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7500,6 +8273,9 @@ Other parameters are passed through a pointer to a apiVpnTunnelsRetrieveRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -7541,7 +8317,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tunnel.
-	writableTunnelRequest := *openapiclient.NewWritableTunnelRequest("Name_example", openapiclient.PatchedWritableTunnelRequest_encapsulation("ipsec-transport")) // WritableTunnelRequest | 
+	writableTunnelRequest := *openapiclient.NewWritableTunnelRequest("Name_example", openapiclient.BulkTunnelRequest_encapsulation("ipsec-transport")) // WritableTunnelRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

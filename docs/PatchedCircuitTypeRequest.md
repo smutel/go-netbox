@@ -6,8 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
-**Color** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -82,20 +84,20 @@ HasSlug returns a boolean if a field has been set.
 
 ### GetColor
 
-`func (o *PatchedCircuitTypeRequest) GetColor() string`
+`func (o *PatchedCircuitTypeRequest) GetColor() BriefModuleBayTypeColor`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *PatchedCircuitTypeRequest) GetColorOk() (*string, bool)`
+`func (o *PatchedCircuitTypeRequest) GetColorOk() (*BriefModuleBayTypeColor, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *PatchedCircuitTypeRequest) SetColor(v string)`
+`func (o *PatchedCircuitTypeRequest) SetColor(v BriefModuleBayTypeColor)`
 
 SetColor sets Color field to given value.
 
@@ -129,6 +131,66 @@ SetDescription sets Description field to given value.
 `func (o *PatchedCircuitTypeRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *PatchedCircuitTypeRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedCircuitTypeRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedCircuitTypeRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedCircuitTypeRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedCircuitTypeRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedCircuitTypeRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *PatchedCircuitTypeRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *PatchedCircuitTypeRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *PatchedCircuitTypeRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *PatchedCircuitTypeRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetTags
 

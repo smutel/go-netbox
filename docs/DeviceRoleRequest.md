@@ -8,10 +8,13 @@ Name | Type | Description | Notes
 **Slug** | **string** |  | 
 **Color** | Pointer to **string** |  | [optional] 
 **VmRole** | Pointer to **bool** | Virtual machines may be assigned to this role | [optional] 
-**ConfigTemplate** | Pointer to [**NullableBriefConfigTemplateRequest**](BriefConfigTemplateRequest.md) |  | [optional] 
+**ConfigTemplate** | Pointer to [**NullableBulkDeviceRequestConfigTemplate**](BulkDeviceRequestConfigTemplate.md) |  | [optional] 
+**Parent** | Pointer to [**NullableNestedDeviceRoleRequest**](NestedDeviceRoleRequest.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -124,20 +127,20 @@ HasVmRole returns a boolean if a field has been set.
 
 ### GetConfigTemplate
 
-`func (o *DeviceRoleRequest) GetConfigTemplate() BriefConfigTemplateRequest`
+`func (o *DeviceRoleRequest) GetConfigTemplate() BulkDeviceRequestConfigTemplate`
 
 GetConfigTemplate returns the ConfigTemplate field if non-nil, zero value otherwise.
 
 ### GetConfigTemplateOk
 
-`func (o *DeviceRoleRequest) GetConfigTemplateOk() (*BriefConfigTemplateRequest, bool)`
+`func (o *DeviceRoleRequest) GetConfigTemplateOk() (*BulkDeviceRequestConfigTemplate, bool)`
 
 GetConfigTemplateOk returns a tuple with the ConfigTemplate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfigTemplate
 
-`func (o *DeviceRoleRequest) SetConfigTemplate(v BriefConfigTemplateRequest)`
+`func (o *DeviceRoleRequest) SetConfigTemplate(v BulkDeviceRequestConfigTemplate)`
 
 SetConfigTemplate sets ConfigTemplate field to given value.
 
@@ -157,6 +160,41 @@ HasConfigTemplate returns a boolean if a field has been set.
 `func (o *DeviceRoleRequest) UnsetConfigTemplate()`
 
 UnsetConfigTemplate ensures that no value is present for ConfigTemplate, not even an explicit nil
+### GetParent
+
+`func (o *DeviceRoleRequest) GetParent() NestedDeviceRoleRequest`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *DeviceRoleRequest) GetParentOk() (*NestedDeviceRoleRequest, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParent
+
+`func (o *DeviceRoleRequest) SetParent(v NestedDeviceRoleRequest)`
+
+SetParent sets Parent field to given value.
+
+### HasParent
+
+`func (o *DeviceRoleRequest) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
+
+### SetParentNil
+
+`func (o *DeviceRoleRequest) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *DeviceRoleRequest) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetDescription
 
 `func (o *DeviceRoleRequest) GetDescription() string`
@@ -231,6 +269,66 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *DeviceRoleRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *DeviceRoleRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *DeviceRoleRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *DeviceRoleRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *DeviceRoleRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *DeviceRoleRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *DeviceRoleRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *DeviceRoleRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *DeviceRoleRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *DeviceRoleRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *DeviceRoleRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

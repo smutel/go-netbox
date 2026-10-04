@@ -5,12 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Asn** | **int64** | 16- or 32-bit autonomous system number | 
-**Rir** | Pointer to [**NullableBriefRIRRequest**](BriefRIRRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Rir** | Pointer to [**NullableASNRequestRir**](ASNRequestRir.md) |  | [optional] 
+**Role** | Pointer to [**NullableASNRequestRole**](ASNRequestRole.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Sites** | Pointer to **[]int32** |  | [optional] 
 
 ## Methods
 
@@ -53,20 +56,20 @@ SetAsn sets Asn field to given value.
 
 ### GetRir
 
-`func (o *ASNRequest) GetRir() BriefRIRRequest`
+`func (o *ASNRequest) GetRir() ASNRequestRir`
 
 GetRir returns the Rir field if non-nil, zero value otherwise.
 
 ### GetRirOk
 
-`func (o *ASNRequest) GetRirOk() (*BriefRIRRequest, bool)`
+`func (o *ASNRequest) GetRirOk() (*ASNRequestRir, bool)`
 
 GetRirOk returns a tuple with the Rir field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRir
 
-`func (o *ASNRequest) SetRir(v BriefRIRRequest)`
+`func (o *ASNRequest) SetRir(v ASNRequestRir)`
 
 SetRir sets Rir field to given value.
 
@@ -86,22 +89,57 @@ HasRir returns a boolean if a field has been set.
 `func (o *ASNRequest) UnsetRir()`
 
 UnsetRir ensures that no value is present for Rir, not even an explicit nil
+### GetRole
+
+`func (o *ASNRequest) GetRole() ASNRequestRole`
+
+GetRole returns the Role field if non-nil, zero value otherwise.
+
+### GetRoleOk
+
+`func (o *ASNRequest) GetRoleOk() (*ASNRequestRole, bool)`
+
+GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRole
+
+`func (o *ASNRequest) SetRole(v ASNRequestRole)`
+
+SetRole sets Role field to given value.
+
+### HasRole
+
+`func (o *ASNRequest) HasRole() bool`
+
+HasRole returns a boolean if a field has been set.
+
+### SetRoleNil
+
+`func (o *ASNRequest) SetRoleNil(b bool)`
+
+ SetRoleNil sets the value for Role to be an explicit nil
+
+### UnsetRole
+`func (o *ASNRequest) UnsetRole()`
+
+UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetTenant
 
-`func (o *ASNRequest) GetTenant() BriefTenantRequest`
+`func (o *ASNRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *ASNRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *ASNRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *ASNRequest) SetTenant(v BriefTenantRequest)`
+`func (o *ASNRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -146,6 +184,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *ASNRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ASNRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ASNRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ASNRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ASNRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ASNRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *ASNRequest) GetComments() string`
@@ -220,6 +293,31 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *ASNRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetSites
+
+`func (o *ASNRequest) GetSites() []int32`
+
+GetSites returns the Sites field if non-nil, zero value otherwise.
+
+### GetSitesOk
+
+`func (o *ASNRequest) GetSitesOk() (*[]int32, bool)`
+
+GetSitesOk returns a tuple with the Sites field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSites
+
+`func (o *ASNRequest) SetSites(v []int32)`
+
+SetSites sets Sites field to given value.
+
+### HasSites
+
+`func (o *ASNRequest) HasSites() bool`
+
+HasSites returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

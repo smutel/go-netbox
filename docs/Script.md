@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Module** | **int32** |  | [readonly] 
 **Name** | **string** |  | [readonly] 
 **Description** | **NullableString** |  | [readonly] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewScript
 
-`func NewScript(id int32, url string, module int32, name string, description NullableString, vars interface{}, result BriefJob, display string, isExecutable bool, ) *Script`
+`func NewScript(id int32, url string, displayUrl string, module int32, name string, description NullableString, vars interface{}, result BriefJob, display string, isExecutable bool, ) *Script`
 
 NewScript instantiates a new Script object
 This constructor will assign default values to properties that have it defined,
@@ -71,6 +72,26 @@ and a boolean to check if the value has been set.
 `func (o *Script) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Script) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Script) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Script) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetModule

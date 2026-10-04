@@ -4,15 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
-**Module** | Pointer to [**NullableBriefModuleRequest**](BriefModuleRequest.md) |  | [optional] 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
+**Module** | Pointer to [**NullableBulkConsolePortRequestModule**](BulkConsolePortRequestModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | Pointer to [**PatchedWritablePowerOutletRequestType**](PatchedWritablePowerOutletRequestType.md) |  | [optional] 
-**PowerPort** | Pointer to [**NullableBriefPowerPortRequest**](BriefPowerPortRequest.md) |  | [optional] 
-**FeedLeg** | Pointer to [**PatchedWritablePowerOutletRequestFeedLeg**](PatchedWritablePowerOutletRequestFeedLeg.md) |  | [optional] 
+**Type** | Pointer to [**NullablePatchedWritablePowerOutletRequestType**](PatchedWritablePowerOutletRequestType.md) |  | [optional] 
+**Status** | Pointer to [**BulkPowerOutletRequestStatus**](BulkPowerOutletRequestStatus.md) |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
+**PowerPort** | Pointer to [**NullableBulkPowerOutletRequestPowerPort**](BulkPowerOutletRequestPowerPort.md) |  | [optional] 
+**FeedLeg** | Pointer to [**NullablePatchedWritablePowerOutletRequestFeedLeg**](PatchedWritablePowerOutletRequestFeedLeg.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -20,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewWritablePowerOutletRequest
 
-`func NewWritablePowerOutletRequest(device BriefDeviceRequest, name string, ) *WritablePowerOutletRequest`
+`func NewWritablePowerOutletRequest(device BriefCoolingIntakeRequestDevice, name string, ) *WritablePowerOutletRequest`
 
 NewWritablePowerOutletRequest instantiates a new WritablePowerOutletRequest object
 This constructor will assign default values to properties that have it defined,
@@ -37,40 +40,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *WritablePowerOutletRequest) GetDevice() BriefDeviceRequest`
+`func (o *WritablePowerOutletRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *WritablePowerOutletRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *WritablePowerOutletRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *WritablePowerOutletRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *WritablePowerOutletRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
 
 ### GetModule
 
-`func (o *WritablePowerOutletRequest) GetModule() BriefModuleRequest`
+`func (o *WritablePowerOutletRequest) GetModule() BulkConsolePortRequestModule`
 
 GetModule returns the Module field if non-nil, zero value otherwise.
 
 ### GetModuleOk
 
-`func (o *WritablePowerOutletRequest) GetModuleOk() (*BriefModuleRequest, bool)`
+`func (o *WritablePowerOutletRequest) GetModuleOk() (*BulkConsolePortRequestModule, bool)`
 
 GetModuleOk returns a tuple with the Module field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModule
 
-`func (o *WritablePowerOutletRequest) SetModule(v BriefModuleRequest)`
+`func (o *WritablePowerOutletRequest) SetModule(v BulkConsolePortRequestModule)`
 
 SetModule sets Module field to given value.
 
@@ -160,22 +163,82 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *WritablePowerOutletRequest) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *WritablePowerOutletRequest) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
+### GetStatus
+
+`func (o *WritablePowerOutletRequest) GetStatus() BulkPowerOutletRequestStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *WritablePowerOutletRequest) GetStatusOk() (*BulkPowerOutletRequestStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *WritablePowerOutletRequest) SetStatus(v BulkPowerOutletRequestStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *WritablePowerOutletRequest) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### GetColor
+
+`func (o *WritablePowerOutletRequest) GetColor() BriefModuleBayTypeColor`
+
+GetColor returns the Color field if non-nil, zero value otherwise.
+
+### GetColorOk
+
+`func (o *WritablePowerOutletRequest) GetColorOk() (*BriefModuleBayTypeColor, bool)`
+
+GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColor
+
+`func (o *WritablePowerOutletRequest) SetColor(v BriefModuleBayTypeColor)`
+
+SetColor sets Color field to given value.
+
+### HasColor
+
+`func (o *WritablePowerOutletRequest) HasColor() bool`
+
+HasColor returns a boolean if a field has been set.
+
 ### GetPowerPort
 
-`func (o *WritablePowerOutletRequest) GetPowerPort() BriefPowerPortRequest`
+`func (o *WritablePowerOutletRequest) GetPowerPort() BulkPowerOutletRequestPowerPort`
 
 GetPowerPort returns the PowerPort field if non-nil, zero value otherwise.
 
 ### GetPowerPortOk
 
-`func (o *WritablePowerOutletRequest) GetPowerPortOk() (*BriefPowerPortRequest, bool)`
+`func (o *WritablePowerOutletRequest) GetPowerPortOk() (*BulkPowerOutletRequestPowerPort, bool)`
 
 GetPowerPortOk returns a tuple with the PowerPort field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPowerPort
 
-`func (o *WritablePowerOutletRequest) SetPowerPort(v BriefPowerPortRequest)`
+`func (o *WritablePowerOutletRequest) SetPowerPort(v BulkPowerOutletRequestPowerPort)`
 
 SetPowerPort sets PowerPort field to given value.
 
@@ -220,6 +283,16 @@ SetFeedLeg sets FeedLeg field to given value.
 
 HasFeedLeg returns a boolean if a field has been set.
 
+### SetFeedLegNil
+
+`func (o *WritablePowerOutletRequest) SetFeedLegNil(b bool)`
+
+ SetFeedLegNil sets the value for FeedLeg to be an explicit nil
+
+### UnsetFeedLeg
+`func (o *WritablePowerOutletRequest) UnsetFeedLeg()`
+
+UnsetFeedLeg ensures that no value is present for FeedLeg, not even an explicit nil
 ### GetDescription
 
 `func (o *WritablePowerOutletRequest) GetDescription() string`
@@ -270,6 +343,41 @@ SetMarkConnected sets MarkConnected field to given value.
 
 HasMarkConnected returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WritablePowerOutletRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritablePowerOutletRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritablePowerOutletRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritablePowerOutletRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritablePowerOutletRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritablePowerOutletRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *WritablePowerOutletRequest) GetTags() []NestedTagRequest`

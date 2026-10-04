@@ -5,15 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | Pointer to **string** |  | [optional] 
-**Vrf** | Pointer to [**NullableBriefVRFRequest**](BriefVRFRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Vrf** | Pointer to [**NullableBulkIPAddressRequestVrf**](BulkIPAddressRequestVrf.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Status** | Pointer to [**PatchedWritableIPAddressRequestStatus**](PatchedWritableIPAddressRequestStatus.md) |  | [optional] 
-**Role** | Pointer to [**PatchedWritableIPAddressRequestRole**](PatchedWritableIPAddressRequestRole.md) |  | [optional] 
+**Role** | Pointer to [**NullablePatchedWritableIPAddressRequestRole**](PatchedWritableIPAddressRequestRole.md) |  | [optional] 
 **AssignedObjectType** | Pointer to **NullableString** |  | [optional] 
 **AssignedObjectId** | Pointer to **NullableInt64** |  | [optional] 
 **NatInside** | Pointer to **NullableInt32** | The IP for which this address is the \&quot;outside\&quot; IP | [optional] 
-**DnsName** | Pointer to **string** | Hostname or FQDN (not case-sensitive) | [optional] 
+**DnsName** | Pointer to [**BriefIPAddressDnsName**](BriefIPAddressDnsName.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -64,20 +65,20 @@ HasAddress returns a boolean if a field has been set.
 
 ### GetVrf
 
-`func (o *PatchedWritableIPAddressRequest) GetVrf() BriefVRFRequest`
+`func (o *PatchedWritableIPAddressRequest) GetVrf() BulkIPAddressRequestVrf`
 
 GetVrf returns the Vrf field if non-nil, zero value otherwise.
 
 ### GetVrfOk
 
-`func (o *PatchedWritableIPAddressRequest) GetVrfOk() (*BriefVRFRequest, bool)`
+`func (o *PatchedWritableIPAddressRequest) GetVrfOk() (*BulkIPAddressRequestVrf, bool)`
 
 GetVrfOk returns a tuple with the Vrf field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVrf
 
-`func (o *PatchedWritableIPAddressRequest) SetVrf(v BriefVRFRequest)`
+`func (o *PatchedWritableIPAddressRequest) SetVrf(v BulkIPAddressRequestVrf)`
 
 SetVrf sets Vrf field to given value.
 
@@ -99,20 +100,20 @@ HasVrf returns a boolean if a field has been set.
 UnsetVrf ensures that no value is present for Vrf, not even an explicit nil
 ### GetTenant
 
-`func (o *PatchedWritableIPAddressRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableIPAddressRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableIPAddressRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableIPAddressRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableIPAddressRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableIPAddressRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -182,6 +183,16 @@ SetRole sets Role field to given value.
 
 HasRole returns a boolean if a field has been set.
 
+### SetRoleNil
+
+`func (o *PatchedWritableIPAddressRequest) SetRoleNil(b bool)`
+
+ SetRoleNil sets the value for Role to be an explicit nil
+
+### UnsetRole
+`func (o *PatchedWritableIPAddressRequest) UnsetRole()`
+
+UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetAssignedObjectType
 
 `func (o *PatchedWritableIPAddressRequest) GetAssignedObjectType() string`
@@ -289,20 +300,20 @@ HasNatInside returns a boolean if a field has been set.
 UnsetNatInside ensures that no value is present for NatInside, not even an explicit nil
 ### GetDnsName
 
-`func (o *PatchedWritableIPAddressRequest) GetDnsName() string`
+`func (o *PatchedWritableIPAddressRequest) GetDnsName() BriefIPAddressDnsName`
 
 GetDnsName returns the DnsName field if non-nil, zero value otherwise.
 
 ### GetDnsNameOk
 
-`func (o *PatchedWritableIPAddressRequest) GetDnsNameOk() (*string, bool)`
+`func (o *PatchedWritableIPAddressRequest) GetDnsNameOk() (*BriefIPAddressDnsName, bool)`
 
 GetDnsNameOk returns a tuple with the DnsName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDnsName
 
-`func (o *PatchedWritableIPAddressRequest) SetDnsName(v string)`
+`func (o *PatchedWritableIPAddressRequest) SetDnsName(v BriefIPAddressDnsName)`
 
 SetDnsName sets DnsName field to given value.
 
@@ -337,6 +348,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableIPAddressRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableIPAddressRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableIPAddressRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableIPAddressRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableIPAddressRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableIPAddressRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableIPAddressRequest) GetComments() string`

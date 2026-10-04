@@ -6,13 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**BaseChoices** | Pointer to [**CustomFieldChoiceSetBaseChoices**](CustomFieldChoiceSetBaseChoices.md) |  | [optional] 
+**BaseChoices** | Pointer to [**NullableCustomFieldChoiceSetBaseChoices**](CustomFieldChoiceSetBaseChoices.md) |  | [optional] 
 **ExtraChoices** | **[][]interface{}** |  | 
+**ChoiceColors** | Pointer to [**map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue**](BulkCustomFieldChoiceSetRequestChoiceColorsValue.md) |  | [optional] 
 **OrderAlphabetically** | Pointer to **bool** | Choices are automatically ordered alphabetically | [optional] 
 **ChoicesCount** | **int32** |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 
@@ -20,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewCustomFieldChoiceSet
 
-`func NewCustomFieldChoiceSet(id int32, url string, display string, name string, extraChoices [][]interface{}, choicesCount int32, created NullableTime, lastUpdated NullableTime, ) *CustomFieldChoiceSet`
+`func NewCustomFieldChoiceSet(id int32, url string, displayUrl string, display string, name string, extraChoices [][]interface{}, choicesCount int32, created NullableTime, lastUpdated NullableTime, ) *CustomFieldChoiceSet`
 
 NewCustomFieldChoiceSet instantiates a new CustomFieldChoiceSet object
 This constructor will assign default values to properties that have it defined,
@@ -73,6 +76,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomFieldChoiceSet) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *CustomFieldChoiceSet) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *CustomFieldChoiceSet) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *CustomFieldChoiceSet) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -165,6 +188,16 @@ SetBaseChoices sets BaseChoices field to given value.
 
 HasBaseChoices returns a boolean if a field has been set.
 
+### SetBaseChoicesNil
+
+`func (o *CustomFieldChoiceSet) SetBaseChoicesNil(b bool)`
+
+ SetBaseChoicesNil sets the value for BaseChoices to be an explicit nil
+
+### UnsetBaseChoices
+`func (o *CustomFieldChoiceSet) UnsetBaseChoices()`
+
+UnsetBaseChoices ensures that no value is present for BaseChoices, not even an explicit nil
 ### GetExtraChoices
 
 `func (o *CustomFieldChoiceSet) GetExtraChoices() [][]interface{}`
@@ -184,6 +217,31 @@ and a boolean to check if the value has been set.
 
 SetExtraChoices sets ExtraChoices field to given value.
 
+
+### GetChoiceColors
+
+`func (o *CustomFieldChoiceSet) GetChoiceColors() map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue`
+
+GetChoiceColors returns the ChoiceColors field if non-nil, zero value otherwise.
+
+### GetChoiceColorsOk
+
+`func (o *CustomFieldChoiceSet) GetChoiceColorsOk() (*map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue, bool)`
+
+GetChoiceColorsOk returns a tuple with the ChoiceColors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChoiceColors
+
+`func (o *CustomFieldChoiceSet) SetChoiceColors(v map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue)`
+
+SetChoiceColors sets ChoiceColors field to given value.
+
+### HasChoiceColors
+
+`func (o *CustomFieldChoiceSet) HasChoiceColors() bool`
+
+HasChoiceColors returns a boolean if a field has been set.
 
 ### GetOrderAlphabetically
 
@@ -230,6 +288,41 @@ and a boolean to check if the value has been set.
 SetChoicesCount sets ChoicesCount field to given value.
 
 
+### GetOwner
+
+`func (o *CustomFieldChoiceSet) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *CustomFieldChoiceSet) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *CustomFieldChoiceSet) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *CustomFieldChoiceSet) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *CustomFieldChoiceSet) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *CustomFieldChoiceSet) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetCreated
 
 `func (o *CustomFieldChoiceSet) GetCreated() time.Time`

@@ -82,7 +82,7 @@ import (
 )
 
 func main() {
-	contactAssignmentRequest := []openapiclient.ContactAssignmentRequest{*openapiclient.NewContactAssignmentRequest("ObjectType_example", int64(123), *openapiclient.NewBriefContactRequest("Name_example"))} // []ContactAssignmentRequest | 
+	contactAssignmentRequest := []openapiclient.ContactAssignmentRequest{*openapiclient.NewContactAssignmentRequest("ObjectType_example", int64(123), openapiclient.BulkContactAssignmentRequest_contact{BriefContactRequest: openapiclient.NewBriefContactRequest("Name_example")})} // []ContactAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -127,7 +127,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactAssignmentsBulkPartialUpdate
 
-> []ContactAssignment TenancyContactAssignmentsBulkPartialUpdate(ctx).ContactAssignmentRequest(contactAssignmentRequest).Execute()
+> []ContactAssignment TenancyContactAssignmentsBulkPartialUpdate(ctx).PatchedBulkContactAssignmentRequest(patchedBulkContactAssignmentRequest).Execute()
 
 
 
@@ -146,11 +146,11 @@ import (
 )
 
 func main() {
-	contactAssignmentRequest := []openapiclient.ContactAssignmentRequest{*openapiclient.NewContactAssignmentRequest("ObjectType_example", int64(123), *openapiclient.NewBriefContactRequest("Name_example"))} // []ContactAssignmentRequest | 
+	patchedBulkContactAssignmentRequest := []openapiclient.PatchedBulkContactAssignmentRequest{*openapiclient.NewPatchedBulkContactAssignmentRequest(int32(123))} // []PatchedBulkContactAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsBulkPartialUpdate(context.Background()).ContactAssignmentRequest(contactAssignmentRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsBulkPartialUpdate(context.Background()).PatchedBulkContactAssignmentRequest(patchedBulkContactAssignmentRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactAssignmentsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -171,7 +171,7 @@ Other parameters are passed through a pointer to a apiTenancyContactAssignmentsB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactAssignmentRequest** | [**[]ContactAssignmentRequest**](ContactAssignmentRequest.md) |  | 
+ **patchedBulkContactAssignmentRequest** | [**[]PatchedBulkContactAssignmentRequest**](PatchedBulkContactAssignmentRequest.md) |  | 
 
 ### Return type
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactAssignmentsBulkUpdate
 
-> []ContactAssignment TenancyContactAssignmentsBulkUpdate(ctx).ContactAssignmentRequest(contactAssignmentRequest).Execute()
+> []ContactAssignment TenancyContactAssignmentsBulkUpdate(ctx).BulkContactAssignmentRequest(bulkContactAssignmentRequest).Execute()
 
 
 
@@ -212,11 +212,11 @@ import (
 )
 
 func main() {
-	contactAssignmentRequest := []openapiclient.ContactAssignmentRequest{*openapiclient.NewContactAssignmentRequest("ObjectType_example", int64(123), *openapiclient.NewBriefContactRequest("Name_example"))} // []ContactAssignmentRequest | 
+	bulkContactAssignmentRequest := []openapiclient.BulkContactAssignmentRequest{*openapiclient.NewBulkContactAssignmentRequest(int32(123), "ObjectType_example", int64(123), openapiclient.BulkContactAssignmentRequest_contact{BriefContactRequest: openapiclient.NewBriefContactRequest("Name_example")})} // []BulkContactAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsBulkUpdate(context.Background()).ContactAssignmentRequest(contactAssignmentRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsBulkUpdate(context.Background()).BulkContactAssignmentRequest(bulkContactAssignmentRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactAssignmentsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -237,7 +237,7 @@ Other parameters are passed through a pointer to a apiTenancyContactAssignmentsB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactAssignmentRequest** | [**[]ContactAssignmentRequest**](ContactAssignmentRequest.md) |  | 
+ **bulkContactAssignmentRequest** | [**[]BulkContactAssignmentRequest**](BulkContactAssignmentRequest.md) |  | 
 
 ### Return type
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactAssignmentsCreate
 
-> ContactAssignment TenancyContactAssignmentsCreate(ctx).WritableContactAssignmentRequest(writableContactAssignmentRequest).Execute()
+> ContactAssignment TenancyContactAssignmentsCreate(ctx).TenancyContactAssignmentsCreateRequest(tenancyContactAssignmentsCreateRequest).Execute()
 
 
 
@@ -278,11 +278,11 @@ import (
 )
 
 func main() {
-	writableContactAssignmentRequest := *openapiclient.NewWritableContactAssignmentRequest("ObjectType_example", int64(123), *openapiclient.NewBriefContactRequest("Name_example")) // WritableContactAssignmentRequest | 
+	tenancyContactAssignmentsCreateRequest := openapiclient.tenancy_contact_assignments_create_request{WritableContactAssignmentRequest: openapiclient.NewWritableContactAssignmentRequest("ObjectType_example", int64(123), openapiclient.BulkContactAssignmentRequest_contact{BriefContactRequest: openapiclient.NewBriefContactRequest("Name_example")})} // TenancyContactAssignmentsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsCreate(context.Background()).WritableContactAssignmentRequest(writableContactAssignmentRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsCreate(context.Background()).TenancyContactAssignmentsCreateRequest(tenancyContactAssignmentsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactAssignmentsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -303,7 +303,7 @@ Other parameters are passed through a pointer to a apiTenancyContactAssignmentsC
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableContactAssignmentRequest** | [**WritableContactAssignmentRequest**](WritableContactAssignmentRequest.md) |  | 
+ **tenancyContactAssignmentsCreateRequest** | [**TenancyContactAssignmentsCreateRequest**](TenancyContactAssignmentsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -393,7 +393,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactAssignmentsList
 
-> PaginatedContactAssignmentList TenancyContactAssignmentsList(ctx).ContactId(contactId).ContactIdN(contactIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).ObjectTypeId(objectTypeId).ObjectTypeIdN(objectTypeIdN).Offset(offset).Ordering(ordering).Priority(priority).PriorityN(priorityN).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedContactAssignmentList TenancyContactAssignmentsList(ctx).Brief(brief).ContactId(contactId).ContactIdN(contactIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).ObjectTypeId(objectTypeId).ObjectTypeIdN(objectTypeIdN).Offset(offset).Omit(omit).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityIc(priorityIc).PriorityIe(priorityIe).PriorityIew(priorityIew).PriorityIregex(priorityIregex).PriorityIsw(priorityIsw).PriorityN(priorityN).PriorityNic(priorityNic).PriorityNie(priorityNie).PriorityNiew(priorityNiew).PriorityNisw(priorityNisw).PriorityRegex(priorityRegex).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -413,6 +413,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	contactId := []int32{int32(123)} // []int32 | Contact (ID) (optional)
 	contactIdN := []int32{int32(123)} // []int32 | Contact (ID) (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -423,6 +424,7 @@ func main() {
 	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []string{"Inner_example"} // []string |  (optional)
 	groupN := []string{"Inner_example"} // []string |  (optional)
 	groupId := []string{"Inner_example"} // []string |  (optional)
@@ -450,26 +452,43 @@ func main() {
 	objectIdLt := []int32{int32(123)} // []int32 |  (optional)
 	objectIdLte := []int32{int32(123)} // []int32 |  (optional)
 	objectIdN := []int32{int32(123)} // []int32 |  (optional)
-	objectType := "objectType_example" // string |  (optional)
-	objectTypeN := "objectTypeN_example" // string |  (optional)
+	objectType := []string{"Inner_example"} // []string |  (optional)
+	objectTypeN := []string{"Inner_example"} // []string |  (optional)
 	objectTypeId := int32(56) // int32 |  (optional)
 	objectTypeIdN := int32(56) // int32 |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
-	priority := openapiclient.tenancy_contact_assignments_list_priority_parameter("inactive") // TenancyContactAssignmentsListPriorityParameter | * `primary` - Primary * `secondary` - Secondary * `tertiary` - Tertiary * `inactive` - Inactive (optional)
-	priorityN := openapiclient.tenancy_contact_assignments_list_priority_parameter("inactive") // TenancyContactAssignmentsListPriorityParameter | * `primary` - Primary * `secondary` - Secondary * `tertiary` - Tertiary * `inactive` - Inactive (optional)
+	priority := openapiclient.circuits_circuit_group_assignments_list_priority_parameter("inactive") // CircuitsCircuitGroupAssignmentsListPriorityParameter | * `primary` - Primary * `secondary` - Secondary * `tertiary` - Tertiary * `inactive` - Inactive (optional)
+	priorityEmpty := true // bool |  (optional)
+	priorityIc := []string{"Inner_example"} // []string |  (optional)
+	priorityIe := []string{"Inner_example"} // []string |  (optional)
+	priorityIew := []string{"Inner_example"} // []string |  (optional)
+	priorityIregex := []string{"Inner_example"} // []string |  (optional)
+	priorityIsw := []string{"Inner_example"} // []string |  (optional)
+	priorityN := openapiclient.circuits_circuit_group_assignments_list_priority_parameter("inactive") // CircuitsCircuitGroupAssignmentsListPriorityParameter | * `primary` - Primary * `secondary` - Secondary * `tertiary` - Tertiary * `inactive` - Inactive (optional)
+	priorityNic := []string{"Inner_example"} // []string |  (optional)
+	priorityNie := []string{"Inner_example"} // []string |  (optional)
+	priorityNiew := []string{"Inner_example"} // []string |  (optional)
+	priorityNisw := []string{"Inner_example"} // []string |  (optional)
+	priorityRegex := []string{"Inner_example"} // []string |  (optional)
 	q := "q_example" // string | Search (optional)
 	role := []string{"Inner_example"} // []string | Contact role (slug) (optional)
 	roleN := []string{"Inner_example"} // []string | Contact role (slug) (optional)
 	roleId := []int32{int32(123)} // []int32 | Contact role (ID) (optional)
 	roleIdN := []int32{int32(123)} // []int32 | Contact role (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsList(context.Background()).ContactId(contactId).ContactIdN(contactIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).ObjectTypeId(objectTypeId).ObjectTypeIdN(objectTypeIdN).Offset(offset).Ordering(ordering).Priority(priority).PriorityN(priorityN).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsList(context.Background()).Brief(brief).ContactId(contactId).ContactIdN(contactIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).ObjectTypeId(objectTypeId).ObjectTypeIdN(objectTypeIdN).Offset(offset).Omit(omit).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityIc(priorityIc).PriorityIe(priorityIe).PriorityIew(priorityIew).PriorityIregex(priorityIregex).PriorityIsw(priorityIsw).PriorityN(priorityN).PriorityNic(priorityNic).PriorityNie(priorityNie).PriorityNiew(priorityNiew).PriorityNisw(priorityNisw).PriorityRegex(priorityRegex).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactAssignmentsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -490,6 +509,7 @@ Other parameters are passed through a pointer to a apiTenancyContactAssignmentsL
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **contactId** | **[]int32** | Contact (ID) | 
  **contactIdN** | **[]int32** | Contact (ID) | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
@@ -500,6 +520,7 @@ Name | Type | Description  | Notes
  **createdLte** | [**[]time.Time**](time.Time.md) |  | 
  **createdN** | [**[]time.Time**](time.Time.md) |  | 
  **createdByRequest** | **string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]string** |  | 
  **groupN** | **[]string** |  | 
  **groupId** | **[]string** |  | 
@@ -527,21 +548,38 @@ Name | Type | Description  | Notes
  **objectIdLt** | **[]int32** |  | 
  **objectIdLte** | **[]int32** |  | 
  **objectIdN** | **[]int32** |  | 
- **objectType** | **string** |  | 
- **objectTypeN** | **string** |  | 
+ **objectType** | **[]string** |  | 
+ **objectTypeN** | **[]string** |  | 
  **objectTypeId** | **int32** |  | 
  **objectTypeIdN** | **int32** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
- **priority** | [**TenancyContactAssignmentsListPriorityParameter**](TenancyContactAssignmentsListPriorityParameter.md) | * &#x60;primary&#x60; - Primary * &#x60;secondary&#x60; - Secondary * &#x60;tertiary&#x60; - Tertiary * &#x60;inactive&#x60; - Inactive | 
- **priorityN** | [**TenancyContactAssignmentsListPriorityParameter**](TenancyContactAssignmentsListPriorityParameter.md) | * &#x60;primary&#x60; - Primary * &#x60;secondary&#x60; - Secondary * &#x60;tertiary&#x60; - Tertiary * &#x60;inactive&#x60; - Inactive | 
+ **priority** | [**CircuitsCircuitGroupAssignmentsListPriorityParameter**](CircuitsCircuitGroupAssignmentsListPriorityParameter.md) | * &#x60;primary&#x60; - Primary * &#x60;secondary&#x60; - Secondary * &#x60;tertiary&#x60; - Tertiary * &#x60;inactive&#x60; - Inactive | 
+ **priorityEmpty** | **bool** |  | 
+ **priorityIc** | **[]string** |  | 
+ **priorityIe** | **[]string** |  | 
+ **priorityIew** | **[]string** |  | 
+ **priorityIregex** | **[]string** |  | 
+ **priorityIsw** | **[]string** |  | 
+ **priorityN** | [**CircuitsCircuitGroupAssignmentsListPriorityParameter**](CircuitsCircuitGroupAssignmentsListPriorityParameter.md) | * &#x60;primary&#x60; - Primary * &#x60;secondary&#x60; - Secondary * &#x60;tertiary&#x60; - Tertiary * &#x60;inactive&#x60; - Inactive | 
+ **priorityNic** | **[]string** |  | 
+ **priorityNie** | **[]string** |  | 
+ **priorityNiew** | **[]string** |  | 
+ **priorityNisw** | **[]string** |  | 
+ **priorityRegex** | **[]string** |  | 
  **q** | **string** | Search | 
  **role** | **[]string** | Contact role (slug) | 
  **roleN** | **[]string** | Contact role (slug) | 
  **roleId** | **[]int32** | Contact role (ID) | 
  **roleIdN** | **[]int32** | Contact role (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -636,7 +674,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactAssignmentsRetrieve
 
-> ContactAssignment TenancyContactAssignmentsRetrieve(ctx, id).Execute()
+> ContactAssignment TenancyContactAssignmentsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -656,10 +694,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this contact assignment.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactAssignmentsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactAssignmentsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -685,6 +726,9 @@ Other parameters are passed through a pointer to a apiTenancyContactAssignmentsR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -726,7 +770,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this contact assignment.
-	writableContactAssignmentRequest := *openapiclient.NewWritableContactAssignmentRequest("ObjectType_example", int64(123), *openapiclient.NewBriefContactRequest("Name_example")) // WritableContactAssignmentRequest | 
+	writableContactAssignmentRequest := *openapiclient.NewWritableContactAssignmentRequest("ObjectType_example", int64(123), openapiclient.BulkContactAssignmentRequest_contact{BriefContactRequest: openapiclient.NewBriefContactRequest("Name_example")}) // WritableContactAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -833,7 +877,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -842,7 +886,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactGroupsBulkPartialUpdate
 
-> []ContactGroup TenancyContactGroupsBulkPartialUpdate(ctx).ContactGroupRequest(contactGroupRequest).Execute()
+> []ContactGroup TenancyContactGroupsBulkPartialUpdate(ctx).PatchedBulkContactGroupRequest(patchedBulkContactGroupRequest).Execute()
 
 
 
@@ -861,11 +905,11 @@ import (
 )
 
 func main() {
-	contactGroupRequest := []openapiclient.ContactGroupRequest{*openapiclient.NewContactGroupRequest("Name_example", "Slug_example")} // []ContactGroupRequest | 
+	patchedBulkContactGroupRequest := []openapiclient.PatchedBulkContactGroupRequest{*openapiclient.NewPatchedBulkContactGroupRequest(int32(123))} // []PatchedBulkContactGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsBulkPartialUpdate(context.Background()).ContactGroupRequest(contactGroupRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsBulkPartialUpdate(context.Background()).PatchedBulkContactGroupRequest(patchedBulkContactGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactGroupsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -886,7 +930,7 @@ Other parameters are passed through a pointer to a apiTenancyContactGroupsBulkPa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactGroupRequest** | [**[]ContactGroupRequest**](ContactGroupRequest.md) |  | 
+ **patchedBulkContactGroupRequest** | [**[]PatchedBulkContactGroupRequest**](PatchedBulkContactGroupRequest.md) |  | 
 
 ### Return type
 
@@ -908,7 +952,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactGroupsBulkUpdate
 
-> []ContactGroup TenancyContactGroupsBulkUpdate(ctx).ContactGroupRequest(contactGroupRequest).Execute()
+> []ContactGroup TenancyContactGroupsBulkUpdate(ctx).BulkContactGroupRequest(bulkContactGroupRequest).Execute()
 
 
 
@@ -927,11 +971,11 @@ import (
 )
 
 func main() {
-	contactGroupRequest := []openapiclient.ContactGroupRequest{*openapiclient.NewContactGroupRequest("Name_example", "Slug_example")} // []ContactGroupRequest | 
+	bulkContactGroupRequest := []openapiclient.BulkContactGroupRequest{*openapiclient.NewBulkContactGroupRequest(int32(123), "Name_example", "Slug_example")} // []BulkContactGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsBulkUpdate(context.Background()).ContactGroupRequest(contactGroupRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsBulkUpdate(context.Background()).BulkContactGroupRequest(bulkContactGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactGroupsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -952,7 +996,7 @@ Other parameters are passed through a pointer to a apiTenancyContactGroupsBulkUp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactGroupRequest** | [**[]ContactGroupRequest**](ContactGroupRequest.md) |  | 
+ **bulkContactGroupRequest** | [**[]BulkContactGroupRequest**](BulkContactGroupRequest.md) |  | 
 
 ### Return type
 
@@ -974,7 +1018,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactGroupsCreate
 
-> ContactGroup TenancyContactGroupsCreate(ctx).WritableContactGroupRequest(writableContactGroupRequest).Execute()
+> ContactGroup TenancyContactGroupsCreate(ctx).TenancyContactGroupsCreateRequest(tenancyContactGroupsCreateRequest).Execute()
 
 
 
@@ -993,11 +1037,11 @@ import (
 )
 
 func main() {
-	writableContactGroupRequest := *openapiclient.NewWritableContactGroupRequest("Name_example", "Slug_example", NullableInt32(123)) // WritableContactGroupRequest | 
+	tenancyContactGroupsCreateRequest := openapiclient.tenancy_contact_groups_create_request{WritableContactGroupRequest: openapiclient.NewWritableContactGroupRequest("Name_example", "Slug_example")} // TenancyContactGroupsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsCreate(context.Background()).WritableContactGroupRequest(writableContactGroupRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsCreate(context.Background()).TenancyContactGroupsCreateRequest(tenancyContactGroupsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactGroupsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1018,7 +1062,7 @@ Other parameters are passed through a pointer to a apiTenancyContactGroupsCreate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableContactGroupRequest** | [**WritableContactGroupRequest**](WritableContactGroupRequest.md) |  | 
+ **tenancyContactGroupsCreateRequest** | [**TenancyContactGroupsCreateRequest**](TenancyContactGroupsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1108,7 +1152,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactGroupsList
 
-> PaginatedContactGroupList TenancyContactGroupsList(ctx).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedContactGroupList TenancyContactGroupsList(ctx).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Brief(brief).ContactId(contactId).ContactIdN(contactIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1132,6 +1176,9 @@ func main() {
 	ancestorN := []string{"Inner_example"} // []string |  (optional)
 	ancestorId := []string{"Inner_example"} // []string |  (optional)
 	ancestorIdN := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contactId := []int32{int32(123)} // []int32 | Contact (ID) (optional)
+	contactIdN := []int32{int32(123)} // []int32 | Contact (ID) (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1145,12 +1192,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1172,14 +1222,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	parent := []string{"Inner_example"} // []string | Parent contact group (slug) (optional)
 	parentN := []string{"Inner_example"} // []string | Parent contact group (slug) (optional)
 	parentId := []*int32{int32(123)} // []*int32 | Parent contact group (ID) (optional)
@@ -1190,19 +1251,26 @@ func main() {
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsList(context.Background()).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsList(context.Background()).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Brief(brief).ContactId(contactId).ContactIdN(contactIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactGroupsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1227,6 +1295,9 @@ Name | Type | Description  | Notes
  **ancestorN** | **[]string** |  | 
  **ancestorId** | **[]string** |  | 
  **ancestorIdN** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contactId** | **[]int32** | Contact (ID) | 
+ **contactIdN** | **[]int32** | Contact (ID) | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -1240,12 +1311,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -1267,14 +1341,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **parent** | **[]string** | Parent contact group (slug) | 
  **parentN** | **[]string** | Parent contact group (slug) | 
  **parentId** | **[]int32** | Parent contact group (ID) | 
@@ -1285,14 +1370,21 @@ Name | Type | Description  | Notes
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -1387,7 +1479,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactGroupsRetrieve
 
-> ContactGroup TenancyContactGroupsRetrieve(ctx, id).Execute()
+> ContactGroup TenancyContactGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -1407,10 +1499,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this contact group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactGroupsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1436,6 +1531,9 @@ Other parameters are passed through a pointer to a apiTenancyContactGroupsRetrie
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1477,7 +1575,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this contact group.
-	writableContactGroupRequest := *openapiclient.NewWritableContactGroupRequest("Name_example", "Slug_example", NullableInt32(123)) // WritableContactGroupRequest | 
+	writableContactGroupRequest := *openapiclient.NewWritableContactGroupRequest("Name_example", "Slug_example") // WritableContactGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1584,7 +1682,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1593,7 +1691,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactRolesBulkPartialUpdate
 
-> []ContactRole TenancyContactRolesBulkPartialUpdate(ctx).ContactRoleRequest(contactRoleRequest).Execute()
+> []ContactRole TenancyContactRolesBulkPartialUpdate(ctx).PatchedBulkContactRoleRequest(patchedBulkContactRoleRequest).Execute()
 
 
 
@@ -1612,11 +1710,11 @@ import (
 )
 
 func main() {
-	contactRoleRequest := []openapiclient.ContactRoleRequest{*openapiclient.NewContactRoleRequest("Name_example", "Slug_example")} // []ContactRoleRequest | 
+	patchedBulkContactRoleRequest := []openapiclient.PatchedBulkContactRoleRequest{*openapiclient.NewPatchedBulkContactRoleRequest(int32(123))} // []PatchedBulkContactRoleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesBulkPartialUpdate(context.Background()).ContactRoleRequest(contactRoleRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesBulkPartialUpdate(context.Background()).PatchedBulkContactRoleRequest(patchedBulkContactRoleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactRolesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1637,7 +1735,7 @@ Other parameters are passed through a pointer to a apiTenancyContactRolesBulkPar
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactRoleRequest** | [**[]ContactRoleRequest**](ContactRoleRequest.md) |  | 
+ **patchedBulkContactRoleRequest** | [**[]PatchedBulkContactRoleRequest**](PatchedBulkContactRoleRequest.md) |  | 
 
 ### Return type
 
@@ -1659,7 +1757,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactRolesBulkUpdate
 
-> []ContactRole TenancyContactRolesBulkUpdate(ctx).ContactRoleRequest(contactRoleRequest).Execute()
+> []ContactRole TenancyContactRolesBulkUpdate(ctx).BulkContactRoleRequest(bulkContactRoleRequest).Execute()
 
 
 
@@ -1678,11 +1776,11 @@ import (
 )
 
 func main() {
-	contactRoleRequest := []openapiclient.ContactRoleRequest{*openapiclient.NewContactRoleRequest("Name_example", "Slug_example")} // []ContactRoleRequest | 
+	bulkContactRoleRequest := []openapiclient.BulkContactRoleRequest{*openapiclient.NewBulkContactRoleRequest(int32(123), "Name_example", "Slug_example")} // []BulkContactRoleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesBulkUpdate(context.Background()).ContactRoleRequest(contactRoleRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesBulkUpdate(context.Background()).BulkContactRoleRequest(bulkContactRoleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactRolesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1703,7 +1801,7 @@ Other parameters are passed through a pointer to a apiTenancyContactRolesBulkUpd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactRoleRequest** | [**[]ContactRoleRequest**](ContactRoleRequest.md) |  | 
+ **bulkContactRoleRequest** | [**[]BulkContactRoleRequest**](BulkContactRoleRequest.md) |  | 
 
 ### Return type
 
@@ -1725,7 +1823,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactRolesCreate
 
-> ContactRole TenancyContactRolesCreate(ctx).ContactRoleRequest(contactRoleRequest).Execute()
+> ContactRole TenancyContactRolesCreate(ctx).TenancyContactRolesCreateRequest(tenancyContactRolesCreateRequest).Execute()
 
 
 
@@ -1744,11 +1842,11 @@ import (
 )
 
 func main() {
-	contactRoleRequest := *openapiclient.NewContactRoleRequest("Name_example", "Slug_example") // ContactRoleRequest | 
+	tenancyContactRolesCreateRequest := openapiclient.tenancy_contact_roles_create_request{ContactRoleRequest: openapiclient.NewContactRoleRequest("Name_example", "Slug_example")} // TenancyContactRolesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesCreate(context.Background()).ContactRoleRequest(contactRoleRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesCreate(context.Background()).TenancyContactRolesCreateRequest(tenancyContactRolesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactRolesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1769,7 +1867,7 @@ Other parameters are passed through a pointer to a apiTenancyContactRolesCreateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactRoleRequest** | [**ContactRoleRequest**](ContactRoleRequest.md) |  | 
+ **tenancyContactRolesCreateRequest** | [**TenancyContactRolesCreateRequest**](TenancyContactRolesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1859,7 +1957,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactRolesList
 
-> PaginatedContactRoleList TenancyContactRolesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedContactRoleList TenancyContactRolesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1879,6 +1977,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1892,12 +1991,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1919,33 +2021,51 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactRolesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1966,6 +2086,7 @@ Other parameters are passed through a pointer to a apiTenancyContactRolesListReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -1979,12 +2100,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -2006,28 +2130,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -2122,7 +2264,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactRolesRetrieve
 
-> ContactRole TenancyContactRolesRetrieve(ctx, id).Execute()
+> ContactRole TenancyContactRolesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2142,10 +2284,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this contact role.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactRolesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactRolesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2171,6 +2316,9 @@ Other parameters are passed through a pointer to a apiTenancyContactRolesRetriev
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -2319,7 +2467,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -2328,7 +2476,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactsBulkPartialUpdate
 
-> []Contact TenancyContactsBulkPartialUpdate(ctx).ContactRequest(contactRequest).Execute()
+> []Contact TenancyContactsBulkPartialUpdate(ctx).PatchedBulkContactRequest(patchedBulkContactRequest).Execute()
 
 
 
@@ -2347,11 +2495,11 @@ import (
 )
 
 func main() {
-	contactRequest := []openapiclient.ContactRequest{*openapiclient.NewContactRequest("Name_example")} // []ContactRequest | 
+	patchedBulkContactRequest := []openapiclient.PatchedBulkContactRequest{*openapiclient.NewPatchedBulkContactRequest(int32(123))} // []PatchedBulkContactRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactsBulkPartialUpdate(context.Background()).ContactRequest(contactRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactsBulkPartialUpdate(context.Background()).PatchedBulkContactRequest(patchedBulkContactRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2372,7 +2520,7 @@ Other parameters are passed through a pointer to a apiTenancyContactsBulkPartial
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactRequest** | [**[]ContactRequest**](ContactRequest.md) |  | 
+ **patchedBulkContactRequest** | [**[]PatchedBulkContactRequest**](PatchedBulkContactRequest.md) |  | 
 
 ### Return type
 
@@ -2394,7 +2542,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactsBulkUpdate
 
-> []Contact TenancyContactsBulkUpdate(ctx).ContactRequest(contactRequest).Execute()
+> []Contact TenancyContactsBulkUpdate(ctx).BulkContactRequest(bulkContactRequest).Execute()
 
 
 
@@ -2413,11 +2561,11 @@ import (
 )
 
 func main() {
-	contactRequest := []openapiclient.ContactRequest{*openapiclient.NewContactRequest("Name_example")} // []ContactRequest | 
+	bulkContactRequest := []openapiclient.BulkContactRequest{*openapiclient.NewBulkContactRequest(int32(123), "Name_example")} // []BulkContactRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactsBulkUpdate(context.Background()).ContactRequest(contactRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactsBulkUpdate(context.Background()).BulkContactRequest(bulkContactRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2438,7 +2586,7 @@ Other parameters are passed through a pointer to a apiTenancyContactsBulkUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactRequest** | [**[]ContactRequest**](ContactRequest.md) |  | 
+ **bulkContactRequest** | [**[]BulkContactRequest**](BulkContactRequest.md) |  | 
 
 ### Return type
 
@@ -2460,7 +2608,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactsCreate
 
-> Contact TenancyContactsCreate(ctx).ContactRequest(contactRequest).Execute()
+> Contact TenancyContactsCreate(ctx).TenancyContactsCreateRequest(tenancyContactsCreateRequest).Execute()
 
 
 
@@ -2479,11 +2627,11 @@ import (
 )
 
 func main() {
-	contactRequest := *openapiclient.NewContactRequest("Name_example") // ContactRequest | 
+	tenancyContactsCreateRequest := openapiclient.tenancy_contacts_create_request{ContactRequest: openapiclient.NewContactRequest("Name_example")} // TenancyContactsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactsCreate(context.Background()).ContactRequest(contactRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactsCreate(context.Background()).TenancyContactsCreateRequest(tenancyContactsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2504,7 +2652,7 @@ Other parameters are passed through a pointer to a apiTenancyContactsCreateReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contactRequest** | [**ContactRequest**](ContactRequest.md) |  | 
+ **tenancyContactsCreateRequest** | [**TenancyContactsCreateRequest**](TenancyContactsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -2594,7 +2742,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactsList
 
-> PaginatedContactList TenancyContactsList(ctx).Address(address).AddressEmpty(addressEmpty).AddressIc(addressIc).AddressIe(addressIe).AddressIew(addressIew).AddressIsw(addressIsw).AddressN(addressN).AddressNic(addressNic).AddressNie(addressNie).AddressNiew(addressNiew).AddressNisw(addressNisw).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Email(email).EmailEmpty(emailEmpty).EmailIc(emailIc).EmailIe(emailIe).EmailIew(emailIew).EmailIsw(emailIsw).EmailN(emailN).EmailNic(emailNic).EmailNie(emailNie).EmailNiew(emailNiew).EmailNisw(emailNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Link(link).LinkEmpty(linkEmpty).LinkIc(linkIc).LinkIe(linkIe).LinkIew(linkIew).LinkIsw(linkIsw).LinkN(linkN).LinkNic(linkNic).LinkNie(linkNie).LinkNiew(linkNiew).LinkNisw(linkNisw).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Phone(phone).PhoneEmpty(phoneEmpty).PhoneIc(phoneIc).PhoneIe(phoneIe).PhoneIew(phoneIew).PhoneIsw(phoneIsw).PhoneN(phoneN).PhoneNic(phoneNic).PhoneNie(phoneNie).PhoneNiew(phoneNiew).PhoneNisw(phoneNisw).Q(q).Tag(tag).TagN(tagN).Title(title).TitleEmpty(titleEmpty).TitleIc(titleIc).TitleIe(titleIe).TitleIew(titleIew).TitleIsw(titleIsw).TitleN(titleN).TitleNic(titleNic).TitleNie(titleNie).TitleNiew(titleNiew).TitleNisw(titleNisw).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedContactList TenancyContactsList(ctx).Address(address).AddressEmpty(addressEmpty).AddressIc(addressIc).AddressIe(addressIe).AddressIew(addressIew).AddressIregex(addressIregex).AddressIsw(addressIsw).AddressN(addressN).AddressNic(addressNic).AddressNie(addressNie).AddressNiew(addressNiew).AddressNisw(addressNisw).AddressRegex(addressRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Email(email).EmailEmpty(emailEmpty).EmailIc(emailIc).EmailIe(emailIe).EmailIew(emailIew).EmailIregex(emailIregex).EmailIsw(emailIsw).EmailN(emailN).EmailNic(emailNic).EmailNie(emailNie).EmailNiew(emailNiew).EmailNisw(emailNisw).EmailRegex(emailRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Link(link).LinkEmpty(linkEmpty).LinkIc(linkIc).LinkIe(linkIe).LinkIew(linkIew).LinkIregex(linkIregex).LinkIsw(linkIsw).LinkN(linkN).LinkNic(linkNic).LinkNie(linkNie).LinkNiew(linkNiew).LinkNisw(linkNisw).LinkRegex(linkRegex).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Phone(phone).PhoneEmpty(phoneEmpty).PhoneIc(phoneIc).PhoneIe(phoneIe).PhoneIew(phoneIew).PhoneIregex(phoneIregex).PhoneIsw(phoneIsw).PhoneN(phoneN).PhoneNic(phoneNic).PhoneNie(phoneNie).PhoneNiew(phoneNiew).PhoneNisw(phoneNisw).PhoneRegex(phoneRegex).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Title(title).TitleEmpty(titleEmpty).TitleIc(titleIc).TitleIe(titleIe).TitleIew(titleIew).TitleIregex(titleIregex).TitleIsw(titleIsw).TitleN(titleN).TitleNic(titleNic).TitleNie(titleNie).TitleNiew(titleNiew).TitleNisw(titleNisw).TitleRegex(titleRegex).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -2619,12 +2767,15 @@ func main() {
 	addressIc := []string{"Inner_example"} // []string |  (optional)
 	addressIe := []string{"Inner_example"} // []string |  (optional)
 	addressIew := []string{"Inner_example"} // []string |  (optional)
+	addressIregex := []string{"Inner_example"} // []string |  (optional)
 	addressIsw := []string{"Inner_example"} // []string |  (optional)
 	addressN := []string{"Inner_example"} // []string |  (optional)
 	addressNic := []string{"Inner_example"} // []string |  (optional)
 	addressNie := []string{"Inner_example"} // []string |  (optional)
 	addressNiew := []string{"Inner_example"} // []string |  (optional)
 	addressNisw := []string{"Inner_example"} // []string |  (optional)
+	addressRegex := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -2638,23 +2789,28 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	email := []string{"Inner_example"} // []string |  (optional)
 	emailEmpty := true // bool |  (optional)
 	emailIc := []string{"Inner_example"} // []string |  (optional)
 	emailIe := []string{"Inner_example"} // []string |  (optional)
 	emailIew := []string{"Inner_example"} // []string |  (optional)
+	emailIregex := []string{"Inner_example"} // []string |  (optional)
 	emailIsw := []string{"Inner_example"} // []string |  (optional)
 	emailN := []string{"Inner_example"} // []string |  (optional)
 	emailNic := []string{"Inner_example"} // []string |  (optional)
 	emailNie := []string{"Inner_example"} // []string |  (optional)
 	emailNiew := []string{"Inner_example"} // []string |  (optional)
 	emailNisw := []string{"Inner_example"} // []string |  (optional)
+	emailRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []string{"Inner_example"} // []string |  (optional)
 	groupN := []string{"Inner_example"} // []string |  (optional)
 	groupId := []string{"Inner_example"} // []string |  (optional)
@@ -2679,56 +2835,78 @@ func main() {
 	linkIc := []string{"Inner_example"} // []string |  (optional)
 	linkIe := []string{"Inner_example"} // []string |  (optional)
 	linkIew := []string{"Inner_example"} // []string |  (optional)
+	linkIregex := []string{"Inner_example"} // []string |  (optional)
 	linkIsw := []string{"Inner_example"} // []string |  (optional)
 	linkN := []string{"Inner_example"} // []string |  (optional)
 	linkNic := []string{"Inner_example"} // []string |  (optional)
 	linkNie := []string{"Inner_example"} // []string |  (optional)
 	linkNiew := []string{"Inner_example"} // []string |  (optional)
 	linkNisw := []string{"Inner_example"} // []string |  (optional)
+	linkRegex := []string{"Inner_example"} // []string |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	name := []string{"Inner_example"} // []string |  (optional)
 	nameEmpty := true // bool |  (optional)
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	phone := []string{"Inner_example"} // []string |  (optional)
 	phoneEmpty := true // bool |  (optional)
 	phoneIc := []string{"Inner_example"} // []string |  (optional)
 	phoneIe := []string{"Inner_example"} // []string |  (optional)
 	phoneIew := []string{"Inner_example"} // []string |  (optional)
+	phoneIregex := []string{"Inner_example"} // []string |  (optional)
 	phoneIsw := []string{"Inner_example"} // []string |  (optional)
 	phoneN := []string{"Inner_example"} // []string |  (optional)
 	phoneNic := []string{"Inner_example"} // []string |  (optional)
 	phoneNie := []string{"Inner_example"} // []string |  (optional)
 	phoneNiew := []string{"Inner_example"} // []string |  (optional)
 	phoneNisw := []string{"Inner_example"} // []string |  (optional)
+	phoneRegex := []string{"Inner_example"} // []string |  (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	title := []string{"Inner_example"} // []string |  (optional)
 	titleEmpty := true // bool |  (optional)
 	titleIc := []string{"Inner_example"} // []string |  (optional)
 	titleIe := []string{"Inner_example"} // []string |  (optional)
 	titleIew := []string{"Inner_example"} // []string |  (optional)
+	titleIregex := []string{"Inner_example"} // []string |  (optional)
 	titleIsw := []string{"Inner_example"} // []string |  (optional)
 	titleN := []string{"Inner_example"} // []string |  (optional)
 	titleNic := []string{"Inner_example"} // []string |  (optional)
 	titleNie := []string{"Inner_example"} // []string |  (optional)
 	titleNiew := []string{"Inner_example"} // []string |  (optional)
 	titleNisw := []string{"Inner_example"} // []string |  (optional)
+	titleRegex := []string{"Inner_example"} // []string |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactsList(context.Background()).Address(address).AddressEmpty(addressEmpty).AddressIc(addressIc).AddressIe(addressIe).AddressIew(addressIew).AddressIsw(addressIsw).AddressN(addressN).AddressNic(addressNic).AddressNie(addressNie).AddressNiew(addressNiew).AddressNisw(addressNisw).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Email(email).EmailEmpty(emailEmpty).EmailIc(emailIc).EmailIe(emailIe).EmailIew(emailIew).EmailIsw(emailIsw).EmailN(emailN).EmailNic(emailNic).EmailNie(emailNie).EmailNiew(emailNiew).EmailNisw(emailNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Link(link).LinkEmpty(linkEmpty).LinkIc(linkIc).LinkIe(linkIe).LinkIew(linkIew).LinkIsw(linkIsw).LinkN(linkN).LinkNic(linkNic).LinkNie(linkNie).LinkNiew(linkNiew).LinkNisw(linkNisw).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Phone(phone).PhoneEmpty(phoneEmpty).PhoneIc(phoneIc).PhoneIe(phoneIe).PhoneIew(phoneIew).PhoneIsw(phoneIsw).PhoneN(phoneN).PhoneNic(phoneNic).PhoneNie(phoneNie).PhoneNiew(phoneNiew).PhoneNisw(phoneNisw).Q(q).Tag(tag).TagN(tagN).Title(title).TitleEmpty(titleEmpty).TitleIc(titleIc).TitleIe(titleIe).TitleIew(titleIew).TitleIsw(titleIsw).TitleN(titleN).TitleNic(titleNic).TitleNie(titleNie).TitleNiew(titleNiew).TitleNisw(titleNisw).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactsList(context.Background()).Address(address).AddressEmpty(addressEmpty).AddressIc(addressIc).AddressIe(addressIe).AddressIew(addressIew).AddressIregex(addressIregex).AddressIsw(addressIsw).AddressN(addressN).AddressNic(addressNic).AddressNie(addressNie).AddressNiew(addressNiew).AddressNisw(addressNisw).AddressRegex(addressRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Email(email).EmailEmpty(emailEmpty).EmailIc(emailIc).EmailIe(emailIe).EmailIew(emailIew).EmailIregex(emailIregex).EmailIsw(emailIsw).EmailN(emailN).EmailNic(emailNic).EmailNie(emailNie).EmailNiew(emailNiew).EmailNisw(emailNisw).EmailRegex(emailRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Link(link).LinkEmpty(linkEmpty).LinkIc(linkIc).LinkIe(linkIe).LinkIew(linkIew).LinkIregex(linkIregex).LinkIsw(linkIsw).LinkN(linkN).LinkNic(linkNic).LinkNie(linkNie).LinkNiew(linkNiew).LinkNisw(linkNisw).LinkRegex(linkRegex).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Phone(phone).PhoneEmpty(phoneEmpty).PhoneIc(phoneIc).PhoneIe(phoneIe).PhoneIew(phoneIew).PhoneIregex(phoneIregex).PhoneIsw(phoneIsw).PhoneN(phoneN).PhoneNic(phoneNic).PhoneNie(phoneNie).PhoneNiew(phoneNiew).PhoneNisw(phoneNisw).PhoneRegex(phoneRegex).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Title(title).TitleEmpty(titleEmpty).TitleIc(titleIc).TitleIe(titleIe).TitleIew(titleIew).TitleIregex(titleIregex).TitleIsw(titleIsw).TitleN(titleN).TitleNic(titleNic).TitleNie(titleNie).TitleNiew(titleNiew).TitleNisw(titleNisw).TitleRegex(titleRegex).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2754,12 +2932,15 @@ Name | Type | Description  | Notes
  **addressIc** | **[]string** |  | 
  **addressIe** | **[]string** |  | 
  **addressIew** | **[]string** |  | 
+ **addressIregex** | **[]string** |  | 
  **addressIsw** | **[]string** |  | 
  **addressN** | **[]string** |  | 
  **addressNic** | **[]string** |  | 
  **addressNie** | **[]string** |  | 
  **addressNiew** | **[]string** |  | 
  **addressNisw** | **[]string** |  | 
+ **addressRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -2773,23 +2954,28 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **email** | **[]string** |  | 
  **emailEmpty** | **bool** |  | 
  **emailIc** | **[]string** |  | 
  **emailIe** | **[]string** |  | 
  **emailIew** | **[]string** |  | 
+ **emailIregex** | **[]string** |  | 
  **emailIsw** | **[]string** |  | 
  **emailN** | **[]string** |  | 
  **emailNic** | **[]string** |  | 
  **emailNie** | **[]string** |  | 
  **emailNiew** | **[]string** |  | 
  **emailNisw** | **[]string** |  | 
+ **emailRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]string** |  | 
  **groupN** | **[]string** |  | 
  **groupId** | **[]string** |  | 
@@ -2814,51 +3000,73 @@ Name | Type | Description  | Notes
  **linkIc** | **[]string** |  | 
  **linkIe** | **[]string** |  | 
  **linkIew** | **[]string** |  | 
+ **linkIregex** | **[]string** |  | 
  **linkIsw** | **[]string** |  | 
  **linkN** | **[]string** |  | 
  **linkNic** | **[]string** |  | 
  **linkNie** | **[]string** |  | 
  **linkNiew** | **[]string** |  | 
  **linkNisw** | **[]string** |  | 
+ **linkRegex** | **[]string** |  | 
  **modifiedByRequest** | **string** |  | 
  **name** | **[]string** |  | 
  **nameEmpty** | **bool** |  | 
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **phone** | **[]string** |  | 
  **phoneEmpty** | **bool** |  | 
  **phoneIc** | **[]string** |  | 
  **phoneIe** | **[]string** |  | 
  **phoneIew** | **[]string** |  | 
+ **phoneIregex** | **[]string** |  | 
  **phoneIsw** | **[]string** |  | 
  **phoneN** | **[]string** |  | 
  **phoneNic** | **[]string** |  | 
  **phoneNie** | **[]string** |  | 
  **phoneNiew** | **[]string** |  | 
  **phoneNisw** | **[]string** |  | 
+ **phoneRegex** | **[]string** |  | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **title** | **[]string** |  | 
  **titleEmpty** | **bool** |  | 
  **titleIc** | **[]string** |  | 
  **titleIe** | **[]string** |  | 
  **titleIew** | **[]string** |  | 
+ **titleIregex** | **[]string** |  | 
  **titleIsw** | **[]string** |  | 
  **titleN** | **[]string** |  | 
  **titleNic** | **[]string** |  | 
  **titleNie** | **[]string** |  | 
  **titleNiew** | **[]string** |  | 
  **titleNisw** | **[]string** |  | 
+ **titleRegex** | **[]string** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -2953,7 +3161,7 @@ Name | Type | Description  | Notes
 
 ## TenancyContactsRetrieve
 
-> Contact TenancyContactsRetrieve(ctx, id).Execute()
+> Contact TenancyContactsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2973,10 +3181,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this contact.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyContactsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyContactsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyContactsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3002,6 +3213,9 @@ Other parameters are passed through a pointer to a apiTenancyContactsRetrieveReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3150,7 +3364,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3159,7 +3373,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantGroupsBulkPartialUpdate
 
-> []TenantGroup TenancyTenantGroupsBulkPartialUpdate(ctx).TenantGroupRequest(tenantGroupRequest).Execute()
+> []TenantGroup TenancyTenantGroupsBulkPartialUpdate(ctx).PatchedBulkTenantGroupRequest(patchedBulkTenantGroupRequest).Execute()
 
 
 
@@ -3178,11 +3392,11 @@ import (
 )
 
 func main() {
-	tenantGroupRequest := []openapiclient.TenantGroupRequest{*openapiclient.NewTenantGroupRequest("Name_example", "Slug_example")} // []TenantGroupRequest | 
+	patchedBulkTenantGroupRequest := []openapiclient.PatchedBulkTenantGroupRequest{*openapiclient.NewPatchedBulkTenantGroupRequest(int32(123))} // []PatchedBulkTenantGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsBulkPartialUpdate(context.Background()).TenantGroupRequest(tenantGroupRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsBulkPartialUpdate(context.Background()).PatchedBulkTenantGroupRequest(patchedBulkTenantGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantGroupsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3203,7 +3417,7 @@ Other parameters are passed through a pointer to a apiTenancyTenantGroupsBulkPar
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantGroupRequest** | [**[]TenantGroupRequest**](TenantGroupRequest.md) |  | 
+ **patchedBulkTenantGroupRequest** | [**[]PatchedBulkTenantGroupRequest**](PatchedBulkTenantGroupRequest.md) |  | 
 
 ### Return type
 
@@ -3225,7 +3439,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantGroupsBulkUpdate
 
-> []TenantGroup TenancyTenantGroupsBulkUpdate(ctx).TenantGroupRequest(tenantGroupRequest).Execute()
+> []TenantGroup TenancyTenantGroupsBulkUpdate(ctx).BulkTenantGroupRequest(bulkTenantGroupRequest).Execute()
 
 
 
@@ -3244,11 +3458,11 @@ import (
 )
 
 func main() {
-	tenantGroupRequest := []openapiclient.TenantGroupRequest{*openapiclient.NewTenantGroupRequest("Name_example", "Slug_example")} // []TenantGroupRequest | 
+	bulkTenantGroupRequest := []openapiclient.BulkTenantGroupRequest{*openapiclient.NewBulkTenantGroupRequest(int32(123), "Name_example", "Slug_example")} // []BulkTenantGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsBulkUpdate(context.Background()).TenantGroupRequest(tenantGroupRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsBulkUpdate(context.Background()).BulkTenantGroupRequest(bulkTenantGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantGroupsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3269,7 +3483,7 @@ Other parameters are passed through a pointer to a apiTenancyTenantGroupsBulkUpd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantGroupRequest** | [**[]TenantGroupRequest**](TenantGroupRequest.md) |  | 
+ **bulkTenantGroupRequest** | [**[]BulkTenantGroupRequest**](BulkTenantGroupRequest.md) |  | 
 
 ### Return type
 
@@ -3291,7 +3505,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantGroupsCreate
 
-> TenantGroup TenancyTenantGroupsCreate(ctx).WritableTenantGroupRequest(writableTenantGroupRequest).Execute()
+> TenantGroup TenancyTenantGroupsCreate(ctx).TenancyTenantGroupsCreateRequest(tenancyTenantGroupsCreateRequest).Execute()
 
 
 
@@ -3310,11 +3524,11 @@ import (
 )
 
 func main() {
-	writableTenantGroupRequest := *openapiclient.NewWritableTenantGroupRequest("Name_example", "Slug_example") // WritableTenantGroupRequest | 
+	tenancyTenantGroupsCreateRequest := openapiclient.tenancy_tenant_groups_create_request{WritableTenantGroupRequest: openapiclient.NewWritableTenantGroupRequest("Name_example", "Slug_example")} // TenancyTenantGroupsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsCreate(context.Background()).WritableTenantGroupRequest(writableTenantGroupRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsCreate(context.Background()).TenancyTenantGroupsCreateRequest(tenancyTenantGroupsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantGroupsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3335,7 +3549,7 @@ Other parameters are passed through a pointer to a apiTenancyTenantGroupsCreateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableTenantGroupRequest** | [**WritableTenantGroupRequest**](WritableTenantGroupRequest.md) |  | 
+ **tenancyTenantGroupsCreateRequest** | [**TenancyTenantGroupsCreateRequest**](TenancyTenantGroupsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -3425,7 +3639,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantGroupsList
 
-> PaginatedTenantGroupList TenancyTenantGroupsList(ctx).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedTenantGroupList TenancyTenantGroupsList(ctx).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -3449,6 +3663,7 @@ func main() {
 	ancestorN := []string{"Inner_example"} // []string |  (optional)
 	ancestorId := []string{"Inner_example"} // []string |  (optional)
 	ancestorIdN := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -3462,12 +3677,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -3489,14 +3707,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	parent := []string{"Inner_example"} // []string | Parent tenant group (slug) (optional)
 	parentN := []string{"Inner_example"} // []string | Parent tenant group (slug) (optional)
 	parentId := []*int32{int32(123)} // []*int32 | Parent tenant group (ID) (optional)
@@ -3507,19 +3736,26 @@ func main() {
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsList(context.Background()).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsList(context.Background()).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantGroupsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3544,6 +3780,7 @@ Name | Type | Description  | Notes
  **ancestorN** | **[]string** |  | 
  **ancestorId** | **[]string** |  | 
  **ancestorIdN** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3557,12 +3794,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -3584,14 +3824,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **parent** | **[]string** | Parent tenant group (slug) | 
  **parentN** | **[]string** | Parent tenant group (slug) | 
  **parentId** | **[]int32** | Parent tenant group (ID) | 
@@ -3602,14 +3853,21 @@ Name | Type | Description  | Notes
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -3704,7 +3962,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantGroupsRetrieve
 
-> TenantGroup TenancyTenantGroupsRetrieve(ctx, id).Execute()
+> TenantGroup TenancyTenantGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3724,10 +3982,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tenant group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantGroupsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3753,6 +4014,9 @@ Other parameters are passed through a pointer to a apiTenancyTenantGroupsRetriev
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3901,7 +4165,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3910,7 +4174,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantsBulkPartialUpdate
 
-> []Tenant TenancyTenantsBulkPartialUpdate(ctx).TenantRequest(tenantRequest).Execute()
+> []Tenant TenancyTenantsBulkPartialUpdate(ctx).PatchedBulkTenantRequest(patchedBulkTenantRequest).Execute()
 
 
 
@@ -3929,11 +4193,11 @@ import (
 )
 
 func main() {
-	tenantRequest := []openapiclient.TenantRequest{*openapiclient.NewTenantRequest("Name_example", "Slug_example")} // []TenantRequest | 
+	patchedBulkTenantRequest := []openapiclient.PatchedBulkTenantRequest{*openapiclient.NewPatchedBulkTenantRequest(int32(123))} // []PatchedBulkTenantRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantsBulkPartialUpdate(context.Background()).TenantRequest(tenantRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantsBulkPartialUpdate(context.Background()).PatchedBulkTenantRequest(patchedBulkTenantRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3954,7 +4218,7 @@ Other parameters are passed through a pointer to a apiTenancyTenantsBulkPartialU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantRequest** | [**[]TenantRequest**](TenantRequest.md) |  | 
+ **patchedBulkTenantRequest** | [**[]PatchedBulkTenantRequest**](PatchedBulkTenantRequest.md) |  | 
 
 ### Return type
 
@@ -3976,7 +4240,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantsBulkUpdate
 
-> []Tenant TenancyTenantsBulkUpdate(ctx).TenantRequest(tenantRequest).Execute()
+> []Tenant TenancyTenantsBulkUpdate(ctx).BulkTenantRequest(bulkTenantRequest).Execute()
 
 
 
@@ -3995,11 +4259,11 @@ import (
 )
 
 func main() {
-	tenantRequest := []openapiclient.TenantRequest{*openapiclient.NewTenantRequest("Name_example", "Slug_example")} // []TenantRequest | 
+	bulkTenantRequest := []openapiclient.BulkTenantRequest{*openapiclient.NewBulkTenantRequest(int32(123), "Name_example", "Slug_example")} // []BulkTenantRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantsBulkUpdate(context.Background()).TenantRequest(tenantRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantsBulkUpdate(context.Background()).BulkTenantRequest(bulkTenantRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4020,7 +4284,7 @@ Other parameters are passed through a pointer to a apiTenancyTenantsBulkUpdateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantRequest** | [**[]TenantRequest**](TenantRequest.md) |  | 
+ **bulkTenantRequest** | [**[]BulkTenantRequest**](BulkTenantRequest.md) |  | 
 
 ### Return type
 
@@ -4042,7 +4306,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantsCreate
 
-> Tenant TenancyTenantsCreate(ctx).TenantRequest(tenantRequest).Execute()
+> Tenant TenancyTenantsCreate(ctx).TenancyTenantsCreateRequest(tenancyTenantsCreateRequest).Execute()
 
 
 
@@ -4061,11 +4325,11 @@ import (
 )
 
 func main() {
-	tenantRequest := *openapiclient.NewTenantRequest("Name_example", "Slug_example") // TenantRequest | 
+	tenancyTenantsCreateRequest := openapiclient.tenancy_tenants_create_request{TenantRequest: openapiclient.NewTenantRequest("Name_example", "Slug_example")} // TenancyTenantsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantsCreate(context.Background()).TenantRequest(tenantRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantsCreate(context.Background()).TenancyTenantsCreateRequest(tenancyTenantsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4086,7 +4350,7 @@ Other parameters are passed through a pointer to a apiTenancyTenantsCreateReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tenantRequest** | [**TenantRequest**](TenantRequest.md) |  | 
+ **tenancyTenantsCreateRequest** | [**TenancyTenantsCreateRequest**](TenancyTenantsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -4176,7 +4440,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantsList
 
-> PaginatedTenantList TenancyTenantsList(ctx).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedTenantList TenancyTenantsList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -4196,6 +4460,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	contact := []int32{int32(123)} // []int32 | Contact (optional)
 	contactN := []int32{int32(123)} // []int32 | Contact (optional)
 	contactGroup := []string{"Inner_example"} // []string |  (optional)
@@ -4215,12 +4480,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []string{"Inner_example"} // []string |  (optional)
 	groupN := []string{"Inner_example"} // []string |  (optional)
 	groupId := []string{"Inner_example"} // []string |  (optional)
@@ -4246,33 +4514,51 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantsList(context.Background()).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantsList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4293,6 +4579,7 @@ Other parameters are passed through a pointer to a apiTenancyTenantsListRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **contact** | **[]int32** | Contact | 
  **contactN** | **[]int32** | Contact | 
  **contactGroup** | **[]string** |  | 
@@ -4312,12 +4599,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]string** |  | 
  **groupN** | **[]string** |  | 
  **groupId** | **[]string** |  | 
@@ -4343,28 +4633,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -4459,7 +4767,7 @@ Name | Type | Description  | Notes
 
 ## TenancyTenantsRetrieve
 
-> Tenant TenancyTenantsRetrieve(ctx, id).Execute()
+> Tenant TenancyTenantsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -4479,10 +4787,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this tenant.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.TenancyAPI.TenancyTenantsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.TenancyAPI.TenancyTenantsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenancyAPI.TenancyTenantsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4508,6 +4819,9 @@ Other parameters are passed through a pointer to a apiTenancyTenantsRetrieveRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 

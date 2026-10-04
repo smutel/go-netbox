@@ -8,11 +8,13 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to [**BriefL2VPNTypeValue**](BriefL2VPNTypeValue.md) |  | [optional] 
+**Status** | Pointer to [**BulkL2VPNRequestStatus**](BulkL2VPNRequestStatus.md) |  | [optional] 
 **ImportTargets** | Pointer to **[]int32** |  | [optional] 
 **ExportTargets** | Pointer to **[]int32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -145,6 +147,31 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetStatus
+
+`func (o *PatchedWritableL2VPNRequest) GetStatus() BulkL2VPNRequestStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *PatchedWritableL2VPNRequest) GetStatusOk() (*BulkL2VPNRequestStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *PatchedWritableL2VPNRequest) SetStatus(v BulkL2VPNRequestStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *PatchedWritableL2VPNRequest) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
 ### GetImportTargets
 
 `func (o *PatchedWritableL2VPNRequest) GetImportTargets() []int32`
@@ -220,6 +247,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableL2VPNRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableL2VPNRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableL2VPNRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableL2VPNRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableL2VPNRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableL2VPNRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableL2VPNRequest) GetComments() string`
@@ -247,20 +309,20 @@ HasComments returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *PatchedWritableL2VPNRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableL2VPNRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableL2VPNRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableL2VPNRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableL2VPNRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableL2VPNRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 

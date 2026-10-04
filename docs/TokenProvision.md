@@ -6,20 +6,24 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
+**Version** | Pointer to [**BulkTokenRequestVersion**](BulkTokenRequestVersion.md) |  | [optional] 
 **User** | [**BriefUser**](BriefUser.md) |  | [readonly] 
+**Key** | **string** |  | [readonly] 
 **Created** | **time.Time** |  | [readonly] 
 **Expires** | Pointer to **NullableTime** |  | [optional] 
 **LastUsed** | **time.Time** |  | [readonly] 
-**Key** | **string** |  | [readonly] 
-**WriteEnabled** | Pointer to **bool** | Permit create/update/delete operations using this key | [optional] 
+**Enabled** | Pointer to **bool** | Disable to temporarily revoke this token without deleting it. | [optional] 
+**WriteEnabled** | Pointer to **bool** | Permit create/update/delete operations using this token | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Token** | **string** |  | [readonly] 
 
 ## Methods
 
 ### NewTokenProvision
 
-`func NewTokenProvision(id int32, url string, display string, user BriefUser, created time.Time, lastUsed time.Time, key string, ) *TokenProvision`
+`func NewTokenProvision(id int32, url string, displayUrl string, display string, user BriefUser, key string, created time.Time, lastUsed time.Time, token string, ) *TokenProvision`
 
 NewTokenProvision instantiates a new TokenProvision object
 This constructor will assign default values to properties that have it defined,
@@ -74,6 +78,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *TokenProvision) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *TokenProvision) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *TokenProvision) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *TokenProvision) GetDisplay() string`
@@ -94,6 +118,31 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
+### GetVersion
+
+`func (o *TokenProvision) GetVersion() BulkTokenRequestVersion`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *TokenProvision) GetVersionOk() (*BulkTokenRequestVersion, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *TokenProvision) SetVersion(v BulkTokenRequestVersion)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *TokenProvision) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
 ### GetUser
 
 `func (o *TokenProvision) GetUser() BriefUser`
@@ -112,6 +161,26 @@ and a boolean to check if the value has been set.
 `func (o *TokenProvision) SetUser(v BriefUser)`
 
 SetUser sets User field to given value.
+
+
+### GetKey
+
+`func (o *TokenProvision) GetKey() string`
+
+GetKey returns the Key field if non-nil, zero value otherwise.
+
+### GetKeyOk
+
+`func (o *TokenProvision) GetKeyOk() (*string, bool)`
+
+GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKey
+
+`func (o *TokenProvision) SetKey(v string)`
+
+SetKey sets Key field to given value.
 
 
 ### GetCreated
@@ -189,25 +258,30 @@ and a boolean to check if the value has been set.
 SetLastUsed sets LastUsed field to given value.
 
 
-### GetKey
+### GetEnabled
 
-`func (o *TokenProvision) GetKey() string`
+`func (o *TokenProvision) GetEnabled() bool`
 
-GetKey returns the Key field if non-nil, zero value otherwise.
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
 
-### GetKeyOk
+### GetEnabledOk
 
-`func (o *TokenProvision) GetKeyOk() (*string, bool)`
+`func (o *TokenProvision) GetEnabledOk() (*bool, bool)`
 
-GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetKey
+### SetEnabled
 
-`func (o *TokenProvision) SetKey(v string)`
+`func (o *TokenProvision) SetEnabled(v bool)`
 
-SetKey sets Key field to given value.
+SetEnabled sets Enabled field to given value.
 
+### HasEnabled
+
+`func (o *TokenProvision) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetWriteEnabled
 
@@ -258,6 +332,26 @@ SetDescription sets Description field to given value.
 `func (o *TokenProvision) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetToken
+
+`func (o *TokenProvision) GetToken() string`
+
+GetToken returns the Token field if non-nil, zero value otherwise.
+
+### GetTokenOk
+
+`func (o *TokenProvision) GetTokenOk() (*string, bool)`
+
+GetTokenOk returns a tuple with the Token field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToken
+
+`func (o *TokenProvision) SetToken(v string)`
+
+SetToken sets Token field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

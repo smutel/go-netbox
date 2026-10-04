@@ -49,6 +49,15 @@ Method | HTTP request | Description
 [**VirtualizationVirtualDisksPartialUpdate**](VirtualizationAPI.md#VirtualizationVirtualDisksPartialUpdate) | **Patch** /api/virtualization/virtual-disks/{id}/ | 
 [**VirtualizationVirtualDisksRetrieve**](VirtualizationAPI.md#VirtualizationVirtualDisksRetrieve) | **Get** /api/virtualization/virtual-disks/{id}/ | 
 [**VirtualizationVirtualDisksUpdate**](VirtualizationAPI.md#VirtualizationVirtualDisksUpdate) | **Put** /api/virtualization/virtual-disks/{id}/ | 
+[**VirtualizationVirtualMachineTypesBulkDestroy**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesBulkDestroy) | **Delete** /api/virtualization/virtual-machine-types/ | 
+[**VirtualizationVirtualMachineTypesBulkPartialUpdate**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesBulkPartialUpdate) | **Patch** /api/virtualization/virtual-machine-types/ | 
+[**VirtualizationVirtualMachineTypesBulkUpdate**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesBulkUpdate) | **Put** /api/virtualization/virtual-machine-types/ | 
+[**VirtualizationVirtualMachineTypesCreate**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesCreate) | **Post** /api/virtualization/virtual-machine-types/ | 
+[**VirtualizationVirtualMachineTypesDestroy**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesDestroy) | **Delete** /api/virtualization/virtual-machine-types/{id}/ | 
+[**VirtualizationVirtualMachineTypesList**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesList) | **Get** /api/virtualization/virtual-machine-types/ | 
+[**VirtualizationVirtualMachineTypesPartialUpdate**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesPartialUpdate) | **Patch** /api/virtualization/virtual-machine-types/{id}/ | 
+[**VirtualizationVirtualMachineTypesRetrieve**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesRetrieve) | **Get** /api/virtualization/virtual-machine-types/{id}/ | 
+[**VirtualizationVirtualMachineTypesUpdate**](VirtualizationAPI.md#VirtualizationVirtualMachineTypesUpdate) | **Put** /api/virtualization/virtual-machine-types/{id}/ | 
 [**VirtualizationVirtualMachinesBulkDestroy**](VirtualizationAPI.md#VirtualizationVirtualMachinesBulkDestroy) | **Delete** /api/virtualization/virtual-machines/ | 
 [**VirtualizationVirtualMachinesBulkPartialUpdate**](VirtualizationAPI.md#VirtualizationVirtualMachinesBulkPartialUpdate) | **Patch** /api/virtualization/virtual-machines/ | 
 [**VirtualizationVirtualMachinesBulkUpdate**](VirtualizationAPI.md#VirtualizationVirtualMachinesBulkUpdate) | **Put** /api/virtualization/virtual-machines/ | 
@@ -119,7 +128,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -128,7 +137,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterGroupsBulkPartialUpdate
 
-> []ClusterGroup VirtualizationClusterGroupsBulkPartialUpdate(ctx).ClusterGroupRequest(clusterGroupRequest).Execute()
+> []ClusterGroup VirtualizationClusterGroupsBulkPartialUpdate(ctx).PatchedBulkClusterGroupRequest(patchedBulkClusterGroupRequest).Execute()
 
 
 
@@ -147,11 +156,11 @@ import (
 )
 
 func main() {
-	clusterGroupRequest := []openapiclient.ClusterGroupRequest{*openapiclient.NewClusterGroupRequest("Name_example", "Slug_example")} // []ClusterGroupRequest | 
+	patchedBulkClusterGroupRequest := []openapiclient.PatchedBulkClusterGroupRequest{*openapiclient.NewPatchedBulkClusterGroupRequest(int32(123))} // []PatchedBulkClusterGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsBulkPartialUpdate(context.Background()).ClusterGroupRequest(clusterGroupRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsBulkPartialUpdate(context.Background()).PatchedBulkClusterGroupRequest(patchedBulkClusterGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterGroupsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -172,7 +181,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterGroup
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterGroupRequest** | [**[]ClusterGroupRequest**](ClusterGroupRequest.md) |  | 
+ **patchedBulkClusterGroupRequest** | [**[]PatchedBulkClusterGroupRequest**](PatchedBulkClusterGroupRequest.md) |  | 
 
 ### Return type
 
@@ -194,7 +203,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterGroupsBulkUpdate
 
-> []ClusterGroup VirtualizationClusterGroupsBulkUpdate(ctx).ClusterGroupRequest(clusterGroupRequest).Execute()
+> []ClusterGroup VirtualizationClusterGroupsBulkUpdate(ctx).BulkClusterGroupRequest(bulkClusterGroupRequest).Execute()
 
 
 
@@ -213,11 +222,11 @@ import (
 )
 
 func main() {
-	clusterGroupRequest := []openapiclient.ClusterGroupRequest{*openapiclient.NewClusterGroupRequest("Name_example", "Slug_example")} // []ClusterGroupRequest | 
+	bulkClusterGroupRequest := []openapiclient.BulkClusterGroupRequest{*openapiclient.NewBulkClusterGroupRequest(int32(123), "Name_example", "Slug_example")} // []BulkClusterGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsBulkUpdate(context.Background()).ClusterGroupRequest(clusterGroupRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsBulkUpdate(context.Background()).BulkClusterGroupRequest(bulkClusterGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterGroupsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -238,7 +247,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterGroup
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterGroupRequest** | [**[]ClusterGroupRequest**](ClusterGroupRequest.md) |  | 
+ **bulkClusterGroupRequest** | [**[]BulkClusterGroupRequest**](BulkClusterGroupRequest.md) |  | 
 
 ### Return type
 
@@ -260,7 +269,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterGroupsCreate
 
-> ClusterGroup VirtualizationClusterGroupsCreate(ctx).ClusterGroupRequest(clusterGroupRequest).Execute()
+> ClusterGroup VirtualizationClusterGroupsCreate(ctx).VirtualizationClusterGroupsCreateRequest(virtualizationClusterGroupsCreateRequest).Execute()
 
 
 
@@ -279,11 +288,11 @@ import (
 )
 
 func main() {
-	clusterGroupRequest := *openapiclient.NewClusterGroupRequest("Name_example", "Slug_example") // ClusterGroupRequest | 
+	virtualizationClusterGroupsCreateRequest := openapiclient.virtualization_cluster_groups_create_request{ClusterGroupRequest: openapiclient.NewClusterGroupRequest("Name_example", "Slug_example")} // VirtualizationClusterGroupsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsCreate(context.Background()).ClusterGroupRequest(clusterGroupRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsCreate(context.Background()).VirtualizationClusterGroupsCreateRequest(virtualizationClusterGroupsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterGroupsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -304,7 +313,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterGroup
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterGroupRequest** | [**ClusterGroupRequest**](ClusterGroupRequest.md) |  | 
+ **virtualizationClusterGroupsCreateRequest** | [**VirtualizationClusterGroupsCreateRequest**](VirtualizationClusterGroupsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -394,7 +403,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterGroupsList
 
-> PaginatedClusterGroupList VirtualizationClusterGroupsList(ctx).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedClusterGroupList VirtualizationClusterGroupsList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -414,6 +423,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	contact := []int32{int32(123)} // []int32 | Contact (optional)
 	contactN := []int32{int32(123)} // []int32 | Contact (optional)
 	contactGroup := []string{"Inner_example"} // []string |  (optional)
@@ -433,12 +443,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -460,33 +473,51 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsList(context.Background()).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterGroupsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -507,6 +538,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterGroup
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **contact** | **[]int32** | Contact | 
  **contactN** | **[]int32** | Contact | 
  **contactGroup** | **[]string** |  | 
@@ -526,12 +558,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -553,28 +588,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -669,7 +722,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterGroupsRetrieve
 
-> ClusterGroup VirtualizationClusterGroupsRetrieve(ctx, id).Execute()
+> ClusterGroup VirtualizationClusterGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -689,10 +742,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this cluster group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterGroupsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -718,6 +774,9 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterGroup
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -866,7 +925,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -875,7 +934,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterTypesBulkPartialUpdate
 
-> []ClusterType VirtualizationClusterTypesBulkPartialUpdate(ctx).ClusterTypeRequest(clusterTypeRequest).Execute()
+> []ClusterType VirtualizationClusterTypesBulkPartialUpdate(ctx).PatchedBulkClusterTypeRequest(patchedBulkClusterTypeRequest).Execute()
 
 
 
@@ -894,11 +953,11 @@ import (
 )
 
 func main() {
-	clusterTypeRequest := []openapiclient.ClusterTypeRequest{*openapiclient.NewClusterTypeRequest("Name_example", "Slug_example")} // []ClusterTypeRequest | 
+	patchedBulkClusterTypeRequest := []openapiclient.PatchedBulkClusterTypeRequest{*openapiclient.NewPatchedBulkClusterTypeRequest(int32(123))} // []PatchedBulkClusterTypeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesBulkPartialUpdate(context.Background()).ClusterTypeRequest(clusterTypeRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesBulkPartialUpdate(context.Background()).PatchedBulkClusterTypeRequest(patchedBulkClusterTypeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterTypesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -919,7 +978,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterTypes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterTypeRequest** | [**[]ClusterTypeRequest**](ClusterTypeRequest.md) |  | 
+ **patchedBulkClusterTypeRequest** | [**[]PatchedBulkClusterTypeRequest**](PatchedBulkClusterTypeRequest.md) |  | 
 
 ### Return type
 
@@ -941,7 +1000,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterTypesBulkUpdate
 
-> []ClusterType VirtualizationClusterTypesBulkUpdate(ctx).ClusterTypeRequest(clusterTypeRequest).Execute()
+> []ClusterType VirtualizationClusterTypesBulkUpdate(ctx).BulkClusterTypeRequest(bulkClusterTypeRequest).Execute()
 
 
 
@@ -960,11 +1019,11 @@ import (
 )
 
 func main() {
-	clusterTypeRequest := []openapiclient.ClusterTypeRequest{*openapiclient.NewClusterTypeRequest("Name_example", "Slug_example")} // []ClusterTypeRequest | 
+	bulkClusterTypeRequest := []openapiclient.BulkClusterTypeRequest{*openapiclient.NewBulkClusterTypeRequest(int32(123), "Name_example", "Slug_example")} // []BulkClusterTypeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesBulkUpdate(context.Background()).ClusterTypeRequest(clusterTypeRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesBulkUpdate(context.Background()).BulkClusterTypeRequest(bulkClusterTypeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterTypesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -985,7 +1044,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterTypes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterTypeRequest** | [**[]ClusterTypeRequest**](ClusterTypeRequest.md) |  | 
+ **bulkClusterTypeRequest** | [**[]BulkClusterTypeRequest**](BulkClusterTypeRequest.md) |  | 
 
 ### Return type
 
@@ -1007,7 +1066,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterTypesCreate
 
-> ClusterType VirtualizationClusterTypesCreate(ctx).ClusterTypeRequest(clusterTypeRequest).Execute()
+> ClusterType VirtualizationClusterTypesCreate(ctx).VirtualizationClusterTypesCreateRequest(virtualizationClusterTypesCreateRequest).Execute()
 
 
 
@@ -1026,11 +1085,11 @@ import (
 )
 
 func main() {
-	clusterTypeRequest := *openapiclient.NewClusterTypeRequest("Name_example", "Slug_example") // ClusterTypeRequest | 
+	virtualizationClusterTypesCreateRequest := openapiclient.virtualization_cluster_types_create_request{ClusterTypeRequest: openapiclient.NewClusterTypeRequest("Name_example", "Slug_example")} // VirtualizationClusterTypesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesCreate(context.Background()).ClusterTypeRequest(clusterTypeRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesCreate(context.Background()).VirtualizationClusterTypesCreateRequest(virtualizationClusterTypesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterTypesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1051,7 +1110,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterTypes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterTypeRequest** | [**ClusterTypeRequest**](ClusterTypeRequest.md) |  | 
+ **virtualizationClusterTypesCreateRequest** | [**VirtualizationClusterTypesCreateRequest**](VirtualizationClusterTypesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1141,7 +1200,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterTypesList
 
-> PaginatedClusterTypeList VirtualizationClusterTypesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedClusterTypeList VirtualizationClusterTypesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1161,6 +1220,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1174,12 +1234,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1201,33 +1264,51 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterTypesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1248,6 +1329,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterTypes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -1261,12 +1343,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -1288,28 +1373,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -1404,7 +1507,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClusterTypesRetrieve
 
-> ClusterType VirtualizationClusterTypesRetrieve(ctx, id).Execute()
+> ClusterType VirtualizationClusterTypesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -1424,10 +1527,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this cluster type.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClusterTypesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClusterTypesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1453,6 +1559,9 @@ Other parameters are passed through a pointer to a apiVirtualizationClusterTypes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1565,7 +1674,7 @@ import (
 )
 
 func main() {
-	clusterRequest := []openapiclient.ClusterRequest{*openapiclient.NewClusterRequest("Name_example", *openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example"))} // []ClusterRequest | 
+	clusterRequest := []openapiclient.ClusterRequest{*openapiclient.NewClusterRequest("Name_example", openapiclient.BulkClusterRequest_type{BriefClusterTypeRequest: openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example")})} // []ClusterRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1601,7 +1710,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1610,7 +1719,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClustersBulkPartialUpdate
 
-> []Cluster VirtualizationClustersBulkPartialUpdate(ctx).ClusterRequest(clusterRequest).Execute()
+> []Cluster VirtualizationClustersBulkPartialUpdate(ctx).PatchedBulkClusterRequest(patchedBulkClusterRequest).Execute()
 
 
 
@@ -1629,11 +1738,11 @@ import (
 )
 
 func main() {
-	clusterRequest := []openapiclient.ClusterRequest{*openapiclient.NewClusterRequest("Name_example", *openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example"))} // []ClusterRequest | 
+	patchedBulkClusterRequest := []openapiclient.PatchedBulkClusterRequest{*openapiclient.NewPatchedBulkClusterRequest(int32(123))} // []PatchedBulkClusterRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersBulkPartialUpdate(context.Background()).ClusterRequest(clusterRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersBulkPartialUpdate(context.Background()).PatchedBulkClusterRequest(patchedBulkClusterRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClustersBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1654,7 +1763,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClustersBulk
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterRequest** | [**[]ClusterRequest**](ClusterRequest.md) |  | 
+ **patchedBulkClusterRequest** | [**[]PatchedBulkClusterRequest**](PatchedBulkClusterRequest.md) |  | 
 
 ### Return type
 
@@ -1676,7 +1785,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClustersBulkUpdate
 
-> []Cluster VirtualizationClustersBulkUpdate(ctx).ClusterRequest(clusterRequest).Execute()
+> []Cluster VirtualizationClustersBulkUpdate(ctx).BulkClusterRequest(bulkClusterRequest).Execute()
 
 
 
@@ -1695,11 +1804,11 @@ import (
 )
 
 func main() {
-	clusterRequest := []openapiclient.ClusterRequest{*openapiclient.NewClusterRequest("Name_example", *openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example"))} // []ClusterRequest | 
+	bulkClusterRequest := []openapiclient.BulkClusterRequest{*openapiclient.NewBulkClusterRequest(int32(123), "Name_example", openapiclient.BulkClusterRequest_type{BriefClusterTypeRequest: openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example")})} // []BulkClusterRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersBulkUpdate(context.Background()).ClusterRequest(clusterRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersBulkUpdate(context.Background()).BulkClusterRequest(bulkClusterRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClustersBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1720,7 +1829,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClustersBulk
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **clusterRequest** | [**[]ClusterRequest**](ClusterRequest.md) |  | 
+ **bulkClusterRequest** | [**[]BulkClusterRequest**](BulkClusterRequest.md) |  | 
 
 ### Return type
 
@@ -1742,7 +1851,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClustersCreate
 
-> Cluster VirtualizationClustersCreate(ctx).WritableClusterRequest(writableClusterRequest).Execute()
+> Cluster VirtualizationClustersCreate(ctx).VirtualizationClustersCreateRequest(virtualizationClustersCreateRequest).Execute()
 
 
 
@@ -1761,11 +1870,11 @@ import (
 )
 
 func main() {
-	writableClusterRequest := *openapiclient.NewWritableClusterRequest("Name_example", *openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example")) // WritableClusterRequest | 
+	virtualizationClustersCreateRequest := openapiclient.virtualization_clusters_create_request{WritableClusterRequest: openapiclient.NewWritableClusterRequest("Name_example", openapiclient.BulkClusterRequest_type{BriefClusterTypeRequest: openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example")})} // VirtualizationClustersCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersCreate(context.Background()).WritableClusterRequest(writableClusterRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersCreate(context.Background()).VirtualizationClustersCreateRequest(virtualizationClustersCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClustersCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1786,7 +1895,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClustersCrea
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableClusterRequest** | [**WritableClusterRequest**](WritableClusterRequest.md) |  | 
+ **virtualizationClustersCreateRequest** | [**VirtualizationClustersCreateRequest**](VirtualizationClustersCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1876,7 +1985,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClustersList
 
-> PaginatedClusterList VirtualizationClustersList(ctx).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedClusterList VirtualizationClustersList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1896,6 +2005,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	contact := []int32{int32(123)} // []int32 | Contact (optional)
 	contactN := []int32{int32(123)} // []int32 | Contact (optional)
 	contactGroup := []string{"Inner_example"} // []string |  (optional)
@@ -1915,12 +2025,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []string{"Inner_example"} // []string | Parent group (slug) (optional)
 	groupN := []string{"Inner_example"} // []string | Parent group (slug) (optional)
 	groupId := []*int32{int32(123)} // []*int32 | Parent group (ID) (optional)
@@ -1940,37 +2053,77 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	location := []string{"Inner_example"} // []string |  (optional)
+	locationN := []string{"Inner_example"} // []string |  (optional)
+	locationId := []string{"Inner_example"} // []string |  (optional)
+	locationIdN := []string{"Inner_example"} // []string |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	name := []string{"Inner_example"} // []string |  (optional)
 	nameEmpty := true // bool |  (optional)
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	region := []string{"Inner_example"} // []string |  (optional)
 	regionN := []string{"Inner_example"} // []string |  (optional)
 	regionId := []string{"Inner_example"} // []string |  (optional)
 	regionIdN := []string{"Inner_example"} // []string |  (optional)
+	scopeId := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdEmpty := true // bool |  (optional)
+	scopeIdGt := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdGte := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdLt := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdLte := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdN := []int32{int32(123)} // []int32 |  (optional)
+	scopeType := []string{"Inner_example"} // []string |  (optional)
+	scopeTypeN := []string{"Inner_example"} // []string |  (optional)
 	site := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteN := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteGroup := []string{"Inner_example"} // []string |  (optional)
 	siteGroupN := []string{"Inner_example"} // []string |  (optional)
 	siteGroupId := []string{"Inner_example"} // []string |  (optional)
 	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
-	siteId := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
-	siteIdN := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
+	siteId := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	siteIdN := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -1987,7 +2140,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersList(context.Background()).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).Type_(type_).TypeN(typeN).TypeId(typeId).TypeIdN(typeIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClustersList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2008,6 +2161,7 @@ Other parameters are passed through a pointer to a apiVirtualizationClustersList
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **contact** | **[]int32** | Contact | 
  **contactN** | **[]int32** | Contact | 
  **contactGroup** | **[]string** |  | 
@@ -2027,12 +2181,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]string** | Parent group (slug) | 
  **groupN** | **[]string** | Parent group (slug) | 
  **groupId** | **[]int32** | Parent group (ID) | 
@@ -2052,25 +2209,49 @@ Name | Type | Description  | Notes
  **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **location** | **[]string** |  | 
+ **locationN** | **[]string** |  | 
+ **locationId** | **[]string** |  | 
+ **locationIdN** | **[]string** |  | 
  **modifiedByRequest** | **string** |  | 
  **name** | **[]string** |  | 
  **nameEmpty** | **bool** |  | 
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **region** | **[]string** |  | 
  **regionN** | **[]string** |  | 
  **regionId** | **[]string** |  | 
  **regionIdN** | **[]string** |  | 
+ **scopeId** | **[]int32** |  | 
+ **scopeIdEmpty** | **bool** |  | 
+ **scopeIdGt** | **[]int32** |  | 
+ **scopeIdGte** | **[]int32** |  | 
+ **scopeIdLt** | **[]int32** |  | 
+ **scopeIdLte** | **[]int32** |  | 
+ **scopeIdN** | **[]int32** |  | 
+ **scopeType** | **[]string** |  | 
+ **scopeTypeN** | **[]string** |  | 
  **site** | **[]string** | Site (slug) | 
  **siteN** | **[]string** | Site (slug) | 
  **siteGroup** | **[]string** |  | 
@@ -2079,10 +2260,26 @@ Name | Type | Description  | Notes
  **siteGroupIdN** | **[]string** |  | 
  **siteId** | **[]int32** | Site (ID) | 
  **siteIdN** | **[]int32** | Site (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -2189,7 +2386,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationClustersRetrieve
 
-> Cluster VirtualizationClustersRetrieve(ctx, id).Execute()
+> Cluster VirtualizationClustersRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2209,10 +2406,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this cluster.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationClustersRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationClustersRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2238,6 +2438,9 @@ Other parameters are passed through a pointer to a apiVirtualizationClustersRetr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -2279,7 +2482,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this cluster.
-	writableClusterRequest := *openapiclient.NewWritableClusterRequest("Name_example", *openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example")) // WritableClusterRequest | 
+	writableClusterRequest := *openapiclient.NewWritableClusterRequest("Name_example", openapiclient.BulkClusterRequest_type{BriefClusterTypeRequest: openapiclient.NewBriefClusterTypeRequest("Name_example", "Slug_example")}) // WritableClusterRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2350,7 +2553,7 @@ import (
 )
 
 func main() {
-	vMInterfaceRequest := []openapiclient.VMInterfaceRequest{*openapiclient.NewVMInterfaceRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example")} // []VMInterfaceRequest | 
+	vMInterfaceRequest := []openapiclient.VMInterfaceRequest{*openapiclient.NewVMInterfaceRequest(openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example")} // []VMInterfaceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2386,7 +2589,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -2395,7 +2598,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationInterfacesBulkPartialUpdate
 
-> []VMInterface VirtualizationInterfacesBulkPartialUpdate(ctx).VMInterfaceRequest(vMInterfaceRequest).Execute()
+> []VMInterface VirtualizationInterfacesBulkPartialUpdate(ctx).PatchedBulkVMInterfaceRequest(patchedBulkVMInterfaceRequest).Execute()
 
 
 
@@ -2414,11 +2617,11 @@ import (
 )
 
 func main() {
-	vMInterfaceRequest := []openapiclient.VMInterfaceRequest{*openapiclient.NewVMInterfaceRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example")} // []VMInterfaceRequest | 
+	patchedBulkVMInterfaceRequest := []openapiclient.PatchedBulkVMInterfaceRequest{*openapiclient.NewPatchedBulkVMInterfaceRequest(int32(123))} // []PatchedBulkVMInterfaceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesBulkPartialUpdate(context.Background()).VMInterfaceRequest(vMInterfaceRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesBulkPartialUpdate(context.Background()).PatchedBulkVMInterfaceRequest(patchedBulkVMInterfaceRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationInterfacesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2439,7 +2642,7 @@ Other parameters are passed through a pointer to a apiVirtualizationInterfacesBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vMInterfaceRequest** | [**[]VMInterfaceRequest**](VMInterfaceRequest.md) |  | 
+ **patchedBulkVMInterfaceRequest** | [**[]PatchedBulkVMInterfaceRequest**](PatchedBulkVMInterfaceRequest.md) |  | 
 
 ### Return type
 
@@ -2461,7 +2664,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationInterfacesBulkUpdate
 
-> []VMInterface VirtualizationInterfacesBulkUpdate(ctx).VMInterfaceRequest(vMInterfaceRequest).Execute()
+> []VMInterface VirtualizationInterfacesBulkUpdate(ctx).BulkVMInterfaceRequest(bulkVMInterfaceRequest).Execute()
 
 
 
@@ -2480,11 +2683,11 @@ import (
 )
 
 func main() {
-	vMInterfaceRequest := []openapiclient.VMInterfaceRequest{*openapiclient.NewVMInterfaceRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example")} // []VMInterfaceRequest | 
+	bulkVMInterfaceRequest := []openapiclient.BulkVMInterfaceRequest{*openapiclient.NewBulkVMInterfaceRequest(int32(123), openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example")} // []BulkVMInterfaceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesBulkUpdate(context.Background()).VMInterfaceRequest(vMInterfaceRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesBulkUpdate(context.Background()).BulkVMInterfaceRequest(bulkVMInterfaceRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationInterfacesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2505,7 +2708,7 @@ Other parameters are passed through a pointer to a apiVirtualizationInterfacesBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vMInterfaceRequest** | [**[]VMInterfaceRequest**](VMInterfaceRequest.md) |  | 
+ **bulkVMInterfaceRequest** | [**[]BulkVMInterfaceRequest**](BulkVMInterfaceRequest.md) |  | 
 
 ### Return type
 
@@ -2527,7 +2730,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationInterfacesCreate
 
-> VMInterface VirtualizationInterfacesCreate(ctx).WritableVMInterfaceRequest(writableVMInterfaceRequest).Execute()
+> VMInterface VirtualizationInterfacesCreate(ctx).VirtualizationInterfacesCreateRequest(virtualizationInterfacesCreateRequest).Execute()
 
 
 
@@ -2546,11 +2749,11 @@ import (
 )
 
 func main() {
-	writableVMInterfaceRequest := *openapiclient.NewWritableVMInterfaceRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example") // WritableVMInterfaceRequest | 
+	virtualizationInterfacesCreateRequest := openapiclient.virtualization_interfaces_create_request{WritableVMInterfaceRequest: openapiclient.NewWritableVMInterfaceRequest(openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example")} // VirtualizationInterfacesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesCreate(context.Background()).WritableVMInterfaceRequest(writableVMInterfaceRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesCreate(context.Background()).VirtualizationInterfacesCreateRequest(virtualizationInterfacesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationInterfacesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2571,7 +2774,7 @@ Other parameters are passed through a pointer to a apiVirtualizationInterfacesCr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableVMInterfaceRequest** | [**WritableVMInterfaceRequest**](WritableVMInterfaceRequest.md) |  | 
+ **virtualizationInterfacesCreateRequest** | [**VirtualizationInterfacesCreateRequest**](VirtualizationInterfacesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -2661,7 +2864,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationInterfacesList
 
-> PaginatedVMInterfaceList VirtualizationInterfacesList(ctx).BridgeId(bridgeId).BridgeIdN(bridgeIdN).Cluster(cluster).ClusterN(clusterN).ClusterId(clusterId).ClusterIdN(clusterIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Enabled(enabled).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).Mode(mode).ModeN(modeN).ModifiedByRequest(modifiedByRequest).Mtu(mtu).MtuEmpty(mtuEmpty).MtuGt(mtuGt).MtuGte(mtuGte).MtuLt(mtuLt).MtuLte(mtuLte).MtuN(mtuN).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).ParentId(parentId).ParentIdN(parentIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanId(vlanId).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
+> PaginatedVMInterfaceList VirtualizationInterfacesList(ctx).BridgeId(bridgeId).BridgeIdN(bridgeIdN).Brief(brief).Cluster(cluster).ClusterN(clusterN).ClusterId(clusterId).ClusterIdN(clusterIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Enabled(enabled).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIregex(macAddressIregex).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).MacAddressRegex(macAddressRegex).Mode(mode).ModeEmpty(modeEmpty).ModeIc(modeIc).ModeIe(modeIe).ModeIew(modeIew).ModeIregex(modeIregex).ModeIsw(modeIsw).ModeN(modeN).ModeNic(modeNic).ModeNie(modeNie).ModeNiew(modeNiew).ModeNisw(modeNisw).ModeRegex(modeRegex).ModifiedByRequest(modifiedByRequest).Mtu(mtu).MtuEmpty(mtuEmpty).MtuGt(mtuGt).MtuGte(mtuGte).MtuLt(mtuLt).MtuLte(mtuLte).MtuN(mtuN).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).ParentId(parentId).ParentIdN(parentIdN).PrimaryMacAddress(primaryMacAddress).PrimaryMacAddressN(primaryMacAddressN).PrimaryMacAddressId(primaryMacAddressId).PrimaryMacAddressIdN(primaryMacAddressIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanId(vlanId).VlanTranslationPolicy(vlanTranslationPolicy).VlanTranslationPolicyN(vlanTranslationPolicyN).VlanTranslationPolicyId(vlanTranslationPolicyId).VlanTranslationPolicyIdN(vlanTranslationPolicyIdN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
 
 
 
@@ -2683,6 +2886,7 @@ import (
 func main() {
 	bridgeId := []int32{int32(123)} // []int32 | Bridged interface (ID) (optional)
 	bridgeIdN := []int32{int32(123)} // []int32 | Bridged interface (ID) (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	cluster := []string{"Inner_example"} // []string | Cluster (optional)
 	clusterN := []string{"Inner_example"} // []string | Cluster (optional)
 	clusterId := []int32{int32(123)} // []int32 | Cluster (ID) (optional)
@@ -2700,13 +2904,16 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	enabled := true // bool |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -2730,14 +2937,27 @@ func main() {
 	macAddressIc := []string{"Inner_example"} // []string |  (optional)
 	macAddressIe := []string{"Inner_example"} // []string |  (optional)
 	macAddressIew := []string{"Inner_example"} // []string |  (optional)
+	macAddressIregex := []string{"Inner_example"} // []string |  (optional)
 	macAddressIsw := []string{"Inner_example"} // []string |  (optional)
 	macAddressN := []string{"Inner_example"} // []string |  (optional)
 	macAddressNic := []string{"Inner_example"} // []string |  (optional)
 	macAddressNie := []string{"Inner_example"} // []string |  (optional)
 	macAddressNiew := []string{"Inner_example"} // []string |  (optional)
 	macAddressNisw := []string{"Inner_example"} // []string |  (optional)
-	mode := openapiclient.dcim_interfaces_list_mode_parameter("access") // DcimInterfacesListModeParameter | IEEE 802.1Q tagging strategy  * `access` - Access * `tagged` - Tagged * `tagged-all` - Tagged (All) (optional)
-	modeN := openapiclient.dcim_interfaces_list_mode_parameter("access") // DcimInterfacesListModeParameter | IEEE 802.1Q tagging strategy  * `access` - Access * `tagged` - Tagged * `tagged-all` - Tagged (All) (optional)
+	macAddressRegex := []string{"Inner_example"} // []string |  (optional)
+	mode := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeEmpty := true // bool | 802.1Q Mode (optional)
+	modeIc := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeIe := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeIew := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeIregex := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeIsw := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeN := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeNic := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeNie := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeNiew := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeNisw := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
+	modeRegex := []*string{"Inner_example"} // []*string | 802.1Q Mode (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	mtu := []int32{int32(123)} // []int32 |  (optional)
 	mtuEmpty := true // bool |  (optional)
@@ -2751,19 +2971,39 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	parentId := []int32{int32(123)} // []int32 | Parent interface (ID) (optional)
 	parentIdN := []int32{int32(123)} // []int32 | Parent interface (ID) (optional)
+	primaryMacAddress := []string{"Inner_example"} // []string | Primary MAC address (optional)
+	primaryMacAddressN := []string{"Inner_example"} // []string | Primary MAC address (optional)
+	primaryMacAddressId := []int32{int32(123)} // []int32 | Primary MAC address (ID) (optional)
+	primaryMacAddressIdN := []int32{int32(123)} // []int32 | Primary MAC address (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	virtualMachine := []string{"Inner_example"} // []string | Virtual machine (optional)
 	virtualMachineN := []string{"Inner_example"} // []string | Virtual machine (optional)
@@ -2771,6 +3011,10 @@ func main() {
 	virtualMachineIdN := []int32{int32(123)} // []int32 | Virtual machine (ID) (optional)
 	vlan := "vlan_example" // string | Assigned VID (optional)
 	vlanId := "vlanId_example" // string | Assigned VLAN (optional)
+	vlanTranslationPolicy := []string{"Inner_example"} // []string | VLAN Translation Policy (optional)
+	vlanTranslationPolicyN := []string{"Inner_example"} // []string | VLAN Translation Policy (optional)
+	vlanTranslationPolicyId := []int32{int32(123)} // []int32 | VLAN Translation Policy (ID) (optional)
+	vlanTranslationPolicyIdN := []int32{int32(123)} // []int32 | VLAN Translation Policy (ID) (optional)
 	vrf := []*string{"Inner_example"} // []*string | VRF (RD) (optional)
 	vrfN := []*string{"Inner_example"} // []*string | VRF (RD) (optional)
 	vrfId := []int32{int32(123)} // []int32 | VRF (optional)
@@ -2778,7 +3022,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesList(context.Background()).BridgeId(bridgeId).BridgeIdN(bridgeIdN).Cluster(cluster).ClusterN(clusterN).ClusterId(clusterId).ClusterIdN(clusterIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Enabled(enabled).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).Mode(mode).ModeN(modeN).ModifiedByRequest(modifiedByRequest).Mtu(mtu).MtuEmpty(mtuEmpty).MtuGt(mtuGt).MtuGte(mtuGte).MtuLt(mtuLt).MtuLte(mtuLte).MtuN(mtuN).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).ParentId(parentId).ParentIdN(parentIdN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanId(vlanId).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesList(context.Background()).BridgeId(bridgeId).BridgeIdN(bridgeIdN).Brief(brief).Cluster(cluster).ClusterN(clusterN).ClusterId(clusterId).ClusterIdN(clusterIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Enabled(enabled).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIregex(macAddressIregex).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).MacAddressRegex(macAddressRegex).Mode(mode).ModeEmpty(modeEmpty).ModeIc(modeIc).ModeIe(modeIe).ModeIew(modeIew).ModeIregex(modeIregex).ModeIsw(modeIsw).ModeN(modeN).ModeNic(modeNic).ModeNie(modeNie).ModeNiew(modeNiew).ModeNisw(modeNisw).ModeRegex(modeRegex).ModifiedByRequest(modifiedByRequest).Mtu(mtu).MtuEmpty(mtuEmpty).MtuGt(mtuGt).MtuGte(mtuGte).MtuLt(mtuLt).MtuLte(mtuLte).MtuN(mtuN).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).ParentId(parentId).ParentIdN(parentIdN).PrimaryMacAddress(primaryMacAddress).PrimaryMacAddressN(primaryMacAddressN).PrimaryMacAddressId(primaryMacAddressId).PrimaryMacAddressIdN(primaryMacAddressIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Vlan(vlan).VlanId(vlanId).VlanTranslationPolicy(vlanTranslationPolicy).VlanTranslationPolicyN(vlanTranslationPolicyN).VlanTranslationPolicyId(vlanTranslationPolicyId).VlanTranslationPolicyIdN(vlanTranslationPolicyIdN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationInterfacesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2801,6 +3045,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bridgeId** | **[]int32** | Bridged interface (ID) | 
  **bridgeIdN** | **[]int32** | Bridged interface (ID) | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **cluster** | **[]string** | Cluster | 
  **clusterN** | **[]string** | Cluster | 
  **clusterId** | **[]int32** | Cluster (ID) | 
@@ -2818,13 +3063,16 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **enabled** | **bool** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -2848,14 +3096,27 @@ Name | Type | Description  | Notes
  **macAddressIc** | **[]string** |  | 
  **macAddressIe** | **[]string** |  | 
  **macAddressIew** | **[]string** |  | 
+ **macAddressIregex** | **[]string** |  | 
  **macAddressIsw** | **[]string** |  | 
  **macAddressN** | **[]string** |  | 
  **macAddressNic** | **[]string** |  | 
  **macAddressNie** | **[]string** |  | 
  **macAddressNiew** | **[]string** |  | 
  **macAddressNisw** | **[]string** |  | 
- **mode** | [**DcimInterfacesListModeParameter**](DcimInterfacesListModeParameter.md) | IEEE 802.1Q tagging strategy  * &#x60;access&#x60; - Access * &#x60;tagged&#x60; - Tagged * &#x60;tagged-all&#x60; - Tagged (All) | 
- **modeN** | [**DcimInterfacesListModeParameter**](DcimInterfacesListModeParameter.md) | IEEE 802.1Q tagging strategy  * &#x60;access&#x60; - Access * &#x60;tagged&#x60; - Tagged * &#x60;tagged-all&#x60; - Tagged (All) | 
+ **macAddressRegex** | **[]string** |  | 
+ **mode** | **[]string** | 802.1Q Mode | 
+ **modeEmpty** | **bool** | 802.1Q Mode | 
+ **modeIc** | **[]string** | 802.1Q Mode | 
+ **modeIe** | **[]string** | 802.1Q Mode | 
+ **modeIew** | **[]string** | 802.1Q Mode | 
+ **modeIregex** | **[]string** | 802.1Q Mode | 
+ **modeIsw** | **[]string** | 802.1Q Mode | 
+ **modeN** | **[]string** | 802.1Q Mode | 
+ **modeNic** | **[]string** | 802.1Q Mode | 
+ **modeNie** | **[]string** | 802.1Q Mode | 
+ **modeNiew** | **[]string** | 802.1Q Mode | 
+ **modeNisw** | **[]string** | 802.1Q Mode | 
+ **modeRegex** | **[]string** | 802.1Q Mode | 
  **modifiedByRequest** | **string** |  | 
  **mtu** | **[]int32** |  | 
  **mtuEmpty** | **bool** |  | 
@@ -2869,19 +3130,39 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **parentId** | **[]int32** | Parent interface (ID) | 
  **parentIdN** | **[]int32** | Parent interface (ID) | 
+ **primaryMacAddress** | **[]string** | Primary MAC address | 
+ **primaryMacAddressN** | **[]string** | Primary MAC address | 
+ **primaryMacAddressId** | **[]int32** | Primary MAC address (ID) | 
+ **primaryMacAddressIdN** | **[]int32** | Primary MAC address (ID) | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
  **virtualMachine** | **[]string** | Virtual machine | 
  **virtualMachineN** | **[]string** | Virtual machine | 
@@ -2889,6 +3170,10 @@ Name | Type | Description  | Notes
  **virtualMachineIdN** | **[]int32** | Virtual machine (ID) | 
  **vlan** | **string** | Assigned VID | 
  **vlanId** | **string** | Assigned VLAN | 
+ **vlanTranslationPolicy** | **[]string** | VLAN Translation Policy | 
+ **vlanTranslationPolicyN** | **[]string** | VLAN Translation Policy | 
+ **vlanTranslationPolicyId** | **[]int32** | VLAN Translation Policy (ID) | 
+ **vlanTranslationPolicyIdN** | **[]int32** | VLAN Translation Policy (ID) | 
  **vrf** | **[]string** | VRF (RD) | 
  **vrfN** | **[]string** | VRF (RD) | 
  **vrfId** | **[]int32** | VRF | 
@@ -2986,7 +3271,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationInterfacesRetrieve
 
-> VMInterface VirtualizationInterfacesRetrieve(ctx, id).Execute()
+> VMInterface VirtualizationInterfacesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3006,10 +3291,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this interface.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationInterfacesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationInterfacesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3035,6 +3323,9 @@ Other parameters are passed through a pointer to a apiVirtualizationInterfacesRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3076,7 +3367,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this interface.
-	writableVMInterfaceRequest := *openapiclient.NewWritableVMInterfaceRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example") // WritableVMInterfaceRequest | 
+	writableVMInterfaceRequest := *openapiclient.NewWritableVMInterfaceRequest(openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example") // WritableVMInterfaceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3147,7 +3438,7 @@ import (
 )
 
 func main() {
-	virtualDiskRequest := []openapiclient.VirtualDiskRequest{*openapiclient.NewVirtualDiskRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example", int32(123))} // []VirtualDiskRequest | 
+	virtualDiskRequest := []openapiclient.VirtualDiskRequest{*openapiclient.NewVirtualDiskRequest(openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example", int32(123))} // []VirtualDiskRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3183,7 +3474,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3192,7 +3483,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualDisksBulkPartialUpdate
 
-> []VirtualDisk VirtualizationVirtualDisksBulkPartialUpdate(ctx).VirtualDiskRequest(virtualDiskRequest).Execute()
+> []VirtualDisk VirtualizationVirtualDisksBulkPartialUpdate(ctx).PatchedBulkVirtualDiskRequest(patchedBulkVirtualDiskRequest).Execute()
 
 
 
@@ -3211,11 +3502,11 @@ import (
 )
 
 func main() {
-	virtualDiskRequest := []openapiclient.VirtualDiskRequest{*openapiclient.NewVirtualDiskRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example", int32(123))} // []VirtualDiskRequest | 
+	patchedBulkVirtualDiskRequest := []openapiclient.PatchedBulkVirtualDiskRequest{*openapiclient.NewPatchedBulkVirtualDiskRequest(int32(123))} // []PatchedBulkVirtualDiskRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksBulkPartialUpdate(context.Background()).VirtualDiskRequest(virtualDiskRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksBulkPartialUpdate(context.Background()).PatchedBulkVirtualDiskRequest(patchedBulkVirtualDiskRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualDisksBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3236,7 +3527,7 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualDisks
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **virtualDiskRequest** | [**[]VirtualDiskRequest**](VirtualDiskRequest.md) |  | 
+ **patchedBulkVirtualDiskRequest** | [**[]PatchedBulkVirtualDiskRequest**](PatchedBulkVirtualDiskRequest.md) |  | 
 
 ### Return type
 
@@ -3258,7 +3549,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualDisksBulkUpdate
 
-> []VirtualDisk VirtualizationVirtualDisksBulkUpdate(ctx).VirtualDiskRequest(virtualDiskRequest).Execute()
+> []VirtualDisk VirtualizationVirtualDisksBulkUpdate(ctx).BulkVirtualDiskRequest(bulkVirtualDiskRequest).Execute()
 
 
 
@@ -3277,11 +3568,11 @@ import (
 )
 
 func main() {
-	virtualDiskRequest := []openapiclient.VirtualDiskRequest{*openapiclient.NewVirtualDiskRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example", int32(123))} // []VirtualDiskRequest | 
+	bulkVirtualDiskRequest := []openapiclient.BulkVirtualDiskRequest{*openapiclient.NewBulkVirtualDiskRequest(int32(123), openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example", int32(123))} // []BulkVirtualDiskRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksBulkUpdate(context.Background()).VirtualDiskRequest(virtualDiskRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksBulkUpdate(context.Background()).BulkVirtualDiskRequest(bulkVirtualDiskRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualDisksBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3302,7 +3593,7 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualDisks
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **virtualDiskRequest** | [**[]VirtualDiskRequest**](VirtualDiskRequest.md) |  | 
+ **bulkVirtualDiskRequest** | [**[]BulkVirtualDiskRequest**](BulkVirtualDiskRequest.md) |  | 
 
 ### Return type
 
@@ -3324,7 +3615,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualDisksCreate
 
-> VirtualDisk VirtualizationVirtualDisksCreate(ctx).VirtualDiskRequest(virtualDiskRequest).Execute()
+> VirtualDisk VirtualizationVirtualDisksCreate(ctx).VirtualizationVirtualDisksCreateRequest(virtualizationVirtualDisksCreateRequest).Execute()
 
 
 
@@ -3343,11 +3634,11 @@ import (
 )
 
 func main() {
-	virtualDiskRequest := *openapiclient.NewVirtualDiskRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example", int32(123)) // VirtualDiskRequest | 
+	virtualizationVirtualDisksCreateRequest := openapiclient.virtualization_virtual_disks_create_request{VirtualDiskRequest: openapiclient.NewVirtualDiskRequest(openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example", int32(123))} // VirtualizationVirtualDisksCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksCreate(context.Background()).VirtualDiskRequest(virtualDiskRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksCreate(context.Background()).VirtualizationVirtualDisksCreateRequest(virtualizationVirtualDisksCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualDisksCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3368,7 +3659,7 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualDisks
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **virtualDiskRequest** | [**VirtualDiskRequest**](VirtualDiskRequest.md) |  | 
+ **virtualizationVirtualDisksCreateRequest** | [**VirtualizationVirtualDisksCreateRequest**](VirtualizationVirtualDisksCreateRequest.md) |  | 
 
 ### Return type
 
@@ -3458,7 +3749,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualDisksList
 
-> PaginatedVirtualDiskList VirtualizationVirtualDisksList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Execute()
+> PaginatedVirtualDiskList VirtualizationVirtualDisksList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Execute()
 
 
 
@@ -3478,6 +3769,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -3491,12 +3783,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -3518,14 +3813,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	size := []int32{int32(123)} // []int32 |  (optional)
 	sizeEmpty := true // bool |  (optional)
@@ -3534,8 +3840,13 @@ func main() {
 	sizeLt := []int32{int32(123)} // []int32 |  (optional)
 	sizeLte := []int32{int32(123)} // []int32 |  (optional)
 	sizeN := []int32{int32(123)} // []int32 |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	virtualMachine := []string{"Inner_example"} // []string | Virtual machine (optional)
 	virtualMachineN := []string{"Inner_example"} // []string | Virtual machine (optional)
@@ -3544,7 +3855,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualDisksList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3565,6 +3876,7 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualDisks
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3578,12 +3890,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -3605,14 +3920,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **size** | **[]int32** |  | 
  **sizeEmpty** | **bool** |  | 
@@ -3621,8 +3947,13 @@ Name | Type | Description  | Notes
  **sizeLt** | **[]int32** |  | 
  **sizeLte** | **[]int32** |  | 
  **sizeN** | **[]int32** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
  **virtualMachine** | **[]string** | Virtual machine | 
  **virtualMachineN** | **[]string** | Virtual machine | 
@@ -3721,7 +4052,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualDisksRetrieve
 
-> VirtualDisk VirtualizationVirtualDisksRetrieve(ctx, id).Execute()
+> VirtualDisk VirtualizationVirtualDisksRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3741,10 +4072,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this virtual disk.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualDisksRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualDisksRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3770,6 +4104,9 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualDisks
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3811,7 +4148,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this virtual disk.
-	virtualDiskRequest := *openapiclient.NewVirtualDiskRequest(*openapiclient.NewBriefVirtualMachineRequest("Name_example"), "Name_example", int32(123)) // VirtualDiskRequest | 
+	virtualDiskRequest := *openapiclient.NewVirtualDiskRequest(openapiclient.BulkVMInterfaceRequest_virtual_machine{BriefVirtualMachineRequest: openapiclient.NewBriefVirtualMachineRequest("Name_example")}, "Name_example", int32(123)) // VirtualDiskRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3861,9 +4198,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## VirtualizationVirtualMachinesBulkDestroy
+## VirtualizationVirtualMachineTypesBulkDestroy
 
-> VirtualizationVirtualMachinesBulkDestroy(ctx).VirtualMachineWithConfigContextRequest(virtualMachineWithConfigContextRequest).Execute()
+> VirtualizationVirtualMachineTypesBulkDestroy(ctx).VirtualMachineTypeRequest(virtualMachineTypeRequest).Execute()
 
 
 
@@ -3882,11 +4219,846 @@ import (
 )
 
 func main() {
-	virtualMachineWithConfigContextRequest := []openapiclient.VirtualMachineWithConfigContextRequest{*openapiclient.NewVirtualMachineWithConfigContextRequest("Name_example")} // []VirtualMachineWithConfigContextRequest | 
+	virtualMachineTypeRequest := []openapiclient.VirtualMachineTypeRequest{*openapiclient.NewVirtualMachineTypeRequest("Name_example", "Slug_example")} // []VirtualMachineTypeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesBulkDestroy(context.Background()).VirtualMachineWithConfigContextRequest(virtualMachineWithConfigContextRequest).Execute()
+	r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesBulkDestroy(context.Background()).VirtualMachineTypeRequest(virtualMachineTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtualMachineTypeRequest** | [**[]VirtualMachineTypeRequest**](VirtualMachineTypeRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesBulkPartialUpdate
+
+> []VirtualMachineType VirtualizationVirtualMachineTypesBulkPartialUpdate(ctx).PatchedBulkVirtualMachineTypeRequest(patchedBulkVirtualMachineTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkVirtualMachineTypeRequest := []openapiclient.PatchedBulkVirtualMachineTypeRequest{*openapiclient.NewPatchedBulkVirtualMachineTypeRequest(int32(123))} // []PatchedBulkVirtualMachineTypeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesBulkPartialUpdate(context.Background()).PatchedBulkVirtualMachineTypeRequest(patchedBulkVirtualMachineTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VirtualizationVirtualMachineTypesBulkPartialUpdate`: []VirtualMachineType
+	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachineTypesBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkVirtualMachineTypeRequest** | [**[]PatchedBulkVirtualMachineTypeRequest**](PatchedBulkVirtualMachineTypeRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualMachineType**](VirtualMachineType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesBulkUpdate
+
+> []VirtualMachineType VirtualizationVirtualMachineTypesBulkUpdate(ctx).BulkVirtualMachineTypeRequest(bulkVirtualMachineTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkVirtualMachineTypeRequest := []openapiclient.BulkVirtualMachineTypeRequest{*openapiclient.NewBulkVirtualMachineTypeRequest(int32(123), "Name_example", "Slug_example")} // []BulkVirtualMachineTypeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesBulkUpdate(context.Background()).BulkVirtualMachineTypeRequest(bulkVirtualMachineTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VirtualizationVirtualMachineTypesBulkUpdate`: []VirtualMachineType
+	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachineTypesBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkVirtualMachineTypeRequest** | [**[]BulkVirtualMachineTypeRequest**](BulkVirtualMachineTypeRequest.md) |  | 
+
+### Return type
+
+[**[]VirtualMachineType**](VirtualMachineType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesCreate
+
+> VirtualMachineType VirtualizationVirtualMachineTypesCreate(ctx).VirtualizationVirtualMachineTypesCreateRequest(virtualizationVirtualMachineTypesCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	virtualizationVirtualMachineTypesCreateRequest := openapiclient.virtualization_virtual_machine_types_create_request{VirtualMachineTypeRequest: openapiclient.NewVirtualMachineTypeRequest("Name_example", "Slug_example")} // VirtualizationVirtualMachineTypesCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesCreate(context.Background()).VirtualizationVirtualMachineTypesCreateRequest(virtualizationVirtualMachineTypesCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VirtualizationVirtualMachineTypesCreate`: VirtualMachineType
+	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachineTypesCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **virtualizationVirtualMachineTypesCreateRequest** | [**VirtualizationVirtualMachineTypesCreateRequest**](VirtualizationVirtualMachineTypesCreateRequest.md) |  | 
+
+### Return type
+
+[**VirtualMachineType**](VirtualMachineType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesDestroy
+
+> VirtualizationVirtualMachineTypesDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual machine type.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual machine type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesList
+
+> PaginatedVirtualMachineTypeList VirtualizationVirtualMachineTypesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).DefaultMemory(defaultMemory).DefaultMemoryEmpty(defaultMemoryEmpty).DefaultMemoryGt(defaultMemoryGt).DefaultMemoryGte(defaultMemoryGte).DefaultMemoryLt(defaultMemoryLt).DefaultMemoryLte(defaultMemoryLte).DefaultMemoryN(defaultMemoryN).DefaultPlatform(defaultPlatform).DefaultPlatformN(defaultPlatformN).DefaultPlatformId(defaultPlatformId).DefaultPlatformIdN(defaultPlatformIdN).DefaultVcpus(defaultVcpus).DefaultVcpusEmpty(defaultVcpusEmpty).DefaultVcpusGt(defaultVcpusGt).DefaultVcpusGte(defaultVcpusGte).DefaultVcpusLt(defaultVcpusLt).DefaultVcpusLte(defaultVcpusLte).DefaultVcpusN(defaultVcpusN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachineCount(virtualMachineCount).VirtualMachineCountEmpty(virtualMachineCountEmpty).VirtualMachineCountGt(virtualMachineCountGt).VirtualMachineCountGte(virtualMachineCountGte).VirtualMachineCountLt(virtualMachineCountLt).VirtualMachineCountLte(virtualMachineCountLte).VirtualMachineCountN(virtualMachineCountN).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	defaultMemory := []int32{int32(123)} // []int32 |  (optional)
+	defaultMemoryEmpty := true // bool |  (optional)
+	defaultMemoryGt := []int32{int32(123)} // []int32 |  (optional)
+	defaultMemoryGte := []int32{int32(123)} // []int32 |  (optional)
+	defaultMemoryLt := []int32{int32(123)} // []int32 |  (optional)
+	defaultMemoryLte := []int32{int32(123)} // []int32 |  (optional)
+	defaultMemoryN := []int32{int32(123)} // []int32 |  (optional)
+	defaultPlatform := []string{"Inner_example"} // []string |  (optional)
+	defaultPlatformN := []string{"Inner_example"} // []string |  (optional)
+	defaultPlatformId := []string{"Inner_example"} // []string |  (optional)
+	defaultPlatformIdN := []string{"Inner_example"} // []string |  (optional)
+	defaultVcpus := []float64{float64(123)} // []float64 |  (optional)
+	defaultVcpusEmpty := true // bool |  (optional)
+	defaultVcpusGt := []float64{float64(123)} // []float64 |  (optional)
+	defaultVcpusGte := []float64{float64(123)} // []float64 |  (optional)
+	defaultVcpusLt := []float64{float64(123)} // []float64 |  (optional)
+	defaultVcpusLte := []float64{float64(123)} // []float64 |  (optional)
+	defaultVcpusN := []float64{float64(123)} // []float64 |  (optional)
+	description := []string{"Inner_example"} // []string |  (optional)
+	descriptionEmpty := true // bool |  (optional)
+	descriptionIc := []string{"Inner_example"} // []string |  (optional)
+	descriptionIe := []string{"Inner_example"} // []string |  (optional)
+	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
+	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
+	descriptionN := []string{"Inner_example"} // []string |  (optional)
+	descriptionNic := []string{"Inner_example"} // []string |  (optional)
+	descriptionNie := []string{"Inner_example"} // []string |  (optional)
+	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
+	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	name := []string{"Inner_example"} // []string |  (optional)
+	nameEmpty := true // bool |  (optional)
+	nameIc := []string{"Inner_example"} // []string |  (optional)
+	nameIe := []string{"Inner_example"} // []string |  (optional)
+	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
+	nameIsw := []string{"Inner_example"} // []string |  (optional)
+	nameN := []string{"Inner_example"} // []string |  (optional)
+	nameNic := []string{"Inner_example"} // []string |  (optional)
+	nameNie := []string{"Inner_example"} // []string |  (optional)
+	nameNiew := []string{"Inner_example"} // []string |  (optional)
+	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	q := "q_example" // string | Search (optional)
+	slug := []string{"Inner_example"} // []string |  (optional)
+	slugEmpty := true // bool |  (optional)
+	slugIc := []string{"Inner_example"} // []string |  (optional)
+	slugIe := []string{"Inner_example"} // []string |  (optional)
+	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
+	slugIsw := []string{"Inner_example"} // []string |  (optional)
+	slugN := []string{"Inner_example"} // []string |  (optional)
+	slugNic := []string{"Inner_example"} // []string |  (optional)
+	slugNie := []string{"Inner_example"} // []string |  (optional)
+	slugNiew := []string{"Inner_example"} // []string |  (optional)
+	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	virtualMachineCount := []int32{int32(123)} // []int32 |  (optional)
+	virtualMachineCountEmpty := true // bool |  (optional)
+	virtualMachineCountGt := []int32{int32(123)} // []int32 |  (optional)
+	virtualMachineCountGte := []int32{int32(123)} // []int32 |  (optional)
+	virtualMachineCountLt := []int32{int32(123)} // []int32 |  (optional)
+	virtualMachineCountLte := []int32{int32(123)} // []int32 |  (optional)
+	virtualMachineCountN := []int32{int32(123)} // []int32 |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).DefaultMemory(defaultMemory).DefaultMemoryEmpty(defaultMemoryEmpty).DefaultMemoryGt(defaultMemoryGt).DefaultMemoryGte(defaultMemoryGte).DefaultMemoryLt(defaultMemoryLt).DefaultMemoryLte(defaultMemoryLte).DefaultMemoryN(defaultMemoryN).DefaultPlatform(defaultPlatform).DefaultPlatformN(defaultPlatformN).DefaultPlatformId(defaultPlatformId).DefaultPlatformIdN(defaultPlatformIdN).DefaultVcpus(defaultVcpus).DefaultVcpusEmpty(defaultVcpusEmpty).DefaultVcpusGt(defaultVcpusGt).DefaultVcpusGte(defaultVcpusGte).DefaultVcpusLt(defaultVcpusLt).DefaultVcpusLte(defaultVcpusLte).DefaultVcpusN(defaultVcpusN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachineCount(virtualMachineCount).VirtualMachineCountEmpty(virtualMachineCountEmpty).VirtualMachineCountGt(virtualMachineCountGt).VirtualMachineCountGte(virtualMachineCountGte).VirtualMachineCountLt(virtualMachineCountLt).VirtualMachineCountLte(virtualMachineCountLte).VirtualMachineCountN(virtualMachineCountN).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VirtualizationVirtualMachineTypesList`: PaginatedVirtualMachineTypeList
+	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachineTypesList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **defaultMemory** | **[]int32** |  | 
+ **defaultMemoryEmpty** | **bool** |  | 
+ **defaultMemoryGt** | **[]int32** |  | 
+ **defaultMemoryGte** | **[]int32** |  | 
+ **defaultMemoryLt** | **[]int32** |  | 
+ **defaultMemoryLte** | **[]int32** |  | 
+ **defaultMemoryN** | **[]int32** |  | 
+ **defaultPlatform** | **[]string** |  | 
+ **defaultPlatformN** | **[]string** |  | 
+ **defaultPlatformId** | **[]string** |  | 
+ **defaultPlatformIdN** | **[]string** |  | 
+ **defaultVcpus** | **[]float64** |  | 
+ **defaultVcpusEmpty** | **bool** |  | 
+ **defaultVcpusGt** | **[]float64** |  | 
+ **defaultVcpusGte** | **[]float64** |  | 
+ **defaultVcpusLt** | **[]float64** |  | 
+ **defaultVcpusLte** | **[]float64** |  | 
+ **defaultVcpusN** | **[]float64** |  | 
+ **description** | **[]string** |  | 
+ **descriptionEmpty** | **bool** |  | 
+ **descriptionIc** | **[]string** |  | 
+ **descriptionIe** | **[]string** |  | 
+ **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
+ **descriptionIsw** | **[]string** |  | 
+ **descriptionN** | **[]string** |  | 
+ **descriptionNic** | **[]string** |  | 
+ **descriptionNie** | **[]string** |  | 
+ **descriptionNiew** | **[]string** |  | 
+ **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **modifiedByRequest** | **string** |  | 
+ **name** | **[]string** |  | 
+ **nameEmpty** | **bool** |  | 
+ **nameIc** | **[]string** |  | 
+ **nameIe** | **[]string** |  | 
+ **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
+ **nameIsw** | **[]string** |  | 
+ **nameN** | **[]string** |  | 
+ **nameNic** | **[]string** |  | 
+ **nameNie** | **[]string** |  | 
+ **nameNiew** | **[]string** |  | 
+ **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **q** | **string** | Search | 
+ **slug** | **[]string** |  | 
+ **slugEmpty** | **bool** |  | 
+ **slugIc** | **[]string** |  | 
+ **slugIe** | **[]string** |  | 
+ **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
+ **slugIsw** | **[]string** |  | 
+ **slugN** | **[]string** |  | 
+ **slugNic** | **[]string** |  | 
+ **slugNie** | **[]string** |  | 
+ **slugNiew** | **[]string** |  | 
+ **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **updatedByRequest** | **string** |  | 
+ **virtualMachineCount** | **[]int32** |  | 
+ **virtualMachineCountEmpty** | **bool** |  | 
+ **virtualMachineCountGt** | **[]int32** |  | 
+ **virtualMachineCountGte** | **[]int32** |  | 
+ **virtualMachineCountLt** | **[]int32** |  | 
+ **virtualMachineCountLte** | **[]int32** |  | 
+ **virtualMachineCountN** | **[]int32** |  | 
+
+### Return type
+
+[**PaginatedVirtualMachineTypeList**](PaginatedVirtualMachineTypeList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesPartialUpdate
+
+> VirtualMachineType VirtualizationVirtualMachineTypesPartialUpdate(ctx, id).PatchedVirtualMachineTypeRequest(patchedVirtualMachineTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual machine type.
+	patchedVirtualMachineTypeRequest := *openapiclient.NewPatchedVirtualMachineTypeRequest() // PatchedVirtualMachineTypeRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesPartialUpdate(context.Background(), id).PatchedVirtualMachineTypeRequest(patchedVirtualMachineTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VirtualizationVirtualMachineTypesPartialUpdate`: VirtualMachineType
+	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachineTypesPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual machine type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedVirtualMachineTypeRequest** | [**PatchedVirtualMachineTypeRequest**](PatchedVirtualMachineTypeRequest.md) |  | 
+
+### Return type
+
+[**VirtualMachineType**](VirtualMachineType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesRetrieve
+
+> VirtualMachineType VirtualizationVirtualMachineTypesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual machine type.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VirtualizationVirtualMachineTypesRetrieve`: VirtualMachineType
+	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachineTypesRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual machine type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**VirtualMachineType**](VirtualMachineType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachineTypesUpdate
+
+> VirtualMachineType VirtualizationVirtualMachineTypesUpdate(ctx, id).VirtualMachineTypeRequest(virtualMachineTypeRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this virtual machine type.
+	virtualMachineTypeRequest := *openapiclient.NewVirtualMachineTypeRequest("Name_example", "Slug_example") // VirtualMachineTypeRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachineTypesUpdate(context.Background(), id).VirtualMachineTypeRequest(virtualMachineTypeRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachineTypesUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `VirtualizationVirtualMachineTypesUpdate`: VirtualMachineType
+	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachineTypesUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this virtual machine type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiVirtualizationVirtualMachineTypesUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **virtualMachineTypeRequest** | [**VirtualMachineTypeRequest**](VirtualMachineTypeRequest.md) |  | 
+
+### Return type
+
+[**VirtualMachineType**](VirtualMachineType.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## VirtualizationVirtualMachinesBulkDestroy
+
+> VirtualizationVirtualMachinesBulkDestroy(ctx).VirtualMachineRequest(virtualMachineRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	virtualMachineRequest := []openapiclient.VirtualMachineRequest{*openapiclient.NewVirtualMachineRequest("Name_example")} // []VirtualMachineRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesBulkDestroy(context.Background()).VirtualMachineRequest(virtualMachineRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesBulkDestroy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3905,7 +5077,7 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **virtualMachineWithConfigContextRequest** | [**[]VirtualMachineWithConfigContextRequest**](VirtualMachineWithConfigContextRequest.md) |  | 
+ **virtualMachineRequest** | [**[]VirtualMachineRequest**](VirtualMachineRequest.md) |  | 
 
 ### Return type
 
@@ -3918,7 +5090,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3927,7 +5099,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesBulkPartialUpdate
 
-> []VirtualMachineWithConfigContext VirtualizationVirtualMachinesBulkPartialUpdate(ctx).VirtualMachineWithConfigContextRequest(virtualMachineWithConfigContextRequest).Execute()
+> []VirtualMachine VirtualizationVirtualMachinesBulkPartialUpdate(ctx).PatchedBulkVirtualMachineRequest(patchedBulkVirtualMachineRequest).Execute()
 
 
 
@@ -3946,16 +5118,16 @@ import (
 )
 
 func main() {
-	virtualMachineWithConfigContextRequest := []openapiclient.VirtualMachineWithConfigContextRequest{*openapiclient.NewVirtualMachineWithConfigContextRequest("Name_example")} // []VirtualMachineWithConfigContextRequest | 
+	patchedBulkVirtualMachineRequest := []openapiclient.PatchedBulkVirtualMachineRequest{*openapiclient.NewPatchedBulkVirtualMachineRequest(int32(123))} // []PatchedBulkVirtualMachineRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesBulkPartialUpdate(context.Background()).VirtualMachineWithConfigContextRequest(virtualMachineWithConfigContextRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesBulkPartialUpdate(context.Background()).PatchedBulkVirtualMachineRequest(patchedBulkVirtualMachineRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesBulkPartialUpdate`: []VirtualMachineWithConfigContext
+	// response from `VirtualizationVirtualMachinesBulkPartialUpdate`: []VirtualMachine
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesBulkPartialUpdate`: %v\n", resp)
 }
 ```
@@ -3971,11 +5143,11 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **virtualMachineWithConfigContextRequest** | [**[]VirtualMachineWithConfigContextRequest**](VirtualMachineWithConfigContextRequest.md) |  | 
+ **patchedBulkVirtualMachineRequest** | [**[]PatchedBulkVirtualMachineRequest**](PatchedBulkVirtualMachineRequest.md) |  | 
 
 ### Return type
 
-[**[]VirtualMachineWithConfigContext**](VirtualMachineWithConfigContext.md)
+[**[]VirtualMachine**](VirtualMachine.md)
 
 ### Authorization
 
@@ -3993,7 +5165,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesBulkUpdate
 
-> []VirtualMachineWithConfigContext VirtualizationVirtualMachinesBulkUpdate(ctx).VirtualMachineWithConfigContextRequest(virtualMachineWithConfigContextRequest).Execute()
+> []VirtualMachine VirtualizationVirtualMachinesBulkUpdate(ctx).BulkVirtualMachineRequest(bulkVirtualMachineRequest).Execute()
 
 
 
@@ -4012,16 +5184,16 @@ import (
 )
 
 func main() {
-	virtualMachineWithConfigContextRequest := []openapiclient.VirtualMachineWithConfigContextRequest{*openapiclient.NewVirtualMachineWithConfigContextRequest("Name_example")} // []VirtualMachineWithConfigContextRequest | 
+	bulkVirtualMachineRequest := []openapiclient.BulkVirtualMachineRequest{*openapiclient.NewBulkVirtualMachineRequest(int32(123), "Name_example")} // []BulkVirtualMachineRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesBulkUpdate(context.Background()).VirtualMachineWithConfigContextRequest(virtualMachineWithConfigContextRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesBulkUpdate(context.Background()).BulkVirtualMachineRequest(bulkVirtualMachineRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesBulkUpdate`: []VirtualMachineWithConfigContext
+	// response from `VirtualizationVirtualMachinesBulkUpdate`: []VirtualMachine
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesBulkUpdate`: %v\n", resp)
 }
 ```
@@ -4037,11 +5209,11 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **virtualMachineWithConfigContextRequest** | [**[]VirtualMachineWithConfigContextRequest**](VirtualMachineWithConfigContextRequest.md) |  | 
+ **bulkVirtualMachineRequest** | [**[]BulkVirtualMachineRequest**](BulkVirtualMachineRequest.md) |  | 
 
 ### Return type
 
-[**[]VirtualMachineWithConfigContext**](VirtualMachineWithConfigContext.md)
+[**[]VirtualMachine**](VirtualMachine.md)
 
 ### Authorization
 
@@ -4059,7 +5231,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesCreate
 
-> VirtualMachineWithConfigContext VirtualizationVirtualMachinesCreate(ctx).WritableVirtualMachineWithConfigContextRequest(writableVirtualMachineWithConfigContextRequest).Execute()
+> VirtualMachine VirtualizationVirtualMachinesCreate(ctx).VirtualizationVirtualMachinesCreateRequest(virtualizationVirtualMachinesCreateRequest).Execute()
 
 
 
@@ -4078,16 +5250,16 @@ import (
 )
 
 func main() {
-	writableVirtualMachineWithConfigContextRequest := *openapiclient.NewWritableVirtualMachineWithConfigContextRequest("Name_example") // WritableVirtualMachineWithConfigContextRequest | 
+	virtualizationVirtualMachinesCreateRequest := openapiclient.virtualization_virtual_machines_create_request{WritableVirtualMachineRequest: openapiclient.NewWritableVirtualMachineRequest("Name_example")} // VirtualizationVirtualMachinesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesCreate(context.Background()).WritableVirtualMachineWithConfigContextRequest(writableVirtualMachineWithConfigContextRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesCreate(context.Background()).VirtualizationVirtualMachinesCreateRequest(virtualizationVirtualMachinesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesCreate`: VirtualMachineWithConfigContext
+	// response from `VirtualizationVirtualMachinesCreate`: VirtualMachine
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesCreate`: %v\n", resp)
 }
 ```
@@ -4103,11 +5275,11 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableVirtualMachineWithConfigContextRequest** | [**WritableVirtualMachineWithConfigContextRequest**](WritableVirtualMachineWithConfigContextRequest.md) |  | 
+ **virtualizationVirtualMachinesCreateRequest** | [**VirtualizationVirtualMachinesCreateRequest**](VirtualizationVirtualMachinesCreateRequest.md) |  | 
 
 ### Return type
 
-[**VirtualMachineWithConfigContext**](VirtualMachineWithConfigContext.md)
+[**VirtualMachine**](VirtualMachine.md)
 
 ### Authorization
 
@@ -4193,7 +5365,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesList
 
-> PaginatedVirtualMachineWithConfigContextList VirtualizationVirtualMachinesList(ctx).Cluster(cluster).ClusterN(clusterN).ClusterGroup(clusterGroup).ClusterGroupN(clusterGroupN).ClusterGroupId(clusterGroupId).ClusterGroupIdN(clusterGroupIdN).ClusterId(clusterId).ClusterIdN(clusterIdN).ClusterType(clusterType).ClusterTypeN(clusterTypeN).ClusterTypeId(clusterTypeId).ClusterTypeIdN(clusterTypeIdN).ConfigTemplateId(configTemplateId).ConfigTemplateIdN(configTemplateIdN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Disk(disk).DiskEmpty(diskEmpty).DiskGt(diskGt).DiskGte(diskGte).DiskLt(diskLt).DiskLte(diskLte).DiskN(diskN).HasPrimaryIp(hasPrimaryIp).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceCount(interfaceCount).InterfaceCountEmpty(interfaceCountEmpty).InterfaceCountGt(interfaceCountGt).InterfaceCountGte(interfaceCountGte).InterfaceCountLt(interfaceCountLt).InterfaceCountLte(interfaceCountLte).InterfaceCountN(interfaceCountN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocalContextData(localContextData).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).Memory(memory).MemoryEmpty(memoryEmpty).MemoryGt(memoryGt).MemoryGte(memoryGte).MemoryLt(memoryLt).MemoryLte(memoryLte).MemoryN(memoryN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Platform(platform).PlatformN(platformN).PlatformId(platformId).PlatformIdN(platformIdN).PrimaryIp4Id(primaryIp4Id).PrimaryIp4IdN(primaryIp4IdN).PrimaryIp6Id(primaryIp6Id).PrimaryIp6IdN(primaryIp6IdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vcpus(vcpus).VcpusEmpty(vcpusEmpty).VcpusGt(vcpusGt).VcpusGte(vcpusGte).VcpusLt(vcpusLt).VcpusLte(vcpusLte).VcpusN(vcpusN).VirtualDiskCount(virtualDiskCount).VirtualDiskCountEmpty(virtualDiskCountEmpty).VirtualDiskCountGt(virtualDiskCountGt).VirtualDiskCountGte(virtualDiskCountGte).VirtualDiskCountLt(virtualDiskCountLt).VirtualDiskCountLte(virtualDiskCountLte).VirtualDiskCountN(virtualDiskCountN).Execute()
+> PaginatedVirtualMachineList VirtualizationVirtualMachinesList(ctx).Brief(brief).Cluster(cluster).ClusterN(clusterN).ClusterGroup(clusterGroup).ClusterGroupN(clusterGroupN).ClusterGroupId(clusterGroupId).ClusterGroupIdN(clusterGroupIdN).ClusterId(clusterId).ClusterIdN(clusterIdN).ClusterType(clusterType).ClusterTypeN(clusterTypeN).ClusterTypeId(clusterTypeId).ClusterTypeIdN(clusterTypeIdN).ConfigTemplateId(configTemplateId).ConfigTemplateIdN(configTemplateIdN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Disk(disk).DiskEmpty(diskEmpty).DiskGt(diskGt).DiskGte(diskGte).DiskLt(diskLt).DiskLte(diskLte).DiskN(diskN).Fields(fields).HasPrimaryIp(hasPrimaryIp).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceCount(interfaceCount).InterfaceCountEmpty(interfaceCountEmpty).InterfaceCountGt(interfaceCountGt).InterfaceCountGte(interfaceCountGte).InterfaceCountLt(interfaceCountLt).InterfaceCountLte(interfaceCountLte).InterfaceCountN(interfaceCountN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocalContextData(localContextData).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIregex(macAddressIregex).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).MacAddressRegex(macAddressRegex).Memory(memory).MemoryEmpty(memoryEmpty).MemoryGt(memoryGt).MemoryGte(memoryGte).MemoryLt(memoryLt).MemoryLte(memoryLte).MemoryN(memoryN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Platform(platform).PlatformN(platformN).PlatformId(platformId).PlatformIdN(platformIdN).PrimaryIp4(primaryIp4).PrimaryIp4N(primaryIp4N).PrimaryIp4Id(primaryIp4Id).PrimaryIp4IdN(primaryIp4IdN).PrimaryIp6(primaryIp6).PrimaryIp6N(primaryIp6N).PrimaryIp6Id(primaryIp6Id).PrimaryIp6IdN(primaryIp6IdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Serial(serial).SerialEmpty(serialEmpty).SerialIc(serialIc).SerialIe(serialIe).SerialIew(serialIew).SerialIregex(serialIregex).SerialIsw(serialIsw).SerialN(serialN).SerialNic(serialNic).SerialNie(serialNie).SerialNiew(serialNiew).SerialNisw(serialNisw).SerialRegex(serialRegex).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).StartOnBoot(startOnBoot).StartOnBootEmpty(startOnBootEmpty).StartOnBootIc(startOnBootIc).StartOnBootIe(startOnBootIe).StartOnBootIew(startOnBootIew).StartOnBootIregex(startOnBootIregex).StartOnBootIsw(startOnBootIsw).StartOnBootN(startOnBootN).StartOnBootNic(startOnBootNic).StartOnBootNie(startOnBootNie).StartOnBootNiew(startOnBootNiew).StartOnBootNisw(startOnBootNisw).StartOnBootRegex(startOnBootRegex).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vcpus(vcpus).VcpusEmpty(vcpusEmpty).VcpusGt(vcpusGt).VcpusGte(vcpusGte).VcpusLt(vcpusLt).VcpusLte(vcpusLte).VcpusN(vcpusN).VirtualDiskCount(virtualDiskCount).VirtualDiskCountEmpty(virtualDiskCountEmpty).VirtualDiskCountGt(virtualDiskCountGt).VirtualDiskCountGte(virtualDiskCountGte).VirtualDiskCountLt(virtualDiskCountLt).VirtualDiskCountLte(virtualDiskCountLte).VirtualDiskCountN(virtualDiskCountN).VirtualMachineType(virtualMachineType).VirtualMachineTypeN(virtualMachineTypeN).VirtualMachineTypeId(virtualMachineTypeId).VirtualMachineTypeIdN(virtualMachineTypeIdN).Execute()
 
 
 
@@ -4213,6 +5385,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	cluster := []string{"Inner_example"} // []string | Cluster (optional)
 	clusterN := []string{"Inner_example"} // []string | Cluster (optional)
 	clusterGroup := []string{"Inner_example"} // []string | Cluster group (slug) (optional)
@@ -4246,12 +5419,14 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	device := []*string{"Inner_example"} // []*string | Device (optional)
 	deviceN := []*string{"Inner_example"} // []*string | Device (optional)
 	deviceId := []*int32{int32(123)} // []*int32 | Device (ID) (optional)
@@ -4263,6 +5438,7 @@ func main() {
 	diskLt := []int32{int32(123)} // []int32 |  (optional)
 	diskLte := []int32{int32(123)} // []int32 |  (optional)
 	diskN := []int32{int32(123)} // []int32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	hasPrimaryIp := true // bool | Has a primary IP (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
@@ -4291,12 +5467,14 @@ func main() {
 	macAddressIc := []string{"Inner_example"} // []string |  (optional)
 	macAddressIe := []string{"Inner_example"} // []string |  (optional)
 	macAddressIew := []string{"Inner_example"} // []string |  (optional)
+	macAddressIregex := []string{"Inner_example"} // []string |  (optional)
 	macAddressIsw := []string{"Inner_example"} // []string |  (optional)
 	macAddressN := []string{"Inner_example"} // []string |  (optional)
 	macAddressNic := []string{"Inner_example"} // []string |  (optional)
 	macAddressNie := []string{"Inner_example"} // []string |  (optional)
 	macAddressNiew := []string{"Inner_example"} // []string |  (optional)
 	macAddressNisw := []string{"Inner_example"} // []string |  (optional)
+	macAddressRegex := []string{"Inner_example"} // []string |  (optional)
 	memory := []int32{int32(123)} // []int32 |  (optional)
 	memoryEmpty := true // bool |  (optional)
 	memoryGt := []int32{int32(123)} // []int32 |  (optional)
@@ -4310,20 +5488,35 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
-	platform := []string{"Inner_example"} // []string | Platform (slug) (optional)
-	platformN := []string{"Inner_example"} // []string | Platform (slug) (optional)
-	platformId := []*int32{int32(123)} // []*int32 | Platform (ID) (optional)
-	platformIdN := []*int32{int32(123)} // []*int32 | Platform (ID) (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	platform := []string{"Inner_example"} // []string |  (optional)
+	platformN := []string{"Inner_example"} // []string |  (optional)
+	platformId := []string{"Inner_example"} // []string |  (optional)
+	platformIdN := []string{"Inner_example"} // []string |  (optional)
+	primaryIp4 := []string{"Inner_example"} // []string | Primary IPv4 (address) (optional)
+	primaryIp4N := []string{"Inner_example"} // []string | Primary IPv4 (address) (optional)
 	primaryIp4Id := []int32{int32(123)} // []int32 | Primary IPv4 (ID) (optional)
 	primaryIp4IdN := []int32{int32(123)} // []int32 | Primary IPv4 (ID) (optional)
+	primaryIp6 := []string{"Inner_example"} // []string | Primary IPv6 (address) (optional)
+	primaryIp6N := []string{"Inner_example"} // []string | Primary IPv6 (address) (optional)
 	primaryIp6Id := []int32{int32(123)} // []int32 | Primary IPv6 (ID) (optional)
 	primaryIp6IdN := []int32{int32(123)} // []int32 | Primary IPv6 (ID) (optional)
 	q := "q_example" // string | Search (optional)
@@ -4331,10 +5524,23 @@ func main() {
 	regionN := []string{"Inner_example"} // []string |  (optional)
 	regionId := []string{"Inner_example"} // []string |  (optional)
 	regionIdN := []string{"Inner_example"} // []string |  (optional)
-	role := []string{"Inner_example"} // []string | Role (slug) (optional)
-	roleN := []string{"Inner_example"} // []string | Role (slug) (optional)
-	roleId := []*int32{int32(123)} // []*int32 | Role (ID) (optional)
-	roleIdN := []*int32{int32(123)} // []*int32 | Role (ID) (optional)
+	role := []string{"Inner_example"} // []string |  (optional)
+	roleN := []string{"Inner_example"} // []string |  (optional)
+	roleId := []string{"Inner_example"} // []string |  (optional)
+	roleIdN := []string{"Inner_example"} // []string |  (optional)
+	serial := []string{"Inner_example"} // []string |  (optional)
+	serialEmpty := true // bool |  (optional)
+	serialIc := []string{"Inner_example"} // []string |  (optional)
+	serialIe := []string{"Inner_example"} // []string |  (optional)
+	serialIew := []string{"Inner_example"} // []string |  (optional)
+	serialIregex := []string{"Inner_example"} // []string |  (optional)
+	serialIsw := []string{"Inner_example"} // []string |  (optional)
+	serialN := []string{"Inner_example"} // []string |  (optional)
+	serialNic := []string{"Inner_example"} // []string |  (optional)
+	serialNie := []string{"Inner_example"} // []string |  (optional)
+	serialNiew := []string{"Inner_example"} // []string |  (optional)
+	serialNisw := []string{"Inner_example"} // []string |  (optional)
+	serialRegex := []string{"Inner_example"} // []string |  (optional)
 	site := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteN := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteGroup := []string{"Inner_example"} // []string |  (optional)
@@ -4343,10 +5549,39 @@ func main() {
 	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
 	siteId := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
 	siteIdN := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	startOnBoot := []string{"Inner_example"} // []string |  (optional)
+	startOnBootEmpty := true // bool |  (optional)
+	startOnBootIc := []string{"Inner_example"} // []string |  (optional)
+	startOnBootIe := []string{"Inner_example"} // []string |  (optional)
+	startOnBootIew := []string{"Inner_example"} // []string |  (optional)
+	startOnBootIregex := []string{"Inner_example"} // []string |  (optional)
+	startOnBootIsw := []string{"Inner_example"} // []string |  (optional)
+	startOnBootN := []string{"Inner_example"} // []string |  (optional)
+	startOnBootNic := []string{"Inner_example"} // []string |  (optional)
+	startOnBootNie := []string{"Inner_example"} // []string |  (optional)
+	startOnBootNiew := []string{"Inner_example"} // []string |  (optional)
+	startOnBootNisw := []string{"Inner_example"} // []string |  (optional)
+	startOnBootRegex := []string{"Inner_example"} // []string |  (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -4370,15 +5605,19 @@ func main() {
 	virtualDiskCountLt := []int32{int32(123)} // []int32 |  (optional)
 	virtualDiskCountLte := []int32{int32(123)} // []int32 |  (optional)
 	virtualDiskCountN := []int32{int32(123)} // []int32 |  (optional)
+	virtualMachineType := []string{"Inner_example"} // []string | Virtual machine type (slug) (optional)
+	virtualMachineTypeN := []string{"Inner_example"} // []string | Virtual machine type (slug) (optional)
+	virtualMachineTypeId := []*int32{int32(123)} // []*int32 | Virtual machine type (ID) (optional)
+	virtualMachineTypeIdN := []*int32{int32(123)} // []*int32 | Virtual machine type (ID) (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesList(context.Background()).Cluster(cluster).ClusterN(clusterN).ClusterGroup(clusterGroup).ClusterGroupN(clusterGroupN).ClusterGroupId(clusterGroupId).ClusterGroupIdN(clusterGroupIdN).ClusterId(clusterId).ClusterIdN(clusterIdN).ClusterType(clusterType).ClusterTypeN(clusterTypeN).ClusterTypeId(clusterTypeId).ClusterTypeIdN(clusterTypeIdN).ConfigTemplateId(configTemplateId).ConfigTemplateIdN(configTemplateIdN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Disk(disk).DiskEmpty(diskEmpty).DiskGt(diskGt).DiskGte(diskGte).DiskLt(diskLt).DiskLte(diskLte).DiskN(diskN).HasPrimaryIp(hasPrimaryIp).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceCount(interfaceCount).InterfaceCountEmpty(interfaceCountEmpty).InterfaceCountGt(interfaceCountGt).InterfaceCountGte(interfaceCountGte).InterfaceCountLt(interfaceCountLt).InterfaceCountLte(interfaceCountLte).InterfaceCountN(interfaceCountN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocalContextData(localContextData).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).Memory(memory).MemoryEmpty(memoryEmpty).MemoryGt(memoryGt).MemoryGte(memoryGte).MemoryLt(memoryLt).MemoryLte(memoryLte).MemoryN(memoryN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Platform(platform).PlatformN(platformN).PlatformId(platformId).PlatformIdN(platformIdN).PrimaryIp4Id(primaryIp4Id).PrimaryIp4IdN(primaryIp4IdN).PrimaryIp6Id(primaryIp6Id).PrimaryIp6IdN(primaryIp6IdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vcpus(vcpus).VcpusEmpty(vcpusEmpty).VcpusGt(vcpusGt).VcpusGte(vcpusGte).VcpusLt(vcpusLt).VcpusLte(vcpusLte).VcpusN(vcpusN).VirtualDiskCount(virtualDiskCount).VirtualDiskCountEmpty(virtualDiskCountEmpty).VirtualDiskCountGt(virtualDiskCountGt).VirtualDiskCountGte(virtualDiskCountGte).VirtualDiskCountLt(virtualDiskCountLt).VirtualDiskCountLte(virtualDiskCountLte).VirtualDiskCountN(virtualDiskCountN).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesList(context.Background()).Brief(brief).Cluster(cluster).ClusterN(clusterN).ClusterGroup(clusterGroup).ClusterGroupN(clusterGroupN).ClusterGroupId(clusterGroupId).ClusterGroupIdN(clusterGroupIdN).ClusterId(clusterId).ClusterIdN(clusterIdN).ClusterType(clusterType).ClusterTypeN(clusterTypeN).ClusterTypeId(clusterTypeId).ClusterTypeIdN(clusterTypeIdN).ConfigTemplateId(configTemplateId).ConfigTemplateIdN(configTemplateIdN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Disk(disk).DiskEmpty(diskEmpty).DiskGt(diskGt).DiskGte(diskGte).DiskLt(diskLt).DiskLte(diskLte).DiskN(diskN).Fields(fields).HasPrimaryIp(hasPrimaryIp).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceCount(interfaceCount).InterfaceCountEmpty(interfaceCountEmpty).InterfaceCountGt(interfaceCountGt).InterfaceCountGte(interfaceCountGte).InterfaceCountLt(interfaceCountLt).InterfaceCountLte(interfaceCountLte).InterfaceCountN(interfaceCountN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocalContextData(localContextData).MacAddress(macAddress).MacAddressIc(macAddressIc).MacAddressIe(macAddressIe).MacAddressIew(macAddressIew).MacAddressIregex(macAddressIregex).MacAddressIsw(macAddressIsw).MacAddressN(macAddressN).MacAddressNic(macAddressNic).MacAddressNie(macAddressNie).MacAddressNiew(macAddressNiew).MacAddressNisw(macAddressNisw).MacAddressRegex(macAddressRegex).Memory(memory).MemoryEmpty(memoryEmpty).MemoryGt(memoryGt).MemoryGte(memoryGte).MemoryLt(memoryLt).MemoryLte(memoryLte).MemoryN(memoryN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Platform(platform).PlatformN(platformN).PlatformId(platformId).PlatformIdN(platformIdN).PrimaryIp4(primaryIp4).PrimaryIp4N(primaryIp4N).PrimaryIp4Id(primaryIp4Id).PrimaryIp4IdN(primaryIp4IdN).PrimaryIp6(primaryIp6).PrimaryIp6N(primaryIp6N).PrimaryIp6Id(primaryIp6Id).PrimaryIp6IdN(primaryIp6IdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Serial(serial).SerialEmpty(serialEmpty).SerialIc(serialIc).SerialIe(serialIe).SerialIew(serialIew).SerialIregex(serialIregex).SerialIsw(serialIsw).SerialN(serialN).SerialNic(serialNic).SerialNie(serialNie).SerialNiew(serialNiew).SerialNisw(serialNisw).SerialRegex(serialRegex).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).StartOnBoot(startOnBoot).StartOnBootEmpty(startOnBootEmpty).StartOnBootIc(startOnBootIc).StartOnBootIe(startOnBootIe).StartOnBootIew(startOnBootIew).StartOnBootIregex(startOnBootIregex).StartOnBootIsw(startOnBootIsw).StartOnBootN(startOnBootN).StartOnBootNic(startOnBootNic).StartOnBootNie(startOnBootNie).StartOnBootNiew(startOnBootNiew).StartOnBootNisw(startOnBootNisw).StartOnBootRegex(startOnBootRegex).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vcpus(vcpus).VcpusEmpty(vcpusEmpty).VcpusGt(vcpusGt).VcpusGte(vcpusGte).VcpusLt(vcpusLt).VcpusLte(vcpusLte).VcpusN(vcpusN).VirtualDiskCount(virtualDiskCount).VirtualDiskCountEmpty(virtualDiskCountEmpty).VirtualDiskCountGt(virtualDiskCountGt).VirtualDiskCountGte(virtualDiskCountGte).VirtualDiskCountLt(virtualDiskCountLt).VirtualDiskCountLte(virtualDiskCountLte).VirtualDiskCountN(virtualDiskCountN).VirtualMachineType(virtualMachineType).VirtualMachineTypeN(virtualMachineTypeN).VirtualMachineTypeId(virtualMachineTypeId).VirtualMachineTypeIdN(virtualMachineTypeIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesList`: PaginatedVirtualMachineWithConfigContextList
+	// response from `VirtualizationVirtualMachinesList`: PaginatedVirtualMachineList
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesList`: %v\n", resp)
 }
 ```
@@ -4394,6 +5633,7 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **cluster** | **[]string** | Cluster | 
  **clusterN** | **[]string** | Cluster | 
  **clusterGroup** | **[]string** | Cluster group (slug) | 
@@ -4427,12 +5667,14 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **device** | **[]string** | Device | 
  **deviceN** | **[]string** | Device | 
  **deviceId** | **[]int32** | Device (ID) | 
@@ -4444,6 +5686,7 @@ Name | Type | Description  | Notes
  **diskLt** | **[]int32** |  | 
  **diskLte** | **[]int32** |  | 
  **diskN** | **[]int32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **hasPrimaryIp** | **bool** | Has a primary IP | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
@@ -4472,12 +5715,14 @@ Name | Type | Description  | Notes
  **macAddressIc** | **[]string** |  | 
  **macAddressIe** | **[]string** |  | 
  **macAddressIew** | **[]string** |  | 
+ **macAddressIregex** | **[]string** |  | 
  **macAddressIsw** | **[]string** |  | 
  **macAddressN** | **[]string** |  | 
  **macAddressNic** | **[]string** |  | 
  **macAddressNie** | **[]string** |  | 
  **macAddressNiew** | **[]string** |  | 
  **macAddressNisw** | **[]string** |  | 
+ **macAddressRegex** | **[]string** |  | 
  **memory** | **[]int32** |  | 
  **memoryEmpty** | **bool** |  | 
  **memoryGt** | **[]int32** |  | 
@@ -4491,20 +5736,35 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
- **platform** | **[]string** | Platform (slug) | 
- **platformN** | **[]string** | Platform (slug) | 
- **platformId** | **[]int32** | Platform (ID) | 
- **platformIdN** | **[]int32** | Platform (ID) | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **platform** | **[]string** |  | 
+ **platformN** | **[]string** |  | 
+ **platformId** | **[]string** |  | 
+ **platformIdN** | **[]string** |  | 
+ **primaryIp4** | **[]string** | Primary IPv4 (address) | 
+ **primaryIp4N** | **[]string** | Primary IPv4 (address) | 
  **primaryIp4Id** | **[]int32** | Primary IPv4 (ID) | 
  **primaryIp4IdN** | **[]int32** | Primary IPv4 (ID) | 
+ **primaryIp6** | **[]string** | Primary IPv6 (address) | 
+ **primaryIp6N** | **[]string** | Primary IPv6 (address) | 
  **primaryIp6Id** | **[]int32** | Primary IPv6 (ID) | 
  **primaryIp6IdN** | **[]int32** | Primary IPv6 (ID) | 
  **q** | **string** | Search | 
@@ -4512,10 +5772,23 @@ Name | Type | Description  | Notes
  **regionN** | **[]string** |  | 
  **regionId** | **[]string** |  | 
  **regionIdN** | **[]string** |  | 
- **role** | **[]string** | Role (slug) | 
- **roleN** | **[]string** | Role (slug) | 
- **roleId** | **[]int32** | Role (ID) | 
- **roleIdN** | **[]int32** | Role (ID) | 
+ **role** | **[]string** |  | 
+ **roleN** | **[]string** |  | 
+ **roleId** | **[]string** |  | 
+ **roleIdN** | **[]string** |  | 
+ **serial** | **[]string** |  | 
+ **serialEmpty** | **bool** |  | 
+ **serialIc** | **[]string** |  | 
+ **serialIe** | **[]string** |  | 
+ **serialIew** | **[]string** |  | 
+ **serialIregex** | **[]string** |  | 
+ **serialIsw** | **[]string** |  | 
+ **serialN** | **[]string** |  | 
+ **serialNic** | **[]string** |  | 
+ **serialNie** | **[]string** |  | 
+ **serialNiew** | **[]string** |  | 
+ **serialNisw** | **[]string** |  | 
+ **serialRegex** | **[]string** |  | 
  **site** | **[]string** | Site (slug) | 
  **siteN** | **[]string** | Site (slug) | 
  **siteGroup** | **[]string** |  | 
@@ -4524,10 +5797,39 @@ Name | Type | Description  | Notes
  **siteGroupIdN** | **[]string** |  | 
  **siteId** | **[]int32** | Site (ID) | 
  **siteIdN** | **[]int32** | Site (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **startOnBoot** | **[]string** |  | 
+ **startOnBootEmpty** | **bool** |  | 
+ **startOnBootIc** | **[]string** |  | 
+ **startOnBootIe** | **[]string** |  | 
+ **startOnBootIew** | **[]string** |  | 
+ **startOnBootIregex** | **[]string** |  | 
+ **startOnBootIsw** | **[]string** |  | 
+ **startOnBootN** | **[]string** |  | 
+ **startOnBootNic** | **[]string** |  | 
+ **startOnBootNie** | **[]string** |  | 
+ **startOnBootNiew** | **[]string** |  | 
+ **startOnBootNisw** | **[]string** |  | 
+ **startOnBootRegex** | **[]string** |  | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -4551,10 +5853,14 @@ Name | Type | Description  | Notes
  **virtualDiskCountLt** | **[]int32** |  | 
  **virtualDiskCountLte** | **[]int32** |  | 
  **virtualDiskCountN** | **[]int32** |  | 
+ **virtualMachineType** | **[]string** | Virtual machine type (slug) | 
+ **virtualMachineTypeN** | **[]string** | Virtual machine type (slug) | 
+ **virtualMachineTypeId** | **[]int32** | Virtual machine type (ID) | 
+ **virtualMachineTypeIdN** | **[]int32** | Virtual machine type (ID) | 
 
 ### Return type
 
-[**PaginatedVirtualMachineWithConfigContextList**](PaginatedVirtualMachineWithConfigContextList.md)
+[**PaginatedVirtualMachineList**](PaginatedVirtualMachineList.md)
 
 ### Authorization
 
@@ -4572,7 +5878,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesPartialUpdate
 
-> VirtualMachineWithConfigContext VirtualizationVirtualMachinesPartialUpdate(ctx, id).PatchedWritableVirtualMachineWithConfigContextRequest(patchedWritableVirtualMachineWithConfigContextRequest).Execute()
+> VirtualMachine VirtualizationVirtualMachinesPartialUpdate(ctx, id).PatchedWritableVirtualMachineRequest(patchedWritableVirtualMachineRequest).Execute()
 
 
 
@@ -4592,16 +5898,16 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this virtual machine.
-	patchedWritableVirtualMachineWithConfigContextRequest := *openapiclient.NewPatchedWritableVirtualMachineWithConfigContextRequest() // PatchedWritableVirtualMachineWithConfigContextRequest |  (optional)
+	patchedWritableVirtualMachineRequest := *openapiclient.NewPatchedWritableVirtualMachineRequest() // PatchedWritableVirtualMachineRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesPartialUpdate(context.Background(), id).PatchedWritableVirtualMachineWithConfigContextRequest(patchedWritableVirtualMachineWithConfigContextRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesPartialUpdate(context.Background(), id).PatchedWritableVirtualMachineRequest(patchedWritableVirtualMachineRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesPartialUpdate`: VirtualMachineWithConfigContext
+	// response from `VirtualizationVirtualMachinesPartialUpdate`: VirtualMachine
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesPartialUpdate`: %v\n", resp)
 }
 ```
@@ -4622,11 +5928,11 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **patchedWritableVirtualMachineWithConfigContextRequest** | [**PatchedWritableVirtualMachineWithConfigContextRequest**](PatchedWritableVirtualMachineWithConfigContextRequest.md) |  | 
+ **patchedWritableVirtualMachineRequest** | [**PatchedWritableVirtualMachineRequest**](PatchedWritableVirtualMachineRequest.md) |  | 
 
 ### Return type
 
-[**VirtualMachineWithConfigContext**](VirtualMachineWithConfigContext.md)
+[**VirtualMachine**](VirtualMachine.md)
 
 ### Authorization
 
@@ -4644,7 +5950,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesRenderConfigCreate
 
-> VirtualMachineWithConfigContext VirtualizationVirtualMachinesRenderConfigCreate(ctx, id).WritableVirtualMachineWithConfigContextRequest(writableVirtualMachineWithConfigContextRequest).Format(format).Execute()
+> RenderedConfig VirtualizationVirtualMachinesRenderConfigCreate(ctx, id).Format(format).RenderConfigInputRequest(renderConfigInputRequest).Execute()
 
 
 
@@ -4664,17 +5970,17 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this virtual machine.
-	writableVirtualMachineWithConfigContextRequest := *openapiclient.NewWritableVirtualMachineWithConfigContextRequest("Name_example") // WritableVirtualMachineWithConfigContextRequest | 
 	format := openapiclient.dcim_devices_render_config_create_format_parameter("json") // DcimDevicesRenderConfigCreateFormatParameter |  (optional)
+	renderConfigInputRequest := *openapiclient.NewRenderConfigInputRequest() // RenderConfigInputRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesRenderConfigCreate(context.Background(), id).WritableVirtualMachineWithConfigContextRequest(writableVirtualMachineWithConfigContextRequest).Format(format).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesRenderConfigCreate(context.Background(), id).Format(format).RenderConfigInputRequest(renderConfigInputRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesRenderConfigCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesRenderConfigCreate`: VirtualMachineWithConfigContext
+	// response from `VirtualizationVirtualMachinesRenderConfigCreate`: RenderedConfig
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesRenderConfigCreate`: %v\n", resp)
 }
 ```
@@ -4695,12 +6001,12 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **writableVirtualMachineWithConfigContextRequest** | [**WritableVirtualMachineWithConfigContextRequest**](WritableVirtualMachineWithConfigContextRequest.md) |  | 
  **format** | [**DcimDevicesRenderConfigCreateFormatParameter**](DcimDevicesRenderConfigCreateFormatParameter.md) |  | 
+ **renderConfigInputRequest** | [**RenderConfigInputRequest**](RenderConfigInputRequest.md) |  | 
 
 ### Return type
 
-[**VirtualMachineWithConfigContext**](VirtualMachineWithConfigContext.md)
+[**RenderedConfig**](RenderedConfig.md)
 
 ### Authorization
 
@@ -4718,7 +6024,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesRetrieve
 
-> VirtualMachineWithConfigContext VirtualizationVirtualMachinesRetrieve(ctx, id).Execute()
+> VirtualMachine VirtualizationVirtualMachinesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -4738,15 +6044,18 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this virtual machine.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesRetrieve`: VirtualMachineWithConfigContext
+	// response from `VirtualizationVirtualMachinesRetrieve`: VirtualMachine
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesRetrieve`: %v\n", resp)
 }
 ```
@@ -4767,10 +6076,13 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
-[**VirtualMachineWithConfigContext**](VirtualMachineWithConfigContext.md)
+[**VirtualMachine**](VirtualMachine.md)
 
 ### Authorization
 
@@ -4788,7 +6100,7 @@ Name | Type | Description  | Notes
 
 ## VirtualizationVirtualMachinesUpdate
 
-> VirtualMachineWithConfigContext VirtualizationVirtualMachinesUpdate(ctx, id).WritableVirtualMachineWithConfigContextRequest(writableVirtualMachineWithConfigContextRequest).Execute()
+> VirtualMachine VirtualizationVirtualMachinesUpdate(ctx, id).WritableVirtualMachineRequest(writableVirtualMachineRequest).Execute()
 
 
 
@@ -4808,16 +6120,16 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this virtual machine.
-	writableVirtualMachineWithConfigContextRequest := *openapiclient.NewWritableVirtualMachineWithConfigContextRequest("Name_example") // WritableVirtualMachineWithConfigContextRequest | 
+	writableVirtualMachineRequest := *openapiclient.NewWritableVirtualMachineRequest("Name_example") // WritableVirtualMachineRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesUpdate(context.Background(), id).WritableVirtualMachineWithConfigContextRequest(writableVirtualMachineWithConfigContextRequest).Execute()
+	resp, r, err := apiClient.VirtualizationAPI.VirtualizationVirtualMachinesUpdate(context.Background(), id).WritableVirtualMachineRequest(writableVirtualMachineRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VirtualizationAPI.VirtualizationVirtualMachinesUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `VirtualizationVirtualMachinesUpdate`: VirtualMachineWithConfigContext
+	// response from `VirtualizationVirtualMachinesUpdate`: VirtualMachine
 	fmt.Fprintf(os.Stdout, "Response from `VirtualizationAPI.VirtualizationVirtualMachinesUpdate`: %v\n", resp)
 }
 ```
@@ -4838,11 +6150,11 @@ Other parameters are passed through a pointer to a apiVirtualizationVirtualMachi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **writableVirtualMachineWithConfigContextRequest** | [**WritableVirtualMachineWithConfigContextRequest**](WritableVirtualMachineWithConfigContextRequest.md) |  | 
+ **writableVirtualMachineRequest** | [**WritableVirtualMachineRequest**](WritableVirtualMachineRequest.md) |  | 
 
 ### Return type
 
-[**VirtualMachineWithConfigContext**](VirtualMachineWithConfigContext.md)
+[**VirtualMachine**](VirtualMachine.md)
 
 ### Authorization
 

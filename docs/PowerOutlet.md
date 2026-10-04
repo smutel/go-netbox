@@ -6,23 +6,27 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Device** | [**BriefDevice**](BriefDevice.md) |  | 
 **Module** | Pointer to [**NullableBriefModule**](BriefModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Type** | Pointer to [**NullablePowerOutletType**](PowerOutletType.md) |  | [optional] 
+**Status** | Pointer to [**PowerOutletStatus**](PowerOutletStatus.md) |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
 **PowerPort** | Pointer to [**NullableBriefPowerPort**](BriefPowerPort.md) |  | [optional] 
 **FeedLeg** | Pointer to [**NullablePowerOutletFeedLeg**](PowerOutletFeedLeg.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
 **Cable** | [**NullableBriefCable**](BriefCable.md) |  | [readonly] 
-**CableEnd** | **string** |  | [readonly] 
+**CableEnd** | [**NullableCircuitTerminationCableEnd**](CircuitTerminationCableEnd.md) |  | 
 **LinkPeers** | **[]interface{}** |  | [readonly] 
 **LinkPeersType** | **NullableString** | Return the type of the peer link terminations, or None. | [readonly] 
 **ConnectedEndpoints** | **[]interface{}** |  | [readonly] 
 **ConnectedEndpointsType** | **NullableString** |  | [readonly] 
 **ConnectedEndpointsReachable** | **bool** |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -33,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewPowerOutlet
 
-`func NewPowerOutlet(id int32, url string, display string, device BriefDevice, name string, cable NullableBriefCable, cableEnd string, linkPeers []interface{}, linkPeersType NullableString, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, created NullableTime, lastUpdated NullableTime, occupied bool, ) *PowerOutlet`
+`func NewPowerOutlet(id int32, url string, displayUrl string, display string, device BriefDevice, name string, cable NullableBriefCable, cableEnd NullableCircuitTerminationCableEnd, linkPeers []interface{}, linkPeersType NullableString, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, created NullableTime, lastUpdated NullableTime, occupied bool, ) *PowerOutlet`
 
 NewPowerOutlet instantiates a new PowerOutlet object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +90,26 @@ and a boolean to check if the value has been set.
 `func (o *PowerOutlet) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *PowerOutlet) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *PowerOutlet) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *PowerOutlet) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -243,6 +267,56 @@ HasType returns a boolean if a field has been set.
 `func (o *PowerOutlet) UnsetType()`
 
 UnsetType ensures that no value is present for Type, not even an explicit nil
+### GetStatus
+
+`func (o *PowerOutlet) GetStatus() PowerOutletStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *PowerOutlet) GetStatusOk() (*PowerOutletStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *PowerOutlet) SetStatus(v PowerOutletStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *PowerOutlet) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
+### GetColor
+
+`func (o *PowerOutlet) GetColor() BriefModuleBayTypeColor`
+
+GetColor returns the Color field if non-nil, zero value otherwise.
+
+### GetColorOk
+
+`func (o *PowerOutlet) GetColorOk() (*BriefModuleBayTypeColor, bool)`
+
+GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColor
+
+`func (o *PowerOutlet) SetColor(v BriefModuleBayTypeColor)`
+
+SetColor sets Color field to given value.
+
+### HasColor
+
+`func (o *PowerOutlet) HasColor() bool`
+
+HasColor returns a boolean if a field has been set.
+
 ### GetPowerPort
 
 `func (o *PowerOutlet) GetPowerPort() BriefPowerPort`
@@ -395,24 +469,34 @@ SetCable sets Cable field to given value.
 UnsetCable ensures that no value is present for Cable, not even an explicit nil
 ### GetCableEnd
 
-`func (o *PowerOutlet) GetCableEnd() string`
+`func (o *PowerOutlet) GetCableEnd() CircuitTerminationCableEnd`
 
 GetCableEnd returns the CableEnd field if non-nil, zero value otherwise.
 
 ### GetCableEndOk
 
-`func (o *PowerOutlet) GetCableEndOk() (*string, bool)`
+`func (o *PowerOutlet) GetCableEndOk() (*CircuitTerminationCableEnd, bool)`
 
 GetCableEndOk returns a tuple with the CableEnd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCableEnd
 
-`func (o *PowerOutlet) SetCableEnd(v string)`
+`func (o *PowerOutlet) SetCableEnd(v CircuitTerminationCableEnd)`
 
 SetCableEnd sets CableEnd field to given value.
 
 
+### SetCableEndNil
+
+`func (o *PowerOutlet) SetCableEndNil(b bool)`
+
+ SetCableEndNil sets the value for CableEnd to be an explicit nil
+
+### UnsetCableEnd
+`func (o *PowerOutlet) UnsetCableEnd()`
+
+UnsetCableEnd ensures that no value is present for CableEnd, not even an explicit nil
 ### GetLinkPeers
 
 `func (o *PowerOutlet) GetLinkPeers() []interface{}`
@@ -543,6 +627,41 @@ and a boolean to check if the value has been set.
 SetConnectedEndpointsReachable sets ConnectedEndpointsReachable field to given value.
 
 
+### GetOwner
+
+`func (o *PowerOutlet) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PowerOutlet) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PowerOutlet) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PowerOutlet) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PowerOutlet) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PowerOutlet) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PowerOutlet) GetTags() []NestedTag`

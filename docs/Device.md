@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | Pointer to **NullableString** |  | [optional] 
 **DeviceType** | [**BriefDeviceType**](BriefDeviceType.md) |  | 
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **ParentDevice** | [**NullableNestedDevice**](NestedDevice.md) |  | [readonly] 
 **Status** | Pointer to [**DeviceStatus**](DeviceStatus.md) |  | [optional] 
 **Airflow** | Pointer to [**DeviceAirflow**](DeviceAirflow.md) |  | [optional] 
+**CoolingMethod** | Pointer to [**NullableDeviceCoolingMethod**](DeviceCoolingMethod.md) |  | [optional] 
 **PrimaryIp** | [**NullableBriefIPAddress**](BriefIPAddress.md) |  | [readonly] 
 **PrimaryIp4** | Pointer to [**NullableBriefIPAddress**](BriefIPAddress.md) |  | [optional] 
 **PrimaryIp6** | Pointer to [**NullableBriefIPAddress**](BriefIPAddress.md) |  | [optional] 
@@ -33,8 +35,10 @@ Name | Type | Description | Notes
 **VcPosition** | Pointer to **NullableInt32** |  | [optional] 
 **VcPriority** | Pointer to **NullableInt32** | Virtual chassis master election priority | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **ConfigTemplate** | Pointer to [**NullableBriefConfigTemplate**](BriefConfigTemplate.md) |  | [optional] 
+**ConfigContext** | **interface{}** |  | [readonly] 
 **LocalContextData** | Pointer to **interface{}** | Local config context data takes precedence over source contexts in the final rendered config context | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -44,6 +48,8 @@ Name | Type | Description | Notes
 **ConsoleServerPortCount** | **int32** |  | [readonly] 
 **PowerPortCount** | **int32** |  | [readonly] 
 **PowerOutletCount** | **int32** |  | [readonly] 
+**CoolingIntakeCount** | **int32** |  | [readonly] 
+**CoolingOutflowCount** | **int32** |  | [readonly] 
 **InterfaceCount** | **int32** |  | [readonly] 
 **FrontPortCount** | **int32** |  | [readonly] 
 **RearPortCount** | **int32** |  | [readonly] 
@@ -55,7 +61,7 @@ Name | Type | Description | Notes
 
 ### NewDevice
 
-`func NewDevice(id int32, url string, display string, deviceType BriefDeviceType, role BriefDeviceRole, site BriefSite, parentDevice NullableNestedDevice, primaryIp NullableBriefIPAddress, created NullableTime, lastUpdated NullableTime, consolePortCount int32, consoleServerPortCount int32, powerPortCount int32, powerOutletCount int32, interfaceCount int32, frontPortCount int32, rearPortCount int32, deviceBayCount int32, moduleBayCount int32, inventoryItemCount int32, ) *Device`
+`func NewDevice(id int32, url string, displayUrl string, display string, deviceType BriefDeviceType, role BriefDeviceRole, site BriefSite, parentDevice NullableNestedDevice, primaryIp NullableBriefIPAddress, configContext interface{}, created NullableTime, lastUpdated NullableTime, consolePortCount int32, consoleServerPortCount int32, powerPortCount int32, powerOutletCount int32, coolingIntakeCount int32, coolingOutflowCount int32, interfaceCount int32, frontPortCount int32, rearPortCount int32, deviceBayCount int32, moduleBayCount int32, inventoryItemCount int32, ) *Device`
 
 NewDevice instantiates a new Device object
 This constructor will assign default values to properties that have it defined,
@@ -108,6 +114,26 @@ and a boolean to check if the value has been set.
 `func (o *Device) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Device) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Device) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Device) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -635,6 +661,41 @@ SetAirflow sets Airflow field to given value.
 
 HasAirflow returns a boolean if a field has been set.
 
+### GetCoolingMethod
+
+`func (o *Device) GetCoolingMethod() DeviceCoolingMethod`
+
+GetCoolingMethod returns the CoolingMethod field if non-nil, zero value otherwise.
+
+### GetCoolingMethodOk
+
+`func (o *Device) GetCoolingMethodOk() (*DeviceCoolingMethod, bool)`
+
+GetCoolingMethodOk returns a tuple with the CoolingMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingMethod
+
+`func (o *Device) SetCoolingMethod(v DeviceCoolingMethod)`
+
+SetCoolingMethod sets CoolingMethod field to given value.
+
+### HasCoolingMethod
+
+`func (o *Device) HasCoolingMethod() bool`
+
+HasCoolingMethod returns a boolean if a field has been set.
+
+### SetCoolingMethodNil
+
+`func (o *Device) SetCoolingMethodNil(b bool)`
+
+ SetCoolingMethodNil sets the value for CoolingMethod to be an explicit nil
+
+### UnsetCoolingMethod
+`func (o *Device) UnsetCoolingMethod()`
+
+UnsetCoolingMethod ensures that no value is present for CoolingMethod, not even an explicit nil
 ### GetPrimaryIp
 
 `func (o *Device) GetPrimaryIp() BriefIPAddress`
@@ -935,6 +996,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Device) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Device) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Device) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Device) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Device) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Device) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Device) GetComments() string`
@@ -995,6 +1091,36 @@ HasConfigTemplate returns a boolean if a field has been set.
 `func (o *Device) UnsetConfigTemplate()`
 
 UnsetConfigTemplate ensures that no value is present for ConfigTemplate, not even an explicit nil
+### GetConfigContext
+
+`func (o *Device) GetConfigContext() interface{}`
+
+GetConfigContext returns the ConfigContext field if non-nil, zero value otherwise.
+
+### GetConfigContextOk
+
+`func (o *Device) GetConfigContextOk() (*interface{}, bool)`
+
+GetConfigContextOk returns a tuple with the ConfigContext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigContext
+
+`func (o *Device) SetConfigContext(v interface{})`
+
+SetConfigContext sets ConfigContext field to given value.
+
+
+### SetConfigContextNil
+
+`func (o *Device) SetConfigContextNil(b bool)`
+
+ SetConfigContextNil sets the value for ConfigContext to be an explicit nil
+
+### UnsetConfigContext
+`func (o *Device) UnsetConfigContext()`
+
+UnsetConfigContext ensures that no value is present for ConfigContext, not even an explicit nil
 ### GetLocalContextData
 
 `func (o *Device) GetLocalContextData() interface{}`
@@ -1218,6 +1344,46 @@ and a boolean to check if the value has been set.
 `func (o *Device) SetPowerOutletCount(v int32)`
 
 SetPowerOutletCount sets PowerOutletCount field to given value.
+
+
+### GetCoolingIntakeCount
+
+`func (o *Device) GetCoolingIntakeCount() int32`
+
+GetCoolingIntakeCount returns the CoolingIntakeCount field if non-nil, zero value otherwise.
+
+### GetCoolingIntakeCountOk
+
+`func (o *Device) GetCoolingIntakeCountOk() (*int32, bool)`
+
+GetCoolingIntakeCountOk returns a tuple with the CoolingIntakeCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingIntakeCount
+
+`func (o *Device) SetCoolingIntakeCount(v int32)`
+
+SetCoolingIntakeCount sets CoolingIntakeCount field to given value.
+
+
+### GetCoolingOutflowCount
+
+`func (o *Device) GetCoolingOutflowCount() int32`
+
+GetCoolingOutflowCount returns the CoolingOutflowCount field if non-nil, zero value otherwise.
+
+### GetCoolingOutflowCountOk
+
+`func (o *Device) GetCoolingOutflowCountOk() (*int32, bool)`
+
+GetCoolingOutflowCountOk returns a tuple with the CoolingOutflowCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingOutflowCount
+
+`func (o *Device) SetCoolingOutflowCount(v int32)`
+
+SetCoolingOutflowCount sets CoolingOutflowCount field to given value.
 
 
 ### GetInterfaceCount

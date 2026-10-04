@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**RackWidthValue**](RackWidthValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkRackRequestWidth**](BulkRackRequestWidth.md) |  | [optional] 
 **Label** | Pointer to [**RackWidthLabel**](RackWidthLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *RackWidth) GetValue() RackWidthValue`
+`func (o *RackWidth) GetValue() BulkRackRequestWidth`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *RackWidth) GetValueOk() (*RackWidthValue, bool)`
+`func (o *RackWidth) GetValueOk() (*BulkRackRequestWidth, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *RackWidth) SetValue(v RackWidthValue)`
+`func (o *RackWidth) SetValue(v BulkRackRequestWidth)`
 
 SetValue sets Value field to given value.
 

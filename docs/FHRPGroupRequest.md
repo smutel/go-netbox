@@ -7,9 +7,10 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Protocol** | [**BriefFHRPGroupProtocol**](BriefFHRPGroupProtocol.md) |  | 
 **GroupId** | **int32** |  | 
-**AuthType** | Pointer to [**AuthenticationType**](AuthenticationType.md) |  | [optional] 
+**AuthType** | Pointer to [**NullableAuthenticationType**](AuthenticationType.md) |  | [optional] 
 **AuthKey** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -123,6 +124,16 @@ SetAuthType sets AuthType field to given value.
 
 HasAuthType returns a boolean if a field has been set.
 
+### SetAuthTypeNil
+
+`func (o *FHRPGroupRequest) SetAuthTypeNil(b bool)`
+
+ SetAuthTypeNil sets the value for AuthType to be an explicit nil
+
+### UnsetAuthType
+`func (o *FHRPGroupRequest) UnsetAuthType()`
+
+UnsetAuthType ensures that no value is present for AuthType, not even an explicit nil
 ### GetAuthKey
 
 `func (o *FHRPGroupRequest) GetAuthKey() string`
@@ -173,6 +184,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *FHRPGroupRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *FHRPGroupRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *FHRPGroupRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *FHRPGroupRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *FHRPGroupRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *FHRPGroupRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *FHRPGroupRequest) GetComments() string`

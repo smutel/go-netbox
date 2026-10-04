@@ -10,13 +10,12 @@ Name | Type | Description | Notes
 **Name** | **string** | Full name of the provider | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**CircuitCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefProvider
 
-`func NewBriefProvider(id int32, url string, display string, name string, slug string, circuitCount int64, ) *BriefProvider`
+`func NewBriefProvider(id int32, url string, display string, name string, slug string, ) *BriefProvider`
 
 NewBriefProvider instantiates a new BriefProvider object
 This constructor will assign default values to properties that have it defined,
@@ -155,26 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefProvider) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetCircuitCount
-
-`func (o *BriefProvider) GetCircuitCount() int64`
-
-GetCircuitCount returns the CircuitCount field if non-nil, zero value otherwise.
-
-### GetCircuitCountOk
-
-`func (o *BriefProvider) GetCircuitCountOk() (*int64, bool)`
-
-GetCircuitCountOk returns a tuple with the CircuitCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCircuitCount
-
-`func (o *BriefProvider) SetCircuitCount(v int64)`
-
-SetCircuitCount sets CircuitCount field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

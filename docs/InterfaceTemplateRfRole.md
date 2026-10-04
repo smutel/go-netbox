@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**InterfaceRfRoleValue**](InterfaceRfRoleValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkInterfaceRequestRfRole**](BulkInterfaceRequestRfRole.md) |  | [optional] 
 **Label** | Pointer to [**InterfaceRfRoleLabel**](InterfaceRfRoleLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *InterfaceTemplateRfRole) GetValue() InterfaceRfRoleValue`
+`func (o *InterfaceTemplateRfRole) GetValue() BulkInterfaceRequestRfRole`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *InterfaceTemplateRfRole) GetValueOk() (*InterfaceRfRoleValue, bool)`
+`func (o *InterfaceTemplateRfRole) GetValueOk() (*BulkInterfaceRequestRfRole, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *InterfaceTemplateRfRole) SetValue(v InterfaceRfRoleValue)`
+`func (o *InterfaceTemplateRfRole) SetValue(v BulkInterfaceRequestRfRole)`
 
 SetValue sets Value field to given value.
 

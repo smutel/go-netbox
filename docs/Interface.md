@@ -6,20 +6,26 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Device** | [**BriefDevice**](BriefDevice.md) |  | 
-**Vdcs** | Pointer to [**[]VirtualDeviceContext**](VirtualDeviceContext.md) |  | [optional] 
+**Vdcs** | Pointer to [**[]BriefVirtualDeviceContext**](BriefVirtualDeviceContext.md) |  | [optional] 
 **Module** | Pointer to [**NullableBriefModule**](BriefModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Type** | [**InterfaceType**](InterfaceType.md) |  | 
+**Channels** | Pointer to **NullableInt32** | The number of channels into which this interface is channelized | [optional] 
+**ChannelId** | Pointer to **NullableInt32** | The channel on the parent interface to which this subinterface is bound | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Parent** | Pointer to [**NullableNestedInterface**](NestedInterface.md) |  | [optional] 
 **Bridge** | Pointer to [**NullableNestedInterface**](NestedInterface.md) |  | [optional] 
+**BridgeInterfaces** | [**[]NestedInterface**](NestedInterface.md) |  | [readonly] 
 **Lag** | Pointer to [**NullableNestedInterface**](NestedInterface.md) |  | [optional] 
 **Mtu** | Pointer to **NullableInt32** |  | [optional] 
 **MacAddress** | Pointer to **NullableString** |  | [optional] 
-**Speed** | Pointer to **NullableInt32** |  | [optional] 
+**PrimaryMacAddress** | Pointer to [**NullableBriefMACAddress**](BriefMACAddress.md) |  | [optional] 
+**MacAddresses** | [**[]BriefMACAddress**](BriefMACAddress.md) |  | [readonly] 
+**Speed** | Pointer to **NullableInt64** |  | [optional] 
 **Duplex** | Pointer to [**NullableInterfaceDuplex**](InterfaceDuplex.md) |  | [optional] 
 **Wwn** | Pointer to **NullableString** |  | [optional] 
 **MgmtOnly** | Pointer to **bool** | This interface is used only for out-of-band management | [optional] 
@@ -33,19 +39,22 @@ Name | Type | Description | Notes
 **RfChannelWidth** | Pointer to **NullableFloat64** | Populated by selected channel (if set) | [optional] 
 **TxPower** | Pointer to **NullableInt32** |  | [optional] 
 **UntaggedVlan** | Pointer to [**NullableBriefVLAN**](BriefVLAN.md) |  | [optional] 
-**TaggedVlans** | Pointer to [**[]VLAN**](VLAN.md) |  | [optional] 
+**TaggedVlans** | Pointer to [**[]BriefVLAN**](BriefVLAN.md) |  | [optional] 
+**QinqSvlan** | Pointer to [**NullableBriefVLAN**](BriefVLAN.md) |  | [optional] 
+**VlanTranslationPolicy** | Pointer to [**NullableBriefVLANTranslationPolicy**](BriefVLANTranslationPolicy.md) |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
 **Cable** | [**NullableBriefCable**](BriefCable.md) |  | [readonly] 
-**CableEnd** | **string** |  | [readonly] 
+**CableEnd** | [**NullableCircuitTerminationCableEnd**](CircuitTerminationCableEnd.md) |  | 
 **WirelessLink** | [**NullableNestedWirelessLink**](NestedWirelessLink.md) |  | [readonly] 
 **LinkPeers** | **[]interface{}** |  | [readonly] 
 **LinkPeersType** | **NullableString** | Return the type of the peer link terminations, or None. | [readonly] 
-**WirelessLans** | Pointer to [**[]WirelessLAN**](WirelessLAN.md) |  | [optional] 
+**WirelessLans** | Pointer to [**[]BriefWirelessLAN**](BriefWirelessLAN.md) |  | [optional] 
 **Vrf** | Pointer to [**NullableBriefVRF**](BriefVRF.md) |  | [optional] 
 **L2vpnTermination** | [**NullableBriefL2VPNTermination**](BriefL2VPNTermination.md) |  | [readonly] 
 **ConnectedEndpoints** | **[]interface{}** |  | [readonly] 
 **ConnectedEndpointsType** | **NullableString** |  | [readonly] 
 **ConnectedEndpointsReachable** | **bool** |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -58,7 +67,7 @@ Name | Type | Description | Notes
 
 ### NewInterface
 
-`func NewInterface(id int32, url string, display string, device BriefDevice, name string, type_ InterfaceType, cable NullableBriefCable, cableEnd string, wirelessLink NullableNestedWirelessLink, linkPeers []interface{}, linkPeersType NullableString, l2vpnTermination NullableBriefL2VPNTermination, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, created NullableTime, lastUpdated NullableTime, countIpaddresses int32, countFhrpGroups int32, occupied bool, ) *Interface`
+`func NewInterface(id int32, url string, displayUrl string, display string, device BriefDevice, name string, type_ InterfaceType, bridgeInterfaces []NestedInterface, macAddresses []BriefMACAddress, cable NullableBriefCable, cableEnd NullableCircuitTerminationCableEnd, wirelessLink NullableNestedWirelessLink, linkPeers []interface{}, linkPeersType NullableString, l2vpnTermination NullableBriefL2VPNTermination, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, created NullableTime, lastUpdated NullableTime, countIpaddresses int32, countFhrpGroups int32, occupied bool, ) *Interface`
 
 NewInterface instantiates a new Interface object
 This constructor will assign default values to properties that have it defined,
@@ -113,6 +122,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *Interface) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Interface) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Interface) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *Interface) GetDisplay() string`
@@ -155,20 +184,20 @@ SetDevice sets Device field to given value.
 
 ### GetVdcs
 
-`func (o *Interface) GetVdcs() []VirtualDeviceContext`
+`func (o *Interface) GetVdcs() []BriefVirtualDeviceContext`
 
 GetVdcs returns the Vdcs field if non-nil, zero value otherwise.
 
 ### GetVdcsOk
 
-`func (o *Interface) GetVdcsOk() (*[]VirtualDeviceContext, bool)`
+`func (o *Interface) GetVdcsOk() (*[]BriefVirtualDeviceContext, bool)`
 
 GetVdcsOk returns a tuple with the Vdcs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVdcs
 
-`func (o *Interface) SetVdcs(v []VirtualDeviceContext)`
+`func (o *Interface) SetVdcs(v []BriefVirtualDeviceContext)`
 
 SetVdcs sets Vdcs field to given value.
 
@@ -278,6 +307,76 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetChannels
+
+`func (o *Interface) GetChannels() int32`
+
+GetChannels returns the Channels field if non-nil, zero value otherwise.
+
+### GetChannelsOk
+
+`func (o *Interface) GetChannelsOk() (*int32, bool)`
+
+GetChannelsOk returns a tuple with the Channels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannels
+
+`func (o *Interface) SetChannels(v int32)`
+
+SetChannels sets Channels field to given value.
+
+### HasChannels
+
+`func (o *Interface) HasChannels() bool`
+
+HasChannels returns a boolean if a field has been set.
+
+### SetChannelsNil
+
+`func (o *Interface) SetChannelsNil(b bool)`
+
+ SetChannelsNil sets the value for Channels to be an explicit nil
+
+### UnsetChannels
+`func (o *Interface) UnsetChannels()`
+
+UnsetChannels ensures that no value is present for Channels, not even an explicit nil
+### GetChannelId
+
+`func (o *Interface) GetChannelId() int32`
+
+GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
+
+### GetChannelIdOk
+
+`func (o *Interface) GetChannelIdOk() (*int32, bool)`
+
+GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannelId
+
+`func (o *Interface) SetChannelId(v int32)`
+
+SetChannelId sets ChannelId field to given value.
+
+### HasChannelId
+
+`func (o *Interface) HasChannelId() bool`
+
+HasChannelId returns a boolean if a field has been set.
+
+### SetChannelIdNil
+
+`func (o *Interface) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *Interface) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetEnabled
 
 `func (o *Interface) GetEnabled() bool`
@@ -373,6 +472,26 @@ HasBridge returns a boolean if a field has been set.
 `func (o *Interface) UnsetBridge()`
 
 UnsetBridge ensures that no value is present for Bridge, not even an explicit nil
+### GetBridgeInterfaces
+
+`func (o *Interface) GetBridgeInterfaces() []NestedInterface`
+
+GetBridgeInterfaces returns the BridgeInterfaces field if non-nil, zero value otherwise.
+
+### GetBridgeInterfacesOk
+
+`func (o *Interface) GetBridgeInterfacesOk() (*[]NestedInterface, bool)`
+
+GetBridgeInterfacesOk returns a tuple with the BridgeInterfaces field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBridgeInterfaces
+
+`func (o *Interface) SetBridgeInterfaces(v []NestedInterface)`
+
+SetBridgeInterfaces sets BridgeInterfaces field to given value.
+
+
 ### GetLag
 
 `func (o *Interface) GetLag() NestedInterface`
@@ -478,22 +597,87 @@ HasMacAddress returns a boolean if a field has been set.
 `func (o *Interface) UnsetMacAddress()`
 
 UnsetMacAddress ensures that no value is present for MacAddress, not even an explicit nil
+### GetPrimaryMacAddress
+
+`func (o *Interface) GetPrimaryMacAddress() BriefMACAddress`
+
+GetPrimaryMacAddress returns the PrimaryMacAddress field if non-nil, zero value otherwise.
+
+### GetPrimaryMacAddressOk
+
+`func (o *Interface) GetPrimaryMacAddressOk() (*BriefMACAddress, bool)`
+
+GetPrimaryMacAddressOk returns a tuple with the PrimaryMacAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrimaryMacAddress
+
+`func (o *Interface) SetPrimaryMacAddress(v BriefMACAddress)`
+
+SetPrimaryMacAddress sets PrimaryMacAddress field to given value.
+
+### HasPrimaryMacAddress
+
+`func (o *Interface) HasPrimaryMacAddress() bool`
+
+HasPrimaryMacAddress returns a boolean if a field has been set.
+
+### SetPrimaryMacAddressNil
+
+`func (o *Interface) SetPrimaryMacAddressNil(b bool)`
+
+ SetPrimaryMacAddressNil sets the value for PrimaryMacAddress to be an explicit nil
+
+### UnsetPrimaryMacAddress
+`func (o *Interface) UnsetPrimaryMacAddress()`
+
+UnsetPrimaryMacAddress ensures that no value is present for PrimaryMacAddress, not even an explicit nil
+### GetMacAddresses
+
+`func (o *Interface) GetMacAddresses() []BriefMACAddress`
+
+GetMacAddresses returns the MacAddresses field if non-nil, zero value otherwise.
+
+### GetMacAddressesOk
+
+`func (o *Interface) GetMacAddressesOk() (*[]BriefMACAddress, bool)`
+
+GetMacAddressesOk returns a tuple with the MacAddresses field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMacAddresses
+
+`func (o *Interface) SetMacAddresses(v []BriefMACAddress)`
+
+SetMacAddresses sets MacAddresses field to given value.
+
+
+### SetMacAddressesNil
+
+`func (o *Interface) SetMacAddressesNil(b bool)`
+
+ SetMacAddressesNil sets the value for MacAddresses to be an explicit nil
+
+### UnsetMacAddresses
+`func (o *Interface) UnsetMacAddresses()`
+
+UnsetMacAddresses ensures that no value is present for MacAddresses, not even an explicit nil
 ### GetSpeed
 
-`func (o *Interface) GetSpeed() int32`
+`func (o *Interface) GetSpeed() int64`
 
 GetSpeed returns the Speed field if non-nil, zero value otherwise.
 
 ### GetSpeedOk
 
-`func (o *Interface) GetSpeedOk() (*int32, bool)`
+`func (o *Interface) GetSpeedOk() (*int64, bool)`
 
 GetSpeedOk returns a tuple with the Speed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpeed
 
-`func (o *Interface) SetSpeed(v int32)`
+`func (o *Interface) SetSpeed(v int64)`
 
 SetSpeed sets Speed field to given value.
 
@@ -900,20 +1084,20 @@ HasUntaggedVlan returns a boolean if a field has been set.
 UnsetUntaggedVlan ensures that no value is present for UntaggedVlan, not even an explicit nil
 ### GetTaggedVlans
 
-`func (o *Interface) GetTaggedVlans() []VLAN`
+`func (o *Interface) GetTaggedVlans() []BriefVLAN`
 
 GetTaggedVlans returns the TaggedVlans field if non-nil, zero value otherwise.
 
 ### GetTaggedVlansOk
 
-`func (o *Interface) GetTaggedVlansOk() (*[]VLAN, bool)`
+`func (o *Interface) GetTaggedVlansOk() (*[]BriefVLAN, bool)`
 
 GetTaggedVlansOk returns a tuple with the TaggedVlans field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTaggedVlans
 
-`func (o *Interface) SetTaggedVlans(v []VLAN)`
+`func (o *Interface) SetTaggedVlans(v []BriefVLAN)`
 
 SetTaggedVlans sets TaggedVlans field to given value.
 
@@ -923,6 +1107,76 @@ SetTaggedVlans sets TaggedVlans field to given value.
 
 HasTaggedVlans returns a boolean if a field has been set.
 
+### GetQinqSvlan
+
+`func (o *Interface) GetQinqSvlan() BriefVLAN`
+
+GetQinqSvlan returns the QinqSvlan field if non-nil, zero value otherwise.
+
+### GetQinqSvlanOk
+
+`func (o *Interface) GetQinqSvlanOk() (*BriefVLAN, bool)`
+
+GetQinqSvlanOk returns a tuple with the QinqSvlan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqSvlan
+
+`func (o *Interface) SetQinqSvlan(v BriefVLAN)`
+
+SetQinqSvlan sets QinqSvlan field to given value.
+
+### HasQinqSvlan
+
+`func (o *Interface) HasQinqSvlan() bool`
+
+HasQinqSvlan returns a boolean if a field has been set.
+
+### SetQinqSvlanNil
+
+`func (o *Interface) SetQinqSvlanNil(b bool)`
+
+ SetQinqSvlanNil sets the value for QinqSvlan to be an explicit nil
+
+### UnsetQinqSvlan
+`func (o *Interface) UnsetQinqSvlan()`
+
+UnsetQinqSvlan ensures that no value is present for QinqSvlan, not even an explicit nil
+### GetVlanTranslationPolicy
+
+`func (o *Interface) GetVlanTranslationPolicy() BriefVLANTranslationPolicy`
+
+GetVlanTranslationPolicy returns the VlanTranslationPolicy field if non-nil, zero value otherwise.
+
+### GetVlanTranslationPolicyOk
+
+`func (o *Interface) GetVlanTranslationPolicyOk() (*BriefVLANTranslationPolicy, bool)`
+
+GetVlanTranslationPolicyOk returns a tuple with the VlanTranslationPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVlanTranslationPolicy
+
+`func (o *Interface) SetVlanTranslationPolicy(v BriefVLANTranslationPolicy)`
+
+SetVlanTranslationPolicy sets VlanTranslationPolicy field to given value.
+
+### HasVlanTranslationPolicy
+
+`func (o *Interface) HasVlanTranslationPolicy() bool`
+
+HasVlanTranslationPolicy returns a boolean if a field has been set.
+
+### SetVlanTranslationPolicyNil
+
+`func (o *Interface) SetVlanTranslationPolicyNil(b bool)`
+
+ SetVlanTranslationPolicyNil sets the value for VlanTranslationPolicy to be an explicit nil
+
+### UnsetVlanTranslationPolicy
+`func (o *Interface) UnsetVlanTranslationPolicy()`
+
+UnsetVlanTranslationPolicy ensures that no value is present for VlanTranslationPolicy, not even an explicit nil
 ### GetMarkConnected
 
 `func (o *Interface) GetMarkConnected() bool`
@@ -980,24 +1234,34 @@ SetCable sets Cable field to given value.
 UnsetCable ensures that no value is present for Cable, not even an explicit nil
 ### GetCableEnd
 
-`func (o *Interface) GetCableEnd() string`
+`func (o *Interface) GetCableEnd() CircuitTerminationCableEnd`
 
 GetCableEnd returns the CableEnd field if non-nil, zero value otherwise.
 
 ### GetCableEndOk
 
-`func (o *Interface) GetCableEndOk() (*string, bool)`
+`func (o *Interface) GetCableEndOk() (*CircuitTerminationCableEnd, bool)`
 
 GetCableEndOk returns a tuple with the CableEnd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCableEnd
 
-`func (o *Interface) SetCableEnd(v string)`
+`func (o *Interface) SetCableEnd(v CircuitTerminationCableEnd)`
 
 SetCableEnd sets CableEnd field to given value.
 
 
+### SetCableEndNil
+
+`func (o *Interface) SetCableEndNil(b bool)`
+
+ SetCableEndNil sets the value for CableEnd to be an explicit nil
+
+### UnsetCableEnd
+`func (o *Interface) UnsetCableEnd()`
+
+UnsetCableEnd ensures that no value is present for CableEnd, not even an explicit nil
 ### GetWirelessLink
 
 `func (o *Interface) GetWirelessLink() NestedWirelessLink`
@@ -1080,20 +1344,20 @@ SetLinkPeersType sets LinkPeersType field to given value.
 UnsetLinkPeersType ensures that no value is present for LinkPeersType, not even an explicit nil
 ### GetWirelessLans
 
-`func (o *Interface) GetWirelessLans() []WirelessLAN`
+`func (o *Interface) GetWirelessLans() []BriefWirelessLAN`
 
 GetWirelessLans returns the WirelessLans field if non-nil, zero value otherwise.
 
 ### GetWirelessLansOk
 
-`func (o *Interface) GetWirelessLansOk() (*[]WirelessLAN, bool)`
+`func (o *Interface) GetWirelessLansOk() (*[]BriefWirelessLAN, bool)`
 
 GetWirelessLansOk returns a tuple with the WirelessLans field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWirelessLans
 
-`func (o *Interface) SetWirelessLans(v []WirelessLAN)`
+`func (o *Interface) SetWirelessLans(v []BriefWirelessLAN)`
 
 SetWirelessLans sets WirelessLans field to given value.
 
@@ -1248,6 +1512,41 @@ and a boolean to check if the value has been set.
 SetConnectedEndpointsReachable sets ConnectedEndpointsReachable field to given value.
 
 
+### GetOwner
+
+`func (o *Interface) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Interface) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Interface) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Interface) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Interface) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Interface) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *Interface) GetTags() []NestedTag`

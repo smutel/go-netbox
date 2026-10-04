@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
-**Site** | [**NullableBriefSite**](BriefSite.md) |  | 
-**ProviderNetwork** | [**NullableBriefProviderNetwork**](BriefProviderNetwork.md) |  | 
+**TerminationType** | Pointer to **NullableString** |  | [optional] 
+**TerminationId** | Pointer to **NullableInt32** |  | [optional] 
+**Termination** | **interface{}** |  | [readonly] 
 **PortSpeed** | Pointer to **NullableInt32** | Physical circuit speed | [optional] 
 **UpstreamSpeed** | Pointer to **NullableInt32** | Upstream speed, if different from port speed | [optional] 
 **XconnectId** | Pointer to **string** | ID of the local cross-connect | [optional] 
@@ -18,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewCircuitCircuitTermination
 
-`func NewCircuitCircuitTermination(id int32, url string, display string, site NullableBriefSite, providerNetwork NullableBriefProviderNetwork, ) *CircuitCircuitTermination`
+`func NewCircuitCircuitTermination(id int32, url string, displayUrl string, display string, termination interface{}, ) *CircuitCircuitTermination`
 
 NewCircuitCircuitTermination instantiates a new CircuitCircuitTermination object
 This constructor will assign default values to properties that have it defined,
@@ -73,6 +75,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *CircuitCircuitTermination) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *CircuitCircuitTermination) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *CircuitCircuitTermination) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *CircuitCircuitTermination) GetDisplay() string`
@@ -93,66 +115,106 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
-### GetSite
+### GetTerminationType
 
-`func (o *CircuitCircuitTermination) GetSite() BriefSite`
+`func (o *CircuitCircuitTermination) GetTerminationType() string`
 
-GetSite returns the Site field if non-nil, zero value otherwise.
+GetTerminationType returns the TerminationType field if non-nil, zero value otherwise.
 
-### GetSiteOk
+### GetTerminationTypeOk
 
-`func (o *CircuitCircuitTermination) GetSiteOk() (*BriefSite, bool)`
+`func (o *CircuitCircuitTermination) GetTerminationTypeOk() (*string, bool)`
 
-GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
+GetTerminationTypeOk returns a tuple with the TerminationType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSite
+### SetTerminationType
 
-`func (o *CircuitCircuitTermination) SetSite(v BriefSite)`
+`func (o *CircuitCircuitTermination) SetTerminationType(v string)`
 
-SetSite sets Site field to given value.
+SetTerminationType sets TerminationType field to given value.
 
+### HasTerminationType
 
-### SetSiteNil
+`func (o *CircuitCircuitTermination) HasTerminationType() bool`
 
-`func (o *CircuitCircuitTermination) SetSiteNil(b bool)`
+HasTerminationType returns a boolean if a field has been set.
 
- SetSiteNil sets the value for Site to be an explicit nil
+### SetTerminationTypeNil
 
-### UnsetSite
-`func (o *CircuitCircuitTermination) UnsetSite()`
+`func (o *CircuitCircuitTermination) SetTerminationTypeNil(b bool)`
 
-UnsetSite ensures that no value is present for Site, not even an explicit nil
-### GetProviderNetwork
+ SetTerminationTypeNil sets the value for TerminationType to be an explicit nil
 
-`func (o *CircuitCircuitTermination) GetProviderNetwork() BriefProviderNetwork`
+### UnsetTerminationType
+`func (o *CircuitCircuitTermination) UnsetTerminationType()`
 
-GetProviderNetwork returns the ProviderNetwork field if non-nil, zero value otherwise.
+UnsetTerminationType ensures that no value is present for TerminationType, not even an explicit nil
+### GetTerminationId
 
-### GetProviderNetworkOk
+`func (o *CircuitCircuitTermination) GetTerminationId() int32`
 
-`func (o *CircuitCircuitTermination) GetProviderNetworkOk() (*BriefProviderNetwork, bool)`
+GetTerminationId returns the TerminationId field if non-nil, zero value otherwise.
 
-GetProviderNetworkOk returns a tuple with the ProviderNetwork field if it's non-nil, zero value otherwise
+### GetTerminationIdOk
+
+`func (o *CircuitCircuitTermination) GetTerminationIdOk() (*int32, bool)`
+
+GetTerminationIdOk returns a tuple with the TerminationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetProviderNetwork
+### SetTerminationId
 
-`func (o *CircuitCircuitTermination) SetProviderNetwork(v BriefProviderNetwork)`
+`func (o *CircuitCircuitTermination) SetTerminationId(v int32)`
 
-SetProviderNetwork sets ProviderNetwork field to given value.
+SetTerminationId sets TerminationId field to given value.
+
+### HasTerminationId
+
+`func (o *CircuitCircuitTermination) HasTerminationId() bool`
+
+HasTerminationId returns a boolean if a field has been set.
+
+### SetTerminationIdNil
+
+`func (o *CircuitCircuitTermination) SetTerminationIdNil(b bool)`
+
+ SetTerminationIdNil sets the value for TerminationId to be an explicit nil
+
+### UnsetTerminationId
+`func (o *CircuitCircuitTermination) UnsetTerminationId()`
+
+UnsetTerminationId ensures that no value is present for TerminationId, not even an explicit nil
+### GetTermination
+
+`func (o *CircuitCircuitTermination) GetTermination() interface{}`
+
+GetTermination returns the Termination field if non-nil, zero value otherwise.
+
+### GetTerminationOk
+
+`func (o *CircuitCircuitTermination) GetTerminationOk() (*interface{}, bool)`
+
+GetTerminationOk returns a tuple with the Termination field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTermination
+
+`func (o *CircuitCircuitTermination) SetTermination(v interface{})`
+
+SetTermination sets Termination field to given value.
 
 
-### SetProviderNetworkNil
+### SetTerminationNil
 
-`func (o *CircuitCircuitTermination) SetProviderNetworkNil(b bool)`
+`func (o *CircuitCircuitTermination) SetTerminationNil(b bool)`
 
- SetProviderNetworkNil sets the value for ProviderNetwork to be an explicit nil
+ SetTerminationNil sets the value for Termination to be an explicit nil
 
-### UnsetProviderNetwork
-`func (o *CircuitCircuitTermination) UnsetProviderNetwork()`
+### UnsetTermination
+`func (o *CircuitCircuitTermination) UnsetTermination()`
 
-UnsetProviderNetwork ensures that no value is present for ProviderNetwork, not even an explicit nil
+UnsetTermination ensures that no value is present for Termination, not even an explicit nil
 ### GetPortSpeed
 
 `func (o *CircuitCircuitTermination) GetPortSpeed() int32`

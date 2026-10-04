@@ -3,6 +3,8 @@
 ## Enum
 
 
+* `NULL` (value: `"null"`)
+
 * `SINGLE_PHASE` (value: `"single-phase"`)
 
 * `THREE_PHASE` (value: `"three-phase"`)

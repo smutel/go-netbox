@@ -12,9 +12,12 @@ Name | Type | Description | Notes
 **Name** | **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Type** | [**InterfaceType**](InterfaceType.md) |  | 
+**Channels** | Pointer to **NullableInt32** | The number of channels into which this interface is channelized | [optional] 
+**ChannelId** | Pointer to **NullableInt32** | The channel on the parent interface to which this subinterface is bound | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **MgmtOnly** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Parent** | Pointer to [**NullableNestedInterfaceTemplate**](NestedInterfaceTemplate.md) |  | [optional] 
 **Bridge** | Pointer to [**NullableNestedInterfaceTemplate**](NestedInterfaceTemplate.md) |  | [optional] 
 **PoeMode** | Pointer to [**NullableInterfaceTemplatePoeMode**](InterfaceTemplatePoeMode.md) |  | [optional] 
 **PoeType** | Pointer to [**NullableInterfaceTemplatePoeType**](InterfaceTemplatePoeType.md) |  | [optional] 
@@ -236,6 +239,76 @@ and a boolean to check if the value has been set.
 SetType sets Type field to given value.
 
 
+### GetChannels
+
+`func (o *InterfaceTemplate) GetChannels() int32`
+
+GetChannels returns the Channels field if non-nil, zero value otherwise.
+
+### GetChannelsOk
+
+`func (o *InterfaceTemplate) GetChannelsOk() (*int32, bool)`
+
+GetChannelsOk returns a tuple with the Channels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannels
+
+`func (o *InterfaceTemplate) SetChannels(v int32)`
+
+SetChannels sets Channels field to given value.
+
+### HasChannels
+
+`func (o *InterfaceTemplate) HasChannels() bool`
+
+HasChannels returns a boolean if a field has been set.
+
+### SetChannelsNil
+
+`func (o *InterfaceTemplate) SetChannelsNil(b bool)`
+
+ SetChannelsNil sets the value for Channels to be an explicit nil
+
+### UnsetChannels
+`func (o *InterfaceTemplate) UnsetChannels()`
+
+UnsetChannels ensures that no value is present for Channels, not even an explicit nil
+### GetChannelId
+
+`func (o *InterfaceTemplate) GetChannelId() int32`
+
+GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
+
+### GetChannelIdOk
+
+`func (o *InterfaceTemplate) GetChannelIdOk() (*int32, bool)`
+
+GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannelId
+
+`func (o *InterfaceTemplate) SetChannelId(v int32)`
+
+SetChannelId sets ChannelId field to given value.
+
+### HasChannelId
+
+`func (o *InterfaceTemplate) HasChannelId() bool`
+
+HasChannelId returns a boolean if a field has been set.
+
+### SetChannelIdNil
+
+`func (o *InterfaceTemplate) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *InterfaceTemplate) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetEnabled
 
 `func (o *InterfaceTemplate) GetEnabled() bool`
@@ -311,6 +384,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetParent
+
+`func (o *InterfaceTemplate) GetParent() NestedInterfaceTemplate`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *InterfaceTemplate) GetParentOk() (*NestedInterfaceTemplate, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParent
+
+`func (o *InterfaceTemplate) SetParent(v NestedInterfaceTemplate)`
+
+SetParent sets Parent field to given value.
+
+### HasParent
+
+`func (o *InterfaceTemplate) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
+
+### SetParentNil
+
+`func (o *InterfaceTemplate) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *InterfaceTemplate) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetBridge
 
 `func (o *InterfaceTemplate) GetBridge() NestedInterfaceTemplate`

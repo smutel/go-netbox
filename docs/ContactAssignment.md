@@ -9,10 +9,10 @@ Name | Type | Description | Notes
 **Display** | **string** |  | [readonly] 
 **ObjectType** | **string** |  | 
 **ObjectId** | **int64** |  | 
-**Object** | **map[string]interface{}** |  | [readonly] 
+**Object** | **interface{}** |  | [readonly] 
 **Contact** | [**BriefContact**](BriefContact.md) |  | 
 **Role** | Pointer to [**NullableBriefContactRole**](BriefContactRole.md) |  | [optional] 
-**Priority** | Pointer to [**ContactAssignmentPriority**](ContactAssignmentPriority.md) |  | [optional] 
+**Priority** | Pointer to [**BriefCircuitGroupAssignmentSerializerPriority**](BriefCircuitGroupAssignmentSerializerPriority.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewContactAssignment
 
-`func NewContactAssignment(id int32, url string, display string, objectType string, objectId int64, object map[string]interface{}, contact BriefContact, created NullableTime, lastUpdated NullableTime, ) *ContactAssignment`
+`func NewContactAssignment(id int32, url string, display string, objectType string, objectId int64, object interface{}, contact BriefContact, created NullableTime, lastUpdated NullableTime, ) *ContactAssignment`
 
 NewContactAssignment instantiates a new ContactAssignment object
 This constructor will assign default values to properties that have it defined,
@@ -139,24 +139,34 @@ SetObjectId sets ObjectId field to given value.
 
 ### GetObject
 
-`func (o *ContactAssignment) GetObject() map[string]interface{}`
+`func (o *ContactAssignment) GetObject() interface{}`
 
 GetObject returns the Object field if non-nil, zero value otherwise.
 
 ### GetObjectOk
 
-`func (o *ContactAssignment) GetObjectOk() (*map[string]interface{}, bool)`
+`func (o *ContactAssignment) GetObjectOk() (*interface{}, bool)`
 
 GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetObject
 
-`func (o *ContactAssignment) SetObject(v map[string]interface{})`
+`func (o *ContactAssignment) SetObject(v interface{})`
 
 SetObject sets Object field to given value.
 
 
+### SetObjectNil
+
+`func (o *ContactAssignment) SetObjectNil(b bool)`
+
+ SetObjectNil sets the value for Object to be an explicit nil
+
+### UnsetObject
+`func (o *ContactAssignment) UnsetObject()`
+
+UnsetObject ensures that no value is present for Object, not even an explicit nil
 ### GetContact
 
 `func (o *ContactAssignment) GetContact() BriefContact`
@@ -214,20 +224,20 @@ HasRole returns a boolean if a field has been set.
 UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetPriority
 
-`func (o *ContactAssignment) GetPriority() ContactAssignmentPriority`
+`func (o *ContactAssignment) GetPriority() BriefCircuitGroupAssignmentSerializerPriority`
 
 GetPriority returns the Priority field if non-nil, zero value otherwise.
 
 ### GetPriorityOk
 
-`func (o *ContactAssignment) GetPriorityOk() (*ContactAssignmentPriority, bool)`
+`func (o *ContactAssignment) GetPriorityOk() (*BriefCircuitGroupAssignmentSerializerPriority, bool)`
 
 GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriority
 
-`func (o *ContactAssignment) SetPriority(v ContactAssignmentPriority)`
+`func (o *ContactAssignment) SetPriority(v BriefCircuitGroupAssignmentSerializerPriority)`
 
 SetPriority sets Priority field to given value.
 

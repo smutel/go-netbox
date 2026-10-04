@@ -4,21 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Manufacturer** | [**BriefManufacturerRequest**](BriefManufacturerRequest.md) |  | 
-**DefaultPlatform** | Pointer to [**NullableBriefPlatformRequest**](BriefPlatformRequest.md) |  | [optional] 
+**Manufacturer** | [**BriefDeviceTypeRequestManufacturer**](BriefDeviceTypeRequestManufacturer.md) |  | 
+**DefaultPlatform** | Pointer to [**NullableBulkDeviceRequestPlatform**](BulkDeviceRequestPlatform.md) |  | [optional] 
 **Model** | **string** |  | 
 **Slug** | **string** |  | 
 **PartNumber** | Pointer to **string** | Discrete part number (optional) | [optional] 
 **UHeight** | Pointer to **float64** |  | [optional] [default to 1.0]
 **ExcludeFromUtilization** | Pointer to **bool** | Devices of this type are excluded when calculating rack utilization. | [optional] 
 **IsFullDepth** | Pointer to **bool** | Device consumes both front and rear rack faces. | [optional] 
-**SubdeviceRole** | Pointer to [**NullableDeviceTypeRequestSubdeviceRole**](DeviceTypeRequestSubdeviceRole.md) |  | [optional] 
-**Airflow** | Pointer to [**NullableDeviceTypeRequestAirflow**](DeviceTypeRequestAirflow.md) |  | [optional] 
+**SubdeviceRole** | Pointer to [**NullableBulkDeviceTypeRequestSubdeviceRole**](BulkDeviceTypeRequestSubdeviceRole.md) |  | [optional] 
+**Airflow** | Pointer to [**NullableBulkDeviceTypeRequestAirflow**](BulkDeviceTypeRequestAirflow.md) |  | [optional] 
+**CoolingMethod** | Pointer to [**NullableBulkDeviceRequestCoolingMethod**](BulkDeviceRequestCoolingMethod.md) |  | [optional] 
 **Weight** | Pointer to **NullableFloat64** |  | [optional] 
-**WeightUnit** | Pointer to [**NullableDeviceTypeRequestWeightUnit**](DeviceTypeRequestWeightUnit.md) |  | [optional] 
+**WeightUnit** | Pointer to [**NullableBulkDeviceTypeRequestWeightUnit**](BulkDeviceTypeRequestWeightUnit.md) |  | [optional] 
+**EndOfLife** | Pointer to **NullableString** | The date after which this device type is no longer supported by the manufacturer | [optional] 
 **FrontImage** | Pointer to ***os.File** |  | [optional] 
 **RearImage** | Pointer to ***os.File** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -27,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewDeviceTypeRequest
 
-`func NewDeviceTypeRequest(manufacturer BriefManufacturerRequest, model string, slug string, ) *DeviceTypeRequest`
+`func NewDeviceTypeRequest(manufacturer BriefDeviceTypeRequestManufacturer, model string, slug string, ) *DeviceTypeRequest`
 
 NewDeviceTypeRequest instantiates a new DeviceTypeRequest object
 This constructor will assign default values to properties that have it defined,
@@ -44,40 +47,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetManufacturer
 
-`func (o *DeviceTypeRequest) GetManufacturer() BriefManufacturerRequest`
+`func (o *DeviceTypeRequest) GetManufacturer() BriefDeviceTypeRequestManufacturer`
 
 GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
 
 ### GetManufacturerOk
 
-`func (o *DeviceTypeRequest) GetManufacturerOk() (*BriefManufacturerRequest, bool)`
+`func (o *DeviceTypeRequest) GetManufacturerOk() (*BriefDeviceTypeRequestManufacturer, bool)`
 
 GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetManufacturer
 
-`func (o *DeviceTypeRequest) SetManufacturer(v BriefManufacturerRequest)`
+`func (o *DeviceTypeRequest) SetManufacturer(v BriefDeviceTypeRequestManufacturer)`
 
 SetManufacturer sets Manufacturer field to given value.
 
 
 ### GetDefaultPlatform
 
-`func (o *DeviceTypeRequest) GetDefaultPlatform() BriefPlatformRequest`
+`func (o *DeviceTypeRequest) GetDefaultPlatform() BulkDeviceRequestPlatform`
 
 GetDefaultPlatform returns the DefaultPlatform field if non-nil, zero value otherwise.
 
 ### GetDefaultPlatformOk
 
-`func (o *DeviceTypeRequest) GetDefaultPlatformOk() (*BriefPlatformRequest, bool)`
+`func (o *DeviceTypeRequest) GetDefaultPlatformOk() (*BulkDeviceRequestPlatform, bool)`
 
 GetDefaultPlatformOk returns a tuple with the DefaultPlatform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultPlatform
 
-`func (o *DeviceTypeRequest) SetDefaultPlatform(v BriefPlatformRequest)`
+`func (o *DeviceTypeRequest) SetDefaultPlatform(v BulkDeviceRequestPlatform)`
 
 SetDefaultPlatform sets DefaultPlatform field to given value.
 
@@ -239,20 +242,20 @@ HasIsFullDepth returns a boolean if a field has been set.
 
 ### GetSubdeviceRole
 
-`func (o *DeviceTypeRequest) GetSubdeviceRole() DeviceTypeRequestSubdeviceRole`
+`func (o *DeviceTypeRequest) GetSubdeviceRole() BulkDeviceTypeRequestSubdeviceRole`
 
 GetSubdeviceRole returns the SubdeviceRole field if non-nil, zero value otherwise.
 
 ### GetSubdeviceRoleOk
 
-`func (o *DeviceTypeRequest) GetSubdeviceRoleOk() (*DeviceTypeRequestSubdeviceRole, bool)`
+`func (o *DeviceTypeRequest) GetSubdeviceRoleOk() (*BulkDeviceTypeRequestSubdeviceRole, bool)`
 
 GetSubdeviceRoleOk returns a tuple with the SubdeviceRole field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSubdeviceRole
 
-`func (o *DeviceTypeRequest) SetSubdeviceRole(v DeviceTypeRequestSubdeviceRole)`
+`func (o *DeviceTypeRequest) SetSubdeviceRole(v BulkDeviceTypeRequestSubdeviceRole)`
 
 SetSubdeviceRole sets SubdeviceRole field to given value.
 
@@ -274,20 +277,20 @@ HasSubdeviceRole returns a boolean if a field has been set.
 UnsetSubdeviceRole ensures that no value is present for SubdeviceRole, not even an explicit nil
 ### GetAirflow
 
-`func (o *DeviceTypeRequest) GetAirflow() DeviceTypeRequestAirflow`
+`func (o *DeviceTypeRequest) GetAirflow() BulkDeviceTypeRequestAirflow`
 
 GetAirflow returns the Airflow field if non-nil, zero value otherwise.
 
 ### GetAirflowOk
 
-`func (o *DeviceTypeRequest) GetAirflowOk() (*DeviceTypeRequestAirflow, bool)`
+`func (o *DeviceTypeRequest) GetAirflowOk() (*BulkDeviceTypeRequestAirflow, bool)`
 
 GetAirflowOk returns a tuple with the Airflow field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAirflow
 
-`func (o *DeviceTypeRequest) SetAirflow(v DeviceTypeRequestAirflow)`
+`func (o *DeviceTypeRequest) SetAirflow(v BulkDeviceTypeRequestAirflow)`
 
 SetAirflow sets Airflow field to given value.
 
@@ -307,6 +310,41 @@ HasAirflow returns a boolean if a field has been set.
 `func (o *DeviceTypeRequest) UnsetAirflow()`
 
 UnsetAirflow ensures that no value is present for Airflow, not even an explicit nil
+### GetCoolingMethod
+
+`func (o *DeviceTypeRequest) GetCoolingMethod() BulkDeviceRequestCoolingMethod`
+
+GetCoolingMethod returns the CoolingMethod field if non-nil, zero value otherwise.
+
+### GetCoolingMethodOk
+
+`func (o *DeviceTypeRequest) GetCoolingMethodOk() (*BulkDeviceRequestCoolingMethod, bool)`
+
+GetCoolingMethodOk returns a tuple with the CoolingMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingMethod
+
+`func (o *DeviceTypeRequest) SetCoolingMethod(v BulkDeviceRequestCoolingMethod)`
+
+SetCoolingMethod sets CoolingMethod field to given value.
+
+### HasCoolingMethod
+
+`func (o *DeviceTypeRequest) HasCoolingMethod() bool`
+
+HasCoolingMethod returns a boolean if a field has been set.
+
+### SetCoolingMethodNil
+
+`func (o *DeviceTypeRequest) SetCoolingMethodNil(b bool)`
+
+ SetCoolingMethodNil sets the value for CoolingMethod to be an explicit nil
+
+### UnsetCoolingMethod
+`func (o *DeviceTypeRequest) UnsetCoolingMethod()`
+
+UnsetCoolingMethod ensures that no value is present for CoolingMethod, not even an explicit nil
 ### GetWeight
 
 `func (o *DeviceTypeRequest) GetWeight() float64`
@@ -344,20 +382,20 @@ HasWeight returns a boolean if a field has been set.
 UnsetWeight ensures that no value is present for Weight, not even an explicit nil
 ### GetWeightUnit
 
-`func (o *DeviceTypeRequest) GetWeightUnit() DeviceTypeRequestWeightUnit`
+`func (o *DeviceTypeRequest) GetWeightUnit() BulkDeviceTypeRequestWeightUnit`
 
 GetWeightUnit returns the WeightUnit field if non-nil, zero value otherwise.
 
 ### GetWeightUnitOk
 
-`func (o *DeviceTypeRequest) GetWeightUnitOk() (*DeviceTypeRequestWeightUnit, bool)`
+`func (o *DeviceTypeRequest) GetWeightUnitOk() (*BulkDeviceTypeRequestWeightUnit, bool)`
 
 GetWeightUnitOk returns a tuple with the WeightUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeightUnit
 
-`func (o *DeviceTypeRequest) SetWeightUnit(v DeviceTypeRequestWeightUnit)`
+`func (o *DeviceTypeRequest) SetWeightUnit(v BulkDeviceTypeRequestWeightUnit)`
 
 SetWeightUnit sets WeightUnit field to given value.
 
@@ -377,6 +415,41 @@ HasWeightUnit returns a boolean if a field has been set.
 `func (o *DeviceTypeRequest) UnsetWeightUnit()`
 
 UnsetWeightUnit ensures that no value is present for WeightUnit, not even an explicit nil
+### GetEndOfLife
+
+`func (o *DeviceTypeRequest) GetEndOfLife() string`
+
+GetEndOfLife returns the EndOfLife field if non-nil, zero value otherwise.
+
+### GetEndOfLifeOk
+
+`func (o *DeviceTypeRequest) GetEndOfLifeOk() (*string, bool)`
+
+GetEndOfLifeOk returns a tuple with the EndOfLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndOfLife
+
+`func (o *DeviceTypeRequest) SetEndOfLife(v string)`
+
+SetEndOfLife sets EndOfLife field to given value.
+
+### HasEndOfLife
+
+`func (o *DeviceTypeRequest) HasEndOfLife() bool`
+
+HasEndOfLife returns a boolean if a field has been set.
+
+### SetEndOfLifeNil
+
+`func (o *DeviceTypeRequest) SetEndOfLifeNil(b bool)`
+
+ SetEndOfLifeNil sets the value for EndOfLife to be an explicit nil
+
+### UnsetEndOfLife
+`func (o *DeviceTypeRequest) UnsetEndOfLife()`
+
+UnsetEndOfLife ensures that no value is present for EndOfLife, not even an explicit nil
 ### GetFrontImage
 
 `func (o *DeviceTypeRequest) GetFrontImage() *os.File`
@@ -452,6 +525,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *DeviceTypeRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *DeviceTypeRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *DeviceTypeRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *DeviceTypeRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *DeviceTypeRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *DeviceTypeRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *DeviceTypeRequest) GetComments() string`

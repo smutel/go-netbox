@@ -6,11 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**AuthenticationMethod** | [**IKEProposalAuthenticationMethodValue**](IKEProposalAuthenticationMethodValue.md) |  | 
-**EncryptionAlgorithm** | [**IKEProposalEncryptionAlgorithmValue**](IKEProposalEncryptionAlgorithmValue.md) |  | 
-**AuthenticationAlgorithm** | Pointer to [**IKEProposalAuthenticationAlgorithmValue**](IKEProposalAuthenticationAlgorithmValue.md) |  | [optional] 
-**Group** | [**IKEProposalGroupValue**](IKEProposalGroupValue.md) |  | 
+**AuthenticationMethod** | [**BulkIKEProposalRequestAuthenticationMethod**](BulkIKEProposalRequestAuthenticationMethod.md) |  | 
+**EncryptionAlgorithm** | [**BulkIKEProposalRequestEncryptionAlgorithm**](BulkIKEProposalRequestEncryptionAlgorithm.md) |  | 
+**AuthenticationAlgorithm** | Pointer to [**BulkIKEProposalRequestAuthenticationAlgorithm**](BulkIKEProposalRequestAuthenticationAlgorithm.md) |  | [optional] 
+**Group** | [**BulkIKEProposalRequestGroup**](BulkIKEProposalRequestGroup.md) |  | 
 **SaLifetime** | Pointer to **NullableInt32** | Security association lifetime (in seconds) | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewIKEProposalRequest
 
-`func NewIKEProposalRequest(name string, authenticationMethod IKEProposalAuthenticationMethodValue, encryptionAlgorithm IKEProposalEncryptionAlgorithmValue, group IKEProposalGroupValue, ) *IKEProposalRequest`
+`func NewIKEProposalRequest(name string, authenticationMethod BulkIKEProposalRequestAuthenticationMethod, encryptionAlgorithm BulkIKEProposalRequestEncryptionAlgorithm, group BulkIKEProposalRequestGroup, ) *IKEProposalRequest`
 
 NewIKEProposalRequest instantiates a new IKEProposalRequest object
 This constructor will assign default values to properties that have it defined,
@@ -81,60 +82,60 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetAuthenticationMethod
 
-`func (o *IKEProposalRequest) GetAuthenticationMethod() IKEProposalAuthenticationMethodValue`
+`func (o *IKEProposalRequest) GetAuthenticationMethod() BulkIKEProposalRequestAuthenticationMethod`
 
 GetAuthenticationMethod returns the AuthenticationMethod field if non-nil, zero value otherwise.
 
 ### GetAuthenticationMethodOk
 
-`func (o *IKEProposalRequest) GetAuthenticationMethodOk() (*IKEProposalAuthenticationMethodValue, bool)`
+`func (o *IKEProposalRequest) GetAuthenticationMethodOk() (*BulkIKEProposalRequestAuthenticationMethod, bool)`
 
 GetAuthenticationMethodOk returns a tuple with the AuthenticationMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthenticationMethod
 
-`func (o *IKEProposalRequest) SetAuthenticationMethod(v IKEProposalAuthenticationMethodValue)`
+`func (o *IKEProposalRequest) SetAuthenticationMethod(v BulkIKEProposalRequestAuthenticationMethod)`
 
 SetAuthenticationMethod sets AuthenticationMethod field to given value.
 
 
 ### GetEncryptionAlgorithm
 
-`func (o *IKEProposalRequest) GetEncryptionAlgorithm() IKEProposalEncryptionAlgorithmValue`
+`func (o *IKEProposalRequest) GetEncryptionAlgorithm() BulkIKEProposalRequestEncryptionAlgorithm`
 
 GetEncryptionAlgorithm returns the EncryptionAlgorithm field if non-nil, zero value otherwise.
 
 ### GetEncryptionAlgorithmOk
 
-`func (o *IKEProposalRequest) GetEncryptionAlgorithmOk() (*IKEProposalEncryptionAlgorithmValue, bool)`
+`func (o *IKEProposalRequest) GetEncryptionAlgorithmOk() (*BulkIKEProposalRequestEncryptionAlgorithm, bool)`
 
 GetEncryptionAlgorithmOk returns a tuple with the EncryptionAlgorithm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEncryptionAlgorithm
 
-`func (o *IKEProposalRequest) SetEncryptionAlgorithm(v IKEProposalEncryptionAlgorithmValue)`
+`func (o *IKEProposalRequest) SetEncryptionAlgorithm(v BulkIKEProposalRequestEncryptionAlgorithm)`
 
 SetEncryptionAlgorithm sets EncryptionAlgorithm field to given value.
 
 
 ### GetAuthenticationAlgorithm
 
-`func (o *IKEProposalRequest) GetAuthenticationAlgorithm() IKEProposalAuthenticationAlgorithmValue`
+`func (o *IKEProposalRequest) GetAuthenticationAlgorithm() BulkIKEProposalRequestAuthenticationAlgorithm`
 
 GetAuthenticationAlgorithm returns the AuthenticationAlgorithm field if non-nil, zero value otherwise.
 
 ### GetAuthenticationAlgorithmOk
 
-`func (o *IKEProposalRequest) GetAuthenticationAlgorithmOk() (*IKEProposalAuthenticationAlgorithmValue, bool)`
+`func (o *IKEProposalRequest) GetAuthenticationAlgorithmOk() (*BulkIKEProposalRequestAuthenticationAlgorithm, bool)`
 
 GetAuthenticationAlgorithmOk returns a tuple with the AuthenticationAlgorithm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthenticationAlgorithm
 
-`func (o *IKEProposalRequest) SetAuthenticationAlgorithm(v IKEProposalAuthenticationAlgorithmValue)`
+`func (o *IKEProposalRequest) SetAuthenticationAlgorithm(v BulkIKEProposalRequestAuthenticationAlgorithm)`
 
 SetAuthenticationAlgorithm sets AuthenticationAlgorithm field to given value.
 
@@ -146,20 +147,20 @@ HasAuthenticationAlgorithm returns a boolean if a field has been set.
 
 ### GetGroup
 
-`func (o *IKEProposalRequest) GetGroup() IKEProposalGroupValue`
+`func (o *IKEProposalRequest) GetGroup() BulkIKEProposalRequestGroup`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *IKEProposalRequest) GetGroupOk() (*IKEProposalGroupValue, bool)`
+`func (o *IKEProposalRequest) GetGroupOk() (*BulkIKEProposalRequestGroup, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *IKEProposalRequest) SetGroup(v IKEProposalGroupValue)`
+`func (o *IKEProposalRequest) SetGroup(v BulkIKEProposalRequestGroup)`
 
 SetGroup sets Group field to given value.
 
@@ -199,6 +200,41 @@ HasSaLifetime returns a boolean if a field has been set.
 `func (o *IKEProposalRequest) UnsetSaLifetime()`
 
 UnsetSaLifetime ensures that no value is present for SaLifetime, not even an explicit nil
+### GetOwner
+
+`func (o *IKEProposalRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IKEProposalRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IKEProposalRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IKEProposalRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IKEProposalRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IKEProposalRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IKEProposalRequest) GetComments() string`

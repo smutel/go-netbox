@@ -6,23 +6,27 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Weight** | Pointer to **int32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 **PrefixCount** | **int64** |  | [readonly] 
 **VlanCount** | **int64** |  | [readonly] 
+**AsnCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewRole
 
-`func NewRole(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, prefixCount int64, vlanCount int64, ) *Role`
+`func NewRole(id int32, url string, displayUrl string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, prefixCount int64, vlanCount int64, asnCount int64, ) *Role`
 
 NewRole instantiates a new Role object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +79,26 @@ and a boolean to check if the value has been set.
 `func (o *Role) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Role) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Role) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Role) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -186,6 +210,66 @@ SetDescription sets Description field to given value.
 `func (o *Role) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *Role) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Role) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Role) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Role) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Role) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Role) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *Role) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *Role) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *Role) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *Role) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetTags
 
@@ -335,6 +419,26 @@ and a boolean to check if the value has been set.
 `func (o *Role) SetVlanCount(v int64)`
 
 SetVlanCount sets VlanCount field to given value.
+
+
+### GetAsnCount
+
+`func (o *Role) GetAsnCount() int64`
+
+GetAsnCount returns the AsnCount field if non-nil, zero value otherwise.
+
+### GetAsnCountOk
+
+`func (o *Role) GetAsnCountOk() (*int64, bool)`
+
+GetAsnCountOk returns a tuple with the AsnCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAsnCount
+
+`func (o *Role) SetAsnCount(v int64)`
+
+SetAsnCount sets AsnCount field to given value.
 
 
 

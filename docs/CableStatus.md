@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**CableStatusValue**](CableStatusValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkCableRequestStatus**](BulkCableRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**CableStatusLabel**](CableStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *CableStatus) GetValue() CableStatusValue`
+`func (o *CableStatus) GetValue() BulkCableRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *CableStatus) GetValueOk() (*CableStatusValue, bool)`
+`func (o *CableStatus) GetValueOk() (*BulkCableRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *CableStatus) SetValue(v CableStatusValue)`
+`func (o *CableStatus) SetValue(v BulkCableRequestStatus)`
 
 SetValue sets Value field to given value.
 

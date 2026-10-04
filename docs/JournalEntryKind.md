@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**JournalEntryKindValue**](JournalEntryKindValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkJournalEntryRequestKind**](BulkJournalEntryRequestKind.md) |  | [optional] 
 **Label** | Pointer to [**JournalEntryKindLabel**](JournalEntryKindLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *JournalEntryKind) GetValue() JournalEntryKindValue`
+`func (o *JournalEntryKind) GetValue() BulkJournalEntryRequestKind`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *JournalEntryKind) GetValueOk() (*JournalEntryKindValue, bool)`
+`func (o *JournalEntryKind) GetValueOk() (*BulkJournalEntryRequestKind, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *JournalEntryKind) SetValue(v JournalEntryKindValue)`
+`func (o *JournalEntryKind) SetValue(v BulkJournalEntryRequestKind)`
 
 SetValue sets Value field to given value.
 

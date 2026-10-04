@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**InterfacePoeModeValue**](InterfacePoeModeValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkInterfaceRequestPoeMode**](BulkInterfaceRequestPoeMode.md) |  | [optional] 
 **Label** | Pointer to [**InterfacePoeModeLabel**](InterfacePoeModeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *InterfacePoeMode) GetValue() InterfacePoeModeValue`
+`func (o *InterfacePoeMode) GetValue() BulkInterfaceRequestPoeMode`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *InterfacePoeMode) GetValueOk() (*InterfacePoeModeValue, bool)`
+`func (o *InterfacePoeMode) GetValueOk() (*BulkInterfaceRequestPoeMode, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *InterfacePoeMode) SetValue(v InterfacePoeModeValue)`
+`func (o *InterfacePoeMode) SetValue(v BulkInterfaceRequestPoeMode)`
 
 SetValue sets Value field to given value.
 

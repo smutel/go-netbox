@@ -6,11 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **PowerPanel** | [**BriefPowerPanel**](BriefPowerPanel.md) |  | 
 **Rack** | Pointer to [**NullableBriefRack**](BriefRack.md) |  | [optional] 
 **Name** | **string** |  | 
-**Status** | Pointer to [**PowerFeedStatus**](PowerFeedStatus.md) |  | [optional] 
+**Status** | Pointer to [**CoolingFeedStatus**](CoolingFeedStatus.md) |  | [optional] 
 **Type** | Pointer to [**PowerFeedType**](PowerFeedType.md) |  | [optional] 
 **Supply** | Pointer to [**PowerFeedSupply**](PowerFeedSupply.md) |  | [optional] 
 **Phase** | Pointer to [**PowerFeedPhase**](PowerFeedPhase.md) |  | [optional] 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 **MaxUtilization** | Pointer to **int32** | Maximum permissible draw (percentage) | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
 **Cable** | [**NullableBriefCable**](BriefCable.md) |  | [readonly] 
-**CableEnd** | **string** |  | [readonly] 
+**CableEnd** | [**NullableCircuitTerminationCableEnd**](CircuitTerminationCableEnd.md) |  | 
 **LinkPeers** | **[]interface{}** |  | [readonly] 
 **LinkPeersType** | **NullableString** | Return the type of the peer link terminations, or None. | [readonly] 
 **ConnectedEndpoints** | **[]interface{}** |  | [readonly] 
@@ -27,6 +28,7 @@ Name | Type | Description | Notes
 **ConnectedEndpointsReachable** | **bool** |  | [readonly] 
 **Description** | Pointer to **string** |  | [optional] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -38,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewPowerFeed
 
-`func NewPowerFeed(id int32, url string, display string, powerPanel BriefPowerPanel, name string, cable NullableBriefCable, cableEnd string, linkPeers []interface{}, linkPeersType NullableString, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, created NullableTime, lastUpdated NullableTime, occupied bool, ) *PowerFeed`
+`func NewPowerFeed(id int32, url string, displayUrl string, display string, powerPanel BriefPowerPanel, name string, cable NullableBriefCable, cableEnd NullableCircuitTerminationCableEnd, linkPeers []interface{}, linkPeersType NullableString, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, created NullableTime, lastUpdated NullableTime, occupied bool, ) *PowerFeed`
 
 NewPowerFeed instantiates a new PowerFeed object
 This constructor will assign default values to properties that have it defined,
@@ -91,6 +93,26 @@ and a boolean to check if the value has been set.
 `func (o *PowerFeed) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *PowerFeed) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *PowerFeed) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *PowerFeed) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -190,20 +212,20 @@ SetName sets Name field to given value.
 
 ### GetStatus
 
-`func (o *PowerFeed) GetStatus() PowerFeedStatus`
+`func (o *PowerFeed) GetStatus() CoolingFeedStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PowerFeed) GetStatusOk() (*PowerFeedStatus, bool)`
+`func (o *PowerFeed) GetStatusOk() (*CoolingFeedStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PowerFeed) SetStatus(v PowerFeedStatus)`
+`func (o *PowerFeed) SetStatus(v CoolingFeedStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -420,24 +442,34 @@ SetCable sets Cable field to given value.
 UnsetCable ensures that no value is present for Cable, not even an explicit nil
 ### GetCableEnd
 
-`func (o *PowerFeed) GetCableEnd() string`
+`func (o *PowerFeed) GetCableEnd() CircuitTerminationCableEnd`
 
 GetCableEnd returns the CableEnd field if non-nil, zero value otherwise.
 
 ### GetCableEndOk
 
-`func (o *PowerFeed) GetCableEndOk() (*string, bool)`
+`func (o *PowerFeed) GetCableEndOk() (*CircuitTerminationCableEnd, bool)`
 
 GetCableEndOk returns a tuple with the CableEnd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCableEnd
 
-`func (o *PowerFeed) SetCableEnd(v string)`
+`func (o *PowerFeed) SetCableEnd(v CircuitTerminationCableEnd)`
 
 SetCableEnd sets CableEnd field to given value.
 
 
+### SetCableEndNil
+
+`func (o *PowerFeed) SetCableEndNil(b bool)`
+
+ SetCableEndNil sets the value for CableEnd to be an explicit nil
+
+### UnsetCableEnd
+`func (o *PowerFeed) UnsetCableEnd()`
+
+UnsetCableEnd ensures that no value is present for CableEnd, not even an explicit nil
 ### GetLinkPeers
 
 `func (o *PowerFeed) GetLinkPeers() []interface{}`
@@ -628,6 +660,41 @@ HasTenant returns a boolean if a field has been set.
 `func (o *PowerFeed) UnsetTenant()`
 
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
+### GetOwner
+
+`func (o *PowerFeed) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PowerFeed) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PowerFeed) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PowerFeed) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PowerFeed) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PowerFeed) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PowerFeed) GetComments() string`

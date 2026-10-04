@@ -4,14 +4,42 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritableRackRequestType**](PatchedWritableRackRequestType.md) |  | [optional] 
-**Label** | Pointer to [**RackTypeLabel**](RackTypeLabel.md) |  | [optional] 
+**Id** | **int32** |  | [readonly] 
+**Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
+**Display** | **string** |  | [readonly] 
+**Manufacturer** | [**BriefManufacturer**](BriefManufacturer.md) |  | 
+**Model** | **string** |  | 
+**Slug** | **string** |  | 
+**Description** | Pointer to **string** |  | [optional] 
+**FormFactor** | [**RackTypeFormFactor**](RackTypeFormFactor.md) |  | 
+**Width** | Pointer to [**RackWidth**](RackWidth.md) |  | [optional] 
+**UHeight** | Pointer to **int32** | Height in rack units | [optional] 
+**StartingUnit** | Pointer to **int32** | Starting unit for rack | [optional] 
+**DescUnits** | Pointer to **bool** | Units are numbered top-to-bottom | [optional] 
+**OuterWidth** | Pointer to **NullableInt32** | Outer dimension of rack (width) | [optional] 
+**OuterHeight** | Pointer to **NullableInt32** | Outer dimension of rack (height) | [optional] 
+**OuterDepth** | Pointer to **NullableInt32** | Outer dimension of rack (depth) | [optional] 
+**OuterUnit** | Pointer to [**NullableRackOuterUnit**](RackOuterUnit.md) |  | [optional] 
+**Weight** | Pointer to **NullableFloat64** |  | [optional] 
+**MaxWeight** | Pointer to **NullableInt32** | Maximum load capacity for the rack | [optional] 
+**WeightUnit** | Pointer to [**NullableDeviceTypeWeightUnit**](DeviceTypeWeightUnit.md) |  | [optional] 
+**MountingDepth** | Pointer to **NullableInt32** | Maximum depth of a mounted device, in millimeters. For four-post racks, this is the distance between the front and rear rails. | [optional] 
+**CoolingCapability** | Pointer to [**NullableRackCoolingCapability**](RackCoolingCapability.md) |  | [optional] 
+**CoolingCapacity** | Pointer to **NullableFloat64** | Cooling capacity (kW) | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
+**Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
+**CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Created** | **NullableTime** |  | [readonly] 
+**LastUpdated** | **NullableTime** |  | [readonly] 
+**RackCount** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewRackType
 
-`func NewRackType() *RackType`
+`func NewRackType(id int32, url string, displayUrl string, display string, manufacturer BriefManufacturer, model string, slug string, formFactor RackTypeFormFactor, created NullableTime, lastUpdated NullableTime, rackCount int32, ) *RackType`
 
 NewRackType instantiates a new RackType object
 This constructor will assign default values to properties that have it defined,
@@ -26,55 +54,830 @@ NewRackTypeWithDefaults instantiates a new RackType object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetValue
+### GetId
 
-`func (o *RackType) GetValue() PatchedWritableRackRequestType`
+`func (o *RackType) GetId() int32`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetId returns the Id field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetIdOk
 
-`func (o *RackType) GetValueOk() (*PatchedWritableRackRequestType, bool)`
+`func (o *RackType) GetIdOk() (*int32, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetId
 
-`func (o *RackType) SetValue(v PatchedWritableRackRequestType)`
+`func (o *RackType) SetId(v int32)`
 
-SetValue sets Value field to given value.
+SetId sets Id field to given value.
 
-### HasValue
 
-`func (o *RackType) HasValue() bool`
+### GetUrl
 
-HasValue returns a boolean if a field has been set.
+`func (o *RackType) GetUrl() string`
 
-### GetLabel
+GetUrl returns the Url field if non-nil, zero value otherwise.
 
-`func (o *RackType) GetLabel() RackTypeLabel`
+### GetUrlOk
 
-GetLabel returns the Label field if non-nil, zero value otherwise.
+`func (o *RackType) GetUrlOk() (*string, bool)`
 
-### GetLabelOk
-
-`func (o *RackType) GetLabelOk() (*RackTypeLabel, bool)`
-
-GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
+GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLabel
+### SetUrl
 
-`func (o *RackType) SetLabel(v RackTypeLabel)`
+`func (o *RackType) SetUrl(v string)`
 
-SetLabel sets Label field to given value.
+SetUrl sets Url field to given value.
 
-### HasLabel
 
-`func (o *RackType) HasLabel() bool`
+### GetDisplayUrl
 
-HasLabel returns a boolean if a field has been set.
+`func (o *RackType) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *RackType) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *RackType) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
+### GetDisplay
+
+`func (o *RackType) GetDisplay() string`
+
+GetDisplay returns the Display field if non-nil, zero value otherwise.
+
+### GetDisplayOk
+
+`func (o *RackType) GetDisplayOk() (*string, bool)`
+
+GetDisplayOk returns a tuple with the Display field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplay
+
+`func (o *RackType) SetDisplay(v string)`
+
+SetDisplay sets Display field to given value.
+
+
+### GetManufacturer
+
+`func (o *RackType) GetManufacturer() BriefManufacturer`
+
+GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
+
+### GetManufacturerOk
+
+`func (o *RackType) GetManufacturerOk() (*BriefManufacturer, bool)`
+
+GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetManufacturer
+
+`func (o *RackType) SetManufacturer(v BriefManufacturer)`
+
+SetManufacturer sets Manufacturer field to given value.
+
+
+### GetModel
+
+`func (o *RackType) GetModel() string`
+
+GetModel returns the Model field if non-nil, zero value otherwise.
+
+### GetModelOk
+
+`func (o *RackType) GetModelOk() (*string, bool)`
+
+GetModelOk returns a tuple with the Model field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModel
+
+`func (o *RackType) SetModel(v string)`
+
+SetModel sets Model field to given value.
+
+
+### GetSlug
+
+`func (o *RackType) GetSlug() string`
+
+GetSlug returns the Slug field if non-nil, zero value otherwise.
+
+### GetSlugOk
+
+`func (o *RackType) GetSlugOk() (*string, bool)`
+
+GetSlugOk returns a tuple with the Slug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSlug
+
+`func (o *RackType) SetSlug(v string)`
+
+SetSlug sets Slug field to given value.
+
+
+### GetDescription
+
+`func (o *RackType) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *RackType) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *RackType) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *RackType) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### GetFormFactor
+
+`func (o *RackType) GetFormFactor() RackTypeFormFactor`
+
+GetFormFactor returns the FormFactor field if non-nil, zero value otherwise.
+
+### GetFormFactorOk
+
+`func (o *RackType) GetFormFactorOk() (*RackTypeFormFactor, bool)`
+
+GetFormFactorOk returns a tuple with the FormFactor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFormFactor
+
+`func (o *RackType) SetFormFactor(v RackTypeFormFactor)`
+
+SetFormFactor sets FormFactor field to given value.
+
+
+### GetWidth
+
+`func (o *RackType) GetWidth() RackWidth`
+
+GetWidth returns the Width field if non-nil, zero value otherwise.
+
+### GetWidthOk
+
+`func (o *RackType) GetWidthOk() (*RackWidth, bool)`
+
+GetWidthOk returns a tuple with the Width field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWidth
+
+`func (o *RackType) SetWidth(v RackWidth)`
+
+SetWidth sets Width field to given value.
+
+### HasWidth
+
+`func (o *RackType) HasWidth() bool`
+
+HasWidth returns a boolean if a field has been set.
+
+### GetUHeight
+
+`func (o *RackType) GetUHeight() int32`
+
+GetUHeight returns the UHeight field if non-nil, zero value otherwise.
+
+### GetUHeightOk
+
+`func (o *RackType) GetUHeightOk() (*int32, bool)`
+
+GetUHeightOk returns a tuple with the UHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUHeight
+
+`func (o *RackType) SetUHeight(v int32)`
+
+SetUHeight sets UHeight field to given value.
+
+### HasUHeight
+
+`func (o *RackType) HasUHeight() bool`
+
+HasUHeight returns a boolean if a field has been set.
+
+### GetStartingUnit
+
+`func (o *RackType) GetStartingUnit() int32`
+
+GetStartingUnit returns the StartingUnit field if non-nil, zero value otherwise.
+
+### GetStartingUnitOk
+
+`func (o *RackType) GetStartingUnitOk() (*int32, bool)`
+
+GetStartingUnitOk returns a tuple with the StartingUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStartingUnit
+
+`func (o *RackType) SetStartingUnit(v int32)`
+
+SetStartingUnit sets StartingUnit field to given value.
+
+### HasStartingUnit
+
+`func (o *RackType) HasStartingUnit() bool`
+
+HasStartingUnit returns a boolean if a field has been set.
+
+### GetDescUnits
+
+`func (o *RackType) GetDescUnits() bool`
+
+GetDescUnits returns the DescUnits field if non-nil, zero value otherwise.
+
+### GetDescUnitsOk
+
+`func (o *RackType) GetDescUnitsOk() (*bool, bool)`
+
+GetDescUnitsOk returns a tuple with the DescUnits field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescUnits
+
+`func (o *RackType) SetDescUnits(v bool)`
+
+SetDescUnits sets DescUnits field to given value.
+
+### HasDescUnits
+
+`func (o *RackType) HasDescUnits() bool`
+
+HasDescUnits returns a boolean if a field has been set.
+
+### GetOuterWidth
+
+`func (o *RackType) GetOuterWidth() int32`
+
+GetOuterWidth returns the OuterWidth field if non-nil, zero value otherwise.
+
+### GetOuterWidthOk
+
+`func (o *RackType) GetOuterWidthOk() (*int32, bool)`
+
+GetOuterWidthOk returns a tuple with the OuterWidth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOuterWidth
+
+`func (o *RackType) SetOuterWidth(v int32)`
+
+SetOuterWidth sets OuterWidth field to given value.
+
+### HasOuterWidth
+
+`func (o *RackType) HasOuterWidth() bool`
+
+HasOuterWidth returns a boolean if a field has been set.
+
+### SetOuterWidthNil
+
+`func (o *RackType) SetOuterWidthNil(b bool)`
+
+ SetOuterWidthNil sets the value for OuterWidth to be an explicit nil
+
+### UnsetOuterWidth
+`func (o *RackType) UnsetOuterWidth()`
+
+UnsetOuterWidth ensures that no value is present for OuterWidth, not even an explicit nil
+### GetOuterHeight
+
+`func (o *RackType) GetOuterHeight() int32`
+
+GetOuterHeight returns the OuterHeight field if non-nil, zero value otherwise.
+
+### GetOuterHeightOk
+
+`func (o *RackType) GetOuterHeightOk() (*int32, bool)`
+
+GetOuterHeightOk returns a tuple with the OuterHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOuterHeight
+
+`func (o *RackType) SetOuterHeight(v int32)`
+
+SetOuterHeight sets OuterHeight field to given value.
+
+### HasOuterHeight
+
+`func (o *RackType) HasOuterHeight() bool`
+
+HasOuterHeight returns a boolean if a field has been set.
+
+### SetOuterHeightNil
+
+`func (o *RackType) SetOuterHeightNil(b bool)`
+
+ SetOuterHeightNil sets the value for OuterHeight to be an explicit nil
+
+### UnsetOuterHeight
+`func (o *RackType) UnsetOuterHeight()`
+
+UnsetOuterHeight ensures that no value is present for OuterHeight, not even an explicit nil
+### GetOuterDepth
+
+`func (o *RackType) GetOuterDepth() int32`
+
+GetOuterDepth returns the OuterDepth field if non-nil, zero value otherwise.
+
+### GetOuterDepthOk
+
+`func (o *RackType) GetOuterDepthOk() (*int32, bool)`
+
+GetOuterDepthOk returns a tuple with the OuterDepth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOuterDepth
+
+`func (o *RackType) SetOuterDepth(v int32)`
+
+SetOuterDepth sets OuterDepth field to given value.
+
+### HasOuterDepth
+
+`func (o *RackType) HasOuterDepth() bool`
+
+HasOuterDepth returns a boolean if a field has been set.
+
+### SetOuterDepthNil
+
+`func (o *RackType) SetOuterDepthNil(b bool)`
+
+ SetOuterDepthNil sets the value for OuterDepth to be an explicit nil
+
+### UnsetOuterDepth
+`func (o *RackType) UnsetOuterDepth()`
+
+UnsetOuterDepth ensures that no value is present for OuterDepth, not even an explicit nil
+### GetOuterUnit
+
+`func (o *RackType) GetOuterUnit() RackOuterUnit`
+
+GetOuterUnit returns the OuterUnit field if non-nil, zero value otherwise.
+
+### GetOuterUnitOk
+
+`func (o *RackType) GetOuterUnitOk() (*RackOuterUnit, bool)`
+
+GetOuterUnitOk returns a tuple with the OuterUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOuterUnit
+
+`func (o *RackType) SetOuterUnit(v RackOuterUnit)`
+
+SetOuterUnit sets OuterUnit field to given value.
+
+### HasOuterUnit
+
+`func (o *RackType) HasOuterUnit() bool`
+
+HasOuterUnit returns a boolean if a field has been set.
+
+### SetOuterUnitNil
+
+`func (o *RackType) SetOuterUnitNil(b bool)`
+
+ SetOuterUnitNil sets the value for OuterUnit to be an explicit nil
+
+### UnsetOuterUnit
+`func (o *RackType) UnsetOuterUnit()`
+
+UnsetOuterUnit ensures that no value is present for OuterUnit, not even an explicit nil
+### GetWeight
+
+`func (o *RackType) GetWeight() float64`
+
+GetWeight returns the Weight field if non-nil, zero value otherwise.
+
+### GetWeightOk
+
+`func (o *RackType) GetWeightOk() (*float64, bool)`
+
+GetWeightOk returns a tuple with the Weight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeight
+
+`func (o *RackType) SetWeight(v float64)`
+
+SetWeight sets Weight field to given value.
+
+### HasWeight
+
+`func (o *RackType) HasWeight() bool`
+
+HasWeight returns a boolean if a field has been set.
+
+### SetWeightNil
+
+`func (o *RackType) SetWeightNil(b bool)`
+
+ SetWeightNil sets the value for Weight to be an explicit nil
+
+### UnsetWeight
+`func (o *RackType) UnsetWeight()`
+
+UnsetWeight ensures that no value is present for Weight, not even an explicit nil
+### GetMaxWeight
+
+`func (o *RackType) GetMaxWeight() int32`
+
+GetMaxWeight returns the MaxWeight field if non-nil, zero value otherwise.
+
+### GetMaxWeightOk
+
+`func (o *RackType) GetMaxWeightOk() (*int32, bool)`
+
+GetMaxWeightOk returns a tuple with the MaxWeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMaxWeight
+
+`func (o *RackType) SetMaxWeight(v int32)`
+
+SetMaxWeight sets MaxWeight field to given value.
+
+### HasMaxWeight
+
+`func (o *RackType) HasMaxWeight() bool`
+
+HasMaxWeight returns a boolean if a field has been set.
+
+### SetMaxWeightNil
+
+`func (o *RackType) SetMaxWeightNil(b bool)`
+
+ SetMaxWeightNil sets the value for MaxWeight to be an explicit nil
+
+### UnsetMaxWeight
+`func (o *RackType) UnsetMaxWeight()`
+
+UnsetMaxWeight ensures that no value is present for MaxWeight, not even an explicit nil
+### GetWeightUnit
+
+`func (o *RackType) GetWeightUnit() DeviceTypeWeightUnit`
+
+GetWeightUnit returns the WeightUnit field if non-nil, zero value otherwise.
+
+### GetWeightUnitOk
+
+`func (o *RackType) GetWeightUnitOk() (*DeviceTypeWeightUnit, bool)`
+
+GetWeightUnitOk returns a tuple with the WeightUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeightUnit
+
+`func (o *RackType) SetWeightUnit(v DeviceTypeWeightUnit)`
+
+SetWeightUnit sets WeightUnit field to given value.
+
+### HasWeightUnit
+
+`func (o *RackType) HasWeightUnit() bool`
+
+HasWeightUnit returns a boolean if a field has been set.
+
+### SetWeightUnitNil
+
+`func (o *RackType) SetWeightUnitNil(b bool)`
+
+ SetWeightUnitNil sets the value for WeightUnit to be an explicit nil
+
+### UnsetWeightUnit
+`func (o *RackType) UnsetWeightUnit()`
+
+UnsetWeightUnit ensures that no value is present for WeightUnit, not even an explicit nil
+### GetMountingDepth
+
+`func (o *RackType) GetMountingDepth() int32`
+
+GetMountingDepth returns the MountingDepth field if non-nil, zero value otherwise.
+
+### GetMountingDepthOk
+
+`func (o *RackType) GetMountingDepthOk() (*int32, bool)`
+
+GetMountingDepthOk returns a tuple with the MountingDepth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMountingDepth
+
+`func (o *RackType) SetMountingDepth(v int32)`
+
+SetMountingDepth sets MountingDepth field to given value.
+
+### HasMountingDepth
+
+`func (o *RackType) HasMountingDepth() bool`
+
+HasMountingDepth returns a boolean if a field has been set.
+
+### SetMountingDepthNil
+
+`func (o *RackType) SetMountingDepthNil(b bool)`
+
+ SetMountingDepthNil sets the value for MountingDepth to be an explicit nil
+
+### UnsetMountingDepth
+`func (o *RackType) UnsetMountingDepth()`
+
+UnsetMountingDepth ensures that no value is present for MountingDepth, not even an explicit nil
+### GetCoolingCapability
+
+`func (o *RackType) GetCoolingCapability() RackCoolingCapability`
+
+GetCoolingCapability returns the CoolingCapability field if non-nil, zero value otherwise.
+
+### GetCoolingCapabilityOk
+
+`func (o *RackType) GetCoolingCapabilityOk() (*RackCoolingCapability, bool)`
+
+GetCoolingCapabilityOk returns a tuple with the CoolingCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingCapability
+
+`func (o *RackType) SetCoolingCapability(v RackCoolingCapability)`
+
+SetCoolingCapability sets CoolingCapability field to given value.
+
+### HasCoolingCapability
+
+`func (o *RackType) HasCoolingCapability() bool`
+
+HasCoolingCapability returns a boolean if a field has been set.
+
+### SetCoolingCapabilityNil
+
+`func (o *RackType) SetCoolingCapabilityNil(b bool)`
+
+ SetCoolingCapabilityNil sets the value for CoolingCapability to be an explicit nil
+
+### UnsetCoolingCapability
+`func (o *RackType) UnsetCoolingCapability()`
+
+UnsetCoolingCapability ensures that no value is present for CoolingCapability, not even an explicit nil
+### GetCoolingCapacity
+
+`func (o *RackType) GetCoolingCapacity() float64`
+
+GetCoolingCapacity returns the CoolingCapacity field if non-nil, zero value otherwise.
+
+### GetCoolingCapacityOk
+
+`func (o *RackType) GetCoolingCapacityOk() (*float64, bool)`
+
+GetCoolingCapacityOk returns a tuple with the CoolingCapacity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingCapacity
+
+`func (o *RackType) SetCoolingCapacity(v float64)`
+
+SetCoolingCapacity sets CoolingCapacity field to given value.
+
+### HasCoolingCapacity
+
+`func (o *RackType) HasCoolingCapacity() bool`
+
+HasCoolingCapacity returns a boolean if a field has been set.
+
+### SetCoolingCapacityNil
+
+`func (o *RackType) SetCoolingCapacityNil(b bool)`
+
+ SetCoolingCapacityNil sets the value for CoolingCapacity to be an explicit nil
+
+### UnsetCoolingCapacity
+`func (o *RackType) UnsetCoolingCapacity()`
+
+UnsetCoolingCapacity ensures that no value is present for CoolingCapacity, not even an explicit nil
+### GetOwner
+
+`func (o *RackType) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *RackType) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *RackType) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *RackType) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *RackType) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *RackType) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *RackType) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *RackType) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *RackType) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *RackType) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *RackType) GetTags() []NestedTag`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *RackType) GetTagsOk() (*[]NestedTag, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *RackType) SetTags(v []NestedTag)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *RackType) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### GetCustomFields
+
+`func (o *RackType) GetCustomFields() map[string]interface{}`
+
+GetCustomFields returns the CustomFields field if non-nil, zero value otherwise.
+
+### GetCustomFieldsOk
+
+`func (o *RackType) GetCustomFieldsOk() (*map[string]interface{}, bool)`
+
+GetCustomFieldsOk returns a tuple with the CustomFields field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCustomFields
+
+`func (o *RackType) SetCustomFields(v map[string]interface{})`
+
+SetCustomFields sets CustomFields field to given value.
+
+### HasCustomFields
+
+`func (o *RackType) HasCustomFields() bool`
+
+HasCustomFields returns a boolean if a field has been set.
+
+### GetCreated
+
+`func (o *RackType) GetCreated() time.Time`
+
+GetCreated returns the Created field if non-nil, zero value otherwise.
+
+### GetCreatedOk
+
+`func (o *RackType) GetCreatedOk() (*time.Time, bool)`
+
+GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCreated
+
+`func (o *RackType) SetCreated(v time.Time)`
+
+SetCreated sets Created field to given value.
+
+
+### SetCreatedNil
+
+`func (o *RackType) SetCreatedNil(b bool)`
+
+ SetCreatedNil sets the value for Created to be an explicit nil
+
+### UnsetCreated
+`func (o *RackType) UnsetCreated()`
+
+UnsetCreated ensures that no value is present for Created, not even an explicit nil
+### GetLastUpdated
+
+`func (o *RackType) GetLastUpdated() time.Time`
+
+GetLastUpdated returns the LastUpdated field if non-nil, zero value otherwise.
+
+### GetLastUpdatedOk
+
+`func (o *RackType) GetLastUpdatedOk() (*time.Time, bool)`
+
+GetLastUpdatedOk returns a tuple with the LastUpdated field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastUpdated
+
+`func (o *RackType) SetLastUpdated(v time.Time)`
+
+SetLastUpdated sets LastUpdated field to given value.
+
+
+### SetLastUpdatedNil
+
+`func (o *RackType) SetLastUpdatedNil(b bool)`
+
+ SetLastUpdatedNil sets the value for LastUpdated to be an explicit nil
+
+### UnsetLastUpdated
+`func (o *RackType) UnsetLastUpdated()`
+
+UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+### GetRackCount
+
+`func (o *RackType) GetRackCount() int32`
+
+GetRackCount returns the RackCount field if non-nil, zero value otherwise.
+
+### GetRackCountOk
+
+`func (o *RackType) GetRackCountOk() (*int32, bool)`
+
+GetRackCountOk returns a tuple with the RackCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRackCount
+
+`func (o *RackType) SetRackCount(v int32)`
+
+SetRackCount sets RackCount field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

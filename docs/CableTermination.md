@@ -7,11 +7,13 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
-**Cable** | **int32** |  | 
+**Cable** | **int32** |  | [readonly] 
 **CableEnd** | [**End1**](End1.md) |  | 
-**TerminationType** | **string** |  | 
-**TerminationId** | **int64** |  | 
+**TerminationType** | **string** |  | [readonly] 
+**TerminationId** | **int32** |  | [readonly] 
 **Termination** | **interface{}** |  | [readonly] 
+**Connector** | **NullableInt32** |  | [readonly] 
+**Positions** | **[]int32** |  | [readonly] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 
@@ -19,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewCableTermination
 
-`func NewCableTermination(id int32, url string, display string, cable int32, cableEnd End1, terminationType string, terminationId int64, termination interface{}, created NullableTime, lastUpdated NullableTime, ) *CableTermination`
+`func NewCableTermination(id int32, url string, display string, cable int32, cableEnd End1, terminationType string, terminationId int32, termination interface{}, connector NullableInt32, positions []int32, created NullableTime, lastUpdated NullableTime, ) *CableTermination`
 
 NewCableTermination instantiates a new CableTermination object
 This constructor will assign default values to properties that have it defined,
@@ -156,20 +158,20 @@ SetTerminationType sets TerminationType field to given value.
 
 ### GetTerminationId
 
-`func (o *CableTermination) GetTerminationId() int64`
+`func (o *CableTermination) GetTerminationId() int32`
 
 GetTerminationId returns the TerminationId field if non-nil, zero value otherwise.
 
 ### GetTerminationIdOk
 
-`func (o *CableTermination) GetTerminationIdOk() (*int64, bool)`
+`func (o *CableTermination) GetTerminationIdOk() (*int32, bool)`
 
 GetTerminationIdOk returns a tuple with the TerminationId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTerminationId
 
-`func (o *CableTermination) SetTerminationId(v int64)`
+`func (o *CableTermination) SetTerminationId(v int32)`
 
 SetTerminationId sets TerminationId field to given value.
 
@@ -204,6 +206,66 @@ SetTermination sets Termination field to given value.
 `func (o *CableTermination) UnsetTermination()`
 
 UnsetTermination ensures that no value is present for Termination, not even an explicit nil
+### GetConnector
+
+`func (o *CableTermination) GetConnector() int32`
+
+GetConnector returns the Connector field if non-nil, zero value otherwise.
+
+### GetConnectorOk
+
+`func (o *CableTermination) GetConnectorOk() (*int32, bool)`
+
+GetConnectorOk returns a tuple with the Connector field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConnector
+
+`func (o *CableTermination) SetConnector(v int32)`
+
+SetConnector sets Connector field to given value.
+
+
+### SetConnectorNil
+
+`func (o *CableTermination) SetConnectorNil(b bool)`
+
+ SetConnectorNil sets the value for Connector to be an explicit nil
+
+### UnsetConnector
+`func (o *CableTermination) UnsetConnector()`
+
+UnsetConnector ensures that no value is present for Connector, not even an explicit nil
+### GetPositions
+
+`func (o *CableTermination) GetPositions() []int32`
+
+GetPositions returns the Positions field if non-nil, zero value otherwise.
+
+### GetPositionsOk
+
+`func (o *CableTermination) GetPositionsOk() (*[]int32, bool)`
+
+GetPositionsOk returns a tuple with the Positions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPositions
+
+`func (o *CableTermination) SetPositions(v []int32)`
+
+SetPositions sets Positions field to given value.
+
+
+### SetPositionsNil
+
+`func (o *CableTermination) SetPositionsNil(b bool)`
+
+ SetPositionsNil sets the value for Positions to be an explicit nil
+
+### UnsetPositions
+`func (o *CableTermination) UnsetPositions()`
+
+UnsetPositions ensures that no value is present for Positions, not even an explicit nil
 ### GetCreated
 
 `func (o *CableTermination) GetCreated() time.Time`

@@ -6,20 +6,23 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Device** | [**BriefDevice**](BriefDevice.md) |  | 
 **Module** | Pointer to [**NullableBriefModule**](BriefModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Type** | [**FrontPortType**](FrontPortType.md) |  | 
-**Color** | Pointer to **string** |  | [optional] 
-**Positions** | Pointer to **int32** | Number of front ports which may be mapped | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
+**Positions** | Pointer to **int32** |  | [optional] 
+**FrontPorts** | Pointer to [**[]RearPortMapping**](RearPortMapping.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
 **Cable** | [**NullableBriefCable**](BriefCable.md) |  | [readonly] 
-**CableEnd** | **string** |  | [readonly] 
+**CableEnd** | [**NullableCircuitTerminationCableEnd**](CircuitTerminationCableEnd.md) |  | 
 **LinkPeers** | **[]interface{}** |  | [readonly] 
 **LinkPeersType** | **NullableString** | Return the type of the peer link terminations, or None. | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -30,7 +33,7 @@ Name | Type | Description | Notes
 
 ### NewRearPort
 
-`func NewRearPort(id int32, url string, display string, device BriefDevice, name string, type_ FrontPortType, cable NullableBriefCable, cableEnd string, linkPeers []interface{}, linkPeersType NullableString, created NullableTime, lastUpdated NullableTime, occupied bool, ) *RearPort`
+`func NewRearPort(id int32, url string, displayUrl string, display string, device BriefDevice, name string, type_ FrontPortType, cable NullableBriefCable, cableEnd NullableCircuitTerminationCableEnd, linkPeers []interface{}, linkPeersType NullableString, created NullableTime, lastUpdated NullableTime, occupied bool, ) *RearPort`
 
 NewRearPort instantiates a new RearPort object
 This constructor will assign default values to properties that have it defined,
@@ -83,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *RearPort) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *RearPort) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *RearPort) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *RearPort) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -227,20 +250,20 @@ SetType sets Type field to given value.
 
 ### GetColor
 
-`func (o *RearPort) GetColor() string`
+`func (o *RearPort) GetColor() BriefModuleBayTypeColor`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *RearPort) GetColorOk() (*string, bool)`
+`func (o *RearPort) GetColorOk() (*BriefModuleBayTypeColor, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *RearPort) SetColor(v string)`
+`func (o *RearPort) SetColor(v BriefModuleBayTypeColor)`
 
 SetColor sets Color field to given value.
 
@@ -274,6 +297,31 @@ SetPositions sets Positions field to given value.
 `func (o *RearPort) HasPositions() bool`
 
 HasPositions returns a boolean if a field has been set.
+
+### GetFrontPorts
+
+`func (o *RearPort) GetFrontPorts() []RearPortMapping`
+
+GetFrontPorts returns the FrontPorts field if non-nil, zero value otherwise.
+
+### GetFrontPortsOk
+
+`func (o *RearPort) GetFrontPortsOk() (*[]RearPortMapping, bool)`
+
+GetFrontPortsOk returns a tuple with the FrontPorts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrontPorts
+
+`func (o *RearPort) SetFrontPorts(v []RearPortMapping)`
+
+SetFrontPorts sets FrontPorts field to given value.
+
+### HasFrontPorts
+
+`func (o *RearPort) HasFrontPorts() bool`
+
+HasFrontPorts returns a boolean if a field has been set.
 
 ### GetDescription
 
@@ -357,24 +405,34 @@ SetCable sets Cable field to given value.
 UnsetCable ensures that no value is present for Cable, not even an explicit nil
 ### GetCableEnd
 
-`func (o *RearPort) GetCableEnd() string`
+`func (o *RearPort) GetCableEnd() CircuitTerminationCableEnd`
 
 GetCableEnd returns the CableEnd field if non-nil, zero value otherwise.
 
 ### GetCableEndOk
 
-`func (o *RearPort) GetCableEndOk() (*string, bool)`
+`func (o *RearPort) GetCableEndOk() (*CircuitTerminationCableEnd, bool)`
 
 GetCableEndOk returns a tuple with the CableEnd field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCableEnd
 
-`func (o *RearPort) SetCableEnd(v string)`
+`func (o *RearPort) SetCableEnd(v CircuitTerminationCableEnd)`
 
 SetCableEnd sets CableEnd field to given value.
 
 
+### SetCableEndNil
+
+`func (o *RearPort) SetCableEndNil(b bool)`
+
+ SetCableEndNil sets the value for CableEnd to be an explicit nil
+
+### UnsetCableEnd
+`func (o *RearPort) UnsetCableEnd()`
+
+UnsetCableEnd ensures that no value is present for CableEnd, not even an explicit nil
 ### GetLinkPeers
 
 `func (o *RearPort) GetLinkPeers() []interface{}`
@@ -425,6 +483,41 @@ SetLinkPeersType sets LinkPeersType field to given value.
 `func (o *RearPort) UnsetLinkPeersType()`
 
 UnsetLinkPeersType ensures that no value is present for LinkPeersType, not even an explicit nil
+### GetOwner
+
+`func (o *RearPort) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *RearPort) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *RearPort) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *RearPort) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *RearPort) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *RearPort) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *RearPort) GetTags() []NestedTag`

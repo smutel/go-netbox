@@ -7,11 +7,14 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
-**DeviceType** | [**BriefDeviceType**](BriefDeviceType.md) |  | 
+**DeviceType** | Pointer to [**NullableBriefDeviceType**](BriefDeviceType.md) |  | [optional] 
+**ModuleType** | Pointer to [**NullableBriefModuleType**](BriefModuleType.md) |  | [optional] 
 **Name** | **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Position** | Pointer to **string** | Identifier to reference when renaming installed components | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**ModuleBayTypes** | Pointer to [**[]BriefModuleBayType**](BriefModuleBayType.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 
@@ -19,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewModuleBayTemplate
 
-`func NewModuleBayTemplate(id int32, url string, display string, deviceType BriefDeviceType, name string, created NullableTime, lastUpdated NullableTime, ) *ModuleBayTemplate`
+`func NewModuleBayTemplate(id int32, url string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *ModuleBayTemplate`
 
 NewModuleBayTemplate instantiates a new ModuleBayTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -113,7 +116,57 @@ and a boolean to check if the value has been set.
 
 SetDeviceType sets DeviceType field to given value.
 
+### HasDeviceType
 
+`func (o *ModuleBayTemplate) HasDeviceType() bool`
+
+HasDeviceType returns a boolean if a field has been set.
+
+### SetDeviceTypeNil
+
+`func (o *ModuleBayTemplate) SetDeviceTypeNil(b bool)`
+
+ SetDeviceTypeNil sets the value for DeviceType to be an explicit nil
+
+### UnsetDeviceType
+`func (o *ModuleBayTemplate) UnsetDeviceType()`
+
+UnsetDeviceType ensures that no value is present for DeviceType, not even an explicit nil
+### GetModuleType
+
+`func (o *ModuleBayTemplate) GetModuleType() BriefModuleType`
+
+GetModuleType returns the ModuleType field if non-nil, zero value otherwise.
+
+### GetModuleTypeOk
+
+`func (o *ModuleBayTemplate) GetModuleTypeOk() (*BriefModuleType, bool)`
+
+GetModuleTypeOk returns a tuple with the ModuleType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleType
+
+`func (o *ModuleBayTemplate) SetModuleType(v BriefModuleType)`
+
+SetModuleType sets ModuleType field to given value.
+
+### HasModuleType
+
+`func (o *ModuleBayTemplate) HasModuleType() bool`
+
+HasModuleType returns a boolean if a field has been set.
+
+### SetModuleTypeNil
+
+`func (o *ModuleBayTemplate) SetModuleTypeNil(b bool)`
+
+ SetModuleTypeNil sets the value for ModuleType to be an explicit nil
+
+### UnsetModuleType
+`func (o *ModuleBayTemplate) UnsetModuleType()`
+
+UnsetModuleType ensures that no value is present for ModuleType, not even an explicit nil
 ### GetName
 
 `func (o *ModuleBayTemplate) GetName() string`
@@ -184,6 +237,31 @@ SetPosition sets Position field to given value.
 
 HasPosition returns a boolean if a field has been set.
 
+### GetEnabled
+
+`func (o *ModuleBayTemplate) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *ModuleBayTemplate) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *ModuleBayTemplate) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *ModuleBayTemplate) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *ModuleBayTemplate) GetDescription() string`
@@ -208,6 +286,31 @@ SetDescription sets Description field to given value.
 `func (o *ModuleBayTemplate) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetModuleBayTypes
+
+`func (o *ModuleBayTemplate) GetModuleBayTypes() []BriefModuleBayType`
+
+GetModuleBayTypes returns the ModuleBayTypes field if non-nil, zero value otherwise.
+
+### GetModuleBayTypesOk
+
+`func (o *ModuleBayTemplate) GetModuleBayTypesOk() (*[]BriefModuleBayType, bool)`
+
+GetModuleBayTypesOk returns a tuple with the ModuleBayTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleBayTypes
+
+`func (o *ModuleBayTemplate) SetModuleBayTypes(v []BriefModuleBayType)`
+
+SetModuleBayTypes sets ModuleBayTypes field to given value.
+
+### HasModuleBayTypes
+
+`func (o *ModuleBayTemplate) HasModuleBayTypes() bool`
+
+HasModuleBayTypes returns a boolean if a field has been set.
 
 ### GetCreated
 

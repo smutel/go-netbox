@@ -6,14 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
-**Device** | Pointer to [**NullableBriefDevice**](BriefDevice.md) |  | [optional] 
-**VirtualMachine** | Pointer to [**NullableBriefVirtualMachine**](BriefVirtualMachine.md) |  | [optional] 
+**ParentObjectType** | **string** |  | 
+**ParentObjectId** | **int64** |  | 
+**Parent** | **interface{}** |  | [readonly] 
 **Name** | **string** |  | 
-**Protocol** | Pointer to [**ServiceProtocol**](ServiceProtocol.md) |  | [optional] 
-**Ports** | **[]int32** |  | 
-**Ipaddresses** | Pointer to [**[]IPAddress**](IPAddress.md) |  | [optional] 
+**PortMappings** | Pointer to **[]string** |  | [optional] 
+**Protocol** | Pointer to [**NullableServiceProtocol**](ServiceProtocol.md) |  | [optional] 
+**Ports** | Pointer to **[]int32** | Deprecated; use port_mappings. Reported only for single-protocol services. | [optional] 
+**Ipaddresses** | Pointer to [**[]BriefIPAddress**](BriefIPAddress.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -24,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewService
 
-`func NewService(id int32, url string, display string, name string, ports []int32, created NullableTime, lastUpdated NullableTime, ) *Service`
+`func NewService(id int32, url string, displayUrl string, display string, parentObjectType string, parentObjectId int64, parent interface{}, name string, created NullableTime, lastUpdated NullableTime, ) *Service`
 
 NewService instantiates a new Service object
 This constructor will assign default values to properties that have it defined,
@@ -79,6 +83,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *Service) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Service) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Service) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *Service) GetDisplay() string`
@@ -99,76 +123,76 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
-### GetDevice
+### GetParentObjectType
 
-`func (o *Service) GetDevice() BriefDevice`
+`func (o *Service) GetParentObjectType() string`
 
-GetDevice returns the Device field if non-nil, zero value otherwise.
+GetParentObjectType returns the ParentObjectType field if non-nil, zero value otherwise.
 
-### GetDeviceOk
+### GetParentObjectTypeOk
 
-`func (o *Service) GetDeviceOk() (*BriefDevice, bool)`
+`func (o *Service) GetParentObjectTypeOk() (*string, bool)`
 
-GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
+GetParentObjectTypeOk returns a tuple with the ParentObjectType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDevice
+### SetParentObjectType
 
-`func (o *Service) SetDevice(v BriefDevice)`
+`func (o *Service) SetParentObjectType(v string)`
 
-SetDevice sets Device field to given value.
+SetParentObjectType sets ParentObjectType field to given value.
 
-### HasDevice
 
-`func (o *Service) HasDevice() bool`
+### GetParentObjectId
 
-HasDevice returns a boolean if a field has been set.
+`func (o *Service) GetParentObjectId() int64`
 
-### SetDeviceNil
+GetParentObjectId returns the ParentObjectId field if non-nil, zero value otherwise.
 
-`func (o *Service) SetDeviceNil(b bool)`
+### GetParentObjectIdOk
 
- SetDeviceNil sets the value for Device to be an explicit nil
+`func (o *Service) GetParentObjectIdOk() (*int64, bool)`
 
-### UnsetDevice
-`func (o *Service) UnsetDevice()`
-
-UnsetDevice ensures that no value is present for Device, not even an explicit nil
-### GetVirtualMachine
-
-`func (o *Service) GetVirtualMachine() BriefVirtualMachine`
-
-GetVirtualMachine returns the VirtualMachine field if non-nil, zero value otherwise.
-
-### GetVirtualMachineOk
-
-`func (o *Service) GetVirtualMachineOk() (*BriefVirtualMachine, bool)`
-
-GetVirtualMachineOk returns a tuple with the VirtualMachine field if it's non-nil, zero value otherwise
+GetParentObjectIdOk returns a tuple with the ParentObjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVirtualMachine
+### SetParentObjectId
 
-`func (o *Service) SetVirtualMachine(v BriefVirtualMachine)`
+`func (o *Service) SetParentObjectId(v int64)`
 
-SetVirtualMachine sets VirtualMachine field to given value.
+SetParentObjectId sets ParentObjectId field to given value.
 
-### HasVirtualMachine
 
-`func (o *Service) HasVirtualMachine() bool`
+### GetParent
 
-HasVirtualMachine returns a boolean if a field has been set.
+`func (o *Service) GetParent() interface{}`
 
-### SetVirtualMachineNil
+GetParent returns the Parent field if non-nil, zero value otherwise.
 
-`func (o *Service) SetVirtualMachineNil(b bool)`
+### GetParentOk
 
- SetVirtualMachineNil sets the value for VirtualMachine to be an explicit nil
+`func (o *Service) GetParentOk() (*interface{}, bool)`
 
-### UnsetVirtualMachine
-`func (o *Service) UnsetVirtualMachine()`
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
 
-UnsetVirtualMachine ensures that no value is present for VirtualMachine, not even an explicit nil
+### SetParent
+
+`func (o *Service) SetParent(v interface{})`
+
+SetParent sets Parent field to given value.
+
+
+### SetParentNil
+
+`func (o *Service) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *Service) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetName
 
 `func (o *Service) GetName() string`
@@ -188,6 +212,31 @@ and a boolean to check if the value has been set.
 
 SetName sets Name field to given value.
 
+
+### GetPortMappings
+
+`func (o *Service) GetPortMappings() []string`
+
+GetPortMappings returns the PortMappings field if non-nil, zero value otherwise.
+
+### GetPortMappingsOk
+
+`func (o *Service) GetPortMappingsOk() (*[]string, bool)`
+
+GetPortMappingsOk returns a tuple with the PortMappings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortMappings
+
+`func (o *Service) SetPortMappings(v []string)`
+
+SetPortMappings sets PortMappings field to given value.
+
+### HasPortMappings
+
+`func (o *Service) HasPortMappings() bool`
+
+HasPortMappings returns a boolean if a field has been set.
 
 ### GetProtocol
 
@@ -214,6 +263,16 @@ SetProtocol sets Protocol field to given value.
 
 HasProtocol returns a boolean if a field has been set.
 
+### SetProtocolNil
+
+`func (o *Service) SetProtocolNil(b bool)`
+
+ SetProtocolNil sets the value for Protocol to be an explicit nil
+
+### UnsetProtocol
+`func (o *Service) UnsetProtocol()`
+
+UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
 ### GetPorts
 
 `func (o *Service) GetPorts() []int32`
@@ -233,23 +292,38 @@ and a boolean to check if the value has been set.
 
 SetPorts sets Ports field to given value.
 
+### HasPorts
 
+`func (o *Service) HasPorts() bool`
+
+HasPorts returns a boolean if a field has been set.
+
+### SetPortsNil
+
+`func (o *Service) SetPortsNil(b bool)`
+
+ SetPortsNil sets the value for Ports to be an explicit nil
+
+### UnsetPorts
+`func (o *Service) UnsetPorts()`
+
+UnsetPorts ensures that no value is present for Ports, not even an explicit nil
 ### GetIpaddresses
 
-`func (o *Service) GetIpaddresses() []IPAddress`
+`func (o *Service) GetIpaddresses() []BriefIPAddress`
 
 GetIpaddresses returns the Ipaddresses field if non-nil, zero value otherwise.
 
 ### GetIpaddressesOk
 
-`func (o *Service) GetIpaddressesOk() (*[]IPAddress, bool)`
+`func (o *Service) GetIpaddressesOk() (*[]BriefIPAddress, bool)`
 
 GetIpaddressesOk returns a tuple with the Ipaddresses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIpaddresses
 
-`func (o *Service) SetIpaddresses(v []IPAddress)`
+`func (o *Service) SetIpaddresses(v []BriefIPAddress)`
 
 SetIpaddresses sets Ipaddresses field to given value.
 
@@ -284,6 +358,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Service) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Service) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Service) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Service) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Service) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Service) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Service) GetComments() string`

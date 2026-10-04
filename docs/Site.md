@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** | Full name of the site | 
 **Slug** | **string** |  | 
@@ -20,8 +21,9 @@ Name | Type | Description | Notes
 **ShippingAddress** | Pointer to **string** | If different from the physical address | [optional] 
 **Latitude** | Pointer to **NullableFloat64** | GPS coordinate in decimal format (xx.yyyyyy) | [optional] 
 **Longitude** | Pointer to **NullableFloat64** | GPS coordinate in decimal format (xx.yyyyyy) | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
-**Asns** | Pointer to [**[]ASN**](ASN.md) |  | [optional] 
+**Asns** | Pointer to [**[]BriefASN**](BriefASN.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -37,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewSite
 
-`func NewSite(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, circuitCount int64, deviceCount int64, prefixCount int64, rackCount int64, virtualmachineCount int64, vlanCount int64, ) *Site`
+`func NewSite(id int32, url string, displayUrl string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, circuitCount int64, deviceCount int64, prefixCount int64, rackCount int64, virtualmachineCount int64, vlanCount int64, ) *Site`
 
 NewSite instantiates a new Site object
 This constructor will assign default values to properties that have it defined,
@@ -90,6 +92,26 @@ and a boolean to check if the value has been set.
 `func (o *Site) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Site) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Site) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Site) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -487,6 +509,41 @@ HasLongitude returns a boolean if a field has been set.
 `func (o *Site) UnsetLongitude()`
 
 UnsetLongitude ensures that no value is present for Longitude, not even an explicit nil
+### GetOwner
+
+`func (o *Site) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Site) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Site) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Site) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Site) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Site) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Site) GetComments() string`
@@ -514,20 +571,20 @@ HasComments returns a boolean if a field has been set.
 
 ### GetAsns
 
-`func (o *Site) GetAsns() []ASN`
+`func (o *Site) GetAsns() []BriefASN`
 
 GetAsns returns the Asns field if non-nil, zero value otherwise.
 
 ### GetAsnsOk
 
-`func (o *Site) GetAsnsOk() (*[]ASN, bool)`
+`func (o *Site) GetAsnsOk() (*[]BriefASN, bool)`
 
 GetAsnsOk returns a tuple with the Asns field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAsns
 
-`func (o *Site) SetAsns(v []ASN)`
+`func (o *Site) SetAsns(v []BriefASN)`
 
 SetAsns sets Asns field to given value.
 

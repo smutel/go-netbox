@@ -6,11 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Family** | [**AggregateFamily**](AggregateFamily.md) |  | 
 **Prefix** | **string** |  | 
-**Site** | Pointer to [**NullableBriefSite**](BriefSite.md) |  | [optional] 
 **Vrf** | Pointer to [**NullableBriefVRF**](BriefVRF.md) |  | [optional] 
+**ScopeType** | Pointer to **NullableString** |  | [optional] 
+**ScopeId** | Pointer to **NullableInt32** |  | [optional] 
+**Scope** | **interface{}** |  | [readonly] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
 **Vlan** | Pointer to [**NullableBriefVLAN**](BriefVLAN.md) |  | [optional] 
 **Status** | Pointer to [**PrefixStatus**](PrefixStatus.md) |  | [optional] 
@@ -18,6 +21,7 @@ Name | Type | Description | Notes
 **IsPool** | Pointer to **bool** | All IP addresses within this prefix are considered usable | [optional] 
 **MarkUtilized** | Pointer to **bool** | Treat as fully utilized | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -30,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewPrefix
 
-`func NewPrefix(id int32, url string, display string, family AggregateFamily, prefix string, created NullableTime, lastUpdated NullableTime, children int32, depth int32, ) *Prefix`
+`func NewPrefix(id int32, url string, displayUrl string, display string, family AggregateFamily, prefix string, scope interface{}, created NullableTime, lastUpdated NullableTime, children int32, depth int32, ) *Prefix`
 
 NewPrefix instantiates a new Prefix object
 This constructor will assign default values to properties that have it defined,
@@ -83,6 +87,26 @@ and a boolean to check if the value has been set.
 `func (o *Prefix) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Prefix) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Prefix) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Prefix) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -145,41 +169,6 @@ and a boolean to check if the value has been set.
 SetPrefix sets Prefix field to given value.
 
 
-### GetSite
-
-`func (o *Prefix) GetSite() BriefSite`
-
-GetSite returns the Site field if non-nil, zero value otherwise.
-
-### GetSiteOk
-
-`func (o *Prefix) GetSiteOk() (*BriefSite, bool)`
-
-GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSite
-
-`func (o *Prefix) SetSite(v BriefSite)`
-
-SetSite sets Site field to given value.
-
-### HasSite
-
-`func (o *Prefix) HasSite() bool`
-
-HasSite returns a boolean if a field has been set.
-
-### SetSiteNil
-
-`func (o *Prefix) SetSiteNil(b bool)`
-
- SetSiteNil sets the value for Site to be an explicit nil
-
-### UnsetSite
-`func (o *Prefix) UnsetSite()`
-
-UnsetSite ensures that no value is present for Site, not even an explicit nil
 ### GetVrf
 
 `func (o *Prefix) GetVrf() BriefVRF`
@@ -215,6 +204,106 @@ HasVrf returns a boolean if a field has been set.
 `func (o *Prefix) UnsetVrf()`
 
 UnsetVrf ensures that no value is present for Vrf, not even an explicit nil
+### GetScopeType
+
+`func (o *Prefix) GetScopeType() string`
+
+GetScopeType returns the ScopeType field if non-nil, zero value otherwise.
+
+### GetScopeTypeOk
+
+`func (o *Prefix) GetScopeTypeOk() (*string, bool)`
+
+GetScopeTypeOk returns a tuple with the ScopeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopeType
+
+`func (o *Prefix) SetScopeType(v string)`
+
+SetScopeType sets ScopeType field to given value.
+
+### HasScopeType
+
+`func (o *Prefix) HasScopeType() bool`
+
+HasScopeType returns a boolean if a field has been set.
+
+### SetScopeTypeNil
+
+`func (o *Prefix) SetScopeTypeNil(b bool)`
+
+ SetScopeTypeNil sets the value for ScopeType to be an explicit nil
+
+### UnsetScopeType
+`func (o *Prefix) UnsetScopeType()`
+
+UnsetScopeType ensures that no value is present for ScopeType, not even an explicit nil
+### GetScopeId
+
+`func (o *Prefix) GetScopeId() int32`
+
+GetScopeId returns the ScopeId field if non-nil, zero value otherwise.
+
+### GetScopeIdOk
+
+`func (o *Prefix) GetScopeIdOk() (*int32, bool)`
+
+GetScopeIdOk returns a tuple with the ScopeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopeId
+
+`func (o *Prefix) SetScopeId(v int32)`
+
+SetScopeId sets ScopeId field to given value.
+
+### HasScopeId
+
+`func (o *Prefix) HasScopeId() bool`
+
+HasScopeId returns a boolean if a field has been set.
+
+### SetScopeIdNil
+
+`func (o *Prefix) SetScopeIdNil(b bool)`
+
+ SetScopeIdNil sets the value for ScopeId to be an explicit nil
+
+### UnsetScopeId
+`func (o *Prefix) UnsetScopeId()`
+
+UnsetScopeId ensures that no value is present for ScopeId, not even an explicit nil
+### GetScope
+
+`func (o *Prefix) GetScope() interface{}`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *Prefix) GetScopeOk() (*interface{}, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *Prefix) SetScope(v interface{})`
+
+SetScope sets Scope field to given value.
+
+
+### SetScopeNil
+
+`func (o *Prefix) SetScopeNil(b bool)`
+
+ SetScopeNil sets the value for Scope to be an explicit nil
+
+### UnsetScope
+`func (o *Prefix) UnsetScope()`
+
+UnsetScope ensures that no value is present for Scope, not even an explicit nil
 ### GetTenant
 
 `func (o *Prefix) GetTenant() BriefTenant`
@@ -420,6 +509,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Prefix) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Prefix) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Prefix) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Prefix) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Prefix) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Prefix) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Prefix) GetComments() string`

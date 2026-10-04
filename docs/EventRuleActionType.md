@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**EventRuleActionTypeValue**](EventRuleActionTypeValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkEventRuleRequestActionType**](BulkEventRuleRequestActionType.md) |  | [optional] 
 **Label** | Pointer to [**EventRuleActionTypeLabel**](EventRuleActionTypeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *EventRuleActionType) GetValue() EventRuleActionTypeValue`
+`func (o *EventRuleActionType) GetValue() BulkEventRuleRequestActionType`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *EventRuleActionType) GetValueOk() (*EventRuleActionTypeValue, bool)`
+`func (o *EventRuleActionType) GetValueOk() (*BulkEventRuleRequestActionType, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *EventRuleActionType) SetValue(v EventRuleActionTypeValue)`
+`func (o *EventRuleActionType) SetValue(v BulkEventRuleRequestActionType)`
 
 SetValue sets Value field to given value.
 

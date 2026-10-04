@@ -5,24 +5,28 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Cid** | **string** | Unique circuit ID | 
-**Provider** | [**BriefProviderRequest**](BriefProviderRequest.md) |  | 
-**ProviderAccount** | Pointer to [**NullableBriefProviderAccountRequest**](BriefProviderAccountRequest.md) |  | [optional] 
-**Type** | [**BriefCircuitTypeRequest**](BriefCircuitTypeRequest.md) |  | 
-**Status** | Pointer to [**CircuitStatusValue**](CircuitStatusValue.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Provider** | [**BriefCircuitRequestProvider**](BriefCircuitRequestProvider.md) |  | 
+**ProviderAccount** | Pointer to [**NullableBulkCircuitRequestProviderAccount**](BulkCircuitRequestProviderAccount.md) |  | [optional] 
+**Type** | [**BulkCircuitRequestType**](BulkCircuitRequestType.md) |  | 
+**Status** | Pointer to [**BulkCircuitRequestStatus**](BulkCircuitRequestStatus.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **InstallDate** | Pointer to **NullableString** |  | [optional] 
 **TerminationDate** | Pointer to **NullableString** |  | [optional] 
 **CommitRate** | Pointer to **NullableInt32** | Committed rate | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Distance** | Pointer to **NullableFloat64** |  | [optional] 
+**DistanceUnit** | Pointer to [**NullableBulkCircuitRequestDistanceUnit**](BulkCircuitRequestDistanceUnit.md) |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Assignments** | Pointer to [**[]BriefCircuitGroupAssignmentSerializerRequest**](BriefCircuitGroupAssignmentSerializerRequest.md) |  | [optional] 
 
 ## Methods
 
 ### NewWritableCircuitRequest
 
-`func NewWritableCircuitRequest(cid string, provider BriefProviderRequest, type_ BriefCircuitTypeRequest, ) *WritableCircuitRequest`
+`func NewWritableCircuitRequest(cid string, provider BriefCircuitRequestProvider, type_ BulkCircuitRequestType, ) *WritableCircuitRequest`
 
 NewWritableCircuitRequest instantiates a new WritableCircuitRequest object
 This constructor will assign default values to properties that have it defined,
@@ -59,40 +63,40 @@ SetCid sets Cid field to given value.
 
 ### GetProvider
 
-`func (o *WritableCircuitRequest) GetProvider() BriefProviderRequest`
+`func (o *WritableCircuitRequest) GetProvider() BriefCircuitRequestProvider`
 
 GetProvider returns the Provider field if non-nil, zero value otherwise.
 
 ### GetProviderOk
 
-`func (o *WritableCircuitRequest) GetProviderOk() (*BriefProviderRequest, bool)`
+`func (o *WritableCircuitRequest) GetProviderOk() (*BriefCircuitRequestProvider, bool)`
 
 GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProvider
 
-`func (o *WritableCircuitRequest) SetProvider(v BriefProviderRequest)`
+`func (o *WritableCircuitRequest) SetProvider(v BriefCircuitRequestProvider)`
 
 SetProvider sets Provider field to given value.
 
 
 ### GetProviderAccount
 
-`func (o *WritableCircuitRequest) GetProviderAccount() BriefProviderAccountRequest`
+`func (o *WritableCircuitRequest) GetProviderAccount() BulkCircuitRequestProviderAccount`
 
 GetProviderAccount returns the ProviderAccount field if non-nil, zero value otherwise.
 
 ### GetProviderAccountOk
 
-`func (o *WritableCircuitRequest) GetProviderAccountOk() (*BriefProviderAccountRequest, bool)`
+`func (o *WritableCircuitRequest) GetProviderAccountOk() (*BulkCircuitRequestProviderAccount, bool)`
 
 GetProviderAccountOk returns a tuple with the ProviderAccount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProviderAccount
 
-`func (o *WritableCircuitRequest) SetProviderAccount(v BriefProviderAccountRequest)`
+`func (o *WritableCircuitRequest) SetProviderAccount(v BulkCircuitRequestProviderAccount)`
 
 SetProviderAccount sets ProviderAccount field to given value.
 
@@ -114,40 +118,40 @@ HasProviderAccount returns a boolean if a field has been set.
 UnsetProviderAccount ensures that no value is present for ProviderAccount, not even an explicit nil
 ### GetType
 
-`func (o *WritableCircuitRequest) GetType() BriefCircuitTypeRequest`
+`func (o *WritableCircuitRequest) GetType() BulkCircuitRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *WritableCircuitRequest) GetTypeOk() (*BriefCircuitTypeRequest, bool)`
+`func (o *WritableCircuitRequest) GetTypeOk() (*BulkCircuitRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *WritableCircuitRequest) SetType(v BriefCircuitTypeRequest)`
+`func (o *WritableCircuitRequest) SetType(v BulkCircuitRequestType)`
 
 SetType sets Type field to given value.
 
 
 ### GetStatus
 
-`func (o *WritableCircuitRequest) GetStatus() CircuitStatusValue`
+`func (o *WritableCircuitRequest) GetStatus() BulkCircuitRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WritableCircuitRequest) GetStatusOk() (*CircuitStatusValue, bool)`
+`func (o *WritableCircuitRequest) GetStatusOk() (*BulkCircuitRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WritableCircuitRequest) SetStatus(v CircuitStatusValue)`
+`func (o *WritableCircuitRequest) SetStatus(v BulkCircuitRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -159,20 +163,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *WritableCircuitRequest) GetTenant() BriefTenantRequest`
+`func (o *WritableCircuitRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *WritableCircuitRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *WritableCircuitRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *WritableCircuitRequest) SetTenant(v BriefTenantRequest)`
+`func (o *WritableCircuitRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -322,6 +326,111 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetDistance
+
+`func (o *WritableCircuitRequest) GetDistance() float64`
+
+GetDistance returns the Distance field if non-nil, zero value otherwise.
+
+### GetDistanceOk
+
+`func (o *WritableCircuitRequest) GetDistanceOk() (*float64, bool)`
+
+GetDistanceOk returns a tuple with the Distance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistance
+
+`func (o *WritableCircuitRequest) SetDistance(v float64)`
+
+SetDistance sets Distance field to given value.
+
+### HasDistance
+
+`func (o *WritableCircuitRequest) HasDistance() bool`
+
+HasDistance returns a boolean if a field has been set.
+
+### SetDistanceNil
+
+`func (o *WritableCircuitRequest) SetDistanceNil(b bool)`
+
+ SetDistanceNil sets the value for Distance to be an explicit nil
+
+### UnsetDistance
+`func (o *WritableCircuitRequest) UnsetDistance()`
+
+UnsetDistance ensures that no value is present for Distance, not even an explicit nil
+### GetDistanceUnit
+
+`func (o *WritableCircuitRequest) GetDistanceUnit() BulkCircuitRequestDistanceUnit`
+
+GetDistanceUnit returns the DistanceUnit field if non-nil, zero value otherwise.
+
+### GetDistanceUnitOk
+
+`func (o *WritableCircuitRequest) GetDistanceUnitOk() (*BulkCircuitRequestDistanceUnit, bool)`
+
+GetDistanceUnitOk returns a tuple with the DistanceUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistanceUnit
+
+`func (o *WritableCircuitRequest) SetDistanceUnit(v BulkCircuitRequestDistanceUnit)`
+
+SetDistanceUnit sets DistanceUnit field to given value.
+
+### HasDistanceUnit
+
+`func (o *WritableCircuitRequest) HasDistanceUnit() bool`
+
+HasDistanceUnit returns a boolean if a field has been set.
+
+### SetDistanceUnitNil
+
+`func (o *WritableCircuitRequest) SetDistanceUnitNil(b bool)`
+
+ SetDistanceUnitNil sets the value for DistanceUnit to be an explicit nil
+
+### UnsetDistanceUnit
+`func (o *WritableCircuitRequest) UnsetDistanceUnit()`
+
+UnsetDistanceUnit ensures that no value is present for DistanceUnit, not even an explicit nil
+### GetOwner
+
+`func (o *WritableCircuitRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableCircuitRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableCircuitRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableCircuitRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableCircuitRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableCircuitRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WritableCircuitRequest) GetComments() string`
@@ -396,6 +505,31 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *WritableCircuitRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetAssignments
+
+`func (o *WritableCircuitRequest) GetAssignments() []BriefCircuitGroupAssignmentSerializerRequest`
+
+GetAssignments returns the Assignments field if non-nil, zero value otherwise.
+
+### GetAssignmentsOk
+
+`func (o *WritableCircuitRequest) GetAssignmentsOk() (*[]BriefCircuitGroupAssignmentSerializerRequest, bool)`
+
+GetAssignmentsOk returns a tuple with the Assignments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssignments
+
+`func (o *WritableCircuitRequest) SetAssignments(v []BriefCircuitGroupAssignmentSerializerRequest)`
+
+SetAssignments sets Assignments field to given value.
+
+### HasAssignments
+
+`func (o *WritableCircuitRequest) HasAssignments() bool`
+
+HasAssignments returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

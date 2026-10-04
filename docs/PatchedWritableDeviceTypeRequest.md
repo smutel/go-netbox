@@ -4,21 +4,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Manufacturer** | Pointer to [**BriefManufacturerRequest**](BriefManufacturerRequest.md) |  | [optional] 
-**DefaultPlatform** | Pointer to [**NullableBriefPlatformRequest**](BriefPlatformRequest.md) |  | [optional] 
+**Manufacturer** | Pointer to [**BriefDeviceTypeRequestManufacturer**](BriefDeviceTypeRequestManufacturer.md) |  | [optional] 
+**DefaultPlatform** | Pointer to [**NullableBulkDeviceRequestPlatform**](BulkDeviceRequestPlatform.md) |  | [optional] 
 **Model** | Pointer to **string** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
 **PartNumber** | Pointer to **string** | Discrete part number (optional) | [optional] 
 **UHeight** | Pointer to **float64** |  | [optional] [default to 1.0]
 **ExcludeFromUtilization** | Pointer to **bool** | Devices of this type are excluded when calculating rack utilization. | [optional] 
 **IsFullDepth** | Pointer to **bool** | Device consumes both front and rear rack faces. | [optional] 
-**SubdeviceRole** | Pointer to [**ParentChildStatus1**](ParentChildStatus1.md) |  | [optional] 
-**Airflow** | Pointer to [**DeviceAirflowValue**](DeviceAirflowValue.md) |  | [optional] 
+**SubdeviceRole** | Pointer to [**NullableParentChildStatus1**](ParentChildStatus1.md) |  | [optional] 
+**Airflow** | Pointer to [**NullableBulkDeviceTypeRequestAirflow**](BulkDeviceTypeRequestAirflow.md) |  | [optional] 
+**CoolingMethod** | Pointer to [**NullableBulkDeviceRequestCoolingMethod**](BulkDeviceRequestCoolingMethod.md) |  | [optional] 
 **Weight** | Pointer to **NullableFloat64** |  | [optional] 
-**WeightUnit** | Pointer to [**DeviceTypeWeightUnitValue**](DeviceTypeWeightUnitValue.md) |  | [optional] 
+**WeightUnit** | Pointer to [**NullableBulkDeviceTypeRequestWeightUnit**](BulkDeviceTypeRequestWeightUnit.md) |  | [optional] 
+**EndOfLife** | Pointer to **NullableString** | The date after which this device type is no longer supported by the manufacturer | [optional] 
 **FrontImage** | Pointer to ***os.File** |  | [optional] 
 **RearImage** | Pointer to ***os.File** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -44,20 +47,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetManufacturer
 
-`func (o *PatchedWritableDeviceTypeRequest) GetManufacturer() BriefManufacturerRequest`
+`func (o *PatchedWritableDeviceTypeRequest) GetManufacturer() BriefDeviceTypeRequestManufacturer`
 
 GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
 
 ### GetManufacturerOk
 
-`func (o *PatchedWritableDeviceTypeRequest) GetManufacturerOk() (*BriefManufacturerRequest, bool)`
+`func (o *PatchedWritableDeviceTypeRequest) GetManufacturerOk() (*BriefDeviceTypeRequestManufacturer, bool)`
 
 GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetManufacturer
 
-`func (o *PatchedWritableDeviceTypeRequest) SetManufacturer(v BriefManufacturerRequest)`
+`func (o *PatchedWritableDeviceTypeRequest) SetManufacturer(v BriefDeviceTypeRequestManufacturer)`
 
 SetManufacturer sets Manufacturer field to given value.
 
@@ -69,20 +72,20 @@ HasManufacturer returns a boolean if a field has been set.
 
 ### GetDefaultPlatform
 
-`func (o *PatchedWritableDeviceTypeRequest) GetDefaultPlatform() BriefPlatformRequest`
+`func (o *PatchedWritableDeviceTypeRequest) GetDefaultPlatform() BulkDeviceRequestPlatform`
 
 GetDefaultPlatform returns the DefaultPlatform field if non-nil, zero value otherwise.
 
 ### GetDefaultPlatformOk
 
-`func (o *PatchedWritableDeviceTypeRequest) GetDefaultPlatformOk() (*BriefPlatformRequest, bool)`
+`func (o *PatchedWritableDeviceTypeRequest) GetDefaultPlatformOk() (*BulkDeviceRequestPlatform, bool)`
 
 GetDefaultPlatformOk returns a tuple with the DefaultPlatform field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDefaultPlatform
 
-`func (o *PatchedWritableDeviceTypeRequest) SetDefaultPlatform(v BriefPlatformRequest)`
+`func (o *PatchedWritableDeviceTypeRequest) SetDefaultPlatform(v BulkDeviceRequestPlatform)`
 
 SetDefaultPlatform sets DefaultPlatform field to given value.
 
@@ -277,22 +280,32 @@ SetSubdeviceRole sets SubdeviceRole field to given value.
 
 HasSubdeviceRole returns a boolean if a field has been set.
 
+### SetSubdeviceRoleNil
+
+`func (o *PatchedWritableDeviceTypeRequest) SetSubdeviceRoleNil(b bool)`
+
+ SetSubdeviceRoleNil sets the value for SubdeviceRole to be an explicit nil
+
+### UnsetSubdeviceRole
+`func (o *PatchedWritableDeviceTypeRequest) UnsetSubdeviceRole()`
+
+UnsetSubdeviceRole ensures that no value is present for SubdeviceRole, not even an explicit nil
 ### GetAirflow
 
-`func (o *PatchedWritableDeviceTypeRequest) GetAirflow() DeviceAirflowValue`
+`func (o *PatchedWritableDeviceTypeRequest) GetAirflow() BulkDeviceTypeRequestAirflow`
 
 GetAirflow returns the Airflow field if non-nil, zero value otherwise.
 
 ### GetAirflowOk
 
-`func (o *PatchedWritableDeviceTypeRequest) GetAirflowOk() (*DeviceAirflowValue, bool)`
+`func (o *PatchedWritableDeviceTypeRequest) GetAirflowOk() (*BulkDeviceTypeRequestAirflow, bool)`
 
 GetAirflowOk returns a tuple with the Airflow field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAirflow
 
-`func (o *PatchedWritableDeviceTypeRequest) SetAirflow(v DeviceAirflowValue)`
+`func (o *PatchedWritableDeviceTypeRequest) SetAirflow(v BulkDeviceTypeRequestAirflow)`
 
 SetAirflow sets Airflow field to given value.
 
@@ -302,6 +315,51 @@ SetAirflow sets Airflow field to given value.
 
 HasAirflow returns a boolean if a field has been set.
 
+### SetAirflowNil
+
+`func (o *PatchedWritableDeviceTypeRequest) SetAirflowNil(b bool)`
+
+ SetAirflowNil sets the value for Airflow to be an explicit nil
+
+### UnsetAirflow
+`func (o *PatchedWritableDeviceTypeRequest) UnsetAirflow()`
+
+UnsetAirflow ensures that no value is present for Airflow, not even an explicit nil
+### GetCoolingMethod
+
+`func (o *PatchedWritableDeviceTypeRequest) GetCoolingMethod() BulkDeviceRequestCoolingMethod`
+
+GetCoolingMethod returns the CoolingMethod field if non-nil, zero value otherwise.
+
+### GetCoolingMethodOk
+
+`func (o *PatchedWritableDeviceTypeRequest) GetCoolingMethodOk() (*BulkDeviceRequestCoolingMethod, bool)`
+
+GetCoolingMethodOk returns a tuple with the CoolingMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingMethod
+
+`func (o *PatchedWritableDeviceTypeRequest) SetCoolingMethod(v BulkDeviceRequestCoolingMethod)`
+
+SetCoolingMethod sets CoolingMethod field to given value.
+
+### HasCoolingMethod
+
+`func (o *PatchedWritableDeviceTypeRequest) HasCoolingMethod() bool`
+
+HasCoolingMethod returns a boolean if a field has been set.
+
+### SetCoolingMethodNil
+
+`func (o *PatchedWritableDeviceTypeRequest) SetCoolingMethodNil(b bool)`
+
+ SetCoolingMethodNil sets the value for CoolingMethod to be an explicit nil
+
+### UnsetCoolingMethod
+`func (o *PatchedWritableDeviceTypeRequest) UnsetCoolingMethod()`
+
+UnsetCoolingMethod ensures that no value is present for CoolingMethod, not even an explicit nil
 ### GetWeight
 
 `func (o *PatchedWritableDeviceTypeRequest) GetWeight() float64`
@@ -339,20 +397,20 @@ HasWeight returns a boolean if a field has been set.
 UnsetWeight ensures that no value is present for Weight, not even an explicit nil
 ### GetWeightUnit
 
-`func (o *PatchedWritableDeviceTypeRequest) GetWeightUnit() DeviceTypeWeightUnitValue`
+`func (o *PatchedWritableDeviceTypeRequest) GetWeightUnit() BulkDeviceTypeRequestWeightUnit`
 
 GetWeightUnit returns the WeightUnit field if non-nil, zero value otherwise.
 
 ### GetWeightUnitOk
 
-`func (o *PatchedWritableDeviceTypeRequest) GetWeightUnitOk() (*DeviceTypeWeightUnitValue, bool)`
+`func (o *PatchedWritableDeviceTypeRequest) GetWeightUnitOk() (*BulkDeviceTypeRequestWeightUnit, bool)`
 
 GetWeightUnitOk returns a tuple with the WeightUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeightUnit
 
-`func (o *PatchedWritableDeviceTypeRequest) SetWeightUnit(v DeviceTypeWeightUnitValue)`
+`func (o *PatchedWritableDeviceTypeRequest) SetWeightUnit(v BulkDeviceTypeRequestWeightUnit)`
 
 SetWeightUnit sets WeightUnit field to given value.
 
@@ -362,6 +420,51 @@ SetWeightUnit sets WeightUnit field to given value.
 
 HasWeightUnit returns a boolean if a field has been set.
 
+### SetWeightUnitNil
+
+`func (o *PatchedWritableDeviceTypeRequest) SetWeightUnitNil(b bool)`
+
+ SetWeightUnitNil sets the value for WeightUnit to be an explicit nil
+
+### UnsetWeightUnit
+`func (o *PatchedWritableDeviceTypeRequest) UnsetWeightUnit()`
+
+UnsetWeightUnit ensures that no value is present for WeightUnit, not even an explicit nil
+### GetEndOfLife
+
+`func (o *PatchedWritableDeviceTypeRequest) GetEndOfLife() string`
+
+GetEndOfLife returns the EndOfLife field if non-nil, zero value otherwise.
+
+### GetEndOfLifeOk
+
+`func (o *PatchedWritableDeviceTypeRequest) GetEndOfLifeOk() (*string, bool)`
+
+GetEndOfLifeOk returns a tuple with the EndOfLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndOfLife
+
+`func (o *PatchedWritableDeviceTypeRequest) SetEndOfLife(v string)`
+
+SetEndOfLife sets EndOfLife field to given value.
+
+### HasEndOfLife
+
+`func (o *PatchedWritableDeviceTypeRequest) HasEndOfLife() bool`
+
+HasEndOfLife returns a boolean if a field has been set.
+
+### SetEndOfLifeNil
+
+`func (o *PatchedWritableDeviceTypeRequest) SetEndOfLifeNil(b bool)`
+
+ SetEndOfLifeNil sets the value for EndOfLife to be an explicit nil
+
+### UnsetEndOfLife
+`func (o *PatchedWritableDeviceTypeRequest) UnsetEndOfLife()`
+
+UnsetEndOfLife ensures that no value is present for EndOfLife, not even an explicit nil
 ### GetFrontImage
 
 `func (o *PatchedWritableDeviceTypeRequest) GetFrontImage() *os.File`
@@ -437,6 +540,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableDeviceTypeRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableDeviceTypeRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableDeviceTypeRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableDeviceTypeRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableDeviceTypeRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableDeviceTypeRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableDeviceTypeRequest) GetComments() string`

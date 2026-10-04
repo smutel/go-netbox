@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewBriefPowerPortRequest
 
-`func NewBriefPowerPortRequest(device BriefDeviceRequest, name string, ) *BriefPowerPortRequest`
+`func NewBriefPowerPortRequest(device BriefCoolingIntakeRequestDevice, name string, ) *BriefPowerPortRequest`
 
 NewBriefPowerPortRequest instantiates a new BriefPowerPortRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *BriefPowerPortRequest) GetDevice() BriefDeviceRequest`
+`func (o *BriefPowerPortRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *BriefPowerPortRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *BriefPowerPortRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *BriefPowerPortRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *BriefPowerPortRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 

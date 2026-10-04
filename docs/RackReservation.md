@@ -6,14 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Rack** | [**BriefRack**](BriefRack.md) |  | 
 **Units** | **[]int32** |  | 
+**UnitCount** | **int32** |  | [readonly] 
+**Status** | Pointer to [**RackReservationStatus**](RackReservationStatus.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 **User** | [**BriefUser**](BriefUser.md) |  | 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
 **Description** | **string** |  | 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -22,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewRackReservation
 
-`func NewRackReservation(id int32, url string, display string, rack BriefRack, units []int32, created NullableTime, lastUpdated NullableTime, user BriefUser, description string, ) *RackReservation`
+`func NewRackReservation(id int32, url string, displayUrl string, display string, rack BriefRack, units []int32, unitCount int32, created NullableTime, lastUpdated NullableTime, user BriefUser, description string, ) *RackReservation`
 
 NewRackReservation instantiates a new RackReservation object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +79,26 @@ and a boolean to check if the value has been set.
 `func (o *RackReservation) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *RackReservation) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *RackReservation) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *RackReservation) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -136,6 +160,51 @@ and a boolean to check if the value has been set.
 
 SetUnits sets Units field to given value.
 
+
+### GetUnitCount
+
+`func (o *RackReservation) GetUnitCount() int32`
+
+GetUnitCount returns the UnitCount field if non-nil, zero value otherwise.
+
+### GetUnitCountOk
+
+`func (o *RackReservation) GetUnitCountOk() (*int32, bool)`
+
+GetUnitCountOk returns a tuple with the UnitCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnitCount
+
+`func (o *RackReservation) SetUnitCount(v int32)`
+
+SetUnitCount sets UnitCount field to given value.
+
+
+### GetStatus
+
+`func (o *RackReservation) GetStatus() RackReservationStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *RackReservation) GetStatusOk() (*RackReservationStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *RackReservation) SetStatus(v RackReservationStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *RackReservation) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetCreated
 
@@ -272,6 +341,41 @@ and a boolean to check if the value has been set.
 SetDescription sets Description field to given value.
 
 
+### GetOwner
+
+`func (o *RackReservation) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *RackReservation) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *RackReservation) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *RackReservation) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *RackReservation) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *RackReservation) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *RackReservation) GetComments() string`

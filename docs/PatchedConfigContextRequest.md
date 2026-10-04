@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Weight** | Pointer to **int32** |  | [optional] 
+**Profile** | Pointer to [**NullableBulkConfigContextRequestProfile**](BulkConfigContextRequestProfile.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
 **Regions** | Pointer to **[]int32** |  | [optional] 
@@ -20,8 +21,9 @@ Name | Type | Description | Notes
 **Clusters** | Pointer to **[]int32** |  | [optional] 
 **TenantGroups** | Pointer to **[]int32** |  | [optional] 
 **Tenants** | Pointer to **[]int32** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
-**DataSource** | Pointer to [**BriefDataSourceRequest**](BriefDataSourceRequest.md) |  | [optional] 
+**DataSource** | Pointer to [**BulkConfigContextProfileRequestDataSource**](BulkConfigContextProfileRequestDataSource.md) |  | [optional] 
 **Data** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
@@ -93,6 +95,41 @@ SetWeight sets Weight field to given value.
 
 HasWeight returns a boolean if a field has been set.
 
+### GetProfile
+
+`func (o *PatchedConfigContextRequest) GetProfile() BulkConfigContextRequestProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *PatchedConfigContextRequest) GetProfileOk() (*BulkConfigContextRequestProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *PatchedConfigContextRequest) SetProfile(v BulkConfigContextRequestProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *PatchedConfigContextRequest) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
+### SetProfileNil
+
+`func (o *PatchedConfigContextRequest) SetProfileNil(b bool)`
+
+ SetProfileNil sets the value for Profile to be an explicit nil
+
+### UnsetProfile
+`func (o *PatchedConfigContextRequest) UnsetProfile()`
+
+UnsetProfile ensures that no value is present for Profile, not even an explicit nil
 ### GetDescription
 
 `func (o *PatchedConfigContextRequest) GetDescription() string`
@@ -443,6 +480,41 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedConfigContextRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedConfigContextRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedConfigContextRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedConfigContextRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedConfigContextRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedConfigContextRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PatchedConfigContextRequest) GetTags() []string`
@@ -470,20 +542,20 @@ HasTags returns a boolean if a field has been set.
 
 ### GetDataSource
 
-`func (o *PatchedConfigContextRequest) GetDataSource() BriefDataSourceRequest`
+`func (o *PatchedConfigContextRequest) GetDataSource() BulkConfigContextProfileRequestDataSource`
 
 GetDataSource returns the DataSource field if non-nil, zero value otherwise.
 
 ### GetDataSourceOk
 
-`func (o *PatchedConfigContextRequest) GetDataSourceOk() (*BriefDataSourceRequest, bool)`
+`func (o *PatchedConfigContextRequest) GetDataSourceOk() (*BulkConfigContextProfileRequestDataSource, bool)`
 
 GetDataSourceOk returns a tuple with the DataSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataSource
 
-`func (o *PatchedConfigContextRequest) SetDataSource(v BriefDataSourceRequest)`
+`func (o *PatchedConfigContextRequest) SetDataSource(v BulkConfigContextProfileRequestDataSource)`
 
 SetDataSource sets DataSource field to given value.
 

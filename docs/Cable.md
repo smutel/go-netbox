@@ -6,17 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
-**Type** | Pointer to [**CableType**](CableType.md) |  | [optional] 
+**Type** | Pointer to [**NullableBulkCableRequestType**](BulkCableRequestType.md) |  | [optional] 
 **ATerminations** | Pointer to [**[]GenericObject**](GenericObject.md) |  | [optional] 
 **BTerminations** | Pointer to [**[]GenericObject**](GenericObject.md) |  | [optional] 
 **Status** | Pointer to [**CableStatus**](CableStatus.md) |  | [optional] 
+**Profile** | Pointer to [**CableProfile**](CableProfile.md) |  | [optional] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
+**Bundle** | Pointer to [**NullableBriefCableBundle**](BriefCableBundle.md) |  | [optional] 
 **Label** | Pointer to **string** |  | [optional] 
-**Color** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
 **Length** | Pointer to **NullableFloat64** |  | [optional] 
 **LengthUnit** | Pointer to [**NullableCableLengthUnit**](CableLengthUnit.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -27,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewCable
 
-`func NewCable(id int32, url string, display string, created NullableTime, lastUpdated NullableTime, ) *Cable`
+`func NewCable(id int32, url string, displayUrl string, display string, created NullableTime, lastUpdated NullableTime, ) *Cable`
 
 NewCable instantiates a new Cable object
 This constructor will assign default values to properties that have it defined,
@@ -82,6 +86,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *Cable) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Cable) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Cable) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *Cable) GetDisplay() string`
@@ -104,20 +128,20 @@ SetDisplay sets Display field to given value.
 
 ### GetType
 
-`func (o *Cable) GetType() CableType`
+`func (o *Cable) GetType() BulkCableRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *Cable) GetTypeOk() (*CableType, bool)`
+`func (o *Cable) GetTypeOk() (*BulkCableRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *Cable) SetType(v CableType)`
+`func (o *Cable) SetType(v BulkCableRequestType)`
 
 SetType sets Type field to given value.
 
@@ -127,6 +151,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *Cable) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *Cable) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetATerminations
 
 `func (o *Cable) GetATerminations() []GenericObject`
@@ -202,6 +236,31 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### GetProfile
+
+`func (o *Cable) GetProfile() CableProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *Cable) GetProfileOk() (*CableProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *Cable) SetProfile(v CableProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *Cable) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
 ### GetTenant
 
 `func (o *Cable) GetTenant() BriefTenant`
@@ -237,6 +296,41 @@ HasTenant returns a boolean if a field has been set.
 `func (o *Cable) UnsetTenant()`
 
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
+### GetBundle
+
+`func (o *Cable) GetBundle() BriefCableBundle`
+
+GetBundle returns the Bundle field if non-nil, zero value otherwise.
+
+### GetBundleOk
+
+`func (o *Cable) GetBundleOk() (*BriefCableBundle, bool)`
+
+GetBundleOk returns a tuple with the Bundle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBundle
+
+`func (o *Cable) SetBundle(v BriefCableBundle)`
+
+SetBundle sets Bundle field to given value.
+
+### HasBundle
+
+`func (o *Cable) HasBundle() bool`
+
+HasBundle returns a boolean if a field has been set.
+
+### SetBundleNil
+
+`func (o *Cable) SetBundleNil(b bool)`
+
+ SetBundleNil sets the value for Bundle to be an explicit nil
+
+### UnsetBundle
+`func (o *Cable) UnsetBundle()`
+
+UnsetBundle ensures that no value is present for Bundle, not even an explicit nil
 ### GetLabel
 
 `func (o *Cable) GetLabel() string`
@@ -264,20 +358,20 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetColor
 
-`func (o *Cable) GetColor() string`
+`func (o *Cable) GetColor() BriefModuleBayTypeColor`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *Cable) GetColorOk() (*string, bool)`
+`func (o *Cable) GetColorOk() (*BriefModuleBayTypeColor, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *Cable) SetColor(v string)`
+`func (o *Cable) SetColor(v BriefModuleBayTypeColor)`
 
 SetColor sets Color field to given value.
 
@@ -382,6 +476,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Cable) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Cable) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Cable) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Cable) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Cable) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Cable) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Cable) GetComments() string`

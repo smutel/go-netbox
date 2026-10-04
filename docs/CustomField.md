@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **ObjectTypes** | **[]string** |  | 
 **Type** | [**CustomFieldType**](CustomFieldType.md) |  | 
@@ -15,18 +16,24 @@ Name | Type | Description | Notes
 **Label** | Pointer to **string** | Name of the field as displayed to users (if not provided, &#39;the field&#39;s name will be used) | [optional] 
 **GroupName** | Pointer to **string** | Custom fields within the same group will be displayed together | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Required** | Pointer to **bool** | If true, this field is required when creating new objects or editing an existing object. | [optional] 
+**Required** | Pointer to **bool** | This field is required when creating new objects or editing an existing object. | [optional] 
+**Unique** | Pointer to **bool** | The value of this field must be unique for the assigned object | [optional] 
 **SearchWeight** | Pointer to **int32** | Weighting for search. Lower values are considered more important. Fields with a search weight of zero will be ignored. | [optional] 
 **FilterLogic** | Pointer to [**CustomFieldFilterLogic**](CustomFieldFilterLogic.md) |  | [optional] 
 **UiVisible** | Pointer to [**CustomFieldUiVisible**](CustomFieldUiVisible.md) |  | [optional] 
 **UiEditable** | Pointer to [**CustomFieldUiEditable**](CustomFieldUiEditable.md) |  | [optional] 
 **IsCloneable** | Pointer to **bool** | Replicate this value when cloning objects | [optional] 
+**NullsFirst** | Pointer to **bool** | Sort null values before non-null values when ordering by this field | [optional] 
 **Default** | Pointer to **interface{}** | Default value for the field (must be a JSON value). Encapsulate strings with double quotes (e.g. \&quot;Foo\&quot;). | [optional] 
+**RelatedObjectFilter** | Pointer to **interface{}** | Filter the object selection choices using a query_params dict (must be a JSON value).Encapsulate strings with double quotes (e.g. \&quot;Foo\&quot;). | [optional] 
 **Weight** | Pointer to **int32** | Fields with higher weights appear lower in a form. | [optional] 
-**ValidationMinimum** | Pointer to **NullableInt64** | Minimum allowed value (for numeric fields) | [optional] 
-**ValidationMaximum** | Pointer to **NullableInt64** | Maximum allowed value (for numeric fields) | [optional] 
+**ValidationMinimum** | Pointer to **NullableFloat64** | Minimum allowed value (for numeric fields) | [optional] 
+**ValidationMaximum** | Pointer to **NullableFloat64** | Maximum allowed value (for numeric fields) | [optional] 
 **ValidationRegex** | Pointer to **string** | Regular expression to enforce on text field values. Use ^ and $ to force matching of entire string. For example, &lt;code&gt;^[A-Z]{3}$&lt;/code&gt; will limit values to exactly three uppercase letters. | [optional] 
+**ValidationSchema** | Pointer to **interface{}** | A JSON schema definition for validating the custom field value | [optional] 
 **ChoiceSet** | Pointer to [**NullableBriefCustomFieldChoiceSet**](BriefCustomFieldChoiceSet.md) |  | [optional] 
+**Status** | [**CustomFieldStatus**](CustomFieldStatus.md) |  | 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
@@ -35,7 +42,7 @@ Name | Type | Description | Notes
 
 ### NewCustomField
 
-`func NewCustomField(id int32, url string, display string, objectTypes []string, type_ CustomFieldType, dataType string, name string, created NullableTime, lastUpdated NullableTime, ) *CustomField`
+`func NewCustomField(id int32, url string, displayUrl string, display string, objectTypes []string, type_ CustomFieldType, dataType string, name string, status CustomFieldStatus, created NullableTime, lastUpdated NullableTime, ) *CustomField`
 
 NewCustomField instantiates a new CustomField object
 This constructor will assign default values to properties that have it defined,
@@ -88,6 +95,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomField) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *CustomField) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *CustomField) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *CustomField) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -325,6 +352,31 @@ SetRequired sets Required field to given value.
 
 HasRequired returns a boolean if a field has been set.
 
+### GetUnique
+
+`func (o *CustomField) GetUnique() bool`
+
+GetUnique returns the Unique field if non-nil, zero value otherwise.
+
+### GetUniqueOk
+
+`func (o *CustomField) GetUniqueOk() (*bool, bool)`
+
+GetUniqueOk returns a tuple with the Unique field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnique
+
+`func (o *CustomField) SetUnique(v bool)`
+
+SetUnique sets Unique field to given value.
+
+### HasUnique
+
+`func (o *CustomField) HasUnique() bool`
+
+HasUnique returns a boolean if a field has been set.
+
 ### GetSearchWeight
 
 `func (o *CustomField) GetSearchWeight() int32`
@@ -450,6 +502,31 @@ SetIsCloneable sets IsCloneable field to given value.
 
 HasIsCloneable returns a boolean if a field has been set.
 
+### GetNullsFirst
+
+`func (o *CustomField) GetNullsFirst() bool`
+
+GetNullsFirst returns the NullsFirst field if non-nil, zero value otherwise.
+
+### GetNullsFirstOk
+
+`func (o *CustomField) GetNullsFirstOk() (*bool, bool)`
+
+GetNullsFirstOk returns a tuple with the NullsFirst field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNullsFirst
+
+`func (o *CustomField) SetNullsFirst(v bool)`
+
+SetNullsFirst sets NullsFirst field to given value.
+
+### HasNullsFirst
+
+`func (o *CustomField) HasNullsFirst() bool`
+
+HasNullsFirst returns a boolean if a field has been set.
+
 ### GetDefault
 
 `func (o *CustomField) GetDefault() interface{}`
@@ -485,6 +562,41 @@ HasDefault returns a boolean if a field has been set.
 `func (o *CustomField) UnsetDefault()`
 
 UnsetDefault ensures that no value is present for Default, not even an explicit nil
+### GetRelatedObjectFilter
+
+`func (o *CustomField) GetRelatedObjectFilter() interface{}`
+
+GetRelatedObjectFilter returns the RelatedObjectFilter field if non-nil, zero value otherwise.
+
+### GetRelatedObjectFilterOk
+
+`func (o *CustomField) GetRelatedObjectFilterOk() (*interface{}, bool)`
+
+GetRelatedObjectFilterOk returns a tuple with the RelatedObjectFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelatedObjectFilter
+
+`func (o *CustomField) SetRelatedObjectFilter(v interface{})`
+
+SetRelatedObjectFilter sets RelatedObjectFilter field to given value.
+
+### HasRelatedObjectFilter
+
+`func (o *CustomField) HasRelatedObjectFilter() bool`
+
+HasRelatedObjectFilter returns a boolean if a field has been set.
+
+### SetRelatedObjectFilterNil
+
+`func (o *CustomField) SetRelatedObjectFilterNil(b bool)`
+
+ SetRelatedObjectFilterNil sets the value for RelatedObjectFilter to be an explicit nil
+
+### UnsetRelatedObjectFilter
+`func (o *CustomField) UnsetRelatedObjectFilter()`
+
+UnsetRelatedObjectFilter ensures that no value is present for RelatedObjectFilter, not even an explicit nil
 ### GetWeight
 
 `func (o *CustomField) GetWeight() int32`
@@ -512,20 +624,20 @@ HasWeight returns a boolean if a field has been set.
 
 ### GetValidationMinimum
 
-`func (o *CustomField) GetValidationMinimum() int64`
+`func (o *CustomField) GetValidationMinimum() float64`
 
 GetValidationMinimum returns the ValidationMinimum field if non-nil, zero value otherwise.
 
 ### GetValidationMinimumOk
 
-`func (o *CustomField) GetValidationMinimumOk() (*int64, bool)`
+`func (o *CustomField) GetValidationMinimumOk() (*float64, bool)`
 
 GetValidationMinimumOk returns a tuple with the ValidationMinimum field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValidationMinimum
 
-`func (o *CustomField) SetValidationMinimum(v int64)`
+`func (o *CustomField) SetValidationMinimum(v float64)`
 
 SetValidationMinimum sets ValidationMinimum field to given value.
 
@@ -547,20 +659,20 @@ HasValidationMinimum returns a boolean if a field has been set.
 UnsetValidationMinimum ensures that no value is present for ValidationMinimum, not even an explicit nil
 ### GetValidationMaximum
 
-`func (o *CustomField) GetValidationMaximum() int64`
+`func (o *CustomField) GetValidationMaximum() float64`
 
 GetValidationMaximum returns the ValidationMaximum field if non-nil, zero value otherwise.
 
 ### GetValidationMaximumOk
 
-`func (o *CustomField) GetValidationMaximumOk() (*int64, bool)`
+`func (o *CustomField) GetValidationMaximumOk() (*float64, bool)`
 
 GetValidationMaximumOk returns a tuple with the ValidationMaximum field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValidationMaximum
 
-`func (o *CustomField) SetValidationMaximum(v int64)`
+`func (o *CustomField) SetValidationMaximum(v float64)`
 
 SetValidationMaximum sets ValidationMaximum field to given value.
 
@@ -605,6 +717,41 @@ SetValidationRegex sets ValidationRegex field to given value.
 
 HasValidationRegex returns a boolean if a field has been set.
 
+### GetValidationSchema
+
+`func (o *CustomField) GetValidationSchema() interface{}`
+
+GetValidationSchema returns the ValidationSchema field if non-nil, zero value otherwise.
+
+### GetValidationSchemaOk
+
+`func (o *CustomField) GetValidationSchemaOk() (*interface{}, bool)`
+
+GetValidationSchemaOk returns a tuple with the ValidationSchema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationSchema
+
+`func (o *CustomField) SetValidationSchema(v interface{})`
+
+SetValidationSchema sets ValidationSchema field to given value.
+
+### HasValidationSchema
+
+`func (o *CustomField) HasValidationSchema() bool`
+
+HasValidationSchema returns a boolean if a field has been set.
+
+### SetValidationSchemaNil
+
+`func (o *CustomField) SetValidationSchemaNil(b bool)`
+
+ SetValidationSchemaNil sets the value for ValidationSchema to be an explicit nil
+
+### UnsetValidationSchema
+`func (o *CustomField) UnsetValidationSchema()`
+
+UnsetValidationSchema ensures that no value is present for ValidationSchema, not even an explicit nil
 ### GetChoiceSet
 
 `func (o *CustomField) GetChoiceSet() BriefCustomFieldChoiceSet`
@@ -640,6 +787,61 @@ HasChoiceSet returns a boolean if a field has been set.
 `func (o *CustomField) UnsetChoiceSet()`
 
 UnsetChoiceSet ensures that no value is present for ChoiceSet, not even an explicit nil
+### GetStatus
+
+`func (o *CustomField) GetStatus() CustomFieldStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *CustomField) GetStatusOk() (*CustomFieldStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *CustomField) SetStatus(v CustomFieldStatus)`
+
+SetStatus sets Status field to given value.
+
+
+### GetOwner
+
+`func (o *CustomField) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *CustomField) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *CustomField) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *CustomField) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *CustomField) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *CustomField) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *CustomField) GetComments() string`

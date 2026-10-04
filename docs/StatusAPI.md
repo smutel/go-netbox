@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## StatusRetrieve
 
-> map[string]interface{} StatusRetrieve(ctx).Execute()
+> map[string]interface{} StatusRetrieve(ctx).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -29,10 +29,13 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.StatusAPI.StatusRetrieve(context.Background()).Execute()
+	resp, r, err := apiClient.StatusAPI.StatusRetrieve(context.Background()).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `StatusAPI.StatusRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -44,12 +47,18 @@ func main() {
 
 ### Path Parameters
 
-This endpoint does not need any parameter.
+
 
 ### Other Parameters
 
 Other parameters are passed through a pointer to a apiStatusRetrieveRequest struct via the builder pattern
 
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 

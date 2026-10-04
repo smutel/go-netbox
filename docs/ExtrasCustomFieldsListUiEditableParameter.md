@@ -7,6 +7,8 @@
 
 * `NO` (value: `"no"`)
 
+* `NULL` (value: `"null"`)
+
 * `YES` (value: `"yes"`)
 
 

@@ -6,11 +6,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**AuthenticationMethod** | Pointer to [**IKEProposalAuthenticationMethodValue**](IKEProposalAuthenticationMethodValue.md) |  | [optional] 
-**EncryptionAlgorithm** | Pointer to [**IKEProposalEncryptionAlgorithmValue**](IKEProposalEncryptionAlgorithmValue.md) |  | [optional] 
-**AuthenticationAlgorithm** | Pointer to [**PatchedWritableIKEProposalRequestAuthenticationAlgorithm**](PatchedWritableIKEProposalRequestAuthenticationAlgorithm.md) |  | [optional] 
+**AuthenticationMethod** | Pointer to [**BulkIKEProposalRequestAuthenticationMethod**](BulkIKEProposalRequestAuthenticationMethod.md) |  | [optional] 
+**EncryptionAlgorithm** | Pointer to [**BulkIKEProposalRequestEncryptionAlgorithm**](BulkIKEProposalRequestEncryptionAlgorithm.md) |  | [optional] 
+**AuthenticationAlgorithm** | Pointer to [**NullablePatchedWritableIKEProposalRequestAuthenticationAlgorithm**](PatchedWritableIKEProposalRequestAuthenticationAlgorithm.md) |  | [optional] 
 **Group** | Pointer to [**PatchedWritableIKEProposalRequestGroup**](PatchedWritableIKEProposalRequestGroup.md) |  | [optional] 
 **SaLifetime** | Pointer to **NullableInt32** | Security association lifetime (in seconds) | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -86,20 +87,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetAuthenticationMethod
 
-`func (o *PatchedWritableIKEProposalRequest) GetAuthenticationMethod() IKEProposalAuthenticationMethodValue`
+`func (o *PatchedWritableIKEProposalRequest) GetAuthenticationMethod() BulkIKEProposalRequestAuthenticationMethod`
 
 GetAuthenticationMethod returns the AuthenticationMethod field if non-nil, zero value otherwise.
 
 ### GetAuthenticationMethodOk
 
-`func (o *PatchedWritableIKEProposalRequest) GetAuthenticationMethodOk() (*IKEProposalAuthenticationMethodValue, bool)`
+`func (o *PatchedWritableIKEProposalRequest) GetAuthenticationMethodOk() (*BulkIKEProposalRequestAuthenticationMethod, bool)`
 
 GetAuthenticationMethodOk returns a tuple with the AuthenticationMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthenticationMethod
 
-`func (o *PatchedWritableIKEProposalRequest) SetAuthenticationMethod(v IKEProposalAuthenticationMethodValue)`
+`func (o *PatchedWritableIKEProposalRequest) SetAuthenticationMethod(v BulkIKEProposalRequestAuthenticationMethod)`
 
 SetAuthenticationMethod sets AuthenticationMethod field to given value.
 
@@ -111,20 +112,20 @@ HasAuthenticationMethod returns a boolean if a field has been set.
 
 ### GetEncryptionAlgorithm
 
-`func (o *PatchedWritableIKEProposalRequest) GetEncryptionAlgorithm() IKEProposalEncryptionAlgorithmValue`
+`func (o *PatchedWritableIKEProposalRequest) GetEncryptionAlgorithm() BulkIKEProposalRequestEncryptionAlgorithm`
 
 GetEncryptionAlgorithm returns the EncryptionAlgorithm field if non-nil, zero value otherwise.
 
 ### GetEncryptionAlgorithmOk
 
-`func (o *PatchedWritableIKEProposalRequest) GetEncryptionAlgorithmOk() (*IKEProposalEncryptionAlgorithmValue, bool)`
+`func (o *PatchedWritableIKEProposalRequest) GetEncryptionAlgorithmOk() (*BulkIKEProposalRequestEncryptionAlgorithm, bool)`
 
 GetEncryptionAlgorithmOk returns a tuple with the EncryptionAlgorithm field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEncryptionAlgorithm
 
-`func (o *PatchedWritableIKEProposalRequest) SetEncryptionAlgorithm(v IKEProposalEncryptionAlgorithmValue)`
+`func (o *PatchedWritableIKEProposalRequest) SetEncryptionAlgorithm(v BulkIKEProposalRequestEncryptionAlgorithm)`
 
 SetEncryptionAlgorithm sets EncryptionAlgorithm field to given value.
 
@@ -159,6 +160,16 @@ SetAuthenticationAlgorithm sets AuthenticationAlgorithm field to given value.
 
 HasAuthenticationAlgorithm returns a boolean if a field has been set.
 
+### SetAuthenticationAlgorithmNil
+
+`func (o *PatchedWritableIKEProposalRequest) SetAuthenticationAlgorithmNil(b bool)`
+
+ SetAuthenticationAlgorithmNil sets the value for AuthenticationAlgorithm to be an explicit nil
+
+### UnsetAuthenticationAlgorithm
+`func (o *PatchedWritableIKEProposalRequest) UnsetAuthenticationAlgorithm()`
+
+UnsetAuthenticationAlgorithm ensures that no value is present for AuthenticationAlgorithm, not even an explicit nil
 ### GetGroup
 
 `func (o *PatchedWritableIKEProposalRequest) GetGroup() PatchedWritableIKEProposalRequestGroup`
@@ -219,6 +230,41 @@ HasSaLifetime returns a boolean if a field has been set.
 `func (o *PatchedWritableIKEProposalRequest) UnsetSaLifetime()`
 
 UnsetSaLifetime ensures that no value is present for SaLifetime, not even an explicit nil
+### GetOwner
+
+`func (o *PatchedWritableIKEProposalRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableIKEProposalRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableIKEProposalRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableIKEProposalRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableIKEProposalRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableIKEProposalRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableIKEProposalRequest) GetComments() string`

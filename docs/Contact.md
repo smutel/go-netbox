@@ -6,15 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
-**Group** | Pointer to [**NullableBriefContactGroup**](BriefContactGroup.md) |  | [optional] 
+**Groups** | Pointer to [**[]BriefContactGroup**](BriefContactGroup.md) |  | [optional] 
 **Name** | **string** |  | 
 **Title** | Pointer to **string** |  | [optional] 
 **Phone** | Pointer to **string** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
+**Email** | Pointer to [**BulkContactRequestEmail**](BulkContactRequestEmail.md) |  | [optional] 
 **Address** | Pointer to **string** |  | [optional] 
-**Link** | Pointer to **string** |  | [optional] 
+**Link** | Pointer to [**BulkContactRequestLink**](BulkContactRequestLink.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -25,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewContact
 
-`func NewContact(id int32, url string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *Contact`
+`func NewContact(id int32, url string, displayUrl string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *Contact`
 
 NewContact instantiates a new Contact object
 This constructor will assign default values to properties that have it defined,
@@ -80,6 +82,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *Contact) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Contact) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Contact) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *Contact) GetDisplay() string`
@@ -100,41 +122,31 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
-### GetGroup
+### GetGroups
 
-`func (o *Contact) GetGroup() BriefContactGroup`
+`func (o *Contact) GetGroups() []BriefContactGroup`
 
-GetGroup returns the Group field if non-nil, zero value otherwise.
+GetGroups returns the Groups field if non-nil, zero value otherwise.
 
-### GetGroupOk
+### GetGroupsOk
 
-`func (o *Contact) GetGroupOk() (*BriefContactGroup, bool)`
+`func (o *Contact) GetGroupsOk() (*[]BriefContactGroup, bool)`
 
-GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGroup
+### SetGroups
 
-`func (o *Contact) SetGroup(v BriefContactGroup)`
+`func (o *Contact) SetGroups(v []BriefContactGroup)`
 
-SetGroup sets Group field to given value.
+SetGroups sets Groups field to given value.
 
-### HasGroup
+### HasGroups
 
-`func (o *Contact) HasGroup() bool`
+`func (o *Contact) HasGroups() bool`
 
-HasGroup returns a boolean if a field has been set.
+HasGroups returns a boolean if a field has been set.
 
-### SetGroupNil
-
-`func (o *Contact) SetGroupNil(b bool)`
-
- SetGroupNil sets the value for Group to be an explicit nil
-
-### UnsetGroup
-`func (o *Contact) UnsetGroup()`
-
-UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetName
 
 `func (o *Contact) GetName() string`
@@ -207,20 +219,20 @@ HasPhone returns a boolean if a field has been set.
 
 ### GetEmail
 
-`func (o *Contact) GetEmail() string`
+`func (o *Contact) GetEmail() BulkContactRequestEmail`
 
 GetEmail returns the Email field if non-nil, zero value otherwise.
 
 ### GetEmailOk
 
-`func (o *Contact) GetEmailOk() (*string, bool)`
+`func (o *Contact) GetEmailOk() (*BulkContactRequestEmail, bool)`
 
 GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmail
 
-`func (o *Contact) SetEmail(v string)`
+`func (o *Contact) SetEmail(v BulkContactRequestEmail)`
 
 SetEmail sets Email field to given value.
 
@@ -257,20 +269,20 @@ HasAddress returns a boolean if a field has been set.
 
 ### GetLink
 
-`func (o *Contact) GetLink() string`
+`func (o *Contact) GetLink() BulkContactRequestLink`
 
 GetLink returns the Link field if non-nil, zero value otherwise.
 
 ### GetLinkOk
 
-`func (o *Contact) GetLinkOk() (*string, bool)`
+`func (o *Contact) GetLinkOk() (*BulkContactRequestLink, bool)`
 
 GetLinkOk returns a tuple with the Link field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLink
 
-`func (o *Contact) SetLink(v string)`
+`func (o *Contact) SetLink(v BulkContactRequestLink)`
 
 SetLink sets Link field to given value.
 
@@ -305,6 +317,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Contact) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Contact) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Contact) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Contact) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Contact) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Contact) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Contact) GetComments() string`

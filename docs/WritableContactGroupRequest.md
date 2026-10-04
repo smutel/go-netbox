@@ -6,16 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
-**Parent** | **NullableInt32** |  | 
+**Parent** | Pointer to **NullableInt32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewWritableContactGroupRequest
 
-`func NewWritableContactGroupRequest(name string, slug string, parent NullableInt32, ) *WritableContactGroupRequest`
+`func NewWritableContactGroupRequest(name string, slug string, ) *WritableContactGroupRequest`
 
 NewWritableContactGroupRequest instantiates a new WritableContactGroupRequest object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +91,11 @@ and a boolean to check if the value has been set.
 
 SetParent sets Parent field to given value.
 
+### HasParent
+
+`func (o *WritableContactGroupRequest) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
 
 ### SetParentNil
 
@@ -174,6 +181,66 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *WritableContactGroupRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *WritableContactGroupRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableContactGroupRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableContactGroupRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableContactGroupRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableContactGroupRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableContactGroupRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *WritableContactGroupRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *WritableContactGroupRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *WritableContactGroupRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *WritableContactGroupRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

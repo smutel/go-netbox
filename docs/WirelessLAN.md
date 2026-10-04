@@ -6,16 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Ssid** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
 **Group** | Pointer to [**NullableBriefWirelessLANGroup**](BriefWirelessLANGroup.md) |  | [optional] 
 **Status** | Pointer to [**WirelessLANStatus**](WirelessLANStatus.md) |  | [optional] 
 **Vlan** | Pointer to [**NullableBriefVLAN**](BriefVLAN.md) |  | [optional] 
+**ScopeType** | Pointer to **NullableString** |  | [optional] 
+**ScopeId** | Pointer to **NullableInt32** |  | [optional] 
+**Scope** | **interface{}** |  | [readonly] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
 **AuthType** | Pointer to [**WirelessLANAuthType**](WirelessLANAuthType.md) |  | [optional] 
 **AuthCipher** | Pointer to [**WirelessLANAuthCipher**](WirelessLANAuthCipher.md) |  | [optional] 
 **AuthPsk** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -26,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewWirelessLAN
 
-`func NewWirelessLAN(id int32, url string, display string, ssid string, created NullableTime, lastUpdated NullableTime, ) *WirelessLAN`
+`func NewWirelessLAN(id int32, url string, displayUrl string, display string, ssid string, scope interface{}, created NullableTime, lastUpdated NullableTime, ) *WirelessLAN`
 
 NewWirelessLAN instantiates a new WirelessLAN object
 This constructor will assign default values to properties that have it defined,
@@ -79,6 +84,26 @@ and a boolean to check if the value has been set.
 `func (o *WirelessLAN) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *WirelessLAN) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *WirelessLAN) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *WirelessLAN) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -241,6 +266,106 @@ HasVlan returns a boolean if a field has been set.
 `func (o *WirelessLAN) UnsetVlan()`
 
 UnsetVlan ensures that no value is present for Vlan, not even an explicit nil
+### GetScopeType
+
+`func (o *WirelessLAN) GetScopeType() string`
+
+GetScopeType returns the ScopeType field if non-nil, zero value otherwise.
+
+### GetScopeTypeOk
+
+`func (o *WirelessLAN) GetScopeTypeOk() (*string, bool)`
+
+GetScopeTypeOk returns a tuple with the ScopeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopeType
+
+`func (o *WirelessLAN) SetScopeType(v string)`
+
+SetScopeType sets ScopeType field to given value.
+
+### HasScopeType
+
+`func (o *WirelessLAN) HasScopeType() bool`
+
+HasScopeType returns a boolean if a field has been set.
+
+### SetScopeTypeNil
+
+`func (o *WirelessLAN) SetScopeTypeNil(b bool)`
+
+ SetScopeTypeNil sets the value for ScopeType to be an explicit nil
+
+### UnsetScopeType
+`func (o *WirelessLAN) UnsetScopeType()`
+
+UnsetScopeType ensures that no value is present for ScopeType, not even an explicit nil
+### GetScopeId
+
+`func (o *WirelessLAN) GetScopeId() int32`
+
+GetScopeId returns the ScopeId field if non-nil, zero value otherwise.
+
+### GetScopeIdOk
+
+`func (o *WirelessLAN) GetScopeIdOk() (*int32, bool)`
+
+GetScopeIdOk returns a tuple with the ScopeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopeId
+
+`func (o *WirelessLAN) SetScopeId(v int32)`
+
+SetScopeId sets ScopeId field to given value.
+
+### HasScopeId
+
+`func (o *WirelessLAN) HasScopeId() bool`
+
+HasScopeId returns a boolean if a field has been set.
+
+### SetScopeIdNil
+
+`func (o *WirelessLAN) SetScopeIdNil(b bool)`
+
+ SetScopeIdNil sets the value for ScopeId to be an explicit nil
+
+### UnsetScopeId
+`func (o *WirelessLAN) UnsetScopeId()`
+
+UnsetScopeId ensures that no value is present for ScopeId, not even an explicit nil
+### GetScope
+
+`func (o *WirelessLAN) GetScope() interface{}`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *WirelessLAN) GetScopeOk() (*interface{}, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *WirelessLAN) SetScope(v interface{})`
+
+SetScope sets Scope field to given value.
+
+
+### SetScopeNil
+
+`func (o *WirelessLAN) SetScopeNil(b bool)`
+
+ SetScopeNil sets the value for Scope to be an explicit nil
+
+### UnsetScope
+`func (o *WirelessLAN) UnsetScope()`
+
+UnsetScope ensures that no value is present for Scope, not even an explicit nil
 ### GetTenant
 
 `func (o *WirelessLAN) GetTenant() BriefTenant`
@@ -351,6 +476,41 @@ SetAuthPsk sets AuthPsk field to given value.
 
 HasAuthPsk returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WirelessLAN) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WirelessLAN) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WirelessLAN) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WirelessLAN) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WirelessLAN) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WirelessLAN) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WirelessLAN) GetComments() string`

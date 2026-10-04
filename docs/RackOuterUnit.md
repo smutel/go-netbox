@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritableRackRequestOuterUnit**](PatchedWritableRackRequestOuterUnit.md) |  | [optional] 
+**Value** | Pointer to [**RackOuterUnitValue**](RackOuterUnitValue.md) |  | [optional] 
 **Label** | Pointer to [**RackOuterUnitLabel**](RackOuterUnitLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *RackOuterUnit) GetValue() PatchedWritableRackRequestOuterUnit`
+`func (o *RackOuterUnit) GetValue() RackOuterUnitValue`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *RackOuterUnit) GetValueOk() (*PatchedWritableRackRequestOuterUnit, bool)`
+`func (o *RackOuterUnit) GetValueOk() (*RackOuterUnitValue, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *RackOuterUnit) SetValue(v PatchedWritableRackRequestOuterUnit)`
+`func (o *RackOuterUnit) SetValue(v RackOuterUnitValue)`
 
 SetValue sets Value field to given value.
 

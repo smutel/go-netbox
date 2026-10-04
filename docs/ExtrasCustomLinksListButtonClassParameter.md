@@ -19,6 +19,8 @@
 
 * `INDIGO` (value: `"indigo"`)
 
+* `NULL` (value: `"null"`)
+
 * `ORANGE` (value: `"orange"`)
 
 * `PINK` (value: `"pink"`)

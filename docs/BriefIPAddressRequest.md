@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | **string** |  | 
+**NatInside** | Pointer to [**NullableNestedIPAddressRequest**](NestedIPAddressRequest.md) |  | [optional] 
+**DnsName** | Pointer to [**BriefIPAddressDnsName**](BriefIPAddressDnsName.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -45,6 +47,66 @@ and a boolean to check if the value has been set.
 
 SetAddress sets Address field to given value.
 
+
+### GetNatInside
+
+`func (o *BriefIPAddressRequest) GetNatInside() NestedIPAddressRequest`
+
+GetNatInside returns the NatInside field if non-nil, zero value otherwise.
+
+### GetNatInsideOk
+
+`func (o *BriefIPAddressRequest) GetNatInsideOk() (*NestedIPAddressRequest, bool)`
+
+GetNatInsideOk returns a tuple with the NatInside field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNatInside
+
+`func (o *BriefIPAddressRequest) SetNatInside(v NestedIPAddressRequest)`
+
+SetNatInside sets NatInside field to given value.
+
+### HasNatInside
+
+`func (o *BriefIPAddressRequest) HasNatInside() bool`
+
+HasNatInside returns a boolean if a field has been set.
+
+### SetNatInsideNil
+
+`func (o *BriefIPAddressRequest) SetNatInsideNil(b bool)`
+
+ SetNatInsideNil sets the value for NatInside to be an explicit nil
+
+### UnsetNatInside
+`func (o *BriefIPAddressRequest) UnsetNatInside()`
+
+UnsetNatInside ensures that no value is present for NatInside, not even an explicit nil
+### GetDnsName
+
+`func (o *BriefIPAddressRequest) GetDnsName() BriefIPAddressDnsName`
+
+GetDnsName returns the DnsName field if non-nil, zero value otherwise.
+
+### GetDnsNameOk
+
+`func (o *BriefIPAddressRequest) GetDnsNameOk() (*BriefIPAddressDnsName, bool)`
+
+GetDnsNameOk returns a tuple with the DnsName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDnsName
+
+`func (o *BriefIPAddressRequest) SetDnsName(v BriefIPAddressDnsName)`
+
+SetDnsName sets DnsName field to given value.
+
+### HasDnsName
+
+`func (o *BriefIPAddressRequest) HasDnsName() bool`
+
+HasDnsName returns a boolean if a field has been set.
 
 ### GetDescription
 

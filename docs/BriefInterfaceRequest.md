@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
 
@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 ### NewBriefInterfaceRequest
 
-`func NewBriefInterfaceRequest(device BriefDeviceRequest, name string, ) *BriefInterfaceRequest`
+`func NewBriefInterfaceRequest(device BriefCoolingIntakeRequestDevice, name string, ) *BriefInterfaceRequest`
 
 NewBriefInterfaceRequest instantiates a new BriefInterfaceRequest object
 This constructor will assign default values to properties that have it defined,
@@ -29,20 +29,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *BriefInterfaceRequest) GetDevice() BriefDeviceRequest`
+`func (o *BriefInterfaceRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *BriefInterfaceRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *BriefInterfaceRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *BriefInterfaceRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *BriefInterfaceRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 

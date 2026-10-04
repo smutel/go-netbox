@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
 **Identifier** | Pointer to **NullableInt32** |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
-**PrimaryIp4** | Pointer to [**NullableBriefIPAddressRequest**](BriefIPAddressRequest.md) |  | [optional] 
-**PrimaryIp6** | Pointer to [**NullableBriefIPAddressRequest**](BriefIPAddressRequest.md) |  | [optional] 
-**Status** | [**PatchedWritableVirtualDeviceContextRequestStatus**](PatchedWritableVirtualDeviceContextRequestStatus.md) |  | 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**PrimaryIp4** | Pointer to [**NullableBulkDeviceRequestPrimaryIp4**](BulkDeviceRequestPrimaryIp4.md) |  | [optional] 
+**PrimaryIp6** | Pointer to [**NullableBulkDeviceRequestPrimaryIp4**](BulkDeviceRequestPrimaryIp4.md) |  | [optional] 
+**Status** | [**BulkVirtualDeviceContextRequestStatus**](BulkVirtualDeviceContextRequestStatus.md) |  | 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewVirtualDeviceContextRequest
 
-`func NewVirtualDeviceContextRequest(name string, device BriefDeviceRequest, status PatchedWritableVirtualDeviceContextRequestStatus, ) *VirtualDeviceContextRequest`
+`func NewVirtualDeviceContextRequest(name string, device BriefCoolingIntakeRequestDevice, status BulkVirtualDeviceContextRequestStatus, ) *VirtualDeviceContextRequest`
 
 NewVirtualDeviceContextRequest instantiates a new VirtualDeviceContextRequest object
 This constructor will assign default values to properties that have it defined,
@@ -57,20 +58,20 @@ SetName sets Name field to given value.
 
 ### GetDevice
 
-`func (o *VirtualDeviceContextRequest) GetDevice() BriefDeviceRequest`
+`func (o *VirtualDeviceContextRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *VirtualDeviceContextRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *VirtualDeviceContextRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *VirtualDeviceContextRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *VirtualDeviceContextRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
@@ -112,20 +113,20 @@ HasIdentifier returns a boolean if a field has been set.
 UnsetIdentifier ensures that no value is present for Identifier, not even an explicit nil
 ### GetTenant
 
-`func (o *VirtualDeviceContextRequest) GetTenant() BriefTenantRequest`
+`func (o *VirtualDeviceContextRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *VirtualDeviceContextRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *VirtualDeviceContextRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *VirtualDeviceContextRequest) SetTenant(v BriefTenantRequest)`
+`func (o *VirtualDeviceContextRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -147,20 +148,20 @@ HasTenant returns a boolean if a field has been set.
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetPrimaryIp4
 
-`func (o *VirtualDeviceContextRequest) GetPrimaryIp4() BriefIPAddressRequest`
+`func (o *VirtualDeviceContextRequest) GetPrimaryIp4() BulkDeviceRequestPrimaryIp4`
 
 GetPrimaryIp4 returns the PrimaryIp4 field if non-nil, zero value otherwise.
 
 ### GetPrimaryIp4Ok
 
-`func (o *VirtualDeviceContextRequest) GetPrimaryIp4Ok() (*BriefIPAddressRequest, bool)`
+`func (o *VirtualDeviceContextRequest) GetPrimaryIp4Ok() (*BulkDeviceRequestPrimaryIp4, bool)`
 
 GetPrimaryIp4Ok returns a tuple with the PrimaryIp4 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrimaryIp4
 
-`func (o *VirtualDeviceContextRequest) SetPrimaryIp4(v BriefIPAddressRequest)`
+`func (o *VirtualDeviceContextRequest) SetPrimaryIp4(v BulkDeviceRequestPrimaryIp4)`
 
 SetPrimaryIp4 sets PrimaryIp4 field to given value.
 
@@ -182,20 +183,20 @@ HasPrimaryIp4 returns a boolean if a field has been set.
 UnsetPrimaryIp4 ensures that no value is present for PrimaryIp4, not even an explicit nil
 ### GetPrimaryIp6
 
-`func (o *VirtualDeviceContextRequest) GetPrimaryIp6() BriefIPAddressRequest`
+`func (o *VirtualDeviceContextRequest) GetPrimaryIp6() BulkDeviceRequestPrimaryIp4`
 
 GetPrimaryIp6 returns the PrimaryIp6 field if non-nil, zero value otherwise.
 
 ### GetPrimaryIp6Ok
 
-`func (o *VirtualDeviceContextRequest) GetPrimaryIp6Ok() (*BriefIPAddressRequest, bool)`
+`func (o *VirtualDeviceContextRequest) GetPrimaryIp6Ok() (*BulkDeviceRequestPrimaryIp4, bool)`
 
 GetPrimaryIp6Ok returns a tuple with the PrimaryIp6 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPrimaryIp6
 
-`func (o *VirtualDeviceContextRequest) SetPrimaryIp6(v BriefIPAddressRequest)`
+`func (o *VirtualDeviceContextRequest) SetPrimaryIp6(v BulkDeviceRequestPrimaryIp4)`
 
 SetPrimaryIp6 sets PrimaryIp6 field to given value.
 
@@ -217,20 +218,20 @@ HasPrimaryIp6 returns a boolean if a field has been set.
 UnsetPrimaryIp6 ensures that no value is present for PrimaryIp6, not even an explicit nil
 ### GetStatus
 
-`func (o *VirtualDeviceContextRequest) GetStatus() PatchedWritableVirtualDeviceContextRequestStatus`
+`func (o *VirtualDeviceContextRequest) GetStatus() BulkVirtualDeviceContextRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *VirtualDeviceContextRequest) GetStatusOk() (*PatchedWritableVirtualDeviceContextRequestStatus, bool)`
+`func (o *VirtualDeviceContextRequest) GetStatusOk() (*BulkVirtualDeviceContextRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *VirtualDeviceContextRequest) SetStatus(v PatchedWritableVirtualDeviceContextRequestStatus)`
+`func (o *VirtualDeviceContextRequest) SetStatus(v BulkVirtualDeviceContextRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -260,6 +261,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *VirtualDeviceContextRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *VirtualDeviceContextRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *VirtualDeviceContextRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *VirtualDeviceContextRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *VirtualDeviceContextRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *VirtualDeviceContextRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *VirtualDeviceContextRequest) GetComments() string`

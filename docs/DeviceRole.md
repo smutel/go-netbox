@@ -6,25 +6,30 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Color** | Pointer to **string** |  | [optional] 
 **VmRole** | Pointer to **bool** | Virtual machines may be assigned to this role | [optional] 
 **ConfigTemplate** | Pointer to [**NullableBriefConfigTemplate**](BriefConfigTemplate.md) |  | [optional] 
+**Parent** | Pointer to [**NullableNestedDeviceRole**](NestedDeviceRole.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
-**DeviceCount** | **int64** |  | [readonly] 
-**VirtualmachineCount** | **int64** |  | [readonly] 
+**DeviceCount** | **int32** |  | [readonly] [default to 0]
+**VirtualmachineCount** | **int32** |  | [readonly] [default to 0]
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
+**Depth** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewDeviceRole
 
-`func NewDeviceRole(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, deviceCount int64, virtualmachineCount int64, ) *DeviceRole`
+`func NewDeviceRole(id int32, url string, displayUrl string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, deviceCount int32, virtualmachineCount int32, depth int32, ) *DeviceRole`
 
 NewDeviceRole instantiates a new DeviceRole object
 This constructor will assign default values to properties that have it defined,
@@ -77,6 +82,26 @@ and a boolean to check if the value has been set.
 `func (o *DeviceRole) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *DeviceRole) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *DeviceRole) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *DeviceRole) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -224,6 +249,41 @@ HasConfigTemplate returns a boolean if a field has been set.
 `func (o *DeviceRole) UnsetConfigTemplate()`
 
 UnsetConfigTemplate ensures that no value is present for ConfigTemplate, not even an explicit nil
+### GetParent
+
+`func (o *DeviceRole) GetParent() NestedDeviceRole`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *DeviceRole) GetParentOk() (*NestedDeviceRole, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParent
+
+`func (o *DeviceRole) SetParent(v NestedDeviceRole)`
+
+SetParent sets Parent field to given value.
+
+### HasParent
+
+`func (o *DeviceRole) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
+
+### SetParentNil
+
+`func (o *DeviceRole) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *DeviceRole) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetDescription
 
 `func (o *DeviceRole) GetDescription() string`
@@ -361,42 +421,122 @@ SetLastUpdated sets LastUpdated field to given value.
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
 ### GetDeviceCount
 
-`func (o *DeviceRole) GetDeviceCount() int64`
+`func (o *DeviceRole) GetDeviceCount() int32`
 
 GetDeviceCount returns the DeviceCount field if non-nil, zero value otherwise.
 
 ### GetDeviceCountOk
 
-`func (o *DeviceRole) GetDeviceCountOk() (*int64, bool)`
+`func (o *DeviceRole) GetDeviceCountOk() (*int32, bool)`
 
 GetDeviceCountOk returns a tuple with the DeviceCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceCount
 
-`func (o *DeviceRole) SetDeviceCount(v int64)`
+`func (o *DeviceRole) SetDeviceCount(v int32)`
 
 SetDeviceCount sets DeviceCount field to given value.
 
 
 ### GetVirtualmachineCount
 
-`func (o *DeviceRole) GetVirtualmachineCount() int64`
+`func (o *DeviceRole) GetVirtualmachineCount() int32`
 
 GetVirtualmachineCount returns the VirtualmachineCount field if non-nil, zero value otherwise.
 
 ### GetVirtualmachineCountOk
 
-`func (o *DeviceRole) GetVirtualmachineCountOk() (*int64, bool)`
+`func (o *DeviceRole) GetVirtualmachineCountOk() (*int32, bool)`
 
 GetVirtualmachineCountOk returns a tuple with the VirtualmachineCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVirtualmachineCount
 
-`func (o *DeviceRole) SetVirtualmachineCount(v int64)`
+`func (o *DeviceRole) SetVirtualmachineCount(v int32)`
 
 SetVirtualmachineCount sets VirtualmachineCount field to given value.
+
+
+### GetOwner
+
+`func (o *DeviceRole) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *DeviceRole) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *DeviceRole) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *DeviceRole) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *DeviceRole) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *DeviceRole) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *DeviceRole) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *DeviceRole) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *DeviceRole) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *DeviceRole) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
+### GetDepth
+
+`func (o *DeviceRole) GetDepth() int32`
+
+GetDepth returns the Depth field if non-nil, zero value otherwise.
+
+### GetDepthOk
+
+`func (o *DeviceRole) GetDepthOk() (*int32, bool)`
+
+GetDepthOk returns a tuple with the Depth field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDepth
+
+`func (o *DeviceRole) SetDepth(v int32)`
+
+SetDepth sets Depth field to given value.
 
 
 

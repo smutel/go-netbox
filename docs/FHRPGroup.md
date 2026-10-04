@@ -7,12 +7,14 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Name** | Pointer to **string** |  | [optional] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Protocol** | [**BriefFHRPGroupProtocol**](BriefFHRPGroupProtocol.md) |  | 
 **GroupId** | **int32** |  | 
-**AuthType** | Pointer to [**AuthenticationType**](AuthenticationType.md) |  | [optional] 
+**AuthType** | Pointer to [**NullableAuthenticationType**](AuthenticationType.md) |  | [optional] 
 **AuthKey** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -24,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewFHRPGroup
 
-`func NewFHRPGroup(id int32, url string, display string, protocol BriefFHRPGroupProtocol, groupId int32, created NullableTime, lastUpdated NullableTime, ipAddresses []BriefIPAddress, ) *FHRPGroup`
+`func NewFHRPGroup(id int32, url string, displayUrl string, display string, protocol BriefFHRPGroupProtocol, groupId int32, created NullableTime, lastUpdated NullableTime, ipAddresses []BriefIPAddress, ) *FHRPGroup`
 
 NewFHRPGroup instantiates a new FHRPGroup object
 This constructor will assign default values to properties that have it defined,
@@ -102,6 +104,26 @@ and a boolean to check if the value has been set.
 `func (o *FHRPGroup) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *FHRPGroup) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *FHRPGroup) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *FHRPGroup) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -189,6 +211,16 @@ SetAuthType sets AuthType field to given value.
 
 HasAuthType returns a boolean if a field has been set.
 
+### SetAuthTypeNil
+
+`func (o *FHRPGroup) SetAuthTypeNil(b bool)`
+
+ SetAuthTypeNil sets the value for AuthType to be an explicit nil
+
+### UnsetAuthType
+`func (o *FHRPGroup) UnsetAuthType()`
+
+UnsetAuthType ensures that no value is present for AuthType, not even an explicit nil
 ### GetAuthKey
 
 `func (o *FHRPGroup) GetAuthKey() string`
@@ -239,6 +271,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *FHRPGroup) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *FHRPGroup) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *FHRPGroup) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *FHRPGroup) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *FHRPGroup) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *FHRPGroup) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *FHRPGroup) GetComments() string`

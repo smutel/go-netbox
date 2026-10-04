@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**PrefixCount** | Pointer to **int64** |  | [optional] [readonly] 
-**VlanCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -156,56 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefRole) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetPrefixCount
-
-`func (o *BriefRole) GetPrefixCount() int64`
-
-GetPrefixCount returns the PrefixCount field if non-nil, zero value otherwise.
-
-### GetPrefixCountOk
-
-`func (o *BriefRole) GetPrefixCountOk() (*int64, bool)`
-
-GetPrefixCountOk returns a tuple with the PrefixCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrefixCount
-
-`func (o *BriefRole) SetPrefixCount(v int64)`
-
-SetPrefixCount sets PrefixCount field to given value.
-
-### HasPrefixCount
-
-`func (o *BriefRole) HasPrefixCount() bool`
-
-HasPrefixCount returns a boolean if a field has been set.
-
-### GetVlanCount
-
-`func (o *BriefRole) GetVlanCount() int64`
-
-GetVlanCount returns the VlanCount field if non-nil, zero value otherwise.
-
-### GetVlanCountOk
-
-`func (o *BriefRole) GetVlanCountOk() (*int64, bool)`
-
-GetVlanCountOk returns a tuple with the VlanCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVlanCount
-
-`func (o *BriefRole) SetVlanCount(v int64)`
-
-SetVlanCount sets VlanCount field to given value.
-
-### HasVlanCount
-
-`func (o *BriefRole) HasVlanCount() bool`
-
-HasVlanCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

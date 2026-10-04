@@ -8,9 +8,11 @@ Name | Type | Description | Notes
 **Slug** | **string** |  | 
 **ScopeType** | Pointer to **NullableString** |  | [optional] 
 **ScopeId** | Pointer to **NullableInt32** |  | [optional] 
-**MinVid** | Pointer to **int32** | Lowest permissible ID of a child VLAN | [optional] 
-**MaxVid** | Pointer to **int32** | Highest permissible ID of a child VLAN | [optional] 
+**VidRanges** | Pointer to **[][]int32** |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -143,56 +145,66 @@ HasScopeId returns a boolean if a field has been set.
 `func (o *VLANGroupRequest) UnsetScopeId()`
 
 UnsetScopeId ensures that no value is present for ScopeId, not even an explicit nil
-### GetMinVid
+### GetVidRanges
 
-`func (o *VLANGroupRequest) GetMinVid() int32`
+`func (o *VLANGroupRequest) GetVidRanges() [][]int32`
 
-GetMinVid returns the MinVid field if non-nil, zero value otherwise.
+GetVidRanges returns the VidRanges field if non-nil, zero value otherwise.
 
-### GetMinVidOk
+### GetVidRangesOk
 
-`func (o *VLANGroupRequest) GetMinVidOk() (*int32, bool)`
+`func (o *VLANGroupRequest) GetVidRangesOk() (*[][]int32, bool)`
 
-GetMinVidOk returns a tuple with the MinVid field if it's non-nil, zero value otherwise
+GetVidRangesOk returns a tuple with the VidRanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMinVid
+### SetVidRanges
 
-`func (o *VLANGroupRequest) SetMinVid(v int32)`
+`func (o *VLANGroupRequest) SetVidRanges(v [][]int32)`
 
-SetMinVid sets MinVid field to given value.
+SetVidRanges sets VidRanges field to given value.
 
-### HasMinVid
+### HasVidRanges
 
-`func (o *VLANGroupRequest) HasMinVid() bool`
+`func (o *VLANGroupRequest) HasVidRanges() bool`
 
-HasMinVid returns a boolean if a field has been set.
+HasVidRanges returns a boolean if a field has been set.
 
-### GetMaxVid
+### GetTenant
 
-`func (o *VLANGroupRequest) GetMaxVid() int32`
+`func (o *VLANGroupRequest) GetTenant() ASNRangeRequestTenant`
 
-GetMaxVid returns the MaxVid field if non-nil, zero value otherwise.
+GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
-### GetMaxVidOk
+### GetTenantOk
 
-`func (o *VLANGroupRequest) GetMaxVidOk() (*int32, bool)`
+`func (o *VLANGroupRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
-GetMaxVidOk returns a tuple with the MaxVid field if it's non-nil, zero value otherwise
+GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMaxVid
+### SetTenant
 
-`func (o *VLANGroupRequest) SetMaxVid(v int32)`
+`func (o *VLANGroupRequest) SetTenant(v ASNRangeRequestTenant)`
 
-SetMaxVid sets MaxVid field to given value.
+SetTenant sets Tenant field to given value.
 
-### HasMaxVid
+### HasTenant
 
-`func (o *VLANGroupRequest) HasMaxVid() bool`
+`func (o *VLANGroupRequest) HasTenant() bool`
 
-HasMaxVid returns a boolean if a field has been set.
+HasTenant returns a boolean if a field has been set.
 
+### SetTenantNil
+
+`func (o *VLANGroupRequest) SetTenantNil(b bool)`
+
+ SetTenantNil sets the value for Tenant to be an explicit nil
+
+### UnsetTenant
+`func (o *VLANGroupRequest) UnsetTenant()`
+
+UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetDescription
 
 `func (o *VLANGroupRequest) GetDescription() string`
@@ -217,6 +229,66 @@ SetDescription sets Description field to given value.
 `func (o *VLANGroupRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *VLANGroupRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *VLANGroupRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *VLANGroupRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *VLANGroupRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *VLANGroupRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *VLANGroupRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *VLANGroupRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *VLANGroupRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *VLANGroupRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *VLANGroupRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetTags
 

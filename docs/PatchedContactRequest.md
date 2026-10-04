@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Group** | Pointer to [**NullableBriefContactGroupRequest**](BriefContactGroupRequest.md) |  | [optional] 
+**Groups** | Pointer to **[]int32** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Title** | Pointer to **string** |  | [optional] 
 **Phone** | Pointer to **string** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
+**Email** | Pointer to [**BulkContactRequestEmail**](BulkContactRequestEmail.md) |  | [optional] 
 **Address** | Pointer to **string** |  | [optional] 
-**Link** | Pointer to **string** |  | [optional] 
+**Link** | Pointer to [**BulkContactRequestLink**](BulkContactRequestLink.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -35,41 +36,31 @@ NewPatchedContactRequestWithDefaults instantiates a new PatchedContactRequest ob
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetGroup
+### GetGroups
 
-`func (o *PatchedContactRequest) GetGroup() BriefContactGroupRequest`
+`func (o *PatchedContactRequest) GetGroups() []int32`
 
-GetGroup returns the Group field if non-nil, zero value otherwise.
+GetGroups returns the Groups field if non-nil, zero value otherwise.
 
-### GetGroupOk
+### GetGroupsOk
 
-`func (o *PatchedContactRequest) GetGroupOk() (*BriefContactGroupRequest, bool)`
+`func (o *PatchedContactRequest) GetGroupsOk() (*[]int32, bool)`
 
-GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetGroup
+### SetGroups
 
-`func (o *PatchedContactRequest) SetGroup(v BriefContactGroupRequest)`
+`func (o *PatchedContactRequest) SetGroups(v []int32)`
 
-SetGroup sets Group field to given value.
+SetGroups sets Groups field to given value.
 
-### HasGroup
+### HasGroups
 
-`func (o *PatchedContactRequest) HasGroup() bool`
+`func (o *PatchedContactRequest) HasGroups() bool`
 
-HasGroup returns a boolean if a field has been set.
+HasGroups returns a boolean if a field has been set.
 
-### SetGroupNil
-
-`func (o *PatchedContactRequest) SetGroupNil(b bool)`
-
- SetGroupNil sets the value for Group to be an explicit nil
-
-### UnsetGroup
-`func (o *PatchedContactRequest) UnsetGroup()`
-
-UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetName
 
 `func (o *PatchedContactRequest) GetName() string`
@@ -147,20 +138,20 @@ HasPhone returns a boolean if a field has been set.
 
 ### GetEmail
 
-`func (o *PatchedContactRequest) GetEmail() string`
+`func (o *PatchedContactRequest) GetEmail() BulkContactRequestEmail`
 
 GetEmail returns the Email field if non-nil, zero value otherwise.
 
 ### GetEmailOk
 
-`func (o *PatchedContactRequest) GetEmailOk() (*string, bool)`
+`func (o *PatchedContactRequest) GetEmailOk() (*BulkContactRequestEmail, bool)`
 
 GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmail
 
-`func (o *PatchedContactRequest) SetEmail(v string)`
+`func (o *PatchedContactRequest) SetEmail(v BulkContactRequestEmail)`
 
 SetEmail sets Email field to given value.
 
@@ -197,20 +188,20 @@ HasAddress returns a boolean if a field has been set.
 
 ### GetLink
 
-`func (o *PatchedContactRequest) GetLink() string`
+`func (o *PatchedContactRequest) GetLink() BulkContactRequestLink`
 
 GetLink returns the Link field if non-nil, zero value otherwise.
 
 ### GetLinkOk
 
-`func (o *PatchedContactRequest) GetLinkOk() (*string, bool)`
+`func (o *PatchedContactRequest) GetLinkOk() (*BulkContactRequestLink, bool)`
 
 GetLinkOk returns a tuple with the Link field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLink
 
-`func (o *PatchedContactRequest) SetLink(v string)`
+`func (o *PatchedContactRequest) SetLink(v BulkContactRequestLink)`
 
 SetLink sets Link field to given value.
 
@@ -245,6 +236,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedContactRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedContactRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedContactRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedContactRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedContactRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedContactRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedContactRequest) GetComments() string`

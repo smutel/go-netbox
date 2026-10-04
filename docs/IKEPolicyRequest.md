@@ -6,10 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**Version** | [**IKEPolicyVersionValue**](IKEPolicyVersionValue.md) |  | 
-**Mode** | Pointer to [**IKEPolicyModeValue**](IKEPolicyModeValue.md) |  | [optional] 
+**Version** | [**BulkIKEPolicyRequestVersion**](BulkIKEPolicyRequestVersion.md) |  | 
+**Mode** | Pointer to [**BulkIKEPolicyRequestMode**](BulkIKEPolicyRequestMode.md) |  | [optional] 
 **Proposals** | Pointer to **[]int32** |  | [optional] 
 **PresharedKey** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewIKEPolicyRequest
 
-`func NewIKEPolicyRequest(name string, version IKEPolicyVersionValue, ) *IKEPolicyRequest`
+`func NewIKEPolicyRequest(name string, version BulkIKEPolicyRequestVersion, ) *IKEPolicyRequest`
 
 NewIKEPolicyRequest instantiates a new IKEPolicyRequest object
 This constructor will assign default values to properties that have it defined,
@@ -80,40 +81,40 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetVersion
 
-`func (o *IKEPolicyRequest) GetVersion() IKEPolicyVersionValue`
+`func (o *IKEPolicyRequest) GetVersion() BulkIKEPolicyRequestVersion`
 
 GetVersion returns the Version field if non-nil, zero value otherwise.
 
 ### GetVersionOk
 
-`func (o *IKEPolicyRequest) GetVersionOk() (*IKEPolicyVersionValue, bool)`
+`func (o *IKEPolicyRequest) GetVersionOk() (*BulkIKEPolicyRequestVersion, bool)`
 
 GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVersion
 
-`func (o *IKEPolicyRequest) SetVersion(v IKEPolicyVersionValue)`
+`func (o *IKEPolicyRequest) SetVersion(v BulkIKEPolicyRequestVersion)`
 
 SetVersion sets Version field to given value.
 
 
 ### GetMode
 
-`func (o *IKEPolicyRequest) GetMode() IKEPolicyModeValue`
+`func (o *IKEPolicyRequest) GetMode() BulkIKEPolicyRequestMode`
 
 GetMode returns the Mode field if non-nil, zero value otherwise.
 
 ### GetModeOk
 
-`func (o *IKEPolicyRequest) GetModeOk() (*IKEPolicyModeValue, bool)`
+`func (o *IKEPolicyRequest) GetModeOk() (*BulkIKEPolicyRequestMode, bool)`
 
 GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMode
 
-`func (o *IKEPolicyRequest) SetMode(v IKEPolicyModeValue)`
+`func (o *IKEPolicyRequest) SetMode(v BulkIKEPolicyRequestMode)`
 
 SetMode sets Mode field to given value.
 
@@ -173,6 +174,41 @@ SetPresharedKey sets PresharedKey field to given value.
 
 HasPresharedKey returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *IKEPolicyRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IKEPolicyRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IKEPolicyRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IKEPolicyRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IKEPolicyRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IKEPolicyRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IKEPolicyRequest) GetComments() string`

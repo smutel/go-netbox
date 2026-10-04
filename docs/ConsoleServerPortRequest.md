@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
-**Module** | Pointer to [**NullableBriefModuleRequest**](BriefModuleRequest.md) |  | [optional] 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
+**Module** | Pointer to [**NullableBulkConsolePortRequestModule**](BulkConsolePortRequestModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | Pointer to [**ConsolePortTypeValue**](ConsolePortTypeValue.md) |  | [optional] 
-**Speed** | Pointer to [**NullableConsolePortRequestSpeed**](ConsolePortRequestSpeed.md) |  | [optional] 
+**Type** | Pointer to [**BulkConsolePortRequestType**](BulkConsolePortRequestType.md) |  | [optional] 
+**Speed** | Pointer to [**NullableBulkConsolePortRequestSpeed**](BulkConsolePortRequestSpeed.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -19,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewConsoleServerPortRequest
 
-`func NewConsoleServerPortRequest(device BriefDeviceRequest, name string, ) *ConsoleServerPortRequest`
+`func NewConsoleServerPortRequest(device BriefCoolingIntakeRequestDevice, name string, ) *ConsoleServerPortRequest`
 
 NewConsoleServerPortRequest instantiates a new ConsoleServerPortRequest object
 This constructor will assign default values to properties that have it defined,
@@ -36,40 +37,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *ConsoleServerPortRequest) GetDevice() BriefDeviceRequest`
+`func (o *ConsoleServerPortRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *ConsoleServerPortRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *ConsoleServerPortRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *ConsoleServerPortRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *ConsoleServerPortRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
 
 ### GetModule
 
-`func (o *ConsoleServerPortRequest) GetModule() BriefModuleRequest`
+`func (o *ConsoleServerPortRequest) GetModule() BulkConsolePortRequestModule`
 
 GetModule returns the Module field if non-nil, zero value otherwise.
 
 ### GetModuleOk
 
-`func (o *ConsoleServerPortRequest) GetModuleOk() (*BriefModuleRequest, bool)`
+`func (o *ConsoleServerPortRequest) GetModuleOk() (*BulkConsolePortRequestModule, bool)`
 
 GetModuleOk returns a tuple with the Module field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModule
 
-`func (o *ConsoleServerPortRequest) SetModule(v BriefModuleRequest)`
+`func (o *ConsoleServerPortRequest) SetModule(v BulkConsolePortRequestModule)`
 
 SetModule sets Module field to given value.
 
@@ -136,20 +137,20 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *ConsoleServerPortRequest) GetType() ConsolePortTypeValue`
+`func (o *ConsoleServerPortRequest) GetType() BulkConsolePortRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *ConsoleServerPortRequest) GetTypeOk() (*ConsolePortTypeValue, bool)`
+`func (o *ConsoleServerPortRequest) GetTypeOk() (*BulkConsolePortRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *ConsoleServerPortRequest) SetType(v ConsolePortTypeValue)`
+`func (o *ConsoleServerPortRequest) SetType(v BulkConsolePortRequestType)`
 
 SetType sets Type field to given value.
 
@@ -161,20 +162,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetSpeed
 
-`func (o *ConsoleServerPortRequest) GetSpeed() ConsolePortRequestSpeed`
+`func (o *ConsoleServerPortRequest) GetSpeed() BulkConsolePortRequestSpeed`
 
 GetSpeed returns the Speed field if non-nil, zero value otherwise.
 
 ### GetSpeedOk
 
-`func (o *ConsoleServerPortRequest) GetSpeedOk() (*ConsolePortRequestSpeed, bool)`
+`func (o *ConsoleServerPortRequest) GetSpeedOk() (*BulkConsolePortRequestSpeed, bool)`
 
 GetSpeedOk returns a tuple with the Speed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpeed
 
-`func (o *ConsoleServerPortRequest) SetSpeed(v ConsolePortRequestSpeed)`
+`func (o *ConsoleServerPortRequest) SetSpeed(v BulkConsolePortRequestSpeed)`
 
 SetSpeed sets Speed field to given value.
 
@@ -244,6 +245,41 @@ SetMarkConnected sets MarkConnected field to given value.
 
 HasMarkConnected returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *ConsoleServerPortRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ConsoleServerPortRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ConsoleServerPortRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ConsoleServerPortRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ConsoleServerPortRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ConsoleServerPortRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *ConsoleServerPortRequest) GetTags() []NestedTagRequest`

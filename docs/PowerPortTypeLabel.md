@@ -11,6 +11,8 @@
 
 * `C16` (value: `"C16"`)
 
+* `C18` (value: `"C18"`)
+
 * `C20` (value: `"C20"`)
 
 * `C22` (value: `"C22"`)
@@ -125,6 +127,8 @@
 
 * `NEMA_L21_30_P` (value: `"NEMA L21-30P"`)
 
+* `NEMA_L22_20_P` (value: `"NEMA L22-20P"`)
+
 * `NEMA_L22_30_P` (value: `"NEMA L22-30P"`)
 
 * `CS6361_C` (value: `"CS6361C"`)
@@ -188,6 +192,8 @@
 * `MOLEX_MICRO_FIT_1X2` (value: `"Molex Micro-Fit 1x2"`)
 
 * `MOLEX_MICRO_FIT_2X2` (value: `"Molex Micro-Fit 2x2"`)
+
+* `MOLEX_MICRO_FIT_2X3` (value: `"Molex Micro-Fit 2x3"`)
 
 * `MOLEX_MICRO_FIT_2X4` (value: `"Molex Micro-Fit 2x4"`)
 

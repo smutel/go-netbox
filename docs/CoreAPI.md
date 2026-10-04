@@ -4,6 +4,16 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CoreBackgroundQueuesRetrieve**](CoreAPI.md#CoreBackgroundQueuesRetrieve) | **Get** /api/core/background-queues/ | 
+[**CoreBackgroundQueuesRetrieveByName**](CoreAPI.md#CoreBackgroundQueuesRetrieveByName) | **Get** /api/core/background-queues/{name}/ | 
+[**CoreBackgroundTasksDeleteCreate**](CoreAPI.md#CoreBackgroundTasksDeleteCreate) | **Post** /api/core/background-tasks/{id}/delete/ | 
+[**CoreBackgroundTasksEnqueueCreate**](CoreAPI.md#CoreBackgroundTasksEnqueueCreate) | **Post** /api/core/background-tasks/{id}/enqueue/ | 
+[**CoreBackgroundTasksRequeueCreate**](CoreAPI.md#CoreBackgroundTasksRequeueCreate) | **Post** /api/core/background-tasks/{id}/requeue/ | 
+[**CoreBackgroundTasksRetrieve**](CoreAPI.md#CoreBackgroundTasksRetrieve) | **Get** /api/core/background-tasks/ | 
+[**CoreBackgroundTasksRetrieveById**](CoreAPI.md#CoreBackgroundTasksRetrieveById) | **Get** /api/core/background-tasks/{id}/ | 
+[**CoreBackgroundTasksStopCreate**](CoreAPI.md#CoreBackgroundTasksStopCreate) | **Post** /api/core/background-tasks/{id}/stop/ | 
+[**CoreBackgroundWorkersRetrieve**](CoreAPI.md#CoreBackgroundWorkersRetrieve) | **Get** /api/core/background-workers/ | 
+[**CoreBackgroundWorkersRetrieveByName**](CoreAPI.md#CoreBackgroundWorkersRetrieveByName) | **Get** /api/core/background-workers/{name}/ | 
 [**CoreDataFilesList**](CoreAPI.md#CoreDataFilesList) | **Get** /api/core/data-files/ | 
 [**CoreDataFilesRetrieve**](CoreAPI.md#CoreDataFilesRetrieve) | **Get** /api/core/data-files/{id}/ | 
 [**CoreDataSourcesBulkDestroy**](CoreAPI.md#CoreDataSourcesBulkDestroy) | **Delete** /api/core/data-sources/ | 
@@ -18,12 +28,162 @@ Method | HTTP request | Description
 [**CoreDataSourcesUpdate**](CoreAPI.md#CoreDataSourcesUpdate) | **Put** /api/core/data-sources/{id}/ | 
 [**CoreJobsList**](CoreAPI.md#CoreJobsList) | **Get** /api/core/jobs/ | 
 [**CoreJobsRetrieve**](CoreAPI.md#CoreJobsRetrieve) | **Get** /api/core/jobs/{id}/ | 
+[**CoreObjectChangesList**](CoreAPI.md#CoreObjectChangesList) | **Get** /api/core/object-changes/ | 
+[**CoreObjectChangesRetrieve**](CoreAPI.md#CoreObjectChangesRetrieve) | **Get** /api/core/object-changes/{id}/ | 
+[**CoreObjectTypesList**](CoreAPI.md#CoreObjectTypesList) | **Get** /api/core/object-types/ | 
+[**CoreObjectTypesRetrieve**](CoreAPI.md#CoreObjectTypesRetrieve) | **Get** /api/core/object-types/{id}/ | 
 
 
 
-## CoreDataFilesList
+## CoreBackgroundQueuesRetrieve
 
-> PaginatedDataFileList CoreDataFilesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Hash(hash).HashEmpty(hashEmpty).HashIc(hashIc).HashIe(hashIe).HashIew(hashIew).HashIsw(hashIsw).HashN(hashN).HashNic(hashNic).HashNie(hashNie).HashNiew(hashNiew).HashNisw(hashNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Path(path).PathEmpty(pathEmpty).PathIc(pathIc).PathIe(pathIe).PathIew(pathIew).PathIsw(pathIsw).PathN(pathN).PathNic(pathNic).PathNie(pathNie).PathNiew(pathNiew).PathNisw(pathNisw).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Source(source).SourceN(sourceN).SourceId(sourceId).SourceIdN(sourceIdN).UpdatedByRequest(updatedByRequest).Execute()
+> map[string]interface{} CoreBackgroundQueuesRetrieve(ctx).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundQueuesRetrieve(context.Background()).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundQueuesRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundQueuesRetrieve`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundQueuesRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundQueuesRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundQueuesRetrieveByName
+
+> map[string]interface{} CoreBackgroundQueuesRetrieveByName(ctx, name).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	name := "name_example" // string | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundQueuesRetrieveByName(context.Background(), name).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundQueuesRetrieveByName``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundQueuesRetrieveByName`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundQueuesRetrieveByName`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**name** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundQueuesRetrieveByNameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundTasksDeleteCreate
+
+> BackgroundTask CoreBackgroundTasksDeleteCreate(ctx, id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
 
 
 
@@ -43,6 +203,591 @@ import (
 )
 
 func main() {
+	id := "id_example" // string | 
+	backgroundTaskRequest := *openapiclient.NewBackgroundTaskRequest("Id_example", "Description_example", "Origin_example", "FuncName_example", "Result_example", int32(123), int32(123), time.Now(), time.Now(), time.Now(), time.Now(), "WorkerName_example", map[string]interface{}{"key": interface{}(123)}, "LastHeartbeat_example", false, false, false, false, false, false, false, false) // BackgroundTaskRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundTasksDeleteCreate(context.Background(), id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundTasksDeleteCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundTasksDeleteCreate`: BackgroundTask
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundTasksDeleteCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundTasksDeleteCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **backgroundTaskRequest** | [**BackgroundTaskRequest**](BackgroundTaskRequest.md) |  | 
+
+### Return type
+
+[**BackgroundTask**](BackgroundTask.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundTasksEnqueueCreate
+
+> BackgroundTask CoreBackgroundTasksEnqueueCreate(ctx, id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := "id_example" // string | 
+	backgroundTaskRequest := *openapiclient.NewBackgroundTaskRequest("Id_example", "Description_example", "Origin_example", "FuncName_example", "Result_example", int32(123), int32(123), time.Now(), time.Now(), time.Now(), time.Now(), "WorkerName_example", map[string]interface{}{"key": interface{}(123)}, "LastHeartbeat_example", false, false, false, false, false, false, false, false) // BackgroundTaskRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundTasksEnqueueCreate(context.Background(), id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundTasksEnqueueCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundTasksEnqueueCreate`: BackgroundTask
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundTasksEnqueueCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundTasksEnqueueCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **backgroundTaskRequest** | [**BackgroundTaskRequest**](BackgroundTaskRequest.md) |  | 
+
+### Return type
+
+[**BackgroundTask**](BackgroundTask.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundTasksRequeueCreate
+
+> BackgroundTask CoreBackgroundTasksRequeueCreate(ctx, id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := "id_example" // string | 
+	backgroundTaskRequest := *openapiclient.NewBackgroundTaskRequest("Id_example", "Description_example", "Origin_example", "FuncName_example", "Result_example", int32(123), int32(123), time.Now(), time.Now(), time.Now(), time.Now(), "WorkerName_example", map[string]interface{}{"key": interface{}(123)}, "LastHeartbeat_example", false, false, false, false, false, false, false, false) // BackgroundTaskRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundTasksRequeueCreate(context.Background(), id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundTasksRequeueCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundTasksRequeueCreate`: BackgroundTask
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundTasksRequeueCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundTasksRequeueCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **backgroundTaskRequest** | [**BackgroundTaskRequest**](BackgroundTaskRequest.md) |  | 
+
+### Return type
+
+[**BackgroundTask**](BackgroundTask.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundTasksRetrieve
+
+> map[string]interface{} CoreBackgroundTasksRetrieve(ctx).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundTasksRetrieve(context.Background()).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundTasksRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundTasksRetrieve`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundTasksRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundTasksRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundTasksRetrieveById
+
+> map[string]interface{} CoreBackgroundTasksRetrieveById(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := "id_example" // string | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundTasksRetrieveById(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundTasksRetrieveById``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundTasksRetrieveById`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundTasksRetrieveById`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundTasksRetrieveByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundTasksStopCreate
+
+> BackgroundTask CoreBackgroundTasksStopCreate(ctx, id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := "id_example" // string | 
+	backgroundTaskRequest := *openapiclient.NewBackgroundTaskRequest("Id_example", "Description_example", "Origin_example", "FuncName_example", "Result_example", int32(123), int32(123), time.Now(), time.Now(), time.Now(), time.Now(), "WorkerName_example", map[string]interface{}{"key": interface{}(123)}, "LastHeartbeat_example", false, false, false, false, false, false, false, false) // BackgroundTaskRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundTasksStopCreate(context.Background(), id).BackgroundTaskRequest(backgroundTaskRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundTasksStopCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundTasksStopCreate`: BackgroundTask
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundTasksStopCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundTasksStopCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **backgroundTaskRequest** | [**BackgroundTaskRequest**](BackgroundTaskRequest.md) |  | 
+
+### Return type
+
+[**BackgroundTask**](BackgroundTask.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundWorkersRetrieve
+
+> map[string]interface{} CoreBackgroundWorkersRetrieve(ctx).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundWorkersRetrieve(context.Background()).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundWorkersRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundWorkersRetrieve`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundWorkersRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundWorkersRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreBackgroundWorkersRetrieveByName
+
+> map[string]interface{} CoreBackgroundWorkersRetrieveByName(ctx, name).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	name := "name_example" // string | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreBackgroundWorkersRetrieveByName(context.Background(), name).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreBackgroundWorkersRetrieveByName``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreBackgroundWorkersRetrieveByName`: map[string]interface{}
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreBackgroundWorkersRetrieveByName`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**name** | **string** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreBackgroundWorkersRetrieveByNameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreDataFilesList
+
+> PaginatedDataFileList CoreDataFilesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Hash(hash).HashEmpty(hashEmpty).HashIc(hashIc).HashIe(hashIe).HashIew(hashIew).HashIregex(hashIregex).HashIsw(hashIsw).HashN(hashN).HashNic(hashNic).HashNie(hashNie).HashNiew(hashNiew).HashNisw(hashNisw).HashRegex(hashRegex).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Path(path).PathEmpty(pathEmpty).PathIc(pathIc).PathIe(pathIe).PathIew(pathIew).PathIregex(pathIregex).PathIsw(pathIsw).PathN(pathN).PathNic(pathNic).PathNie(pathNie).PathNiew(pathNiew).PathNisw(pathNisw).PathRegex(pathRegex).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Source(source).SourceN(sourceN).SourceId(sourceId).SourceIdN(sourceIdN).Start(start).UpdatedByRequest(updatedByRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -51,17 +796,20 @@ func main() {
 	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	hash := []string{"Inner_example"} // []string |  (optional)
 	hashEmpty := true // bool |  (optional)
 	hashIc := []string{"Inner_example"} // []string |  (optional)
 	hashIe := []string{"Inner_example"} // []string |  (optional)
 	hashIew := []string{"Inner_example"} // []string |  (optional)
+	hashIregex := []string{"Inner_example"} // []string |  (optional)
 	hashIsw := []string{"Inner_example"} // []string |  (optional)
 	hashN := []string{"Inner_example"} // []string |  (optional)
 	hashNic := []string{"Inner_example"} // []string |  (optional)
 	hashNie := []string{"Inner_example"} // []string |  (optional)
 	hashNiew := []string{"Inner_example"} // []string |  (optional)
 	hashNisw := []string{"Inner_example"} // []string |  (optional)
+	hashRegex := []string{"Inner_example"} // []string |  (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -79,18 +827,21 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
 	path := []string{"Inner_example"} // []string |  (optional)
 	pathEmpty := true // bool |  (optional)
 	pathIc := []string{"Inner_example"} // []string |  (optional)
 	pathIe := []string{"Inner_example"} // []string |  (optional)
 	pathIew := []string{"Inner_example"} // []string |  (optional)
+	pathIregex := []string{"Inner_example"} // []string |  (optional)
 	pathIsw := []string{"Inner_example"} // []string |  (optional)
 	pathN := []string{"Inner_example"} // []string |  (optional)
 	pathNic := []string{"Inner_example"} // []string |  (optional)
 	pathNie := []string{"Inner_example"} // []string |  (optional)
 	pathNiew := []string{"Inner_example"} // []string |  (optional)
 	pathNisw := []string{"Inner_example"} // []string |  (optional)
+	pathRegex := []string{"Inner_example"} // []string |  (optional)
 	q := "q_example" // string |  (optional)
 	size := []int32{int32(123)} // []int32 |  (optional)
 	sizeEmpty := true // bool |  (optional)
@@ -103,11 +854,12 @@ func main() {
 	sourceN := []string{"Inner_example"} // []string | Data source (name) (optional)
 	sourceId := []int32{int32(123)} // []int32 | Data source (ID) (optional)
 	sourceIdN := []int32{int32(123)} // []int32 | Data source (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreDataFilesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Hash(hash).HashEmpty(hashEmpty).HashIc(hashIc).HashIe(hashIe).HashIew(hashIew).HashIsw(hashIsw).HashN(hashN).HashNic(hashNic).HashNie(hashNie).HashNiew(hashNiew).HashNisw(hashNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Path(path).PathEmpty(pathEmpty).PathIc(pathIc).PathIe(pathIe).PathIew(pathIew).PathIsw(pathIsw).PathN(pathN).PathNic(pathNic).PathNie(pathNie).PathNiew(pathNiew).PathNisw(pathNisw).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Source(source).SourceN(sourceN).SourceId(sourceId).SourceIdN(sourceIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreDataFilesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Fields(fields).Hash(hash).HashEmpty(hashEmpty).HashIc(hashIc).HashIe(hashIe).HashIew(hashIew).HashIregex(hashIregex).HashIsw(hashIsw).HashN(hashN).HashNic(hashNic).HashNie(hashNie).HashNiew(hashNiew).HashNisw(hashNisw).HashRegex(hashRegex).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Path(path).PathEmpty(pathEmpty).PathIc(pathIc).PathIe(pathIe).PathIew(pathIew).PathIregex(pathIregex).PathIsw(pathIsw).PathN(pathN).PathNic(pathNic).PathNie(pathNie).PathNiew(pathNiew).PathNisw(pathNisw).PathRegex(pathRegex).Q(q).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Source(source).SourceN(sourceN).SourceId(sourceId).SourceIdN(sourceIdN).Start(start).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreDataFilesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,6 +880,7 @@ Other parameters are passed through a pointer to a apiCoreDataFilesListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -136,17 +889,20 @@ Name | Type | Description  | Notes
  **createdLte** | [**[]time.Time**](time.Time.md) |  | 
  **createdN** | [**[]time.Time**](time.Time.md) |  | 
  **createdByRequest** | **string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **hash** | **[]string** |  | 
  **hashEmpty** | **bool** |  | 
  **hashIc** | **[]string** |  | 
  **hashIe** | **[]string** |  | 
  **hashIew** | **[]string** |  | 
+ **hashIregex** | **[]string** |  | 
  **hashIsw** | **[]string** |  | 
  **hashN** | **[]string** |  | 
  **hashNic** | **[]string** |  | 
  **hashNie** | **[]string** |  | 
  **hashNiew** | **[]string** |  | 
  **hashNisw** | **[]string** |  | 
+ **hashRegex** | **[]string** |  | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -164,18 +920,21 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **path** | **[]string** |  | 
  **pathEmpty** | **bool** |  | 
  **pathIc** | **[]string** |  | 
  **pathIe** | **[]string** |  | 
  **pathIew** | **[]string** |  | 
+ **pathIregex** | **[]string** |  | 
  **pathIsw** | **[]string** |  | 
  **pathN** | **[]string** |  | 
  **pathNic** | **[]string** |  | 
  **pathNie** | **[]string** |  | 
  **pathNiew** | **[]string** |  | 
  **pathNisw** | **[]string** |  | 
+ **pathRegex** | **[]string** |  | 
  **q** | **string** |  | 
  **size** | **[]int32** |  | 
  **sizeEmpty** | **bool** |  | 
@@ -188,6 +947,7 @@ Name | Type | Description  | Notes
  **sourceN** | **[]string** | Data source (name) | 
  **sourceId** | **[]int32** | Data source (ID) | 
  **sourceIdN** | **[]int32** | Data source (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -210,7 +970,7 @@ Name | Type | Description  | Notes
 
 ## CoreDataFilesRetrieve
 
-> DataFile CoreDataFilesRetrieve(ctx, id).Execute()
+> DataFile CoreDataFilesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -230,10 +990,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this data file.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreDataFilesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreDataFilesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreDataFilesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -259,6 +1022,9 @@ Other parameters are passed through a pointer to a apiCoreDataFilesRetrieveReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -299,7 +1065,7 @@ import (
 )
 
 func main() {
-	dataSourceRequest := []openapiclient.DataSourceRequest{*openapiclient.NewDataSourceRequest("Name_example", openapiclient.DataSource_type_value("local"), "SourceUrl_example")} // []DataSourceRequest | 
+	dataSourceRequest := []openapiclient.DataSourceRequest{*openapiclient.NewDataSourceRequest("Name_example", openapiclient.BulkDataSourceRequest_type("local"), "SourceUrl_example")} // []DataSourceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -335,7 +1101,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -344,7 +1110,7 @@ Name | Type | Description  | Notes
 
 ## CoreDataSourcesBulkPartialUpdate
 
-> []DataSource CoreDataSourcesBulkPartialUpdate(ctx).DataSourceRequest(dataSourceRequest).Execute()
+> []DataSource CoreDataSourcesBulkPartialUpdate(ctx).PatchedBulkDataSourceRequest(patchedBulkDataSourceRequest).Execute()
 
 
 
@@ -363,11 +1129,11 @@ import (
 )
 
 func main() {
-	dataSourceRequest := []openapiclient.DataSourceRequest{*openapiclient.NewDataSourceRequest("Name_example", openapiclient.DataSource_type_value("local"), "SourceUrl_example")} // []DataSourceRequest | 
+	patchedBulkDataSourceRequest := []openapiclient.PatchedBulkDataSourceRequest{*openapiclient.NewPatchedBulkDataSourceRequest(int32(123))} // []PatchedBulkDataSourceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreDataSourcesBulkPartialUpdate(context.Background()).DataSourceRequest(dataSourceRequest).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreDataSourcesBulkPartialUpdate(context.Background()).PatchedBulkDataSourceRequest(patchedBulkDataSourceRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreDataSourcesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -388,7 +1154,7 @@ Other parameters are passed through a pointer to a apiCoreDataSourcesBulkPartial
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dataSourceRequest** | [**[]DataSourceRequest**](DataSourceRequest.md) |  | 
+ **patchedBulkDataSourceRequest** | [**[]PatchedBulkDataSourceRequest**](PatchedBulkDataSourceRequest.md) |  | 
 
 ### Return type
 
@@ -410,7 +1176,7 @@ Name | Type | Description  | Notes
 
 ## CoreDataSourcesBulkUpdate
 
-> []DataSource CoreDataSourcesBulkUpdate(ctx).DataSourceRequest(dataSourceRequest).Execute()
+> []DataSource CoreDataSourcesBulkUpdate(ctx).BulkDataSourceRequest(bulkDataSourceRequest).Execute()
 
 
 
@@ -429,11 +1195,11 @@ import (
 )
 
 func main() {
-	dataSourceRequest := []openapiclient.DataSourceRequest{*openapiclient.NewDataSourceRequest("Name_example", openapiclient.DataSource_type_value("local"), "SourceUrl_example")} // []DataSourceRequest | 
+	bulkDataSourceRequest := []openapiclient.BulkDataSourceRequest{*openapiclient.NewBulkDataSourceRequest(int32(123), "Name_example", openapiclient.BulkDataSourceRequest_type("local"), "SourceUrl_example")} // []BulkDataSourceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreDataSourcesBulkUpdate(context.Background()).DataSourceRequest(dataSourceRequest).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreDataSourcesBulkUpdate(context.Background()).BulkDataSourceRequest(bulkDataSourceRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreDataSourcesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -454,7 +1220,7 @@ Other parameters are passed through a pointer to a apiCoreDataSourcesBulkUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dataSourceRequest** | [**[]DataSourceRequest**](DataSourceRequest.md) |  | 
+ **bulkDataSourceRequest** | [**[]BulkDataSourceRequest**](BulkDataSourceRequest.md) |  | 
 
 ### Return type
 
@@ -476,7 +1242,7 @@ Name | Type | Description  | Notes
 
 ## CoreDataSourcesCreate
 
-> DataSource CoreDataSourcesCreate(ctx).WritableDataSourceRequest(writableDataSourceRequest).Execute()
+> DataSource CoreDataSourcesCreate(ctx).CoreDataSourcesCreateRequest(coreDataSourcesCreateRequest).Execute()
 
 
 
@@ -495,11 +1261,11 @@ import (
 )
 
 func main() {
-	writableDataSourceRequest := *openapiclient.NewWritableDataSourceRequest("Name_example", "Type_example", "SourceUrl_example") // WritableDataSourceRequest | 
+	coreDataSourcesCreateRequest := openapiclient.core_data_sources_create_request{WritableDataSourceRequest: openapiclient.NewWritableDataSourceRequest("Name_example", "Type_example", "SourceUrl_example")} // CoreDataSourcesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreDataSourcesCreate(context.Background()).WritableDataSourceRequest(writableDataSourceRequest).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreDataSourcesCreate(context.Background()).CoreDataSourcesCreateRequest(coreDataSourcesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreDataSourcesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -520,7 +1286,7 @@ Other parameters are passed through a pointer to a apiCoreDataSourcesCreateReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableDataSourceRequest** | [**WritableDataSourceRequest**](WritableDataSourceRequest.md) |  | 
+ **coreDataSourcesCreateRequest** | [**CoreDataSourcesCreateRequest**](CoreDataSourcesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -610,7 +1376,7 @@ Name | Type | Description  | Notes
 
 ## CoreDataSourcesList
 
-> PaginatedDataSourceList CoreDataSourcesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Enabled(enabled).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastSynced(lastSynced).LastSyncedEmpty(lastSyncedEmpty).LastSyncedGt(lastSyncedGt).LastSyncedGte(lastSyncedGte).LastSyncedLt(lastSyncedLt).LastSyncedLte(lastSyncedLte).LastSyncedN(lastSyncedN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).SourceUrl(sourceUrl).SourceUrlEmpty(sourceUrlEmpty).SourceUrlIc(sourceUrlIc).SourceUrlIe(sourceUrlIe).SourceUrlIew(sourceUrlIew).SourceUrlIsw(sourceUrlIsw).SourceUrlN(sourceUrlN).SourceUrlNic(sourceUrlNic).SourceUrlNie(sourceUrlNie).SourceUrlNiew(sourceUrlNiew).SourceUrlNisw(sourceUrlNisw).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Type_(type_).TypeN(typeN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedDataSourceList CoreDataSourcesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Enabled(enabled).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastSynced(lastSynced).LastSyncedEmpty(lastSyncedEmpty).LastSyncedGt(lastSyncedGt).LastSyncedGte(lastSyncedGte).LastSyncedLt(lastSyncedLt).LastSyncedLte(lastSyncedLte).LastSyncedN(lastSyncedN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).SourceUrl(sourceUrl).SourceUrlEmpty(sourceUrlEmpty).SourceUrlIc(sourceUrlIc).SourceUrlIe(sourceUrlIe).SourceUrlIew(sourceUrlIew).SourceUrlIregex(sourceUrlIregex).SourceUrlIsw(sourceUrlIsw).SourceUrlN(sourceUrlN).SourceUrlNic(sourceUrlNic).SourceUrlNie(sourceUrlNie).SourceUrlNiew(sourceUrlNiew).SourceUrlNisw(sourceUrlNisw).SourceUrlRegex(sourceUrlRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).SyncInterval(syncInterval).SyncIntervalIc(syncIntervalIc).SyncIntervalIe(syncIntervalIe).SyncIntervalIew(syncIntervalIew).SyncIntervalIregex(syncIntervalIregex).SyncIntervalIsw(syncIntervalIsw).SyncIntervalN(syncIntervalN).SyncIntervalNic(syncIntervalNic).SyncIntervalNie(syncIntervalNie).SyncIntervalNiew(syncIntervalNiew).SyncIntervalNisw(syncIntervalNisw).SyncIntervalRegex(syncIntervalRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Type_(type_).TypeEmpty(typeEmpty).TypeIc(typeIc).TypeIe(typeIe).TypeIew(typeIew).TypeIregex(typeIregex).TypeIsw(typeIsw).TypeN(typeN).TypeNic(typeNic).TypeNie(typeNie).TypeNiew(typeNiew).TypeNisw(typeNisw).TypeRegex(typeRegex).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -630,6 +1396,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -643,13 +1410,16 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	enabled := true // bool |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -678,37 +1448,89 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	sourceUrl := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlEmpty := true // bool |  (optional)
 	sourceUrlIc := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlIe := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlIew := []string{"Inner_example"} // []string |  (optional)
+	sourceUrlIregex := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlIsw := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlN := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlNic := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlNie := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlNiew := []string{"Inner_example"} // []string |  (optional)
 	sourceUrlNisw := []string{"Inner_example"} // []string |  (optional)
+	sourceUrlRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
+	syncInterval := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalIc := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalIe := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalIew := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalIregex := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalIsw := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalN := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalNic := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalNie := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalNiew := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalNisw := []*int32{int32(123)} // []*int32 |  (optional)
+	syncIntervalRegex := []*int32{int32(123)} // []*int32 |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	type_ := []string{"Inner_example"} // []string |  (optional)
+	typeEmpty := true // bool |  (optional)
+	typeIc := []string{"Inner_example"} // []string |  (optional)
+	typeIe := []string{"Inner_example"} // []string |  (optional)
+	typeIew := []string{"Inner_example"} // []string |  (optional)
+	typeIregex := []string{"Inner_example"} // []string |  (optional)
+	typeIsw := []string{"Inner_example"} // []string |  (optional)
 	typeN := []string{"Inner_example"} // []string |  (optional)
+	typeNic := []string{"Inner_example"} // []string |  (optional)
+	typeNie := []string{"Inner_example"} // []string |  (optional)
+	typeNiew := []string{"Inner_example"} // []string |  (optional)
+	typeNisw := []string{"Inner_example"} // []string |  (optional)
+	typeRegex := []string{"Inner_example"} // []string |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreDataSourcesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Enabled(enabled).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastSynced(lastSynced).LastSyncedEmpty(lastSyncedEmpty).LastSyncedGt(lastSyncedGt).LastSyncedGte(lastSyncedGte).LastSyncedLt(lastSyncedLt).LastSyncedLte(lastSyncedLte).LastSyncedN(lastSyncedN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).SourceUrl(sourceUrl).SourceUrlEmpty(sourceUrlEmpty).SourceUrlIc(sourceUrlIc).SourceUrlIe(sourceUrlIe).SourceUrlIew(sourceUrlIew).SourceUrlIsw(sourceUrlIsw).SourceUrlN(sourceUrlN).SourceUrlNic(sourceUrlNic).SourceUrlNie(sourceUrlNie).SourceUrlNiew(sourceUrlNiew).SourceUrlNisw(sourceUrlNisw).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Type_(type_).TypeN(typeN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreDataSourcesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Enabled(enabled).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastSynced(lastSynced).LastSyncedEmpty(lastSyncedEmpty).LastSyncedGt(lastSyncedGt).LastSyncedGte(lastSyncedGte).LastSyncedLt(lastSyncedLt).LastSyncedLte(lastSyncedLte).LastSyncedN(lastSyncedN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).SourceUrl(sourceUrl).SourceUrlEmpty(sourceUrlEmpty).SourceUrlIc(sourceUrlIc).SourceUrlIe(sourceUrlIe).SourceUrlIew(sourceUrlIew).SourceUrlIregex(sourceUrlIregex).SourceUrlIsw(sourceUrlIsw).SourceUrlN(sourceUrlN).SourceUrlNic(sourceUrlNic).SourceUrlNie(sourceUrlNie).SourceUrlNiew(sourceUrlNiew).SourceUrlNisw(sourceUrlNisw).SourceUrlRegex(sourceUrlRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).SyncInterval(syncInterval).SyncIntervalIc(syncIntervalIc).SyncIntervalIe(syncIntervalIe).SyncIntervalIew(syncIntervalIew).SyncIntervalIregex(syncIntervalIregex).SyncIntervalIsw(syncIntervalIsw).SyncIntervalN(syncIntervalN).SyncIntervalNic(syncIntervalNic).SyncIntervalNie(syncIntervalNie).SyncIntervalNiew(syncIntervalNiew).SyncIntervalNisw(syncIntervalNisw).SyncIntervalRegex(syncIntervalRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Type_(type_).TypeEmpty(typeEmpty).TypeIc(typeIc).TypeIe(typeIe).TypeIew(typeIew).TypeIregex(typeIregex).TypeIsw(typeIsw).TypeN(typeN).TypeNic(typeNic).TypeNie(typeNie).TypeNiew(typeNiew).TypeNisw(typeNisw).TypeRegex(typeRegex).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreDataSourcesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -729,6 +1551,7 @@ Other parameters are passed through a pointer to a apiCoreDataSourcesListRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -742,13 +1565,16 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **enabled** | **bool** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -777,32 +1603,84 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **sourceUrl** | **[]string** |  | 
  **sourceUrlEmpty** | **bool** |  | 
  **sourceUrlIc** | **[]string** |  | 
  **sourceUrlIe** | **[]string** |  | 
  **sourceUrlIew** | **[]string** |  | 
+ **sourceUrlIregex** | **[]string** |  | 
  **sourceUrlIsw** | **[]string** |  | 
  **sourceUrlN** | **[]string** |  | 
  **sourceUrlNic** | **[]string** |  | 
  **sourceUrlNie** | **[]string** |  | 
  **sourceUrlNiew** | **[]string** |  | 
  **sourceUrlNisw** | **[]string** |  | 
+ **sourceUrlRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
+ **syncInterval** | **[]int32** |  | 
+ **syncIntervalIc** | **[]int32** |  | 
+ **syncIntervalIe** | **[]int32** |  | 
+ **syncIntervalIew** | **[]int32** |  | 
+ **syncIntervalIregex** | **[]int32** |  | 
+ **syncIntervalIsw** | **[]int32** |  | 
+ **syncIntervalN** | **[]int32** |  | 
+ **syncIntervalNic** | **[]int32** |  | 
+ **syncIntervalNie** | **[]int32** |  | 
+ **syncIntervalNiew** | **[]int32** |  | 
+ **syncIntervalNisw** | **[]int32** |  | 
+ **syncIntervalRegex** | **[]int32** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **type_** | **[]string** |  | 
+ **typeEmpty** | **bool** |  | 
+ **typeIc** | **[]string** |  | 
+ **typeIe** | **[]string** |  | 
+ **typeIew** | **[]string** |  | 
+ **typeIregex** | **[]string** |  | 
+ **typeIsw** | **[]string** |  | 
  **typeN** | **[]string** |  | 
+ **typeNic** | **[]string** |  | 
+ **typeNie** | **[]string** |  | 
+ **typeNiew** | **[]string** |  | 
+ **typeNisw** | **[]string** |  | 
+ **typeRegex** | **[]string** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -897,7 +1775,7 @@ Name | Type | Description  | Notes
 
 ## CoreDataSourcesRetrieve
 
-> DataSource CoreDataSourcesRetrieve(ctx, id).Execute()
+> DataSource CoreDataSourcesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -917,10 +1795,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this data source.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreDataSourcesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreDataSourcesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreDataSourcesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -946,6 +1827,9 @@ Other parameters are passed through a pointer to a apiCoreDataSourcesRetrieveReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1111,7 +1995,7 @@ Name | Type | Description  | Notes
 
 ## CoreJobsList
 
-> PaginatedJobList CoreJobsList(ctx).Completed(completed).CompletedAfter(completedAfter).CompletedBefore(completedBefore).Created(created).CreatedAfter(createdAfter).CreatedBefore(createdBefore).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interval(interval).IntervalEmpty(intervalEmpty).IntervalGt(intervalGt).IntervalGte(intervalGte).IntervalLt(intervalLt).IntervalLte(intervalLte).IntervalN(intervalN).JobId(jobId).Limit(limit).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).Offset(offset).Ordering(ordering).Q(q).Scheduled(scheduled).ScheduledAfter(scheduledAfter).ScheduledBefore(scheduledBefore).Started(started).StartedAfter(startedAfter).StartedBefore(startedBefore).Status(status).StatusN(statusN).User(user).UserN(userN).Execute()
+> PaginatedJobList CoreJobsList(ctx).Brief(brief).Completed(completed).CompletedAfter(completedAfter).CompletedBefore(completedBefore).Created(created).CreatedAfter(createdAfter).CreatedBefore(createdBefore).ExecutionTime(executionTime).ExecutionTimeGte(executionTimeGte).ExecutionTimeLte(executionTimeLte).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interval(interval).IntervalEmpty(intervalEmpty).IntervalGt(intervalGt).IntervalGte(intervalGte).IntervalLt(intervalLt).IntervalLte(intervalLte).IntervalN(intervalN).JobId(jobId).Limit(limit).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Notifications(notifications).NotificationsEmpty(notificationsEmpty).NotificationsIc(notificationsIc).NotificationsIe(notificationsIe).NotificationsIew(notificationsIew).NotificationsIregex(notificationsIregex).NotificationsIsw(notificationsIsw).NotificationsN(notificationsN).NotificationsNic(notificationsNic).NotificationsNie(notificationsNie).NotificationsNiew(notificationsNiew).NotificationsNisw(notificationsNisw).NotificationsRegex(notificationsRegex).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).ObjectTypeId(objectTypeId).ObjectTypeIdN(objectTypeIdN).Offset(offset).Omit(omit).Ordering(ordering).Q(q).QueueName(queueName).QueueNameEmpty(queueNameEmpty).QueueNameIc(queueNameIc).QueueNameIe(queueNameIe).QueueNameIew(queueNameIew).QueueNameIregex(queueNameIregex).QueueNameIsw(queueNameIsw).QueueNameN(queueNameN).QueueNameNic(queueNameNic).QueueNameNie(queueNameNie).QueueNameNiew(queueNameNiew).QueueNameNisw(queueNameNisw).QueueNameRegex(queueNameRegex).Scheduled(scheduled).ScheduledAfter(scheduledAfter).ScheduledBefore(scheduledBefore).Start(start).Started(started).StartedAfter(startedAfter).StartedBefore(startedBefore).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).User(user).UserN(userN).UserId(userId).UserIdN(userIdN).Execute()
 
 
 
@@ -1131,12 +2015,17 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	completed := time.Now() // time.Time |  (optional)
 	completedAfter := time.Now() // time.Time |  (optional)
 	completedBefore := time.Now() // time.Time |  (optional)
 	created := time.Now() // time.Time |  (optional)
 	createdAfter := time.Now() // time.Time |  (optional)
 	createdBefore := time.Now() // time.Time |  (optional)
+	executionTime := "executionTime_example" // string | Execution time (optional)
+	executionTimeGte := "executionTimeGte_example" // string | Execution time (minimum) (optional)
+	executionTimeLte := "executionTimeLte_example" // string | Execution time (maximum) (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1158,12 +2047,27 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
+	notifications := []string{"Inner_example"} // []string |  (optional)
+	notificationsEmpty := true // bool |  (optional)
+	notificationsIc := []string{"Inner_example"} // []string |  (optional)
+	notificationsIe := []string{"Inner_example"} // []string |  (optional)
+	notificationsIew := []string{"Inner_example"} // []string |  (optional)
+	notificationsIregex := []string{"Inner_example"} // []string |  (optional)
+	notificationsIsw := []string{"Inner_example"} // []string |  (optional)
+	notificationsN := []string{"Inner_example"} // []string |  (optional)
+	notificationsNic := []string{"Inner_example"} // []string |  (optional)
+	notificationsNie := []string{"Inner_example"} // []string |  (optional)
+	notificationsNiew := []string{"Inner_example"} // []string |  (optional)
+	notificationsNisw := []string{"Inner_example"} // []string |  (optional)
+	notificationsRegex := []string{"Inner_example"} // []string |  (optional)
 	objectId := []int32{int32(123)} // []int32 |  (optional)
 	objectIdEmpty := true // bool |  (optional)
 	objectIdGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1171,25 +2075,55 @@ func main() {
 	objectIdLt := []int32{int32(123)} // []int32 |  (optional)
 	objectIdLte := []int32{int32(123)} // []int32 |  (optional)
 	objectIdN := []int32{int32(123)} // []int32 |  (optional)
-	objectType := int32(56) // int32 |  (optional)
-	objectTypeN := int32(56) // int32 |  (optional)
+	objectType := []string{"Inner_example"} // []string |  (optional)
+	objectTypeN := []string{"Inner_example"} // []string |  (optional)
+	objectTypeId := []*int32{int32(123)} // []*int32 |  (optional)
+	objectTypeIdN := []*int32{int32(123)} // []*int32 |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
 	q := "q_example" // string | Search (optional)
+	queueName := "queueName_example" // string |  (optional)
+	queueNameEmpty := true // bool |  (optional)
+	queueNameIc := "queueNameIc_example" // string |  (optional)
+	queueNameIe := "queueNameIe_example" // string |  (optional)
+	queueNameIew := "queueNameIew_example" // string |  (optional)
+	queueNameIregex := "queueNameIregex_example" // string |  (optional)
+	queueNameIsw := "queueNameIsw_example" // string |  (optional)
+	queueNameN := "queueNameN_example" // string |  (optional)
+	queueNameNic := "queueNameNic_example" // string |  (optional)
+	queueNameNie := "queueNameNie_example" // string |  (optional)
+	queueNameNiew := "queueNameNiew_example" // string |  (optional)
+	queueNameNisw := "queueNameNisw_example" // string |  (optional)
+	queueNameRegex := "queueNameRegex_example" // string |  (optional)
 	scheduled := time.Now() // time.Time |  (optional)
 	scheduledAfter := time.Now() // time.Time |  (optional)
 	scheduledBefore := time.Now() // time.Time |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	started := time.Now() // time.Time |  (optional)
 	startedAfter := time.Now() // time.Time |  (optional)
 	startedBefore := time.Now() // time.Time |  (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
-	user := int32(56) // int32 |  (optional)
-	userN := int32(56) // int32 |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
+	user := []string{"Inner_example"} // []string | User name (optional)
+	userN := []string{"Inner_example"} // []string | User name (optional)
+	userId := []*int32{int32(123)} // []*int32 | User (ID) (optional)
+	userIdN := []*int32{int32(123)} // []*int32 | User (ID) (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreJobsList(context.Background()).Completed(completed).CompletedAfter(completedAfter).CompletedBefore(completedBefore).Created(created).CreatedAfter(createdAfter).CreatedBefore(createdBefore).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interval(interval).IntervalEmpty(intervalEmpty).IntervalGt(intervalGt).IntervalGte(intervalGte).IntervalLt(intervalLt).IntervalLte(intervalLte).IntervalN(intervalN).JobId(jobId).Limit(limit).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).Offset(offset).Ordering(ordering).Q(q).Scheduled(scheduled).ScheduledAfter(scheduledAfter).ScheduledBefore(scheduledBefore).Started(started).StartedAfter(startedAfter).StartedBefore(startedBefore).Status(status).StatusN(statusN).User(user).UserN(userN).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreJobsList(context.Background()).Brief(brief).Completed(completed).CompletedAfter(completedAfter).CompletedBefore(completedBefore).Created(created).CreatedAfter(createdAfter).CreatedBefore(createdBefore).ExecutionTime(executionTime).ExecutionTimeGte(executionTimeGte).ExecutionTimeLte(executionTimeLte).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interval(interval).IntervalEmpty(intervalEmpty).IntervalGt(intervalGt).IntervalGte(intervalGte).IntervalLt(intervalLt).IntervalLte(intervalLte).IntervalN(intervalN).JobId(jobId).Limit(limit).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Notifications(notifications).NotificationsEmpty(notificationsEmpty).NotificationsIc(notificationsIc).NotificationsIe(notificationsIe).NotificationsIew(notificationsIew).NotificationsIregex(notificationsIregex).NotificationsIsw(notificationsIsw).NotificationsN(notificationsN).NotificationsNic(notificationsNic).NotificationsNie(notificationsNie).NotificationsNiew(notificationsNiew).NotificationsNisw(notificationsNisw).NotificationsRegex(notificationsRegex).ObjectId(objectId).ObjectIdEmpty(objectIdEmpty).ObjectIdGt(objectIdGt).ObjectIdGte(objectIdGte).ObjectIdLt(objectIdLt).ObjectIdLte(objectIdLte).ObjectIdN(objectIdN).ObjectType(objectType).ObjectTypeN(objectTypeN).ObjectTypeId(objectTypeId).ObjectTypeIdN(objectTypeIdN).Offset(offset).Omit(omit).Ordering(ordering).Q(q).QueueName(queueName).QueueNameEmpty(queueNameEmpty).QueueNameIc(queueNameIc).QueueNameIe(queueNameIe).QueueNameIew(queueNameIew).QueueNameIregex(queueNameIregex).QueueNameIsw(queueNameIsw).QueueNameN(queueNameN).QueueNameNic(queueNameNic).QueueNameNie(queueNameNie).QueueNameNiew(queueNameNiew).QueueNameNisw(queueNameNisw).QueueNameRegex(queueNameRegex).Scheduled(scheduled).ScheduledAfter(scheduledAfter).ScheduledBefore(scheduledBefore).Start(start).Started(started).StartedAfter(startedAfter).StartedBefore(startedBefore).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).User(user).UserN(userN).UserId(userId).UserIdN(userIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreJobsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1210,12 +2144,17 @@ Other parameters are passed through a pointer to a apiCoreJobsListRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **completed** | **time.Time** |  | 
  **completedAfter** | **time.Time** |  | 
  **completedBefore** | **time.Time** |  | 
  **created** | **time.Time** |  | 
  **createdAfter** | **time.Time** |  | 
  **createdBefore** | **time.Time** |  | 
+ **executionTime** | **string** | Execution time | 
+ **executionTimeGte** | **string** | Execution time (minimum) | 
+ **executionTimeLte** | **string** | Execution time (maximum) | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -1237,12 +2176,27 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
+ **notifications** | **[]string** |  | 
+ **notificationsEmpty** | **bool** |  | 
+ **notificationsIc** | **[]string** |  | 
+ **notificationsIe** | **[]string** |  | 
+ **notificationsIew** | **[]string** |  | 
+ **notificationsIregex** | **[]string** |  | 
+ **notificationsIsw** | **[]string** |  | 
+ **notificationsN** | **[]string** |  | 
+ **notificationsNic** | **[]string** |  | 
+ **notificationsNie** | **[]string** |  | 
+ **notificationsNiew** | **[]string** |  | 
+ **notificationsNisw** | **[]string** |  | 
+ **notificationsRegex** | **[]string** |  | 
  **objectId** | **[]int32** |  | 
  **objectIdEmpty** | **bool** |  | 
  **objectIdGt** | **[]int32** |  | 
@@ -1250,21 +2204,51 @@ Name | Type | Description  | Notes
  **objectIdLt** | **[]int32** |  | 
  **objectIdLte** | **[]int32** |  | 
  **objectIdN** | **[]int32** |  | 
- **objectType** | **int32** |  | 
- **objectTypeN** | **int32** |  | 
+ **objectType** | **[]string** |  | 
+ **objectTypeN** | **[]string** |  | 
+ **objectTypeId** | **[]int32** |  | 
+ **objectTypeIdN** | **[]int32** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **q** | **string** | Search | 
+ **queueName** | **string** |  | 
+ **queueNameEmpty** | **bool** |  | 
+ **queueNameIc** | **string** |  | 
+ **queueNameIe** | **string** |  | 
+ **queueNameIew** | **string** |  | 
+ **queueNameIregex** | **string** |  | 
+ **queueNameIsw** | **string** |  | 
+ **queueNameN** | **string** |  | 
+ **queueNameNic** | **string** |  | 
+ **queueNameNie** | **string** |  | 
+ **queueNameNiew** | **string** |  | 
+ **queueNameNisw** | **string** |  | 
+ **queueNameRegex** | **string** |  | 
  **scheduled** | **time.Time** |  | 
  **scheduledAfter** | **time.Time** |  | 
  **scheduledBefore** | **time.Time** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **started** | **time.Time** |  | 
  **startedAfter** | **time.Time** |  | 
  **startedBefore** | **time.Time** |  | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
- **user** | **int32** |  | 
- **userN** | **int32** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
+ **user** | **[]string** | User name | 
+ **userN** | **[]string** | User name | 
+ **userId** | **[]int32** | User (ID) | 
+ **userIdN** | **[]int32** | User (ID) | 
 
 ### Return type
 
@@ -1286,7 +2270,7 @@ Name | Type | Description  | Notes
 
 ## CoreJobsRetrieve
 
-> Job CoreJobsRetrieve(ctx, id).Execute()
+> Job CoreJobsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -1306,10 +2290,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this job.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.CoreAPI.CoreJobsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.CoreAPI.CoreJobsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreJobsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1335,10 +2322,542 @@ Other parameters are passed through a pointer to a apiCoreJobsRetrieveRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
 [**Job**](Job.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreObjectChangesList
+
+> PaginatedObjectChangeList CoreObjectChangesList(ctx).Action(action).ActionEmpty(actionEmpty).ActionIc(actionIc).ActionIe(actionIe).ActionIew(actionIew).ActionIregex(actionIregex).ActionIsw(actionIsw).ActionN(actionN).ActionNic(actionNic).ActionNie(actionNie).ActionNiew(actionNiew).ActionNisw(actionNisw).ActionRegex(actionRegex).Brief(brief).ChangedObjectId(changedObjectId).ChangedObjectIdEmpty(changedObjectIdEmpty).ChangedObjectIdGt(changedObjectIdGt).ChangedObjectIdGte(changedObjectIdGte).ChangedObjectIdLt(changedObjectIdLt).ChangedObjectIdLte(changedObjectIdLte).ChangedObjectIdN(changedObjectIdN).ChangedObjectType(changedObjectType).ChangedObjectTypeN(changedObjectTypeN).ChangedObjectTypeId(changedObjectTypeId).ChangedObjectTypeIdN(changedObjectTypeIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Limit(limit).ObjectRepr(objectRepr).ObjectReprEmpty(objectReprEmpty).ObjectReprIc(objectReprIc).ObjectReprIe(objectReprIe).ObjectReprIew(objectReprIew).ObjectReprIregex(objectReprIregex).ObjectReprIsw(objectReprIsw).ObjectReprN(objectReprN).ObjectReprNic(objectReprNic).ObjectReprNie(objectReprNie).ObjectReprNiew(objectReprNiew).ObjectReprNisw(objectReprNisw).ObjectReprRegex(objectReprRegex).Offset(offset).Omit(omit).Ordering(ordering).Q(q).RelatedObjectId(relatedObjectId).RelatedObjectIdEmpty(relatedObjectIdEmpty).RelatedObjectIdGt(relatedObjectIdGt).RelatedObjectIdGte(relatedObjectIdGte).RelatedObjectIdLt(relatedObjectIdLt).RelatedObjectIdLte(relatedObjectIdLte).RelatedObjectIdN(relatedObjectIdN).RelatedObjectType(relatedObjectType).RelatedObjectTypeN(relatedObjectTypeN).RequestId(requestId).Start(start).TimeAfter(timeAfter).TimeBefore(timeBefore).User(user).UserN(userN).UserId(userId).UserIdN(userIdN).UserName(userName).UserNameEmpty(userNameEmpty).UserNameIc(userNameIc).UserNameIe(userNameIe).UserNameIew(userNameIew).UserNameIregex(userNameIregex).UserNameIsw(userNameIsw).UserNameN(userNameN).UserNameNic(userNameNic).UserNameNie(userNameNie).UserNameNiew(userNameNiew).UserNameNisw(userNameNisw).UserNameRegex(userNameRegex).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	action := openapiclient.core_object_changes_list_action_parameter("create") // CoreObjectChangesListActionParameter | * `create` - Created * `update` - Updated * `delete` - Deleted (optional)
+	actionEmpty := true // bool |  (optional)
+	actionIc := []string{"Inner_example"} // []string |  (optional)
+	actionIe := []string{"Inner_example"} // []string |  (optional)
+	actionIew := []string{"Inner_example"} // []string |  (optional)
+	actionIregex := []string{"Inner_example"} // []string |  (optional)
+	actionIsw := []string{"Inner_example"} // []string |  (optional)
+	actionN := openapiclient.core_object_changes_list_action_parameter("create") // CoreObjectChangesListActionParameter | * `create` - Created * `update` - Updated * `delete` - Deleted (optional)
+	actionNic := []string{"Inner_example"} // []string |  (optional)
+	actionNie := []string{"Inner_example"} // []string |  (optional)
+	actionNiew := []string{"Inner_example"} // []string |  (optional)
+	actionNisw := []string{"Inner_example"} // []string |  (optional)
+	actionRegex := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
+	changedObjectId := []int32{int32(123)} // []int32 |  (optional)
+	changedObjectIdEmpty := true // bool |  (optional)
+	changedObjectIdGt := []int32{int32(123)} // []int32 |  (optional)
+	changedObjectIdGte := []int32{int32(123)} // []int32 |  (optional)
+	changedObjectIdLt := []int32{int32(123)} // []int32 |  (optional)
+	changedObjectIdLte := []int32{int32(123)} // []int32 |  (optional)
+	changedObjectIdN := []int32{int32(123)} // []int32 |  (optional)
+	changedObjectType := []string{"Inner_example"} // []string |  (optional)
+	changedObjectTypeN := []string{"Inner_example"} // []string |  (optional)
+	changedObjectTypeId := []int32{int32(123)} // []int32 |  (optional)
+	changedObjectTypeIdN := []int32{int32(123)} // []int32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	objectRepr := []string{"Inner_example"} // []string |  (optional)
+	objectReprEmpty := true // bool |  (optional)
+	objectReprIc := []string{"Inner_example"} // []string |  (optional)
+	objectReprIe := []string{"Inner_example"} // []string |  (optional)
+	objectReprIew := []string{"Inner_example"} // []string |  (optional)
+	objectReprIregex := []string{"Inner_example"} // []string |  (optional)
+	objectReprIsw := []string{"Inner_example"} // []string |  (optional)
+	objectReprN := []string{"Inner_example"} // []string |  (optional)
+	objectReprNic := []string{"Inner_example"} // []string |  (optional)
+	objectReprNie := []string{"Inner_example"} // []string |  (optional)
+	objectReprNiew := []string{"Inner_example"} // []string |  (optional)
+	objectReprNisw := []string{"Inner_example"} // []string |  (optional)
+	objectReprRegex := []string{"Inner_example"} // []string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	q := "q_example" // string | Search (optional)
+	relatedObjectId := []int32{int32(123)} // []int32 |  (optional)
+	relatedObjectIdEmpty := true // bool |  (optional)
+	relatedObjectIdGt := []int32{int32(123)} // []int32 |  (optional)
+	relatedObjectIdGte := []int32{int32(123)} // []int32 |  (optional)
+	relatedObjectIdLt := []int32{int32(123)} // []int32 |  (optional)
+	relatedObjectIdLte := []int32{int32(123)} // []int32 |  (optional)
+	relatedObjectIdN := []int32{int32(123)} // []int32 |  (optional)
+	relatedObjectType := []string{"Inner_example"} // []string |  (optional)
+	relatedObjectTypeN := []string{"Inner_example"} // []string |  (optional)
+	requestId := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	timeAfter := time.Now() // time.Time |  (optional)
+	timeBefore := time.Now() // time.Time |  (optional)
+	user := []string{"Inner_example"} // []string | User name (optional)
+	userN := []string{"Inner_example"} // []string | User name (optional)
+	userId := []*int32{int32(123)} // []*int32 | User (ID) (optional)
+	userIdN := []*int32{int32(123)} // []*int32 | User (ID) (optional)
+	userName := []string{"Inner_example"} // []string |  (optional)
+	userNameEmpty := true // bool |  (optional)
+	userNameIc := []string{"Inner_example"} // []string |  (optional)
+	userNameIe := []string{"Inner_example"} // []string |  (optional)
+	userNameIew := []string{"Inner_example"} // []string |  (optional)
+	userNameIregex := []string{"Inner_example"} // []string |  (optional)
+	userNameIsw := []string{"Inner_example"} // []string |  (optional)
+	userNameN := []string{"Inner_example"} // []string |  (optional)
+	userNameNic := []string{"Inner_example"} // []string |  (optional)
+	userNameNie := []string{"Inner_example"} // []string |  (optional)
+	userNameNiew := []string{"Inner_example"} // []string |  (optional)
+	userNameNisw := []string{"Inner_example"} // []string |  (optional)
+	userNameRegex := []string{"Inner_example"} // []string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreObjectChangesList(context.Background()).Action(action).ActionEmpty(actionEmpty).ActionIc(actionIc).ActionIe(actionIe).ActionIew(actionIew).ActionIregex(actionIregex).ActionIsw(actionIsw).ActionN(actionN).ActionNic(actionNic).ActionNie(actionNie).ActionNiew(actionNiew).ActionNisw(actionNisw).ActionRegex(actionRegex).Brief(brief).ChangedObjectId(changedObjectId).ChangedObjectIdEmpty(changedObjectIdEmpty).ChangedObjectIdGt(changedObjectIdGt).ChangedObjectIdGte(changedObjectIdGte).ChangedObjectIdLt(changedObjectIdLt).ChangedObjectIdLte(changedObjectIdLte).ChangedObjectIdN(changedObjectIdN).ChangedObjectType(changedObjectType).ChangedObjectTypeN(changedObjectTypeN).ChangedObjectTypeId(changedObjectTypeId).ChangedObjectTypeIdN(changedObjectTypeIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Limit(limit).ObjectRepr(objectRepr).ObjectReprEmpty(objectReprEmpty).ObjectReprIc(objectReprIc).ObjectReprIe(objectReprIe).ObjectReprIew(objectReprIew).ObjectReprIregex(objectReprIregex).ObjectReprIsw(objectReprIsw).ObjectReprN(objectReprN).ObjectReprNic(objectReprNic).ObjectReprNie(objectReprNie).ObjectReprNiew(objectReprNiew).ObjectReprNisw(objectReprNisw).ObjectReprRegex(objectReprRegex).Offset(offset).Omit(omit).Ordering(ordering).Q(q).RelatedObjectId(relatedObjectId).RelatedObjectIdEmpty(relatedObjectIdEmpty).RelatedObjectIdGt(relatedObjectIdGt).RelatedObjectIdGte(relatedObjectIdGte).RelatedObjectIdLt(relatedObjectIdLt).RelatedObjectIdLte(relatedObjectIdLte).RelatedObjectIdN(relatedObjectIdN).RelatedObjectType(relatedObjectType).RelatedObjectTypeN(relatedObjectTypeN).RequestId(requestId).Start(start).TimeAfter(timeAfter).TimeBefore(timeBefore).User(user).UserN(userN).UserId(userId).UserIdN(userIdN).UserName(userName).UserNameEmpty(userNameEmpty).UserNameIc(userNameIc).UserNameIe(userNameIe).UserNameIew(userNameIew).UserNameIregex(userNameIregex).UserNameIsw(userNameIsw).UserNameN(userNameN).UserNameNic(userNameNic).UserNameNie(userNameNie).UserNameNiew(userNameNiew).UserNameNisw(userNameNisw).UserNameRegex(userNameRegex).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreObjectChangesList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreObjectChangesList`: PaginatedObjectChangeList
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreObjectChangesList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreObjectChangesListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **action** | [**CoreObjectChangesListActionParameter**](CoreObjectChangesListActionParameter.md) | * &#x60;create&#x60; - Created * &#x60;update&#x60; - Updated * &#x60;delete&#x60; - Deleted | 
+ **actionEmpty** | **bool** |  | 
+ **actionIc** | **[]string** |  | 
+ **actionIe** | **[]string** |  | 
+ **actionIew** | **[]string** |  | 
+ **actionIregex** | **[]string** |  | 
+ **actionIsw** | **[]string** |  | 
+ **actionN** | [**CoreObjectChangesListActionParameter**](CoreObjectChangesListActionParameter.md) | * &#x60;create&#x60; - Created * &#x60;update&#x60; - Updated * &#x60;delete&#x60; - Deleted | 
+ **actionNic** | **[]string** |  | 
+ **actionNie** | **[]string** |  | 
+ **actionNiew** | **[]string** |  | 
+ **actionNisw** | **[]string** |  | 
+ **actionRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **changedObjectId** | **[]int32** |  | 
+ **changedObjectIdEmpty** | **bool** |  | 
+ **changedObjectIdGt** | **[]int32** |  | 
+ **changedObjectIdGte** | **[]int32** |  | 
+ **changedObjectIdLt** | **[]int32** |  | 
+ **changedObjectIdLte** | **[]int32** |  | 
+ **changedObjectIdN** | **[]int32** |  | 
+ **changedObjectType** | **[]string** |  | 
+ **changedObjectTypeN** | **[]string** |  | 
+ **changedObjectTypeId** | **[]int32** |  | 
+ **changedObjectTypeIdN** | **[]int32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **objectRepr** | **[]string** |  | 
+ **objectReprEmpty** | **bool** |  | 
+ **objectReprIc** | **[]string** |  | 
+ **objectReprIe** | **[]string** |  | 
+ **objectReprIew** | **[]string** |  | 
+ **objectReprIregex** | **[]string** |  | 
+ **objectReprIsw** | **[]string** |  | 
+ **objectReprN** | **[]string** |  | 
+ **objectReprNic** | **[]string** |  | 
+ **objectReprNie** | **[]string** |  | 
+ **objectReprNiew** | **[]string** |  | 
+ **objectReprNisw** | **[]string** |  | 
+ **objectReprRegex** | **[]string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **q** | **string** | Search | 
+ **relatedObjectId** | **[]int32** |  | 
+ **relatedObjectIdEmpty** | **bool** |  | 
+ **relatedObjectIdGt** | **[]int32** |  | 
+ **relatedObjectIdGte** | **[]int32** |  | 
+ **relatedObjectIdLt** | **[]int32** |  | 
+ **relatedObjectIdLte** | **[]int32** |  | 
+ **relatedObjectIdN** | **[]int32** |  | 
+ **relatedObjectType** | **[]string** |  | 
+ **relatedObjectTypeN** | **[]string** |  | 
+ **requestId** | **string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **timeAfter** | **time.Time** |  | 
+ **timeBefore** | **time.Time** |  | 
+ **user** | **[]string** | User name | 
+ **userN** | **[]string** | User name | 
+ **userId** | **[]int32** | User (ID) | 
+ **userIdN** | **[]int32** | User (ID) | 
+ **userName** | **[]string** |  | 
+ **userNameEmpty** | **bool** |  | 
+ **userNameIc** | **[]string** |  | 
+ **userNameIe** | **[]string** |  | 
+ **userNameIew** | **[]string** |  | 
+ **userNameIregex** | **[]string** |  | 
+ **userNameIsw** | **[]string** |  | 
+ **userNameN** | **[]string** |  | 
+ **userNameNic** | **[]string** |  | 
+ **userNameNie** | **[]string** |  | 
+ **userNameNiew** | **[]string** |  | 
+ **userNameNisw** | **[]string** |  | 
+ **userNameRegex** | **[]string** |  | 
+
+### Return type
+
+[**PaginatedObjectChangeList**](PaginatedObjectChangeList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreObjectChangesRetrieve
+
+> ObjectChange CoreObjectChangesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this object change.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreObjectChangesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreObjectChangesRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreObjectChangesRetrieve`: ObjectChange
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreObjectChangesRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this object change. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreObjectChangesRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**ObjectChange**](ObjectChange.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreObjectTypesList
+
+> PaginatedObjectTypeList CoreObjectTypesList(ctx).AppLabel(appLabel).AppLabelEmpty(appLabelEmpty).AppLabelIc(appLabelIc).AppLabelIe(appLabelIe).AppLabelIew(appLabelIew).AppLabelIregex(appLabelIregex).AppLabelIsw(appLabelIsw).AppLabelN(appLabelN).AppLabelNic(appLabelNic).AppLabelNie(appLabelNie).AppLabelNiew(appLabelNiew).AppLabelNisw(appLabelNisw).AppLabelRegex(appLabelRegex).Brief(brief).Features(features).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Limit(limit).Model(model).ModelEmpty(modelEmpty).ModelIc(modelIc).ModelIe(modelIe).ModelIew(modelIew).ModelIregex(modelIregex).ModelIsw(modelIsw).ModelN(modelN).ModelNic(modelNic).ModelNie(modelNie).ModelNiew(modelNiew).ModelNisw(modelNisw).ModelRegex(modelRegex).Offset(offset).Omit(omit).Ordering(ordering).Public(public).Q(q).Start(start).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	appLabel := []string{"Inner_example"} // []string |  (optional)
+	appLabelEmpty := true // bool |  (optional)
+	appLabelIc := []string{"Inner_example"} // []string |  (optional)
+	appLabelIe := []string{"Inner_example"} // []string |  (optional)
+	appLabelIew := []string{"Inner_example"} // []string |  (optional)
+	appLabelIregex := []string{"Inner_example"} // []string |  (optional)
+	appLabelIsw := []string{"Inner_example"} // []string |  (optional)
+	appLabelN := []string{"Inner_example"} // []string |  (optional)
+	appLabelNic := []string{"Inner_example"} // []string |  (optional)
+	appLabelNie := []string{"Inner_example"} // []string |  (optional)
+	appLabelNiew := []string{"Inner_example"} // []string |  (optional)
+	appLabelNisw := []string{"Inner_example"} // []string |  (optional)
+	appLabelRegex := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
+	features := "features_example" // string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	model := []string{"Inner_example"} // []string |  (optional)
+	modelEmpty := true // bool |  (optional)
+	modelIc := []string{"Inner_example"} // []string |  (optional)
+	modelIe := []string{"Inner_example"} // []string |  (optional)
+	modelIew := []string{"Inner_example"} // []string |  (optional)
+	modelIregex := []string{"Inner_example"} // []string |  (optional)
+	modelIsw := []string{"Inner_example"} // []string |  (optional)
+	modelN := []string{"Inner_example"} // []string |  (optional)
+	modelNic := []string{"Inner_example"} // []string |  (optional)
+	modelNie := []string{"Inner_example"} // []string |  (optional)
+	modelNiew := []string{"Inner_example"} // []string |  (optional)
+	modelNisw := []string{"Inner_example"} // []string |  (optional)
+	modelRegex := []string{"Inner_example"} // []string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	public := true // bool |  (optional)
+	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreObjectTypesList(context.Background()).AppLabel(appLabel).AppLabelEmpty(appLabelEmpty).AppLabelIc(appLabelIc).AppLabelIe(appLabelIe).AppLabelIew(appLabelIew).AppLabelIregex(appLabelIregex).AppLabelIsw(appLabelIsw).AppLabelN(appLabelN).AppLabelNic(appLabelNic).AppLabelNie(appLabelNie).AppLabelNiew(appLabelNiew).AppLabelNisw(appLabelNisw).AppLabelRegex(appLabelRegex).Brief(brief).Features(features).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Limit(limit).Model(model).ModelEmpty(modelEmpty).ModelIc(modelIc).ModelIe(modelIe).ModelIew(modelIew).ModelIregex(modelIregex).ModelIsw(modelIsw).ModelN(modelN).ModelNic(modelNic).ModelNie(modelNie).ModelNiew(modelNiew).ModelNisw(modelNisw).ModelRegex(modelRegex).Offset(offset).Omit(omit).Ordering(ordering).Public(public).Q(q).Start(start).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreObjectTypesList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreObjectTypesList`: PaginatedObjectTypeList
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreObjectTypesList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreObjectTypesListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **appLabel** | **[]string** |  | 
+ **appLabelEmpty** | **bool** |  | 
+ **appLabelIc** | **[]string** |  | 
+ **appLabelIe** | **[]string** |  | 
+ **appLabelIew** | **[]string** |  | 
+ **appLabelIregex** | **[]string** |  | 
+ **appLabelIsw** | **[]string** |  | 
+ **appLabelN** | **[]string** |  | 
+ **appLabelNic** | **[]string** |  | 
+ **appLabelNie** | **[]string** |  | 
+ **appLabelNiew** | **[]string** |  | 
+ **appLabelNisw** | **[]string** |  | 
+ **appLabelRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **features** | **string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **model** | **[]string** |  | 
+ **modelEmpty** | **bool** |  | 
+ **modelIc** | **[]string** |  | 
+ **modelIe** | **[]string** |  | 
+ **modelIew** | **[]string** |  | 
+ **modelIregex** | **[]string** |  | 
+ **modelIsw** | **[]string** |  | 
+ **modelN** | **[]string** |  | 
+ **modelNic** | **[]string** |  | 
+ **modelNie** | **[]string** |  | 
+ **modelNiew** | **[]string** |  | 
+ **modelNisw** | **[]string** |  | 
+ **modelRegex** | **[]string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **public** | **bool** |  | 
+ **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+
+### Return type
+
+[**PaginatedObjectTypeList**](PaginatedObjectTypeList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CoreObjectTypesRetrieve
+
+> ObjectType CoreObjectTypesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this object type.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.CoreAPI.CoreObjectTypesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `CoreAPI.CoreObjectTypesRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `CoreObjectTypesRetrieve`: ObjectType
+	fmt.Fprintf(os.Stdout, "Response from `CoreAPI.CoreObjectTypesRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this object type. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCoreObjectTypesRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**ObjectType**](ObjectType.md)
 
 ### Authorization
 

@@ -6,14 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
-**Site** | Pointer to [**BriefSiteRequest**](BriefSiteRequest.md) |  | [optional] 
+**Site** | Pointer to [**BulkCoolingSourceRequestSite**](BulkCoolingSourceRequestSite.md) |  | [optional] 
 **Parent** | Pointer to **NullableInt32** |  | [optional] 
-**Status** | Pointer to [**LocationStatusValue**](LocationStatusValue.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Status** | Pointer to [**BulkLocationRequestStatus**](BulkLocationRequestStatus.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Facility** | Pointer to **string** | Local facility ID or description | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -86,20 +88,20 @@ HasSlug returns a boolean if a field has been set.
 
 ### GetSite
 
-`func (o *PatchedWritableLocationRequest) GetSite() BriefSiteRequest`
+`func (o *PatchedWritableLocationRequest) GetSite() BulkCoolingSourceRequestSite`
 
 GetSite returns the Site field if non-nil, zero value otherwise.
 
 ### GetSiteOk
 
-`func (o *PatchedWritableLocationRequest) GetSiteOk() (*BriefSiteRequest, bool)`
+`func (o *PatchedWritableLocationRequest) GetSiteOk() (*BulkCoolingSourceRequestSite, bool)`
 
 GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSite
 
-`func (o *PatchedWritableLocationRequest) SetSite(v BriefSiteRequest)`
+`func (o *PatchedWritableLocationRequest) SetSite(v BulkCoolingSourceRequestSite)`
 
 SetSite sets Site field to given value.
 
@@ -146,20 +148,20 @@ HasParent returns a boolean if a field has been set.
 UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetStatus
 
-`func (o *PatchedWritableLocationRequest) GetStatus() LocationStatusValue`
+`func (o *PatchedWritableLocationRequest) GetStatus() BulkLocationRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWritableLocationRequest) GetStatusOk() (*LocationStatusValue, bool)`
+`func (o *PatchedWritableLocationRequest) GetStatusOk() (*BulkLocationRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWritableLocationRequest) SetStatus(v LocationStatusValue)`
+`func (o *PatchedWritableLocationRequest) SetStatus(v BulkLocationRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -171,20 +173,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *PatchedWritableLocationRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableLocationRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableLocationRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableLocationRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableLocationRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableLocationRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -303,6 +305,66 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *PatchedWritableLocationRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *PatchedWritableLocationRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableLocationRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableLocationRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableLocationRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableLocationRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableLocationRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *PatchedWritableLocationRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *PatchedWritableLocationRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *PatchedWritableLocationRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *PatchedWritableLocationRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

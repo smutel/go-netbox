@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Slug** | **string** |  | 
 **Color** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Weight** | Pointer to **int32** |  | [optional] 
 **ObjectTypes** | Pointer to **[]string** |  | [optional] 
 
 ## Methods
@@ -118,6 +119,31 @@ SetDescription sets Description field to given value.
 `func (o *TagRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetWeight
+
+`func (o *TagRequest) GetWeight() int32`
+
+GetWeight returns the Weight field if non-nil, zero value otherwise.
+
+### GetWeightOk
+
+`func (o *TagRequest) GetWeightOk() (*int32, bool)`
+
+GetWeightOk returns a tuple with the Weight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeight
+
+`func (o *TagRequest) SetWeight(v int32)`
+
+SetWeight sets Weight field to given value.
+
+### HasWeight
+
+`func (o *TagRequest) HasWeight() bool`
+
+HasWeight returns a boolean if a field has been set.
 
 ### GetObjectTypes
 

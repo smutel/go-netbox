@@ -8,13 +8,14 @@ Name | Type | Description | Notes
 **Url** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Cid** | **string** | Unique circuit ID | 
+**Provider** | [**BriefProvider**](BriefProvider.md) |  | 
 **Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewBriefCircuit
 
-`func NewBriefCircuit(id int32, url string, display string, cid string, ) *BriefCircuit`
+`func NewBriefCircuit(id int32, url string, display string, cid string, provider BriefProvider, ) *BriefCircuit`
 
 NewBriefCircuit instantiates a new BriefCircuit object
 This constructor will assign default values to properties that have it defined,
@@ -107,6 +108,26 @@ and a boolean to check if the value has been set.
 `func (o *BriefCircuit) SetCid(v string)`
 
 SetCid sets Cid field to given value.
+
+
+### GetProvider
+
+`func (o *BriefCircuit) GetProvider() BriefProvider`
+
+GetProvider returns the Provider field if non-nil, zero value otherwise.
+
+### GetProviderOk
+
+`func (o *BriefCircuit) GetProviderOk() (*BriefProvider, bool)`
+
+GetProviderOk returns a tuple with the Provider field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProvider
+
+`func (o *BriefCircuit) SetProvider(v BriefProvider)`
+
+SetProvider sets Provider field to given value.
 
 
 ### GetDescription

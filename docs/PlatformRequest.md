@@ -4,11 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Parent** | Pointer to [**NullableNestedPlatformRequest**](NestedPlatformRequest.md) |  | [optional] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
-**Manufacturer** | Pointer to [**NullableBriefManufacturerRequest**](BriefManufacturerRequest.md) |  | [optional] 
-**ConfigTemplate** | Pointer to [**NullableBriefConfigTemplateRequest**](BriefConfigTemplateRequest.md) |  | [optional] 
+**Manufacturer** | Pointer to [**NullableBulkInventoryItemRequestManufacturer**](BulkInventoryItemRequestManufacturer.md) |  | [optional] 
+**ConfigTemplate** | Pointer to [**NullableBulkDeviceRequestConfigTemplate**](BulkDeviceRequestConfigTemplate.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -31,6 +34,41 @@ NewPlatformRequestWithDefaults instantiates a new PlatformRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetParent
+
+`func (o *PlatformRequest) GetParent() NestedPlatformRequest`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *PlatformRequest) GetParentOk() (*NestedPlatformRequest, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParent
+
+`func (o *PlatformRequest) SetParent(v NestedPlatformRequest)`
+
+SetParent sets Parent field to given value.
+
+### HasParent
+
+`func (o *PlatformRequest) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
+
+### SetParentNil
+
+`func (o *PlatformRequest) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *PlatformRequest) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetName
 
 `func (o *PlatformRequest) GetName() string`
@@ -73,20 +111,20 @@ SetSlug sets Slug field to given value.
 
 ### GetManufacturer
 
-`func (o *PlatformRequest) GetManufacturer() BriefManufacturerRequest`
+`func (o *PlatformRequest) GetManufacturer() BulkInventoryItemRequestManufacturer`
 
 GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
 
 ### GetManufacturerOk
 
-`func (o *PlatformRequest) GetManufacturerOk() (*BriefManufacturerRequest, bool)`
+`func (o *PlatformRequest) GetManufacturerOk() (*BulkInventoryItemRequestManufacturer, bool)`
 
 GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetManufacturer
 
-`func (o *PlatformRequest) SetManufacturer(v BriefManufacturerRequest)`
+`func (o *PlatformRequest) SetManufacturer(v BulkInventoryItemRequestManufacturer)`
 
 SetManufacturer sets Manufacturer field to given value.
 
@@ -108,20 +146,20 @@ HasManufacturer returns a boolean if a field has been set.
 UnsetManufacturer ensures that no value is present for Manufacturer, not even an explicit nil
 ### GetConfigTemplate
 
-`func (o *PlatformRequest) GetConfigTemplate() BriefConfigTemplateRequest`
+`func (o *PlatformRequest) GetConfigTemplate() BulkDeviceRequestConfigTemplate`
 
 GetConfigTemplate returns the ConfigTemplate field if non-nil, zero value otherwise.
 
 ### GetConfigTemplateOk
 
-`func (o *PlatformRequest) GetConfigTemplateOk() (*BriefConfigTemplateRequest, bool)`
+`func (o *PlatformRequest) GetConfigTemplateOk() (*BulkDeviceRequestConfigTemplate, bool)`
 
 GetConfigTemplateOk returns a tuple with the ConfigTemplate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfigTemplate
 
-`func (o *PlatformRequest) SetConfigTemplate(v BriefConfigTemplateRequest)`
+`func (o *PlatformRequest) SetConfigTemplate(v BulkDeviceRequestConfigTemplate)`
 
 SetConfigTemplate sets ConfigTemplate field to given value.
 
@@ -165,6 +203,66 @@ SetDescription sets Description field to given value.
 `func (o *PlatformRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *PlatformRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PlatformRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PlatformRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PlatformRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PlatformRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PlatformRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *PlatformRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *PlatformRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *PlatformRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *PlatformRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetTags
 

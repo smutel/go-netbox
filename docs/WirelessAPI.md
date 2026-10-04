@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLanGroupsBulkPartialUpdate
 
-> []WirelessLANGroup WirelessWirelessLanGroupsBulkPartialUpdate(ctx).WirelessLANGroupRequest(wirelessLANGroupRequest).Execute()
+> []WirelessLANGroup WirelessWirelessLanGroupsBulkPartialUpdate(ctx).PatchedBulkWirelessLANGroupRequest(patchedBulkWirelessLANGroupRequest).Execute()
 
 
 
@@ -119,11 +119,11 @@ import (
 )
 
 func main() {
-	wirelessLANGroupRequest := []openapiclient.WirelessLANGroupRequest{*openapiclient.NewWirelessLANGroupRequest("Name_example", "Slug_example")} // []WirelessLANGroupRequest | 
+	patchedBulkWirelessLANGroupRequest := []openapiclient.PatchedBulkWirelessLANGroupRequest{*openapiclient.NewPatchedBulkWirelessLANGroupRequest(int32(123))} // []PatchedBulkWirelessLANGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsBulkPartialUpdate(context.Background()).WirelessLANGroupRequest(wirelessLANGroupRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsBulkPartialUpdate(context.Background()).PatchedBulkWirelessLANGroupRequest(patchedBulkWirelessLANGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLanGroupsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -144,7 +144,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLanGroupsB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wirelessLANGroupRequest** | [**[]WirelessLANGroupRequest**](WirelessLANGroupRequest.md) |  | 
+ **patchedBulkWirelessLANGroupRequest** | [**[]PatchedBulkWirelessLANGroupRequest**](PatchedBulkWirelessLANGroupRequest.md) |  | 
 
 ### Return type
 
@@ -166,7 +166,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLanGroupsBulkUpdate
 
-> []WirelessLANGroup WirelessWirelessLanGroupsBulkUpdate(ctx).WirelessLANGroupRequest(wirelessLANGroupRequest).Execute()
+> []WirelessLANGroup WirelessWirelessLanGroupsBulkUpdate(ctx).BulkWirelessLANGroupRequest(bulkWirelessLANGroupRequest).Execute()
 
 
 
@@ -185,11 +185,11 @@ import (
 )
 
 func main() {
-	wirelessLANGroupRequest := []openapiclient.WirelessLANGroupRequest{*openapiclient.NewWirelessLANGroupRequest("Name_example", "Slug_example")} // []WirelessLANGroupRequest | 
+	bulkWirelessLANGroupRequest := []openapiclient.BulkWirelessLANGroupRequest{*openapiclient.NewBulkWirelessLANGroupRequest(int32(123), "Name_example", "Slug_example")} // []BulkWirelessLANGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsBulkUpdate(context.Background()).WirelessLANGroupRequest(wirelessLANGroupRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsBulkUpdate(context.Background()).BulkWirelessLANGroupRequest(bulkWirelessLANGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLanGroupsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -210,7 +210,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLanGroupsB
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wirelessLANGroupRequest** | [**[]WirelessLANGroupRequest**](WirelessLANGroupRequest.md) |  | 
+ **bulkWirelessLANGroupRequest** | [**[]BulkWirelessLANGroupRequest**](BulkWirelessLANGroupRequest.md) |  | 
 
 ### Return type
 
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLanGroupsCreate
 
-> WirelessLANGroup WirelessWirelessLanGroupsCreate(ctx).WritableWirelessLANGroupRequest(writableWirelessLANGroupRequest).Execute()
+> WirelessLANGroup WirelessWirelessLanGroupsCreate(ctx).WirelessWirelessLanGroupsCreateRequest(wirelessWirelessLanGroupsCreateRequest).Execute()
 
 
 
@@ -251,11 +251,11 @@ import (
 )
 
 func main() {
-	writableWirelessLANGroupRequest := *openapiclient.NewWritableWirelessLANGroupRequest("Name_example", "Slug_example", NullableInt32(123)) // WritableWirelessLANGroupRequest | 
+	wirelessWirelessLanGroupsCreateRequest := openapiclient.wireless_wireless_lan_groups_create_request{WritableWirelessLANGroupRequest: openapiclient.NewWritableWirelessLANGroupRequest("Name_example", "Slug_example")} // WirelessWirelessLanGroupsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsCreate(context.Background()).WritableWirelessLANGroupRequest(writableWirelessLANGroupRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsCreate(context.Background()).WirelessWirelessLanGroupsCreateRequest(wirelessWirelessLanGroupsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLanGroupsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -276,7 +276,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLanGroupsC
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableWirelessLANGroupRequest** | [**WritableWirelessLANGroupRequest**](WritableWirelessLANGroupRequest.md) |  | 
+ **wirelessWirelessLanGroupsCreateRequest** | [**WirelessWirelessLanGroupsCreateRequest**](WirelessWirelessLanGroupsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -366,7 +366,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLanGroupsList
 
-> PaginatedWirelessLANGroupList WirelessWirelessLanGroupsList(ctx).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedWirelessLANGroupList WirelessWirelessLanGroupsList(ctx).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -390,6 +390,7 @@ func main() {
 	ancestorN := []string{"Inner_example"} // []string |  (optional)
 	ancestorId := []string{"Inner_example"} // []string |  (optional)
 	ancestorIdN := []string{"Inner_example"} // []string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -403,12 +404,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -430,14 +434,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	parent := []string{"Inner_example"} // []string |  (optional)
 	parentN := []string{"Inner_example"} // []string |  (optional)
 	parentId := []*int32{int32(123)} // []*int32 |  (optional)
@@ -448,19 +463,26 @@ func main() {
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsList(context.Background()).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsList(context.Background()).Ancestor(ancestor).AncestorN(ancestorN).AncestorId(ancestorId).AncestorIdN(ancestorIdN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).ParentN(parentN).ParentId(parentId).ParentIdN(parentIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLanGroupsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -485,6 +507,7 @@ Name | Type | Description  | Notes
  **ancestorN** | **[]string** |  | 
  **ancestorId** | **[]string** |  | 
  **ancestorIdN** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -498,12 +521,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -525,14 +551,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **parent** | **[]string** |  | 
  **parentN** | **[]string** |  | 
  **parentId** | **[]int32** |  | 
@@ -543,14 +580,21 @@ Name | Type | Description  | Notes
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -645,7 +689,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLanGroupsRetrieve
 
-> WirelessLANGroup WirelessWirelessLanGroupsRetrieve(ctx, id).Execute()
+> WirelessLANGroup WirelessWirelessLanGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -665,10 +709,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this wireless LAN group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLanGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLanGroupsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -694,6 +741,9 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLanGroupsR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -735,7 +785,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this wireless LAN group.
-	writableWirelessLANGroupRequest := *openapiclient.NewWritableWirelessLANGroupRequest("Name_example", "Slug_example", NullableInt32(123)) // WritableWirelessLANGroupRequest | 
+	writableWirelessLANGroupRequest := *openapiclient.NewWritableWirelessLANGroupRequest("Name_example", "Slug_example") // WritableWirelessLANGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -842,7 +892,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -851,7 +901,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLansBulkPartialUpdate
 
-> []WirelessLAN WirelessWirelessLansBulkPartialUpdate(ctx).WirelessLANRequest(wirelessLANRequest).Execute()
+> []WirelessLAN WirelessWirelessLansBulkPartialUpdate(ctx).PatchedBulkWirelessLANRequest(patchedBulkWirelessLANRequest).Execute()
 
 
 
@@ -870,11 +920,11 @@ import (
 )
 
 func main() {
-	wirelessLANRequest := []openapiclient.WirelessLANRequest{*openapiclient.NewWirelessLANRequest("Ssid_example")} // []WirelessLANRequest | 
+	patchedBulkWirelessLANRequest := []openapiclient.PatchedBulkWirelessLANRequest{*openapiclient.NewPatchedBulkWirelessLANRequest(int32(123))} // []PatchedBulkWirelessLANRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansBulkPartialUpdate(context.Background()).WirelessLANRequest(wirelessLANRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansBulkPartialUpdate(context.Background()).PatchedBulkWirelessLANRequest(patchedBulkWirelessLANRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLansBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -895,7 +945,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLansBulkPa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wirelessLANRequest** | [**[]WirelessLANRequest**](WirelessLANRequest.md) |  | 
+ **patchedBulkWirelessLANRequest** | [**[]PatchedBulkWirelessLANRequest**](PatchedBulkWirelessLANRequest.md) |  | 
 
 ### Return type
 
@@ -917,7 +967,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLansBulkUpdate
 
-> []WirelessLAN WirelessWirelessLansBulkUpdate(ctx).WirelessLANRequest(wirelessLANRequest).Execute()
+> []WirelessLAN WirelessWirelessLansBulkUpdate(ctx).BulkWirelessLANRequest(bulkWirelessLANRequest).Execute()
 
 
 
@@ -936,11 +986,11 @@ import (
 )
 
 func main() {
-	wirelessLANRequest := []openapiclient.WirelessLANRequest{*openapiclient.NewWirelessLANRequest("Ssid_example")} // []WirelessLANRequest | 
+	bulkWirelessLANRequest := []openapiclient.BulkWirelessLANRequest{*openapiclient.NewBulkWirelessLANRequest(int32(123), "Ssid_example")} // []BulkWirelessLANRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansBulkUpdate(context.Background()).WirelessLANRequest(wirelessLANRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansBulkUpdate(context.Background()).BulkWirelessLANRequest(bulkWirelessLANRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLansBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -961,7 +1011,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLansBulkUp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wirelessLANRequest** | [**[]WirelessLANRequest**](WirelessLANRequest.md) |  | 
+ **bulkWirelessLANRequest** | [**[]BulkWirelessLANRequest**](BulkWirelessLANRequest.md) |  | 
 
 ### Return type
 
@@ -983,7 +1033,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLansCreate
 
-> WirelessLAN WirelessWirelessLansCreate(ctx).WritableWirelessLANRequest(writableWirelessLANRequest).Execute()
+> WirelessLAN WirelessWirelessLansCreate(ctx).WirelessWirelessLansCreateRequest(wirelessWirelessLansCreateRequest).Execute()
 
 
 
@@ -1002,11 +1052,11 @@ import (
 )
 
 func main() {
-	writableWirelessLANRequest := *openapiclient.NewWritableWirelessLANRequest("Ssid_example") // WritableWirelessLANRequest | 
+	wirelessWirelessLansCreateRequest := openapiclient.wireless_wireless_lans_create_request{WritableWirelessLANRequest: openapiclient.NewWritableWirelessLANRequest("Ssid_example")} // WirelessWirelessLansCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansCreate(context.Background()).WritableWirelessLANRequest(writableWirelessLANRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansCreate(context.Background()).WirelessWirelessLansCreateRequest(wirelessWirelessLansCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLansCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1027,7 +1077,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLansCreate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableWirelessLANRequest** | [**WritableWirelessLANRequest**](WritableWirelessLANRequest.md) |  | 
+ **wirelessWirelessLansCreateRequest** | [**WirelessWirelessLansCreateRequest**](WirelessWirelessLansCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1117,7 +1167,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLansList
 
-> PaginatedWirelessLANList WirelessWirelessLansList(ctx).AuthCipher(authCipher).AuthCipherN(authCipherN).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthType(authType).AuthTypeN(authTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Q(q).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanId(vlanId).VlanIdN(vlanIdN).Execute()
+> PaginatedWirelessLANList WirelessWirelessLansList(ctx).AuthCipher(authCipher).AuthCipherEmpty(authCipherEmpty).AuthCipherIc(authCipherIc).AuthCipherIe(authCipherIe).AuthCipherIew(authCipherIew).AuthCipherIregex(authCipherIregex).AuthCipherIsw(authCipherIsw).AuthCipherN(authCipherN).AuthCipherNic(authCipherNic).AuthCipherNie(authCipherNie).AuthCipherNiew(authCipherNiew).AuthCipherNisw(authCipherNisw).AuthCipherRegex(authCipherRegex).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIregex(authPskIregex).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthPskRegex(authPskRegex).AuthType(authType).AuthTypeEmpty(authTypeEmpty).AuthTypeIc(authTypeIc).AuthTypeIe(authTypeIe).AuthTypeIew(authTypeIew).AuthTypeIregex(authTypeIregex).AuthTypeIsw(authTypeIsw).AuthTypeN(authTypeN).AuthTypeNic(authTypeNic).AuthTypeNie(authTypeNie).AuthTypeNiew(authTypeNiew).AuthTypeNisw(authTypeNisw).AuthTypeRegex(authTypeRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIregex(ssidIregex).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).SsidRegex(ssidRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanId(vlanId).VlanIdN(vlanIdN).Execute()
 
 
 
@@ -1137,21 +1187,46 @@ import (
 )
 
 func main() {
-	authCipher := []string{"Inner_example"} // []string |  (optional)
-	authCipherN := []string{"Inner_example"} // []string |  (optional)
+	authCipher := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherEmpty := true // bool |  (optional)
+	authCipherIc := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIe := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIew := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIregex := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIsw := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherN := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNic := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNie := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNiew := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNisw := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherRegex := []*string{"Inner_example"} // []*string |  (optional)
 	authPsk := []string{"Inner_example"} // []string |  (optional)
 	authPskEmpty := true // bool |  (optional)
 	authPskIc := []string{"Inner_example"} // []string |  (optional)
 	authPskIe := []string{"Inner_example"} // []string |  (optional)
 	authPskIew := []string{"Inner_example"} // []string |  (optional)
+	authPskIregex := []string{"Inner_example"} // []string |  (optional)
 	authPskIsw := []string{"Inner_example"} // []string |  (optional)
 	authPskN := []string{"Inner_example"} // []string |  (optional)
 	authPskNic := []string{"Inner_example"} // []string |  (optional)
 	authPskNie := []string{"Inner_example"} // []string |  (optional)
 	authPskNiew := []string{"Inner_example"} // []string |  (optional)
 	authPskNisw := []string{"Inner_example"} // []string |  (optional)
-	authType := []string{"Inner_example"} // []string |  (optional)
-	authTypeN := []string{"Inner_example"} // []string |  (optional)
+	authPskRegex := []string{"Inner_example"} // []string |  (optional)
+	authType := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeEmpty := true // bool |  (optional)
+	authTypeIc := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIe := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIew := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIregex := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIsw := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeN := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNic := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNie := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNiew := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNisw := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeRegex := []*string{"Inner_example"} // []*string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1165,12 +1240,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []string{"Inner_example"} // []string |  (optional)
 	groupN := []string{"Inner_example"} // []string |  (optional)
 	groupId := []string{"Inner_example"} // []string |  (optional)
@@ -1192,25 +1270,77 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	location := []string{"Inner_example"} // []string |  (optional)
+	locationN := []string{"Inner_example"} // []string |  (optional)
+	locationId := []string{"Inner_example"} // []string |  (optional)
+	locationIdN := []string{"Inner_example"} // []string |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	region := []string{"Inner_example"} // []string |  (optional)
+	regionN := []string{"Inner_example"} // []string |  (optional)
+	regionId := []string{"Inner_example"} // []string |  (optional)
+	regionIdN := []string{"Inner_example"} // []string |  (optional)
+	scopeId := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdEmpty := true // bool |  (optional)
+	scopeIdGt := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdGte := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdLt := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdLte := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdN := []int32{int32(123)} // []int32 |  (optional)
+	scopeType := []string{"Inner_example"} // []string |  (optional)
+	scopeTypeN := []string{"Inner_example"} // []string |  (optional)
+	site := []string{"Inner_example"} // []string | Site (slug) (optional)
+	siteN := []string{"Inner_example"} // []string | Site (slug) (optional)
+	siteGroup := []string{"Inner_example"} // []string |  (optional)
+	siteGroupN := []string{"Inner_example"} // []string |  (optional)
+	siteGroupId := []string{"Inner_example"} // []string |  (optional)
+	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
+	siteId := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	siteIdN := []int32{int32(123)} // []int32 | Site (ID) (optional)
 	ssid := []string{"Inner_example"} // []string |  (optional)
 	ssidEmpty := true // bool |  (optional)
 	ssidIc := []string{"Inner_example"} // []string |  (optional)
 	ssidIe := []string{"Inner_example"} // []string |  (optional)
 	ssidIew := []string{"Inner_example"} // []string |  (optional)
+	ssidIregex := []string{"Inner_example"} // []string |  (optional)
 	ssidIsw := []string{"Inner_example"} // []string |  (optional)
 	ssidN := []string{"Inner_example"} // []string |  (optional)
 	ssidNic := []string{"Inner_example"} // []string |  (optional)
 	ssidNie := []string{"Inner_example"} // []string |  (optional)
 	ssidNiew := []string{"Inner_example"} // []string |  (optional)
 	ssidNisw := []string{"Inner_example"} // []string |  (optional)
+	ssidRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -1225,7 +1355,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansList(context.Background()).AuthCipher(authCipher).AuthCipherN(authCipherN).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthType(authType).AuthTypeN(authTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Q(q).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanId(vlanId).VlanIdN(vlanIdN).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansList(context.Background()).AuthCipher(authCipher).AuthCipherEmpty(authCipherEmpty).AuthCipherIc(authCipherIc).AuthCipherIe(authCipherIe).AuthCipherIew(authCipherIew).AuthCipherIregex(authCipherIregex).AuthCipherIsw(authCipherIsw).AuthCipherN(authCipherN).AuthCipherNic(authCipherNic).AuthCipherNie(authCipherNie).AuthCipherNiew(authCipherNiew).AuthCipherNisw(authCipherNisw).AuthCipherRegex(authCipherRegex).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIregex(authPskIregex).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthPskRegex(authPskRegex).AuthType(authType).AuthTypeEmpty(authTypeEmpty).AuthTypeIc(authTypeIc).AuthTypeIe(authTypeIe).AuthTypeIew(authTypeIew).AuthTypeIregex(authTypeIregex).AuthTypeIsw(authTypeIsw).AuthTypeN(authTypeN).AuthTypeNic(authTypeNic).AuthTypeNie(authTypeNie).AuthTypeNiew(authTypeNiew).AuthTypeNisw(authTypeNisw).AuthTypeRegex(authTypeRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIregex(ssidIregex).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).SsidRegex(ssidRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanId(vlanId).VlanIdN(vlanIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLansList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1247,20 +1377,45 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLansListRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authCipher** | **[]string** |  | 
+ **authCipherEmpty** | **bool** |  | 
+ **authCipherIc** | **[]string** |  | 
+ **authCipherIe** | **[]string** |  | 
+ **authCipherIew** | **[]string** |  | 
+ **authCipherIregex** | **[]string** |  | 
+ **authCipherIsw** | **[]string** |  | 
  **authCipherN** | **[]string** |  | 
+ **authCipherNic** | **[]string** |  | 
+ **authCipherNie** | **[]string** |  | 
+ **authCipherNiew** | **[]string** |  | 
+ **authCipherNisw** | **[]string** |  | 
+ **authCipherRegex** | **[]string** |  | 
  **authPsk** | **[]string** |  | 
  **authPskEmpty** | **bool** |  | 
  **authPskIc** | **[]string** |  | 
  **authPskIe** | **[]string** |  | 
  **authPskIew** | **[]string** |  | 
+ **authPskIregex** | **[]string** |  | 
  **authPskIsw** | **[]string** |  | 
  **authPskN** | **[]string** |  | 
  **authPskNic** | **[]string** |  | 
  **authPskNie** | **[]string** |  | 
  **authPskNiew** | **[]string** |  | 
  **authPskNisw** | **[]string** |  | 
+ **authPskRegex** | **[]string** |  | 
  **authType** | **[]string** |  | 
+ **authTypeEmpty** | **bool** |  | 
+ **authTypeIc** | **[]string** |  | 
+ **authTypeIe** | **[]string** |  | 
+ **authTypeIew** | **[]string** |  | 
+ **authTypeIregex** | **[]string** |  | 
+ **authTypeIsw** | **[]string** |  | 
  **authTypeN** | **[]string** |  | 
+ **authTypeNic** | **[]string** |  | 
+ **authTypeNie** | **[]string** |  | 
+ **authTypeNiew** | **[]string** |  | 
+ **authTypeNisw** | **[]string** |  | 
+ **authTypeRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -1274,12 +1429,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]string** |  | 
  **groupN** | **[]string** |  | 
  **groupId** | **[]string** |  | 
@@ -1301,25 +1459,77 @@ Name | Type | Description  | Notes
  **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **location** | **[]string** |  | 
+ **locationN** | **[]string** |  | 
+ **locationId** | **[]string** |  | 
+ **locationIdN** | **[]string** |  | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
+ **region** | **[]string** |  | 
+ **regionN** | **[]string** |  | 
+ **regionId** | **[]string** |  | 
+ **regionIdN** | **[]string** |  | 
+ **scopeId** | **[]int32** |  | 
+ **scopeIdEmpty** | **bool** |  | 
+ **scopeIdGt** | **[]int32** |  | 
+ **scopeIdGte** | **[]int32** |  | 
+ **scopeIdLt** | **[]int32** |  | 
+ **scopeIdLte** | **[]int32** |  | 
+ **scopeIdN** | **[]int32** |  | 
+ **scopeType** | **[]string** |  | 
+ **scopeTypeN** | **[]string** |  | 
+ **site** | **[]string** | Site (slug) | 
+ **siteN** | **[]string** | Site (slug) | 
+ **siteGroup** | **[]string** |  | 
+ **siteGroupN** | **[]string** |  | 
+ **siteGroupId** | **[]string** |  | 
+ **siteGroupIdN** | **[]string** |  | 
+ **siteId** | **[]int32** | Site (ID) | 
+ **siteIdN** | **[]int32** | Site (ID) | 
  **ssid** | **[]string** |  | 
  **ssidEmpty** | **bool** |  | 
  **ssidIc** | **[]string** |  | 
  **ssidIe** | **[]string** |  | 
  **ssidIew** | **[]string** |  | 
+ **ssidIregex** | **[]string** |  | 
  **ssidIsw** | **[]string** |  | 
  **ssidN** | **[]string** |  | 
  **ssidNic** | **[]string** |  | 
  **ssidNie** | **[]string** |  | 
  **ssidNiew** | **[]string** |  | 
  **ssidNisw** | **[]string** |  | 
+ **ssidRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -1424,7 +1634,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLansRetrieve
 
-> WirelessLAN WirelessWirelessLansRetrieve(ctx, id).Execute()
+> WirelessLAN WirelessWirelessLansRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -1444,10 +1654,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this wireless LAN.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLansRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLansRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1473,6 +1686,9 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLansRetrie
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1585,7 +1801,7 @@ import (
 )
 
 func main() {
-	wirelessLinkRequest := []openapiclient.WirelessLinkRequest{*openapiclient.NewWirelessLinkRequest(*openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"), *openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"))} // []WirelessLinkRequest | 
+	wirelessLinkRequest := []openapiclient.WirelessLinkRequest{*openapiclient.NewWirelessLinkRequest(openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")})} // []WirelessLinkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1621,7 +1837,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1630,7 +1846,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLinksBulkPartialUpdate
 
-> []WirelessLink WirelessWirelessLinksBulkPartialUpdate(ctx).WirelessLinkRequest(wirelessLinkRequest).Execute()
+> []WirelessLink WirelessWirelessLinksBulkPartialUpdate(ctx).PatchedBulkWirelessLinkRequest(patchedBulkWirelessLinkRequest).Execute()
 
 
 
@@ -1649,11 +1865,11 @@ import (
 )
 
 func main() {
-	wirelessLinkRequest := []openapiclient.WirelessLinkRequest{*openapiclient.NewWirelessLinkRequest(*openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"), *openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"))} // []WirelessLinkRequest | 
+	patchedBulkWirelessLinkRequest := []openapiclient.PatchedBulkWirelessLinkRequest{*openapiclient.NewPatchedBulkWirelessLinkRequest(int32(123))} // []PatchedBulkWirelessLinkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksBulkPartialUpdate(context.Background()).WirelessLinkRequest(wirelessLinkRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksBulkPartialUpdate(context.Background()).PatchedBulkWirelessLinkRequest(patchedBulkWirelessLinkRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLinksBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1674,7 +1890,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLinksBulkP
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wirelessLinkRequest** | [**[]WirelessLinkRequest**](WirelessLinkRequest.md) |  | 
+ **patchedBulkWirelessLinkRequest** | [**[]PatchedBulkWirelessLinkRequest**](PatchedBulkWirelessLinkRequest.md) |  | 
 
 ### Return type
 
@@ -1696,7 +1912,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLinksBulkUpdate
 
-> []WirelessLink WirelessWirelessLinksBulkUpdate(ctx).WirelessLinkRequest(wirelessLinkRequest).Execute()
+> []WirelessLink WirelessWirelessLinksBulkUpdate(ctx).BulkWirelessLinkRequest(bulkWirelessLinkRequest).Execute()
 
 
 
@@ -1715,11 +1931,11 @@ import (
 )
 
 func main() {
-	wirelessLinkRequest := []openapiclient.WirelessLinkRequest{*openapiclient.NewWirelessLinkRequest(*openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"), *openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"))} // []WirelessLinkRequest | 
+	bulkWirelessLinkRequest := []openapiclient.BulkWirelessLinkRequest{*openapiclient.NewBulkWirelessLinkRequest(int32(123), openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")})} // []BulkWirelessLinkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksBulkUpdate(context.Background()).WirelessLinkRequest(wirelessLinkRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksBulkUpdate(context.Background()).BulkWirelessLinkRequest(bulkWirelessLinkRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLinksBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1740,7 +1956,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLinksBulkU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **wirelessLinkRequest** | [**[]WirelessLinkRequest**](WirelessLinkRequest.md) |  | 
+ **bulkWirelessLinkRequest** | [**[]BulkWirelessLinkRequest**](BulkWirelessLinkRequest.md) |  | 
 
 ### Return type
 
@@ -1762,7 +1978,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLinksCreate
 
-> WirelessLink WirelessWirelessLinksCreate(ctx).WritableWirelessLinkRequest(writableWirelessLinkRequest).Execute()
+> WirelessLink WirelessWirelessLinksCreate(ctx).WirelessWirelessLinksCreateRequest(wirelessWirelessLinksCreateRequest).Execute()
 
 
 
@@ -1781,11 +1997,11 @@ import (
 )
 
 func main() {
-	writableWirelessLinkRequest := *openapiclient.NewWritableWirelessLinkRequest(*openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"), *openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example")) // WritableWirelessLinkRequest | 
+	wirelessWirelessLinksCreateRequest := openapiclient.wireless_wireless_links_create_request{WritableWirelessLinkRequest: openapiclient.NewWritableWirelessLinkRequest(openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")})} // WirelessWirelessLinksCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksCreate(context.Background()).WritableWirelessLinkRequest(writableWirelessLinkRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksCreate(context.Background()).WirelessWirelessLinksCreateRequest(wirelessWirelessLinksCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLinksCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1806,7 +2022,7 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLinksCreat
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableWirelessLinkRequest** | [**WritableWirelessLinkRequest**](WritableWirelessLinkRequest.md) |  | 
+ **wirelessWirelessLinksCreateRequest** | [**WirelessWirelessLinksCreateRequest**](WirelessWirelessLinksCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1896,7 +2112,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLinksList
 
-> PaginatedWirelessLinkList WirelessWirelessLinksList(ctx).AuthCipher(authCipher).AuthCipherN(authCipherN).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthType(authType).AuthTypeN(authTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceAId(interfaceAId).InterfaceAIdN(interfaceAIdN).InterfaceBId(interfaceBId).InterfaceBIdN(interfaceBIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Q(q).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedWirelessLinkList WirelessWirelessLinksList(ctx).AuthCipher(authCipher).AuthCipherEmpty(authCipherEmpty).AuthCipherIc(authCipherIc).AuthCipherIe(authCipherIe).AuthCipherIew(authCipherIew).AuthCipherIregex(authCipherIregex).AuthCipherIsw(authCipherIsw).AuthCipherN(authCipherN).AuthCipherNic(authCipherNic).AuthCipherNie(authCipherNie).AuthCipherNiew(authCipherNiew).AuthCipherNisw(authCipherNisw).AuthCipherRegex(authCipherRegex).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIregex(authPskIregex).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthPskRegex(authPskRegex).AuthType(authType).AuthTypeEmpty(authTypeEmpty).AuthTypeIc(authTypeIc).AuthTypeIe(authTypeIe).AuthTypeIew(authTypeIew).AuthTypeIregex(authTypeIregex).AuthTypeIsw(authTypeIsw).AuthTypeN(authTypeN).AuthTypeNic(authTypeNic).AuthTypeNie(authTypeNie).AuthTypeNiew(authTypeNiew).AuthTypeNisw(authTypeNisw).AuthTypeRegex(authTypeRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Distance(distance).DistanceEmpty(distanceEmpty).DistanceGt(distanceGt).DistanceGte(distanceGte).DistanceLt(distanceLt).DistanceLte(distanceLte).DistanceN(distanceN).DistanceUnit(distanceUnit).DistanceUnitEmpty(distanceUnitEmpty).DistanceUnitIc(distanceUnitIc).DistanceUnitIe(distanceUnitIe).DistanceUnitIew(distanceUnitIew).DistanceUnitIregex(distanceUnitIregex).DistanceUnitIsw(distanceUnitIsw).DistanceUnitN(distanceUnitN).DistanceUnitNic(distanceUnitNic).DistanceUnitNie(distanceUnitNie).DistanceUnitNiew(distanceUnitNiew).DistanceUnitNisw(distanceUnitNisw).DistanceUnitRegex(distanceUnitRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceAId(interfaceAId).InterfaceAIdN(interfaceAIdN).InterfaceBId(interfaceBId).InterfaceBIdN(interfaceBIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIregex(ssidIregex).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).SsidRegex(ssidRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1916,21 +2132,46 @@ import (
 )
 
 func main() {
-	authCipher := []string{"Inner_example"} // []string |  (optional)
-	authCipherN := []string{"Inner_example"} // []string |  (optional)
+	authCipher := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherEmpty := true // bool |  (optional)
+	authCipherIc := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIe := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIew := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIregex := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherIsw := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherN := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNic := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNie := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNiew := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherNisw := []*string{"Inner_example"} // []*string |  (optional)
+	authCipherRegex := []*string{"Inner_example"} // []*string |  (optional)
 	authPsk := []string{"Inner_example"} // []string |  (optional)
 	authPskEmpty := true // bool |  (optional)
 	authPskIc := []string{"Inner_example"} // []string |  (optional)
 	authPskIe := []string{"Inner_example"} // []string |  (optional)
 	authPskIew := []string{"Inner_example"} // []string |  (optional)
+	authPskIregex := []string{"Inner_example"} // []string |  (optional)
 	authPskIsw := []string{"Inner_example"} // []string |  (optional)
 	authPskN := []string{"Inner_example"} // []string |  (optional)
 	authPskNic := []string{"Inner_example"} // []string |  (optional)
 	authPskNie := []string{"Inner_example"} // []string |  (optional)
 	authPskNiew := []string{"Inner_example"} // []string |  (optional)
 	authPskNisw := []string{"Inner_example"} // []string |  (optional)
-	authType := []string{"Inner_example"} // []string |  (optional)
-	authTypeN := []string{"Inner_example"} // []string |  (optional)
+	authPskRegex := []string{"Inner_example"} // []string |  (optional)
+	authType := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeEmpty := true // bool |  (optional)
+	authTypeIc := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIe := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIew := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIregex := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIsw := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeN := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNic := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNie := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNiew := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNisw := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeRegex := []*string{"Inner_example"} // []*string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1944,12 +2185,35 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	distance := []float64{float64(123)} // []float64 |  (optional)
+	distanceEmpty := true // bool |  (optional)
+	distanceGt := []float64{float64(123)} // []float64 |  (optional)
+	distanceGte := []float64{float64(123)} // []float64 |  (optional)
+	distanceLt := []float64{float64(123)} // []float64 |  (optional)
+	distanceLte := []float64{float64(123)} // []float64 |  (optional)
+	distanceN := []float64{float64(123)} // []float64 |  (optional)
+	distanceUnit := openapiclient.circuits_circuits_list_distance_unit_parameter("ft") // CircuitsCircuitsListDistanceUnitParameter | * `km` - Kilometers * `m` - Meters * `mi` - Miles * `ft` - Feet (optional)
+	distanceUnitEmpty := true // bool |  (optional)
+	distanceUnitIc := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIe := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIew := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIregex := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitIsw := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitN := openapiclient.circuits_circuits_list_distance_unit_parameter("ft") // CircuitsCircuitsListDistanceUnitParameter | * `km` - Kilometers * `m` - Meters * `mi` - Miles * `ft` - Feet (optional)
+	distanceUnitNic := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitNie := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitNiew := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitNisw := []string{"Inner_example"} // []string |  (optional)
+	distanceUnitRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1971,23 +2235,50 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	ssid := []string{"Inner_example"} // []string |  (optional)
 	ssidEmpty := true // bool |  (optional)
 	ssidIc := []string{"Inner_example"} // []string |  (optional)
 	ssidIe := []string{"Inner_example"} // []string |  (optional)
 	ssidIew := []string{"Inner_example"} // []string |  (optional)
+	ssidIregex := []string{"Inner_example"} // []string |  (optional)
 	ssidIsw := []string{"Inner_example"} // []string |  (optional)
 	ssidN := []string{"Inner_example"} // []string |  (optional)
 	ssidNic := []string{"Inner_example"} // []string |  (optional)
 	ssidNie := []string{"Inner_example"} // []string |  (optional)
 	ssidNiew := []string{"Inner_example"} // []string |  (optional)
 	ssidNisw := []string{"Inner_example"} // []string |  (optional)
+	ssidRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string |  (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string |  (optional)
+	statusIe := []string{"Inner_example"} // []string |  (optional)
+	statusIew := []string{"Inner_example"} // []string |  (optional)
+	statusIregex := []string{"Inner_example"} // []string |  (optional)
+	statusIsw := []string{"Inner_example"} // []string |  (optional)
 	statusN := []string{"Inner_example"} // []string |  (optional)
+	statusNic := []string{"Inner_example"} // []string |  (optional)
+	statusNie := []string{"Inner_example"} // []string |  (optional)
+	statusNiew := []string{"Inner_example"} // []string |  (optional)
+	statusNisw := []string{"Inner_example"} // []string |  (optional)
+	statusRegex := []string{"Inner_example"} // []string |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -2000,7 +2291,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksList(context.Background()).AuthCipher(authCipher).AuthCipherN(authCipherN).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthType(authType).AuthTypeN(authTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceAId(interfaceAId).InterfaceAIdN(interfaceAIdN).InterfaceBId(interfaceBId).InterfaceBIdN(interfaceBIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Q(q).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksList(context.Background()).AuthCipher(authCipher).AuthCipherEmpty(authCipherEmpty).AuthCipherIc(authCipherIc).AuthCipherIe(authCipherIe).AuthCipherIew(authCipherIew).AuthCipherIregex(authCipherIregex).AuthCipherIsw(authCipherIsw).AuthCipherN(authCipherN).AuthCipherNic(authCipherNic).AuthCipherNie(authCipherNie).AuthCipherNiew(authCipherNiew).AuthCipherNisw(authCipherNisw).AuthCipherRegex(authCipherRegex).AuthPsk(authPsk).AuthPskEmpty(authPskEmpty).AuthPskIc(authPskIc).AuthPskIe(authPskIe).AuthPskIew(authPskIew).AuthPskIregex(authPskIregex).AuthPskIsw(authPskIsw).AuthPskN(authPskN).AuthPskNic(authPskNic).AuthPskNie(authPskNie).AuthPskNiew(authPskNiew).AuthPskNisw(authPskNisw).AuthPskRegex(authPskRegex).AuthType(authType).AuthTypeEmpty(authTypeEmpty).AuthTypeIc(authTypeIc).AuthTypeIe(authTypeIe).AuthTypeIew(authTypeIew).AuthTypeIregex(authTypeIregex).AuthTypeIsw(authTypeIsw).AuthTypeN(authTypeN).AuthTypeNic(authTypeNic).AuthTypeNie(authTypeNie).AuthTypeNiew(authTypeNiew).AuthTypeNisw(authTypeNisw).AuthTypeRegex(authTypeRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Distance(distance).DistanceEmpty(distanceEmpty).DistanceGt(distanceGt).DistanceGte(distanceGte).DistanceLt(distanceLt).DistanceLte(distanceLte).DistanceN(distanceN).DistanceUnit(distanceUnit).DistanceUnitEmpty(distanceUnitEmpty).DistanceUnitIc(distanceUnitIc).DistanceUnitIe(distanceUnitIe).DistanceUnitIew(distanceUnitIew).DistanceUnitIregex(distanceUnitIregex).DistanceUnitIsw(distanceUnitIsw).DistanceUnitN(distanceUnitN).DistanceUnitNic(distanceUnitNic).DistanceUnitNie(distanceUnitNie).DistanceUnitNiew(distanceUnitNiew).DistanceUnitNisw(distanceUnitNisw).DistanceUnitRegex(distanceUnitRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceAId(interfaceAId).InterfaceAIdN(interfaceAIdN).InterfaceBId(interfaceBId).InterfaceBIdN(interfaceBIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Ssid(ssid).SsidEmpty(ssidEmpty).SsidIc(ssidIc).SsidIe(ssidIe).SsidIew(ssidIew).SsidIregex(ssidIregex).SsidIsw(ssidIsw).SsidN(ssidN).SsidNic(ssidNic).SsidNie(ssidNie).SsidNiew(ssidNiew).SsidNisw(ssidNisw).SsidRegex(ssidRegex).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLinksList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2022,20 +2313,45 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLinksListR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authCipher** | **[]string** |  | 
+ **authCipherEmpty** | **bool** |  | 
+ **authCipherIc** | **[]string** |  | 
+ **authCipherIe** | **[]string** |  | 
+ **authCipherIew** | **[]string** |  | 
+ **authCipherIregex** | **[]string** |  | 
+ **authCipherIsw** | **[]string** |  | 
  **authCipherN** | **[]string** |  | 
+ **authCipherNic** | **[]string** |  | 
+ **authCipherNie** | **[]string** |  | 
+ **authCipherNiew** | **[]string** |  | 
+ **authCipherNisw** | **[]string** |  | 
+ **authCipherRegex** | **[]string** |  | 
  **authPsk** | **[]string** |  | 
  **authPskEmpty** | **bool** |  | 
  **authPskIc** | **[]string** |  | 
  **authPskIe** | **[]string** |  | 
  **authPskIew** | **[]string** |  | 
+ **authPskIregex** | **[]string** |  | 
  **authPskIsw** | **[]string** |  | 
  **authPskN** | **[]string** |  | 
  **authPskNic** | **[]string** |  | 
  **authPskNie** | **[]string** |  | 
  **authPskNiew** | **[]string** |  | 
  **authPskNisw** | **[]string** |  | 
+ **authPskRegex** | **[]string** |  | 
  **authType** | **[]string** |  | 
+ **authTypeEmpty** | **bool** |  | 
+ **authTypeIc** | **[]string** |  | 
+ **authTypeIe** | **[]string** |  | 
+ **authTypeIew** | **[]string** |  | 
+ **authTypeIregex** | **[]string** |  | 
+ **authTypeIsw** | **[]string** |  | 
  **authTypeN** | **[]string** |  | 
+ **authTypeNic** | **[]string** |  | 
+ **authTypeNie** | **[]string** |  | 
+ **authTypeNiew** | **[]string** |  | 
+ **authTypeNisw** | **[]string** |  | 
+ **authTypeRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -2049,12 +2365,35 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **distance** | **[]float64** |  | 
+ **distanceEmpty** | **bool** |  | 
+ **distanceGt** | **[]float64** |  | 
+ **distanceGte** | **[]float64** |  | 
+ **distanceLt** | **[]float64** |  | 
+ **distanceLte** | **[]float64** |  | 
+ **distanceN** | **[]float64** |  | 
+ **distanceUnit** | [**CircuitsCircuitsListDistanceUnitParameter**](CircuitsCircuitsListDistanceUnitParameter.md) | * &#x60;km&#x60; - Kilometers * &#x60;m&#x60; - Meters * &#x60;mi&#x60; - Miles * &#x60;ft&#x60; - Feet | 
+ **distanceUnitEmpty** | **bool** |  | 
+ **distanceUnitIc** | **[]string** |  | 
+ **distanceUnitIe** | **[]string** |  | 
+ **distanceUnitIew** | **[]string** |  | 
+ **distanceUnitIregex** | **[]string** |  | 
+ **distanceUnitIsw** | **[]string** |  | 
+ **distanceUnitN** | [**CircuitsCircuitsListDistanceUnitParameter**](CircuitsCircuitsListDistanceUnitParameter.md) | * &#x60;km&#x60; - Kilometers * &#x60;m&#x60; - Meters * &#x60;mi&#x60; - Miles * &#x60;ft&#x60; - Feet | 
+ **distanceUnitNic** | **[]string** |  | 
+ **distanceUnitNie** | **[]string** |  | 
+ **distanceUnitNiew** | **[]string** |  | 
+ **distanceUnitNisw** | **[]string** |  | 
+ **distanceUnitRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -2076,23 +2415,50 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **ssid** | **[]string** |  | 
  **ssidEmpty** | **bool** |  | 
  **ssidIc** | **[]string** |  | 
  **ssidIe** | **[]string** |  | 
  **ssidIew** | **[]string** |  | 
+ **ssidIregex** | **[]string** |  | 
  **ssidIsw** | **[]string** |  | 
  **ssidN** | **[]string** |  | 
  **ssidNic** | **[]string** |  | 
  **ssidNie** | **[]string** |  | 
  **ssidNiew** | **[]string** |  | 
  **ssidNisw** | **[]string** |  | 
+ **ssidRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** |  | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** |  | 
+ **statusIe** | **[]string** |  | 
+ **statusIew** | **[]string** |  | 
+ **statusIregex** | **[]string** |  | 
+ **statusIsw** | **[]string** |  | 
  **statusN** | **[]string** |  | 
+ **statusNic** | **[]string** |  | 
+ **statusNie** | **[]string** |  | 
+ **statusNiew** | **[]string** |  | 
+ **statusNisw** | **[]string** |  | 
+ **statusRegex** | **[]string** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -2195,7 +2561,7 @@ Name | Type | Description  | Notes
 
 ## WirelessWirelessLinksRetrieve
 
-> WirelessLink WirelessWirelessLinksRetrieve(ctx, id).Execute()
+> WirelessLink WirelessWirelessLinksRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2215,10 +2581,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this wireless link.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.WirelessAPI.WirelessWirelessLinksRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WirelessAPI.WirelessWirelessLinksRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2244,6 +2613,9 @@ Other parameters are passed through a pointer to a apiWirelessWirelessLinksRetri
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -2285,7 +2657,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this wireless link.
-	writableWirelessLinkRequest := *openapiclient.NewWritableWirelessLinkRequest(*openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example"), *openapiclient.NewBriefInterfaceRequest(*openapiclient.NewBriefDeviceRequest(), "Name_example")) // WritableWirelessLinkRequest | 
+	writableWirelessLinkRequest := *openapiclient.NewWritableWirelessLinkRequest(openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")}, openapiclient.BulkVirtualCircuitTerminationRequest_interface{BriefInterfaceRequest: openapiclient.NewBriefInterfaceRequest(openapiclient.BriefCoolingIntakeRequest_device{BriefDeviceRequest: openapiclient.NewBriefDeviceRequest()}, "Name_example")}) // WritableWirelessLinkRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)

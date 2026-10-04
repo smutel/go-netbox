@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## SchemaRetrieve
 
-> map[string]interface{} SchemaRetrieve(ctx).Format(format).Lang(lang).Execute()
+> map[string]interface{} SchemaRetrieve(ctx).Brief(brief).Fields(fields).Format(format).Lang(lang).Omit(omit).Execute()
 
 
 
@@ -29,12 +29,15 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	format := openapiclient.schema_retrieve_format_parameter("json") // SchemaRetrieveFormatParameter |  (optional)
 	lang := openapiclient.schema_retrieve_lang_parameter("cs") // SchemaRetrieveLangParameter |  (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.SchemaAPI.SchemaRetrieve(context.Background()).Format(format).Lang(lang).Execute()
+	resp, r, err := apiClient.SchemaAPI.SchemaRetrieve(context.Background()).Brief(brief).Fields(fields).Format(format).Lang(lang).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SchemaAPI.SchemaRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -55,8 +58,11 @@ Other parameters are passed through a pointer to a apiSchemaRetrieveRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **format** | [**SchemaRetrieveFormatParameter**](SchemaRetrieveFormatParameter.md) |  | 
  **lang** | [**SchemaRetrieveLangParameter**](SchemaRetrieveLangParameter.md) |  | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 

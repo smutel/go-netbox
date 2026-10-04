@@ -11,6 +11,8 @@
 
 * `IEC_60320_C15` (value: `"iec-60320-c15"`)
 
+* `IEC_60320_C17` (value: `"iec-60320-c17"`)
+
 * `IEC_60320_C19` (value: `"iec-60320-c19"`)
 
 * `IEC_60320_C21` (value: `"iec-60320-c21"`)
@@ -125,6 +127,8 @@
 
 * `NEMA_L21_30R` (value: `"nema-l21-30r"`)
 
+* `NEMA_L22_20R` (value: `"nema-l22-20r"`)
+
 * `NEMA_L22_30R` (value: `"nema-l22-30r"`)
 
 * `CS6360_C` (value: `"CS6360C"`)
@@ -173,9 +177,13 @@
 
 * `MOLEX_MICRO_FIT_2X2` (value: `"molex-micro-fit-2x2"`)
 
+* `MOLEX_MICRO_FIT_2X3` (value: `"molex-micro-fit-2x3"`)
+
 * `MOLEX_MICRO_FIT_2X4` (value: `"molex-micro-fit-2x4"`)
 
 * `DC_TERMINAL` (value: `"dc-terminal"`)
+
+* `EATON_C39` (value: `"eaton-c39"`)
 
 * `HDOT_CX` (value: `"hdot-cx"`)
 

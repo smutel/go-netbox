@@ -4,14 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Site** | Pointer to [**NullableBriefSiteRequest**](BriefSiteRequest.md) |  | [optional] 
-**Group** | Pointer to [**NullableBriefVLANGroupRequest**](BriefVLANGroupRequest.md) |  | [optional] 
+**Site** | Pointer to [**NullableBulkVLANRequestSite**](BulkVLANRequestSite.md) |  | [optional] 
+**Group** | Pointer to [**NullableBulkVLANRequestGroup**](BulkVLANRequestGroup.md) |  | [optional] 
 **Vid** | Pointer to **int32** | Numeric VLAN ID (1-4094) | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Status** | Pointer to [**PatchedWritableVLANRequestStatus**](PatchedWritableVLANRequestStatus.md) |  | [optional] 
-**Role** | Pointer to [**NullableBriefRoleRequest**](BriefRoleRequest.md) |  | [optional] 
+**Role** | Pointer to [**NullableASNRequestRole**](ASNRequestRole.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**QinqRole** | Pointer to [**NullableQInQRole**](QInQRole.md) |  | [optional] 
+**QinqSvlan** | Pointer to **NullableInt32** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -37,20 +40,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSite
 
-`func (o *PatchedWritableVLANRequest) GetSite() BriefSiteRequest`
+`func (o *PatchedWritableVLANRequest) GetSite() BulkVLANRequestSite`
 
 GetSite returns the Site field if non-nil, zero value otherwise.
 
 ### GetSiteOk
 
-`func (o *PatchedWritableVLANRequest) GetSiteOk() (*BriefSiteRequest, bool)`
+`func (o *PatchedWritableVLANRequest) GetSiteOk() (*BulkVLANRequestSite, bool)`
 
 GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSite
 
-`func (o *PatchedWritableVLANRequest) SetSite(v BriefSiteRequest)`
+`func (o *PatchedWritableVLANRequest) SetSite(v BulkVLANRequestSite)`
 
 SetSite sets Site field to given value.
 
@@ -72,20 +75,20 @@ HasSite returns a boolean if a field has been set.
 UnsetSite ensures that no value is present for Site, not even an explicit nil
 ### GetGroup
 
-`func (o *PatchedWritableVLANRequest) GetGroup() BriefVLANGroupRequest`
+`func (o *PatchedWritableVLANRequest) GetGroup() BulkVLANRequestGroup`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *PatchedWritableVLANRequest) GetGroupOk() (*BriefVLANGroupRequest, bool)`
+`func (o *PatchedWritableVLANRequest) GetGroupOk() (*BulkVLANRequestGroup, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *PatchedWritableVLANRequest) SetGroup(v BriefVLANGroupRequest)`
+`func (o *PatchedWritableVLANRequest) SetGroup(v BulkVLANRequestGroup)`
 
 SetGroup sets Group field to given value.
 
@@ -157,20 +160,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *PatchedWritableVLANRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableVLANRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableVLANRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableVLANRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableVLANRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableVLANRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -217,20 +220,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *PatchedWritableVLANRequest) GetRole() BriefRoleRequest`
+`func (o *PatchedWritableVLANRequest) GetRole() ASNRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *PatchedWritableVLANRequest) GetRoleOk() (*BriefRoleRequest, bool)`
+`func (o *PatchedWritableVLANRequest) GetRoleOk() (*ASNRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *PatchedWritableVLANRequest) SetRole(v BriefRoleRequest)`
+`func (o *PatchedWritableVLANRequest) SetRole(v ASNRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -275,6 +278,111 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetQinqRole
+
+`func (o *PatchedWritableVLANRequest) GetQinqRole() QInQRole`
+
+GetQinqRole returns the QinqRole field if non-nil, zero value otherwise.
+
+### GetQinqRoleOk
+
+`func (o *PatchedWritableVLANRequest) GetQinqRoleOk() (*QInQRole, bool)`
+
+GetQinqRoleOk returns a tuple with the QinqRole field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqRole
+
+`func (o *PatchedWritableVLANRequest) SetQinqRole(v QInQRole)`
+
+SetQinqRole sets QinqRole field to given value.
+
+### HasQinqRole
+
+`func (o *PatchedWritableVLANRequest) HasQinqRole() bool`
+
+HasQinqRole returns a boolean if a field has been set.
+
+### SetQinqRoleNil
+
+`func (o *PatchedWritableVLANRequest) SetQinqRoleNil(b bool)`
+
+ SetQinqRoleNil sets the value for QinqRole to be an explicit nil
+
+### UnsetQinqRole
+`func (o *PatchedWritableVLANRequest) UnsetQinqRole()`
+
+UnsetQinqRole ensures that no value is present for QinqRole, not even an explicit nil
+### GetQinqSvlan
+
+`func (o *PatchedWritableVLANRequest) GetQinqSvlan() int32`
+
+GetQinqSvlan returns the QinqSvlan field if non-nil, zero value otherwise.
+
+### GetQinqSvlanOk
+
+`func (o *PatchedWritableVLANRequest) GetQinqSvlanOk() (*int32, bool)`
+
+GetQinqSvlanOk returns a tuple with the QinqSvlan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqSvlan
+
+`func (o *PatchedWritableVLANRequest) SetQinqSvlan(v int32)`
+
+SetQinqSvlan sets QinqSvlan field to given value.
+
+### HasQinqSvlan
+
+`func (o *PatchedWritableVLANRequest) HasQinqSvlan() bool`
+
+HasQinqSvlan returns a boolean if a field has been set.
+
+### SetQinqSvlanNil
+
+`func (o *PatchedWritableVLANRequest) SetQinqSvlanNil(b bool)`
+
+ SetQinqSvlanNil sets the value for QinqSvlan to be an explicit nil
+
+### UnsetQinqSvlan
+`func (o *PatchedWritableVLANRequest) UnsetQinqSvlan()`
+
+UnsetQinqSvlan ensures that no value is present for QinqSvlan, not even an explicit nil
+### GetOwner
+
+`func (o *PatchedWritableVLANRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableVLANRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableVLANRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableVLANRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableVLANRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableVLANRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableVLANRequest) GetComments() string`

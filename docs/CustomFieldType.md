@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**CustomFieldTypeValue**](CustomFieldTypeValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkCustomFieldRequestType**](BulkCustomFieldRequestType.md) |  | [optional] 
 **Label** | Pointer to [**CustomFieldTypeLabel**](CustomFieldTypeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *CustomFieldType) GetValue() CustomFieldTypeValue`
+`func (o *CustomFieldType) GetValue() BulkCustomFieldRequestType`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *CustomFieldType) GetValueOk() (*CustomFieldTypeValue, bool)`
+`func (o *CustomFieldType) GetValueOk() (*BulkCustomFieldRequestType, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *CustomFieldType) SetValue(v CustomFieldTypeValue)`
+`func (o *CustomFieldType) SetValue(v BulkCustomFieldRequestType)`
 
 SetValue sets Value field to given value.
 

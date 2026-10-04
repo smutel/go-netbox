@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
-**Protocol** | Pointer to [**PatchedWritableServiceRequestProtocol**](PatchedWritableServiceRequestProtocol.md) |  | [optional] 
-**Ports** | Pointer to **[]int32** |  | [optional] 
+**PortMappings** | Pointer to **[]string** |  | [optional] 
+**Protocol** | Pointer to [**NullableBulkServiceRequestProtocol**](BulkServiceRequestProtocol.md) |  | [optional] 
+**Ports** | Pointer to **[]int32** | Deprecated; use port_mappings. Reported only for single-protocol services. | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -56,22 +58,47 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
+### GetPortMappings
+
+`func (o *PatchedWritableServiceTemplateRequest) GetPortMappings() []string`
+
+GetPortMappings returns the PortMappings field if non-nil, zero value otherwise.
+
+### GetPortMappingsOk
+
+`func (o *PatchedWritableServiceTemplateRequest) GetPortMappingsOk() (*[]string, bool)`
+
+GetPortMappingsOk returns a tuple with the PortMappings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortMappings
+
+`func (o *PatchedWritableServiceTemplateRequest) SetPortMappings(v []string)`
+
+SetPortMappings sets PortMappings field to given value.
+
+### HasPortMappings
+
+`func (o *PatchedWritableServiceTemplateRequest) HasPortMappings() bool`
+
+HasPortMappings returns a boolean if a field has been set.
+
 ### GetProtocol
 
-`func (o *PatchedWritableServiceTemplateRequest) GetProtocol() PatchedWritableServiceRequestProtocol`
+`func (o *PatchedWritableServiceTemplateRequest) GetProtocol() BulkServiceRequestProtocol`
 
 GetProtocol returns the Protocol field if non-nil, zero value otherwise.
 
 ### GetProtocolOk
 
-`func (o *PatchedWritableServiceTemplateRequest) GetProtocolOk() (*PatchedWritableServiceRequestProtocol, bool)`
+`func (o *PatchedWritableServiceTemplateRequest) GetProtocolOk() (*BulkServiceRequestProtocol, bool)`
 
 GetProtocolOk returns a tuple with the Protocol field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProtocol
 
-`func (o *PatchedWritableServiceTemplateRequest) SetProtocol(v PatchedWritableServiceRequestProtocol)`
+`func (o *PatchedWritableServiceTemplateRequest) SetProtocol(v BulkServiceRequestProtocol)`
 
 SetProtocol sets Protocol field to given value.
 
@@ -81,6 +108,16 @@ SetProtocol sets Protocol field to given value.
 
 HasProtocol returns a boolean if a field has been set.
 
+### SetProtocolNil
+
+`func (o *PatchedWritableServiceTemplateRequest) SetProtocolNil(b bool)`
+
+ SetProtocolNil sets the value for Protocol to be an explicit nil
+
+### UnsetProtocol
+`func (o *PatchedWritableServiceTemplateRequest) UnsetProtocol()`
+
+UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
 ### GetPorts
 
 `func (o *PatchedWritableServiceTemplateRequest) GetPorts() []int32`
@@ -106,6 +143,16 @@ SetPorts sets Ports field to given value.
 
 HasPorts returns a boolean if a field has been set.
 
+### SetPortsNil
+
+`func (o *PatchedWritableServiceTemplateRequest) SetPortsNil(b bool)`
+
+ SetPortsNil sets the value for Ports to be an explicit nil
+
+### UnsetPorts
+`func (o *PatchedWritableServiceTemplateRequest) UnsetPorts()`
+
+UnsetPorts ensures that no value is present for Ports, not even an explicit nil
 ### GetDescription
 
 `func (o *PatchedWritableServiceTemplateRequest) GetDescription() string`
@@ -131,6 +178,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableServiceTemplateRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableServiceTemplateRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableServiceTemplateRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableServiceTemplateRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableServiceTemplateRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableServiceTemplateRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableServiceTemplateRequest) GetComments() string`

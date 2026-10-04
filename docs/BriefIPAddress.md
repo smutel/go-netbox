@@ -9,13 +9,16 @@ Name | Type | Description | Notes
 **Display** | **string** |  | [readonly] 
 **Family** | [**AggregateFamily**](AggregateFamily.md) |  | 
 **Address** | **string** |  | 
+**NatInside** | Pointer to [**NullableNestedIPAddress**](NestedIPAddress.md) |  | [optional] 
+**NatOutside** | [**[]NestedIPAddress**](NestedIPAddress.md) |  | [readonly] 
+**DnsName** | Pointer to [**BriefIPAddressDnsName**](BriefIPAddressDnsName.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewBriefIPAddress
 
-`func NewBriefIPAddress(id int32, url string, display string, family AggregateFamily, address string, ) *BriefIPAddress`
+`func NewBriefIPAddress(id int32, url string, display string, family AggregateFamily, address string, natOutside []NestedIPAddress, ) *BriefIPAddress`
 
 NewBriefIPAddress instantiates a new BriefIPAddress object
 This constructor will assign default values to properties that have it defined,
@@ -129,6 +132,86 @@ and a boolean to check if the value has been set.
 
 SetAddress sets Address field to given value.
 
+
+### GetNatInside
+
+`func (o *BriefIPAddress) GetNatInside() NestedIPAddress`
+
+GetNatInside returns the NatInside field if non-nil, zero value otherwise.
+
+### GetNatInsideOk
+
+`func (o *BriefIPAddress) GetNatInsideOk() (*NestedIPAddress, bool)`
+
+GetNatInsideOk returns a tuple with the NatInside field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNatInside
+
+`func (o *BriefIPAddress) SetNatInside(v NestedIPAddress)`
+
+SetNatInside sets NatInside field to given value.
+
+### HasNatInside
+
+`func (o *BriefIPAddress) HasNatInside() bool`
+
+HasNatInside returns a boolean if a field has been set.
+
+### SetNatInsideNil
+
+`func (o *BriefIPAddress) SetNatInsideNil(b bool)`
+
+ SetNatInsideNil sets the value for NatInside to be an explicit nil
+
+### UnsetNatInside
+`func (o *BriefIPAddress) UnsetNatInside()`
+
+UnsetNatInside ensures that no value is present for NatInside, not even an explicit nil
+### GetNatOutside
+
+`func (o *BriefIPAddress) GetNatOutside() []NestedIPAddress`
+
+GetNatOutside returns the NatOutside field if non-nil, zero value otherwise.
+
+### GetNatOutsideOk
+
+`func (o *BriefIPAddress) GetNatOutsideOk() (*[]NestedIPAddress, bool)`
+
+GetNatOutsideOk returns a tuple with the NatOutside field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNatOutside
+
+`func (o *BriefIPAddress) SetNatOutside(v []NestedIPAddress)`
+
+SetNatOutside sets NatOutside field to given value.
+
+
+### GetDnsName
+
+`func (o *BriefIPAddress) GetDnsName() BriefIPAddressDnsName`
+
+GetDnsName returns the DnsName field if non-nil, zero value otherwise.
+
+### GetDnsNameOk
+
+`func (o *BriefIPAddress) GetDnsNameOk() (*BriefIPAddressDnsName, bool)`
+
+GetDnsNameOk returns a tuple with the DnsName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDnsName
+
+`func (o *BriefIPAddress) SetDnsName(v BriefIPAddressDnsName)`
+
+SetDnsName sets DnsName field to given value.
+
+### HasDnsName
+
+`func (o *BriefIPAddress) HasDnsName() bool`
+
+HasDnsName returns a boolean if a field has been set.
 
 ### GetDescription
 

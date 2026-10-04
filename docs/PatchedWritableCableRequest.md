@@ -4,16 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to [**CableType**](CableType.md) |  | [optional] 
+**Type** | Pointer to [**NullableBulkCableRequestType**](BulkCableRequestType.md) |  | [optional] 
 **ATerminations** | Pointer to [**[]GenericObjectRequest**](GenericObjectRequest.md) |  | [optional] 
 **BTerminations** | Pointer to [**[]GenericObjectRequest**](GenericObjectRequest.md) |  | [optional] 
-**Status** | Pointer to [**CableStatusValue**](CableStatusValue.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Status** | Pointer to [**BulkCableRequestStatus**](BulkCableRequestStatus.md) |  | [optional] 
+**Profile** | Pointer to [**PatchedWritableCableRequestProfile**](PatchedWritableCableRequestProfile.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**Bundle** | Pointer to [**NullableBulkCableRequestBundle**](BulkCableRequestBundle.md) |  | [optional] 
 **Label** | Pointer to **string** |  | [optional] 
-**Color** | Pointer to **string** |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
 **Length** | Pointer to **NullableFloat64** |  | [optional] 
-**LengthUnit** | Pointer to [**CableLengthUnitValue**](CableLengthUnitValue.md) |  | [optional] 
+**LengthUnit** | Pointer to [**NullableBulkCableRequestLengthUnit**](BulkCableRequestLengthUnit.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -39,20 +42,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetType
 
-`func (o *PatchedWritableCableRequest) GetType() CableType`
+`func (o *PatchedWritableCableRequest) GetType() BulkCableRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PatchedWritableCableRequest) GetTypeOk() (*CableType, bool)`
+`func (o *PatchedWritableCableRequest) GetTypeOk() (*BulkCableRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PatchedWritableCableRequest) SetType(v CableType)`
+`func (o *PatchedWritableCableRequest) SetType(v BulkCableRequestType)`
 
 SetType sets Type field to given value.
 
@@ -62,6 +65,16 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### SetTypeNil
+
+`func (o *PatchedWritableCableRequest) SetTypeNil(b bool)`
+
+ SetTypeNil sets the value for Type to be an explicit nil
+
+### UnsetType
+`func (o *PatchedWritableCableRequest) UnsetType()`
+
+UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetATerminations
 
 `func (o *PatchedWritableCableRequest) GetATerminations() []GenericObjectRequest`
@@ -114,20 +127,20 @@ HasBTerminations returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *PatchedWritableCableRequest) GetStatus() CableStatusValue`
+`func (o *PatchedWritableCableRequest) GetStatus() BulkCableRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWritableCableRequest) GetStatusOk() (*CableStatusValue, bool)`
+`func (o *PatchedWritableCableRequest) GetStatusOk() (*BulkCableRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWritableCableRequest) SetStatus(v CableStatusValue)`
+`func (o *PatchedWritableCableRequest) SetStatus(v BulkCableRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -137,22 +150,47 @@ SetStatus sets Status field to given value.
 
 HasStatus returns a boolean if a field has been set.
 
+### GetProfile
+
+`func (o *PatchedWritableCableRequest) GetProfile() PatchedWritableCableRequestProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *PatchedWritableCableRequest) GetProfileOk() (*PatchedWritableCableRequestProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *PatchedWritableCableRequest) SetProfile(v PatchedWritableCableRequestProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *PatchedWritableCableRequest) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
 ### GetTenant
 
-`func (o *PatchedWritableCableRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableCableRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableCableRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableCableRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableCableRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableCableRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -172,6 +210,41 @@ HasTenant returns a boolean if a field has been set.
 `func (o *PatchedWritableCableRequest) UnsetTenant()`
 
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
+### GetBundle
+
+`func (o *PatchedWritableCableRequest) GetBundle() BulkCableRequestBundle`
+
+GetBundle returns the Bundle field if non-nil, zero value otherwise.
+
+### GetBundleOk
+
+`func (o *PatchedWritableCableRequest) GetBundleOk() (*BulkCableRequestBundle, bool)`
+
+GetBundleOk returns a tuple with the Bundle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBundle
+
+`func (o *PatchedWritableCableRequest) SetBundle(v BulkCableRequestBundle)`
+
+SetBundle sets Bundle field to given value.
+
+### HasBundle
+
+`func (o *PatchedWritableCableRequest) HasBundle() bool`
+
+HasBundle returns a boolean if a field has been set.
+
+### SetBundleNil
+
+`func (o *PatchedWritableCableRequest) SetBundleNil(b bool)`
+
+ SetBundleNil sets the value for Bundle to be an explicit nil
+
+### UnsetBundle
+`func (o *PatchedWritableCableRequest) UnsetBundle()`
+
+UnsetBundle ensures that no value is present for Bundle, not even an explicit nil
 ### GetLabel
 
 `func (o *PatchedWritableCableRequest) GetLabel() string`
@@ -199,20 +272,20 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetColor
 
-`func (o *PatchedWritableCableRequest) GetColor() string`
+`func (o *PatchedWritableCableRequest) GetColor() BriefModuleBayTypeColor`
 
 GetColor returns the Color field if non-nil, zero value otherwise.
 
 ### GetColorOk
 
-`func (o *PatchedWritableCableRequest) GetColorOk() (*string, bool)`
+`func (o *PatchedWritableCableRequest) GetColorOk() (*BriefModuleBayTypeColor, bool)`
 
 GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetColor
 
-`func (o *PatchedWritableCableRequest) SetColor(v string)`
+`func (o *PatchedWritableCableRequest) SetColor(v BriefModuleBayTypeColor)`
 
 SetColor sets Color field to given value.
 
@@ -259,20 +332,20 @@ HasLength returns a boolean if a field has been set.
 UnsetLength ensures that no value is present for Length, not even an explicit nil
 ### GetLengthUnit
 
-`func (o *PatchedWritableCableRequest) GetLengthUnit() CableLengthUnitValue`
+`func (o *PatchedWritableCableRequest) GetLengthUnit() BulkCableRequestLengthUnit`
 
 GetLengthUnit returns the LengthUnit field if non-nil, zero value otherwise.
 
 ### GetLengthUnitOk
 
-`func (o *PatchedWritableCableRequest) GetLengthUnitOk() (*CableLengthUnitValue, bool)`
+`func (o *PatchedWritableCableRequest) GetLengthUnitOk() (*BulkCableRequestLengthUnit, bool)`
 
 GetLengthUnitOk returns a tuple with the LengthUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLengthUnit
 
-`func (o *PatchedWritableCableRequest) SetLengthUnit(v CableLengthUnitValue)`
+`func (o *PatchedWritableCableRequest) SetLengthUnit(v BulkCableRequestLengthUnit)`
 
 SetLengthUnit sets LengthUnit field to given value.
 
@@ -282,6 +355,16 @@ SetLengthUnit sets LengthUnit field to given value.
 
 HasLengthUnit returns a boolean if a field has been set.
 
+### SetLengthUnitNil
+
+`func (o *PatchedWritableCableRequest) SetLengthUnitNil(b bool)`
+
+ SetLengthUnitNil sets the value for LengthUnit to be an explicit nil
+
+### UnsetLengthUnit
+`func (o *PatchedWritableCableRequest) UnsetLengthUnit()`
+
+UnsetLengthUnit ensures that no value is present for LengthUnit, not even an explicit nil
 ### GetDescription
 
 `func (o *PatchedWritableCableRequest) GetDescription() string`
@@ -307,6 +390,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableCableRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableCableRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableCableRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableCableRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableCableRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableCableRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableCableRequest) GetComments() string`

@@ -6,15 +6,23 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**EnvironmentParams** | Pointer to **interface{}** | Any &lt;a href&#x3D;\&quot;https://jinja.palletsprojects.com/en/3.1.x/api/#jinja2.Environment\&quot;&gt;additional parameters&lt;/a&gt; to pass when constructing the Jinja2 environment. | [optional] 
-**TemplateCode** | **string** | Jinja2 template code. | 
+**EnvironmentParams** | Pointer to **interface{}** | Any &lt;a href&#x3D;\&quot;https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment\&quot;&gt;additional parameters&lt;/a&gt; to pass when constructing the Jinja environment | [optional] 
+**TemplateCode** | **string** | Jinja template code. | 
+**MimeType** | Pointer to **string** | Defaults to &lt;code&gt;text/plain; charset&#x3D;utf-8&lt;/code&gt; | [optional] 
+**FileName** | Pointer to **string** | Filename to give to the rendered export file | [optional] 
+**FileExtension** | Pointer to **string** | Extension to append to the rendered filename | [optional] 
+**AsAttachment** | Pointer to **bool** | Download file as attachment | [optional] 
+**Debug** | Pointer to **bool** | Enable verbose error output when rendering this template. Not recommended for production use. | [optional] 
 **DataSource** | Pointer to [**BriefDataSource**](BriefDataSource.md) |  | [optional] 
 **DataPath** | **string** | Path to remote file (relative to data source root) | [readonly] 
-**DataFile** | Pointer to [**BriefDataFile**](BriefDataFile.md) |  | [optional] 
+**DataFile** | Pointer to [**NullableBriefDataFile**](BriefDataFile.md) |  | [optional] 
+**AutoSyncEnabled** | Pointer to **bool** | Enable automatic synchronization of data when the data file is updated | [optional] 
 **DataSynced** | **NullableTime** |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
@@ -23,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewConfigTemplate
 
-`func NewConfigTemplate(id int32, url string, display string, name string, templateCode string, dataPath string, dataSynced NullableTime, created NullableTime, lastUpdated NullableTime, ) *ConfigTemplate`
+`func NewConfigTemplate(id int32, url string, displayUrl string, display string, name string, templateCode string, dataPath string, dataSynced NullableTime, created NullableTime, lastUpdated NullableTime, ) *ConfigTemplate`
 
 NewConfigTemplate instantiates a new ConfigTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +84,26 @@ and a boolean to check if the value has been set.
 `func (o *ConfigTemplate) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *ConfigTemplate) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *ConfigTemplate) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *ConfigTemplate) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -198,6 +226,131 @@ and a boolean to check if the value has been set.
 SetTemplateCode sets TemplateCode field to given value.
 
 
+### GetMimeType
+
+`func (o *ConfigTemplate) GetMimeType() string`
+
+GetMimeType returns the MimeType field if non-nil, zero value otherwise.
+
+### GetMimeTypeOk
+
+`func (o *ConfigTemplate) GetMimeTypeOk() (*string, bool)`
+
+GetMimeTypeOk returns a tuple with the MimeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMimeType
+
+`func (o *ConfigTemplate) SetMimeType(v string)`
+
+SetMimeType sets MimeType field to given value.
+
+### HasMimeType
+
+`func (o *ConfigTemplate) HasMimeType() bool`
+
+HasMimeType returns a boolean if a field has been set.
+
+### GetFileName
+
+`func (o *ConfigTemplate) GetFileName() string`
+
+GetFileName returns the FileName field if non-nil, zero value otherwise.
+
+### GetFileNameOk
+
+`func (o *ConfigTemplate) GetFileNameOk() (*string, bool)`
+
+GetFileNameOk returns a tuple with the FileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileName
+
+`func (o *ConfigTemplate) SetFileName(v string)`
+
+SetFileName sets FileName field to given value.
+
+### HasFileName
+
+`func (o *ConfigTemplate) HasFileName() bool`
+
+HasFileName returns a boolean if a field has been set.
+
+### GetFileExtension
+
+`func (o *ConfigTemplate) GetFileExtension() string`
+
+GetFileExtension returns the FileExtension field if non-nil, zero value otherwise.
+
+### GetFileExtensionOk
+
+`func (o *ConfigTemplate) GetFileExtensionOk() (*string, bool)`
+
+GetFileExtensionOk returns a tuple with the FileExtension field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileExtension
+
+`func (o *ConfigTemplate) SetFileExtension(v string)`
+
+SetFileExtension sets FileExtension field to given value.
+
+### HasFileExtension
+
+`func (o *ConfigTemplate) HasFileExtension() bool`
+
+HasFileExtension returns a boolean if a field has been set.
+
+### GetAsAttachment
+
+`func (o *ConfigTemplate) GetAsAttachment() bool`
+
+GetAsAttachment returns the AsAttachment field if non-nil, zero value otherwise.
+
+### GetAsAttachmentOk
+
+`func (o *ConfigTemplate) GetAsAttachmentOk() (*bool, bool)`
+
+GetAsAttachmentOk returns a tuple with the AsAttachment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAsAttachment
+
+`func (o *ConfigTemplate) SetAsAttachment(v bool)`
+
+SetAsAttachment sets AsAttachment field to given value.
+
+### HasAsAttachment
+
+`func (o *ConfigTemplate) HasAsAttachment() bool`
+
+HasAsAttachment returns a boolean if a field has been set.
+
+### GetDebug
+
+`func (o *ConfigTemplate) GetDebug() bool`
+
+GetDebug returns the Debug field if non-nil, zero value otherwise.
+
+### GetDebugOk
+
+`func (o *ConfigTemplate) GetDebugOk() (*bool, bool)`
+
+GetDebugOk returns a tuple with the Debug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebug
+
+`func (o *ConfigTemplate) SetDebug(v bool)`
+
+SetDebug sets Debug field to given value.
+
+### HasDebug
+
+`func (o *ConfigTemplate) HasDebug() bool`
+
+HasDebug returns a boolean if a field has been set.
+
 ### GetDataSource
 
 `func (o *ConfigTemplate) GetDataSource() BriefDataSource`
@@ -268,6 +421,41 @@ SetDataFile sets DataFile field to given value.
 
 HasDataFile returns a boolean if a field has been set.
 
+### SetDataFileNil
+
+`func (o *ConfigTemplate) SetDataFileNil(b bool)`
+
+ SetDataFileNil sets the value for DataFile to be an explicit nil
+
+### UnsetDataFile
+`func (o *ConfigTemplate) UnsetDataFile()`
+
+UnsetDataFile ensures that no value is present for DataFile, not even an explicit nil
+### GetAutoSyncEnabled
+
+`func (o *ConfigTemplate) GetAutoSyncEnabled() bool`
+
+GetAutoSyncEnabled returns the AutoSyncEnabled field if non-nil, zero value otherwise.
+
+### GetAutoSyncEnabledOk
+
+`func (o *ConfigTemplate) GetAutoSyncEnabledOk() (*bool, bool)`
+
+GetAutoSyncEnabledOk returns a tuple with the AutoSyncEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoSyncEnabled
+
+`func (o *ConfigTemplate) SetAutoSyncEnabled(v bool)`
+
+SetAutoSyncEnabled sets AutoSyncEnabled field to given value.
+
+### HasAutoSyncEnabled
+
+`func (o *ConfigTemplate) HasAutoSyncEnabled() bool`
+
+HasAutoSyncEnabled returns a boolean if a field has been set.
+
 ### GetDataSynced
 
 `func (o *ConfigTemplate) GetDataSynced() time.Time`
@@ -298,6 +486,41 @@ SetDataSynced sets DataSynced field to given value.
 `func (o *ConfigTemplate) UnsetDataSynced()`
 
 UnsetDataSynced ensures that no value is present for DataSynced, not even an explicit nil
+### GetOwner
+
+`func (o *ConfigTemplate) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ConfigTemplate) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ConfigTemplate) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ConfigTemplate) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ConfigTemplate) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ConfigTemplate) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *ConfigTemplate) GetTags() []NestedTag`

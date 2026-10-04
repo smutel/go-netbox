@@ -6,9 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**EnvironmentParams** | Pointer to **interface{}** | Any &lt;a href&#x3D;\&quot;https://jinja.palletsprojects.com/en/3.1.x/api/#jinja2.Environment\&quot;&gt;additional parameters&lt;/a&gt; to pass when constructing the Jinja2 environment. | [optional] 
-**TemplateCode** | Pointer to **string** | Jinja2 template code. | [optional] 
-**DataSource** | Pointer to [**BriefDataSourceRequest**](BriefDataSourceRequest.md) |  | [optional] 
+**EnvironmentParams** | Pointer to **interface{}** | Any &lt;a href&#x3D;\&quot;https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment\&quot;&gt;additional parameters&lt;/a&gt; to pass when constructing the Jinja environment | [optional] 
+**TemplateCode** | Pointer to **string** | Jinja template code. | [optional] 
+**MimeType** | Pointer to **string** | Defaults to &lt;code&gt;text/plain; charset&#x3D;utf-8&lt;/code&gt; | [optional] 
+**FileName** | Pointer to **string** | Filename to give to the rendered export file | [optional] 
+**FileExtension** | Pointer to **string** | Extension to append to the rendered filename | [optional] 
+**AsAttachment** | Pointer to **bool** | Download file as attachment | [optional] 
+**Debug** | Pointer to **bool** | Enable verbose error output when rendering this template. Not recommended for production use. | [optional] 
+**DataSource** | Pointer to [**BulkConfigContextProfileRequestDataSource**](BulkConfigContextProfileRequestDataSource.md) |  | [optional] 
+**AutoSyncEnabled** | Pointer to **bool** | Enable automatic synchronization of data when the data file is updated | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 
 ## Methods
@@ -140,22 +147,147 @@ SetTemplateCode sets TemplateCode field to given value.
 
 HasTemplateCode returns a boolean if a field has been set.
 
+### GetMimeType
+
+`func (o *PatchedConfigTemplateRequest) GetMimeType() string`
+
+GetMimeType returns the MimeType field if non-nil, zero value otherwise.
+
+### GetMimeTypeOk
+
+`func (o *PatchedConfigTemplateRequest) GetMimeTypeOk() (*string, bool)`
+
+GetMimeTypeOk returns a tuple with the MimeType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMimeType
+
+`func (o *PatchedConfigTemplateRequest) SetMimeType(v string)`
+
+SetMimeType sets MimeType field to given value.
+
+### HasMimeType
+
+`func (o *PatchedConfigTemplateRequest) HasMimeType() bool`
+
+HasMimeType returns a boolean if a field has been set.
+
+### GetFileName
+
+`func (o *PatchedConfigTemplateRequest) GetFileName() string`
+
+GetFileName returns the FileName field if non-nil, zero value otherwise.
+
+### GetFileNameOk
+
+`func (o *PatchedConfigTemplateRequest) GetFileNameOk() (*string, bool)`
+
+GetFileNameOk returns a tuple with the FileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileName
+
+`func (o *PatchedConfigTemplateRequest) SetFileName(v string)`
+
+SetFileName sets FileName field to given value.
+
+### HasFileName
+
+`func (o *PatchedConfigTemplateRequest) HasFileName() bool`
+
+HasFileName returns a boolean if a field has been set.
+
+### GetFileExtension
+
+`func (o *PatchedConfigTemplateRequest) GetFileExtension() string`
+
+GetFileExtension returns the FileExtension field if non-nil, zero value otherwise.
+
+### GetFileExtensionOk
+
+`func (o *PatchedConfigTemplateRequest) GetFileExtensionOk() (*string, bool)`
+
+GetFileExtensionOk returns a tuple with the FileExtension field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileExtension
+
+`func (o *PatchedConfigTemplateRequest) SetFileExtension(v string)`
+
+SetFileExtension sets FileExtension field to given value.
+
+### HasFileExtension
+
+`func (o *PatchedConfigTemplateRequest) HasFileExtension() bool`
+
+HasFileExtension returns a boolean if a field has been set.
+
+### GetAsAttachment
+
+`func (o *PatchedConfigTemplateRequest) GetAsAttachment() bool`
+
+GetAsAttachment returns the AsAttachment field if non-nil, zero value otherwise.
+
+### GetAsAttachmentOk
+
+`func (o *PatchedConfigTemplateRequest) GetAsAttachmentOk() (*bool, bool)`
+
+GetAsAttachmentOk returns a tuple with the AsAttachment field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAsAttachment
+
+`func (o *PatchedConfigTemplateRequest) SetAsAttachment(v bool)`
+
+SetAsAttachment sets AsAttachment field to given value.
+
+### HasAsAttachment
+
+`func (o *PatchedConfigTemplateRequest) HasAsAttachment() bool`
+
+HasAsAttachment returns a boolean if a field has been set.
+
+### GetDebug
+
+`func (o *PatchedConfigTemplateRequest) GetDebug() bool`
+
+GetDebug returns the Debug field if non-nil, zero value otherwise.
+
+### GetDebugOk
+
+`func (o *PatchedConfigTemplateRequest) GetDebugOk() (*bool, bool)`
+
+GetDebugOk returns a tuple with the Debug field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDebug
+
+`func (o *PatchedConfigTemplateRequest) SetDebug(v bool)`
+
+SetDebug sets Debug field to given value.
+
+### HasDebug
+
+`func (o *PatchedConfigTemplateRequest) HasDebug() bool`
+
+HasDebug returns a boolean if a field has been set.
+
 ### GetDataSource
 
-`func (o *PatchedConfigTemplateRequest) GetDataSource() BriefDataSourceRequest`
+`func (o *PatchedConfigTemplateRequest) GetDataSource() BulkConfigContextProfileRequestDataSource`
 
 GetDataSource returns the DataSource field if non-nil, zero value otherwise.
 
 ### GetDataSourceOk
 
-`func (o *PatchedConfigTemplateRequest) GetDataSourceOk() (*BriefDataSourceRequest, bool)`
+`func (o *PatchedConfigTemplateRequest) GetDataSourceOk() (*BulkConfigContextProfileRequestDataSource, bool)`
 
 GetDataSourceOk returns a tuple with the DataSource field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDataSource
 
-`func (o *PatchedConfigTemplateRequest) SetDataSource(v BriefDataSourceRequest)`
+`func (o *PatchedConfigTemplateRequest) SetDataSource(v BulkConfigContextProfileRequestDataSource)`
 
 SetDataSource sets DataSource field to given value.
 
@@ -165,6 +297,66 @@ SetDataSource sets DataSource field to given value.
 
 HasDataSource returns a boolean if a field has been set.
 
+### GetAutoSyncEnabled
+
+`func (o *PatchedConfigTemplateRequest) GetAutoSyncEnabled() bool`
+
+GetAutoSyncEnabled returns the AutoSyncEnabled field if non-nil, zero value otherwise.
+
+### GetAutoSyncEnabledOk
+
+`func (o *PatchedConfigTemplateRequest) GetAutoSyncEnabledOk() (*bool, bool)`
+
+GetAutoSyncEnabledOk returns a tuple with the AutoSyncEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoSyncEnabled
+
+`func (o *PatchedConfigTemplateRequest) SetAutoSyncEnabled(v bool)`
+
+SetAutoSyncEnabled sets AutoSyncEnabled field to given value.
+
+### HasAutoSyncEnabled
+
+`func (o *PatchedConfigTemplateRequest) HasAutoSyncEnabled() bool`
+
+HasAutoSyncEnabled returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *PatchedConfigTemplateRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedConfigTemplateRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedConfigTemplateRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedConfigTemplateRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedConfigTemplateRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedConfigTemplateRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PatchedConfigTemplateRequest) GetTags() []NestedTagRequest`

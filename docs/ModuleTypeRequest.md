@@ -4,12 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Manufacturer** | [**BriefManufacturerRequest**](BriefManufacturerRequest.md) |  | 
+**Profile** | Pointer to [**NullableBriefModuleTypeRequestProfile**](BriefModuleTypeRequestProfile.md) |  | [optional] 
+**Manufacturer** | [**BriefDeviceTypeRequestManufacturer**](BriefDeviceTypeRequestManufacturer.md) |  | 
 **Model** | **string** |  | 
 **PartNumber** | Pointer to **string** | Discrete part number (optional) | [optional] 
+**Airflow** | Pointer to [**NullableBulkModuleTypeRequestAirflow**](BulkModuleTypeRequestAirflow.md) |  | [optional] 
+**CoolingMethod** | Pointer to [**NullableBulkDeviceRequestCoolingMethod**](BulkDeviceRequestCoolingMethod.md) |  | [optional] 
 **Weight** | Pointer to **NullableFloat64** |  | [optional] 
-**WeightUnit** | Pointer to [**NullableDeviceTypeRequestWeightUnit**](DeviceTypeRequestWeightUnit.md) |  | [optional] 
+**WeightUnit** | Pointer to [**NullableBulkDeviceTypeRequestWeightUnit**](BulkDeviceTypeRequestWeightUnit.md) |  | [optional] 
+**EndOfLife** | Pointer to **NullableString** | The date after which this module type is no longer supported by the manufacturer | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Attributes** | Pointer to **interface{}** |  | [optional] 
+**ModuleBayTypes** | Pointer to **[]int32** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -18,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewModuleTypeRequest
 
-`func NewModuleTypeRequest(manufacturer BriefManufacturerRequest, model string, ) *ModuleTypeRequest`
+`func NewModuleTypeRequest(manufacturer BriefDeviceTypeRequestManufacturer, model string, ) *ModuleTypeRequest`
 
 NewModuleTypeRequest instantiates a new ModuleTypeRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,22 +40,57 @@ NewModuleTypeRequestWithDefaults instantiates a new ModuleTypeRequest object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
+### GetProfile
+
+`func (o *ModuleTypeRequest) GetProfile() BriefModuleTypeRequestProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *ModuleTypeRequest) GetProfileOk() (*BriefModuleTypeRequestProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *ModuleTypeRequest) SetProfile(v BriefModuleTypeRequestProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *ModuleTypeRequest) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
+### SetProfileNil
+
+`func (o *ModuleTypeRequest) SetProfileNil(b bool)`
+
+ SetProfileNil sets the value for Profile to be an explicit nil
+
+### UnsetProfile
+`func (o *ModuleTypeRequest) UnsetProfile()`
+
+UnsetProfile ensures that no value is present for Profile, not even an explicit nil
 ### GetManufacturer
 
-`func (o *ModuleTypeRequest) GetManufacturer() BriefManufacturerRequest`
+`func (o *ModuleTypeRequest) GetManufacturer() BriefDeviceTypeRequestManufacturer`
 
 GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
 
 ### GetManufacturerOk
 
-`func (o *ModuleTypeRequest) GetManufacturerOk() (*BriefManufacturerRequest, bool)`
+`func (o *ModuleTypeRequest) GetManufacturerOk() (*BriefDeviceTypeRequestManufacturer, bool)`
 
 GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetManufacturer
 
-`func (o *ModuleTypeRequest) SetManufacturer(v BriefManufacturerRequest)`
+`func (o *ModuleTypeRequest) SetManufacturer(v BriefDeviceTypeRequestManufacturer)`
 
 SetManufacturer sets Manufacturer field to given value.
 
@@ -98,6 +140,76 @@ SetPartNumber sets PartNumber field to given value.
 
 HasPartNumber returns a boolean if a field has been set.
 
+### GetAirflow
+
+`func (o *ModuleTypeRequest) GetAirflow() BulkModuleTypeRequestAirflow`
+
+GetAirflow returns the Airflow field if non-nil, zero value otherwise.
+
+### GetAirflowOk
+
+`func (o *ModuleTypeRequest) GetAirflowOk() (*BulkModuleTypeRequestAirflow, bool)`
+
+GetAirflowOk returns a tuple with the Airflow field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAirflow
+
+`func (o *ModuleTypeRequest) SetAirflow(v BulkModuleTypeRequestAirflow)`
+
+SetAirflow sets Airflow field to given value.
+
+### HasAirflow
+
+`func (o *ModuleTypeRequest) HasAirflow() bool`
+
+HasAirflow returns a boolean if a field has been set.
+
+### SetAirflowNil
+
+`func (o *ModuleTypeRequest) SetAirflowNil(b bool)`
+
+ SetAirflowNil sets the value for Airflow to be an explicit nil
+
+### UnsetAirflow
+`func (o *ModuleTypeRequest) UnsetAirflow()`
+
+UnsetAirflow ensures that no value is present for Airflow, not even an explicit nil
+### GetCoolingMethod
+
+`func (o *ModuleTypeRequest) GetCoolingMethod() BulkDeviceRequestCoolingMethod`
+
+GetCoolingMethod returns the CoolingMethod field if non-nil, zero value otherwise.
+
+### GetCoolingMethodOk
+
+`func (o *ModuleTypeRequest) GetCoolingMethodOk() (*BulkDeviceRequestCoolingMethod, bool)`
+
+GetCoolingMethodOk returns a tuple with the CoolingMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingMethod
+
+`func (o *ModuleTypeRequest) SetCoolingMethod(v BulkDeviceRequestCoolingMethod)`
+
+SetCoolingMethod sets CoolingMethod field to given value.
+
+### HasCoolingMethod
+
+`func (o *ModuleTypeRequest) HasCoolingMethod() bool`
+
+HasCoolingMethod returns a boolean if a field has been set.
+
+### SetCoolingMethodNil
+
+`func (o *ModuleTypeRequest) SetCoolingMethodNil(b bool)`
+
+ SetCoolingMethodNil sets the value for CoolingMethod to be an explicit nil
+
+### UnsetCoolingMethod
+`func (o *ModuleTypeRequest) UnsetCoolingMethod()`
+
+UnsetCoolingMethod ensures that no value is present for CoolingMethod, not even an explicit nil
 ### GetWeight
 
 `func (o *ModuleTypeRequest) GetWeight() float64`
@@ -135,20 +247,20 @@ HasWeight returns a boolean if a field has been set.
 UnsetWeight ensures that no value is present for Weight, not even an explicit nil
 ### GetWeightUnit
 
-`func (o *ModuleTypeRequest) GetWeightUnit() DeviceTypeRequestWeightUnit`
+`func (o *ModuleTypeRequest) GetWeightUnit() BulkDeviceTypeRequestWeightUnit`
 
 GetWeightUnit returns the WeightUnit field if non-nil, zero value otherwise.
 
 ### GetWeightUnitOk
 
-`func (o *ModuleTypeRequest) GetWeightUnitOk() (*DeviceTypeRequestWeightUnit, bool)`
+`func (o *ModuleTypeRequest) GetWeightUnitOk() (*BulkDeviceTypeRequestWeightUnit, bool)`
 
 GetWeightUnitOk returns a tuple with the WeightUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeightUnit
 
-`func (o *ModuleTypeRequest) SetWeightUnit(v DeviceTypeRequestWeightUnit)`
+`func (o *ModuleTypeRequest) SetWeightUnit(v BulkDeviceTypeRequestWeightUnit)`
 
 SetWeightUnit sets WeightUnit field to given value.
 
@@ -168,6 +280,41 @@ HasWeightUnit returns a boolean if a field has been set.
 `func (o *ModuleTypeRequest) UnsetWeightUnit()`
 
 UnsetWeightUnit ensures that no value is present for WeightUnit, not even an explicit nil
+### GetEndOfLife
+
+`func (o *ModuleTypeRequest) GetEndOfLife() string`
+
+GetEndOfLife returns the EndOfLife field if non-nil, zero value otherwise.
+
+### GetEndOfLifeOk
+
+`func (o *ModuleTypeRequest) GetEndOfLifeOk() (*string, bool)`
+
+GetEndOfLifeOk returns a tuple with the EndOfLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndOfLife
+
+`func (o *ModuleTypeRequest) SetEndOfLife(v string)`
+
+SetEndOfLife sets EndOfLife field to given value.
+
+### HasEndOfLife
+
+`func (o *ModuleTypeRequest) HasEndOfLife() bool`
+
+HasEndOfLife returns a boolean if a field has been set.
+
+### SetEndOfLifeNil
+
+`func (o *ModuleTypeRequest) SetEndOfLifeNil(b bool)`
+
+ SetEndOfLifeNil sets the value for EndOfLife to be an explicit nil
+
+### UnsetEndOfLife
+`func (o *ModuleTypeRequest) UnsetEndOfLife()`
+
+UnsetEndOfLife ensures that no value is present for EndOfLife, not even an explicit nil
 ### GetDescription
 
 `func (o *ModuleTypeRequest) GetDescription() string`
@@ -193,6 +340,101 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetAttributes
+
+`func (o *ModuleTypeRequest) GetAttributes() interface{}`
+
+GetAttributes returns the Attributes field if non-nil, zero value otherwise.
+
+### GetAttributesOk
+
+`func (o *ModuleTypeRequest) GetAttributesOk() (*interface{}, bool)`
+
+GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributes
+
+`func (o *ModuleTypeRequest) SetAttributes(v interface{})`
+
+SetAttributes sets Attributes field to given value.
+
+### HasAttributes
+
+`func (o *ModuleTypeRequest) HasAttributes() bool`
+
+HasAttributes returns a boolean if a field has been set.
+
+### SetAttributesNil
+
+`func (o *ModuleTypeRequest) SetAttributesNil(b bool)`
+
+ SetAttributesNil sets the value for Attributes to be an explicit nil
+
+### UnsetAttributes
+`func (o *ModuleTypeRequest) UnsetAttributes()`
+
+UnsetAttributes ensures that no value is present for Attributes, not even an explicit nil
+### GetModuleBayTypes
+
+`func (o *ModuleTypeRequest) GetModuleBayTypes() []int32`
+
+GetModuleBayTypes returns the ModuleBayTypes field if non-nil, zero value otherwise.
+
+### GetModuleBayTypesOk
+
+`func (o *ModuleTypeRequest) GetModuleBayTypesOk() (*[]int32, bool)`
+
+GetModuleBayTypesOk returns a tuple with the ModuleBayTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleBayTypes
+
+`func (o *ModuleTypeRequest) SetModuleBayTypes(v []int32)`
+
+SetModuleBayTypes sets ModuleBayTypes field to given value.
+
+### HasModuleBayTypes
+
+`func (o *ModuleTypeRequest) HasModuleBayTypes() bool`
+
+HasModuleBayTypes returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *ModuleTypeRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ModuleTypeRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ModuleTypeRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ModuleTypeRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ModuleTypeRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ModuleTypeRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *ModuleTypeRequest) GetComments() string`

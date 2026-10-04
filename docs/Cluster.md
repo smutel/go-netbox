@@ -6,14 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Type** | [**BriefClusterType**](BriefClusterType.md) |  | 
 **Group** | Pointer to [**NullableBriefClusterGroup**](BriefClusterGroup.md) |  | [optional] 
 **Status** | Pointer to [**ClusterStatus**](ClusterStatus.md) |  | [optional] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
-**Site** | Pointer to [**NullableBriefSite**](BriefSite.md) |  | [optional] 
+**ScopeType** | Pointer to **NullableString** |  | [optional] 
+**ScopeId** | Pointer to **NullableInt32** |  | [optional] 
+**Scope** | **interface{}** |  | [readonly] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -21,12 +25,15 @@ Name | Type | Description | Notes
 **LastUpdated** | **NullableTime** |  | [readonly] 
 **DeviceCount** | **int64** |  | [readonly] 
 **VirtualmachineCount** | **int64** |  | [readonly] 
+**AllocatedVcpus** | **float64** |  | [readonly] 
+**AllocatedMemory** | **int32** |  | [readonly] 
+**AllocatedDisk** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewCluster
 
-`func NewCluster(id int32, url string, display string, name string, type_ BriefClusterType, created NullableTime, lastUpdated NullableTime, deviceCount int64, virtualmachineCount int64, ) *Cluster`
+`func NewCluster(id int32, url string, displayUrl string, display string, name string, type_ BriefClusterType, scope interface{}, created NullableTime, lastUpdated NullableTime, deviceCount int64, virtualmachineCount int64, allocatedVcpus float64, allocatedMemory int32, allocatedDisk int32, ) *Cluster`
 
 NewCluster instantiates a new Cluster object
 This constructor will assign default values to properties that have it defined,
@@ -79,6 +86,26 @@ and a boolean to check if the value has been set.
 `func (o *Cluster) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Cluster) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Cluster) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Cluster) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -236,41 +263,106 @@ HasTenant returns a boolean if a field has been set.
 `func (o *Cluster) UnsetTenant()`
 
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
-### GetSite
+### GetScopeType
 
-`func (o *Cluster) GetSite() BriefSite`
+`func (o *Cluster) GetScopeType() string`
 
-GetSite returns the Site field if non-nil, zero value otherwise.
+GetScopeType returns the ScopeType field if non-nil, zero value otherwise.
 
-### GetSiteOk
+### GetScopeTypeOk
 
-`func (o *Cluster) GetSiteOk() (*BriefSite, bool)`
+`func (o *Cluster) GetScopeTypeOk() (*string, bool)`
 
-GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
+GetScopeTypeOk returns a tuple with the ScopeType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSite
+### SetScopeType
 
-`func (o *Cluster) SetSite(v BriefSite)`
+`func (o *Cluster) SetScopeType(v string)`
 
-SetSite sets Site field to given value.
+SetScopeType sets ScopeType field to given value.
 
-### HasSite
+### HasScopeType
 
-`func (o *Cluster) HasSite() bool`
+`func (o *Cluster) HasScopeType() bool`
 
-HasSite returns a boolean if a field has been set.
+HasScopeType returns a boolean if a field has been set.
 
-### SetSiteNil
+### SetScopeTypeNil
 
-`func (o *Cluster) SetSiteNil(b bool)`
+`func (o *Cluster) SetScopeTypeNil(b bool)`
 
- SetSiteNil sets the value for Site to be an explicit nil
+ SetScopeTypeNil sets the value for ScopeType to be an explicit nil
 
-### UnsetSite
-`func (o *Cluster) UnsetSite()`
+### UnsetScopeType
+`func (o *Cluster) UnsetScopeType()`
 
-UnsetSite ensures that no value is present for Site, not even an explicit nil
+UnsetScopeType ensures that no value is present for ScopeType, not even an explicit nil
+### GetScopeId
+
+`func (o *Cluster) GetScopeId() int32`
+
+GetScopeId returns the ScopeId field if non-nil, zero value otherwise.
+
+### GetScopeIdOk
+
+`func (o *Cluster) GetScopeIdOk() (*int32, bool)`
+
+GetScopeIdOk returns a tuple with the ScopeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopeId
+
+`func (o *Cluster) SetScopeId(v int32)`
+
+SetScopeId sets ScopeId field to given value.
+
+### HasScopeId
+
+`func (o *Cluster) HasScopeId() bool`
+
+HasScopeId returns a boolean if a field has been set.
+
+### SetScopeIdNil
+
+`func (o *Cluster) SetScopeIdNil(b bool)`
+
+ SetScopeIdNil sets the value for ScopeId to be an explicit nil
+
+### UnsetScopeId
+`func (o *Cluster) UnsetScopeId()`
+
+UnsetScopeId ensures that no value is present for ScopeId, not even an explicit nil
+### GetScope
+
+`func (o *Cluster) GetScope() interface{}`
+
+GetScope returns the Scope field if non-nil, zero value otherwise.
+
+### GetScopeOk
+
+`func (o *Cluster) GetScopeOk() (*interface{}, bool)`
+
+GetScopeOk returns a tuple with the Scope field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScope
+
+`func (o *Cluster) SetScope(v interface{})`
+
+SetScope sets Scope field to given value.
+
+
+### SetScopeNil
+
+`func (o *Cluster) SetScopeNil(b bool)`
+
+ SetScopeNil sets the value for Scope to be an explicit nil
+
+### UnsetScope
+`func (o *Cluster) UnsetScope()`
+
+UnsetScope ensures that no value is present for Scope, not even an explicit nil
 ### GetDescription
 
 `func (o *Cluster) GetDescription() string`
@@ -296,6 +388,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Cluster) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Cluster) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Cluster) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Cluster) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Cluster) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Cluster) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Cluster) GetComments() string`
@@ -469,6 +596,66 @@ and a boolean to check if the value has been set.
 `func (o *Cluster) SetVirtualmachineCount(v int64)`
 
 SetVirtualmachineCount sets VirtualmachineCount field to given value.
+
+
+### GetAllocatedVcpus
+
+`func (o *Cluster) GetAllocatedVcpus() float64`
+
+GetAllocatedVcpus returns the AllocatedVcpus field if non-nil, zero value otherwise.
+
+### GetAllocatedVcpusOk
+
+`func (o *Cluster) GetAllocatedVcpusOk() (*float64, bool)`
+
+GetAllocatedVcpusOk returns a tuple with the AllocatedVcpus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllocatedVcpus
+
+`func (o *Cluster) SetAllocatedVcpus(v float64)`
+
+SetAllocatedVcpus sets AllocatedVcpus field to given value.
+
+
+### GetAllocatedMemory
+
+`func (o *Cluster) GetAllocatedMemory() int32`
+
+GetAllocatedMemory returns the AllocatedMemory field if non-nil, zero value otherwise.
+
+### GetAllocatedMemoryOk
+
+`func (o *Cluster) GetAllocatedMemoryOk() (*int32, bool)`
+
+GetAllocatedMemoryOk returns a tuple with the AllocatedMemory field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllocatedMemory
+
+`func (o *Cluster) SetAllocatedMemory(v int32)`
+
+SetAllocatedMemory sets AllocatedMemory field to given value.
+
+
+### GetAllocatedDisk
+
+`func (o *Cluster) GetAllocatedDisk() int32`
+
+GetAllocatedDisk returns the AllocatedDisk field if non-nil, zero value otherwise.
+
+### GetAllocatedDiskOk
+
+`func (o *Cluster) GetAllocatedDiskOk() (*int32, bool)`
+
+GetAllocatedDiskOk returns a tuple with the AllocatedDisk field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllocatedDisk
+
+`func (o *Cluster) SetAllocatedDisk(v int32)`
+
+SetAllocatedDisk sets AllocatedDisk field to given value.
 
 
 

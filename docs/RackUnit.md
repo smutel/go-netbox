@@ -10,12 +10,13 @@ Name | Type | Description | Notes
 **Device** | [**BriefDevice**](BriefDevice.md) |  | [readonly] 
 **Occupied** | **bool** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
+**Description** | **string** |  | [readonly] 
 
 ## Methods
 
 ### NewRackUnit
 
-`func NewRackUnit(id float64, name string, face RackUnitFace, device BriefDevice, occupied bool, display string, ) *RackUnit`
+`func NewRackUnit(id float64, name string, face RackUnitFace, device BriefDevice, occupied bool, display string, description string, ) *RackUnit`
 
 NewRackUnit instantiates a new RackUnit object
 This constructor will assign default values to properties that have it defined,
@@ -148,6 +149,26 @@ and a boolean to check if the value has been set.
 `func (o *RackUnit) SetDisplay(v string)`
 
 SetDisplay sets Display field to given value.
+
+
+### GetDescription
+
+`func (o *RackUnit) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *RackUnit) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *RackUnit) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
 
 
 

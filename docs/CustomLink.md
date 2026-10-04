@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **ObjectTypes** | **[]string** |  | 
 **Name** | **string** |  | 
@@ -14,8 +15,9 @@ Name | Type | Description | Notes
 **LinkUrl** | **string** | Jinja2 template code for link URL | 
 **Weight** | Pointer to **int32** |  | [optional] 
 **GroupName** | Pointer to **string** | Links with the same group will appear as a dropdown menu | [optional] 
-**ButtonClass** | Pointer to [**CustomLinkButtonClass**](CustomLinkButtonClass.md) |  | [optional] 
+**ButtonClass** | Pointer to [**BulkCustomLinkRequestButtonClass**](BulkCustomLinkRequestButtonClass.md) |  | [optional] 
 **NewWindow** | Pointer to **bool** | Force link to open in a new window | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewCustomLink
 
-`func NewCustomLink(id int32, url string, display string, objectTypes []string, name string, linkText string, linkUrl string, created NullableTime, lastUpdated NullableTime, ) *CustomLink`
+`func NewCustomLink(id int32, url string, displayUrl string, display string, objectTypes []string, name string, linkText string, linkUrl string, created NullableTime, lastUpdated NullableTime, ) *CustomLink`
 
 NewCustomLink instantiates a new CustomLink object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *CustomLink) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *CustomLink) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *CustomLink) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *CustomLink) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -255,20 +277,20 @@ HasGroupName returns a boolean if a field has been set.
 
 ### GetButtonClass
 
-`func (o *CustomLink) GetButtonClass() CustomLinkButtonClass`
+`func (o *CustomLink) GetButtonClass() BulkCustomLinkRequestButtonClass`
 
 GetButtonClass returns the ButtonClass field if non-nil, zero value otherwise.
 
 ### GetButtonClassOk
 
-`func (o *CustomLink) GetButtonClassOk() (*CustomLinkButtonClass, bool)`
+`func (o *CustomLink) GetButtonClassOk() (*BulkCustomLinkRequestButtonClass, bool)`
 
 GetButtonClassOk returns a tuple with the ButtonClass field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetButtonClass
 
-`func (o *CustomLink) SetButtonClass(v CustomLinkButtonClass)`
+`func (o *CustomLink) SetButtonClass(v BulkCustomLinkRequestButtonClass)`
 
 SetButtonClass sets ButtonClass field to given value.
 
@@ -303,6 +325,41 @@ SetNewWindow sets NewWindow field to given value.
 
 HasNewWindow returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *CustomLink) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *CustomLink) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *CustomLink) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *CustomLink) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *CustomLink) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *CustomLink) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetCreated
 
 `func (o *CustomLink) GetCreated() time.Time`

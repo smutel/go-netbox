@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | Pointer to [**NullableBriefDeviceRequest**](BriefDeviceRequest.md) |  | [optional] 
-**VirtualMachine** | Pointer to [**NullableBriefVirtualMachineRequest**](BriefVirtualMachineRequest.md) |  | [optional] 
+**ParentObjectType** | **string** |  | 
+**ParentObjectId** | **int64** |  | 
 **Name** | **string** |  | 
-**Protocol** | [**PatchedWritableServiceRequestProtocol**](PatchedWritableServiceRequestProtocol.md) |  | 
-**Ports** | **[]int32** |  | 
+**PortMappings** | Pointer to **[]string** |  | [optional] 
+**Protocol** | Pointer to [**NullableBulkServiceRequestProtocol**](BulkServiceRequestProtocol.md) |  | [optional] 
+**Ports** | Pointer to **[]int32** | Deprecated; use port_mappings. Reported only for single-protocol services. | [optional] 
 **Ipaddresses** | Pointer to **[]int32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -19,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewWritableServiceRequest
 
-`func NewWritableServiceRequest(name string, protocol PatchedWritableServiceRequestProtocol, ports []int32, ) *WritableServiceRequest`
+`func NewWritableServiceRequest(parentObjectType string, parentObjectId int64, name string, ) *WritableServiceRequest`
 
 NewWritableServiceRequest instantiates a new WritableServiceRequest object
 This constructor will assign default values to properties that have it defined,
@@ -34,76 +36,46 @@ NewWritableServiceRequestWithDefaults instantiates a new WritableServiceRequest 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDevice
+### GetParentObjectType
 
-`func (o *WritableServiceRequest) GetDevice() BriefDeviceRequest`
+`func (o *WritableServiceRequest) GetParentObjectType() string`
 
-GetDevice returns the Device field if non-nil, zero value otherwise.
+GetParentObjectType returns the ParentObjectType field if non-nil, zero value otherwise.
 
-### GetDeviceOk
+### GetParentObjectTypeOk
 
-`func (o *WritableServiceRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *WritableServiceRequest) GetParentObjectTypeOk() (*string, bool)`
 
-GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
+GetParentObjectTypeOk returns a tuple with the ParentObjectType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDevice
+### SetParentObjectType
 
-`func (o *WritableServiceRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *WritableServiceRequest) SetParentObjectType(v string)`
 
-SetDevice sets Device field to given value.
+SetParentObjectType sets ParentObjectType field to given value.
 
-### HasDevice
 
-`func (o *WritableServiceRequest) HasDevice() bool`
+### GetParentObjectId
 
-HasDevice returns a boolean if a field has been set.
+`func (o *WritableServiceRequest) GetParentObjectId() int64`
 
-### SetDeviceNil
+GetParentObjectId returns the ParentObjectId field if non-nil, zero value otherwise.
 
-`func (o *WritableServiceRequest) SetDeviceNil(b bool)`
+### GetParentObjectIdOk
 
- SetDeviceNil sets the value for Device to be an explicit nil
+`func (o *WritableServiceRequest) GetParentObjectIdOk() (*int64, bool)`
 
-### UnsetDevice
-`func (o *WritableServiceRequest) UnsetDevice()`
-
-UnsetDevice ensures that no value is present for Device, not even an explicit nil
-### GetVirtualMachine
-
-`func (o *WritableServiceRequest) GetVirtualMachine() BriefVirtualMachineRequest`
-
-GetVirtualMachine returns the VirtualMachine field if non-nil, zero value otherwise.
-
-### GetVirtualMachineOk
-
-`func (o *WritableServiceRequest) GetVirtualMachineOk() (*BriefVirtualMachineRequest, bool)`
-
-GetVirtualMachineOk returns a tuple with the VirtualMachine field if it's non-nil, zero value otherwise
+GetParentObjectIdOk returns a tuple with the ParentObjectId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVirtualMachine
+### SetParentObjectId
 
-`func (o *WritableServiceRequest) SetVirtualMachine(v BriefVirtualMachineRequest)`
+`func (o *WritableServiceRequest) SetParentObjectId(v int64)`
 
-SetVirtualMachine sets VirtualMachine field to given value.
+SetParentObjectId sets ParentObjectId field to given value.
 
-### HasVirtualMachine
 
-`func (o *WritableServiceRequest) HasVirtualMachine() bool`
-
-HasVirtualMachine returns a boolean if a field has been set.
-
-### SetVirtualMachineNil
-
-`func (o *WritableServiceRequest) SetVirtualMachineNil(b bool)`
-
- SetVirtualMachineNil sets the value for VirtualMachine to be an explicit nil
-
-### UnsetVirtualMachine
-`func (o *WritableServiceRequest) UnsetVirtualMachine()`
-
-UnsetVirtualMachine ensures that no value is present for VirtualMachine, not even an explicit nil
 ### GetName
 
 `func (o *WritableServiceRequest) GetName() string`
@@ -124,26 +96,66 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
+### GetPortMappings
+
+`func (o *WritableServiceRequest) GetPortMappings() []string`
+
+GetPortMappings returns the PortMappings field if non-nil, zero value otherwise.
+
+### GetPortMappingsOk
+
+`func (o *WritableServiceRequest) GetPortMappingsOk() (*[]string, bool)`
+
+GetPortMappingsOk returns a tuple with the PortMappings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortMappings
+
+`func (o *WritableServiceRequest) SetPortMappings(v []string)`
+
+SetPortMappings sets PortMappings field to given value.
+
+### HasPortMappings
+
+`func (o *WritableServiceRequest) HasPortMappings() bool`
+
+HasPortMappings returns a boolean if a field has been set.
+
 ### GetProtocol
 
-`func (o *WritableServiceRequest) GetProtocol() PatchedWritableServiceRequestProtocol`
+`func (o *WritableServiceRequest) GetProtocol() BulkServiceRequestProtocol`
 
 GetProtocol returns the Protocol field if non-nil, zero value otherwise.
 
 ### GetProtocolOk
 
-`func (o *WritableServiceRequest) GetProtocolOk() (*PatchedWritableServiceRequestProtocol, bool)`
+`func (o *WritableServiceRequest) GetProtocolOk() (*BulkServiceRequestProtocol, bool)`
 
 GetProtocolOk returns a tuple with the Protocol field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProtocol
 
-`func (o *WritableServiceRequest) SetProtocol(v PatchedWritableServiceRequestProtocol)`
+`func (o *WritableServiceRequest) SetProtocol(v BulkServiceRequestProtocol)`
 
 SetProtocol sets Protocol field to given value.
 
+### HasProtocol
 
+`func (o *WritableServiceRequest) HasProtocol() bool`
+
+HasProtocol returns a boolean if a field has been set.
+
+### SetProtocolNil
+
+`func (o *WritableServiceRequest) SetProtocolNil(b bool)`
+
+ SetProtocolNil sets the value for Protocol to be an explicit nil
+
+### UnsetProtocol
+`func (o *WritableServiceRequest) UnsetProtocol()`
+
+UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
 ### GetPorts
 
 `func (o *WritableServiceRequest) GetPorts() []int32`
@@ -163,7 +175,22 @@ and a boolean to check if the value has been set.
 
 SetPorts sets Ports field to given value.
 
+### HasPorts
 
+`func (o *WritableServiceRequest) HasPorts() bool`
+
+HasPorts returns a boolean if a field has been set.
+
+### SetPortsNil
+
+`func (o *WritableServiceRequest) SetPortsNil(b bool)`
+
+ SetPortsNil sets the value for Ports to be an explicit nil
+
+### UnsetPorts
+`func (o *WritableServiceRequest) UnsetPorts()`
+
+UnsetPorts ensures that no value is present for Ports, not even an explicit nil
 ### GetIpaddresses
 
 `func (o *WritableServiceRequest) GetIpaddresses() []int32`
@@ -214,6 +241,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WritableServiceRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableServiceRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableServiceRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableServiceRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableServiceRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableServiceRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WritableServiceRequest) GetComments() string`

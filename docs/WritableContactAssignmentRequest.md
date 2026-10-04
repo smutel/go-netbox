@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ObjectType** | **string** |  | 
 **ObjectId** | **int64** |  | 
-**Contact** | [**BriefContactRequest**](BriefContactRequest.md) |  | 
-**Role** | Pointer to [**NullableBriefContactRoleRequest**](BriefContactRoleRequest.md) |  | [optional] 
-**Priority** | Pointer to [**ContactAssignmentPriorityValue**](ContactAssignmentPriorityValue.md) |  | [optional] 
+**Contact** | [**BulkContactAssignmentRequestContact**](BulkContactAssignmentRequestContact.md) |  | 
+**Role** | Pointer to [**NullableBulkContactAssignmentRequestRole**](BulkContactAssignmentRequestRole.md) |  | [optional] 
+**Priority** | Pointer to [**NullablePatchedWritableCircuitGroupAssignmentRequestPriority**](PatchedWritableCircuitGroupAssignmentRequestPriority.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewWritableContactAssignmentRequest
 
-`func NewWritableContactAssignmentRequest(objectType string, objectId int64, contact BriefContactRequest, ) *WritableContactAssignmentRequest`
+`func NewWritableContactAssignmentRequest(objectType string, objectId int64, contact BulkContactAssignmentRequestContact, ) *WritableContactAssignmentRequest`
 
 NewWritableContactAssignmentRequest instantiates a new WritableContactAssignmentRequest object
 This constructor will assign default values to properties that have it defined,
@@ -73,40 +73,40 @@ SetObjectId sets ObjectId field to given value.
 
 ### GetContact
 
-`func (o *WritableContactAssignmentRequest) GetContact() BriefContactRequest`
+`func (o *WritableContactAssignmentRequest) GetContact() BulkContactAssignmentRequestContact`
 
 GetContact returns the Contact field if non-nil, zero value otherwise.
 
 ### GetContactOk
 
-`func (o *WritableContactAssignmentRequest) GetContactOk() (*BriefContactRequest, bool)`
+`func (o *WritableContactAssignmentRequest) GetContactOk() (*BulkContactAssignmentRequestContact, bool)`
 
 GetContactOk returns a tuple with the Contact field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetContact
 
-`func (o *WritableContactAssignmentRequest) SetContact(v BriefContactRequest)`
+`func (o *WritableContactAssignmentRequest) SetContact(v BulkContactAssignmentRequestContact)`
 
 SetContact sets Contact field to given value.
 
 
 ### GetRole
 
-`func (o *WritableContactAssignmentRequest) GetRole() BriefContactRoleRequest`
+`func (o *WritableContactAssignmentRequest) GetRole() BulkContactAssignmentRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *WritableContactAssignmentRequest) GetRoleOk() (*BriefContactRoleRequest, bool)`
+`func (o *WritableContactAssignmentRequest) GetRoleOk() (*BulkContactAssignmentRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *WritableContactAssignmentRequest) SetRole(v BriefContactRoleRequest)`
+`func (o *WritableContactAssignmentRequest) SetRole(v BulkContactAssignmentRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -128,20 +128,20 @@ HasRole returns a boolean if a field has been set.
 UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetPriority
 
-`func (o *WritableContactAssignmentRequest) GetPriority() ContactAssignmentPriorityValue`
+`func (o *WritableContactAssignmentRequest) GetPriority() PatchedWritableCircuitGroupAssignmentRequestPriority`
 
 GetPriority returns the Priority field if non-nil, zero value otherwise.
 
 ### GetPriorityOk
 
-`func (o *WritableContactAssignmentRequest) GetPriorityOk() (*ContactAssignmentPriorityValue, bool)`
+`func (o *WritableContactAssignmentRequest) GetPriorityOk() (*PatchedWritableCircuitGroupAssignmentRequestPriority, bool)`
 
 GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPriority
 
-`func (o *WritableContactAssignmentRequest) SetPriority(v ContactAssignmentPriorityValue)`
+`func (o *WritableContactAssignmentRequest) SetPriority(v PatchedWritableCircuitGroupAssignmentRequestPriority)`
 
 SetPriority sets Priority field to given value.
 
@@ -151,6 +151,16 @@ SetPriority sets Priority field to given value.
 
 HasPriority returns a boolean if a field has been set.
 
+### SetPriorityNil
+
+`func (o *WritableContactAssignmentRequest) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *WritableContactAssignmentRequest) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 ### GetTags
 
 `func (o *WritableContactAssignmentRequest) GetTags() []NestedTagRequest`

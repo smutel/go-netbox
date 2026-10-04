@@ -6,16 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
-**Parent** | **NullableInt32** |  | 
+**Parent** | Pointer to **NullableInt32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewWritableWirelessLANGroupRequest
 
-`func NewWritableWirelessLANGroupRequest(name string, slug string, parent NullableInt32, ) *WritableWirelessLANGroupRequest`
+`func NewWritableWirelessLANGroupRequest(name string, slug string, ) *WritableWirelessLANGroupRequest`
 
 NewWritableWirelessLANGroupRequest instantiates a new WritableWirelessLANGroupRequest object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +91,11 @@ and a boolean to check if the value has been set.
 
 SetParent sets Parent field to given value.
 
+### HasParent
+
+`func (o *WritableWirelessLANGroupRequest) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
 
 ### SetParentNil
 
@@ -174,6 +181,66 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *WritableWirelessLANGroupRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *WritableWirelessLANGroupRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableWirelessLANGroupRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableWirelessLANGroupRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableWirelessLANGroupRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableWirelessLANGroupRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableWirelessLANGroupRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *WritableWirelessLANGroupRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *WritableWirelessLANGroupRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *WritableWirelessLANGroupRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *WritableWirelessLANGroupRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

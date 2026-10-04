@@ -5,10 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Prefix** | Pointer to **string** |  | [optional] 
-**Rir** | Pointer to [**BriefRIRRequest**](BriefRIRRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Rir** | Pointer to [**ASNRangeRequestRir**](ASNRangeRequestRir.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **DateAdded** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -59,20 +60,20 @@ HasPrefix returns a boolean if a field has been set.
 
 ### GetRir
 
-`func (o *PatchedWritableAggregateRequest) GetRir() BriefRIRRequest`
+`func (o *PatchedWritableAggregateRequest) GetRir() ASNRangeRequestRir`
 
 GetRir returns the Rir field if non-nil, zero value otherwise.
 
 ### GetRirOk
 
-`func (o *PatchedWritableAggregateRequest) GetRirOk() (*BriefRIRRequest, bool)`
+`func (o *PatchedWritableAggregateRequest) GetRirOk() (*ASNRangeRequestRir, bool)`
 
 GetRirOk returns a tuple with the Rir field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRir
 
-`func (o *PatchedWritableAggregateRequest) SetRir(v BriefRIRRequest)`
+`func (o *PatchedWritableAggregateRequest) SetRir(v ASNRangeRequestRir)`
 
 SetRir sets Rir field to given value.
 
@@ -84,20 +85,20 @@ HasRir returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *PatchedWritableAggregateRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableAggregateRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableAggregateRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableAggregateRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableAggregateRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableAggregateRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -177,6 +178,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableAggregateRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableAggregateRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableAggregateRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableAggregateRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableAggregateRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableAggregateRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableAggregateRequest) GetComments() string`

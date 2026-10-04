@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**ClusterCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -155,31 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefClusterType) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetClusterCount
-
-`func (o *BriefClusterType) GetClusterCount() int64`
-
-GetClusterCount returns the ClusterCount field if non-nil, zero value otherwise.
-
-### GetClusterCountOk
-
-`func (o *BriefClusterType) GetClusterCountOk() (*int64, bool)`
-
-GetClusterCountOk returns a tuple with the ClusterCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClusterCount
-
-`func (o *BriefClusterType) SetClusterCount(v int64)`
-
-SetClusterCount sets ClusterCount field to given value.
-
-### HasClusterCount
-
-`func (o *BriefClusterType) HasClusterCount() bool`
-
-HasClusterCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

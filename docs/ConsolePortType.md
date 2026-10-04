@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**ConsolePortTypeValue**](ConsolePortTypeValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkConsolePortRequestType**](BulkConsolePortRequestType.md) |  | [optional] 
 **Label** | Pointer to [**ConsolePortTypeLabel**](ConsolePortTypeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *ConsolePortType) GetValue() ConsolePortTypeValue`
+`func (o *ConsolePortType) GetValue() BulkConsolePortRequestType`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *ConsolePortType) GetValueOk() (*ConsolePortTypeValue, bool)`
+`func (o *ConsolePortType) GetValueOk() (*BulkConsolePortRequestType, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *ConsolePortType) SetValue(v ConsolePortTypeValue)`
+`func (o *ConsolePortType) SetValue(v BulkConsolePortRequestType)`
 
 SetValue sets Value field to given value.
 

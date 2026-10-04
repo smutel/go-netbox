@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**InterfaceRfChannelValue**](InterfaceRfChannelValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkInterfaceRequestRfChannel**](BulkInterfaceRequestRfChannel.md) |  | [optional] 
 **Label** | Pointer to [**InterfaceRfChannelLabel**](InterfaceRfChannelLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *InterfaceRfChannel) GetValue() InterfaceRfChannelValue`
+`func (o *InterfaceRfChannel) GetValue() BulkInterfaceRequestRfChannel`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *InterfaceRfChannel) GetValueOk() (*InterfaceRfChannelValue, bool)`
+`func (o *InterfaceRfChannel) GetValueOk() (*BulkInterfaceRequestRfChannel, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *InterfaceRfChannel) SetValue(v InterfaceRfChannelValue)`
+`func (o *InterfaceRfChannel) SetValue(v BulkInterfaceRequestRfChannel)`
 
 SetValue sets Value field to given value.
 

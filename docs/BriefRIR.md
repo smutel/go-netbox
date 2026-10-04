@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**AggregateCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -155,31 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefRIR) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetAggregateCount
-
-`func (o *BriefRIR) GetAggregateCount() int64`
-
-GetAggregateCount returns the AggregateCount field if non-nil, zero value otherwise.
-
-### GetAggregateCountOk
-
-`func (o *BriefRIR) GetAggregateCountOk() (*int64, bool)`
-
-GetAggregateCountOk returns a tuple with the AggregateCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAggregateCount
-
-`func (o *BriefRIR) SetAggregateCount(v int64)`
-
-SetAggregateCount sets AggregateCount field to given value.
-
-### HasAggregateCount
-
-`func (o *BriefRIR) HasAggregateCount() bool`
-
-HasAggregateCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

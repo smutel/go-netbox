@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Time** | **time.Time** |  | [readonly] 
 **User** | [**BriefUser**](BriefUser.md) |  | [readonly] 
@@ -15,6 +16,8 @@ Name | Type | Description | Notes
 **ChangedObjectType** | **string** |  | [readonly] 
 **ChangedObjectId** | **int64** |  | 
 **ChangedObject** | **interface{}** |  | [readonly] 
+**ObjectRepr** | **string** |  | [readonly] 
+**Message** | **string** |  | [readonly] 
 **PrechangeData** | **interface{}** |  | [readonly] 
 **PostchangeData** | **interface{}** |  | [readonly] 
 
@@ -22,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewObjectChange
 
-`func NewObjectChange(id int32, url string, display string, time time.Time, user BriefUser, userName string, requestId string, action ObjectChangeAction, changedObjectType string, changedObjectId int64, changedObject interface{}, prechangeData interface{}, postchangeData interface{}, ) *ObjectChange`
+`func NewObjectChange(id int32, url string, displayUrl string, display string, time time.Time, user BriefUser, userName string, requestId string, action ObjectChangeAction, changedObjectType string, changedObjectId int64, changedObject interface{}, objectRepr string, message string, prechangeData interface{}, postchangeData interface{}, ) *ObjectChange`
 
 NewObjectChange instantiates a new ObjectChange object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *ObjectChange) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *ObjectChange) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *ObjectChange) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *ObjectChange) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -267,6 +290,46 @@ SetChangedObject sets ChangedObject field to given value.
 `func (o *ObjectChange) UnsetChangedObject()`
 
 UnsetChangedObject ensures that no value is present for ChangedObject, not even an explicit nil
+### GetObjectRepr
+
+`func (o *ObjectChange) GetObjectRepr() string`
+
+GetObjectRepr returns the ObjectRepr field if non-nil, zero value otherwise.
+
+### GetObjectReprOk
+
+`func (o *ObjectChange) GetObjectReprOk() (*string, bool)`
+
+GetObjectReprOk returns a tuple with the ObjectRepr field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectRepr
+
+`func (o *ObjectChange) SetObjectRepr(v string)`
+
+SetObjectRepr sets ObjectRepr field to given value.
+
+
+### GetMessage
+
+`func (o *ObjectChange) GetMessage() string`
+
+GetMessage returns the Message field if non-nil, zero value otherwise.
+
+### GetMessageOk
+
+`func (o *ObjectChange) GetMessageOk() (*string, bool)`
+
+GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMessage
+
+`func (o *ObjectChange) SetMessage(v string)`
+
+SetMessage sets Message field to given value.
+
+
 ### GetPrechangeData
 
 `func (o *ObjectChange) GetPrechangeData() interface{}`

@@ -4,11 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | Pointer to [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | [optional] 
+**Device** | Pointer to [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Label** | Pointer to **string** | Physical label | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**InstalledDevice** | Pointer to [**NullableBriefDeviceRequest**](BriefDeviceRequest.md) |  | [optional] 
+**InstalledDevice** | Pointer to [**NullableBulkDeviceBayRequestInstalledDevice**](BulkDeviceBayRequestInstalledDevice.md) |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -33,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *PatchedDeviceBayRequest) GetDevice() BriefDeviceRequest`
+`func (o *PatchedDeviceBayRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *PatchedDeviceBayRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *PatchedDeviceBayRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *PatchedDeviceBayRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *PatchedDeviceBayRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
@@ -106,6 +108,31 @@ SetLabel sets Label field to given value.
 
 HasLabel returns a boolean if a field has been set.
 
+### GetEnabled
+
+`func (o *PatchedDeviceBayRequest) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *PatchedDeviceBayRequest) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *PatchedDeviceBayRequest) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *PatchedDeviceBayRequest) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *PatchedDeviceBayRequest) GetDescription() string`
@@ -133,20 +160,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetInstalledDevice
 
-`func (o *PatchedDeviceBayRequest) GetInstalledDevice() BriefDeviceRequest`
+`func (o *PatchedDeviceBayRequest) GetInstalledDevice() BulkDeviceBayRequestInstalledDevice`
 
 GetInstalledDevice returns the InstalledDevice field if non-nil, zero value otherwise.
 
 ### GetInstalledDeviceOk
 
-`func (o *PatchedDeviceBayRequest) GetInstalledDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *PatchedDeviceBayRequest) GetInstalledDeviceOk() (*BulkDeviceBayRequestInstalledDevice, bool)`
 
 GetInstalledDeviceOk returns a tuple with the InstalledDevice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInstalledDevice
 
-`func (o *PatchedDeviceBayRequest) SetInstalledDevice(v BriefDeviceRequest)`
+`func (o *PatchedDeviceBayRequest) SetInstalledDevice(v BulkDeviceBayRequestInstalledDevice)`
 
 SetInstalledDevice sets InstalledDevice field to given value.
 
@@ -166,6 +193,41 @@ HasInstalledDevice returns a boolean if a field has been set.
 `func (o *PatchedDeviceBayRequest) UnsetInstalledDevice()`
 
 UnsetInstalledDevice ensures that no value is present for InstalledDevice, not even an explicit nil
+### GetOwner
+
+`func (o *PatchedDeviceBayRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedDeviceBayRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedDeviceBayRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedDeviceBayRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedDeviceBayRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedDeviceBayRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PatchedDeviceBayRequest) GetTags() []NestedTagRequest`

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**RackCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -155,31 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefRackRole) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetRackCount
-
-`func (o *BriefRackRole) GetRackCount() int64`
-
-GetRackCount returns the RackCount field if non-nil, zero value otherwise.
-
-### GetRackCountOk
-
-`func (o *BriefRackRole) GetRackCountOk() (*int64, bool)`
-
-GetRackCountOk returns a tuple with the RackCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRackCount
-
-`func (o *BriefRackRole) SetRackCount(v int64)`
-
-SetRackCount sets RackCount field to given value.
-
-### HasRackCount
-
-`func (o *BriefRackRole) HasRackCount() bool`
-
-HasRackCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

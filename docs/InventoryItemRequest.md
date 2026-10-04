@@ -4,12 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
 **Parent** | Pointer to **NullableInt32** |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Role** | Pointer to [**NullableBriefInventoryItemRoleRequest**](BriefInventoryItemRoleRequest.md) |  | [optional] 
-**Manufacturer** | Pointer to [**NullableBriefManufacturerRequest**](BriefManufacturerRequest.md) |  | [optional] 
+**Status** | Pointer to [**BulkInventoryItemRequestStatus**](BulkInventoryItemRequestStatus.md) |  | [optional] 
+**Role** | Pointer to [**NullableBulkInventoryItemRequestRole**](BulkInventoryItemRequestRole.md) |  | [optional] 
+**Manufacturer** | Pointer to [**NullableBulkInventoryItemRequestManufacturer**](BulkInventoryItemRequestManufacturer.md) |  | [optional] 
 **PartId** | Pointer to **string** | Manufacturer-assigned part identifier | [optional] 
 **Serial** | Pointer to **string** |  | [optional] 
 **AssetTag** | Pointer to **NullableString** | A unique tag used to identify this item | [optional] 
@@ -17,6 +18,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **ComponentType** | Pointer to **NullableString** |  | [optional] 
 **ComponentId** | Pointer to **NullableInt64** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -24,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewInventoryItemRequest
 
-`func NewInventoryItemRequest(device BriefDeviceRequest, name string, ) *InventoryItemRequest`
+`func NewInventoryItemRequest(device BriefCoolingIntakeRequestDevice, name string, ) *InventoryItemRequest`
 
 NewInventoryItemRequest instantiates a new InventoryItemRequest object
 This constructor will assign default values to properties that have it defined,
@@ -41,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *InventoryItemRequest) GetDevice() BriefDeviceRequest`
+`func (o *InventoryItemRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *InventoryItemRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *InventoryItemRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *InventoryItemRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *InventoryItemRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
@@ -139,22 +141,47 @@ SetLabel sets Label field to given value.
 
 HasLabel returns a boolean if a field has been set.
 
+### GetStatus
+
+`func (o *InventoryItemRequest) GetStatus() BulkInventoryItemRequestStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *InventoryItemRequest) GetStatusOk() (*BulkInventoryItemRequestStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *InventoryItemRequest) SetStatus(v BulkInventoryItemRequestStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *InventoryItemRequest) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
+
 ### GetRole
 
-`func (o *InventoryItemRequest) GetRole() BriefInventoryItemRoleRequest`
+`func (o *InventoryItemRequest) GetRole() BulkInventoryItemRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *InventoryItemRequest) GetRoleOk() (*BriefInventoryItemRoleRequest, bool)`
+`func (o *InventoryItemRequest) GetRoleOk() (*BulkInventoryItemRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *InventoryItemRequest) SetRole(v BriefInventoryItemRoleRequest)`
+`func (o *InventoryItemRequest) SetRole(v BulkInventoryItemRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -176,20 +203,20 @@ HasRole returns a boolean if a field has been set.
 UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetManufacturer
 
-`func (o *InventoryItemRequest) GetManufacturer() BriefManufacturerRequest`
+`func (o *InventoryItemRequest) GetManufacturer() BulkInventoryItemRequestManufacturer`
 
 GetManufacturer returns the Manufacturer field if non-nil, zero value otherwise.
 
 ### GetManufacturerOk
 
-`func (o *InventoryItemRequest) GetManufacturerOk() (*BriefManufacturerRequest, bool)`
+`func (o *InventoryItemRequest) GetManufacturerOk() (*BulkInventoryItemRequestManufacturer, bool)`
 
 GetManufacturerOk returns a tuple with the Manufacturer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetManufacturer
 
-`func (o *InventoryItemRequest) SetManufacturer(v BriefManufacturerRequest)`
+`func (o *InventoryItemRequest) SetManufacturer(v BulkInventoryItemRequestManufacturer)`
 
 SetManufacturer sets Manufacturer field to given value.
 
@@ -414,6 +441,41 @@ HasComponentId returns a boolean if a field has been set.
 `func (o *InventoryItemRequest) UnsetComponentId()`
 
 UnsetComponentId ensures that no value is present for ComponentId, not even an explicit nil
+### GetOwner
+
+`func (o *InventoryItemRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *InventoryItemRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *InventoryItemRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *InventoryItemRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *InventoryItemRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *InventoryItemRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *InventoryItemRequest) GetTags() []NestedTagRequest`

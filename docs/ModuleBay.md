@@ -6,23 +6,30 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Device** | [**BriefDevice**](BriefDevice.md) |  | 
+**Module** | Pointer to [**NullableBriefModule**](BriefModule.md) |  | [optional] 
 **Name** | **string** |  | 
-**InstalledModule** | Pointer to [**NullableBriefModule**](BriefModule.md) |  | [optional] 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Position** | Pointer to **string** | Identifier to reference when renaming installed components | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**ModuleBayTypes** | Pointer to [**[]BriefModuleBayType**](BriefModuleBayType.md) |  | [optional] 
+**InstalledModule** | Pointer to [**NullableBriefModule**](BriefModule.md) |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
+**Occupied** | **bool** |  | [readonly] 
+**IsModuleCompatible** | **bool** |  | [readonly] 
 
 ## Methods
 
 ### NewModuleBay
 
-`func NewModuleBay(id int32, url string, display string, device BriefDevice, name string, created NullableTime, lastUpdated NullableTime, ) *ModuleBay`
+`func NewModuleBay(id int32, url string, displayUrl string, display string, device BriefDevice, name string, created NullableTime, lastUpdated NullableTime, occupied bool, isModuleCompatible bool, ) *ModuleBay`
 
 NewModuleBay instantiates a new ModuleBay object
 This constructor will assign default values to properties that have it defined,
@@ -77,6 +84,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *ModuleBay) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *ModuleBay) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *ModuleBay) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *ModuleBay) GetDisplay() string`
@@ -117,6 +144,41 @@ and a boolean to check if the value has been set.
 SetDevice sets Device field to given value.
 
 
+### GetModule
+
+`func (o *ModuleBay) GetModule() BriefModule`
+
+GetModule returns the Module field if non-nil, zero value otherwise.
+
+### GetModuleOk
+
+`func (o *ModuleBay) GetModuleOk() (*BriefModule, bool)`
+
+GetModuleOk returns a tuple with the Module field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModule
+
+`func (o *ModuleBay) SetModule(v BriefModule)`
+
+SetModule sets Module field to given value.
+
+### HasModule
+
+`func (o *ModuleBay) HasModule() bool`
+
+HasModule returns a boolean if a field has been set.
+
+### SetModuleNil
+
+`func (o *ModuleBay) SetModuleNil(b bool)`
+
+ SetModuleNil sets the value for Module to be an explicit nil
+
+### UnsetModule
+`func (o *ModuleBay) UnsetModule()`
+
+UnsetModule ensures that no value is present for Module, not even an explicit nil
 ### GetName
 
 `func (o *ModuleBay) GetName() string`
@@ -137,41 +199,6 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetInstalledModule
-
-`func (o *ModuleBay) GetInstalledModule() BriefModule`
-
-GetInstalledModule returns the InstalledModule field if non-nil, zero value otherwise.
-
-### GetInstalledModuleOk
-
-`func (o *ModuleBay) GetInstalledModuleOk() (*BriefModule, bool)`
-
-GetInstalledModuleOk returns a tuple with the InstalledModule field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInstalledModule
-
-`func (o *ModuleBay) SetInstalledModule(v BriefModule)`
-
-SetInstalledModule sets InstalledModule field to given value.
-
-### HasInstalledModule
-
-`func (o *ModuleBay) HasInstalledModule() bool`
-
-HasInstalledModule returns a boolean if a field has been set.
-
-### SetInstalledModuleNil
-
-`func (o *ModuleBay) SetInstalledModuleNil(b bool)`
-
- SetInstalledModuleNil sets the value for InstalledModule to be an explicit nil
-
-### UnsetInstalledModule
-`func (o *ModuleBay) UnsetInstalledModule()`
-
-UnsetInstalledModule ensures that no value is present for InstalledModule, not even an explicit nil
 ### GetLabel
 
 `func (o *ModuleBay) GetLabel() string`
@@ -222,6 +249,31 @@ SetPosition sets Position field to given value.
 
 HasPosition returns a boolean if a field has been set.
 
+### GetEnabled
+
+`func (o *ModuleBay) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *ModuleBay) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *ModuleBay) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *ModuleBay) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *ModuleBay) GetDescription() string`
@@ -247,6 +299,101 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetModuleBayTypes
+
+`func (o *ModuleBay) GetModuleBayTypes() []BriefModuleBayType`
+
+GetModuleBayTypes returns the ModuleBayTypes field if non-nil, zero value otherwise.
+
+### GetModuleBayTypesOk
+
+`func (o *ModuleBay) GetModuleBayTypesOk() (*[]BriefModuleBayType, bool)`
+
+GetModuleBayTypesOk returns a tuple with the ModuleBayTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleBayTypes
+
+`func (o *ModuleBay) SetModuleBayTypes(v []BriefModuleBayType)`
+
+SetModuleBayTypes sets ModuleBayTypes field to given value.
+
+### HasModuleBayTypes
+
+`func (o *ModuleBay) HasModuleBayTypes() bool`
+
+HasModuleBayTypes returns a boolean if a field has been set.
+
+### GetInstalledModule
+
+`func (o *ModuleBay) GetInstalledModule() BriefModule`
+
+GetInstalledModule returns the InstalledModule field if non-nil, zero value otherwise.
+
+### GetInstalledModuleOk
+
+`func (o *ModuleBay) GetInstalledModuleOk() (*BriefModule, bool)`
+
+GetInstalledModuleOk returns a tuple with the InstalledModule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstalledModule
+
+`func (o *ModuleBay) SetInstalledModule(v BriefModule)`
+
+SetInstalledModule sets InstalledModule field to given value.
+
+### HasInstalledModule
+
+`func (o *ModuleBay) HasInstalledModule() bool`
+
+HasInstalledModule returns a boolean if a field has been set.
+
+### SetInstalledModuleNil
+
+`func (o *ModuleBay) SetInstalledModuleNil(b bool)`
+
+ SetInstalledModuleNil sets the value for InstalledModule to be an explicit nil
+
+### UnsetInstalledModule
+`func (o *ModuleBay) UnsetInstalledModule()`
+
+UnsetInstalledModule ensures that no value is present for InstalledModule, not even an explicit nil
+### GetOwner
+
+`func (o *ModuleBay) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ModuleBay) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ModuleBay) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ModuleBay) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ModuleBay) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ModuleBay) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *ModuleBay) GetTags() []NestedTag`
@@ -357,6 +504,46 @@ SetLastUpdated sets LastUpdated field to given value.
 `func (o *ModuleBay) UnsetLastUpdated()`
 
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+### GetOccupied
+
+`func (o *ModuleBay) GetOccupied() bool`
+
+GetOccupied returns the Occupied field if non-nil, zero value otherwise.
+
+### GetOccupiedOk
+
+`func (o *ModuleBay) GetOccupiedOk() (*bool, bool)`
+
+GetOccupiedOk returns a tuple with the Occupied field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOccupied
+
+`func (o *ModuleBay) SetOccupied(v bool)`
+
+SetOccupied sets Occupied field to given value.
+
+
+### GetIsModuleCompatible
+
+`func (o *ModuleBay) GetIsModuleCompatible() bool`
+
+GetIsModuleCompatible returns the IsModuleCompatible field if non-nil, zero value otherwise.
+
+### GetIsModuleCompatibleOk
+
+`func (o *ModuleBay) GetIsModuleCompatibleOk() (*bool, bool)`
+
+GetIsModuleCompatibleOk returns a tuple with the IsModuleCompatible field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsModuleCompatible
+
+`func (o *ModuleBay) SetIsModuleCompatible(v bool)`
+
+SetIsModuleCompatible sets IsModuleCompatible field to given value.
+
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

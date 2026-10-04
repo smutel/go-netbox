@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**BaseChoices** | Pointer to [**PatchedWritableCustomFieldChoiceSetRequestBaseChoices**](PatchedWritableCustomFieldChoiceSetRequestBaseChoices.md) |  | [optional] 
+**BaseChoices** | Pointer to [**NullablePatchedWritableCustomFieldChoiceSetRequestBaseChoices**](PatchedWritableCustomFieldChoiceSetRequestBaseChoices.md) |  | [optional] 
 **ExtraChoices** | Pointer to **[][]interface{}** |  | [optional] 
+**ChoiceColors** | Pointer to [**map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue**](BulkCustomFieldChoiceSetRequestChoiceColorsValue.md) |  | [optional] 
 **OrderAlphabetically** | Pointer to **bool** | Choices are automatically ordered alphabetically | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 
 ## Methods
 
@@ -104,6 +106,16 @@ SetBaseChoices sets BaseChoices field to given value.
 
 HasBaseChoices returns a boolean if a field has been set.
 
+### SetBaseChoicesNil
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) SetBaseChoicesNil(b bool)`
+
+ SetBaseChoicesNil sets the value for BaseChoices to be an explicit nil
+
+### UnsetBaseChoices
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) UnsetBaseChoices()`
+
+UnsetBaseChoices ensures that no value is present for BaseChoices, not even an explicit nil
 ### GetExtraChoices
 
 `func (o *PatchedWritableCustomFieldChoiceSetRequest) GetExtraChoices() [][]interface{}`
@@ -128,6 +140,31 @@ SetExtraChoices sets ExtraChoices field to given value.
 `func (o *PatchedWritableCustomFieldChoiceSetRequest) HasExtraChoices() bool`
 
 HasExtraChoices returns a boolean if a field has been set.
+
+### GetChoiceColors
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) GetChoiceColors() map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue`
+
+GetChoiceColors returns the ChoiceColors field if non-nil, zero value otherwise.
+
+### GetChoiceColorsOk
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) GetChoiceColorsOk() (*map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue, bool)`
+
+GetChoiceColorsOk returns a tuple with the ChoiceColors field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChoiceColors
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) SetChoiceColors(v map[string]BulkCustomFieldChoiceSetRequestChoiceColorsValue)`
+
+SetChoiceColors sets ChoiceColors field to given value.
+
+### HasChoiceColors
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) HasChoiceColors() bool`
+
+HasChoiceColors returns a boolean if a field has been set.
 
 ### GetOrderAlphabetically
 
@@ -154,6 +191,41 @@ SetOrderAlphabetically sets OrderAlphabetically field to given value.
 
 HasOrderAlphabetically returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableCustomFieldChoiceSetRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

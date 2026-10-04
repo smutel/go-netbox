@@ -5,10 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Prefix** | **string** |  | 
-**Rir** | [**BriefRIRRequest**](BriefRIRRequest.md) |  | 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Rir** | [**ASNRangeRequestRir**](ASNRangeRequestRir.md) |  | 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **DateAdded** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -17,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewWritableAggregateRequest
 
-`func NewWritableAggregateRequest(prefix string, rir BriefRIRRequest, ) *WritableAggregateRequest`
+`func NewWritableAggregateRequest(prefix string, rir ASNRangeRequestRir, ) *WritableAggregateRequest`
 
 NewWritableAggregateRequest instantiates a new WritableAggregateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -54,40 +55,40 @@ SetPrefix sets Prefix field to given value.
 
 ### GetRir
 
-`func (o *WritableAggregateRequest) GetRir() BriefRIRRequest`
+`func (o *WritableAggregateRequest) GetRir() ASNRangeRequestRir`
 
 GetRir returns the Rir field if non-nil, zero value otherwise.
 
 ### GetRirOk
 
-`func (o *WritableAggregateRequest) GetRirOk() (*BriefRIRRequest, bool)`
+`func (o *WritableAggregateRequest) GetRirOk() (*ASNRangeRequestRir, bool)`
 
 GetRirOk returns a tuple with the Rir field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRir
 
-`func (o *WritableAggregateRequest) SetRir(v BriefRIRRequest)`
+`func (o *WritableAggregateRequest) SetRir(v ASNRangeRequestRir)`
 
 SetRir sets Rir field to given value.
 
 
 ### GetTenant
 
-`func (o *WritableAggregateRequest) GetTenant() BriefTenantRequest`
+`func (o *WritableAggregateRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *WritableAggregateRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *WritableAggregateRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *WritableAggregateRequest) SetTenant(v BriefTenantRequest)`
+`func (o *WritableAggregateRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -167,6 +168,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WritableAggregateRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableAggregateRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableAggregateRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableAggregateRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableAggregateRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableAggregateRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WritableAggregateRequest) GetComments() string`

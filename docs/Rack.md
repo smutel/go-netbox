@@ -6,17 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **FacilityId** | Pointer to **NullableString** |  | [optional] 
 **Site** | [**BriefSite**](BriefSite.md) |  | 
 **Location** | Pointer to [**NullableBriefLocation**](BriefLocation.md) |  | [optional] 
+**Group** | Pointer to [**NullableBriefRackGroup**](BriefRackGroup.md) |  | [optional] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
 **Status** | Pointer to [**RackStatus**](RackStatus.md) |  | [optional] 
 **Role** | Pointer to [**NullableBriefRackRole**](BriefRackRole.md) |  | [optional] 
 **Serial** | Pointer to **string** |  | [optional] 
 **AssetTag** | Pointer to **NullableString** | A unique tag used to identify this rack | [optional] 
-**Type** | Pointer to [**NullableRackType**](RackType.md) |  | [optional] 
+**RackType** | Pointer to [**NullableBriefRackType**](BriefRackType.md) |  | [optional] 
+**FormFactor** | Pointer to [**NullableRackFormFactor**](RackFormFactor.md) |  | [optional] 
 **Width** | Pointer to [**RackWidth**](RackWidth.md) |  | [optional] 
 **UHeight** | Pointer to **int32** | Height in rack units | [optional] 
 **StartingUnit** | Pointer to **int32** | Starting unit for rack | [optional] 
@@ -25,10 +28,15 @@ Name | Type | Description | Notes
 **WeightUnit** | Pointer to [**NullableDeviceTypeWeightUnit**](DeviceTypeWeightUnit.md) |  | [optional] 
 **DescUnits** | Pointer to **bool** | Units are numbered top-to-bottom | [optional] 
 **OuterWidth** | Pointer to **NullableInt32** | Outer dimension of rack (width) | [optional] 
+**OuterHeight** | Pointer to **NullableInt32** | Outer dimension of rack (height) | [optional] 
 **OuterDepth** | Pointer to **NullableInt32** | Outer dimension of rack (depth) | [optional] 
 **OuterUnit** | Pointer to [**NullableRackOuterUnit**](RackOuterUnit.md) |  | [optional] 
 **MountingDepth** | Pointer to **NullableInt32** | Maximum depth of a mounted device, in millimeters. For four-post racks, this is the distance between the front and rear rails. | [optional] 
+**Airflow** | Pointer to [**RackAirflow**](RackAirflow.md) |  | [optional] 
+**CoolingCapability** | Pointer to [**NullableRackCoolingCapability**](RackCoolingCapability.md) |  | [optional] 
+**CoolingCapacity** | Pointer to **NullableFloat64** | Cooling capacity (kW) | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -41,7 +49,7 @@ Name | Type | Description | Notes
 
 ### NewRack
 
-`func NewRack(id int32, url string, display string, name string, site BriefSite, created NullableTime, lastUpdated NullableTime, deviceCount int64, powerfeedCount int64, ) *Rack`
+`func NewRack(id int32, url string, displayUrl string, display string, name string, site BriefSite, created NullableTime, lastUpdated NullableTime, deviceCount int64, powerfeedCount int64, ) *Rack`
 
 NewRack instantiates a new Rack object
 This constructor will assign default values to properties that have it defined,
@@ -94,6 +102,26 @@ and a boolean to check if the value has been set.
 `func (o *Rack) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Rack) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Rack) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Rack) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -226,6 +254,41 @@ HasLocation returns a boolean if a field has been set.
 `func (o *Rack) UnsetLocation()`
 
 UnsetLocation ensures that no value is present for Location, not even an explicit nil
+### GetGroup
+
+`func (o *Rack) GetGroup() BriefRackGroup`
+
+GetGroup returns the Group field if non-nil, zero value otherwise.
+
+### GetGroupOk
+
+`func (o *Rack) GetGroupOk() (*BriefRackGroup, bool)`
+
+GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroup
+
+`func (o *Rack) SetGroup(v BriefRackGroup)`
+
+SetGroup sets Group field to given value.
+
+### HasGroup
+
+`func (o *Rack) HasGroup() bool`
+
+HasGroup returns a boolean if a field has been set.
+
+### SetGroupNil
+
+`func (o *Rack) SetGroupNil(b bool)`
+
+ SetGroupNil sets the value for Group to be an explicit nil
+
+### UnsetGroup
+`func (o *Rack) UnsetGroup()`
+
+UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetTenant
 
 `func (o *Rack) GetTenant() BriefTenant`
@@ -381,41 +444,76 @@ HasAssetTag returns a boolean if a field has been set.
 `func (o *Rack) UnsetAssetTag()`
 
 UnsetAssetTag ensures that no value is present for AssetTag, not even an explicit nil
-### GetType
+### GetRackType
 
-`func (o *Rack) GetType() RackType`
+`func (o *Rack) GetRackType() BriefRackType`
 
-GetType returns the Type field if non-nil, zero value otherwise.
+GetRackType returns the RackType field if non-nil, zero value otherwise.
 
-### GetTypeOk
+### GetRackTypeOk
 
-`func (o *Rack) GetTypeOk() (*RackType, bool)`
+`func (o *Rack) GetRackTypeOk() (*BriefRackType, bool)`
 
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+GetRackTypeOk returns a tuple with the RackType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetType
+### SetRackType
 
-`func (o *Rack) SetType(v RackType)`
+`func (o *Rack) SetRackType(v BriefRackType)`
 
-SetType sets Type field to given value.
+SetRackType sets RackType field to given value.
 
-### HasType
+### HasRackType
 
-`func (o *Rack) HasType() bool`
+`func (o *Rack) HasRackType() bool`
 
-HasType returns a boolean if a field has been set.
+HasRackType returns a boolean if a field has been set.
 
-### SetTypeNil
+### SetRackTypeNil
 
-`func (o *Rack) SetTypeNil(b bool)`
+`func (o *Rack) SetRackTypeNil(b bool)`
 
- SetTypeNil sets the value for Type to be an explicit nil
+ SetRackTypeNil sets the value for RackType to be an explicit nil
 
-### UnsetType
-`func (o *Rack) UnsetType()`
+### UnsetRackType
+`func (o *Rack) UnsetRackType()`
 
-UnsetType ensures that no value is present for Type, not even an explicit nil
+UnsetRackType ensures that no value is present for RackType, not even an explicit nil
+### GetFormFactor
+
+`func (o *Rack) GetFormFactor() RackFormFactor`
+
+GetFormFactor returns the FormFactor field if non-nil, zero value otherwise.
+
+### GetFormFactorOk
+
+`func (o *Rack) GetFormFactorOk() (*RackFormFactor, bool)`
+
+GetFormFactorOk returns a tuple with the FormFactor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFormFactor
+
+`func (o *Rack) SetFormFactor(v RackFormFactor)`
+
+SetFormFactor sets FormFactor field to given value.
+
+### HasFormFactor
+
+`func (o *Rack) HasFormFactor() bool`
+
+HasFormFactor returns a boolean if a field has been set.
+
+### SetFormFactorNil
+
+`func (o *Rack) SetFormFactorNil(b bool)`
+
+ SetFormFactorNil sets the value for FormFactor to be an explicit nil
+
+### UnsetFormFactor
+`func (o *Rack) UnsetFormFactor()`
+
+UnsetFormFactor ensures that no value is present for FormFactor, not even an explicit nil
 ### GetWidth
 
 `func (o *Rack) GetWidth() RackWidth`
@@ -656,6 +754,41 @@ HasOuterWidth returns a boolean if a field has been set.
 `func (o *Rack) UnsetOuterWidth()`
 
 UnsetOuterWidth ensures that no value is present for OuterWidth, not even an explicit nil
+### GetOuterHeight
+
+`func (o *Rack) GetOuterHeight() int32`
+
+GetOuterHeight returns the OuterHeight field if non-nil, zero value otherwise.
+
+### GetOuterHeightOk
+
+`func (o *Rack) GetOuterHeightOk() (*int32, bool)`
+
+GetOuterHeightOk returns a tuple with the OuterHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOuterHeight
+
+`func (o *Rack) SetOuterHeight(v int32)`
+
+SetOuterHeight sets OuterHeight field to given value.
+
+### HasOuterHeight
+
+`func (o *Rack) HasOuterHeight() bool`
+
+HasOuterHeight returns a boolean if a field has been set.
+
+### SetOuterHeightNil
+
+`func (o *Rack) SetOuterHeightNil(b bool)`
+
+ SetOuterHeightNil sets the value for OuterHeight to be an explicit nil
+
+### UnsetOuterHeight
+`func (o *Rack) UnsetOuterHeight()`
+
+UnsetOuterHeight ensures that no value is present for OuterHeight, not even an explicit nil
 ### GetOuterDepth
 
 `func (o *Rack) GetOuterDepth() int32`
@@ -761,6 +894,101 @@ HasMountingDepth returns a boolean if a field has been set.
 `func (o *Rack) UnsetMountingDepth()`
 
 UnsetMountingDepth ensures that no value is present for MountingDepth, not even an explicit nil
+### GetAirflow
+
+`func (o *Rack) GetAirflow() RackAirflow`
+
+GetAirflow returns the Airflow field if non-nil, zero value otherwise.
+
+### GetAirflowOk
+
+`func (o *Rack) GetAirflowOk() (*RackAirflow, bool)`
+
+GetAirflowOk returns a tuple with the Airflow field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAirflow
+
+`func (o *Rack) SetAirflow(v RackAirflow)`
+
+SetAirflow sets Airflow field to given value.
+
+### HasAirflow
+
+`func (o *Rack) HasAirflow() bool`
+
+HasAirflow returns a boolean if a field has been set.
+
+### GetCoolingCapability
+
+`func (o *Rack) GetCoolingCapability() RackCoolingCapability`
+
+GetCoolingCapability returns the CoolingCapability field if non-nil, zero value otherwise.
+
+### GetCoolingCapabilityOk
+
+`func (o *Rack) GetCoolingCapabilityOk() (*RackCoolingCapability, bool)`
+
+GetCoolingCapabilityOk returns a tuple with the CoolingCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingCapability
+
+`func (o *Rack) SetCoolingCapability(v RackCoolingCapability)`
+
+SetCoolingCapability sets CoolingCapability field to given value.
+
+### HasCoolingCapability
+
+`func (o *Rack) HasCoolingCapability() bool`
+
+HasCoolingCapability returns a boolean if a field has been set.
+
+### SetCoolingCapabilityNil
+
+`func (o *Rack) SetCoolingCapabilityNil(b bool)`
+
+ SetCoolingCapabilityNil sets the value for CoolingCapability to be an explicit nil
+
+### UnsetCoolingCapability
+`func (o *Rack) UnsetCoolingCapability()`
+
+UnsetCoolingCapability ensures that no value is present for CoolingCapability, not even an explicit nil
+### GetCoolingCapacity
+
+`func (o *Rack) GetCoolingCapacity() float64`
+
+GetCoolingCapacity returns the CoolingCapacity field if non-nil, zero value otherwise.
+
+### GetCoolingCapacityOk
+
+`func (o *Rack) GetCoolingCapacityOk() (*float64, bool)`
+
+GetCoolingCapacityOk returns a tuple with the CoolingCapacity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingCapacity
+
+`func (o *Rack) SetCoolingCapacity(v float64)`
+
+SetCoolingCapacity sets CoolingCapacity field to given value.
+
+### HasCoolingCapacity
+
+`func (o *Rack) HasCoolingCapacity() bool`
+
+HasCoolingCapacity returns a boolean if a field has been set.
+
+### SetCoolingCapacityNil
+
+`func (o *Rack) SetCoolingCapacityNil(b bool)`
+
+ SetCoolingCapacityNil sets the value for CoolingCapacity to be an explicit nil
+
+### UnsetCoolingCapacity
+`func (o *Rack) UnsetCoolingCapacity()`
+
+UnsetCoolingCapacity ensures that no value is present for CoolingCapacity, not even an explicit nil
 ### GetDescription
 
 `func (o *Rack) GetDescription() string`
@@ -786,6 +1014,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Rack) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Rack) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Rack) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Rack) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Rack) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Rack) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Rack) GetComments() string`

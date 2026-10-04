@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ObjectId** | Pointer to **int64** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Image** | Pointer to ***os.File** |  | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -127,6 +128,31 @@ SetImage sets Image field to given value.
 `func (o *PatchedImageAttachmentRequest) HasImage() bool`
 
 HasImage returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *PatchedImageAttachmentRequest) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *PatchedImageAttachmentRequest) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *PatchedImageAttachmentRequest) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *PatchedImageAttachmentRequest) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

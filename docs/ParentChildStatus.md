@@ -5,6 +5,8 @@
 
 * `CHILD` (value: `"child"`)
 
+* `NULL` (value: `"null"`)
+
 * `PARENT` (value: `"parent"`)
 
 

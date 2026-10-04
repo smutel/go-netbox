@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceType** | Pointer to [**NullableBriefDeviceTypeRequest**](BriefDeviceTypeRequest.md) |  | [optional] 
-**ModuleType** | Pointer to [**NullableBriefModuleTypeRequest**](BriefModuleTypeRequest.md) |  | [optional] 
+**DeviceType** | Pointer to [**NullableBulkConsolePortTemplateRequestDeviceType**](BulkConsolePortTemplateRequestDeviceType.md) |  | [optional] 
+**ModuleType** | Pointer to [**NullableBulkConsolePortTemplateRequestModuleType**](BulkConsolePortTemplateRequestModuleType.md) |  | [optional] 
 **Name** | **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | Pointer to [**NullablePowerPortRequestType**](PowerPortRequestType.md) |  | [optional] 
+**Type** | Pointer to [**NullableBulkPowerPortRequestType**](BulkPowerPortRequestType.md) |  | [optional] 
 **MaximumDraw** | Pointer to **NullableInt32** | Maximum power draw (watts) | [optional] 
 **AllocatedDraw** | Pointer to **NullableInt32** | Allocated power draw (watts) | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -34,20 +34,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeviceType
 
-`func (o *PowerPortTemplateRequest) GetDeviceType() BriefDeviceTypeRequest`
+`func (o *PowerPortTemplateRequest) GetDeviceType() BulkConsolePortTemplateRequestDeviceType`
 
 GetDeviceType returns the DeviceType field if non-nil, zero value otherwise.
 
 ### GetDeviceTypeOk
 
-`func (o *PowerPortTemplateRequest) GetDeviceTypeOk() (*BriefDeviceTypeRequest, bool)`
+`func (o *PowerPortTemplateRequest) GetDeviceTypeOk() (*BulkConsolePortTemplateRequestDeviceType, bool)`
 
 GetDeviceTypeOk returns a tuple with the DeviceType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceType
 
-`func (o *PowerPortTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest)`
+`func (o *PowerPortTemplateRequest) SetDeviceType(v BulkConsolePortTemplateRequestDeviceType)`
 
 SetDeviceType sets DeviceType field to given value.
 
@@ -69,20 +69,20 @@ HasDeviceType returns a boolean if a field has been set.
 UnsetDeviceType ensures that no value is present for DeviceType, not even an explicit nil
 ### GetModuleType
 
-`func (o *PowerPortTemplateRequest) GetModuleType() BriefModuleTypeRequest`
+`func (o *PowerPortTemplateRequest) GetModuleType() BulkConsolePortTemplateRequestModuleType`
 
 GetModuleType returns the ModuleType field if non-nil, zero value otherwise.
 
 ### GetModuleTypeOk
 
-`func (o *PowerPortTemplateRequest) GetModuleTypeOk() (*BriefModuleTypeRequest, bool)`
+`func (o *PowerPortTemplateRequest) GetModuleTypeOk() (*BulkConsolePortTemplateRequestModuleType, bool)`
 
 GetModuleTypeOk returns a tuple with the ModuleType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModuleType
 
-`func (o *PowerPortTemplateRequest) SetModuleType(v BriefModuleTypeRequest)`
+`func (o *PowerPortTemplateRequest) SetModuleType(v BulkConsolePortTemplateRequestModuleType)`
 
 SetModuleType sets ModuleType field to given value.
 
@@ -149,20 +149,20 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *PowerPortTemplateRequest) GetType() PowerPortRequestType`
+`func (o *PowerPortTemplateRequest) GetType() BulkPowerPortRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PowerPortTemplateRequest) GetTypeOk() (*PowerPortRequestType, bool)`
+`func (o *PowerPortTemplateRequest) GetTypeOk() (*BulkPowerPortRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PowerPortTemplateRequest) SetType(v PowerPortRequestType)`
+`func (o *PowerPortTemplateRequest) SetType(v BulkPowerPortRequestType)`
 
 SetType sets Type field to given value.
 

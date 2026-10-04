@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Rd** | Pointer to **NullableString** | Unique route distinguisher (as defined in RFC 4364) | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**PrefixCount** | Pointer to **int64** |  | [optional] [readonly] 
 
 ## Methods
 
@@ -170,31 +169,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefVRF) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetPrefixCount
-
-`func (o *BriefVRF) GetPrefixCount() int64`
-
-GetPrefixCount returns the PrefixCount field if non-nil, zero value otherwise.
-
-### GetPrefixCountOk
-
-`func (o *BriefVRF) GetPrefixCountOk() (*int64, bool)`
-
-GetPrefixCountOk returns a tuple with the PrefixCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPrefixCount
-
-`func (o *BriefVRF) SetPrefixCount(v int64)`
-
-SetPrefixCount sets PrefixCount field to given value.
-
-### HasPrefixCount
-
-`func (o *BriefVRF) HasPrefixCount() bool`
-
-HasPrefixCount returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

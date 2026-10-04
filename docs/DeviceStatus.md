@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**DeviceStatusValue**](DeviceStatusValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkDeviceRequestStatus**](BulkDeviceRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**DeviceStatusLabel**](DeviceStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *DeviceStatus) GetValue() DeviceStatusValue`
+`func (o *DeviceStatus) GetValue() BulkDeviceRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *DeviceStatus) GetValueOk() (*DeviceStatusValue, bool)`
+`func (o *DeviceStatus) GetValueOk() (*BulkDeviceRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *DeviceStatus) SetValue(v DeviceStatusValue)`
+`func (o *DeviceStatus) SetValue(v BulkDeviceRequestStatus)`
 
 SetValue sets Value field to given value.
 

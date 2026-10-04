@@ -12,8 +12,10 @@ Name | Type | Description | Notes
 **Parent** | **interface{}** |  | [readonly] 
 **Name** | Pointer to **string** |  | [optional] 
 **Image** | **string** |  | 
+**Description** | Pointer to **string** |  | [optional] 
 **ImageHeight** | **int32** |  | [readonly] 
 **ImageWidth** | **int32** |  | [readonly] 
+**ImageSize** | **int32** |  | [readonly] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 
@@ -21,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewImageAttachment
 
-`func NewImageAttachment(id int32, url string, display string, objectType string, objectId int64, parent interface{}, image string, imageHeight int32, imageWidth int32, created NullableTime, lastUpdated NullableTime, ) *ImageAttachment`
+`func NewImageAttachment(id int32, url string, display string, objectType string, objectId int64, parent interface{}, image string, imageHeight int32, imageWidth int32, imageSize int32, created NullableTime, lastUpdated NullableTime, ) *ImageAttachment`
 
 NewImageAttachment instantiates a new ImageAttachment object
 This constructor will assign default values to properties that have it defined,
@@ -211,6 +213,31 @@ and a boolean to check if the value has been set.
 SetImage sets Image field to given value.
 
 
+### GetDescription
+
+`func (o *ImageAttachment) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *ImageAttachment) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *ImageAttachment) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *ImageAttachment) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
 ### GetImageHeight
 
 `func (o *ImageAttachment) GetImageHeight() int32`
@@ -249,6 +276,26 @@ and a boolean to check if the value has been set.
 `func (o *ImageAttachment) SetImageWidth(v int32)`
 
 SetImageWidth sets ImageWidth field to given value.
+
+
+### GetImageSize
+
+`func (o *ImageAttachment) GetImageSize() int32`
+
+GetImageSize returns the ImageSize field if non-nil, zero value otherwise.
+
+### GetImageSizeOk
+
+`func (o *ImageAttachment) GetImageSizeOk() (*int32, bool)`
+
+GetImageSizeOk returns a tuple with the ImageSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetImageSize
+
+`func (o *ImageAttachment) SetImageSize(v int32)`
+
+SetImageSize sets ImageSize field to given value.
 
 
 ### GetCreated

@@ -6,13 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** | Full name of the provider | 
 **Slug** | **string** |  | 
 **Accounts** | Pointer to [**[]NestedProviderAccount**](NestedProviderAccount.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
-**Asns** | Pointer to [**[]ASN**](ASN.md) |  | [optional] 
+**Asns** | Pointer to [**[]BriefASN**](BriefASN.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewProvider
 
-`func NewProvider(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, circuitCount int64, ) *Provider`
+`func NewProvider(id int32, url string, displayUrl string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, circuitCount int64, ) *Provider`
 
 NewProvider instantiates a new Provider object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *Provider) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Provider) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Provider) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Provider) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -188,6 +210,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Provider) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Provider) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Provider) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Provider) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Provider) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Provider) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Provider) GetComments() string`
@@ -215,20 +272,20 @@ HasComments returns a boolean if a field has been set.
 
 ### GetAsns
 
-`func (o *Provider) GetAsns() []ASN`
+`func (o *Provider) GetAsns() []BriefASN`
 
 GetAsns returns the Asns field if non-nil, zero value otherwise.
 
 ### GetAsnsOk
 
-`func (o *Provider) GetAsnsOk() (*[]ASN, bool)`
+`func (o *Provider) GetAsnsOk() (*[]BriefASN, bool)`
 
 GetAsnsOk returns a tuple with the Asns field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAsns
 
-`func (o *Provider) SetAsns(v []ASN)`
+`func (o *Provider) SetAsns(v []BriefASN)`
 
 SetAsns sets Asns field to given value.
 

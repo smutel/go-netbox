@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**WirelessLANAuthCipherValue**](WirelessLANAuthCipherValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkWirelessLANRequestAuthCipher**](BulkWirelessLANRequestAuthCipher.md) |  | [optional] 
 **Label** | Pointer to [**WirelessLANAuthCipherLabel**](WirelessLANAuthCipherLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *WirelessLANAuthCipher) GetValue() WirelessLANAuthCipherValue`
+`func (o *WirelessLANAuthCipher) GetValue() BulkWirelessLANRequestAuthCipher`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *WirelessLANAuthCipher) GetValueOk() (*WirelessLANAuthCipherValue, bool)`
+`func (o *WirelessLANAuthCipher) GetValueOk() (*BulkWirelessLANRequestAuthCipher, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *WirelessLANAuthCipher) SetValue(v WirelessLANAuthCipherValue)`
+`func (o *WirelessLANAuthCipher) SetValue(v BulkWirelessLANRequestAuthCipher)`
 
 SetValue sets Value field to given value.
 

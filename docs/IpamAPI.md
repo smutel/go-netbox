@@ -140,6 +140,24 @@ Method | HTTP request | Description
 [**IpamVlanGroupsPartialUpdate**](IpamAPI.md#IpamVlanGroupsPartialUpdate) | **Patch** /api/ipam/vlan-groups/{id}/ | 
 [**IpamVlanGroupsRetrieve**](IpamAPI.md#IpamVlanGroupsRetrieve) | **Get** /api/ipam/vlan-groups/{id}/ | 
 [**IpamVlanGroupsUpdate**](IpamAPI.md#IpamVlanGroupsUpdate) | **Put** /api/ipam/vlan-groups/{id}/ | 
+[**IpamVlanTranslationPoliciesBulkDestroy**](IpamAPI.md#IpamVlanTranslationPoliciesBulkDestroy) | **Delete** /api/ipam/vlan-translation-policies/ | 
+[**IpamVlanTranslationPoliciesBulkPartialUpdate**](IpamAPI.md#IpamVlanTranslationPoliciesBulkPartialUpdate) | **Patch** /api/ipam/vlan-translation-policies/ | 
+[**IpamVlanTranslationPoliciesBulkUpdate**](IpamAPI.md#IpamVlanTranslationPoliciesBulkUpdate) | **Put** /api/ipam/vlan-translation-policies/ | 
+[**IpamVlanTranslationPoliciesCreate**](IpamAPI.md#IpamVlanTranslationPoliciesCreate) | **Post** /api/ipam/vlan-translation-policies/ | 
+[**IpamVlanTranslationPoliciesDestroy**](IpamAPI.md#IpamVlanTranslationPoliciesDestroy) | **Delete** /api/ipam/vlan-translation-policies/{id}/ | 
+[**IpamVlanTranslationPoliciesList**](IpamAPI.md#IpamVlanTranslationPoliciesList) | **Get** /api/ipam/vlan-translation-policies/ | 
+[**IpamVlanTranslationPoliciesPartialUpdate**](IpamAPI.md#IpamVlanTranslationPoliciesPartialUpdate) | **Patch** /api/ipam/vlan-translation-policies/{id}/ | 
+[**IpamVlanTranslationPoliciesRetrieve**](IpamAPI.md#IpamVlanTranslationPoliciesRetrieve) | **Get** /api/ipam/vlan-translation-policies/{id}/ | 
+[**IpamVlanTranslationPoliciesUpdate**](IpamAPI.md#IpamVlanTranslationPoliciesUpdate) | **Put** /api/ipam/vlan-translation-policies/{id}/ | 
+[**IpamVlanTranslationRulesBulkDestroy**](IpamAPI.md#IpamVlanTranslationRulesBulkDestroy) | **Delete** /api/ipam/vlan-translation-rules/ | 
+[**IpamVlanTranslationRulesBulkPartialUpdate**](IpamAPI.md#IpamVlanTranslationRulesBulkPartialUpdate) | **Patch** /api/ipam/vlan-translation-rules/ | 
+[**IpamVlanTranslationRulesBulkUpdate**](IpamAPI.md#IpamVlanTranslationRulesBulkUpdate) | **Put** /api/ipam/vlan-translation-rules/ | 
+[**IpamVlanTranslationRulesCreate**](IpamAPI.md#IpamVlanTranslationRulesCreate) | **Post** /api/ipam/vlan-translation-rules/ | 
+[**IpamVlanTranslationRulesDestroy**](IpamAPI.md#IpamVlanTranslationRulesDestroy) | **Delete** /api/ipam/vlan-translation-rules/{id}/ | 
+[**IpamVlanTranslationRulesList**](IpamAPI.md#IpamVlanTranslationRulesList) | **Get** /api/ipam/vlan-translation-rules/ | 
+[**IpamVlanTranslationRulesPartialUpdate**](IpamAPI.md#IpamVlanTranslationRulesPartialUpdate) | **Patch** /api/ipam/vlan-translation-rules/{id}/ | 
+[**IpamVlanTranslationRulesRetrieve**](IpamAPI.md#IpamVlanTranslationRulesRetrieve) | **Get** /api/ipam/vlan-translation-rules/{id}/ | 
+[**IpamVlanTranslationRulesUpdate**](IpamAPI.md#IpamVlanTranslationRulesUpdate) | **Put** /api/ipam/vlan-translation-rules/{id}/ | 
 [**IpamVlansBulkDestroy**](IpamAPI.md#IpamVlansBulkDestroy) | **Delete** /api/ipam/vlans/ | 
 [**IpamVlansBulkPartialUpdate**](IpamAPI.md#IpamVlansBulkPartialUpdate) | **Patch** /api/ipam/vlans/ | 
 [**IpamVlansBulkUpdate**](IpamAPI.md#IpamVlansBulkUpdate) | **Put** /api/ipam/vlans/ | 
@@ -182,7 +200,7 @@ import (
 )
 
 func main() {
-	aggregateRequest := []openapiclient.AggregateRequest{*openapiclient.NewAggregateRequest("Prefix_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"))} // []AggregateRequest | 
+	aggregateRequest := []openapiclient.AggregateRequest{*openapiclient.NewAggregateRequest("Prefix_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")})} // []AggregateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -218,7 +236,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -227,7 +245,7 @@ Name | Type | Description  | Notes
 
 ## IpamAggregatesBulkPartialUpdate
 
-> []Aggregate IpamAggregatesBulkPartialUpdate(ctx).AggregateRequest(aggregateRequest).Execute()
+> []Aggregate IpamAggregatesBulkPartialUpdate(ctx).PatchedBulkAggregateRequest(patchedBulkAggregateRequest).Execute()
 
 
 
@@ -246,11 +264,11 @@ import (
 )
 
 func main() {
-	aggregateRequest := []openapiclient.AggregateRequest{*openapiclient.NewAggregateRequest("Prefix_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"))} // []AggregateRequest | 
+	patchedBulkAggregateRequest := []openapiclient.PatchedBulkAggregateRequest{*openapiclient.NewPatchedBulkAggregateRequest(int32(123))} // []PatchedBulkAggregateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAggregatesBulkPartialUpdate(context.Background()).AggregateRequest(aggregateRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAggregatesBulkPartialUpdate(context.Background()).PatchedBulkAggregateRequest(patchedBulkAggregateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAggregatesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -271,7 +289,7 @@ Other parameters are passed through a pointer to a apiIpamAggregatesBulkPartialU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aggregateRequest** | [**[]AggregateRequest**](AggregateRequest.md) |  | 
+ **patchedBulkAggregateRequest** | [**[]PatchedBulkAggregateRequest**](PatchedBulkAggregateRequest.md) |  | 
 
 ### Return type
 
@@ -293,7 +311,7 @@ Name | Type | Description  | Notes
 
 ## IpamAggregatesBulkUpdate
 
-> []Aggregate IpamAggregatesBulkUpdate(ctx).AggregateRequest(aggregateRequest).Execute()
+> []Aggregate IpamAggregatesBulkUpdate(ctx).BulkAggregateRequest(bulkAggregateRequest).Execute()
 
 
 
@@ -312,11 +330,11 @@ import (
 )
 
 func main() {
-	aggregateRequest := []openapiclient.AggregateRequest{*openapiclient.NewAggregateRequest("Prefix_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"))} // []AggregateRequest | 
+	bulkAggregateRequest := []openapiclient.BulkAggregateRequest{*openapiclient.NewBulkAggregateRequest(int32(123), "Prefix_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")})} // []BulkAggregateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAggregatesBulkUpdate(context.Background()).AggregateRequest(aggregateRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAggregatesBulkUpdate(context.Background()).BulkAggregateRequest(bulkAggregateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAggregatesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -337,7 +355,7 @@ Other parameters are passed through a pointer to a apiIpamAggregatesBulkUpdateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aggregateRequest** | [**[]AggregateRequest**](AggregateRequest.md) |  | 
+ **bulkAggregateRequest** | [**[]BulkAggregateRequest**](BulkAggregateRequest.md) |  | 
 
 ### Return type
 
@@ -359,7 +377,7 @@ Name | Type | Description  | Notes
 
 ## IpamAggregatesCreate
 
-> Aggregate IpamAggregatesCreate(ctx).WritableAggregateRequest(writableAggregateRequest).Execute()
+> Aggregate IpamAggregatesCreate(ctx).IpamAggregatesCreateRequest(ipamAggregatesCreateRequest).Execute()
 
 
 
@@ -378,11 +396,11 @@ import (
 )
 
 func main() {
-	writableAggregateRequest := *openapiclient.NewWritableAggregateRequest("Prefix_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")) // WritableAggregateRequest | 
+	ipamAggregatesCreateRequest := openapiclient.ipam_aggregates_create_request{WritableAggregateRequest: openapiclient.NewWritableAggregateRequest("Prefix_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")})} // IpamAggregatesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAggregatesCreate(context.Background()).WritableAggregateRequest(writableAggregateRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAggregatesCreate(context.Background()).IpamAggregatesCreateRequest(ipamAggregatesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAggregatesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -403,7 +421,7 @@ Other parameters are passed through a pointer to a apiIpamAggregatesCreateReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableAggregateRequest** | [**WritableAggregateRequest**](WritableAggregateRequest.md) |  | 
+ **ipamAggregatesCreateRequest** | [**IpamAggregatesCreateRequest**](IpamAggregatesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -493,7 +511,7 @@ Name | Type | Description  | Notes
 
 ## IpamAggregatesList
 
-> PaginatedAggregateList IpamAggregatesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).DateAdded(dateAdded).DateAddedEmpty(dateAddedEmpty).DateAddedGt(dateAddedGt).DateAddedGte(dateAddedGte).DateAddedLt(dateAddedLt).DateAddedLte(dateAddedLte).DateAddedN(dateAddedN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Family(family).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Prefix(prefix).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedAggregateList IpamAggregatesList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).DateAdded(dateAdded).DateAddedEmpty(dateAddedEmpty).DateAddedGt(dateAddedGt).DateAddedGte(dateAddedGte).DateAddedLt(dateAddedLt).DateAddedLte(dateAddedLte).DateAddedN(dateAddedN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Family(family).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Prefix(prefix).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -513,6 +531,13 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -533,13 +558,16 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	family := float32(8.14) // float32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -557,15 +585,29 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	prefix := "prefix_example" // string | Prefix (optional)
 	q := "q_example" // string | Search (optional)
 	rir := []string{"Inner_example"} // []string | RIR (slug) (optional)
 	rirN := []string{"Inner_example"} // []string | RIR (slug) (optional)
 	rirId := []int32{int32(123)} // []int32 | RIR (ID) (optional)
 	rirIdN := []int32{int32(123)} // []int32 | RIR (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -578,7 +620,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAggregatesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).DateAdded(dateAdded).DateAddedEmpty(dateAddedEmpty).DateAddedGt(dateAddedGt).DateAddedGte(dateAddedGte).DateAddedLt(dateAddedLt).DateAddedLte(dateAddedLte).DateAddedN(dateAddedN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Family(family).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Prefix(prefix).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAggregatesList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).DateAdded(dateAdded).DateAddedEmpty(dateAddedEmpty).DateAddedGt(dateAddedGt).DateAddedGte(dateAddedGte).DateAddedLt(dateAddedLt).DateAddedLte(dateAddedLte).DateAddedN(dateAddedN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Family(family).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Prefix(prefix).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAggregatesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -599,6 +641,13 @@ Other parameters are passed through a pointer to a apiIpamAggregatesListRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -619,13 +668,16 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **family** | **float32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -643,15 +695,29 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **prefix** | **string** | Prefix | 
  **q** | **string** | Search | 
  **rir** | **[]string** | RIR (slug) | 
  **rirN** | **[]string** | RIR (slug) | 
  **rirId** | **[]int32** | RIR (ID) | 
  **rirIdN** | **[]int32** | RIR (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -754,7 +820,7 @@ Name | Type | Description  | Notes
 
 ## IpamAggregatesRetrieve
 
-> Aggregate IpamAggregatesRetrieve(ctx, id).Execute()
+> Aggregate IpamAggregatesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -774,10 +840,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this aggregate.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAggregatesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAggregatesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAggregatesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -803,6 +872,9 @@ Other parameters are passed through a pointer to a apiIpamAggregatesRetrieveRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -844,7 +916,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this aggregate.
-	writableAggregateRequest := *openapiclient.NewWritableAggregateRequest("Prefix_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")) // WritableAggregateRequest | 
+	writableAggregateRequest := *openapiclient.NewWritableAggregateRequest("Prefix_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")}) // WritableAggregateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -968,7 +1040,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnRangesAvailableAsnsList
 
-> []AvailableASN IpamAsnRangesAvailableAsnsList(ctx, id).Execute()
+> []AvailableASN IpamAsnRangesAvailableAsnsList(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -988,10 +1060,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnRangesAvailableAsnsList(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnRangesAvailableAsnsList(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnRangesAvailableAsnsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1017,6 +1092,9 @@ Other parameters are passed through a pointer to a apiIpamAsnRangesAvailableAsns
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1057,7 +1135,7 @@ import (
 )
 
 func main() {
-	aSNRangeRequest := []openapiclient.ASNRangeRequest{*openapiclient.NewASNRangeRequest("Name_example", "Slug_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"), int64(123), int64(123))} // []ASNRangeRequest | 
+	aSNRangeRequest := []openapiclient.ASNRangeRequest{*openapiclient.NewASNRangeRequest("Name_example", "Slug_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")}, int64(123), int64(123))} // []ASNRangeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1093,7 +1171,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1102,7 +1180,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnRangesBulkPartialUpdate
 
-> []ASNRange IpamAsnRangesBulkPartialUpdate(ctx).ASNRangeRequest(aSNRangeRequest).Execute()
+> []ASNRange IpamAsnRangesBulkPartialUpdate(ctx).PatchedBulkASNRangeRequest(patchedBulkASNRangeRequest).Execute()
 
 
 
@@ -1121,11 +1199,11 @@ import (
 )
 
 func main() {
-	aSNRangeRequest := []openapiclient.ASNRangeRequest{*openapiclient.NewASNRangeRequest("Name_example", "Slug_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"), int64(123), int64(123))} // []ASNRangeRequest | 
+	patchedBulkASNRangeRequest := []openapiclient.PatchedBulkASNRangeRequest{*openapiclient.NewPatchedBulkASNRangeRequest(int32(123))} // []PatchedBulkASNRangeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnRangesBulkPartialUpdate(context.Background()).ASNRangeRequest(aSNRangeRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnRangesBulkPartialUpdate(context.Background()).PatchedBulkASNRangeRequest(patchedBulkASNRangeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnRangesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1146,7 +1224,7 @@ Other parameters are passed through a pointer to a apiIpamAsnRangesBulkPartialUp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aSNRangeRequest** | [**[]ASNRangeRequest**](ASNRangeRequest.md) |  | 
+ **patchedBulkASNRangeRequest** | [**[]PatchedBulkASNRangeRequest**](PatchedBulkASNRangeRequest.md) |  | 
 
 ### Return type
 
@@ -1168,7 +1246,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnRangesBulkUpdate
 
-> []ASNRange IpamAsnRangesBulkUpdate(ctx).ASNRangeRequest(aSNRangeRequest).Execute()
+> []ASNRange IpamAsnRangesBulkUpdate(ctx).BulkASNRangeRequest(bulkASNRangeRequest).Execute()
 
 
 
@@ -1187,11 +1265,11 @@ import (
 )
 
 func main() {
-	aSNRangeRequest := []openapiclient.ASNRangeRequest{*openapiclient.NewASNRangeRequest("Name_example", "Slug_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"), int64(123), int64(123))} // []ASNRangeRequest | 
+	bulkASNRangeRequest := []openapiclient.BulkASNRangeRequest{*openapiclient.NewBulkASNRangeRequest(int32(123), "Name_example", "Slug_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")}, int64(123), int64(123))} // []BulkASNRangeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnRangesBulkUpdate(context.Background()).ASNRangeRequest(aSNRangeRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnRangesBulkUpdate(context.Background()).BulkASNRangeRequest(bulkASNRangeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnRangesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1212,7 +1290,7 @@ Other parameters are passed through a pointer to a apiIpamAsnRangesBulkUpdateReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aSNRangeRequest** | [**[]ASNRangeRequest**](ASNRangeRequest.md) |  | 
+ **bulkASNRangeRequest** | [**[]BulkASNRangeRequest**](BulkASNRangeRequest.md) |  | 
 
 ### Return type
 
@@ -1234,7 +1312,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnRangesCreate
 
-> ASNRange IpamAsnRangesCreate(ctx).ASNRangeRequest(aSNRangeRequest).Execute()
+> ASNRange IpamAsnRangesCreate(ctx).IpamAsnRangesCreateRequest(ipamAsnRangesCreateRequest).Execute()
 
 
 
@@ -1253,11 +1331,11 @@ import (
 )
 
 func main() {
-	aSNRangeRequest := *openapiclient.NewASNRangeRequest("Name_example", "Slug_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"), int64(123), int64(123)) // ASNRangeRequest | 
+	ipamAsnRangesCreateRequest := openapiclient.ipam_asn_ranges_create_request{ASNRangeRequest: openapiclient.NewASNRangeRequest("Name_example", "Slug_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")}, int64(123), int64(123))} // IpamAsnRangesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnRangesCreate(context.Background()).ASNRangeRequest(aSNRangeRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnRangesCreate(context.Background()).IpamAsnRangesCreateRequest(ipamAsnRangesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnRangesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1278,7 +1356,7 @@ Other parameters are passed through a pointer to a apiIpamAsnRangesCreateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aSNRangeRequest** | [**ASNRangeRequest**](ASNRangeRequest.md) |  | 
+ **ipamAsnRangesCreateRequest** | [**IpamAsnRangesCreateRequest**](IpamAsnRangesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -1368,7 +1446,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnRangesList
 
-> PaginatedASNRangeList IpamAsnRangesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).End(end).EndEmpty(endEmpty).EndGt(endGt).EndGte(endGte).EndLt(endLt).EndLte(endLte).EndN(endN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Start(start).StartEmpty(startEmpty).StartGt(startGt).StartGte(startGte).StartLt(startLt).StartLte(startLte).StartN(startN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedASNRangeList IpamAsnRangesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).End(end).EndEmpty(endEmpty).EndGt(endGt).EndGte(endGte).EndLt(endLt).EndLte(endLte).EndN(endN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).StartEmpty(startEmpty).StartGt(startGt).StartGte(startGte).StartLt(startLt).StartLte(startLte).StartN(startN).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -1388,6 +1466,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -1401,12 +1480,14 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	end := []int32{int32(123)} // []int32 |  (optional)
 	endEmpty := true // bool |  (optional)
 	endGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1414,6 +1495,7 @@ func main() {
 	endLt := []int32{int32(123)} // []int32 |  (optional)
 	endLte := []int32{int32(123)} // []int32 |  (optional)
 	endN := []int32{int32(123)} // []int32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -1435,14 +1517,25 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	rir := []string{"Inner_example"} // []string | RIR (slug) (optional)
 	rirN := []string{"Inner_example"} // []string | RIR (slug) (optional)
@@ -1453,13 +1546,15 @@ func main() {
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
-	start := []int32{int32(123)} // []int32 |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	startEmpty := true // bool |  (optional)
 	startGt := []int32{int32(123)} // []int32 |  (optional)
 	startGte := []int32{int32(123)} // []int32 |  (optional)
@@ -1467,7 +1562,11 @@ func main() {
 	startLte := []int32{int32(123)} // []int32 |  (optional)
 	startN := []int32{int32(123)} // []int32 |  (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -1480,7 +1579,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnRangesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).End(end).EndEmpty(endEmpty).EndGt(endGt).EndGte(endGte).EndLt(endLt).EndLte(endLte).EndN(endN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Start(start).StartEmpty(startEmpty).StartGt(startGt).StartGte(startGte).StartLt(startLt).StartLte(startLte).StartN(startN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnRangesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).End(end).EndEmpty(endEmpty).EndGt(endGt).EndGte(endGte).EndLt(endLt).EndLte(endLte).EndN(endN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).StartEmpty(startEmpty).StartGt(startGt).StartGte(startGte).StartLt(startLt).StartLte(startLte).StartN(startN).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnRangesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1501,6 +1600,7 @@ Other parameters are passed through a pointer to a apiIpamAsnRangesListRequest s
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -1514,12 +1614,14 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **end** | **[]int32** |  | 
  **endEmpty** | **bool** |  | 
  **endGt** | **[]int32** |  | 
@@ -1527,6 +1629,7 @@ Name | Type | Description  | Notes
  **endLt** | **[]int32** |  | 
  **endLte** | **[]int32** |  | 
  **endN** | **[]int32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -1548,14 +1651,25 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **rir** | **[]string** | RIR (slug) | 
  **rirN** | **[]string** | RIR (slug) | 
@@ -1566,13 +1680,15 @@ Name | Type | Description  | Notes
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
- **start** | **[]int32** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **startEmpty** | **bool** |  | 
  **startGt** | **[]int32** |  | 
  **startGte** | **[]int32** |  | 
@@ -1580,7 +1696,11 @@ Name | Type | Description  | Notes
  **startLte** | **[]int32** |  | 
  **startN** | **[]int32** |  | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -1683,7 +1803,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnRangesRetrieve
 
-> ASNRange IpamAsnRangesRetrieve(ctx, id).Execute()
+> ASNRange IpamAsnRangesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -1703,10 +1823,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this ASN range.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnRangesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnRangesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnRangesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1732,6 +1855,9 @@ Other parameters are passed through a pointer to a apiIpamAsnRangesRetrieveReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -1773,7 +1899,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this ASN range.
-	aSNRangeRequest := *openapiclient.NewASNRangeRequest("Name_example", "Slug_example", *openapiclient.NewBriefRIRRequest("Name_example", "Slug_example"), int64(123), int64(123)) // ASNRangeRequest | 
+	aSNRangeRequest := *openapiclient.NewASNRangeRequest("Name_example", "Slug_example", openapiclient.ASNRangeRequest_rir{BriefRIRRequest: openapiclient.NewBriefRIRRequest("Name_example", "Slug_example")}, int64(123), int64(123)) // ASNRangeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -1880,7 +2006,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -1889,7 +2015,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnsBulkPartialUpdate
 
-> []ASN IpamAsnsBulkPartialUpdate(ctx).ASNRequest(aSNRequest).Execute()
+> []ASN IpamAsnsBulkPartialUpdate(ctx).PatchedBulkASNRequest(patchedBulkASNRequest).Execute()
 
 
 
@@ -1908,11 +2034,11 @@ import (
 )
 
 func main() {
-	aSNRequest := []openapiclient.ASNRequest{*openapiclient.NewASNRequest(int64(123))} // []ASNRequest | 
+	patchedBulkASNRequest := []openapiclient.PatchedBulkASNRequest{*openapiclient.NewPatchedBulkASNRequest(int32(123))} // []PatchedBulkASNRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnsBulkPartialUpdate(context.Background()).ASNRequest(aSNRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnsBulkPartialUpdate(context.Background()).PatchedBulkASNRequest(patchedBulkASNRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1933,7 +2059,7 @@ Other parameters are passed through a pointer to a apiIpamAsnsBulkPartialUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aSNRequest** | [**[]ASNRequest**](ASNRequest.md) |  | 
+ **patchedBulkASNRequest** | [**[]PatchedBulkASNRequest**](PatchedBulkASNRequest.md) |  | 
 
 ### Return type
 
@@ -1955,7 +2081,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnsBulkUpdate
 
-> []ASN IpamAsnsBulkUpdate(ctx).ASNRequest(aSNRequest).Execute()
+> []ASN IpamAsnsBulkUpdate(ctx).BulkASNRequest(bulkASNRequest).Execute()
 
 
 
@@ -1974,11 +2100,11 @@ import (
 )
 
 func main() {
-	aSNRequest := []openapiclient.ASNRequest{*openapiclient.NewASNRequest(int64(123))} // []ASNRequest | 
+	bulkASNRequest := []openapiclient.BulkASNRequest{*openapiclient.NewBulkASNRequest(int32(123), int64(123))} // []BulkASNRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnsBulkUpdate(context.Background()).ASNRequest(aSNRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnsBulkUpdate(context.Background()).BulkASNRequest(bulkASNRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1999,7 +2125,7 @@ Other parameters are passed through a pointer to a apiIpamAsnsBulkUpdateRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aSNRequest** | [**[]ASNRequest**](ASNRequest.md) |  | 
+ **bulkASNRequest** | [**[]BulkASNRequest**](BulkASNRequest.md) |  | 
 
 ### Return type
 
@@ -2021,7 +2147,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnsCreate
 
-> ASN IpamAsnsCreate(ctx).ASNRequest(aSNRequest).Execute()
+> ASN IpamAsnsCreate(ctx).IpamAsnsCreateRequest(ipamAsnsCreateRequest).Execute()
 
 
 
@@ -2040,11 +2166,11 @@ import (
 )
 
 func main() {
-	aSNRequest := *openapiclient.NewASNRequest(int64(123)) // ASNRequest | 
+	ipamAsnsCreateRequest := openapiclient.ipam_asns_create_request{ASNRequest: openapiclient.NewASNRequest(int64(123))} // IpamAsnsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnsCreate(context.Background()).ASNRequest(aSNRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnsCreate(context.Background()).IpamAsnsCreateRequest(ipamAsnsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2065,7 +2191,7 @@ Other parameters are passed through a pointer to a apiIpamAsnsCreateRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **aSNRequest** | [**ASNRequest**](ASNRequest.md) |  | 
+ **ipamAsnsCreateRequest** | [**IpamAsnsCreateRequest**](IpamAsnsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -2155,7 +2281,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnsList
 
-> PaginatedASNList IpamAsnsList(ctx).Asn(asn).AsnEmpty(asnEmpty).AsnGt(asnGt).AsnGte(asnGte).AsnLt(asnLt).AsnLte(asnLte).AsnN(asnN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Site(site).SiteN(siteN).SiteId(siteId).SiteIdN(siteIdN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedASNList IpamAsnsList(ctx).Asn(asn).AsnEmpty(asnEmpty).AsnGt(asnGt).AsnGte(asnGte).AsnLt(asnLt).AsnLte(asnLte).AsnN(asnN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -2182,6 +2308,7 @@ func main() {
 	asnLt := []int32{int32(123)} // []int32 |  (optional)
 	asnLte := []int32{int32(123)} // []int32 |  (optional)
 	asnN := []int32{int32(123)} // []int32 |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -2195,12 +2322,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -2218,7 +2348,16 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	provider := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerN := []string{"Inner_example"} // []string | Provider (slug) (optional)
 	providerId := []int32{int32(123)} // []int32 | Provider (ID) (optional)
@@ -2228,12 +2367,25 @@ func main() {
 	rirN := []string{"Inner_example"} // []string | RIR (slug) (optional)
 	rirId := []int32{int32(123)} // []int32 | RIR (ID) (optional)
 	rirIdN := []int32{int32(123)} // []int32 | RIR (ID) (optional)
+	role := []string{"Inner_example"} // []string | Role (slug) (optional)
+	roleN := []string{"Inner_example"} // []string | Role (slug) (optional)
+	roleId := []*int32{int32(123)} // []*int32 | Role (ID) (optional)
+	roleIdN := []*int32{int32(123)} // []*int32 | Role (ID) (optional)
 	site := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteN := []string{"Inner_example"} // []string | Site (slug) (optional)
+	siteGroup := []string{"Inner_example"} // []string |  (optional)
+	siteGroupN := []string{"Inner_example"} // []string |  (optional)
+	siteGroupId := []string{"Inner_example"} // []string |  (optional)
+	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
 	siteId := []int32{int32(123)} // []int32 | Site (ID) (optional)
 	siteIdN := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -2246,7 +2398,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnsList(context.Background()).Asn(asn).AsnEmpty(asnEmpty).AsnGt(asnGt).AsnGte(asnGte).AsnLt(asnLt).AsnLte(asnLte).AsnN(asnN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Site(site).SiteN(siteN).SiteId(siteId).SiteIdN(siteIdN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnsList(context.Background()).Asn(asn).AsnEmpty(asnEmpty).AsnGt(asnGt).AsnGte(asnGte).AsnLt(asnLt).AsnLte(asnLte).AsnN(asnN).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Provider(provider).ProviderN(providerN).ProviderId(providerId).ProviderIdN(providerIdN).Q(q).Rir(rir).RirN(rirN).RirId(rirId).RirIdN(rirIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2274,6 +2426,7 @@ Name | Type | Description  | Notes
  **asnLt** | **[]int32** |  | 
  **asnLte** | **[]int32** |  | 
  **asnN** | **[]int32** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -2287,12 +2440,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -2310,7 +2466,16 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **provider** | **[]string** | Provider (slug) | 
  **providerN** | **[]string** | Provider (slug) | 
  **providerId** | **[]int32** | Provider (ID) | 
@@ -2320,12 +2485,25 @@ Name | Type | Description  | Notes
  **rirN** | **[]string** | RIR (slug) | 
  **rirId** | **[]int32** | RIR (ID) | 
  **rirIdN** | **[]int32** | RIR (ID) | 
+ **role** | **[]string** | Role (slug) | 
+ **roleN** | **[]string** | Role (slug) | 
+ **roleId** | **[]int32** | Role (ID) | 
+ **roleIdN** | **[]int32** | Role (ID) | 
  **site** | **[]string** | Site (slug) | 
  **siteN** | **[]string** | Site (slug) | 
+ **siteGroup** | **[]string** |  | 
+ **siteGroupN** | **[]string** |  | 
+ **siteGroupId** | **[]string** |  | 
+ **siteGroupIdN** | **[]string** |  | 
  **siteId** | **[]int32** | Site (ID) | 
  **siteIdN** | **[]int32** | Site (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -2428,7 +2606,7 @@ Name | Type | Description  | Notes
 
 ## IpamAsnsRetrieve
 
-> ASN IpamAsnsRetrieve(ctx, id).Execute()
+> ASN IpamAsnsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -2448,10 +2626,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this ASN.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamAsnsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamAsnsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamAsnsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2477,6 +2658,9 @@ Other parameters are passed through a pointer to a apiIpamAsnsRetrieveRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -2589,7 +2773,7 @@ import (
 )
 
 func main() {
-	fHRPGroupAssignmentRequest := []openapiclient.FHRPGroupAssignmentRequest{*openapiclient.NewFHRPGroupAssignmentRequest(*openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123)), "InterfaceType_example", int64(123), int32(123))} // []FHRPGroupAssignmentRequest | 
+	fHRPGroupAssignmentRequest := []openapiclient.FHRPGroupAssignmentRequest{*openapiclient.NewFHRPGroupAssignmentRequest(openapiclient.BulkFHRPGroupAssignmentRequest_group{BriefFHRPGroupRequest: openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))}, "InterfaceType_example", int64(123), int32(123))} // []FHRPGroupAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -2625,7 +2809,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -2634,7 +2818,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupAssignmentsBulkPartialUpdate
 
-> []FHRPGroupAssignment IpamFhrpGroupAssignmentsBulkPartialUpdate(ctx).FHRPGroupAssignmentRequest(fHRPGroupAssignmentRequest).Execute()
+> []FHRPGroupAssignment IpamFhrpGroupAssignmentsBulkPartialUpdate(ctx).PatchedBulkFHRPGroupAssignmentRequest(patchedBulkFHRPGroupAssignmentRequest).Execute()
 
 
 
@@ -2653,11 +2837,11 @@ import (
 )
 
 func main() {
-	fHRPGroupAssignmentRequest := []openapiclient.FHRPGroupAssignmentRequest{*openapiclient.NewFHRPGroupAssignmentRequest(*openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123)), "InterfaceType_example", int64(123), int32(123))} // []FHRPGroupAssignmentRequest | 
+	patchedBulkFHRPGroupAssignmentRequest := []openapiclient.PatchedBulkFHRPGroupAssignmentRequest{*openapiclient.NewPatchedBulkFHRPGroupAssignmentRequest(int32(123))} // []PatchedBulkFHRPGroupAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsBulkPartialUpdate(context.Background()).FHRPGroupAssignmentRequest(fHRPGroupAssignmentRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsBulkPartialUpdate(context.Background()).PatchedBulkFHRPGroupAssignmentRequest(patchedBulkFHRPGroupAssignmentRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupAssignmentsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2678,7 +2862,7 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupAssignmentsBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fHRPGroupAssignmentRequest** | [**[]FHRPGroupAssignmentRequest**](FHRPGroupAssignmentRequest.md) |  | 
+ **patchedBulkFHRPGroupAssignmentRequest** | [**[]PatchedBulkFHRPGroupAssignmentRequest**](PatchedBulkFHRPGroupAssignmentRequest.md) |  | 
 
 ### Return type
 
@@ -2700,7 +2884,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupAssignmentsBulkUpdate
 
-> []FHRPGroupAssignment IpamFhrpGroupAssignmentsBulkUpdate(ctx).FHRPGroupAssignmentRequest(fHRPGroupAssignmentRequest).Execute()
+> []FHRPGroupAssignment IpamFhrpGroupAssignmentsBulkUpdate(ctx).BulkFHRPGroupAssignmentRequest(bulkFHRPGroupAssignmentRequest).Execute()
 
 
 
@@ -2719,11 +2903,11 @@ import (
 )
 
 func main() {
-	fHRPGroupAssignmentRequest := []openapiclient.FHRPGroupAssignmentRequest{*openapiclient.NewFHRPGroupAssignmentRequest(*openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123)), "InterfaceType_example", int64(123), int32(123))} // []FHRPGroupAssignmentRequest | 
+	bulkFHRPGroupAssignmentRequest := []openapiclient.BulkFHRPGroupAssignmentRequest{*openapiclient.NewBulkFHRPGroupAssignmentRequest(int32(123), openapiclient.BulkFHRPGroupAssignmentRequest_group{BriefFHRPGroupRequest: openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))}, "InterfaceType_example", int64(123), int32(123))} // []BulkFHRPGroupAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsBulkUpdate(context.Background()).FHRPGroupAssignmentRequest(fHRPGroupAssignmentRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsBulkUpdate(context.Background()).BulkFHRPGroupAssignmentRequest(bulkFHRPGroupAssignmentRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupAssignmentsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2744,7 +2928,7 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupAssignmentsBu
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fHRPGroupAssignmentRequest** | [**[]FHRPGroupAssignmentRequest**](FHRPGroupAssignmentRequest.md) |  | 
+ **bulkFHRPGroupAssignmentRequest** | [**[]BulkFHRPGroupAssignmentRequest**](BulkFHRPGroupAssignmentRequest.md) |  | 
 
 ### Return type
 
@@ -2766,7 +2950,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupAssignmentsCreate
 
-> FHRPGroupAssignment IpamFhrpGroupAssignmentsCreate(ctx).FHRPGroupAssignmentRequest(fHRPGroupAssignmentRequest).Execute()
+> FHRPGroupAssignment IpamFhrpGroupAssignmentsCreate(ctx).IpamFhrpGroupAssignmentsCreateRequest(ipamFhrpGroupAssignmentsCreateRequest).Execute()
 
 
 
@@ -2785,11 +2969,11 @@ import (
 )
 
 func main() {
-	fHRPGroupAssignmentRequest := *openapiclient.NewFHRPGroupAssignmentRequest(*openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123)), "InterfaceType_example", int64(123), int32(123)) // FHRPGroupAssignmentRequest | 
+	ipamFhrpGroupAssignmentsCreateRequest := openapiclient.ipam_fhrp_group_assignments_create_request{FHRPGroupAssignmentRequest: openapiclient.NewFHRPGroupAssignmentRequest(openapiclient.BulkFHRPGroupAssignmentRequest_group{BriefFHRPGroupRequest: openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))}, "InterfaceType_example", int64(123), int32(123))} // IpamFhrpGroupAssignmentsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsCreate(context.Background()).FHRPGroupAssignmentRequest(fHRPGroupAssignmentRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsCreate(context.Background()).IpamFhrpGroupAssignmentsCreateRequest(ipamFhrpGroupAssignmentsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupAssignmentsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2810,7 +2994,7 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupAssignmentsCr
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fHRPGroupAssignmentRequest** | [**FHRPGroupAssignmentRequest**](FHRPGroupAssignmentRequest.md) |  | 
+ **ipamFhrpGroupAssignmentsCreateRequest** | [**IpamFhrpGroupAssignmentsCreateRequest**](IpamFhrpGroupAssignmentsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -2900,7 +3084,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupAssignmentsList
 
-> PaginatedFHRPGroupAssignmentList IpamFhrpGroupAssignmentsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceId(deviceId).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdEmpty(interfaceIdEmpty).InterfaceIdGt(interfaceIdGt).InterfaceIdGte(interfaceIdGte).InterfaceIdLt(interfaceIdLt).InterfaceIdLte(interfaceIdLte).InterfaceIdN(interfaceIdN).InterfaceType(interfaceType).InterfaceTypeN(interfaceTypeN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityGt(priorityGt).PriorityGte(priorityGte).PriorityLt(priorityLt).PriorityLte(priorityLte).PriorityN(priorityN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Execute()
+> PaginatedFHRPGroupAssignmentList IpamFhrpGroupAssignmentsList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceId(deviceId).Fields(fields).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdEmpty(interfaceIdEmpty).InterfaceIdGt(interfaceIdGt).InterfaceIdGte(interfaceIdGte).InterfaceIdLt(interfaceIdLt).InterfaceIdLte(interfaceIdLte).InterfaceIdN(interfaceIdN).InterfaceType(interfaceType).InterfaceTypeN(interfaceTypeN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityGt(priorityGt).PriorityGte(priorityGte).PriorityLt(priorityLt).PriorityLte(priorityLte).PriorityN(priorityN).Start(start).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Execute()
 
 
 
@@ -2920,6 +3104,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -2930,6 +3115,7 @@ func main() {
 	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	device := []string{"Inner_example"} // []string |  (optional)
 	deviceId := []int32{int32(123)} // []int32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	groupId := []int32{int32(123)} // []int32 | Group (ID) (optional)
 	groupIdN := []int32{int32(123)} // []int32 | Group (ID) (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
@@ -2946,8 +3132,8 @@ func main() {
 	interfaceIdLt := []int32{int32(123)} // []int32 |  (optional)
 	interfaceIdLte := []int32{int32(123)} // []int32 |  (optional)
 	interfaceIdN := []int32{int32(123)} // []int32 |  (optional)
-	interfaceType := "interfaceType_example" // string |  (optional)
-	interfaceTypeN := "interfaceTypeN_example" // string |  (optional)
+	interfaceType := []string{"Inner_example"} // []string |  (optional)
+	interfaceTypeN := []string{"Inner_example"} // []string |  (optional)
 	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -2958,6 +3144,7 @@ func main() {
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
 	priority := []int32{int32(123)} // []int32 |  (optional)
 	priorityEmpty := true // bool |  (optional)
@@ -2966,13 +3153,14 @@ func main() {
 	priorityLt := []int32{int32(123)} // []int32 |  (optional)
 	priorityLte := []int32{int32(123)} // []int32 |  (optional)
 	priorityN := []int32{int32(123)} // []int32 |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	virtualMachine := []string{"Inner_example"} // []string |  (optional)
 	virtualMachineId := []int32{int32(123)} // []int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceId(deviceId).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdEmpty(interfaceIdEmpty).InterfaceIdGt(interfaceIdGt).InterfaceIdGte(interfaceIdGte).InterfaceIdLt(interfaceIdLt).InterfaceIdLte(interfaceIdLte).InterfaceIdN(interfaceIdN).InterfaceType(interfaceType).InterfaceTypeN(interfaceTypeN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityGt(priorityGt).PriorityGte(priorityGte).PriorityLt(priorityLt).PriorityLte(priorityLte).PriorityN(priorityN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Device(device).DeviceId(deviceId).Fields(fields).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).InterfaceIdEmpty(interfaceIdEmpty).InterfaceIdGt(interfaceIdGt).InterfaceIdGte(interfaceIdGte).InterfaceIdLt(interfaceIdLt).InterfaceIdLte(interfaceIdLte).InterfaceIdN(interfaceIdN).InterfaceType(interfaceType).InterfaceTypeN(interfaceTypeN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Priority(priority).PriorityEmpty(priorityEmpty).PriorityGt(priorityGt).PriorityGte(priorityGte).PriorityLt(priorityLt).PriorityLte(priorityLte).PriorityN(priorityN).Start(start).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupAssignmentsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2993,6 +3181,7 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupAssignmentsLi
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3003,6 +3192,7 @@ Name | Type | Description  | Notes
  **createdByRequest** | **string** |  | 
  **device** | **[]string** |  | 
  **deviceId** | **[]int32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **groupId** | **[]int32** | Group (ID) | 
  **groupIdN** | **[]int32** | Group (ID) | 
  **id** | **[]int32** |  | 
@@ -3019,8 +3209,8 @@ Name | Type | Description  | Notes
  **interfaceIdLt** | **[]int32** |  | 
  **interfaceIdLte** | **[]int32** |  | 
  **interfaceIdN** | **[]int32** |  | 
- **interfaceType** | **string** |  | 
- **interfaceTypeN** | **string** |  | 
+ **interfaceType** | **[]string** |  | 
+ **interfaceTypeN** | **[]string** |  | 
  **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3031,6 +3221,7 @@ Name | Type | Description  | Notes
  **limit** | **int32** | Number of results to return per page. | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
  **priority** | **[]int32** |  | 
  **priorityEmpty** | **bool** |  | 
@@ -3039,6 +3230,7 @@ Name | Type | Description  | Notes
  **priorityLt** | **[]int32** |  | 
  **priorityLte** | **[]int32** |  | 
  **priorityN** | **[]int32** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **updatedByRequest** | **string** |  | 
  **virtualMachine** | **[]string** |  | 
  **virtualMachineId** | **[]int32** |  | 
@@ -3135,7 +3327,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupAssignmentsRetrieve
 
-> FHRPGroupAssignment IpamFhrpGroupAssignmentsRetrieve(ctx, id).Execute()
+> FHRPGroupAssignment IpamFhrpGroupAssignmentsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3155,10 +3347,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this FHRP group assignment.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupAssignmentsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupAssignmentsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3184,6 +3379,9 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupAssignmentsRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -3225,7 +3423,7 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this FHRP group assignment.
-	fHRPGroupAssignmentRequest := *openapiclient.NewFHRPGroupAssignmentRequest(*openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123)), "InterfaceType_example", int64(123), int32(123)) // FHRPGroupAssignmentRequest | 
+	fHRPGroupAssignmentRequest := *openapiclient.NewFHRPGroupAssignmentRequest(openapiclient.BulkFHRPGroupAssignmentRequest_group{BriefFHRPGroupRequest: openapiclient.NewBriefFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))}, "InterfaceType_example", int64(123), int32(123)) // FHRPGroupAssignmentRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -3332,7 +3530,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -3341,7 +3539,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupsBulkPartialUpdate
 
-> []FHRPGroup IpamFhrpGroupsBulkPartialUpdate(ctx).FHRPGroupRequest(fHRPGroupRequest).Execute()
+> []FHRPGroup IpamFhrpGroupsBulkPartialUpdate(ctx).PatchedBulkFHRPGroupRequest(patchedBulkFHRPGroupRequest).Execute()
 
 
 
@@ -3360,11 +3558,11 @@ import (
 )
 
 func main() {
-	fHRPGroupRequest := []openapiclient.FHRPGroupRequest{*openapiclient.NewFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))} // []FHRPGroupRequest | 
+	patchedBulkFHRPGroupRequest := []openapiclient.PatchedBulkFHRPGroupRequest{*openapiclient.NewPatchedBulkFHRPGroupRequest(int32(123))} // []PatchedBulkFHRPGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsBulkPartialUpdate(context.Background()).FHRPGroupRequest(fHRPGroupRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsBulkPartialUpdate(context.Background()).PatchedBulkFHRPGroupRequest(patchedBulkFHRPGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3385,7 +3583,7 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupsBulkPartialU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fHRPGroupRequest** | [**[]FHRPGroupRequest**](FHRPGroupRequest.md) |  | 
+ **patchedBulkFHRPGroupRequest** | [**[]PatchedBulkFHRPGroupRequest**](PatchedBulkFHRPGroupRequest.md) |  | 
 
 ### Return type
 
@@ -3407,7 +3605,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupsBulkUpdate
 
-> []FHRPGroup IpamFhrpGroupsBulkUpdate(ctx).FHRPGroupRequest(fHRPGroupRequest).Execute()
+> []FHRPGroup IpamFhrpGroupsBulkUpdate(ctx).BulkFHRPGroupRequest(bulkFHRPGroupRequest).Execute()
 
 
 
@@ -3426,11 +3624,11 @@ import (
 )
 
 func main() {
-	fHRPGroupRequest := []openapiclient.FHRPGroupRequest{*openapiclient.NewFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))} // []FHRPGroupRequest | 
+	bulkFHRPGroupRequest := []openapiclient.BulkFHRPGroupRequest{*openapiclient.NewBulkFHRPGroupRequest(int32(123), openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))} // []BulkFHRPGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsBulkUpdate(context.Background()).FHRPGroupRequest(fHRPGroupRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsBulkUpdate(context.Background()).BulkFHRPGroupRequest(bulkFHRPGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3451,7 +3649,7 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupsBulkUpdateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fHRPGroupRequest** | [**[]FHRPGroupRequest**](FHRPGroupRequest.md) |  | 
+ **bulkFHRPGroupRequest** | [**[]BulkFHRPGroupRequest**](BulkFHRPGroupRequest.md) |  | 
 
 ### Return type
 
@@ -3473,7 +3671,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupsCreate
 
-> FHRPGroup IpamFhrpGroupsCreate(ctx).FHRPGroupRequest(fHRPGroupRequest).Execute()
+> FHRPGroup IpamFhrpGroupsCreate(ctx).IpamFhrpGroupsCreateRequest(ipamFhrpGroupsCreateRequest).Execute()
 
 
 
@@ -3492,11 +3690,11 @@ import (
 )
 
 func main() {
-	fHRPGroupRequest := *openapiclient.NewFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123)) // FHRPGroupRequest | 
+	ipamFhrpGroupsCreateRequest := openapiclient.ipam_fhrp_groups_create_request{FHRPGroupRequest: openapiclient.NewFHRPGroupRequest(openapiclient.BriefFHRPGroup_protocol("vrrp2"), int32(123))} // IpamFhrpGroupsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsCreate(context.Background()).FHRPGroupRequest(fHRPGroupRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsCreate(context.Background()).IpamFhrpGroupsCreateRequest(ipamFhrpGroupsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3517,7 +3715,7 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupsCreateReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fHRPGroupRequest** | [**FHRPGroupRequest**](FHRPGroupRequest.md) |  | 
+ **ipamFhrpGroupsCreateRequest** | [**IpamFhrpGroupsCreateRequest**](IpamFhrpGroupsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -3607,7 +3805,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupsList
 
-> PaginatedFHRPGroupList IpamFhrpGroupsList(ctx).AuthKey(authKey).AuthKeyEmpty(authKeyEmpty).AuthKeyIc(authKeyIc).AuthKeyIe(authKeyIe).AuthKeyIew(authKeyIew).AuthKeyIsw(authKeyIsw).AuthKeyN(authKeyN).AuthKeyNic(authKeyNic).AuthKeyNie(authKeyNie).AuthKeyNiew(authKeyNiew).AuthKeyNisw(authKeyNisw).AuthType(authType).AuthTypeN(authTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).GroupId(groupId).GroupIdEmpty(groupIdEmpty).GroupIdGt(groupIdGt).GroupIdGte(groupIdGte).GroupIdLt(groupIdLt).GroupIdLte(groupIdLte).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Protocol(protocol).ProtocolN(protocolN).Q(q).RelatedIp(relatedIp).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedFHRPGroupList IpamFhrpGroupsList(ctx).AuthKey(authKey).AuthKeyEmpty(authKeyEmpty).AuthKeyIc(authKeyIc).AuthKeyIe(authKeyIe).AuthKeyIew(authKeyIew).AuthKeyIregex(authKeyIregex).AuthKeyIsw(authKeyIsw).AuthKeyN(authKeyN).AuthKeyNic(authKeyNic).AuthKeyNie(authKeyNie).AuthKeyNiew(authKeyNiew).AuthKeyNisw(authKeyNisw).AuthKeyRegex(authKeyRegex).AuthType(authType).AuthTypeEmpty(authTypeEmpty).AuthTypeIc(authTypeIc).AuthTypeIe(authTypeIe).AuthTypeIew(authTypeIew).AuthTypeIregex(authTypeIregex).AuthTypeIsw(authTypeIsw).AuthTypeN(authTypeN).AuthTypeNic(authTypeNic).AuthTypeNie(authTypeNie).AuthTypeNiew(authTypeNiew).AuthTypeNisw(authTypeNisw).AuthTypeRegex(authTypeRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).GroupId(groupId).GroupIdEmpty(groupIdEmpty).GroupIdGt(groupIdGt).GroupIdGte(groupIdGte).GroupIdLt(groupIdLt).GroupIdLte(groupIdLte).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Protocol(protocol).ProtocolEmpty(protocolEmpty).ProtocolIc(protocolIc).ProtocolIe(protocolIe).ProtocolIew(protocolIew).ProtocolIregex(protocolIregex).ProtocolIsw(protocolIsw).ProtocolN(protocolN).ProtocolNic(protocolNic).ProtocolNie(protocolNie).ProtocolNiew(protocolNiew).ProtocolNisw(protocolNisw).ProtocolRegex(protocolRegex).Q(q).RelatedIp(relatedIp).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -3632,14 +3830,28 @@ func main() {
 	authKeyIc := []string{"Inner_example"} // []string |  (optional)
 	authKeyIe := []string{"Inner_example"} // []string |  (optional)
 	authKeyIew := []string{"Inner_example"} // []string |  (optional)
+	authKeyIregex := []string{"Inner_example"} // []string |  (optional)
 	authKeyIsw := []string{"Inner_example"} // []string |  (optional)
 	authKeyN := []string{"Inner_example"} // []string |  (optional)
 	authKeyNic := []string{"Inner_example"} // []string |  (optional)
 	authKeyNie := []string{"Inner_example"} // []string |  (optional)
 	authKeyNiew := []string{"Inner_example"} // []string |  (optional)
 	authKeyNisw := []string{"Inner_example"} // []string |  (optional)
-	authType := []string{"Inner_example"} // []string |  (optional)
-	authTypeN := []string{"Inner_example"} // []string |  (optional)
+	authKeyRegex := []string{"Inner_example"} // []string |  (optional)
+	authType := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeEmpty := true // bool |  (optional)
+	authTypeIc := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIe := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIew := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIregex := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeIsw := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeN := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNic := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNie := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNiew := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeNisw := []*string{"Inner_example"} // []*string |  (optional)
+	authTypeRegex := []*string{"Inner_example"} // []*string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -3653,12 +3865,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	groupId := []int32{int32(123)} // []int32 |  (optional)
 	groupIdEmpty := true // bool |  (optional)
 	groupIdGt := []int32{int32(123)} // []int32 |  (optional)
@@ -3687,25 +3902,52 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	protocol := []string{"Inner_example"} // []string |  (optional)
+	protocolEmpty := true // bool |  (optional)
+	protocolIc := []string{"Inner_example"} // []string |  (optional)
+	protocolIe := []string{"Inner_example"} // []string |  (optional)
+	protocolIew := []string{"Inner_example"} // []string |  (optional)
+	protocolIregex := []string{"Inner_example"} // []string |  (optional)
+	protocolIsw := []string{"Inner_example"} // []string |  (optional)
 	protocolN := []string{"Inner_example"} // []string |  (optional)
+	protocolNic := []string{"Inner_example"} // []string |  (optional)
+	protocolNie := []string{"Inner_example"} // []string |  (optional)
+	protocolNiew := []string{"Inner_example"} // []string |  (optional)
+	protocolNisw := []string{"Inner_example"} // []string |  (optional)
+	protocolRegex := []string{"Inner_example"} // []string |  (optional)
 	q := "q_example" // string | Search (optional)
 	relatedIp := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsList(context.Background()).AuthKey(authKey).AuthKeyEmpty(authKeyEmpty).AuthKeyIc(authKeyIc).AuthKeyIe(authKeyIe).AuthKeyIew(authKeyIew).AuthKeyIsw(authKeyIsw).AuthKeyN(authKeyN).AuthKeyNic(authKeyNic).AuthKeyNie(authKeyNie).AuthKeyNiew(authKeyNiew).AuthKeyNisw(authKeyNisw).AuthType(authType).AuthTypeN(authTypeN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).GroupId(groupId).GroupIdEmpty(groupIdEmpty).GroupIdGt(groupIdGt).GroupIdGte(groupIdGte).GroupIdLt(groupIdLt).GroupIdLte(groupIdLte).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Protocol(protocol).ProtocolN(protocolN).Q(q).RelatedIp(relatedIp).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsList(context.Background()).AuthKey(authKey).AuthKeyEmpty(authKeyEmpty).AuthKeyIc(authKeyIc).AuthKeyIe(authKeyIe).AuthKeyIew(authKeyIew).AuthKeyIregex(authKeyIregex).AuthKeyIsw(authKeyIsw).AuthKeyN(authKeyN).AuthKeyNic(authKeyNic).AuthKeyNie(authKeyNie).AuthKeyNiew(authKeyNiew).AuthKeyNisw(authKeyNisw).AuthKeyRegex(authKeyRegex).AuthType(authType).AuthTypeEmpty(authTypeEmpty).AuthTypeIc(authTypeIc).AuthTypeIe(authTypeIe).AuthTypeIew(authTypeIew).AuthTypeIregex(authTypeIregex).AuthTypeIsw(authTypeIsw).AuthTypeN(authTypeN).AuthTypeNic(authTypeNic).AuthTypeNie(authTypeNie).AuthTypeNiew(authTypeNiew).AuthTypeNisw(authTypeNisw).AuthTypeRegex(authTypeRegex).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).GroupId(groupId).GroupIdEmpty(groupIdEmpty).GroupIdGt(groupIdGt).GroupIdGte(groupIdGte).GroupIdLt(groupIdLt).GroupIdLte(groupIdLte).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Protocol(protocol).ProtocolEmpty(protocolEmpty).ProtocolIc(protocolIc).ProtocolIe(protocolIe).ProtocolIew(protocolIew).ProtocolIregex(protocolIregex).ProtocolIsw(protocolIsw).ProtocolN(protocolN).ProtocolNic(protocolNic).ProtocolNie(protocolNie).ProtocolNiew(protocolNiew).ProtocolNisw(protocolNisw).ProtocolRegex(protocolRegex).Q(q).RelatedIp(relatedIp).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3731,14 +3973,28 @@ Name | Type | Description  | Notes
  **authKeyIc** | **[]string** |  | 
  **authKeyIe** | **[]string** |  | 
  **authKeyIew** | **[]string** |  | 
+ **authKeyIregex** | **[]string** |  | 
  **authKeyIsw** | **[]string** |  | 
  **authKeyN** | **[]string** |  | 
  **authKeyNic** | **[]string** |  | 
  **authKeyNie** | **[]string** |  | 
  **authKeyNiew** | **[]string** |  | 
  **authKeyNisw** | **[]string** |  | 
+ **authKeyRegex** | **[]string** |  | 
  **authType** | **[]string** |  | 
+ **authTypeEmpty** | **bool** |  | 
+ **authTypeIc** | **[]string** |  | 
+ **authTypeIe** | **[]string** |  | 
+ **authTypeIew** | **[]string** |  | 
+ **authTypeIregex** | **[]string** |  | 
+ **authTypeIsw** | **[]string** |  | 
  **authTypeN** | **[]string** |  | 
+ **authTypeNic** | **[]string** |  | 
+ **authTypeNie** | **[]string** |  | 
+ **authTypeNiew** | **[]string** |  | 
+ **authTypeNisw** | **[]string** |  | 
+ **authTypeRegex** | **[]string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -3752,12 +4008,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **groupId** | **[]int32** |  | 
  **groupIdEmpty** | **bool** |  | 
  **groupIdGt** | **[]int32** |  | 
@@ -3786,20 +4045,47 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **protocol** | **[]string** |  | 
+ **protocolEmpty** | **bool** |  | 
+ **protocolIc** | **[]string** |  | 
+ **protocolIe** | **[]string** |  | 
+ **protocolIew** | **[]string** |  | 
+ **protocolIregex** | **[]string** |  | 
+ **protocolIsw** | **[]string** |  | 
  **protocolN** | **[]string** |  | 
+ **protocolNic** | **[]string** |  | 
+ **protocolNie** | **[]string** |  | 
+ **protocolNiew** | **[]string** |  | 
+ **protocolNisw** | **[]string** |  | 
+ **protocolRegex** | **[]string** |  | 
  **q** | **string** | Search | 
  **relatedIp** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -3894,7 +4180,7 @@ Name | Type | Description  | Notes
 
 ## IpamFhrpGroupsRetrieve
 
-> FHRPGroup IpamFhrpGroupsRetrieve(ctx, id).Execute()
+> FHRPGroup IpamFhrpGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -3914,10 +4200,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this FHRP group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamFhrpGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamFhrpGroupsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3943,6 +4232,9 @@ Other parameters are passed through a pointer to a apiIpamFhrpGroupsRetrieveRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -4091,7 +4383,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -4100,7 +4392,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpAddressesBulkPartialUpdate
 
-> []IPAddress IpamIpAddressesBulkPartialUpdate(ctx).IPAddressRequest(iPAddressRequest).Execute()
+> []IPAddress IpamIpAddressesBulkPartialUpdate(ctx).PatchedBulkIPAddressRequest(patchedBulkIPAddressRequest).Execute()
 
 
 
@@ -4119,11 +4411,11 @@ import (
 )
 
 func main() {
-	iPAddressRequest := []openapiclient.IPAddressRequest{*openapiclient.NewIPAddressRequest("Address_example")} // []IPAddressRequest | 
+	patchedBulkIPAddressRequest := []openapiclient.PatchedBulkIPAddressRequest{*openapiclient.NewPatchedBulkIPAddressRequest(int32(123))} // []PatchedBulkIPAddressRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpAddressesBulkPartialUpdate(context.Background()).IPAddressRequest(iPAddressRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpAddressesBulkPartialUpdate(context.Background()).PatchedBulkIPAddressRequest(patchedBulkIPAddressRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpAddressesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4144,7 +4436,7 @@ Other parameters are passed through a pointer to a apiIpamIpAddressesBulkPartial
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPAddressRequest** | [**[]IPAddressRequest**](IPAddressRequest.md) |  | 
+ **patchedBulkIPAddressRequest** | [**[]PatchedBulkIPAddressRequest**](PatchedBulkIPAddressRequest.md) |  | 
 
 ### Return type
 
@@ -4166,7 +4458,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpAddressesBulkUpdate
 
-> []IPAddress IpamIpAddressesBulkUpdate(ctx).IPAddressRequest(iPAddressRequest).Execute()
+> []IPAddress IpamIpAddressesBulkUpdate(ctx).BulkIPAddressRequest(bulkIPAddressRequest).Execute()
 
 
 
@@ -4185,11 +4477,11 @@ import (
 )
 
 func main() {
-	iPAddressRequest := []openapiclient.IPAddressRequest{*openapiclient.NewIPAddressRequest("Address_example")} // []IPAddressRequest | 
+	bulkIPAddressRequest := []openapiclient.BulkIPAddressRequest{*openapiclient.NewBulkIPAddressRequest(int32(123), "Address_example")} // []BulkIPAddressRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpAddressesBulkUpdate(context.Background()).IPAddressRequest(iPAddressRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpAddressesBulkUpdate(context.Background()).BulkIPAddressRequest(bulkIPAddressRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpAddressesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4210,7 +4502,7 @@ Other parameters are passed through a pointer to a apiIpamIpAddressesBulkUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPAddressRequest** | [**[]IPAddressRequest**](IPAddressRequest.md) |  | 
+ **bulkIPAddressRequest** | [**[]BulkIPAddressRequest**](BulkIPAddressRequest.md) |  | 
 
 ### Return type
 
@@ -4232,7 +4524,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpAddressesCreate
 
-> IPAddress IpamIpAddressesCreate(ctx).WritableIPAddressRequest(writableIPAddressRequest).Execute()
+> IPAddress IpamIpAddressesCreate(ctx).IpamIpAddressesCreateRequest(ipamIpAddressesCreateRequest).Execute()
 
 
 
@@ -4251,11 +4543,11 @@ import (
 )
 
 func main() {
-	writableIPAddressRequest := *openapiclient.NewWritableIPAddressRequest("Address_example") // WritableIPAddressRequest | 
+	ipamIpAddressesCreateRequest := openapiclient.ipam_ip_addresses_create_request{WritableIPAddressRequest: openapiclient.NewWritableIPAddressRequest("Address_example")} // IpamIpAddressesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpAddressesCreate(context.Background()).WritableIPAddressRequest(writableIPAddressRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpAddressesCreate(context.Background()).IpamIpAddressesCreateRequest(ipamIpAddressesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpAddressesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4276,7 +4568,7 @@ Other parameters are passed through a pointer to a apiIpamIpAddressesCreateReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableIPAddressRequest** | [**WritableIPAddressRequest**](WritableIPAddressRequest.md) |  | 
+ **ipamIpAddressesCreateRequest** | [**IpamIpAddressesCreateRequest**](IpamIpAddressesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -4366,7 +4658,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpAddressesList
 
-> PaginatedIPAddressList IpamIpAddressesList(ctx).Address(address).Assigned(assigned).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).AssignedToInterface(assignedToInterface).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Device(device).DeviceId(deviceId).DnsName(dnsName).DnsNameEmpty(dnsNameEmpty).DnsNameIc(dnsNameIc).DnsNameIe(dnsNameIe).DnsNameIew(dnsNameIew).DnsNameIsw(dnsNameIsw).DnsNameN(dnsNameN).DnsNameNic(dnsNameNic).DnsNameNie(dnsNameNie).DnsNameNiew(dnsNameNiew).DnsNameNisw(dnsNameNisw).Family(family).FhrpgroupId(fhrpgroupId).FhrpgroupIdN(fhrpgroupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).NatInsideId(natInsideId).NatInsideIdN(natInsideIdN).Offset(offset).Ordering(ordering).Parent(parent).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Role(role).RoleN(roleN).ServiceId(serviceId).ServiceIdN(serviceIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
+> PaginatedIPAddressList IpamIpAddressesList(ctx).Address(address).Assigned(assigned).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).AssignedToInterface(assignedToInterface).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Device(device).DeviceId(deviceId).DnsName(dnsName).DnsNameEmpty(dnsNameEmpty).DnsNameIc(dnsNameIc).DnsNameIe(dnsNameIe).DnsNameIew(dnsNameIew).DnsNameIregex(dnsNameIregex).DnsNameIsw(dnsNameIsw).DnsNameN(dnsNameN).DnsNameNic(dnsNameNic).DnsNameNie(dnsNameNie).DnsNameNiew(dnsNameNiew).DnsNameNisw(dnsNameNisw).DnsNameRegex(dnsNameRegex).Family(family).FhrpgroupId(fhrpgroupId).FhrpgroupIdN(fhrpgroupIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).NatInsideId(natInsideId).NatInsideIdN(natInsideIdN).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Role(role).RoleEmpty(roleEmpty).RoleIc(roleIc).RoleIe(roleIe).RoleIew(roleIew).RoleIregex(roleIregex).RoleIsw(roleIsw).RoleN(roleN).RoleNic(roleNic).RoleNie(roleNie).RoleNiew(roleNiew).RoleNisw(roleNisw).RoleRegex(roleRegex).ServiceId(serviceId).ServiceIdN(serviceIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
 
 
 
@@ -4395,9 +4687,16 @@ func main() {
 	assignedObjectIdLt := []int32{int32(123)} // []int32 |  (optional)
 	assignedObjectIdLte := []int32{int32(123)} // []int32 |  (optional)
 	assignedObjectIdN := []int32{int32(123)} // []int32 |  (optional)
-	assignedObjectType := int32(56) // int32 |  (optional)
-	assignedObjectTypeN := int32(56) // int32 |  (optional)
+	assignedObjectType := []string{"Inner_example"} // []string |  (optional)
+	assignedObjectTypeN := []string{"Inner_example"} // []string |  (optional)
 	assignedToInterface := true // bool | Is assigned to an interface (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -4411,12 +4710,14 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	device := []string{"Inner_example"} // []string |  (optional)
 	deviceId := []int32{int32(123)} // []int32 |  (optional)
 	dnsName := []string{"Inner_example"} // []string |  (optional)
@@ -4424,15 +4725,18 @@ func main() {
 	dnsNameIc := []string{"Inner_example"} // []string |  (optional)
 	dnsNameIe := []string{"Inner_example"} // []string |  (optional)
 	dnsNameIew := []string{"Inner_example"} // []string |  (optional)
+	dnsNameIregex := []string{"Inner_example"} // []string |  (optional)
 	dnsNameIsw := []string{"Inner_example"} // []string |  (optional)
 	dnsNameN := []string{"Inner_example"} // []string |  (optional)
 	dnsNameNic := []string{"Inner_example"} // []string |  (optional)
 	dnsNameNie := []string{"Inner_example"} // []string |  (optional)
 	dnsNameNiew := []string{"Inner_example"} // []string |  (optional)
 	dnsNameNisw := []string{"Inner_example"} // []string |  (optional)
+	dnsNameRegex := []string{"Inner_example"} // []string |  (optional)
 	family := float32(8.14) // float32 |  (optional)
 	fhrpgroupId := []int32{int32(123)} // []int32 | FHRP group (ID) (optional)
 	fhrpgroupIdN := []int32{int32(123)} // []int32 | FHRP group (ID) (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -4459,19 +4763,55 @@ func main() {
 	natInsideId := []int32{int32(123)} // []int32 | NAT inside IP address (ID) (optional)
 	natInsideIdN := []int32{int32(123)} // []int32 | NAT inside IP address (ID) (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	parent := []string{"Inner_example"} // []string |  (optional)
 	presentInVrf := "presentInVrf_example" // string |  (optional)
 	presentInVrfId := "presentInVrfId_example" // string |  (optional)
 	q := "q_example" // string | Search (optional)
-	role := []string{"Inner_example"} // []string | The functional role of this IP (optional)
-	roleN := []string{"Inner_example"} // []string | The functional role of this IP (optional)
-	serviceId := []int32{int32(123)} // []int32 | Service (ID) (optional)
-	serviceIdN := []int32{int32(123)} // []int32 | Service (ID) (optional)
+	role := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleEmpty := true // bool |  (optional)
+	roleIc := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleIe := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleIew := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleIregex := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleIsw := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleN := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleNic := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleNie := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleNiew := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleNisw := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	roleRegex := []*string{"Inner_example"} // []*string | The functional role of this IP (optional)
+	serviceId := []int32{int32(123)} // []int32 | Application Service (ID) (optional)
+	serviceIdN := []int32{int32(123)} // []int32 | Application Service (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusIe := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusIew := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusIregex := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusIsw := []string{"Inner_example"} // []string | The operational status of this IP (optional)
 	statusN := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusNic := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusNie := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusNiew := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusNisw := []string{"Inner_example"} // []string | The operational status of this IP (optional)
+	statusRegex := []string{"Inner_example"} // []string | The operational status of this IP (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -4494,7 +4834,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpAddressesList(context.Background()).Address(address).Assigned(assigned).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).AssignedToInterface(assignedToInterface).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Device(device).DeviceId(deviceId).DnsName(dnsName).DnsNameEmpty(dnsNameEmpty).DnsNameIc(dnsNameIc).DnsNameIe(dnsNameIe).DnsNameIew(dnsNameIew).DnsNameIsw(dnsNameIsw).DnsNameN(dnsNameN).DnsNameNic(dnsNameNic).DnsNameNie(dnsNameNie).DnsNameNiew(dnsNameNiew).DnsNameNisw(dnsNameNisw).Family(family).FhrpgroupId(fhrpgroupId).FhrpgroupIdN(fhrpgroupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).NatInsideId(natInsideId).NatInsideIdN(natInsideIdN).Offset(offset).Ordering(ordering).Parent(parent).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Role(role).RoleN(roleN).ServiceId(serviceId).ServiceIdN(serviceIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpAddressesList(context.Background()).Address(address).Assigned(assigned).AssignedObjectId(assignedObjectId).AssignedObjectIdEmpty(assignedObjectIdEmpty).AssignedObjectIdGt(assignedObjectIdGt).AssignedObjectIdGte(assignedObjectIdGte).AssignedObjectIdLt(assignedObjectIdLt).AssignedObjectIdLte(assignedObjectIdLte).AssignedObjectIdN(assignedObjectIdN).AssignedObjectType(assignedObjectType).AssignedObjectTypeN(assignedObjectTypeN).AssignedToInterface(assignedToInterface).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Device(device).DeviceId(deviceId).DnsName(dnsName).DnsNameEmpty(dnsNameEmpty).DnsNameIc(dnsNameIc).DnsNameIe(dnsNameIe).DnsNameIew(dnsNameIew).DnsNameIregex(dnsNameIregex).DnsNameIsw(dnsNameIsw).DnsNameN(dnsNameN).DnsNameNic(dnsNameNic).DnsNameNie(dnsNameNie).DnsNameNiew(dnsNameNiew).DnsNameNisw(dnsNameNisw).DnsNameRegex(dnsNameRegex).Family(family).FhrpgroupId(fhrpgroupId).FhrpgroupIdN(fhrpgroupIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).Interface_(interface_).InterfaceN(interfaceN).InterfaceId(interfaceId).InterfaceIdN(interfaceIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).NatInsideId(natInsideId).NatInsideIdN(natInsideIdN).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Role(role).RoleEmpty(roleEmpty).RoleIc(roleIc).RoleIe(roleIe).RoleIew(roleIew).RoleIregex(roleIregex).RoleIsw(roleIsw).RoleN(roleN).RoleNic(roleNic).RoleNie(roleNie).RoleNiew(roleNiew).RoleNisw(roleNisw).RoleRegex(roleRegex).ServiceId(serviceId).ServiceIdN(serviceIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Vminterface(vminterface).VminterfaceN(vminterfaceN).VminterfaceId(vminterfaceId).VminterfaceIdN(vminterfaceIdN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpAddressesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4524,9 +4864,16 @@ Name | Type | Description  | Notes
  **assignedObjectIdLt** | **[]int32** |  | 
  **assignedObjectIdLte** | **[]int32** |  | 
  **assignedObjectIdN** | **[]int32** |  | 
- **assignedObjectType** | **int32** |  | 
- **assignedObjectTypeN** | **int32** |  | 
+ **assignedObjectType** | **[]string** |  | 
+ **assignedObjectTypeN** | **[]string** |  | 
  **assignedToInterface** | **bool** | Is assigned to an interface | 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -4540,12 +4887,14 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **device** | **[]string** |  | 
  **deviceId** | **[]int32** |  | 
  **dnsName** | **[]string** |  | 
@@ -4553,15 +4902,18 @@ Name | Type | Description  | Notes
  **dnsNameIc** | **[]string** |  | 
  **dnsNameIe** | **[]string** |  | 
  **dnsNameIew** | **[]string** |  | 
+ **dnsNameIregex** | **[]string** |  | 
  **dnsNameIsw** | **[]string** |  | 
  **dnsNameN** | **[]string** |  | 
  **dnsNameNic** | **[]string** |  | 
  **dnsNameNie** | **[]string** |  | 
  **dnsNameNiew** | **[]string** |  | 
  **dnsNameNisw** | **[]string** |  | 
+ **dnsNameRegex** | **[]string** |  | 
  **family** | **float32** |  | 
  **fhrpgroupId** | **[]int32** | FHRP group (ID) | 
  **fhrpgroupIdN** | **[]int32** | FHRP group (ID) | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -4588,19 +4940,55 @@ Name | Type | Description  | Notes
  **natInsideId** | **[]int32** | NAT inside IP address (ID) | 
  **natInsideIdN** | **[]int32** | NAT inside IP address (ID) | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **parent** | **[]string** |  | 
  **presentInVrf** | **string** |  | 
  **presentInVrfId** | **string** |  | 
  **q** | **string** | Search | 
  **role** | **[]string** | The functional role of this IP | 
+ **roleEmpty** | **bool** |  | 
+ **roleIc** | **[]string** | The functional role of this IP | 
+ **roleIe** | **[]string** | The functional role of this IP | 
+ **roleIew** | **[]string** | The functional role of this IP | 
+ **roleIregex** | **[]string** | The functional role of this IP | 
+ **roleIsw** | **[]string** | The functional role of this IP | 
  **roleN** | **[]string** | The functional role of this IP | 
- **serviceId** | **[]int32** | Service (ID) | 
- **serviceIdN** | **[]int32** | Service (ID) | 
+ **roleNic** | **[]string** | The functional role of this IP | 
+ **roleNie** | **[]string** | The functional role of this IP | 
+ **roleNiew** | **[]string** | The functional role of this IP | 
+ **roleNisw** | **[]string** | The functional role of this IP | 
+ **roleRegex** | **[]string** | The functional role of this IP | 
+ **serviceId** | **[]int32** | Application Service (ID) | 
+ **serviceIdN** | **[]int32** | Application Service (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** | The operational status of this IP | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** | The operational status of this IP | 
+ **statusIe** | **[]string** | The operational status of this IP | 
+ **statusIew** | **[]string** | The operational status of this IP | 
+ **statusIregex** | **[]string** | The operational status of this IP | 
+ **statusIsw** | **[]string** | The operational status of this IP | 
  **statusN** | **[]string** | The operational status of this IP | 
+ **statusNic** | **[]string** | The operational status of this IP | 
+ **statusNie** | **[]string** | The operational status of this IP | 
+ **statusNiew** | **[]string** | The operational status of this IP | 
+ **statusNisw** | **[]string** | The operational status of this IP | 
+ **statusRegex** | **[]string** | The operational status of this IP | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -4713,7 +5101,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpAddressesRetrieve
 
-> IPAddress IpamIpAddressesRetrieve(ctx, id).Execute()
+> IPAddress IpamIpAddressesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -4733,10 +5121,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IP address.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpAddressesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpAddressesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpAddressesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4762,6 +5153,9 @@ Other parameters are passed through a pointer to a apiIpamIpAddressesRetrieveReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -4855,7 +5249,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpRangesAvailableIpsCreate
 
-> []IPAddress IpamIpRangesAvailableIpsCreate(ctx, id).IPAddressRequest(iPAddressRequest).Execute()
+> []IPAddress IpamIpRangesAvailableIpsCreate(ctx, id).AvailableIPRequestRequest(availableIPRequestRequest).Execute()
 
 
 
@@ -4875,11 +5269,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
-	iPAddressRequest := []openapiclient.IPAddressRequest{*openapiclient.NewIPAddressRequest("Address_example")} // []IPAddressRequest | 
+	availableIPRequestRequest := []openapiclient.AvailableIPRequestRequest{*openapiclient.NewAvailableIPRequestRequest()} // []AvailableIPRequestRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpRangesAvailableIpsCreate(context.Background(), id).IPAddressRequest(iPAddressRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpRangesAvailableIpsCreate(context.Background(), id).AvailableIPRequestRequest(availableIPRequestRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpRangesAvailableIpsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4905,7 +5299,7 @@ Other parameters are passed through a pointer to a apiIpamIpRangesAvailableIpsCr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **iPAddressRequest** | [**[]IPAddressRequest**](IPAddressRequest.md) |  | 
+ **availableIPRequestRequest** | [**[]AvailableIPRequestRequest**](AvailableIPRequestRequest.md) |  | 
 
 ### Return type
 
@@ -4927,7 +5321,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpRangesAvailableIpsList
 
-> []AvailableIP IpamIpRangesAvailableIpsList(ctx, id).Execute()
+> []AvailableIP IpamIpRangesAvailableIpsList(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -4947,10 +5341,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpRangesAvailableIpsList(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpRangesAvailableIpsList(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpRangesAvailableIpsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -4976,6 +5373,9 @@ Other parameters are passed through a pointer to a apiIpamIpRangesAvailableIpsLi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -5052,7 +5452,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -5061,7 +5461,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpRangesBulkPartialUpdate
 
-> []IPRange IpamIpRangesBulkPartialUpdate(ctx).IPRangeRequest(iPRangeRequest).Execute()
+> []IPRange IpamIpRangesBulkPartialUpdate(ctx).PatchedBulkIPRangeRequest(patchedBulkIPRangeRequest).Execute()
 
 
 
@@ -5080,11 +5480,11 @@ import (
 )
 
 func main() {
-	iPRangeRequest := []openapiclient.IPRangeRequest{*openapiclient.NewIPRangeRequest("StartAddress_example", "EndAddress_example")} // []IPRangeRequest | 
+	patchedBulkIPRangeRequest := []openapiclient.PatchedBulkIPRangeRequest{*openapiclient.NewPatchedBulkIPRangeRequest(int32(123))} // []PatchedBulkIPRangeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpRangesBulkPartialUpdate(context.Background()).IPRangeRequest(iPRangeRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpRangesBulkPartialUpdate(context.Background()).PatchedBulkIPRangeRequest(patchedBulkIPRangeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpRangesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5105,7 +5505,7 @@ Other parameters are passed through a pointer to a apiIpamIpRangesBulkPartialUpd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPRangeRequest** | [**[]IPRangeRequest**](IPRangeRequest.md) |  | 
+ **patchedBulkIPRangeRequest** | [**[]PatchedBulkIPRangeRequest**](PatchedBulkIPRangeRequest.md) |  | 
 
 ### Return type
 
@@ -5127,7 +5527,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpRangesBulkUpdate
 
-> []IPRange IpamIpRangesBulkUpdate(ctx).IPRangeRequest(iPRangeRequest).Execute()
+> []IPRange IpamIpRangesBulkUpdate(ctx).BulkIPRangeRequest(bulkIPRangeRequest).Execute()
 
 
 
@@ -5146,11 +5546,11 @@ import (
 )
 
 func main() {
-	iPRangeRequest := []openapiclient.IPRangeRequest{*openapiclient.NewIPRangeRequest("StartAddress_example", "EndAddress_example")} // []IPRangeRequest | 
+	bulkIPRangeRequest := []openapiclient.BulkIPRangeRequest{*openapiclient.NewBulkIPRangeRequest(int32(123), "StartAddress_example", "EndAddress_example")} // []BulkIPRangeRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpRangesBulkUpdate(context.Background()).IPRangeRequest(iPRangeRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpRangesBulkUpdate(context.Background()).BulkIPRangeRequest(bulkIPRangeRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpRangesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5171,7 +5571,7 @@ Other parameters are passed through a pointer to a apiIpamIpRangesBulkUpdateRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **iPRangeRequest** | [**[]IPRangeRequest**](IPRangeRequest.md) |  | 
+ **bulkIPRangeRequest** | [**[]BulkIPRangeRequest**](BulkIPRangeRequest.md) |  | 
 
 ### Return type
 
@@ -5193,7 +5593,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpRangesCreate
 
-> IPRange IpamIpRangesCreate(ctx).WritableIPRangeRequest(writableIPRangeRequest).Execute()
+> IPRange IpamIpRangesCreate(ctx).IpamIpRangesCreateRequest(ipamIpRangesCreateRequest).Execute()
 
 
 
@@ -5212,11 +5612,11 @@ import (
 )
 
 func main() {
-	writableIPRangeRequest := *openapiclient.NewWritableIPRangeRequest("StartAddress_example", "EndAddress_example") // WritableIPRangeRequest | 
+	ipamIpRangesCreateRequest := openapiclient.ipam_ip_ranges_create_request{WritableIPRangeRequest: openapiclient.NewWritableIPRangeRequest("StartAddress_example", "EndAddress_example")} // IpamIpRangesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpRangesCreate(context.Background()).WritableIPRangeRequest(writableIPRangeRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpRangesCreate(context.Background()).IpamIpRangesCreateRequest(ipamIpRangesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpRangesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5237,7 +5637,7 @@ Other parameters are passed through a pointer to a apiIpamIpRangesCreateRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableIPRangeRequest** | [**WritableIPRangeRequest**](WritableIPRangeRequest.md) |  | 
+ **ipamIpRangesCreateRequest** | [**IpamIpRangesCreateRequest**](IpamIpRangesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -5327,7 +5727,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpRangesList
 
-> PaginatedIPRangeList IpamIpRangesList(ctx).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EndAddress(endAddress).Family(family).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkUtilized(markUtilized).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Parent(parent).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).StartAddress(startAddress).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
+> PaginatedIPRangeList IpamIpRangesList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EndAddress(endAddress).Family(family).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkPopulated(markPopulated).MarkUtilized(markUtilized).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Start(start).StartAddress(startAddress).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
 
 
 
@@ -5347,6 +5747,13 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	contains := "contains_example" // string | Ranges which contain this prefix or IP (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -5361,14 +5768,17 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	endAddress := []string{"Inner_example"} // []string |  (optional)
 	family := float32(8.14) // float32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -5384,10 +5794,20 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	markPopulated := true // bool |  (optional)
 	markUtilized := true // bool |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	parent := []string{"Inner_example"} // []string |  (optional)
 	q := "q_example" // string | Search (optional)
 	role := []string{"Inner_example"} // []string | Role (slug) (optional)
@@ -5401,11 +5821,27 @@ func main() {
 	sizeLt := []int32{int32(123)} // []int32 |  (optional)
 	sizeLte := []int32{int32(123)} // []int32 |  (optional)
 	sizeN := []int32{int32(123)} // []int32 |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	startAddress := []string{"Inner_example"} // []string |  (optional)
 	status := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusIe := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusIew := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusIregex := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusIsw := []string{"Inner_example"} // []string | Operational status of this range (optional)
 	statusN := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusNic := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusNie := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusNiew := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusNisw := []string{"Inner_example"} // []string | Operational status of this range (optional)
+	statusRegex := []string{"Inner_example"} // []string | Operational status of this range (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -5422,7 +5858,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpRangesList(context.Background()).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EndAddress(endAddress).Family(family).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkUtilized(markUtilized).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Parent(parent).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).StartAddress(startAddress).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpRangesList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EndAddress(endAddress).Family(family).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkPopulated(markPopulated).MarkUtilized(markUtilized).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Parent(parent).Q(q).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Size(size).SizeEmpty(sizeEmpty).SizeGt(sizeGt).SizeGte(sizeGte).SizeLt(sizeLt).SizeLte(sizeLte).SizeN(sizeN).Start(start).StartAddress(startAddress).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpRangesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5443,6 +5879,13 @@ Other parameters are passed through a pointer to a apiIpamIpRangesListRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **contains** | **string** | Ranges which contain this prefix or IP | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
@@ -5457,14 +5900,17 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **endAddress** | **[]string** |  | 
  **family** | **float32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -5480,10 +5926,20 @@ Name | Type | Description  | Notes
  **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **markPopulated** | **bool** |  | 
  **markUtilized** | **bool** |  | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **parent** | **[]string** |  | 
  **q** | **string** | Search | 
  **role** | **[]string** | Role (slug) | 
@@ -5497,11 +5953,27 @@ Name | Type | Description  | Notes
  **sizeLt** | **[]int32** |  | 
  **sizeLte** | **[]int32** |  | 
  **sizeN** | **[]int32** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **startAddress** | **[]string** |  | 
  **status** | **[]string** | Operational status of this range | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** | Operational status of this range | 
+ **statusIe** | **[]string** | Operational status of this range | 
+ **statusIew** | **[]string** | Operational status of this range | 
+ **statusIregex** | **[]string** | Operational status of this range | 
+ **statusIsw** | **[]string** | Operational status of this range | 
  **statusN** | **[]string** | Operational status of this range | 
+ **statusNic** | **[]string** | Operational status of this range | 
+ **statusNie** | **[]string** | Operational status of this range | 
+ **statusNiew** | **[]string** | Operational status of this range | 
+ **statusNisw** | **[]string** | Operational status of this range | 
+ **statusRegex** | **[]string** | Operational status of this range | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -5608,7 +6080,7 @@ Name | Type | Description  | Notes
 
 ## IpamIpRangesRetrieve
 
-> IPRange IpamIpRangesRetrieve(ctx, id).Execute()
+> IPRange IpamIpRangesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -5628,10 +6100,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this IP range.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamIpRangesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamIpRangesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamIpRangesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5657,6 +6132,9 @@ Other parameters are passed through a pointer to a apiIpamIpRangesRetrieveReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -5750,7 +6228,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesAvailableIpsCreate
 
-> []IPAddress IpamPrefixesAvailableIpsCreate(ctx, id).IPAddressRequest(iPAddressRequest).Execute()
+> []IPAddress IpamPrefixesAvailableIpsCreate(ctx, id).AvailableIPRequestRequest(availableIPRequestRequest).Execute()
 
 
 
@@ -5770,11 +6248,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
-	iPAddressRequest := []openapiclient.IPAddressRequest{*openapiclient.NewIPAddressRequest("Address_example")} // []IPAddressRequest | 
+	availableIPRequestRequest := []openapiclient.AvailableIPRequestRequest{*openapiclient.NewAvailableIPRequestRequest()} // []AvailableIPRequestRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailableIpsCreate(context.Background(), id).IPAddressRequest(iPAddressRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailableIpsCreate(context.Background(), id).AvailableIPRequestRequest(availableIPRequestRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesAvailableIpsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5800,7 +6278,7 @@ Other parameters are passed through a pointer to a apiIpamPrefixesAvailableIpsCr
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **iPAddressRequest** | [**[]IPAddressRequest**](IPAddressRequest.md) |  | 
+ **availableIPRequestRequest** | [**[]AvailableIPRequestRequest**](AvailableIPRequestRequest.md) |  | 
 
 ### Return type
 
@@ -5822,7 +6300,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesAvailableIpsList
 
-> []AvailableIP IpamPrefixesAvailableIpsList(ctx, id).Execute()
+> []AvailableIP IpamPrefixesAvailableIpsList(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -5842,10 +6320,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailableIpsList(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailableIpsList(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesAvailableIpsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5871,6 +6352,9 @@ Other parameters are passed through a pointer to a apiIpamPrefixesAvailableIpsLi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -5892,7 +6376,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesAvailablePrefixesCreate
 
-> []Prefix IpamPrefixesAvailablePrefixesCreate(ctx, id).PrefixRequest(prefixRequest).Execute()
+> []Prefix IpamPrefixesAvailablePrefixesCreate(ctx, id).PrefixLengthRequest(prefixLengthRequest).Execute()
 
 
 
@@ -5912,11 +6396,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
-	prefixRequest := []openapiclient.PrefixRequest{*openapiclient.NewPrefixRequest("Prefix_example")} // []PrefixRequest | 
+	prefixLengthRequest := []openapiclient.PrefixLengthRequest{*openapiclient.NewPrefixLengthRequest(int32(123))} // []PrefixLengthRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailablePrefixesCreate(context.Background(), id).PrefixRequest(prefixRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailablePrefixesCreate(context.Background(), id).PrefixLengthRequest(prefixLengthRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesAvailablePrefixesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -5942,7 +6426,7 @@ Other parameters are passed through a pointer to a apiIpamPrefixesAvailablePrefi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **prefixRequest** | [**[]PrefixRequest**](PrefixRequest.md) |  | 
+ **prefixLengthRequest** | [**[]PrefixLengthRequest**](PrefixLengthRequest.md) |  | 
 
 ### Return type
 
@@ -5964,7 +6448,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesAvailablePrefixesList
 
-> []AvailablePrefix IpamPrefixesAvailablePrefixesList(ctx, id).Execute()
+> []AvailablePrefix IpamPrefixesAvailablePrefixesList(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -5984,10 +6468,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailablePrefixesList(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesAvailablePrefixesList(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesAvailablePrefixesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6013,6 +6500,9 @@ Other parameters are passed through a pointer to a apiIpamPrefixesAvailablePrefi
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -6089,7 +6579,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6098,7 +6588,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesBulkPartialUpdate
 
-> []Prefix IpamPrefixesBulkPartialUpdate(ctx).PrefixRequest(prefixRequest).Execute()
+> []Prefix IpamPrefixesBulkPartialUpdate(ctx).PatchedBulkPrefixRequest(patchedBulkPrefixRequest).Execute()
 
 
 
@@ -6117,11 +6607,11 @@ import (
 )
 
 func main() {
-	prefixRequest := []openapiclient.PrefixRequest{*openapiclient.NewPrefixRequest("Prefix_example")} // []PrefixRequest | 
+	patchedBulkPrefixRequest := []openapiclient.PatchedBulkPrefixRequest{*openapiclient.NewPatchedBulkPrefixRequest(int32(123))} // []PatchedBulkPrefixRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesBulkPartialUpdate(context.Background()).PrefixRequest(prefixRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesBulkPartialUpdate(context.Background()).PatchedBulkPrefixRequest(patchedBulkPrefixRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6142,7 +6632,7 @@ Other parameters are passed through a pointer to a apiIpamPrefixesBulkPartialUpd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prefixRequest** | [**[]PrefixRequest**](PrefixRequest.md) |  | 
+ **patchedBulkPrefixRequest** | [**[]PatchedBulkPrefixRequest**](PatchedBulkPrefixRequest.md) |  | 
 
 ### Return type
 
@@ -6164,7 +6654,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesBulkUpdate
 
-> []Prefix IpamPrefixesBulkUpdate(ctx).PrefixRequest(prefixRequest).Execute()
+> []Prefix IpamPrefixesBulkUpdate(ctx).BulkPrefixRequest(bulkPrefixRequest).Execute()
 
 
 
@@ -6183,11 +6673,11 @@ import (
 )
 
 func main() {
-	prefixRequest := []openapiclient.PrefixRequest{*openapiclient.NewPrefixRequest("Prefix_example")} // []PrefixRequest | 
+	bulkPrefixRequest := []openapiclient.BulkPrefixRequest{*openapiclient.NewBulkPrefixRequest(int32(123), "Prefix_example")} // []BulkPrefixRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesBulkUpdate(context.Background()).PrefixRequest(prefixRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesBulkUpdate(context.Background()).BulkPrefixRequest(bulkPrefixRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6208,7 +6698,7 @@ Other parameters are passed through a pointer to a apiIpamPrefixesBulkUpdateRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prefixRequest** | [**[]PrefixRequest**](PrefixRequest.md) |  | 
+ **bulkPrefixRequest** | [**[]BulkPrefixRequest**](BulkPrefixRequest.md) |  | 
 
 ### Return type
 
@@ -6230,7 +6720,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesCreate
 
-> Prefix IpamPrefixesCreate(ctx).WritablePrefixRequest(writablePrefixRequest).Execute()
+> Prefix IpamPrefixesCreate(ctx).IpamPrefixesCreateRequest(ipamPrefixesCreateRequest).Execute()
 
 
 
@@ -6249,11 +6739,11 @@ import (
 )
 
 func main() {
-	writablePrefixRequest := *openapiclient.NewWritablePrefixRequest("Prefix_example") // WritablePrefixRequest | 
+	ipamPrefixesCreateRequest := openapiclient.ipam_prefixes_create_request{WritablePrefixRequest: openapiclient.NewWritablePrefixRequest("Prefix_example")} // IpamPrefixesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesCreate(context.Background()).WritablePrefixRequest(writablePrefixRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesCreate(context.Background()).IpamPrefixesCreateRequest(ipamPrefixesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6274,7 +6764,7 @@ Other parameters are passed through a pointer to a apiIpamPrefixesCreateRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writablePrefixRequest** | [**WritablePrefixRequest**](WritablePrefixRequest.md) |  | 
+ **ipamPrefixesCreateRequest** | [**IpamPrefixesCreateRequest**](IpamPrefixesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -6364,7 +6854,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesList
 
-> PaginatedPrefixList IpamPrefixesList(ctx).Children(children).ChildrenEmpty(childrenEmpty).ChildrenGt(childrenGt).ChildrenGte(childrenGte).ChildrenLt(childrenLt).ChildrenLte(childrenLte).ChildrenN(childrenN).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Depth(depth).DepthEmpty(depthEmpty).DepthGt(depthGt).DepthGte(depthGte).DepthLt(depthLt).DepthLte(depthLte).DepthN(depthN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Family(family).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPool(isPool).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkUtilized(markUtilized).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Prefix(prefix).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Within(within).WithinInclude(withinInclude).Execute()
+> PaginatedPrefixList IpamPrefixesList(ctx).Brief(brief).Children(children).ChildrenEmpty(childrenEmpty).ChildrenGt(childrenGt).ChildrenGte(childrenGte).ChildrenLt(childrenLt).ChildrenLte(childrenLte).ChildrenN(childrenN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Depth(depth).DepthEmpty(depthEmpty).DepthGt(depthGt).DepthGte(depthGte).DepthLt(depthLt).DepthLte(depthLte).DepthN(depthN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Family(family).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPool(isPool).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).MarkUtilized(markUtilized).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Prefix(prefix).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanGroup(vlanGroup).VlanGroupN(vlanGroupN).VlanGroupId(vlanGroupId).VlanGroupIdN(vlanGroupIdN).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Within(within).WithinInclude(withinInclude).Execute()
 
 
 
@@ -6384,6 +6874,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	children := []int32{int32(123)} // []int32 |  (optional)
 	childrenEmpty := []int32{int32(123)} // []int32 |  (optional)
 	childrenGt := []int32{int32(123)} // []int32 |  (optional)
@@ -6391,6 +6882,12 @@ func main() {
 	childrenLt := []int32{int32(123)} // []int32 |  (optional)
 	childrenLte := []int32{int32(123)} // []int32 |  (optional)
 	childrenN := []int32{int32(123)} // []int32 |  (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	contains := "contains_example" // string | Prefixes which contain this prefix or IP (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -6412,13 +6909,16 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	family := float32(8.14) // float32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -6435,13 +6935,26 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	location := []string{"Inner_example"} // []string |  (optional)
+	locationN := []string{"Inner_example"} // []string |  (optional)
+	locationId := []string{"Inner_example"} // []string |  (optional)
+	locationIdN := []string{"Inner_example"} // []string |  (optional)
 	markUtilized := true // bool |  (optional)
 	maskLength := []int32{int32(123)} // []int32 |  (optional)
 	maskLengthGte := float32(8.14) // float32 |  (optional)
 	maskLengthLte := float32(8.14) // float32 |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	prefix := []string{"Inner_example"} // []string |  (optional)
 	presentInVrf := "presentInVrf_example" // string |  (optional)
 	presentInVrfId := "presentInVrfId_example" // string |  (optional)
@@ -6454,18 +6967,43 @@ func main() {
 	roleN := []string{"Inner_example"} // []string | Role (slug) (optional)
 	roleId := []*int32{int32(123)} // []*int32 | Role (ID) (optional)
 	roleIdN := []*int32{int32(123)} // []*int32 | Role (ID) (optional)
+	scopeId := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdEmpty := true // bool |  (optional)
+	scopeIdGt := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdGte := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdLt := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdLte := []int32{int32(123)} // []int32 |  (optional)
+	scopeIdN := []int32{int32(123)} // []int32 |  (optional)
+	scopeType := []string{"Inner_example"} // []string |  (optional)
+	scopeTypeN := []string{"Inner_example"} // []string |  (optional)
 	site := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteN := []string{"Inner_example"} // []string | Site (slug) (optional)
 	siteGroup := []string{"Inner_example"} // []string |  (optional)
 	siteGroupN := []string{"Inner_example"} // []string |  (optional)
 	siteGroupId := []string{"Inner_example"} // []string |  (optional)
 	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
-	siteId := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
-	siteIdN := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
+	siteId := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	siteIdN := []int32{int32(123)} // []int32 | Site (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusIe := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusIew := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusIregex := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusIsw := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
 	statusN := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusNic := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusNie := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusNiew := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusNisw := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
+	statusRegex := []string{"Inner_example"} // []string | Operational status of this prefix (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -6475,6 +7013,10 @@ func main() {
 	tenantId := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
 	tenantIdN := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	vlanGroup := []string{"Inner_example"} // []string | VLAN Group (slug) (optional)
+	vlanGroupN := []string{"Inner_example"} // []string | VLAN Group (slug) (optional)
+	vlanGroupId := []int32{int32(123)} // []int32 | VLAN Group (ID) (optional)
+	vlanGroupIdN := []int32{int32(123)} // []int32 | VLAN Group (ID) (optional)
 	vlanId := []*int32{int32(123)} // []*int32 | VLAN (ID) (optional)
 	vlanIdN := []*int32{int32(123)} // []*int32 | VLAN (ID) (optional)
 	vlanVid := int32(56) // int32 | VLAN number (1-4094) (optional)
@@ -6493,7 +7035,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesList(context.Background()).Children(children).ChildrenEmpty(childrenEmpty).ChildrenGt(childrenGt).ChildrenGte(childrenGte).ChildrenLt(childrenLt).ChildrenLte(childrenLte).ChildrenN(childrenN).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Depth(depth).DepthEmpty(depthEmpty).DepthGt(depthGt).DepthGte(depthGte).DepthLt(depthLt).DepthLte(depthLte).DepthN(depthN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Family(family).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPool(isPool).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).MarkUtilized(markUtilized).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).Offset(offset).Ordering(ordering).Prefix(prefix).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Within(within).WithinInclude(withinInclude).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesList(context.Background()).Brief(brief).Children(children).ChildrenEmpty(childrenEmpty).ChildrenGt(childrenGt).ChildrenGte(childrenGte).ChildrenLt(childrenLt).ChildrenLte(childrenLte).ChildrenN(childrenN).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Contains(contains).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Depth(depth).DepthEmpty(depthEmpty).DepthGt(depthGt).DepthGte(depthGte).DepthLt(depthLt).DepthLte(depthLte).DepthN(depthN).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Family(family).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPool(isPool).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).LocationN(locationN).LocationId(locationId).LocationIdN(locationIdN).MarkUtilized(markUtilized).MaskLength(maskLength).MaskLengthGte(maskLengthGte).MaskLengthLte(maskLengthLte).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Prefix(prefix).PresentInVrf(presentInVrf).PresentInVrfId(presentInVrfId).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).VlanGroup(vlanGroup).VlanGroupN(vlanGroupN).VlanGroupId(vlanGroupId).VlanGroupIdN(vlanGroupIdN).VlanId(vlanId).VlanIdN(vlanIdN).VlanVid(vlanVid).VlanVidEmpty(vlanVidEmpty).VlanVidGt(vlanVidGt).VlanVidGte(vlanVidGte).VlanVidLt(vlanVidLt).VlanVidLte(vlanVidLte).VlanVidN(vlanVidN).Vrf(vrf).VrfN(vrfN).VrfId(vrfId).VrfIdN(vrfIdN).Within(within).WithinInclude(withinInclude).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6514,6 +7056,7 @@ Other parameters are passed through a pointer to a apiIpamPrefixesListRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **children** | **[]int32** |  | 
  **childrenEmpty** | **[]int32** |  | 
  **childrenGt** | **[]int32** |  | 
@@ -6521,6 +7064,12 @@ Name | Type | Description  | Notes
  **childrenLt** | **[]int32** |  | 
  **childrenLte** | **[]int32** |  | 
  **childrenN** | **[]int32** |  | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **contains** | **string** | Prefixes which contain this prefix or IP | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
@@ -6542,13 +7091,16 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **family** | **float32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -6565,13 +7117,26 @@ Name | Type | Description  | Notes
  **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
+ **location** | **[]string** |  | 
+ **locationN** | **[]string** |  | 
+ **locationId** | **[]string** |  | 
+ **locationIdN** | **[]string** |  | 
  **markUtilized** | **bool** |  | 
  **maskLength** | **[]int32** |  | 
  **maskLengthGte** | **float32** |  | 
  **maskLengthLte** | **float32** |  | 
  **modifiedByRequest** | **string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **prefix** | **[]string** |  | 
  **presentInVrf** | **string** |  | 
  **presentInVrfId** | **string** |  | 
@@ -6584,6 +7149,15 @@ Name | Type | Description  | Notes
  **roleN** | **[]string** | Role (slug) | 
  **roleId** | **[]int32** | Role (ID) | 
  **roleIdN** | **[]int32** | Role (ID) | 
+ **scopeId** | **[]int32** |  | 
+ **scopeIdEmpty** | **bool** |  | 
+ **scopeIdGt** | **[]int32** |  | 
+ **scopeIdGte** | **[]int32** |  | 
+ **scopeIdLt** | **[]int32** |  | 
+ **scopeIdLte** | **[]int32** |  | 
+ **scopeIdN** | **[]int32** |  | 
+ **scopeType** | **[]string** |  | 
+ **scopeTypeN** | **[]string** |  | 
  **site** | **[]string** | Site (slug) | 
  **siteN** | **[]string** | Site (slug) | 
  **siteGroup** | **[]string** |  | 
@@ -6592,10 +7166,26 @@ Name | Type | Description  | Notes
  **siteGroupIdN** | **[]string** |  | 
  **siteId** | **[]int32** | Site (ID) | 
  **siteIdN** | **[]int32** | Site (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** | Operational status of this prefix | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** | Operational status of this prefix | 
+ **statusIe** | **[]string** | Operational status of this prefix | 
+ **statusIew** | **[]string** | Operational status of this prefix | 
+ **statusIregex** | **[]string** | Operational status of this prefix | 
+ **statusIsw** | **[]string** | Operational status of this prefix | 
  **statusN** | **[]string** | Operational status of this prefix | 
+ **statusNic** | **[]string** | Operational status of this prefix | 
+ **statusNie** | **[]string** | Operational status of this prefix | 
+ **statusNiew** | **[]string** | Operational status of this prefix | 
+ **statusNisw** | **[]string** | Operational status of this prefix | 
+ **statusRegex** | **[]string** | Operational status of this prefix | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -6605,6 +7195,10 @@ Name | Type | Description  | Notes
  **tenantId** | **[]int32** | Tenant (ID) | 
  **tenantIdN** | **[]int32** | Tenant (ID) | 
  **updatedByRequest** | **string** |  | 
+ **vlanGroup** | **[]string** | VLAN Group (slug) | 
+ **vlanGroupN** | **[]string** | VLAN Group (slug) | 
+ **vlanGroupId** | **[]int32** | VLAN Group (ID) | 
+ **vlanGroupIdN** | **[]int32** | VLAN Group (ID) | 
  **vlanId** | **[]int32** | VLAN (ID) | 
  **vlanIdN** | **[]int32** | VLAN (ID) | 
  **vlanVid** | **int32** | VLAN number (1-4094) | 
@@ -6713,7 +7307,7 @@ Name | Type | Description  | Notes
 
 ## IpamPrefixesRetrieve
 
-> Prefix IpamPrefixesRetrieve(ctx, id).Execute()
+> Prefix IpamPrefixesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -6733,10 +7327,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this prefix.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamPrefixesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamPrefixesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamPrefixesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6762,6 +7359,9 @@ Other parameters are passed through a pointer to a apiIpamPrefixesRetrieveReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -6910,7 +7510,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -6919,7 +7519,7 @@ Name | Type | Description  | Notes
 
 ## IpamRirsBulkPartialUpdate
 
-> []RIR IpamRirsBulkPartialUpdate(ctx).RIRRequest(rIRRequest).Execute()
+> []RIR IpamRirsBulkPartialUpdate(ctx).PatchedBulkRIRRequest(patchedBulkRIRRequest).Execute()
 
 
 
@@ -6938,11 +7538,11 @@ import (
 )
 
 func main() {
-	rIRRequest := []openapiclient.RIRRequest{*openapiclient.NewRIRRequest("Name_example", "Slug_example")} // []RIRRequest | 
+	patchedBulkRIRRequest := []openapiclient.PatchedBulkRIRRequest{*openapiclient.NewPatchedBulkRIRRequest(int32(123))} // []PatchedBulkRIRRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRirsBulkPartialUpdate(context.Background()).RIRRequest(rIRRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRirsBulkPartialUpdate(context.Background()).PatchedBulkRIRRequest(patchedBulkRIRRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRirsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -6963,7 +7563,7 @@ Other parameters are passed through a pointer to a apiIpamRirsBulkPartialUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rIRRequest** | [**[]RIRRequest**](RIRRequest.md) |  | 
+ **patchedBulkRIRRequest** | [**[]PatchedBulkRIRRequest**](PatchedBulkRIRRequest.md) |  | 
 
 ### Return type
 
@@ -6985,7 +7585,7 @@ Name | Type | Description  | Notes
 
 ## IpamRirsBulkUpdate
 
-> []RIR IpamRirsBulkUpdate(ctx).RIRRequest(rIRRequest).Execute()
+> []RIR IpamRirsBulkUpdate(ctx).BulkRIRRequest(bulkRIRRequest).Execute()
 
 
 
@@ -7004,11 +7604,11 @@ import (
 )
 
 func main() {
-	rIRRequest := []openapiclient.RIRRequest{*openapiclient.NewRIRRequest("Name_example", "Slug_example")} // []RIRRequest | 
+	bulkRIRRequest := []openapiclient.BulkRIRRequest{*openapiclient.NewBulkRIRRequest(int32(123), "Name_example", "Slug_example")} // []BulkRIRRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRirsBulkUpdate(context.Background()).RIRRequest(rIRRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRirsBulkUpdate(context.Background()).BulkRIRRequest(bulkRIRRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRirsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7029,7 +7629,7 @@ Other parameters are passed through a pointer to a apiIpamRirsBulkUpdateRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rIRRequest** | [**[]RIRRequest**](RIRRequest.md) |  | 
+ **bulkRIRRequest** | [**[]BulkRIRRequest**](BulkRIRRequest.md) |  | 
 
 ### Return type
 
@@ -7051,7 +7651,7 @@ Name | Type | Description  | Notes
 
 ## IpamRirsCreate
 
-> RIR IpamRirsCreate(ctx).RIRRequest(rIRRequest).Execute()
+> RIR IpamRirsCreate(ctx).IpamRirsCreateRequest(ipamRirsCreateRequest).Execute()
 
 
 
@@ -7070,11 +7670,11 @@ import (
 )
 
 func main() {
-	rIRRequest := *openapiclient.NewRIRRequest("Name_example", "Slug_example") // RIRRequest | 
+	ipamRirsCreateRequest := openapiclient.ipam_rirs_create_request{RIRRequest: openapiclient.NewRIRRequest("Name_example", "Slug_example")} // IpamRirsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRirsCreate(context.Background()).RIRRequest(rIRRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRirsCreate(context.Background()).IpamRirsCreateRequest(ipamRirsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRirsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7095,7 +7695,7 @@ Other parameters are passed through a pointer to a apiIpamRirsCreateRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **rIRRequest** | [**RIRRequest**](RIRRequest.md) |  | 
+ **ipamRirsCreateRequest** | [**IpamRirsCreateRequest**](IpamRirsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -7185,7 +7785,7 @@ Name | Type | Description  | Notes
 
 ## IpamRirsList
 
-> PaginatedRIRList IpamRirsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPrivate(isPrivate).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedRIRList IpamRirsList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPrivate(isPrivate).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -7205,6 +7805,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -7218,12 +7819,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -7246,33 +7850,51 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRirsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPrivate(isPrivate).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRirsList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IsPrivate(isPrivate).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRirsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7293,6 +7915,7 @@ Other parameters are passed through a pointer to a apiIpamRirsListRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -7306,12 +7929,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -7334,28 +7960,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -7450,7 +8094,7 @@ Name | Type | Description  | Notes
 
 ## IpamRirsRetrieve
 
-> RIR IpamRirsRetrieve(ctx, id).Execute()
+> RIR IpamRirsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -7470,10 +8114,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this RIR.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRirsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRirsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRirsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7499,6 +8146,9 @@ Other parameters are passed through a pointer to a apiIpamRirsRetrieveRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -7647,7 +8297,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -7656,7 +8306,7 @@ Name | Type | Description  | Notes
 
 ## IpamRolesBulkPartialUpdate
 
-> []Role IpamRolesBulkPartialUpdate(ctx).RoleRequest(roleRequest).Execute()
+> []Role IpamRolesBulkPartialUpdate(ctx).PatchedBulkRoleRequest(patchedBulkRoleRequest).Execute()
 
 
 
@@ -7675,11 +8325,11 @@ import (
 )
 
 func main() {
-	roleRequest := []openapiclient.RoleRequest{*openapiclient.NewRoleRequest("Name_example", "Slug_example")} // []RoleRequest | 
+	patchedBulkRoleRequest := []openapiclient.PatchedBulkRoleRequest{*openapiclient.NewPatchedBulkRoleRequest(int32(123))} // []PatchedBulkRoleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRolesBulkPartialUpdate(context.Background()).RoleRequest(roleRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRolesBulkPartialUpdate(context.Background()).PatchedBulkRoleRequest(patchedBulkRoleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRolesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7700,7 +8350,7 @@ Other parameters are passed through a pointer to a apiIpamRolesBulkPartialUpdate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRequest** | [**[]RoleRequest**](RoleRequest.md) |  | 
+ **patchedBulkRoleRequest** | [**[]PatchedBulkRoleRequest**](PatchedBulkRoleRequest.md) |  | 
 
 ### Return type
 
@@ -7722,7 +8372,7 @@ Name | Type | Description  | Notes
 
 ## IpamRolesBulkUpdate
 
-> []Role IpamRolesBulkUpdate(ctx).RoleRequest(roleRequest).Execute()
+> []Role IpamRolesBulkUpdate(ctx).BulkRoleRequest(bulkRoleRequest).Execute()
 
 
 
@@ -7741,11 +8391,11 @@ import (
 )
 
 func main() {
-	roleRequest := []openapiclient.RoleRequest{*openapiclient.NewRoleRequest("Name_example", "Slug_example")} // []RoleRequest | 
+	bulkRoleRequest := []openapiclient.BulkRoleRequest{*openapiclient.NewBulkRoleRequest(int32(123), "Name_example", "Slug_example")} // []BulkRoleRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRolesBulkUpdate(context.Background()).RoleRequest(roleRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRolesBulkUpdate(context.Background()).BulkRoleRequest(bulkRoleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRolesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7766,7 +8416,7 @@ Other parameters are passed through a pointer to a apiIpamRolesBulkUpdateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRequest** | [**[]RoleRequest**](RoleRequest.md) |  | 
+ **bulkRoleRequest** | [**[]BulkRoleRequest**](BulkRoleRequest.md) |  | 
 
 ### Return type
 
@@ -7788,7 +8438,7 @@ Name | Type | Description  | Notes
 
 ## IpamRolesCreate
 
-> Role IpamRolesCreate(ctx).RoleRequest(roleRequest).Execute()
+> Role IpamRolesCreate(ctx).IpamRolesCreateRequest(ipamRolesCreateRequest).Execute()
 
 
 
@@ -7807,11 +8457,11 @@ import (
 )
 
 func main() {
-	roleRequest := *openapiclient.NewRoleRequest("Name_example", "Slug_example") // RoleRequest | 
+	ipamRolesCreateRequest := openapiclient.ipam_roles_create_request{RoleRequest: openapiclient.NewRoleRequest("Name_example", "Slug_example")} // IpamRolesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRolesCreate(context.Background()).RoleRequest(roleRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRolesCreate(context.Background()).IpamRolesCreateRequest(ipamRolesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRolesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -7832,7 +8482,7 @@ Other parameters are passed through a pointer to a apiIpamRolesCreateRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleRequest** | [**RoleRequest**](RoleRequest.md) |  | 
+ **ipamRolesCreateRequest** | [**IpamRolesCreateRequest**](IpamRolesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -7922,7 +8572,7 @@ Name | Type | Description  | Notes
 
 ## IpamRolesList
 
-> PaginatedRoleList IpamRolesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Weight(weight).WeightEmpty(weightEmpty).WeightGt(weightGt).WeightGte(weightGte).WeightLt(weightLt).WeightLte(weightLte).WeightN(weightN).Execute()
+> PaginatedRoleList IpamRolesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Weight(weight).WeightEmpty(weightEmpty).WeightGt(weightGt).WeightGte(weightGte).WeightLt(weightLt).WeightLte(weightLte).WeightN(weightN).Execute()
 
 
 
@@ -7942,6 +8592,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -7955,12 +8606,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -7982,28 +8636,46 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	weight := []int32{int32(123)} // []int32 |  (optional)
 	weightEmpty := true // bool |  (optional)
@@ -8015,7 +8687,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRolesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Weight(weight).WeightEmpty(weightEmpty).WeightGt(weightGt).WeightGte(weightGte).WeightLt(weightLt).WeightLte(weightLte).WeightN(weightN).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRolesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Weight(weight).WeightEmpty(weightEmpty).WeightGt(weightGt).WeightGte(weightGte).WeightLt(weightLt).WeightLte(weightLte).WeightN(weightN).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRolesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8036,6 +8708,7 @@ Other parameters are passed through a pointer to a apiIpamRolesListRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -8049,12 +8722,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -8076,28 +8752,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
  **weight** | **[]int32** |  | 
  **weightEmpty** | **bool** |  | 
@@ -8199,7 +8893,7 @@ Name | Type | Description  | Notes
 
 ## IpamRolesRetrieve
 
-> Role IpamRolesRetrieve(ctx, id).Execute()
+> Role IpamRolesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -8219,10 +8913,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this role.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRolesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRolesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRolesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8248,6 +8945,9 @@ Other parameters are passed through a pointer to a apiIpamRolesRetrieveRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -8396,7 +9096,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -8405,7 +9105,7 @@ Name | Type | Description  | Notes
 
 ## IpamRouteTargetsBulkPartialUpdate
 
-> []RouteTarget IpamRouteTargetsBulkPartialUpdate(ctx).RouteTargetRequest(routeTargetRequest).Execute()
+> []RouteTarget IpamRouteTargetsBulkPartialUpdate(ctx).PatchedBulkRouteTargetRequest(patchedBulkRouteTargetRequest).Execute()
 
 
 
@@ -8424,11 +9124,11 @@ import (
 )
 
 func main() {
-	routeTargetRequest := []openapiclient.RouteTargetRequest{*openapiclient.NewRouteTargetRequest("Name_example")} // []RouteTargetRequest | 
+	patchedBulkRouteTargetRequest := []openapiclient.PatchedBulkRouteTargetRequest{*openapiclient.NewPatchedBulkRouteTargetRequest(int32(123))} // []PatchedBulkRouteTargetRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsBulkPartialUpdate(context.Background()).RouteTargetRequest(routeTargetRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsBulkPartialUpdate(context.Background()).PatchedBulkRouteTargetRequest(patchedBulkRouteTargetRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRouteTargetsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8449,7 +9149,7 @@ Other parameters are passed through a pointer to a apiIpamRouteTargetsBulkPartia
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **routeTargetRequest** | [**[]RouteTargetRequest**](RouteTargetRequest.md) |  | 
+ **patchedBulkRouteTargetRequest** | [**[]PatchedBulkRouteTargetRequest**](PatchedBulkRouteTargetRequest.md) |  | 
 
 ### Return type
 
@@ -8471,7 +9171,7 @@ Name | Type | Description  | Notes
 
 ## IpamRouteTargetsBulkUpdate
 
-> []RouteTarget IpamRouteTargetsBulkUpdate(ctx).RouteTargetRequest(routeTargetRequest).Execute()
+> []RouteTarget IpamRouteTargetsBulkUpdate(ctx).BulkRouteTargetRequest(bulkRouteTargetRequest).Execute()
 
 
 
@@ -8490,11 +9190,11 @@ import (
 )
 
 func main() {
-	routeTargetRequest := []openapiclient.RouteTargetRequest{*openapiclient.NewRouteTargetRequest("Name_example")} // []RouteTargetRequest | 
+	bulkRouteTargetRequest := []openapiclient.BulkRouteTargetRequest{*openapiclient.NewBulkRouteTargetRequest(int32(123), "Name_example")} // []BulkRouteTargetRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsBulkUpdate(context.Background()).RouteTargetRequest(routeTargetRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsBulkUpdate(context.Background()).BulkRouteTargetRequest(bulkRouteTargetRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRouteTargetsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8515,7 +9215,7 @@ Other parameters are passed through a pointer to a apiIpamRouteTargetsBulkUpdate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **routeTargetRequest** | [**[]RouteTargetRequest**](RouteTargetRequest.md) |  | 
+ **bulkRouteTargetRequest** | [**[]BulkRouteTargetRequest**](BulkRouteTargetRequest.md) |  | 
 
 ### Return type
 
@@ -8537,7 +9237,7 @@ Name | Type | Description  | Notes
 
 ## IpamRouteTargetsCreate
 
-> RouteTarget IpamRouteTargetsCreate(ctx).RouteTargetRequest(routeTargetRequest).Execute()
+> RouteTarget IpamRouteTargetsCreate(ctx).IpamRouteTargetsCreateRequest(ipamRouteTargetsCreateRequest).Execute()
 
 
 
@@ -8556,11 +9256,11 @@ import (
 )
 
 func main() {
-	routeTargetRequest := *openapiclient.NewRouteTargetRequest("Name_example") // RouteTargetRequest | 
+	ipamRouteTargetsCreateRequest := openapiclient.ipam_route_targets_create_request{RouteTargetRequest: openapiclient.NewRouteTargetRequest("Name_example")} // IpamRouteTargetsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsCreate(context.Background()).RouteTargetRequest(routeTargetRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsCreate(context.Background()).IpamRouteTargetsCreateRequest(ipamRouteTargetsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRouteTargetsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8581,7 +9281,7 @@ Other parameters are passed through a pointer to a apiIpamRouteTargetsCreateRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **routeTargetRequest** | [**RouteTargetRequest**](RouteTargetRequest.md) |  | 
+ **ipamRouteTargetsCreateRequest** | [**IpamRouteTargetsCreateRequest**](IpamRouteTargetsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -8671,7 +9371,7 @@ Name | Type | Description  | Notes
 
 ## IpamRouteTargetsList
 
-> PaginatedRouteTargetList IpamRouteTargetsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).ExportingL2vpn(exportingL2vpn).ExportingL2vpnN(exportingL2vpnN).ExportingL2vpnId(exportingL2vpnId).ExportingL2vpnIdN(exportingL2vpnIdN).ExportingVrf(exportingVrf).ExportingVrfN(exportingVrfN).ExportingVrfId(exportingVrfId).ExportingVrfIdN(exportingVrfIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportingL2vpn(importingL2vpn).ImportingL2vpnN(importingL2vpnN).ImportingL2vpnId(importingL2vpnId).ImportingL2vpnIdN(importingL2vpnIdN).ImportingVrf(importingVrf).ImportingVrfN(importingVrfN).ImportingVrfId(importingVrfId).ImportingVrfIdN(importingVrfIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedRouteTargetList IpamRouteTargetsList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).ExportingL2vpn(exportingL2vpn).ExportingL2vpnN(exportingL2vpnN).ExportingL2vpnId(exportingL2vpnId).ExportingL2vpnIdN(exportingL2vpnIdN).ExportingVrf(exportingVrf).ExportingVrfN(exportingVrfN).ExportingVrfId(exportingVrfId).ExportingVrfIdN(exportingVrfIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportingL2vpn(importingL2vpn).ImportingL2vpnN(importingL2vpnN).ImportingL2vpnId(importingL2vpnId).ImportingL2vpnIdN(importingL2vpnIdN).ImportingVrf(importingVrf).ImportingVrfN(importingVrfN).ImportingVrfId(importingVrfId).ImportingVrfIdN(importingVrfIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -8691,6 +9391,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -8704,12 +9405,14 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	exportingL2vpn := []*int64{int64(123)} // []*int64 | Exporting L2VPN (identifier) (optional)
 	exportingL2vpnN := []*int64{int64(123)} // []*int64 | Exporting L2VPN (identifier) (optional)
 	exportingL2vpnId := []int32{int32(123)} // []int32 | Exporting L2VPN (optional)
@@ -8718,6 +9421,7 @@ func main() {
 	exportingVrfN := []*string{"Inner_example"} // []*string | Export VRF (RD) (optional)
 	exportingVrfId := []int32{int32(123)} // []int32 | Exporting VRF (optional)
 	exportingVrfIdN := []int32{int32(123)} // []int32 | Exporting VRF (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -8747,17 +9451,33 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -8770,7 +9490,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).ExportingL2vpn(exportingL2vpn).ExportingL2vpnN(exportingL2vpnN).ExportingL2vpnId(exportingL2vpnId).ExportingL2vpnIdN(exportingL2vpnIdN).ExportingVrf(exportingVrf).ExportingVrfN(exportingVrfN).ExportingVrfId(exportingVrfId).ExportingVrfIdN(exportingVrfIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportingL2vpn(importingL2vpn).ImportingL2vpnN(importingL2vpnN).ImportingL2vpnId(importingL2vpnId).ImportingL2vpnIdN(importingL2vpnIdN).ImportingVrf(importingVrf).ImportingVrfN(importingVrfN).ImportingVrfId(importingVrfId).ImportingVrfIdN(importingVrfIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).ExportingL2vpn(exportingL2vpn).ExportingL2vpnN(exportingL2vpnN).ExportingL2vpnId(exportingL2vpnId).ExportingL2vpnIdN(exportingL2vpnIdN).ExportingVrf(exportingVrf).ExportingVrfN(exportingVrfN).ExportingVrfId(exportingVrfId).ExportingVrfIdN(exportingVrfIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportingL2vpn(importingL2vpn).ImportingL2vpnN(importingL2vpnN).ImportingL2vpnId(importingL2vpnId).ImportingL2vpnIdN(importingL2vpnIdN).ImportingVrf(importingVrf).ImportingVrfN(importingVrfN).ImportingVrfId(importingVrfId).ImportingVrfIdN(importingVrfIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRouteTargetsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -8791,6 +9511,7 @@ Other parameters are passed through a pointer to a apiIpamRouteTargetsListReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -8804,12 +9525,14 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **exportingL2vpn** | **[]int64** | Exporting L2VPN (identifier) | 
  **exportingL2vpnN** | **[]int64** | Exporting L2VPN (identifier) | 
  **exportingL2vpnId** | **[]int32** | Exporting L2VPN | 
@@ -8818,6 +9541,7 @@ Name | Type | Description  | Notes
  **exportingVrfN** | **[]string** | Export VRF (RD) | 
  **exportingVrfId** | **[]int32** | Exporting VRF | 
  **exportingVrfIdN** | **[]int32** | Exporting VRF | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -8847,17 +9571,33 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -8960,7 +9700,7 @@ Name | Type | Description  | Notes
 
 ## IpamRouteTargetsRetrieve
 
-> RouteTarget IpamRouteTargetsRetrieve(ctx, id).Execute()
+> RouteTarget IpamRouteTargetsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -8980,10 +9720,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this route target.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamRouteTargetsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamRouteTargetsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9009,6 +9752,9 @@ Other parameters are passed through a pointer to a apiIpamRouteTargetsRetrieveRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -9121,7 +9867,7 @@ import (
 )
 
 func main() {
-	serviceTemplateRequest := []openapiclient.ServiceTemplateRequest{*openapiclient.NewServiceTemplateRequest("Name_example", []int32{int32(123)})} // []ServiceTemplateRequest | 
+	serviceTemplateRequest := []openapiclient.ServiceTemplateRequest{*openapiclient.NewServiceTemplateRequest("Name_example")} // []ServiceTemplateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -9157,7 +9903,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -9166,7 +9912,7 @@ Name | Type | Description  | Notes
 
 ## IpamServiceTemplatesBulkPartialUpdate
 
-> []ServiceTemplate IpamServiceTemplatesBulkPartialUpdate(ctx).ServiceTemplateRequest(serviceTemplateRequest).Execute()
+> []ServiceTemplate IpamServiceTemplatesBulkPartialUpdate(ctx).PatchedBulkServiceTemplateRequest(patchedBulkServiceTemplateRequest).Execute()
 
 
 
@@ -9185,11 +9931,11 @@ import (
 )
 
 func main() {
-	serviceTemplateRequest := []openapiclient.ServiceTemplateRequest{*openapiclient.NewServiceTemplateRequest("Name_example", []int32{int32(123)})} // []ServiceTemplateRequest | 
+	patchedBulkServiceTemplateRequest := []openapiclient.PatchedBulkServiceTemplateRequest{*openapiclient.NewPatchedBulkServiceTemplateRequest(int32(123))} // []PatchedBulkServiceTemplateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesBulkPartialUpdate(context.Background()).ServiceTemplateRequest(serviceTemplateRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesBulkPartialUpdate(context.Background()).PatchedBulkServiceTemplateRequest(patchedBulkServiceTemplateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServiceTemplatesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9210,7 +9956,7 @@ Other parameters are passed through a pointer to a apiIpamServiceTemplatesBulkPa
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceTemplateRequest** | [**[]ServiceTemplateRequest**](ServiceTemplateRequest.md) |  | 
+ **patchedBulkServiceTemplateRequest** | [**[]PatchedBulkServiceTemplateRequest**](PatchedBulkServiceTemplateRequest.md) |  | 
 
 ### Return type
 
@@ -9232,7 +9978,7 @@ Name | Type | Description  | Notes
 
 ## IpamServiceTemplatesBulkUpdate
 
-> []ServiceTemplate IpamServiceTemplatesBulkUpdate(ctx).ServiceTemplateRequest(serviceTemplateRequest).Execute()
+> []ServiceTemplate IpamServiceTemplatesBulkUpdate(ctx).BulkServiceTemplateRequest(bulkServiceTemplateRequest).Execute()
 
 
 
@@ -9251,11 +9997,11 @@ import (
 )
 
 func main() {
-	serviceTemplateRequest := []openapiclient.ServiceTemplateRequest{*openapiclient.NewServiceTemplateRequest("Name_example", []int32{int32(123)})} // []ServiceTemplateRequest | 
+	bulkServiceTemplateRequest := []openapiclient.BulkServiceTemplateRequest{*openapiclient.NewBulkServiceTemplateRequest(int32(123), "Name_example")} // []BulkServiceTemplateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesBulkUpdate(context.Background()).ServiceTemplateRequest(serviceTemplateRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesBulkUpdate(context.Background()).BulkServiceTemplateRequest(bulkServiceTemplateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServiceTemplatesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9276,7 +10022,7 @@ Other parameters are passed through a pointer to a apiIpamServiceTemplatesBulkUp
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceTemplateRequest** | [**[]ServiceTemplateRequest**](ServiceTemplateRequest.md) |  | 
+ **bulkServiceTemplateRequest** | [**[]BulkServiceTemplateRequest**](BulkServiceTemplateRequest.md) |  | 
 
 ### Return type
 
@@ -9298,7 +10044,7 @@ Name | Type | Description  | Notes
 
 ## IpamServiceTemplatesCreate
 
-> ServiceTemplate IpamServiceTemplatesCreate(ctx).WritableServiceTemplateRequest(writableServiceTemplateRequest).Execute()
+> ServiceTemplate IpamServiceTemplatesCreate(ctx).IpamServiceTemplatesCreateRequest(ipamServiceTemplatesCreateRequest).Execute()
 
 
 
@@ -9317,11 +10063,11 @@ import (
 )
 
 func main() {
-	writableServiceTemplateRequest := *openapiclient.NewWritableServiceTemplateRequest("Name_example", openapiclient.PatchedWritableServiceRequest_protocol("tcp"), []int32{int32(123)}) // WritableServiceTemplateRequest | 
+	ipamServiceTemplatesCreateRequest := openapiclient.ipam_service_templates_create_request{WritableServiceTemplateRequest: openapiclient.NewWritableServiceTemplateRequest("Name_example")} // IpamServiceTemplatesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesCreate(context.Background()).WritableServiceTemplateRequest(writableServiceTemplateRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesCreate(context.Background()).IpamServiceTemplatesCreateRequest(ipamServiceTemplatesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServiceTemplatesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9342,7 +10088,7 @@ Other parameters are passed through a pointer to a apiIpamServiceTemplatesCreate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableServiceTemplateRequest** | [**WritableServiceTemplateRequest**](WritableServiceTemplateRequest.md) |  | 
+ **ipamServiceTemplatesCreateRequest** | [**IpamServiceTemplatesCreateRequest**](IpamServiceTemplatesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -9383,7 +10129,7 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service template.
+	id := int32(56) // int32 | A unique integer value identifying this application service template.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -9401,7 +10147,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service template. | 
+**id** | **int32** | A unique integer value identifying this application service template. | 
 
 ### Other Parameters
 
@@ -9432,7 +10178,7 @@ Name | Type | Description  | Notes
 
 ## IpamServiceTemplatesList
 
-> PaginatedServiceTemplateList IpamServiceTemplatesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Port(port).Protocol(protocol).ProtocolN(protocolN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedServiceTemplateList IpamServiceTemplatesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Port(port).PortGt(portGt).PortGte(portGte).PortLt(portLt).PortLte(portLte).PortN(portN).PortMappings(portMappings).PortMappingsN(portMappingsN).Protocol(protocol).ProtocolN(protocolN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -9452,6 +10198,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -9465,12 +10212,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -9492,25 +10242,48 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
-	port := float32(8.14) // float32 |  (optional)
-	protocol := openapiclient.ipam_service_templates_list_protocol_parameter("sctp") // IpamServiceTemplatesListProtocolParameter | * `tcp` - TCP * `udp` - UDP * `sctp` - SCTP (optional)
-	protocolN := openapiclient.ipam_service_templates_list_protocol_parameter("sctp") // IpamServiceTemplatesListProtocolParameter | * `tcp` - TCP * `udp` - UDP * `sctp` - SCTP (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	port := []int32{int32(123)} // []int32 |  (optional)
+	portGt := []int32{int32(123)} // []int32 |  (optional)
+	portGte := []int32{int32(123)} // []int32 |  (optional)
+	portLt := []int32{int32(123)} // []int32 |  (optional)
+	portLte := []int32{int32(123)} // []int32 |  (optional)
+	portN := []int32{int32(123)} // []int32 |  (optional)
+	portMappings := []string{"Inner_example"} // []string |  (optional)
+	portMappingsN := []string{"Inner_example"} // []string |  (optional)
+	protocol := []string{"Inner_example"} // []string |  (optional)
+	protocolN := []string{"Inner_example"} // []string |  (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Port(port).Protocol(protocol).ProtocolN(protocolN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Port(port).PortGt(portGt).PortGte(portGte).PortLt(portLt).PortLte(portLte).PortN(portN).PortMappings(portMappings).PortMappingsN(portMappingsN).Protocol(protocol).ProtocolN(protocolN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServiceTemplatesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9531,6 +10304,7 @@ Other parameters are passed through a pointer to a apiIpamServiceTemplatesListRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -9544,12 +10318,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -9571,20 +10348,43 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
- **port** | **float32** |  | 
- **protocol** | [**IpamServiceTemplatesListProtocolParameter**](IpamServiceTemplatesListProtocolParameter.md) | * &#x60;tcp&#x60; - TCP * &#x60;udp&#x60; - UDP * &#x60;sctp&#x60; - SCTP | 
- **protocolN** | [**IpamServiceTemplatesListProtocolParameter**](IpamServiceTemplatesListProtocolParameter.md) | * &#x60;tcp&#x60; - TCP * &#x60;udp&#x60; - UDP * &#x60;sctp&#x60; - SCTP | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **port** | **[]int32** |  | 
+ **portGt** | **[]int32** |  | 
+ **portGte** | **[]int32** |  | 
+ **portLt** | **[]int32** |  | 
+ **portLte** | **[]int32** |  | 
+ **portN** | **[]int32** |  | 
+ **portMappings** | **[]string** |  | 
+ **portMappingsN** | **[]string** |  | 
+ **protocol** | **[]string** |  | 
+ **protocolN** | **[]string** |  | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -9626,7 +10426,7 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service template.
+	id := int32(56) // int32 | A unique integer value identifying this application service template.
 	patchedWritableServiceTemplateRequest := *openapiclient.NewPatchedWritableServiceTemplateRequest() // PatchedWritableServiceTemplateRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -9647,7 +10447,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service template. | 
+**id** | **int32** | A unique integer value identifying this application service template. | 
 
 ### Other Parameters
 
@@ -9679,7 +10479,7 @@ Name | Type | Description  | Notes
 
 ## IpamServiceTemplatesRetrieve
 
-> ServiceTemplate IpamServiceTemplatesRetrieve(ctx, id).Execute()
+> ServiceTemplate IpamServiceTemplatesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -9698,11 +10498,14 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service template.
+	id := int32(56) // int32 | A unique integer value identifying this application service template.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServiceTemplatesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServiceTemplatesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9718,7 +10521,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service template. | 
+**id** | **int32** | A unique integer value identifying this application service template. | 
 
 ### Other Parameters
 
@@ -9728,6 +10531,9 @@ Other parameters are passed through a pointer to a apiIpamServiceTemplatesRetrie
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -9768,8 +10574,8 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service template.
-	writableServiceTemplateRequest := *openapiclient.NewWritableServiceTemplateRequest("Name_example", openapiclient.PatchedWritableServiceRequest_protocol("tcp"), []int32{int32(123)}) // WritableServiceTemplateRequest | 
+	id := int32(56) // int32 | A unique integer value identifying this application service template.
+	writableServiceTemplateRequest := *openapiclient.NewWritableServiceTemplateRequest("Name_example") // WritableServiceTemplateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -9789,7 +10595,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service template. | 
+**id** | **int32** | A unique integer value identifying this application service template. | 
 
 ### Other Parameters
 
@@ -9840,7 +10646,7 @@ import (
 )
 
 func main() {
-	serviceRequest := []openapiclient.ServiceRequest{*openapiclient.NewServiceRequest("Name_example", []int32{int32(123)})} // []ServiceRequest | 
+	serviceRequest := []openapiclient.ServiceRequest{*openapiclient.NewServiceRequest("ParentObjectType_example", int64(123), "Name_example")} // []ServiceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -9876,7 +10682,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -9885,7 +10691,7 @@ Name | Type | Description  | Notes
 
 ## IpamServicesBulkPartialUpdate
 
-> []Service IpamServicesBulkPartialUpdate(ctx).ServiceRequest(serviceRequest).Execute()
+> []Service IpamServicesBulkPartialUpdate(ctx).PatchedBulkServiceRequest(patchedBulkServiceRequest).Execute()
 
 
 
@@ -9904,11 +10710,11 @@ import (
 )
 
 func main() {
-	serviceRequest := []openapiclient.ServiceRequest{*openapiclient.NewServiceRequest("Name_example", []int32{int32(123)})} // []ServiceRequest | 
+	patchedBulkServiceRequest := []openapiclient.PatchedBulkServiceRequest{*openapiclient.NewPatchedBulkServiceRequest(int32(123))} // []PatchedBulkServiceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServicesBulkPartialUpdate(context.Background()).ServiceRequest(serviceRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServicesBulkPartialUpdate(context.Background()).PatchedBulkServiceRequest(patchedBulkServiceRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServicesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9929,7 +10735,7 @@ Other parameters are passed through a pointer to a apiIpamServicesBulkPartialUpd
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceRequest** | [**[]ServiceRequest**](ServiceRequest.md) |  | 
+ **patchedBulkServiceRequest** | [**[]PatchedBulkServiceRequest**](PatchedBulkServiceRequest.md) |  | 
 
 ### Return type
 
@@ -9951,7 +10757,7 @@ Name | Type | Description  | Notes
 
 ## IpamServicesBulkUpdate
 
-> []Service IpamServicesBulkUpdate(ctx).ServiceRequest(serviceRequest).Execute()
+> []Service IpamServicesBulkUpdate(ctx).BulkServiceRequest(bulkServiceRequest).Execute()
 
 
 
@@ -9970,11 +10776,11 @@ import (
 )
 
 func main() {
-	serviceRequest := []openapiclient.ServiceRequest{*openapiclient.NewServiceRequest("Name_example", []int32{int32(123)})} // []ServiceRequest | 
+	bulkServiceRequest := []openapiclient.BulkServiceRequest{*openapiclient.NewBulkServiceRequest(int32(123), "ParentObjectType_example", int64(123), "Name_example")} // []BulkServiceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServicesBulkUpdate(context.Background()).ServiceRequest(serviceRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServicesBulkUpdate(context.Background()).BulkServiceRequest(bulkServiceRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServicesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -9995,7 +10801,7 @@ Other parameters are passed through a pointer to a apiIpamServicesBulkUpdateRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **serviceRequest** | [**[]ServiceRequest**](ServiceRequest.md) |  | 
+ **bulkServiceRequest** | [**[]BulkServiceRequest**](BulkServiceRequest.md) |  | 
 
 ### Return type
 
@@ -10017,7 +10823,7 @@ Name | Type | Description  | Notes
 
 ## IpamServicesCreate
 
-> Service IpamServicesCreate(ctx).WritableServiceRequest(writableServiceRequest).Execute()
+> Service IpamServicesCreate(ctx).IpamServicesCreateRequest(ipamServicesCreateRequest).Execute()
 
 
 
@@ -10036,11 +10842,11 @@ import (
 )
 
 func main() {
-	writableServiceRequest := *openapiclient.NewWritableServiceRequest("Name_example", openapiclient.PatchedWritableServiceRequest_protocol("tcp"), []int32{int32(123)}) // WritableServiceRequest | 
+	ipamServicesCreateRequest := openapiclient.ipam_services_create_request{WritableServiceRequest: openapiclient.NewWritableServiceRequest("ParentObjectType_example", int64(123), "Name_example")} // IpamServicesCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServicesCreate(context.Background()).WritableServiceRequest(writableServiceRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServicesCreate(context.Background()).IpamServicesCreateRequest(ipamServicesCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServicesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10061,7 +10867,7 @@ Other parameters are passed through a pointer to a apiIpamServicesCreateRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableServiceRequest** | [**WritableServiceRequest**](WritableServiceRequest.md) |  | 
+ **ipamServicesCreateRequest** | [**IpamServicesCreateRequest**](IpamServicesCreateRequest.md) |  | 
 
 ### Return type
 
@@ -10102,7 +10908,7 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service.
+	id := int32(56) // int32 | A unique integer value identifying this application service.
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -10120,7 +10926,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service. | 
+**id** | **int32** | A unique integer value identifying this application service. | 
 
 ### Other Parameters
 
@@ -10151,7 +10957,7 @@ Name | Type | Description  | Notes
 
 ## IpamServicesList
 
-> PaginatedServiceList IpamServicesList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpAddress(ipAddress).IpAddressN(ipAddressN).IpAddressId(ipAddressId).IpAddressIdN(ipAddressIdN).Ipaddress(ipaddress).IpaddressN(ipaddressN).IpaddressId(ipaddressId).IpaddressIdN(ipaddressIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Port(port).Protocol(protocol).ProtocolN(protocolN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Execute()
+> PaginatedServiceList IpamServicesList(ctx).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Device(device).DeviceId(deviceId).Fhrpgroup(fhrpgroup).FhrpgroupId(fhrpgroupId).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpAddress(ipAddress).IpAddressN(ipAddressN).IpAddressId(ipAddressId).IpAddressIdN(ipAddressIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).ParentObjectId(parentObjectId).ParentObjectIdEmpty(parentObjectIdEmpty).ParentObjectIdGt(parentObjectIdGt).ParentObjectIdGte(parentObjectIdGte).ParentObjectIdLt(parentObjectIdLt).ParentObjectIdLte(parentObjectIdLte).ParentObjectIdN(parentObjectIdN).ParentObjectType(parentObjectType).ParentObjectTypeN(parentObjectTypeN).Port(port).PortGt(portGt).PortGte(portGte).PortLt(portLt).PortLte(portLte).PortN(portN).PortMappings(portMappings).PortMappingsN(portMappingsN).Protocol(protocol).ProtocolN(protocolN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Execute()
 
 
 
@@ -10171,6 +10977,13 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	contact := []int32{int32(123)} // []int32 | Contact (optional)
+	contactN := []int32{int32(123)} // []int32 | Contact (optional)
+	contactGroup := []string{"Inner_example"} // []string |  (optional)
+	contactGroupN := []string{"Inner_example"} // []string |  (optional)
+	contactRole := []int32{int32(123)} // []int32 | Contact Role (optional)
+	contactRoleN := []int32{int32(123)} // []int32 | Contact Role (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -10184,16 +10997,19 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
-	device := []*string{"Inner_example"} // []*string | Device (name) (optional)
-	deviceN := []*string{"Inner_example"} // []*string | Device (name) (optional)
-	deviceId := []*int32{int32(123)} // []*int32 | Device (ID) (optional)
-	deviceIdN := []*int32{int32(123)} // []*int32 | Device (ID) (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	device := []string{"Inner_example"} // []string |  (optional)
+	deviceId := []int32{int32(123)} // []int32 |  (optional)
+	fhrpgroup := []string{"Inner_example"} // []string |  (optional)
+	fhrpgroupId := []int32{int32(123)} // []int32 |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -10205,10 +11021,6 @@ func main() {
 	ipAddressN := []string{"Inner_example"} // []string | IP address (optional)
 	ipAddressId := []int32{int32(123)} // []int32 | IP address (ID) (optional)
 	ipAddressIdN := []int32{int32(123)} // []int32 | IP address (ID) (optional)
-	ipaddress := []string{"Inner_example"} // []string | IP address (optional)
-	ipaddressN := []string{"Inner_example"} // []string | IP address (optional)
-	ipaddressId := []int32{int32(123)} // []int32 | IP address (ID) (optional)
-	ipaddressIdN := []int32{int32(123)} // []int32 | IP address (ID) (optional)
 	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -10223,29 +11035,59 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
-	port := float32(8.14) // float32 |  (optional)
-	protocol := openapiclient.ipam_service_templates_list_protocol_parameter("sctp") // IpamServiceTemplatesListProtocolParameter | * `tcp` - TCP * `udp` - UDP * `sctp` - SCTP (optional)
-	protocolN := openapiclient.ipam_service_templates_list_protocol_parameter("sctp") // IpamServiceTemplatesListProtocolParameter | * `tcp` - TCP * `udp` - UDP * `sctp` - SCTP (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	parentObjectId := []int32{int32(123)} // []int32 |  (optional)
+	parentObjectIdEmpty := true // bool |  (optional)
+	parentObjectIdGt := []int32{int32(123)} // []int32 |  (optional)
+	parentObjectIdGte := []int32{int32(123)} // []int32 |  (optional)
+	parentObjectIdLt := []int32{int32(123)} // []int32 |  (optional)
+	parentObjectIdLte := []int32{int32(123)} // []int32 |  (optional)
+	parentObjectIdN := []int32{int32(123)} // []int32 |  (optional)
+	parentObjectType := []string{"Inner_example"} // []string |  (optional)
+	parentObjectTypeN := []string{"Inner_example"} // []string |  (optional)
+	port := []int32{int32(123)} // []int32 |  (optional)
+	portGt := []int32{int32(123)} // []int32 |  (optional)
+	portGte := []int32{int32(123)} // []int32 |  (optional)
+	portLt := []int32{int32(123)} // []int32 |  (optional)
+	portLte := []int32{int32(123)} // []int32 |  (optional)
+	portN := []int32{int32(123)} // []int32 |  (optional)
+	portMappings := []string{"Inner_example"} // []string |  (optional)
+	portMappingsN := []string{"Inner_example"} // []string |  (optional)
+	protocol := []string{"Inner_example"} // []string |  (optional)
+	protocolN := []string{"Inner_example"} // []string |  (optional)
 	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
-	virtualMachine := []string{"Inner_example"} // []string | Virtual machine (name) (optional)
-	virtualMachineN := []string{"Inner_example"} // []string | Virtual machine (name) (optional)
-	virtualMachineId := []*int32{int32(123)} // []*int32 | Virtual machine (ID) (optional)
-	virtualMachineIdN := []*int32{int32(123)} // []*int32 | Virtual machine (ID) (optional)
+	virtualMachine := []string{"Inner_example"} // []string |  (optional)
+	virtualMachineId := []int32{int32(123)} // []int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServicesList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Device(device).DeviceN(deviceN).DeviceId(deviceId).DeviceIdN(deviceIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpAddress(ipAddress).IpAddressN(ipAddressN).IpAddressId(ipAddressId).IpAddressIdN(ipAddressIdN).Ipaddress(ipaddress).IpaddressN(ipaddressN).IpaddressId(ipaddressId).IpaddressIdN(ipaddressIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Port(port).Protocol(protocol).ProtocolN(protocolN).Q(q).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineN(virtualMachineN).VirtualMachineId(virtualMachineId).VirtualMachineIdN(virtualMachineIdN).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServicesList(context.Background()).Brief(brief).Contact(contact).ContactN(contactN).ContactGroup(contactGroup).ContactGroupN(contactGroupN).ContactRole(contactRole).ContactRoleN(contactRoleN).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Device(device).DeviceId(deviceId).Fhrpgroup(fhrpgroup).FhrpgroupId(fhrpgroupId).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).IpAddress(ipAddress).IpAddressN(ipAddressN).IpAddressId(ipAddressId).IpAddressIdN(ipAddressIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).ParentObjectId(parentObjectId).ParentObjectIdEmpty(parentObjectIdEmpty).ParentObjectIdGt(parentObjectIdGt).ParentObjectIdGte(parentObjectIdGte).ParentObjectIdLt(parentObjectIdLt).ParentObjectIdLte(parentObjectIdLte).ParentObjectIdN(parentObjectIdN).ParentObjectType(parentObjectType).ParentObjectTypeN(parentObjectTypeN).Port(port).PortGt(portGt).PortGte(portGte).PortLt(portLt).PortLte(portLte).PortN(portN).PortMappings(portMappings).PortMappingsN(portMappingsN).Protocol(protocol).ProtocolN(protocolN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).VirtualMachine(virtualMachine).VirtualMachineId(virtualMachineId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServicesList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10266,6 +11108,13 @@ Other parameters are passed through a pointer to a apiIpamServicesListRequest st
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **contact** | **[]int32** | Contact | 
+ **contactN** | **[]int32** | Contact | 
+ **contactGroup** | **[]string** |  | 
+ **contactGroupN** | **[]string** |  | 
+ **contactRole** | **[]int32** | Contact Role | 
+ **contactRoleN** | **[]int32** | Contact Role | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -10279,16 +11128,19 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
- **device** | **[]string** | Device (name) | 
- **deviceN** | **[]string** | Device (name) | 
- **deviceId** | **[]int32** | Device (ID) | 
- **deviceIdN** | **[]int32** | Device (ID) | 
+ **descriptionRegex** | **[]string** |  | 
+ **device** | **[]string** |  | 
+ **deviceId** | **[]int32** |  | 
+ **fhrpgroup** | **[]string** |  | 
+ **fhrpgroupId** | **[]int32** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -10300,10 +11152,6 @@ Name | Type | Description  | Notes
  **ipAddressN** | **[]string** | IP address | 
  **ipAddressId** | **[]int32** | IP address (ID) | 
  **ipAddressIdN** | **[]int32** | IP address (ID) | 
- **ipaddress** | **[]string** | IP address | 
- **ipaddressN** | **[]string** | IP address | 
- **ipaddressId** | **[]int32** | IP address (ID) | 
- **ipaddressIdN** | **[]int32** | IP address (ID) | 
  **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -10318,25 +11166,55 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
- **port** | **float32** |  | 
- **protocol** | [**IpamServiceTemplatesListProtocolParameter**](IpamServiceTemplatesListProtocolParameter.md) | * &#x60;tcp&#x60; - TCP * &#x60;udp&#x60; - UDP * &#x60;sctp&#x60; - SCTP | 
- **protocolN** | [**IpamServiceTemplatesListProtocolParameter**](IpamServiceTemplatesListProtocolParameter.md) | * &#x60;tcp&#x60; - TCP * &#x60;udp&#x60; - UDP * &#x60;sctp&#x60; - SCTP | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **parentObjectId** | **[]int32** |  | 
+ **parentObjectIdEmpty** | **bool** |  | 
+ **parentObjectIdGt** | **[]int32** |  | 
+ **parentObjectIdGte** | **[]int32** |  | 
+ **parentObjectIdLt** | **[]int32** |  | 
+ **parentObjectIdLte** | **[]int32** |  | 
+ **parentObjectIdN** | **[]int32** |  | 
+ **parentObjectType** | **[]string** |  | 
+ **parentObjectTypeN** | **[]string** |  | 
+ **port** | **[]int32** |  | 
+ **portGt** | **[]int32** |  | 
+ **portGte** | **[]int32** |  | 
+ **portLt** | **[]int32** |  | 
+ **portLte** | **[]int32** |  | 
+ **portN** | **[]int32** |  | 
+ **portMappings** | **[]string** |  | 
+ **portMappingsN** | **[]string** |  | 
+ **protocol** | **[]string** |  | 
+ **protocolN** | **[]string** |  | 
  **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
- **virtualMachine** | **[]string** | Virtual machine (name) | 
- **virtualMachineN** | **[]string** | Virtual machine (name) | 
- **virtualMachineId** | **[]int32** | Virtual machine (ID) | 
- **virtualMachineIdN** | **[]int32** | Virtual machine (ID) | 
+ **virtualMachine** | **[]string** |  | 
+ **virtualMachineId** | **[]int32** |  | 
 
 ### Return type
 
@@ -10377,7 +11255,7 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service.
+	id := int32(56) // int32 | A unique integer value identifying this application service.
 	patchedWritableServiceRequest := *openapiclient.NewPatchedWritableServiceRequest() // PatchedWritableServiceRequest |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
@@ -10398,7 +11276,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service. | 
+**id** | **int32** | A unique integer value identifying this application service. | 
 
 ### Other Parameters
 
@@ -10430,7 +11308,7 @@ Name | Type | Description  | Notes
 
 ## IpamServicesRetrieve
 
-> Service IpamServicesRetrieve(ctx, id).Execute()
+> Service IpamServicesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -10449,11 +11327,14 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service.
+	id := int32(56) // int32 | A unique integer value identifying this application service.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamServicesRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamServicesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamServicesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10469,7 +11350,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service. | 
+**id** | **int32** | A unique integer value identifying this application service. | 
 
 ### Other Parameters
 
@@ -10479,6 +11360,9 @@ Other parameters are passed through a pointer to a apiIpamServicesRetrieveReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -10519,8 +11403,8 @@ import (
 )
 
 func main() {
-	id := int32(56) // int32 | A unique integer value identifying this service.
-	writableServiceRequest := *openapiclient.NewWritableServiceRequest("Name_example", openapiclient.PatchedWritableServiceRequest_protocol("tcp"), []int32{int32(123)}) // WritableServiceRequest | 
+	id := int32(56) // int32 | A unique integer value identifying this application service.
+	writableServiceRequest := *openapiclient.NewWritableServiceRequest("ParentObjectType_example", int64(123), "Name_example") // WritableServiceRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -10540,7 +11424,7 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **int32** | A unique integer value identifying this service. | 
+**id** | **int32** | A unique integer value identifying this application service. | 
 
 ### Other Parameters
 
@@ -10572,7 +11456,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlanGroupsAvailableVlansCreate
 
-> []VLAN IpamVlanGroupsAvailableVlansCreate(ctx, id).VLANRequest(vLANRequest).Execute()
+> []VLAN IpamVlanGroupsAvailableVlansCreate(ctx, id).CreateAvailableVLANRequest(createAvailableVLANRequest).Execute()
 
 
 
@@ -10592,11 +11476,11 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
-	vLANRequest := []openapiclient.VLANRequest{*openapiclient.NewVLANRequest(int32(123), "Name_example")} // []VLANRequest | 
+	createAvailableVLANRequest := []openapiclient.CreateAvailableVLANRequest{*openapiclient.NewCreateAvailableVLANRequest("Name_example")} // []CreateAvailableVLANRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsAvailableVlansCreate(context.Background(), id).VLANRequest(vLANRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsAvailableVlansCreate(context.Background(), id).CreateAvailableVLANRequest(createAvailableVLANRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanGroupsAvailableVlansCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10622,7 +11506,7 @@ Other parameters are passed through a pointer to a apiIpamVlanGroupsAvailableVla
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **vLANRequest** | [**[]VLANRequest**](VLANRequest.md) |  | 
+ **createAvailableVLANRequest** | [**[]CreateAvailableVLANRequest**](CreateAvailableVLANRequest.md) |  | 
 
 ### Return type
 
@@ -10644,7 +11528,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlanGroupsAvailableVlansList
 
-> []AvailableVLAN IpamVlanGroupsAvailableVlansList(ctx, id).Execute()
+> []AvailableVLAN IpamVlanGroupsAvailableVlansList(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -10664,10 +11548,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | 
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsAvailableVlansList(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsAvailableVlansList(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanGroupsAvailableVlansList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10693,6 +11580,9 @@ Other parameters are passed through a pointer to a apiIpamVlanGroupsAvailableVla
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -10769,7 +11659,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -10778,7 +11668,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlanGroupsBulkPartialUpdate
 
-> []VLANGroup IpamVlanGroupsBulkPartialUpdate(ctx).VLANGroupRequest(vLANGroupRequest).Execute()
+> []VLANGroup IpamVlanGroupsBulkPartialUpdate(ctx).PatchedBulkVLANGroupRequest(patchedBulkVLANGroupRequest).Execute()
 
 
 
@@ -10797,11 +11687,11 @@ import (
 )
 
 func main() {
-	vLANGroupRequest := []openapiclient.VLANGroupRequest{*openapiclient.NewVLANGroupRequest("Name_example", "Slug_example")} // []VLANGroupRequest | 
+	patchedBulkVLANGroupRequest := []openapiclient.PatchedBulkVLANGroupRequest{*openapiclient.NewPatchedBulkVLANGroupRequest(int32(123))} // []PatchedBulkVLANGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsBulkPartialUpdate(context.Background()).VLANGroupRequest(vLANGroupRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsBulkPartialUpdate(context.Background()).PatchedBulkVLANGroupRequest(patchedBulkVLANGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanGroupsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10822,7 +11712,7 @@ Other parameters are passed through a pointer to a apiIpamVlanGroupsBulkPartialU
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vLANGroupRequest** | [**[]VLANGroupRequest**](VLANGroupRequest.md) |  | 
+ **patchedBulkVLANGroupRequest** | [**[]PatchedBulkVLANGroupRequest**](PatchedBulkVLANGroupRequest.md) |  | 
 
 ### Return type
 
@@ -10844,7 +11734,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlanGroupsBulkUpdate
 
-> []VLANGroup IpamVlanGroupsBulkUpdate(ctx).VLANGroupRequest(vLANGroupRequest).Execute()
+> []VLANGroup IpamVlanGroupsBulkUpdate(ctx).BulkVLANGroupRequest(bulkVLANGroupRequest).Execute()
 
 
 
@@ -10863,11 +11753,11 @@ import (
 )
 
 func main() {
-	vLANGroupRequest := []openapiclient.VLANGroupRequest{*openapiclient.NewVLANGroupRequest("Name_example", "Slug_example")} // []VLANGroupRequest | 
+	bulkVLANGroupRequest := []openapiclient.BulkVLANGroupRequest{*openapiclient.NewBulkVLANGroupRequest(int32(123), "Name_example", "Slug_example")} // []BulkVLANGroupRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsBulkUpdate(context.Background()).VLANGroupRequest(vLANGroupRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsBulkUpdate(context.Background()).BulkVLANGroupRequest(bulkVLANGroupRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanGroupsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10888,7 +11778,7 @@ Other parameters are passed through a pointer to a apiIpamVlanGroupsBulkUpdateRe
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vLANGroupRequest** | [**[]VLANGroupRequest**](VLANGroupRequest.md) |  | 
+ **bulkVLANGroupRequest** | [**[]BulkVLANGroupRequest**](BulkVLANGroupRequest.md) |  | 
 
 ### Return type
 
@@ -10910,7 +11800,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlanGroupsCreate
 
-> VLANGroup IpamVlanGroupsCreate(ctx).VLANGroupRequest(vLANGroupRequest).Execute()
+> VLANGroup IpamVlanGroupsCreate(ctx).IpamVlanGroupsCreateRequest(ipamVlanGroupsCreateRequest).Execute()
 
 
 
@@ -10929,11 +11819,11 @@ import (
 )
 
 func main() {
-	vLANGroupRequest := *openapiclient.NewVLANGroupRequest("Name_example", "Slug_example") // VLANGroupRequest | 
+	ipamVlanGroupsCreateRequest := openapiclient.ipam_vlan_groups_create_request{VLANGroupRequest: openapiclient.NewVLANGroupRequest("Name_example", "Slug_example")} // IpamVlanGroupsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsCreate(context.Background()).VLANGroupRequest(vLANGroupRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsCreate(context.Background()).IpamVlanGroupsCreateRequest(ipamVlanGroupsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanGroupsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -10954,7 +11844,7 @@ Other parameters are passed through a pointer to a apiIpamVlanGroupsCreateReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vLANGroupRequest** | [**VLANGroupRequest**](VLANGroupRequest.md) |  | 
+ **ipamVlanGroupsCreateRequest** | [**IpamVlanGroupsCreateRequest**](IpamVlanGroupsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -11044,7 +11934,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlanGroupsList
 
-> PaginatedVLANGroupList IpamVlanGroupsList(ctx).Cluster(cluster).ClusterGroup(clusterGroup).Clustergroup(clustergroup).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).MaxVid(maxVid).MaxVidEmpty(maxVidEmpty).MaxVidGt(maxVidGt).MaxVidGte(maxVidGte).MaxVidLt(maxVidLt).MaxVidLte(maxVidLte).MaxVidN(maxVidN).MinVid(minVid).MinVidEmpty(minVidEmpty).MinVidGt(minVidGt).MinVidGte(minVidGte).MinVidLt(minVidLt).MinVidLte(minVidLte).MinVidN(minVidN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Rack(rack).Region(region).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteGroup(siteGroup).Sitegroup(sitegroup).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedVLANGroupList IpamVlanGroupsList(ctx).Brief(brief).Cluster(cluster).ClusterGroup(clusterGroup).ContainsVid(containsVid).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Rack(rack).RackGroup(rackGroup).Region(region).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteGroup(siteGroup).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TotalVlanIds(totalVlanIds).TotalVlanIdsEmpty(totalVlanIdsEmpty).TotalVlanIdsGt(totalVlanIdsGt).TotalVlanIdsGte(totalVlanIdsGte).TotalVlanIdsLt(totalVlanIdsLt).TotalVlanIdsLte(totalVlanIdsLte).TotalVlanIdsN(totalVlanIdsN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -11064,9 +11954,10 @@ import (
 )
 
 func main() {
-	cluster := int32(56) // int32 |  (optional)
-	clusterGroup := int32(56) // int32 |  (optional)
-	clustergroup := int32(56) // int32 |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
+	cluster := []int32{int32(123)} // []int32 |  (optional)
+	clusterGroup := []int32{int32(123)} // []int32 |  (optional)
+	containsVid := float32(8.14) // float32 |  (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -11080,12 +11971,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -11101,38 +11995,36 @@ func main() {
 	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
 	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
 	limit := int32(56) // int32 | Number of results to return per page. (optional)
-	location := int32(56) // int32 |  (optional)
-	maxVid := []int32{int32(123)} // []int32 |  (optional)
-	maxVidEmpty := true // bool |  (optional)
-	maxVidGt := []int32{int32(123)} // []int32 |  (optional)
-	maxVidGte := []int32{int32(123)} // []int32 |  (optional)
-	maxVidLt := []int32{int32(123)} // []int32 |  (optional)
-	maxVidLte := []int32{int32(123)} // []int32 |  (optional)
-	maxVidN := []int32{int32(123)} // []int32 |  (optional)
-	minVid := []int32{int32(123)} // []int32 |  (optional)
-	minVidEmpty := true // bool |  (optional)
-	minVidGt := []int32{int32(123)} // []int32 |  (optional)
-	minVidGte := []int32{int32(123)} // []int32 |  (optional)
-	minVidLt := []int32{int32(123)} // []int32 |  (optional)
-	minVidLte := []int32{int32(123)} // []int32 |  (optional)
-	minVidN := []int32{int32(123)} // []int32 |  (optional)
+	location := []int32{int32(123)} // []int32 |  (optional)
 	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 	name := []string{"Inner_example"} // []string |  (optional)
 	nameEmpty := true // bool |  (optional)
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
-	rack := int32(56) // int32 |  (optional)
-	region := int32(56) // int32 |  (optional)
+	rack := []int32{int32(123)} // []int32 |  (optional)
+	rackGroup := []int32{int32(123)} // []int32 |  (optional)
+	region := []int32{int32(123)} // []int32 |  (optional)
 	scopeId := []int32{int32(123)} // []int32 |  (optional)
 	scopeIdEmpty := true // bool |  (optional)
 	scopeIdGt := []int32{int32(123)} // []int32 |  (optional)
@@ -11140,29 +12032,50 @@ func main() {
 	scopeIdLt := []int32{int32(123)} // []int32 |  (optional)
 	scopeIdLte := []int32{int32(123)} // []int32 |  (optional)
 	scopeIdN := []int32{int32(123)} // []int32 |  (optional)
-	scopeType := "scopeType_example" // string |  (optional)
-	scopeTypeN := "scopeTypeN_example" // string |  (optional)
-	site := int32(56) // int32 |  (optional)
-	siteGroup := int32(56) // int32 |  (optional)
-	sitegroup := int32(56) // int32 |  (optional)
+	scopeType := []string{"Inner_example"} // []string |  (optional)
+	scopeTypeN := []string{"Inner_example"} // []string |  (optional)
+	site := []int32{int32(123)} // []int32 |  (optional)
+	siteGroup := []int32{int32(123)} // []int32 |  (optional)
 	slug := []string{"Inner_example"} // []string |  (optional)
 	slugEmpty := true // bool |  (optional)
 	slugIc := []string{"Inner_example"} // []string |  (optional)
 	slugIe := []string{"Inner_example"} // []string |  (optional)
 	slugIew := []string{"Inner_example"} // []string |  (optional)
+	slugIregex := []string{"Inner_example"} // []string |  (optional)
 	slugIsw := []string{"Inner_example"} // []string |  (optional)
 	slugN := []string{"Inner_example"} // []string |  (optional)
 	slugNic := []string{"Inner_example"} // []string |  (optional)
 	slugNie := []string{"Inner_example"} // []string |  (optional)
 	slugNiew := []string{"Inner_example"} // []string |  (optional)
 	slugNisw := []string{"Inner_example"} // []string |  (optional)
+	slugRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
+	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
+	tenantGroup := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupN := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupId := []string{"Inner_example"} // []string |  (optional)
+	tenantGroupIdN := []string{"Inner_example"} // []string |  (optional)
+	tenantId := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
+	tenantIdN := []*int32{int32(123)} // []*int32 | Tenant (ID) (optional)
+	totalVlanIds := []int32{int32(123)} // []int32 |  (optional)
+	totalVlanIdsEmpty := true // bool |  (optional)
+	totalVlanIdsGt := []int32{int32(123)} // []int32 |  (optional)
+	totalVlanIdsGte := []int32{int32(123)} // []int32 |  (optional)
+	totalVlanIdsLt := []int32{int32(123)} // []int32 |  (optional)
+	totalVlanIdsLte := []int32{int32(123)} // []int32 |  (optional)
+	totalVlanIdsN := []int32{int32(123)} // []int32 |  (optional)
 	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsList(context.Background()).Cluster(cluster).ClusterGroup(clusterGroup).Clustergroup(clustergroup).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).MaxVid(maxVid).MaxVidEmpty(maxVidEmpty).MaxVidGt(maxVidGt).MaxVidGte(maxVidGte).MaxVidLt(maxVidLt).MaxVidLte(maxVidLte).MaxVidN(maxVidN).MinVid(minVid).MinVidEmpty(minVidEmpty).MinVidGt(minVidGt).MinVidGte(minVidGte).MinVidLt(minVidLt).MinVidLte(minVidLte).MinVidN(minVidN).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Rack(rack).Region(region).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteGroup(siteGroup).Sitegroup(sitegroup).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).Tag(tag).TagN(tagN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsList(context.Background()).Brief(brief).Cluster(cluster).ClusterGroup(clusterGroup).ContainsVid(containsVid).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).Location(location).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Rack(rack).RackGroup(rackGroup).Region(region).ScopeId(scopeId).ScopeIdEmpty(scopeIdEmpty).ScopeIdGt(scopeIdGt).ScopeIdGte(scopeIdGte).ScopeIdLt(scopeIdLt).ScopeIdLte(scopeIdLte).ScopeIdN(scopeIdN).ScopeType(scopeType).ScopeTypeN(scopeTypeN).Site(site).SiteGroup(siteGroup).Slug(slug).SlugEmpty(slugEmpty).SlugIc(slugIc).SlugIe(slugIe).SlugIew(slugIew).SlugIregex(slugIregex).SlugIsw(slugIsw).SlugN(slugN).SlugNic(slugNic).SlugNie(slugNie).SlugNiew(slugNiew).SlugNisw(slugNisw).SlugRegex(slugRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).TotalVlanIds(totalVlanIds).TotalVlanIdsEmpty(totalVlanIdsEmpty).TotalVlanIdsGt(totalVlanIdsGt).TotalVlanIdsGte(totalVlanIdsGte).TotalVlanIdsLt(totalVlanIdsLt).TotalVlanIdsLte(totalVlanIdsLte).TotalVlanIdsN(totalVlanIdsN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanGroupsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -11183,9 +12096,10 @@ Other parameters are passed through a pointer to a apiIpamVlanGroupsListRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cluster** | **int32** |  | 
- **clusterGroup** | **int32** |  | 
- **clustergroup** | **int32** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **cluster** | **[]int32** |  | 
+ **clusterGroup** | **[]int32** |  | 
+ **containsVid** | **float32** |  | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -11199,12 +12113,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -11220,38 +12137,36 @@ Name | Type | Description  | Notes
  **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
  **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
  **limit** | **int32** | Number of results to return per page. | 
- **location** | **int32** |  | 
- **maxVid** | **[]int32** |  | 
- **maxVidEmpty** | **bool** |  | 
- **maxVidGt** | **[]int32** |  | 
- **maxVidGte** | **[]int32** |  | 
- **maxVidLt** | **[]int32** |  | 
- **maxVidLte** | **[]int32** |  | 
- **maxVidN** | **[]int32** |  | 
- **minVid** | **[]int32** |  | 
- **minVidEmpty** | **bool** |  | 
- **minVidGt** | **[]int32** |  | 
- **minVidGte** | **[]int32** |  | 
- **minVidLt** | **[]int32** |  | 
- **minVidLte** | **[]int32** |  | 
- **minVidN** | **[]int32** |  | 
+ **location** | **[]int32** |  | 
  **modifiedByRequest** | **string** |  | 
  **name** | **[]string** |  | 
  **nameEmpty** | **bool** |  | 
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
- **rack** | **int32** |  | 
- **region** | **int32** |  | 
+ **rack** | **[]int32** |  | 
+ **rackGroup** | **[]int32** |  | 
+ **region** | **[]int32** |  | 
  **scopeId** | **[]int32** |  | 
  **scopeIdEmpty** | **bool** |  | 
  **scopeIdGt** | **[]int32** |  | 
@@ -11259,24 +12174,45 @@ Name | Type | Description  | Notes
  **scopeIdLt** | **[]int32** |  | 
  **scopeIdLte** | **[]int32** |  | 
  **scopeIdN** | **[]int32** |  | 
- **scopeType** | **string** |  | 
- **scopeTypeN** | **string** |  | 
- **site** | **int32** |  | 
- **siteGroup** | **int32** |  | 
- **sitegroup** | **int32** |  | 
+ **scopeType** | **[]string** |  | 
+ **scopeTypeN** | **[]string** |  | 
+ **site** | **[]int32** |  | 
+ **siteGroup** | **[]int32** |  | 
  **slug** | **[]string** |  | 
  **slugEmpty** | **bool** |  | 
  **slugIc** | **[]string** |  | 
  **slugIe** | **[]string** |  | 
  **slugIew** | **[]string** |  | 
+ **slugIregex** | **[]string** |  | 
  **slugIsw** | **[]string** |  | 
  **slugN** | **[]string** |  | 
  **slugNic** | **[]string** |  | 
  **slugNie** | **[]string** |  | 
  **slugNiew** | **[]string** |  | 
  **slugNisw** | **[]string** |  | 
+ **slugRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **tenant** | **[]string** | Tenant (slug) | 
+ **tenantN** | **[]string** | Tenant (slug) | 
+ **tenantGroup** | **[]string** |  | 
+ **tenantGroupN** | **[]string** |  | 
+ **tenantGroupId** | **[]string** |  | 
+ **tenantGroupIdN** | **[]string** |  | 
+ **tenantId** | **[]int32** | Tenant (ID) | 
+ **tenantIdN** | **[]int32** | Tenant (ID) | 
+ **totalVlanIds** | **[]int32** |  | 
+ **totalVlanIdsEmpty** | **bool** |  | 
+ **totalVlanIdsGt** | **[]int32** |  | 
+ **totalVlanIdsGte** | **[]int32** |  | 
+ **totalVlanIdsLt** | **[]int32** |  | 
+ **totalVlanIdsLte** | **[]int32** |  | 
+ **totalVlanIdsN** | **[]int32** |  | 
  **updatedByRequest** | **string** |  | 
 
 ### Return type
@@ -11371,7 +12307,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlanGroupsRetrieve
 
-> VLANGroup IpamVlanGroupsRetrieve(ctx, id).Execute()
+> VLANGroup IpamVlanGroupsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -11391,10 +12327,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this VLAN group.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlanGroupsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanGroupsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -11420,6 +12359,9 @@ Other parameters are passed through a pointer to a apiIpamVlanGroupsRetrieveRequ
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -11511,6 +12453,1518 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## IpamVlanTranslationPoliciesBulkDestroy
+
+> IpamVlanTranslationPoliciesBulkDestroy(ctx).VLANTranslationPolicyRequest(vLANTranslationPolicyRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	vLANTranslationPolicyRequest := []openapiclient.VLANTranslationPolicyRequest{*openapiclient.NewVLANTranslationPolicyRequest("Name_example")} // []VLANTranslationPolicyRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesBulkDestroy(context.Background()).VLANTranslationPolicyRequest(vLANTranslationPolicyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **vLANTranslationPolicyRequest** | [**[]VLANTranslationPolicyRequest**](VLANTranslationPolicyRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesBulkPartialUpdate
+
+> []VLANTranslationPolicy IpamVlanTranslationPoliciesBulkPartialUpdate(ctx).PatchedBulkVLANTranslationPolicyRequest(patchedBulkVLANTranslationPolicyRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkVLANTranslationPolicyRequest := []openapiclient.PatchedBulkVLANTranslationPolicyRequest{*openapiclient.NewPatchedBulkVLANTranslationPolicyRequest(int32(123))} // []PatchedBulkVLANTranslationPolicyRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesBulkPartialUpdate(context.Background()).PatchedBulkVLANTranslationPolicyRequest(patchedBulkVLANTranslationPolicyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationPoliciesBulkPartialUpdate`: []VLANTranslationPolicy
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationPoliciesBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkVLANTranslationPolicyRequest** | [**[]PatchedBulkVLANTranslationPolicyRequest**](PatchedBulkVLANTranslationPolicyRequest.md) |  | 
+
+### Return type
+
+[**[]VLANTranslationPolicy**](VLANTranslationPolicy.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesBulkUpdate
+
+> []VLANTranslationPolicy IpamVlanTranslationPoliciesBulkUpdate(ctx).BulkVLANTranslationPolicyRequest(bulkVLANTranslationPolicyRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkVLANTranslationPolicyRequest := []openapiclient.BulkVLANTranslationPolicyRequest{*openapiclient.NewBulkVLANTranslationPolicyRequest(int32(123), "Name_example")} // []BulkVLANTranslationPolicyRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesBulkUpdate(context.Background()).BulkVLANTranslationPolicyRequest(bulkVLANTranslationPolicyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationPoliciesBulkUpdate`: []VLANTranslationPolicy
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationPoliciesBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkVLANTranslationPolicyRequest** | [**[]BulkVLANTranslationPolicyRequest**](BulkVLANTranslationPolicyRequest.md) |  | 
+
+### Return type
+
+[**[]VLANTranslationPolicy**](VLANTranslationPolicy.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesCreate
+
+> VLANTranslationPolicy IpamVlanTranslationPoliciesCreate(ctx).IpamVlanTranslationPoliciesCreateRequest(ipamVlanTranslationPoliciesCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	ipamVlanTranslationPoliciesCreateRequest := openapiclient.ipam_vlan_translation_policies_create_request{VLANTranslationPolicyRequest: openapiclient.NewVLANTranslationPolicyRequest("Name_example")} // IpamVlanTranslationPoliciesCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesCreate(context.Background()).IpamVlanTranslationPoliciesCreateRequest(ipamVlanTranslationPoliciesCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationPoliciesCreate`: VLANTranslationPolicy
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationPoliciesCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ipamVlanTranslationPoliciesCreateRequest** | [**IpamVlanTranslationPoliciesCreateRequest**](IpamVlanTranslationPoliciesCreateRequest.md) |  | 
+
+### Return type
+
+[**VLANTranslationPolicy**](VLANTranslationPolicy.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesDestroy
+
+> IpamVlanTranslationPoliciesDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation policy.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation policy. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesList
+
+> PaginatedVLANTranslationPolicyList IpamVlanTranslationPoliciesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	description := []string{"Inner_example"} // []string |  (optional)
+	descriptionEmpty := true // bool |  (optional)
+	descriptionIc := []string{"Inner_example"} // []string |  (optional)
+	descriptionIe := []string{"Inner_example"} // []string |  (optional)
+	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
+	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
+	descriptionN := []string{"Inner_example"} // []string |  (optional)
+	descriptionNic := []string{"Inner_example"} // []string |  (optional)
+	descriptionNie := []string{"Inner_example"} // []string |  (optional)
+	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
+	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	name := []string{"Inner_example"} // []string |  (optional)
+	nameEmpty := true // bool |  (optional)
+	nameIc := []string{"Inner_example"} // []string |  (optional)
+	nameIe := []string{"Inner_example"} // []string |  (optional)
+	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
+	nameIsw := []string{"Inner_example"} // []string |  (optional)
+	nameN := []string{"Inner_example"} // []string |  (optional)
+	nameNic := []string{"Inner_example"} // []string |  (optional)
+	nameNie := []string{"Inner_example"} // []string |  (optional)
+	nameNiew := []string{"Inner_example"} // []string |  (optional)
+	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	q := "q_example" // string | Search (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationPoliciesList`: PaginatedVLANTranslationPolicyList
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationPoliciesList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **description** | **[]string** |  | 
+ **descriptionEmpty** | **bool** |  | 
+ **descriptionIc** | **[]string** |  | 
+ **descriptionIe** | **[]string** |  | 
+ **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
+ **descriptionIsw** | **[]string** |  | 
+ **descriptionN** | **[]string** |  | 
+ **descriptionNic** | **[]string** |  | 
+ **descriptionNie** | **[]string** |  | 
+ **descriptionNiew** | **[]string** |  | 
+ **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **modifiedByRequest** | **string** |  | 
+ **name** | **[]string** |  | 
+ **nameEmpty** | **bool** |  | 
+ **nameIc** | **[]string** |  | 
+ **nameIe** | **[]string** |  | 
+ **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
+ **nameIsw** | **[]string** |  | 
+ **nameN** | **[]string** |  | 
+ **nameNic** | **[]string** |  | 
+ **nameNie** | **[]string** |  | 
+ **nameNiew** | **[]string** |  | 
+ **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
+ **q** | **string** | Search | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **updatedByRequest** | **string** |  | 
+
+### Return type
+
+[**PaginatedVLANTranslationPolicyList**](PaginatedVLANTranslationPolicyList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesPartialUpdate
+
+> VLANTranslationPolicy IpamVlanTranslationPoliciesPartialUpdate(ctx, id).PatchedVLANTranslationPolicyRequest(patchedVLANTranslationPolicyRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation policy.
+	patchedVLANTranslationPolicyRequest := *openapiclient.NewPatchedVLANTranslationPolicyRequest() // PatchedVLANTranslationPolicyRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesPartialUpdate(context.Background(), id).PatchedVLANTranslationPolicyRequest(patchedVLANTranslationPolicyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationPoliciesPartialUpdate`: VLANTranslationPolicy
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationPoliciesPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation policy. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedVLANTranslationPolicyRequest** | [**PatchedVLANTranslationPolicyRequest**](PatchedVLANTranslationPolicyRequest.md) |  | 
+
+### Return type
+
+[**VLANTranslationPolicy**](VLANTranslationPolicy.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesRetrieve
+
+> VLANTranslationPolicy IpamVlanTranslationPoliciesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation policy.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationPoliciesRetrieve`: VLANTranslationPolicy
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationPoliciesRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation policy. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**VLANTranslationPolicy**](VLANTranslationPolicy.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationPoliciesUpdate
+
+> VLANTranslationPolicy IpamVlanTranslationPoliciesUpdate(ctx, id).VLANTranslationPolicyRequest(vLANTranslationPolicyRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation policy.
+	vLANTranslationPolicyRequest := *openapiclient.NewVLANTranslationPolicyRequest("Name_example") // VLANTranslationPolicyRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationPoliciesUpdate(context.Background(), id).VLANTranslationPolicyRequest(vLANTranslationPolicyRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationPoliciesUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationPoliciesUpdate`: VLANTranslationPolicy
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationPoliciesUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation policy. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationPoliciesUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **vLANTranslationPolicyRequest** | [**VLANTranslationPolicyRequest**](VLANTranslationPolicyRequest.md) |  | 
+
+### Return type
+
+[**VLANTranslationPolicy**](VLANTranslationPolicy.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesBulkDestroy
+
+> IpamVlanTranslationRulesBulkDestroy(ctx).VLANTranslationRuleRequest(vLANTranslationRuleRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	vLANTranslationRuleRequest := []openapiclient.VLANTranslationRuleRequest{*openapiclient.NewVLANTranslationRuleRequest(int32(123), int32(123), int32(123))} // []VLANTranslationRuleRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IpamAPI.IpamVlanTranslationRulesBulkDestroy(context.Background()).VLANTranslationRuleRequest(vLANTranslationRuleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesBulkDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesBulkDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **vLANTranslationRuleRequest** | [**[]VLANTranslationRuleRequest**](VLANTranslationRuleRequest.md) |  | 
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesBulkPartialUpdate
+
+> []VLANTranslationRule IpamVlanTranslationRulesBulkPartialUpdate(ctx).PatchedBulkVLANTranslationRuleRequest(patchedBulkVLANTranslationRuleRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	patchedBulkVLANTranslationRuleRequest := []openapiclient.PatchedBulkVLANTranslationRuleRequest{*openapiclient.NewPatchedBulkVLANTranslationRuleRequest(int32(123))} // []PatchedBulkVLANTranslationRuleRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationRulesBulkPartialUpdate(context.Background()).PatchedBulkVLANTranslationRuleRequest(patchedBulkVLANTranslationRuleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesBulkPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationRulesBulkPartialUpdate`: []VLANTranslationRule
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationRulesBulkPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesBulkPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **patchedBulkVLANTranslationRuleRequest** | [**[]PatchedBulkVLANTranslationRuleRequest**](PatchedBulkVLANTranslationRuleRequest.md) |  | 
+
+### Return type
+
+[**[]VLANTranslationRule**](VLANTranslationRule.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesBulkUpdate
+
+> []VLANTranslationRule IpamVlanTranslationRulesBulkUpdate(ctx).BulkVLANTranslationRuleRequest(bulkVLANTranslationRuleRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	bulkVLANTranslationRuleRequest := []openapiclient.BulkVLANTranslationRuleRequest{*openapiclient.NewBulkVLANTranslationRuleRequest(int32(123), int32(123), int32(123), int32(123))} // []BulkVLANTranslationRuleRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationRulesBulkUpdate(context.Background()).BulkVLANTranslationRuleRequest(bulkVLANTranslationRuleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesBulkUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationRulesBulkUpdate`: []VLANTranslationRule
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationRulesBulkUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesBulkUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bulkVLANTranslationRuleRequest** | [**[]BulkVLANTranslationRuleRequest**](BulkVLANTranslationRuleRequest.md) |  | 
+
+### Return type
+
+[**[]VLANTranslationRule**](VLANTranslationRule.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesCreate
+
+> VLANTranslationRule IpamVlanTranslationRulesCreate(ctx).IpamVlanTranslationRulesCreateRequest(ipamVlanTranslationRulesCreateRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	ipamVlanTranslationRulesCreateRequest := openapiclient.ipam_vlan_translation_rules_create_request{VLANTranslationRuleRequest: openapiclient.NewVLANTranslationRuleRequest(int32(123), int32(123), int32(123))} // IpamVlanTranslationRulesCreateRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationRulesCreate(context.Background()).IpamVlanTranslationRulesCreateRequest(ipamVlanTranslationRulesCreateRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesCreate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationRulesCreate`: VLANTranslationRule
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationRulesCreate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesCreateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ipamVlanTranslationRulesCreateRequest** | [**IpamVlanTranslationRulesCreateRequest**](IpamVlanTranslationRulesCreateRequest.md) |  | 
+
+### Return type
+
+[**VLANTranslationRule**](VLANTranslationRule.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesDestroy
+
+> IpamVlanTranslationRulesDestroy(ctx, id).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation rule.
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	r, err := apiClient.IpamAPI.IpamVlanTranslationRulesDestroy(context.Background(), id).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesDestroy``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation rule. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesDestroyRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesList
+
+> PaginatedVLANTranslationRuleList IpamVlanTranslationRulesList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocalVid(localVid).LocalVidEmpty(localVidEmpty).LocalVidGt(localVidGt).LocalVidGte(localVidGte).LocalVidLt(localVidLt).LocalVidLte(localVidLte).LocalVidN(localVidN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Policy(policy).PolicyN(policyN).PolicyId(policyId).PolicyIdN(policyIdN).Q(q).RemoteVid(remoteVid).RemoteVidEmpty(remoteVidEmpty).RemoteVidGt(remoteVidGt).RemoteVidGte(remoteVidGte).RemoteVidLt(remoteVidLt).RemoteVidLte(remoteVidLte).RemoteVidN(remoteVidN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "time"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
+	created := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdN := []time.Time{time.Now()} // []time.Time |  (optional)
+	createdByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	description := []string{"Inner_example"} // []string |  (optional)
+	descriptionEmpty := true // bool |  (optional)
+	descriptionIc := []string{"Inner_example"} // []string |  (optional)
+	descriptionIe := []string{"Inner_example"} // []string |  (optional)
+	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
+	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
+	descriptionN := []string{"Inner_example"} // []string |  (optional)
+	descriptionNic := []string{"Inner_example"} // []string |  (optional)
+	descriptionNie := []string{"Inner_example"} // []string |  (optional)
+	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
+	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	id := []int32{int32(123)} // []int32 |  (optional)
+	idEmpty := true // bool |  (optional)
+	idGt := []int32{int32(123)} // []int32 |  (optional)
+	idGte := []int32{int32(123)} // []int32 |  (optional)
+	idLt := []int32{int32(123)} // []int32 |  (optional)
+	idLte := []int32{int32(123)} // []int32 |  (optional)
+	idN := []int32{int32(123)} // []int32 |  (optional)
+	lastUpdated := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedGte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLt := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedLte := []time.Time{time.Now()} // []time.Time |  (optional)
+	lastUpdatedN := []time.Time{time.Now()} // []time.Time |  (optional)
+	limit := int32(56) // int32 | Number of results to return per page. (optional)
+	localVid := []int32{int32(123)} // []int32 |  (optional)
+	localVidEmpty := true // bool |  (optional)
+	localVidGt := []int32{int32(123)} // []int32 |  (optional)
+	localVidGte := []int32{int32(123)} // []int32 |  (optional)
+	localVidLt := []int32{int32(123)} // []int32 |  (optional)
+	localVidLte := []int32{int32(123)} // []int32 |  (optional)
+	localVidN := []int32{int32(123)} // []int32 |  (optional)
+	modifiedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	policy := []string{"Inner_example"} // []string | VLAN Translation Policy (name) (optional)
+	policyN := []string{"Inner_example"} // []string | VLAN Translation Policy (name) (optional)
+	policyId := []int32{int32(123)} // []int32 | VLAN Translation Policy (ID) (optional)
+	policyIdN := []int32{int32(123)} // []int32 | VLAN Translation Policy (ID) (optional)
+	q := "q_example" // string | Search (optional)
+	remoteVid := []int32{int32(123)} // []int32 |  (optional)
+	remoteVidEmpty := true // bool |  (optional)
+	remoteVidGt := []int32{int32(123)} // []int32 |  (optional)
+	remoteVidGte := []int32{int32(123)} // []int32 |  (optional)
+	remoteVidLt := []int32{int32(123)} // []int32 |  (optional)
+	remoteVidLte := []int32{int32(123)} // []int32 |  (optional)
+	remoteVidN := []int32{int32(123)} // []int32 |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
+	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
+	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
+	updatedByRequest := "38400000-8cf0-11bd-b23e-10b96e4ef00d" // string |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationRulesList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).LocalVid(localVid).LocalVidEmpty(localVidEmpty).LocalVidGt(localVidGt).LocalVidGte(localVidGte).LocalVidLt(localVidLt).LocalVidLte(localVidLte).LocalVidN(localVidN).ModifiedByRequest(modifiedByRequest).Offset(offset).Omit(omit).Ordering(ordering).Policy(policy).PolicyN(policyN).PolicyId(policyId).PolicyIdN(policyIdN).Q(q).RemoteVid(remoteVid).RemoteVidEmpty(remoteVidEmpty).RemoteVidGt(remoteVidGt).RemoteVidGte(remoteVidGte).RemoteVidLt(remoteVidLt).RemoteVidLte(remoteVidLte).RemoteVidN(remoteVidN).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).UpdatedByRequest(updatedByRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesList``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationRulesList`: PaginatedVLANTranslationRuleList
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationRulesList`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesListRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **created** | [**[]time.Time**](time.Time.md) |  | 
+ **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdGte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLt** | [**[]time.Time**](time.Time.md) |  | 
+ **createdLte** | [**[]time.Time**](time.Time.md) |  | 
+ **createdN** | [**[]time.Time**](time.Time.md) |  | 
+ **createdByRequest** | **string** |  | 
+ **description** | **[]string** |  | 
+ **descriptionEmpty** | **bool** |  | 
+ **descriptionIc** | **[]string** |  | 
+ **descriptionIe** | **[]string** |  | 
+ **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
+ **descriptionIsw** | **[]string** |  | 
+ **descriptionN** | **[]string** |  | 
+ **descriptionNic** | **[]string** |  | 
+ **descriptionNie** | **[]string** |  | 
+ **descriptionNiew** | **[]string** |  | 
+ **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **id** | **[]int32** |  | 
+ **idEmpty** | **bool** |  | 
+ **idGt** | **[]int32** |  | 
+ **idGte** | **[]int32** |  | 
+ **idLt** | **[]int32** |  | 
+ **idLte** | **[]int32** |  | 
+ **idN** | **[]int32** |  | 
+ **lastUpdated** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedEmpty** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedGte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLt** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedLte** | [**[]time.Time**](time.Time.md) |  | 
+ **lastUpdatedN** | [**[]time.Time**](time.Time.md) |  | 
+ **limit** | **int32** | Number of results to return per page. | 
+ **localVid** | **[]int32** |  | 
+ **localVidEmpty** | **bool** |  | 
+ **localVidGt** | **[]int32** |  | 
+ **localVidGte** | **[]int32** |  | 
+ **localVidLt** | **[]int32** |  | 
+ **localVidLte** | **[]int32** |  | 
+ **localVidN** | **[]int32** |  | 
+ **modifiedByRequest** | **string** |  | 
+ **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+ **ordering** | **string** | Which field to use when ordering the results. | 
+ **policy** | **[]string** | VLAN Translation Policy (name) | 
+ **policyN** | **[]string** | VLAN Translation Policy (name) | 
+ **policyId** | **[]int32** | VLAN Translation Policy (ID) | 
+ **policyIdN** | **[]int32** | VLAN Translation Policy (ID) | 
+ **q** | **string** | Search | 
+ **remoteVid** | **[]int32** |  | 
+ **remoteVidEmpty** | **bool** |  | 
+ **remoteVidGt** | **[]int32** |  | 
+ **remoteVidGte** | **[]int32** |  | 
+ **remoteVidLt** | **[]int32** |  | 
+ **remoteVidLte** | **[]int32** |  | 
+ **remoteVidN** | **[]int32** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
+ **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
+ **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
+ **updatedByRequest** | **string** |  | 
+
+### Return type
+
+[**PaginatedVLANTranslationRuleList**](PaginatedVLANTranslationRuleList.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesPartialUpdate
+
+> VLANTranslationRule IpamVlanTranslationRulesPartialUpdate(ctx, id).PatchedVLANTranslationRuleRequest(patchedVLANTranslationRuleRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation rule.
+	patchedVLANTranslationRuleRequest := *openapiclient.NewPatchedVLANTranslationRuleRequest() // PatchedVLANTranslationRuleRequest |  (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationRulesPartialUpdate(context.Background(), id).PatchedVLANTranslationRuleRequest(patchedVLANTranslationRuleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesPartialUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationRulesPartialUpdate`: VLANTranslationRule
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationRulesPartialUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation rule. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesPartialUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **patchedVLANTranslationRuleRequest** | [**PatchedVLANTranslationRuleRequest**](PatchedVLANTranslationRuleRequest.md) |  | 
+
+### Return type
+
+[**VLANTranslationRule**](VLANTranslationRule.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesRetrieve
+
+> VLANTranslationRule IpamVlanTranslationRulesRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation rule.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationRulesRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesRetrieve``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationRulesRetrieve`: VLANTranslationRule
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationRulesRetrieve`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation rule. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesRetrieveRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
+
+### Return type
+
+[**VLANTranslationRule**](VLANTranslationRule.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## IpamVlanTranslationRulesUpdate
+
+> VLANTranslationRule IpamVlanTranslationRulesUpdate(ctx, id).VLANTranslationRuleRequest(vLANTranslationRuleRequest).Execute()
+
+
+
+
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+	openapiclient "github.com/smutel/go-netbox/v4"
+)
+
+func main() {
+	id := int32(56) // int32 | A unique integer value identifying this VLAN translation rule.
+	vLANTranslationRuleRequest := *openapiclient.NewVLANTranslationRuleRequest(int32(123), int32(123), int32(123)) // VLANTranslationRuleRequest | 
+
+	configuration := openapiclient.NewConfiguration()
+	apiClient := openapiclient.NewAPIClient(configuration)
+	resp, r, err := apiClient.IpamAPI.IpamVlanTranslationRulesUpdate(context.Background(), id).VLANTranslationRuleRequest(vLANTranslationRuleRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlanTranslationRulesUpdate``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `IpamVlanTranslationRulesUpdate`: VLANTranslationRule
+	fmt.Fprintf(os.Stdout, "Response from `IpamAPI.IpamVlanTranslationRulesUpdate`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **int32** | A unique integer value identifying this VLAN translation rule. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiIpamVlanTranslationRulesUpdateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **vLANTranslationRuleRequest** | [**VLANTranslationRuleRequest**](VLANTranslationRuleRequest.md) |  | 
+
+### Return type
+
+[**VLANTranslationRule**](VLANTranslationRule.md)
+
+### Authorization
+
+[cookieAuth](../README.md#cookieAuth), [tokenAuth](../README.md#tokenAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, multipart/form-data
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## IpamVlansBulkDestroy
 
 > IpamVlansBulkDestroy(ctx).VLANRequest(vLANRequest).Execute()
@@ -11568,7 +14022,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -11577,7 +14031,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlansBulkPartialUpdate
 
-> []VLAN IpamVlansBulkPartialUpdate(ctx).VLANRequest(vLANRequest).Execute()
+> []VLAN IpamVlansBulkPartialUpdate(ctx).PatchedBulkVLANRequest(patchedBulkVLANRequest).Execute()
 
 
 
@@ -11596,11 +14050,11 @@ import (
 )
 
 func main() {
-	vLANRequest := []openapiclient.VLANRequest{*openapiclient.NewVLANRequest(int32(123), "Name_example")} // []VLANRequest | 
+	patchedBulkVLANRequest := []openapiclient.PatchedBulkVLANRequest{*openapiclient.NewPatchedBulkVLANRequest(int32(123))} // []PatchedBulkVLANRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlansBulkPartialUpdate(context.Background()).VLANRequest(vLANRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlansBulkPartialUpdate(context.Background()).PatchedBulkVLANRequest(patchedBulkVLANRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlansBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -11621,7 +14075,7 @@ Other parameters are passed through a pointer to a apiIpamVlansBulkPartialUpdate
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vLANRequest** | [**[]VLANRequest**](VLANRequest.md) |  | 
+ **patchedBulkVLANRequest** | [**[]PatchedBulkVLANRequest**](PatchedBulkVLANRequest.md) |  | 
 
 ### Return type
 
@@ -11643,7 +14097,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlansBulkUpdate
 
-> []VLAN IpamVlansBulkUpdate(ctx).VLANRequest(vLANRequest).Execute()
+> []VLAN IpamVlansBulkUpdate(ctx).BulkVLANRequest(bulkVLANRequest).Execute()
 
 
 
@@ -11662,11 +14116,11 @@ import (
 )
 
 func main() {
-	vLANRequest := []openapiclient.VLANRequest{*openapiclient.NewVLANRequest(int32(123), "Name_example")} // []VLANRequest | 
+	bulkVLANRequest := []openapiclient.BulkVLANRequest{*openapiclient.NewBulkVLANRequest(int32(123), int32(123), "Name_example")} // []BulkVLANRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlansBulkUpdate(context.Background()).VLANRequest(vLANRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlansBulkUpdate(context.Background()).BulkVLANRequest(bulkVLANRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlansBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -11687,7 +14141,7 @@ Other parameters are passed through a pointer to a apiIpamVlansBulkUpdateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vLANRequest** | [**[]VLANRequest**](VLANRequest.md) |  | 
+ **bulkVLANRequest** | [**[]BulkVLANRequest**](BulkVLANRequest.md) |  | 
 
 ### Return type
 
@@ -11709,7 +14163,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlansCreate
 
-> VLAN IpamVlansCreate(ctx).WritableVLANRequest(writableVLANRequest).Execute()
+> VLAN IpamVlansCreate(ctx).IpamVlansCreateRequest(ipamVlansCreateRequest).Execute()
 
 
 
@@ -11728,11 +14182,11 @@ import (
 )
 
 func main() {
-	writableVLANRequest := *openapiclient.NewWritableVLANRequest(int32(123), "Name_example") // WritableVLANRequest | 
+	ipamVlansCreateRequest := openapiclient.ipam_vlans_create_request{WritableVLANRequest: openapiclient.NewWritableVLANRequest(int32(123), "Name_example")} // IpamVlansCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlansCreate(context.Background()).WritableVLANRequest(writableVLANRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlansCreate(context.Background()).IpamVlansCreateRequest(ipamVlansCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlansCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -11753,7 +14207,7 @@ Other parameters are passed through a pointer to a apiIpamVlansCreateRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **writableVLANRequest** | [**WritableVLANRequest**](WritableVLANRequest.md) |  | 
+ **ipamVlansCreateRequest** | [**IpamVlansCreateRequest**](IpamVlansCreateRequest.md) |  | 
 
 ### Return type
 
@@ -11843,7 +14297,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlansList
 
-> PaginatedVLANList IpamVlansList(ctx).AvailableAtSite(availableAtSite).AvailableOnDevice(availableOnDevice).AvailableOnVirtualmachine(availableOnVirtualmachine).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vid(vid).VidEmpty(vidEmpty).VidGt(vidGt).VidGte(vidGte).VidLt(vidLt).VidLte(vidLte).VidN(vidN).Execute()
+> PaginatedVLANList IpamVlansList(ctx).AvailableAtSite(availableAtSite).AvailableAtSiteGroup(availableAtSiteGroup).AvailableOnDevice(availableOnDevice).AvailableOnVirtualmachine(availableOnVirtualmachine).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).QinqRole(qinqRole).QinqRoleEmpty(qinqRoleEmpty).QinqRoleIc(qinqRoleIc).QinqRoleIe(qinqRoleIe).QinqRoleIew(qinqRoleIew).QinqRoleIregex(qinqRoleIregex).QinqRoleIsw(qinqRoleIsw).QinqRoleN(qinqRoleN).QinqRoleNic(qinqRoleNic).QinqRoleNie(qinqRoleNie).QinqRoleNiew(qinqRoleNiew).QinqRoleNisw(qinqRoleNisw).QinqRoleRegex(qinqRoleRegex).QinqSvlanId(qinqSvlanId).QinqSvlanIdN(qinqSvlanIdN).QinqSvlanVid(qinqSvlanVid).QinqSvlanVidEmpty(qinqSvlanVidEmpty).QinqSvlanVidGt(qinqSvlanVidGt).QinqSvlanVidGte(qinqSvlanVidGte).QinqSvlanVidLt(qinqSvlanVidLt).QinqSvlanVidLte(qinqSvlanVidLte).QinqSvlanVidN(qinqSvlanVidN).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).RelatedToSite(relatedToSite).RelatedToSiteN(relatedToSiteN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vid(vid).VidEmpty(vidEmpty).VidGt(vidGt).VidGte(vidGte).VidLt(vidLt).VidLte(vidLte).VidN(vidN).VminterfaceId(vminterfaceId).Execute()
 
 
 
@@ -11864,8 +14318,10 @@ import (
 
 func main() {
 	availableAtSite := "availableAtSite_example" // string |  (optional)
+	availableAtSiteGroup := "availableAtSiteGroup_example" // string |  (optional)
 	availableOnDevice := "availableOnDevice_example" // string |  (optional)
 	availableOnVirtualmachine := "availableOnVirtualmachine_example" // string |  (optional)
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -11879,12 +14335,15 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	group := []string{"Inner_example"} // []string | Group (optional)
 	groupN := []string{"Inner_example"} // []string | Group (optional)
 	groupId := []*int32{int32(123)} // []*int32 | Group (ID) (optional)
@@ -11896,6 +14355,7 @@ func main() {
 	idLt := []int32{int32(123)} // []int32 |  (optional)
 	idLte := []int32{int32(123)} // []int32 |  (optional)
 	idN := []int32{int32(123)} // []int32 |  (optional)
+	interfaceId := int32(56) // int32 |  (optional)
 	l2vpn := []*int64{int64(123)} // []*int64 | L2VPN (optional)
 	l2vpnN := []*int64{int64(123)} // []*int64 | L2VPN (optional)
 	l2vpnId := []int32{int32(123)} // []int32 | L2VPN (ID) (optional)
@@ -11914,19 +14374,54 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
+	qinqRole := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleEmpty := true // bool |  (optional)
+	qinqRoleIc := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleIe := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleIew := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleIregex := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleIsw := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleN := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleNic := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleNie := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleNiew := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleNisw := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqRoleRegex := []*string{"Inner_example"} // []*string | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) (optional)
+	qinqSvlanId := []*int32{int32(123)} // []*int32 | Q-in-Q SVLAN (ID) (optional)
+	qinqSvlanIdN := []*int32{int32(123)} // []*int32 | Q-in-Q SVLAN (ID) (optional)
+	qinqSvlanVid := []int32{int32(123)} // []int32 |  (optional)
+	qinqSvlanVidEmpty := []int32{int32(123)} // []int32 |  (optional)
+	qinqSvlanVidGt := []int32{int32(123)} // []int32 |  (optional)
+	qinqSvlanVidGte := []int32{int32(123)} // []int32 |  (optional)
+	qinqSvlanVidLt := []int32{int32(123)} // []int32 |  (optional)
+	qinqSvlanVidLte := []int32{int32(123)} // []int32 |  (optional)
+	qinqSvlanVidN := []int32{int32(123)} // []int32 |  (optional)
 	region := []string{"Inner_example"} // []string |  (optional)
 	regionN := []string{"Inner_example"} // []string |  (optional)
 	regionId := []string{"Inner_example"} // []string |  (optional)
 	regionIdN := []string{"Inner_example"} // []string |  (optional)
+	relatedToSite := []int32{int32(123)} // []int32 |  (optional)
+	relatedToSiteN := []int32{int32(123)} // []int32 |  (optional)
 	role := []string{"Inner_example"} // []string | Role (slug) (optional)
 	roleN := []string{"Inner_example"} // []string | Role (slug) (optional)
 	roleId := []*int32{int32(123)} // []*int32 | Role (ID) (optional)
@@ -11939,10 +14434,26 @@ func main() {
 	siteGroupIdN := []string{"Inner_example"} // []string |  (optional)
 	siteId := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
 	siteIdN := []*int32{int32(123)} // []*int32 | Site (ID) (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	status := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusEmpty := true // bool |  (optional)
+	statusIc := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusIe := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusIew := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusIregex := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusIsw := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
 	statusN := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusNic := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusNie := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusNiew := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusNisw := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
+	statusRegex := []string{"Inner_example"} // []string | Operational status of this VLAN (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -11959,10 +14470,11 @@ func main() {
 	vidLt := []int32{int32(123)} // []int32 |  (optional)
 	vidLte := []int32{int32(123)} // []int32 |  (optional)
 	vidN := []int32{int32(123)} // []int32 |  (optional)
+	vminterfaceId := int32(56) // int32 |  (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlansList(context.Background()).AvailableAtSite(availableAtSite).AvailableOnDevice(availableOnDevice).AvailableOnVirtualmachine(availableOnVirtualmachine).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Status(status).StatusN(statusN).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vid(vid).VidEmpty(vidEmpty).VidGt(vidGt).VidGte(vidGte).VidLt(vidLt).VidLte(vidLte).VidN(vidN).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlansList(context.Background()).AvailableAtSite(availableAtSite).AvailableAtSiteGroup(availableAtSiteGroup).AvailableOnDevice(availableOnDevice).AvailableOnVirtualmachine(availableOnVirtualmachine).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).Fields(fields).Group(group).GroupN(groupN).GroupId(groupId).GroupIdN(groupIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).InterfaceId(interfaceId).L2vpn(l2vpn).L2vpnN(l2vpnN).L2vpnId(l2vpnId).L2vpnIdN(l2vpnIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).QinqRole(qinqRole).QinqRoleEmpty(qinqRoleEmpty).QinqRoleIc(qinqRoleIc).QinqRoleIe(qinqRoleIe).QinqRoleIew(qinqRoleIew).QinqRoleIregex(qinqRoleIregex).QinqRoleIsw(qinqRoleIsw).QinqRoleN(qinqRoleN).QinqRoleNic(qinqRoleNic).QinqRoleNie(qinqRoleNie).QinqRoleNiew(qinqRoleNiew).QinqRoleNisw(qinqRoleNisw).QinqRoleRegex(qinqRoleRegex).QinqSvlanId(qinqSvlanId).QinqSvlanIdN(qinqSvlanIdN).QinqSvlanVid(qinqSvlanVid).QinqSvlanVidEmpty(qinqSvlanVidEmpty).QinqSvlanVidGt(qinqSvlanVidGt).QinqSvlanVidGte(qinqSvlanVidGte).QinqSvlanVidLt(qinqSvlanVidLt).QinqSvlanVidLte(qinqSvlanVidLte).QinqSvlanVidN(qinqSvlanVidN).Region(region).RegionN(regionN).RegionId(regionId).RegionIdN(regionIdN).RelatedToSite(relatedToSite).RelatedToSiteN(relatedToSiteN).Role(role).RoleN(roleN).RoleId(roleId).RoleIdN(roleIdN).Site(site).SiteN(siteN).SiteGroup(siteGroup).SiteGroupN(siteGroupN).SiteGroupId(siteGroupId).SiteGroupIdN(siteGroupIdN).SiteId(siteId).SiteIdN(siteIdN).Start(start).Status(status).StatusEmpty(statusEmpty).StatusIc(statusIc).StatusIe(statusIe).StatusIew(statusIew).StatusIregex(statusIregex).StatusIsw(statusIsw).StatusN(statusN).StatusNic(statusNic).StatusNie(statusNie).StatusNiew(statusNiew).StatusNisw(statusNisw).StatusRegex(statusRegex).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Vid(vid).VidEmpty(vidEmpty).VidGt(vidGt).VidGte(vidGte).VidLt(vidLt).VidLte(vidLte).VidN(vidN).VminterfaceId(vminterfaceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlansList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -11984,8 +14496,10 @@ Other parameters are passed through a pointer to a apiIpamVlansListRequest struc
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **availableAtSite** | **string** |  | 
+ **availableAtSiteGroup** | **string** |  | 
  **availableOnDevice** | **string** |  | 
  **availableOnVirtualmachine** | **string** |  | 
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -11999,12 +14513,15 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **group** | **[]string** | Group | 
  **groupN** | **[]string** | Group | 
  **groupId** | **[]int32** | Group (ID) | 
@@ -12016,6 +14533,7 @@ Name | Type | Description  | Notes
  **idLt** | **[]int32** |  | 
  **idLte** | **[]int32** |  | 
  **idN** | **[]int32** |  | 
+ **interfaceId** | **int32** |  | 
  **l2vpn** | **[]int64** | L2VPN | 
  **l2vpnN** | **[]int64** | L2VPN | 
  **l2vpnId** | **[]int32** | L2VPN (ID) | 
@@ -12034,19 +14552,54 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
+ **qinqRole** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleEmpty** | **bool** |  | 
+ **qinqRoleIc** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleIe** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleIew** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleIregex** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleIsw** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleN** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleNic** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleNie** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleNiew** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleNisw** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqRoleRegex** | **[]string** | Customer/service VLAN designation (for Q-in-Q/IEEE 802.1ad) | 
+ **qinqSvlanId** | **[]int32** | Q-in-Q SVLAN (ID) | 
+ **qinqSvlanIdN** | **[]int32** | Q-in-Q SVLAN (ID) | 
+ **qinqSvlanVid** | **[]int32** |  | 
+ **qinqSvlanVidEmpty** | **[]int32** |  | 
+ **qinqSvlanVidGt** | **[]int32** |  | 
+ **qinqSvlanVidGte** | **[]int32** |  | 
+ **qinqSvlanVidLt** | **[]int32** |  | 
+ **qinqSvlanVidLte** | **[]int32** |  | 
+ **qinqSvlanVidN** | **[]int32** |  | 
  **region** | **[]string** |  | 
  **regionN** | **[]string** |  | 
  **regionId** | **[]string** |  | 
  **regionIdN** | **[]string** |  | 
+ **relatedToSite** | **[]int32** |  | 
+ **relatedToSiteN** | **[]int32** |  | 
  **role** | **[]string** | Role (slug) | 
  **roleN** | **[]string** | Role (slug) | 
  **roleId** | **[]int32** | Role (ID) | 
@@ -12059,10 +14612,26 @@ Name | Type | Description  | Notes
  **siteGroupIdN** | **[]string** |  | 
  **siteId** | **[]int32** | Site (ID) | 
  **siteIdN** | **[]int32** | Site (ID) | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **status** | **[]string** | Operational status of this VLAN | 
+ **statusEmpty** | **bool** |  | 
+ **statusIc** | **[]string** | Operational status of this VLAN | 
+ **statusIe** | **[]string** | Operational status of this VLAN | 
+ **statusIew** | **[]string** | Operational status of this VLAN | 
+ **statusIregex** | **[]string** | Operational status of this VLAN | 
+ **statusIsw** | **[]string** | Operational status of this VLAN | 
  **statusN** | **[]string** | Operational status of this VLAN | 
+ **statusNic** | **[]string** | Operational status of this VLAN | 
+ **statusNie** | **[]string** | Operational status of this VLAN | 
+ **statusNiew** | **[]string** | Operational status of this VLAN | 
+ **statusNisw** | **[]string** | Operational status of this VLAN | 
+ **statusRegex** | **[]string** | Operational status of this VLAN | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -12079,6 +14648,7 @@ Name | Type | Description  | Notes
  **vidLt** | **[]int32** |  | 
  **vidLte** | **[]int32** |  | 
  **vidN** | **[]int32** |  | 
+ **vminterfaceId** | **int32** |  | 
 
 ### Return type
 
@@ -12172,7 +14742,7 @@ Name | Type | Description  | Notes
 
 ## IpamVlansRetrieve
 
-> VLAN IpamVlansRetrieve(ctx, id).Execute()
+> VLAN IpamVlansRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -12192,10 +14762,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this VLAN.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVlansRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVlansRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVlansRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12221,6 +14794,9 @@ Other parameters are passed through a pointer to a apiIpamVlansRetrieveRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 
@@ -12369,7 +14945,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -12378,7 +14954,7 @@ Name | Type | Description  | Notes
 
 ## IpamVrfsBulkPartialUpdate
 
-> []VRF IpamVrfsBulkPartialUpdate(ctx).VRFRequest(vRFRequest).Execute()
+> []VRF IpamVrfsBulkPartialUpdate(ctx).PatchedBulkVRFRequest(patchedBulkVRFRequest).Execute()
 
 
 
@@ -12397,11 +14973,11 @@ import (
 )
 
 func main() {
-	vRFRequest := []openapiclient.VRFRequest{*openapiclient.NewVRFRequest("Name_example")} // []VRFRequest | 
+	patchedBulkVRFRequest := []openapiclient.PatchedBulkVRFRequest{*openapiclient.NewPatchedBulkVRFRequest(int32(123))} // []PatchedBulkVRFRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVrfsBulkPartialUpdate(context.Background()).VRFRequest(vRFRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVrfsBulkPartialUpdate(context.Background()).PatchedBulkVRFRequest(patchedBulkVRFRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVrfsBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12422,7 +14998,7 @@ Other parameters are passed through a pointer to a apiIpamVrfsBulkPartialUpdateR
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vRFRequest** | [**[]VRFRequest**](VRFRequest.md) |  | 
+ **patchedBulkVRFRequest** | [**[]PatchedBulkVRFRequest**](PatchedBulkVRFRequest.md) |  | 
 
 ### Return type
 
@@ -12444,7 +15020,7 @@ Name | Type | Description  | Notes
 
 ## IpamVrfsBulkUpdate
 
-> []VRF IpamVrfsBulkUpdate(ctx).VRFRequest(vRFRequest).Execute()
+> []VRF IpamVrfsBulkUpdate(ctx).BulkVRFRequest(bulkVRFRequest).Execute()
 
 
 
@@ -12463,11 +15039,11 @@ import (
 )
 
 func main() {
-	vRFRequest := []openapiclient.VRFRequest{*openapiclient.NewVRFRequest("Name_example")} // []VRFRequest | 
+	bulkVRFRequest := []openapiclient.BulkVRFRequest{*openapiclient.NewBulkVRFRequest(int32(123), "Name_example")} // []BulkVRFRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVrfsBulkUpdate(context.Background()).VRFRequest(vRFRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVrfsBulkUpdate(context.Background()).BulkVRFRequest(bulkVRFRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVrfsBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12488,7 +15064,7 @@ Other parameters are passed through a pointer to a apiIpamVrfsBulkUpdateRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vRFRequest** | [**[]VRFRequest**](VRFRequest.md) |  | 
+ **bulkVRFRequest** | [**[]BulkVRFRequest**](BulkVRFRequest.md) |  | 
 
 ### Return type
 
@@ -12510,7 +15086,7 @@ Name | Type | Description  | Notes
 
 ## IpamVrfsCreate
 
-> VRF IpamVrfsCreate(ctx).VRFRequest(vRFRequest).Execute()
+> VRF IpamVrfsCreate(ctx).IpamVrfsCreateRequest(ipamVrfsCreateRequest).Execute()
 
 
 
@@ -12529,11 +15105,11 @@ import (
 )
 
 func main() {
-	vRFRequest := *openapiclient.NewVRFRequest("Name_example") // VRFRequest | 
+	ipamVrfsCreateRequest := openapiclient.ipam_vrfs_create_request{VRFRequest: openapiclient.NewVRFRequest("Name_example")} // IpamVrfsCreateRequest | 
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVrfsCreate(context.Background()).VRFRequest(vRFRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVrfsCreate(context.Background()).IpamVrfsCreateRequest(ipamVrfsCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVrfsCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12554,7 +15130,7 @@ Other parameters are passed through a pointer to a apiIpamVrfsCreateRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **vRFRequest** | [**VRFRequest**](VRFRequest.md) |  | 
+ **ipamVrfsCreateRequest** | [**IpamVrfsCreateRequest**](IpamVrfsCreateRequest.md) |  | 
 
 ### Return type
 
@@ -12644,7 +15220,7 @@ Name | Type | Description  | Notes
 
 ## IpamVrfsList
 
-> PaginatedVRFList IpamVrfsList(ctx).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EnforceUnique(enforceUnique).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Rd(rd).RdEmpty(rdEmpty).RdIc(rdIc).RdIe(rdIe).RdIew(rdIew).RdIsw(rdIsw).RdN(rdN).RdNic(rdNic).RdNie(rdNie).RdNiew(rdNiew).RdNisw(rdNisw).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+> PaginatedVRFList IpamVrfsList(ctx).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EnforceUnique(enforceUnique).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Rd(rd).RdEmpty(rdEmpty).RdIc(rdIc).RdIe(rdIe).RdIew(rdIew).RdIregex(rdIregex).RdIsw(rdIsw).RdN(rdN).RdNic(rdNic).RdNie(rdNie).RdNiew(rdNiew).RdNisw(rdNisw).RdRegex(rdRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 
 
 
@@ -12664,6 +15240,7 @@ import (
 )
 
 func main() {
+	brief := true // bool | Return only brief fields for each object. (optional)
 	created := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdEmpty := []time.Time{time.Now()} // []time.Time |  (optional)
 	createdGt := []time.Time{time.Now()} // []time.Time |  (optional)
@@ -12677,17 +15254,20 @@ func main() {
 	descriptionIc := []string{"Inner_example"} // []string |  (optional)
 	descriptionIe := []string{"Inner_example"} // []string |  (optional)
 	descriptionIew := []string{"Inner_example"} // []string |  (optional)
+	descriptionIregex := []string{"Inner_example"} // []string |  (optional)
 	descriptionIsw := []string{"Inner_example"} // []string |  (optional)
 	descriptionN := []string{"Inner_example"} // []string |  (optional)
 	descriptionNic := []string{"Inner_example"} // []string |  (optional)
 	descriptionNie := []string{"Inner_example"} // []string |  (optional)
 	descriptionNiew := []string{"Inner_example"} // []string |  (optional)
 	descriptionNisw := []string{"Inner_example"} // []string |  (optional)
+	descriptionRegex := []string{"Inner_example"} // []string |  (optional)
 	enforceUnique := true // bool |  (optional)
 	exportTarget := []string{"Inner_example"} // []string | Export target (name) (optional)
 	exportTargetN := []string{"Inner_example"} // []string | Export target (name) (optional)
 	exportTargetId := []int32{int32(123)} // []int32 | Export target (optional)
 	exportTargetIdN := []int32{int32(123)} // []int32 | Export target (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
 	id := []int32{int32(123)} // []int32 |  (optional)
 	idEmpty := true // bool |  (optional)
 	idGt := []int32{int32(123)} // []int32 |  (optional)
@@ -12713,28 +15293,46 @@ func main() {
 	nameIc := []string{"Inner_example"} // []string |  (optional)
 	nameIe := []string{"Inner_example"} // []string |  (optional)
 	nameIew := []string{"Inner_example"} // []string |  (optional)
+	nameIregex := []string{"Inner_example"} // []string |  (optional)
 	nameIsw := []string{"Inner_example"} // []string |  (optional)
 	nameN := []string{"Inner_example"} // []string |  (optional)
 	nameNic := []string{"Inner_example"} // []string |  (optional)
 	nameNie := []string{"Inner_example"} // []string |  (optional)
 	nameNiew := []string{"Inner_example"} // []string |  (optional)
 	nameNisw := []string{"Inner_example"} // []string |  (optional)
+	nameRegex := []string{"Inner_example"} // []string |  (optional)
 	offset := int32(56) // int32 | The initial index from which to return the results. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 	ordering := "ordering_example" // string | Which field to use when ordering the results. (optional)
+	owner := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerN := []string{"Inner_example"} // []string | Owner (name) (optional)
+	ownerGroup := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupN := []string{"Inner_example"} // []string | Owner Group (name) (optional)
+	ownerGroupId := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerGroupIdN := []int32{int32(123)} // []int32 | Owner Group (ID) (optional)
+	ownerId := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
+	ownerIdN := []*int32{int32(123)} // []*int32 | Owner (ID) (optional)
 	q := "q_example" // string | Search (optional)
 	rd := []string{"Inner_example"} // []string |  (optional)
 	rdEmpty := true // bool |  (optional)
 	rdIc := []string{"Inner_example"} // []string |  (optional)
 	rdIe := []string{"Inner_example"} // []string |  (optional)
 	rdIew := []string{"Inner_example"} // []string |  (optional)
+	rdIregex := []string{"Inner_example"} // []string |  (optional)
 	rdIsw := []string{"Inner_example"} // []string |  (optional)
 	rdN := []string{"Inner_example"} // []string |  (optional)
 	rdNic := []string{"Inner_example"} // []string |  (optional)
 	rdNie := []string{"Inner_example"} // []string |  (optional)
 	rdNiew := []string{"Inner_example"} // []string |  (optional)
 	rdNisw := []string{"Inner_example"} // []string |  (optional)
+	rdRegex := []string{"Inner_example"} // []string |  (optional)
+	start := int32(56) // int32 | Cursor-based pagination: return results with pk >= start, ordered by pk. Mutually exclusive with offset. (optional)
 	tag := []string{"Inner_example"} // []string |  (optional)
+	tagAny := []string{"Inner_example"} // []string |  (optional)
 	tagN := []string{"Inner_example"} // []string |  (optional)
+	tagId := []int32{int32(123)} // []int32 |  (optional)
+	tagIdAny := []int32{int32(123)} // []int32 |  (optional)
+	tagIdN := []int32{int32(123)} // []int32 |  (optional)
 	tenant := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantN := []string{"Inner_example"} // []string | Tenant (slug) (optional)
 	tenantGroup := []string{"Inner_example"} // []string |  (optional)
@@ -12747,7 +15345,7 @@ func main() {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVrfsList(context.Background()).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).EnforceUnique(enforceUnique).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).Offset(offset).Ordering(ordering).Q(q).Rd(rd).RdEmpty(rdEmpty).RdIc(rdIc).RdIe(rdIe).RdIew(rdIew).RdIsw(rdIsw).RdN(rdN).RdNic(rdNic).RdNie(rdNie).RdNiew(rdNiew).RdNisw(rdNisw).Tag(tag).TagN(tagN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVrfsList(context.Background()).Brief(brief).Created(created).CreatedEmpty(createdEmpty).CreatedGt(createdGt).CreatedGte(createdGte).CreatedLt(createdLt).CreatedLte(createdLte).CreatedN(createdN).CreatedByRequest(createdByRequest).Description(description).DescriptionEmpty(descriptionEmpty).DescriptionIc(descriptionIc).DescriptionIe(descriptionIe).DescriptionIew(descriptionIew).DescriptionIregex(descriptionIregex).DescriptionIsw(descriptionIsw).DescriptionN(descriptionN).DescriptionNic(descriptionNic).DescriptionNie(descriptionNie).DescriptionNiew(descriptionNiew).DescriptionNisw(descriptionNisw).DescriptionRegex(descriptionRegex).EnforceUnique(enforceUnique).ExportTarget(exportTarget).ExportTargetN(exportTargetN).ExportTargetId(exportTargetId).ExportTargetIdN(exportTargetIdN).Fields(fields).Id(id).IdEmpty(idEmpty).IdGt(idGt).IdGte(idGte).IdLt(idLt).IdLte(idLte).IdN(idN).ImportTarget(importTarget).ImportTargetN(importTargetN).ImportTargetId(importTargetId).ImportTargetIdN(importTargetIdN).LastUpdated(lastUpdated).LastUpdatedEmpty(lastUpdatedEmpty).LastUpdatedGt(lastUpdatedGt).LastUpdatedGte(lastUpdatedGte).LastUpdatedLt(lastUpdatedLt).LastUpdatedLte(lastUpdatedLte).LastUpdatedN(lastUpdatedN).Limit(limit).ModifiedByRequest(modifiedByRequest).Name(name).NameEmpty(nameEmpty).NameIc(nameIc).NameIe(nameIe).NameIew(nameIew).NameIregex(nameIregex).NameIsw(nameIsw).NameN(nameN).NameNic(nameNic).NameNie(nameNie).NameNiew(nameNiew).NameNisw(nameNisw).NameRegex(nameRegex).Offset(offset).Omit(omit).Ordering(ordering).Owner(owner).OwnerN(ownerN).OwnerGroup(ownerGroup).OwnerGroupN(ownerGroupN).OwnerGroupId(ownerGroupId).OwnerGroupIdN(ownerGroupIdN).OwnerId(ownerId).OwnerIdN(ownerIdN).Q(q).Rd(rd).RdEmpty(rdEmpty).RdIc(rdIc).RdIe(rdIe).RdIew(rdIew).RdIregex(rdIregex).RdIsw(rdIsw).RdN(rdN).RdNic(rdNic).RdNie(rdNie).RdNiew(rdNiew).RdNisw(rdNisw).RdRegex(rdRegex).Start(start).Tag(tag).TagAny(tagAny).TagN(tagN).TagId(tagId).TagIdAny(tagIdAny).TagIdN(tagIdN).Tenant(tenant).TenantN(tenantN).TenantGroup(tenantGroup).TenantGroupN(tenantGroupN).TenantGroupId(tenantGroupId).TenantGroupIdN(tenantGroupIdN).TenantId(tenantId).TenantIdN(tenantIdN).UpdatedByRequest(updatedByRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVrfsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12768,6 +15366,7 @@ Other parameters are passed through a pointer to a apiIpamVrfsListRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **brief** | **bool** | Return only brief fields for each object. | 
  **created** | [**[]time.Time**](time.Time.md) |  | 
  **createdEmpty** | [**[]time.Time**](time.Time.md) |  | 
  **createdGt** | [**[]time.Time**](time.Time.md) |  | 
@@ -12781,17 +15380,20 @@ Name | Type | Description  | Notes
  **descriptionIc** | **[]string** |  | 
  **descriptionIe** | **[]string** |  | 
  **descriptionIew** | **[]string** |  | 
+ **descriptionIregex** | **[]string** |  | 
  **descriptionIsw** | **[]string** |  | 
  **descriptionN** | **[]string** |  | 
  **descriptionNic** | **[]string** |  | 
  **descriptionNie** | **[]string** |  | 
  **descriptionNiew** | **[]string** |  | 
  **descriptionNisw** | **[]string** |  | 
+ **descriptionRegex** | **[]string** |  | 
  **enforceUnique** | **bool** |  | 
  **exportTarget** | **[]string** | Export target (name) | 
  **exportTargetN** | **[]string** | Export target (name) | 
  **exportTargetId** | **[]int32** | Export target | 
  **exportTargetIdN** | **[]int32** | Export target | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
  **id** | **[]int32** |  | 
  **idEmpty** | **bool** |  | 
  **idGt** | **[]int32** |  | 
@@ -12817,28 +15419,46 @@ Name | Type | Description  | Notes
  **nameIc** | **[]string** |  | 
  **nameIe** | **[]string** |  | 
  **nameIew** | **[]string** |  | 
+ **nameIregex** | **[]string** |  | 
  **nameIsw** | **[]string** |  | 
  **nameN** | **[]string** |  | 
  **nameNic** | **[]string** |  | 
  **nameNie** | **[]string** |  | 
  **nameNiew** | **[]string** |  | 
  **nameNisw** | **[]string** |  | 
+ **nameRegex** | **[]string** |  | 
  **offset** | **int32** | The initial index from which to return the results. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
  **ordering** | **string** | Which field to use when ordering the results. | 
+ **owner** | **[]string** | Owner (name) | 
+ **ownerN** | **[]string** | Owner (name) | 
+ **ownerGroup** | **[]string** | Owner Group (name) | 
+ **ownerGroupN** | **[]string** | Owner Group (name) | 
+ **ownerGroupId** | **[]int32** | Owner Group (ID) | 
+ **ownerGroupIdN** | **[]int32** | Owner Group (ID) | 
+ **ownerId** | **[]int32** | Owner (ID) | 
+ **ownerIdN** | **[]int32** | Owner (ID) | 
  **q** | **string** | Search | 
  **rd** | **[]string** |  | 
  **rdEmpty** | **bool** |  | 
  **rdIc** | **[]string** |  | 
  **rdIe** | **[]string** |  | 
  **rdIew** | **[]string** |  | 
+ **rdIregex** | **[]string** |  | 
  **rdIsw** | **[]string** |  | 
  **rdN** | **[]string** |  | 
  **rdNic** | **[]string** |  | 
  **rdNie** | **[]string** |  | 
  **rdNiew** | **[]string** |  | 
  **rdNisw** | **[]string** |  | 
+ **rdRegex** | **[]string** |  | 
+ **start** | **int32** | Cursor-based pagination: return results with pk &gt;&#x3D; start, ordered by pk. Mutually exclusive with offset. | 
  **tag** | **[]string** |  | 
+ **tagAny** | **[]string** |  | 
  **tagN** | **[]string** |  | 
+ **tagId** | **[]int32** |  | 
+ **tagIdAny** | **[]int32** |  | 
+ **tagIdN** | **[]int32** |  | 
  **tenant** | **[]string** | Tenant (slug) | 
  **tenantN** | **[]string** | Tenant (slug) | 
  **tenantGroup** | **[]string** |  | 
@@ -12941,7 +15561,7 @@ Name | Type | Description  | Notes
 
 ## IpamVrfsRetrieve
 
-> VRF IpamVrfsRetrieve(ctx, id).Execute()
+> VRF IpamVrfsRetrieve(ctx, id).Brief(brief).Fields(fields).Omit(omit).Execute()
 
 
 
@@ -12961,10 +15581,13 @@ import (
 
 func main() {
 	id := int32(56) // int32 | A unique integer value identifying this VRF.
+	brief := true // bool | Return only brief fields for each object. (optional)
+	fields := "fields_example" // string | Comma-separated list of fields to include in the response. Example: `fields=id,name`. (optional)
+	omit := "omit_example" // string | Comma-separated list of fields to exclude from the response. Example: `omit=description,tags`. (optional)
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
-	resp, r, err := apiClient.IpamAPI.IpamVrfsRetrieve(context.Background(), id).Execute()
+	resp, r, err := apiClient.IpamAPI.IpamVrfsRetrieve(context.Background(), id).Brief(brief).Fields(fields).Omit(omit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IpamAPI.IpamVrfsRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12990,6 +15613,9 @@ Other parameters are passed through a pointer to a apiIpamVrfsRetrieveRequest st
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **brief** | **bool** | Return only brief fields for each object. | 
+ **fields** | **string** | Comma-separated list of fields to include in the response. Example: &#x60;fields&#x3D;id,name&#x60;. | 
+ **omit** | **string** | Comma-separated list of fields to exclude from the response. Example: &#x60;omit&#x3D;description,tags&#x60;. | 
 
 ### Return type
 

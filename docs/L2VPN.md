@@ -6,14 +6,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Identifier** | Pointer to **NullableInt64** |  | [optional] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
-**Type** | Pointer to [**BriefL2VPNType**](BriefL2VPNType.md) |  | [optional] 
-**ImportTargets** | Pointer to [**[]RouteTarget**](RouteTarget.md) |  | [optional] 
-**ExportTargets** | Pointer to [**[]RouteTarget**](RouteTarget.md) |  | [optional] 
+**Type** | [**BriefL2VPNType**](BriefL2VPNType.md) |  | 
+**Status** | Pointer to [**L2VPNStatus**](L2VPNStatus.md) |  | [optional] 
+**ImportTargets** | Pointer to [**[]BriefRouteTarget**](BriefRouteTarget.md) |  | [optional] 
+**ExportTargets** | Pointer to [**[]BriefRouteTarget**](BriefRouteTarget.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
@@ -25,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewL2VPN
 
-`func NewL2VPN(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, ) *L2VPN`
+`func NewL2VPN(id int32, url string, displayUrl string, display string, name string, slug string, type_ BriefL2VPNType, created NullableTime, lastUpdated NullableTime, ) *L2VPN`
 
 NewL2VPN instantiates a new L2VPN object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +81,26 @@ and a boolean to check if the value has been set.
 `func (o *L2VPN) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *L2VPN) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *L2VPN) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *L2VPN) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -194,28 +217,48 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
-### HasType
 
-`func (o *L2VPN) HasType() bool`
+### GetStatus
 
-HasType returns a boolean if a field has been set.
+`func (o *L2VPN) GetStatus() L2VPNStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *L2VPN) GetStatusOk() (*L2VPNStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *L2VPN) SetStatus(v L2VPNStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *L2VPN) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetImportTargets
 
-`func (o *L2VPN) GetImportTargets() []RouteTarget`
+`func (o *L2VPN) GetImportTargets() []BriefRouteTarget`
 
 GetImportTargets returns the ImportTargets field if non-nil, zero value otherwise.
 
 ### GetImportTargetsOk
 
-`func (o *L2VPN) GetImportTargetsOk() (*[]RouteTarget, bool)`
+`func (o *L2VPN) GetImportTargetsOk() (*[]BriefRouteTarget, bool)`
 
 GetImportTargetsOk returns a tuple with the ImportTargets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetImportTargets
 
-`func (o *L2VPN) SetImportTargets(v []RouteTarget)`
+`func (o *L2VPN) SetImportTargets(v []BriefRouteTarget)`
 
 SetImportTargets sets ImportTargets field to given value.
 
@@ -227,20 +270,20 @@ HasImportTargets returns a boolean if a field has been set.
 
 ### GetExportTargets
 
-`func (o *L2VPN) GetExportTargets() []RouteTarget`
+`func (o *L2VPN) GetExportTargets() []BriefRouteTarget`
 
 GetExportTargets returns the ExportTargets field if non-nil, zero value otherwise.
 
 ### GetExportTargetsOk
 
-`func (o *L2VPN) GetExportTargetsOk() (*[]RouteTarget, bool)`
+`func (o *L2VPN) GetExportTargetsOk() (*[]BriefRouteTarget, bool)`
 
 GetExportTargetsOk returns a tuple with the ExportTargets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExportTargets
 
-`func (o *L2VPN) SetExportTargets(v []RouteTarget)`
+`func (o *L2VPN) SetExportTargets(v []BriefRouteTarget)`
 
 SetExportTargets sets ExportTargets field to given value.
 
@@ -275,6 +318,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *L2VPN) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *L2VPN) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *L2VPN) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *L2VPN) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *L2VPN) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *L2VPN) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *L2VPN) GetComments() string`

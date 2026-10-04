@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**IPAddressRoleValue**](IPAddressRoleValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkIPAddressRequestRole**](BulkIPAddressRequestRole.md) |  | [optional] 
 **Label** | Pointer to [**IPAddressRoleLabel**](IPAddressRoleLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *IPAddressRole) GetValue() IPAddressRoleValue`
+`func (o *IPAddressRole) GetValue() BulkIPAddressRequestRole`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *IPAddressRole) GetValueOk() (*IPAddressRoleValue, bool)`
+`func (o *IPAddressRole) GetValueOk() (*BulkIPAddressRequestRole, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *IPAddressRole) SetValue(v IPAddressRoleValue)`
+`func (o *IPAddressRole) SetValue(v BulkIPAddressRequestRole)`
 
 SetValue sets Value field to given value.
 

@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Device** | [**BriefDevice**](BriefDevice.md) |  | 
 **Parent** | Pointer to **NullableInt32** |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
+**Status** | Pointer to [**InventoryItemStatus**](InventoryItemStatus.md) |  | [optional] 
 **Role** | Pointer to [**NullableBriefInventoryItemRole**](BriefInventoryItemRole.md) |  | [optional] 
 **Manufacturer** | Pointer to [**NullableBriefManufacturer**](BriefManufacturer.md) |  | [optional] 
 **PartId** | Pointer to **string** | Manufacturer-assigned part identifier | [optional] 
@@ -21,6 +23,7 @@ Name | Type | Description | Notes
 **ComponentType** | Pointer to **NullableString** |  | [optional] 
 **ComponentId** | Pointer to **NullableInt64** |  | [optional] 
 **Component** | **interface{}** |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -31,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewInventoryItem
 
-`func NewInventoryItem(id int32, url string, display string, device BriefDevice, name string, component interface{}, created NullableTime, lastUpdated NullableTime, depth int32, ) *InventoryItem`
+`func NewInventoryItem(id int32, url string, displayUrl string, display string, device BriefDevice, name string, component interface{}, created NullableTime, lastUpdated NullableTime, depth int32, ) *InventoryItem`
 
 NewInventoryItem instantiates a new InventoryItem object
 This constructor will assign default values to properties that have it defined,
@@ -84,6 +87,26 @@ and a boolean to check if the value has been set.
 `func (o *InventoryItem) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *InventoryItem) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *InventoryItem) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *InventoryItem) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -205,6 +228,31 @@ SetLabel sets Label field to given value.
 `func (o *InventoryItem) HasLabel() bool`
 
 HasLabel returns a boolean if a field has been set.
+
+### GetStatus
+
+`func (o *InventoryItem) GetStatus() InventoryItemStatus`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *InventoryItem) GetStatusOk() (*InventoryItemStatus, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *InventoryItem) SetStatus(v InventoryItemStatus)`
+
+SetStatus sets Status field to given value.
+
+### HasStatus
+
+`func (o *InventoryItem) HasStatus() bool`
+
+HasStatus returns a boolean if a field has been set.
 
 ### GetRole
 
@@ -511,6 +559,41 @@ SetComponent sets Component field to given value.
 `func (o *InventoryItem) UnsetComponent()`
 
 UnsetComponent ensures that no value is present for Component, not even an explicit nil
+### GetOwner
+
+`func (o *InventoryItem) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *InventoryItem) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *InventoryItem) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *InventoryItem) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *InventoryItem) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *InventoryItem) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *InventoryItem) GetTags() []NestedTag`

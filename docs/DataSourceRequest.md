@@ -5,20 +5,23 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Type** | [**DataSourceTypeValue**](DataSourceTypeValue.md) |  | 
+**Type** | [**BulkDataSourceRequestType**](BulkDataSourceRequestType.md) |  | 
 **SourceUrl** | **string** |  | 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Comments** | Pointer to **string** |  | [optional] 
+**SyncInterval** | Pointer to [**NullableBulkDataSourceRequestSyncInterval**](BulkDataSourceRequestSyncInterval.md) |  | [optional] 
 **Parameters** | Pointer to **interface{}** |  | [optional] 
-**IgnoreRules** | Pointer to **string** | Patterns (one per line) matching files to ignore when syncing | [optional] 
+**IgnoreRules** | Pointer to **string** | Patterns (one per line) matching files or paths to ignore when syncing | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
+**Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewDataSourceRequest
 
-`func NewDataSourceRequest(name string, type_ DataSourceTypeValue, sourceUrl string, ) *DataSourceRequest`
+`func NewDataSourceRequest(name string, type_ BulkDataSourceRequestType, sourceUrl string, ) *DataSourceRequest`
 
 NewDataSourceRequest instantiates a new DataSourceRequest object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +58,20 @@ SetName sets Name field to given value.
 
 ### GetType
 
-`func (o *DataSourceRequest) GetType() DataSourceTypeValue`
+`func (o *DataSourceRequest) GetType() BulkDataSourceRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *DataSourceRequest) GetTypeOk() (*DataSourceTypeValue, bool)`
+`func (o *DataSourceRequest) GetTypeOk() (*BulkDataSourceRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *DataSourceRequest) SetType(v DataSourceTypeValue)`
+`func (o *DataSourceRequest) SetType(v BulkDataSourceRequestType)`
 
 SetType sets Type field to given value.
 
@@ -143,31 +146,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### GetComments
+### GetSyncInterval
 
-`func (o *DataSourceRequest) GetComments() string`
+`func (o *DataSourceRequest) GetSyncInterval() BulkDataSourceRequestSyncInterval`
 
-GetComments returns the Comments field if non-nil, zero value otherwise.
+GetSyncInterval returns the SyncInterval field if non-nil, zero value otherwise.
 
-### GetCommentsOk
+### GetSyncIntervalOk
 
-`func (o *DataSourceRequest) GetCommentsOk() (*string, bool)`
+`func (o *DataSourceRequest) GetSyncIntervalOk() (*BulkDataSourceRequestSyncInterval, bool)`
 
-GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+GetSyncIntervalOk returns a tuple with the SyncInterval field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetComments
+### SetSyncInterval
 
-`func (o *DataSourceRequest) SetComments(v string)`
+`func (o *DataSourceRequest) SetSyncInterval(v BulkDataSourceRequestSyncInterval)`
 
-SetComments sets Comments field to given value.
+SetSyncInterval sets SyncInterval field to given value.
 
-### HasComments
+### HasSyncInterval
 
-`func (o *DataSourceRequest) HasComments() bool`
+`func (o *DataSourceRequest) HasSyncInterval() bool`
 
-HasComments returns a boolean if a field has been set.
+HasSyncInterval returns a boolean if a field has been set.
 
+### SetSyncIntervalNil
+
+`func (o *DataSourceRequest) SetSyncIntervalNil(b bool)`
+
+ SetSyncIntervalNil sets the value for SyncInterval to be an explicit nil
+
+### UnsetSyncInterval
+`func (o *DataSourceRequest) UnsetSyncInterval()`
+
+UnsetSyncInterval ensures that no value is present for SyncInterval, not even an explicit nil
 ### GetParameters
 
 `func (o *DataSourceRequest) GetParameters() interface{}`
@@ -227,6 +240,91 @@ SetIgnoreRules sets IgnoreRules field to given value.
 `func (o *DataSourceRequest) HasIgnoreRules() bool`
 
 HasIgnoreRules returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *DataSourceRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *DataSourceRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *DataSourceRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *DataSourceRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *DataSourceRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *DataSourceRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *DataSourceRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *DataSourceRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *DataSourceRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *DataSourceRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *DataSourceRequest) GetTags() []NestedTagRequest`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *DataSourceRequest) GetTagsOk() (*[]NestedTagRequest, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *DataSourceRequest) SetTags(v []NestedTagRequest)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *DataSourceRequest) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 ### GetCustomFields
 

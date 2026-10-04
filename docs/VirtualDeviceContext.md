@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Device** | [**BriefDevice**](BriefDevice.md) |  | 
@@ -16,6 +17,7 @@ Name | Type | Description | Notes
 **PrimaryIp6** | Pointer to [**NullableBriefIPAddress**](BriefIPAddress.md) |  | [optional] 
 **Status** | [**VirtualDeviceContextStatus**](VirtualDeviceContextStatus.md) |  | 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -27,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewVirtualDeviceContext
 
-`func NewVirtualDeviceContext(id int32, url string, display string, name string, device BriefDevice, primaryIp NullableBriefIPAddress, status VirtualDeviceContextStatus, created NullableTime, lastUpdated NullableTime, interfaceCount int64, ) *VirtualDeviceContext`
+`func NewVirtualDeviceContext(id int32, url string, displayUrl string, display string, name string, device BriefDevice, primaryIp NullableBriefIPAddress, status VirtualDeviceContextStatus, created NullableTime, lastUpdated NullableTime, interfaceCount int64, ) *VirtualDeviceContext`
 
 NewVirtualDeviceContext instantiates a new VirtualDeviceContext object
 This constructor will assign default values to properties that have it defined,
@@ -80,6 +82,26 @@ and a boolean to check if the value has been set.
 `func (o *VirtualDeviceContext) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *VirtualDeviceContext) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *VirtualDeviceContext) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *VirtualDeviceContext) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -357,6 +379,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *VirtualDeviceContext) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *VirtualDeviceContext) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *VirtualDeviceContext) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *VirtualDeviceContext) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *VirtualDeviceContext) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *VirtualDeviceContext) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *VirtualDeviceContext) GetComments() string`

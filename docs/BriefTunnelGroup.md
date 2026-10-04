@@ -10,13 +10,12 @@ Name | Type | Description | Notes
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**TunnelCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefTunnelGroup
 
-`func NewBriefTunnelGroup(id int32, url string, display string, name string, slug string, tunnelCount int64, ) *BriefTunnelGroup`
+`func NewBriefTunnelGroup(id int32, url string, display string, name string, slug string, ) *BriefTunnelGroup`
 
 NewBriefTunnelGroup instantiates a new BriefTunnelGroup object
 This constructor will assign default values to properties that have it defined,
@@ -155,26 +154,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefTunnelGroup) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetTunnelCount
-
-`func (o *BriefTunnelGroup) GetTunnelCount() int64`
-
-GetTunnelCount returns the TunnelCount field if non-nil, zero value otherwise.
-
-### GetTunnelCountOk
-
-`func (o *BriefTunnelGroup) GetTunnelCountOk() (*int64, bool)`
-
-GetTunnelCountOk returns a tuple with the TunnelCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTunnelCount
-
-`func (o *BriefTunnelGroup) SetTunnelCount(v int64)`
-
-SetTunnelCount sets TunnelCount field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

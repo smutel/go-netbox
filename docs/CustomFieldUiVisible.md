@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**CustomFieldUiVisibleValue**](CustomFieldUiVisibleValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkCustomFieldRequestUiVisible**](BulkCustomFieldRequestUiVisible.md) |  | [optional] 
 **Label** | Pointer to [**CustomFieldUiVisibleLabel**](CustomFieldUiVisibleLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *CustomFieldUiVisible) GetValue() CustomFieldUiVisibleValue`
+`func (o *CustomFieldUiVisible) GetValue() BulkCustomFieldRequestUiVisible`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *CustomFieldUiVisible) GetValueOk() (*CustomFieldUiVisibleValue, bool)`
+`func (o *CustomFieldUiVisible) GetValueOk() (*BulkCustomFieldRequestUiVisible, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *CustomFieldUiVisible) SetValue(v CustomFieldUiVisibleValue)`
+`func (o *CustomFieldUiVisible) SetValue(v BulkCustomFieldRequestUiVisible)`
 
 SetValue sets Value field to given value.
 

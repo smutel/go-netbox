@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VirtualMachine** | [**BriefVirtualMachineRequest**](BriefVirtualMachineRequest.md) |  | 
+**VirtualMachine** | [**BulkVMInterfaceRequestVirtualMachine**](BulkVMInterfaceRequestVirtualMachine.md) |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
 **Size** | **int32** |  | 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewVirtualDiskRequest
 
-`func NewVirtualDiskRequest(virtualMachine BriefVirtualMachineRequest, name string, size int32, ) *VirtualDiskRequest`
+`func NewVirtualDiskRequest(virtualMachine BulkVMInterfaceRequestVirtualMachine, name string, size int32, ) *VirtualDiskRequest`
 
 NewVirtualDiskRequest instantiates a new VirtualDiskRequest object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +33,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetVirtualMachine
 
-`func (o *VirtualDiskRequest) GetVirtualMachine() BriefVirtualMachineRequest`
+`func (o *VirtualDiskRequest) GetVirtualMachine() BulkVMInterfaceRequestVirtualMachine`
 
 GetVirtualMachine returns the VirtualMachine field if non-nil, zero value otherwise.
 
 ### GetVirtualMachineOk
 
-`func (o *VirtualDiskRequest) GetVirtualMachineOk() (*BriefVirtualMachineRequest, bool)`
+`func (o *VirtualDiskRequest) GetVirtualMachineOk() (*BulkVMInterfaceRequestVirtualMachine, bool)`
 
 GetVirtualMachineOk returns a tuple with the VirtualMachine field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVirtualMachine
 
-`func (o *VirtualDiskRequest) SetVirtualMachine(v BriefVirtualMachineRequest)`
+`func (o *VirtualDiskRequest) SetVirtualMachine(v BulkVMInterfaceRequestVirtualMachine)`
 
 SetVirtualMachine sets VirtualMachine field to given value.
 
@@ -115,6 +116,41 @@ and a boolean to check if the value has been set.
 SetSize sets Size field to given value.
 
 
+### GetOwner
+
+`func (o *VirtualDiskRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *VirtualDiskRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *VirtualDiskRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *VirtualDiskRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *VirtualDiskRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *VirtualDiskRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *VirtualDiskRequest) GetTags() []NestedTagRequest`

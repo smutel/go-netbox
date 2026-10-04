@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **L2vpn** | [**BriefL2VPN**](BriefL2VPN.md) |  | 
 **AssignedObjectType** | **string** |  | 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewL2VPNTermination
 
-`func NewL2VPNTermination(id int32, url string, display string, l2vpn BriefL2VPN, assignedObjectType string, assignedObjectId int64, assignedObject interface{}, created NullableTime, lastUpdated NullableTime, ) *L2VPNTermination`
+`func NewL2VPNTermination(id int32, url string, displayUrl string, display string, l2vpn BriefL2VPN, assignedObjectType string, assignedObjectId int64, assignedObject interface{}, created NullableTime, lastUpdated NullableTime, ) *L2VPNTermination`
 
 NewL2VPNTermination instantiates a new L2VPNTermination object
 This constructor will assign default values to properties that have it defined,
@@ -73,6 +74,26 @@ and a boolean to check if the value has been set.
 `func (o *L2VPNTermination) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *L2VPNTermination) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *L2VPNTermination) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *L2VPNTermination) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay

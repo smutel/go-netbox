@@ -41,6 +41,12 @@
 
 * `FC` (value: `"FC"`)
 
+* `FC_PC` (value: `"FC/PC"`)
+
+* `FC_UPC` (value: `"FC/UPC"`)
+
+* `FC_APC` (value: `"FC/APC"`)
+
 * `LC` (value: `"LC"`)
 
 * `LC_PC` (value: `"LC/PC"`)
@@ -48,6 +54,14 @@
 * `LC_UPC` (value: `"LC/UPC"`)
 
 * `LC_APC` (value: `"LC/APC"`)
+
+* `MU` (value: `"MU"`)
+
+* `MU_PC` (value: `"MU/PC"`)
+
+* `MU_UPC` (value: `"MU/UPC"`)
+
+* `MU_APC` (value: `"MU/APC"`)
 
 * `LSH` (value: `"LSH"`)
 
@@ -83,6 +97,8 @@
 
 * `SN` (value: `"SN"`)
 
+* `MDC` (value: `"MDC"`)
+
 * `SMA_905` (value: `"SMA 905"`)
 
 * `SMA_906` (value: `"SMA 906"`)
@@ -94,6 +110,22 @@
 * `URM_P8` (value: `"URM-P8"`)
 
 * `SPLICE` (value: `"Splice"`)
+
+* `USB_TYPE_A` (value: `"USB Type A"`)
+
+* `USB_TYPE_B` (value: `"USB Type B"`)
+
+* `USB_TYPE_C` (value: `"USB Type C"`)
+
+* `USB_MINI_A` (value: `"USB Mini A"`)
+
+* `USB_MINI_B` (value: `"USB Mini B"`)
+
+* `USB_MICRO_A` (value: `"USB Micro A"`)
+
+* `USB_MICRO_B` (value: `"USB Micro B"`)
+
+* `USB_MICRO_AB` (value: `"USB Micro AB"`)
 
 * `OTHER` (value: `"Other"`)
 

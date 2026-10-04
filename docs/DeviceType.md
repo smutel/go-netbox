@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Manufacturer** | [**BriefManufacturer**](BriefManufacturer.md) |  | 
 **DefaultPlatform** | Pointer to [**NullableBriefPlatform**](BriefPlatform.md) |  | [optional] 
@@ -17,21 +18,26 @@ Name | Type | Description | Notes
 **IsFullDepth** | Pointer to **bool** | Device consumes both front and rear rack faces. | [optional] 
 **SubdeviceRole** | Pointer to [**NullableDeviceTypeSubdeviceRole**](DeviceTypeSubdeviceRole.md) |  | [optional] 
 **Airflow** | Pointer to [**NullableDeviceTypeAirflow**](DeviceTypeAirflow.md) |  | [optional] 
+**CoolingMethod** | Pointer to [**NullableDeviceCoolingMethod**](DeviceCoolingMethod.md) |  | [optional] 
 **Weight** | Pointer to **NullableFloat64** |  | [optional] 
 **WeightUnit** | Pointer to [**NullableDeviceTypeWeightUnit**](DeviceTypeWeightUnit.md) |  | [optional] 
+**EndOfLife** | Pointer to **NullableString** | The date after which this device type is no longer supported by the manufacturer | [optional] 
 **FrontImage** | Pointer to **NullableString** |  | [optional] 
 **RearImage** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
-**DeviceCount** | **int64** |  | [readonly] 
+**DeviceCount** | **int32** |  | [readonly] 
 **ConsolePortTemplateCount** | **int32** |  | [readonly] 
 **ConsoleServerPortTemplateCount** | **int32** |  | [readonly] 
 **PowerPortTemplateCount** | **int32** |  | [readonly] 
 **PowerOutletTemplateCount** | **int32** |  | [readonly] 
+**CoolingIntakeTemplateCount** | **int32** |  | [readonly] 
+**CoolingOutflowTemplateCount** | **int32** |  | [readonly] 
 **InterfaceTemplateCount** | **int32** |  | [readonly] 
 **FrontPortTemplateCount** | **int32** |  | [readonly] 
 **RearPortTemplateCount** | **int32** |  | [readonly] 
@@ -43,7 +49,7 @@ Name | Type | Description | Notes
 
 ### NewDeviceType
 
-`func NewDeviceType(id int32, url string, display string, manufacturer BriefManufacturer, model string, slug string, created NullableTime, lastUpdated NullableTime, deviceCount int64, consolePortTemplateCount int32, consoleServerPortTemplateCount int32, powerPortTemplateCount int32, powerOutletTemplateCount int32, interfaceTemplateCount int32, frontPortTemplateCount int32, rearPortTemplateCount int32, deviceBayTemplateCount int32, moduleBayTemplateCount int32, inventoryItemTemplateCount int32, ) *DeviceType`
+`func NewDeviceType(id int32, url string, displayUrl string, display string, manufacturer BriefManufacturer, model string, slug string, created NullableTime, lastUpdated NullableTime, deviceCount int32, consolePortTemplateCount int32, consoleServerPortTemplateCount int32, powerPortTemplateCount int32, powerOutletTemplateCount int32, coolingIntakeTemplateCount int32, coolingOutflowTemplateCount int32, interfaceTemplateCount int32, frontPortTemplateCount int32, rearPortTemplateCount int32, deviceBayTemplateCount int32, moduleBayTemplateCount int32, inventoryItemTemplateCount int32, ) *DeviceType`
 
 NewDeviceType instantiates a new DeviceType object
 This constructor will assign default values to properties that have it defined,
@@ -96,6 +102,26 @@ and a boolean to check if the value has been set.
 `func (o *DeviceType) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *DeviceType) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *DeviceType) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *DeviceType) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -383,6 +409,41 @@ HasAirflow returns a boolean if a field has been set.
 `func (o *DeviceType) UnsetAirflow()`
 
 UnsetAirflow ensures that no value is present for Airflow, not even an explicit nil
+### GetCoolingMethod
+
+`func (o *DeviceType) GetCoolingMethod() DeviceCoolingMethod`
+
+GetCoolingMethod returns the CoolingMethod field if non-nil, zero value otherwise.
+
+### GetCoolingMethodOk
+
+`func (o *DeviceType) GetCoolingMethodOk() (*DeviceCoolingMethod, bool)`
+
+GetCoolingMethodOk returns a tuple with the CoolingMethod field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingMethod
+
+`func (o *DeviceType) SetCoolingMethod(v DeviceCoolingMethod)`
+
+SetCoolingMethod sets CoolingMethod field to given value.
+
+### HasCoolingMethod
+
+`func (o *DeviceType) HasCoolingMethod() bool`
+
+HasCoolingMethod returns a boolean if a field has been set.
+
+### SetCoolingMethodNil
+
+`func (o *DeviceType) SetCoolingMethodNil(b bool)`
+
+ SetCoolingMethodNil sets the value for CoolingMethod to be an explicit nil
+
+### UnsetCoolingMethod
+`func (o *DeviceType) UnsetCoolingMethod()`
+
+UnsetCoolingMethod ensures that no value is present for CoolingMethod, not even an explicit nil
 ### GetWeight
 
 `func (o *DeviceType) GetWeight() float64`
@@ -453,6 +514,41 @@ HasWeightUnit returns a boolean if a field has been set.
 `func (o *DeviceType) UnsetWeightUnit()`
 
 UnsetWeightUnit ensures that no value is present for WeightUnit, not even an explicit nil
+### GetEndOfLife
+
+`func (o *DeviceType) GetEndOfLife() string`
+
+GetEndOfLife returns the EndOfLife field if non-nil, zero value otherwise.
+
+### GetEndOfLifeOk
+
+`func (o *DeviceType) GetEndOfLifeOk() (*string, bool)`
+
+GetEndOfLifeOk returns a tuple with the EndOfLife field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEndOfLife
+
+`func (o *DeviceType) SetEndOfLife(v string)`
+
+SetEndOfLife sets EndOfLife field to given value.
+
+### HasEndOfLife
+
+`func (o *DeviceType) HasEndOfLife() bool`
+
+HasEndOfLife returns a boolean if a field has been set.
+
+### SetEndOfLifeNil
+
+`func (o *DeviceType) SetEndOfLifeNil(b bool)`
+
+ SetEndOfLifeNil sets the value for EndOfLife to be an explicit nil
+
+### UnsetEndOfLife
+`func (o *DeviceType) UnsetEndOfLife()`
+
+UnsetEndOfLife ensures that no value is present for EndOfLife, not even an explicit nil
 ### GetFrontImage
 
 `func (o *DeviceType) GetFrontImage() string`
@@ -548,6 +644,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *DeviceType) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *DeviceType) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *DeviceType) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *DeviceType) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *DeviceType) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *DeviceType) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *DeviceType) GetComments() string`
@@ -685,20 +816,20 @@ SetLastUpdated sets LastUpdated field to given value.
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
 ### GetDeviceCount
 
-`func (o *DeviceType) GetDeviceCount() int64`
+`func (o *DeviceType) GetDeviceCount() int32`
 
 GetDeviceCount returns the DeviceCount field if non-nil, zero value otherwise.
 
 ### GetDeviceCountOk
 
-`func (o *DeviceType) GetDeviceCountOk() (*int64, bool)`
+`func (o *DeviceType) GetDeviceCountOk() (*int32, bool)`
 
 GetDeviceCountOk returns a tuple with the DeviceCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceCount
 
-`func (o *DeviceType) SetDeviceCount(v int64)`
+`func (o *DeviceType) SetDeviceCount(v int32)`
 
 SetDeviceCount sets DeviceCount field to given value.
 
@@ -781,6 +912,46 @@ and a boolean to check if the value has been set.
 `func (o *DeviceType) SetPowerOutletTemplateCount(v int32)`
 
 SetPowerOutletTemplateCount sets PowerOutletTemplateCount field to given value.
+
+
+### GetCoolingIntakeTemplateCount
+
+`func (o *DeviceType) GetCoolingIntakeTemplateCount() int32`
+
+GetCoolingIntakeTemplateCount returns the CoolingIntakeTemplateCount field if non-nil, zero value otherwise.
+
+### GetCoolingIntakeTemplateCountOk
+
+`func (o *DeviceType) GetCoolingIntakeTemplateCountOk() (*int32, bool)`
+
+GetCoolingIntakeTemplateCountOk returns a tuple with the CoolingIntakeTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingIntakeTemplateCount
+
+`func (o *DeviceType) SetCoolingIntakeTemplateCount(v int32)`
+
+SetCoolingIntakeTemplateCount sets CoolingIntakeTemplateCount field to given value.
+
+
+### GetCoolingOutflowTemplateCount
+
+`func (o *DeviceType) GetCoolingOutflowTemplateCount() int32`
+
+GetCoolingOutflowTemplateCount returns the CoolingOutflowTemplateCount field if non-nil, zero value otherwise.
+
+### GetCoolingOutflowTemplateCountOk
+
+`func (o *DeviceType) GetCoolingOutflowTemplateCountOk() (*int32, bool)`
+
+GetCoolingOutflowTemplateCountOk returns a tuple with the CoolingOutflowTemplateCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingOutflowTemplateCount
+
+`func (o *DeviceType) SetCoolingOutflowTemplateCount(v int32)`
+
+SetCoolingOutflowTemplateCount sets CoolingOutflowTemplateCount field to given value.
 
 
 ### GetInterfaceTemplateCount

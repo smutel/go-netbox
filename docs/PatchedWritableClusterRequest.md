@@ -5,12 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
-**Type** | Pointer to [**BriefClusterTypeRequest**](BriefClusterTypeRequest.md) |  | [optional] 
-**Group** | Pointer to [**NullableBriefClusterGroupRequest**](BriefClusterGroupRequest.md) |  | [optional] 
-**Status** | Pointer to [**ClusterStatusValue**](ClusterStatusValue.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
-**Site** | Pointer to [**NullableBriefSiteRequest**](BriefSiteRequest.md) |  | [optional] 
+**Type** | Pointer to [**BulkClusterRequestType**](BulkClusterRequestType.md) |  | [optional] 
+**Group** | Pointer to [**NullableBulkClusterRequestGroup**](BulkClusterRequestGroup.md) |  | [optional] 
+**Status** | Pointer to [**BulkClusterRequestStatus**](BulkClusterRequestStatus.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**ScopeType** | Pointer to **NullableString** |  | [optional] 
+**ScopeId** | Pointer to **NullableInt32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -61,20 +63,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *PatchedWritableClusterRequest) GetType() BriefClusterTypeRequest`
+`func (o *PatchedWritableClusterRequest) GetType() BulkClusterRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PatchedWritableClusterRequest) GetTypeOk() (*BriefClusterTypeRequest, bool)`
+`func (o *PatchedWritableClusterRequest) GetTypeOk() (*BulkClusterRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PatchedWritableClusterRequest) SetType(v BriefClusterTypeRequest)`
+`func (o *PatchedWritableClusterRequest) SetType(v BulkClusterRequestType)`
 
 SetType sets Type field to given value.
 
@@ -86,20 +88,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetGroup
 
-`func (o *PatchedWritableClusterRequest) GetGroup() BriefClusterGroupRequest`
+`func (o *PatchedWritableClusterRequest) GetGroup() BulkClusterRequestGroup`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *PatchedWritableClusterRequest) GetGroupOk() (*BriefClusterGroupRequest, bool)`
+`func (o *PatchedWritableClusterRequest) GetGroupOk() (*BulkClusterRequestGroup, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *PatchedWritableClusterRequest) SetGroup(v BriefClusterGroupRequest)`
+`func (o *PatchedWritableClusterRequest) SetGroup(v BulkClusterRequestGroup)`
 
 SetGroup sets Group field to given value.
 
@@ -121,20 +123,20 @@ HasGroup returns a boolean if a field has been set.
 UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetStatus
 
-`func (o *PatchedWritableClusterRequest) GetStatus() ClusterStatusValue`
+`func (o *PatchedWritableClusterRequest) GetStatus() BulkClusterRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWritableClusterRequest) GetStatusOk() (*ClusterStatusValue, bool)`
+`func (o *PatchedWritableClusterRequest) GetStatusOk() (*BulkClusterRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWritableClusterRequest) SetStatus(v ClusterStatusValue)`
+`func (o *PatchedWritableClusterRequest) SetStatus(v BulkClusterRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -146,20 +148,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *PatchedWritableClusterRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableClusterRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableClusterRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableClusterRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableClusterRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableClusterRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -179,41 +181,76 @@ HasTenant returns a boolean if a field has been set.
 `func (o *PatchedWritableClusterRequest) UnsetTenant()`
 
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
-### GetSite
+### GetScopeType
 
-`func (o *PatchedWritableClusterRequest) GetSite() BriefSiteRequest`
+`func (o *PatchedWritableClusterRequest) GetScopeType() string`
 
-GetSite returns the Site field if non-nil, zero value otherwise.
+GetScopeType returns the ScopeType field if non-nil, zero value otherwise.
 
-### GetSiteOk
+### GetScopeTypeOk
 
-`func (o *PatchedWritableClusterRequest) GetSiteOk() (*BriefSiteRequest, bool)`
+`func (o *PatchedWritableClusterRequest) GetScopeTypeOk() (*string, bool)`
 
-GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
+GetScopeTypeOk returns a tuple with the ScopeType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetSite
+### SetScopeType
 
-`func (o *PatchedWritableClusterRequest) SetSite(v BriefSiteRequest)`
+`func (o *PatchedWritableClusterRequest) SetScopeType(v string)`
 
-SetSite sets Site field to given value.
+SetScopeType sets ScopeType field to given value.
 
-### HasSite
+### HasScopeType
 
-`func (o *PatchedWritableClusterRequest) HasSite() bool`
+`func (o *PatchedWritableClusterRequest) HasScopeType() bool`
 
-HasSite returns a boolean if a field has been set.
+HasScopeType returns a boolean if a field has been set.
 
-### SetSiteNil
+### SetScopeTypeNil
 
-`func (o *PatchedWritableClusterRequest) SetSiteNil(b bool)`
+`func (o *PatchedWritableClusterRequest) SetScopeTypeNil(b bool)`
 
- SetSiteNil sets the value for Site to be an explicit nil
+ SetScopeTypeNil sets the value for ScopeType to be an explicit nil
 
-### UnsetSite
-`func (o *PatchedWritableClusterRequest) UnsetSite()`
+### UnsetScopeType
+`func (o *PatchedWritableClusterRequest) UnsetScopeType()`
 
-UnsetSite ensures that no value is present for Site, not even an explicit nil
+UnsetScopeType ensures that no value is present for ScopeType, not even an explicit nil
+### GetScopeId
+
+`func (o *PatchedWritableClusterRequest) GetScopeId() int32`
+
+GetScopeId returns the ScopeId field if non-nil, zero value otherwise.
+
+### GetScopeIdOk
+
+`func (o *PatchedWritableClusterRequest) GetScopeIdOk() (*int32, bool)`
+
+GetScopeIdOk returns a tuple with the ScopeId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetScopeId
+
+`func (o *PatchedWritableClusterRequest) SetScopeId(v int32)`
+
+SetScopeId sets ScopeId field to given value.
+
+### HasScopeId
+
+`func (o *PatchedWritableClusterRequest) HasScopeId() bool`
+
+HasScopeId returns a boolean if a field has been set.
+
+### SetScopeIdNil
+
+`func (o *PatchedWritableClusterRequest) SetScopeIdNil(b bool)`
+
+ SetScopeIdNil sets the value for ScopeId to be an explicit nil
+
+### UnsetScopeId
+`func (o *PatchedWritableClusterRequest) UnsetScopeId()`
+
+UnsetScopeId ensures that no value is present for ScopeId, not even an explicit nil
 ### GetDescription
 
 `func (o *PatchedWritableClusterRequest) GetDescription() string`
@@ -239,6 +276,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableClusterRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableClusterRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableClusterRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableClusterRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableClusterRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableClusterRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableClusterRequest) GetComments() string`

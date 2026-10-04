@@ -6,13 +6,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
 **Version** | [**IKEPolicyVersion**](IKEPolicyVersion.md) |  | 
 **Mode** | Pointer to [**IKEPolicyMode**](IKEPolicyMode.md) |  | [optional] 
-**Proposals** | Pointer to [**[]IKEProposal**](IKEProposal.md) |  | [optional] 
+**Proposals** | Pointer to [**[]BriefIKEProposal**](BriefIKEProposal.md) |  | [optional] 
 **PresharedKey** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -23,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewIKEPolicy
 
-`func NewIKEPolicy(id int32, url string, display string, name string, version IKEPolicyVersion, created NullableTime, lastUpdated NullableTime, ) *IKEPolicy`
+`func NewIKEPolicy(id int32, url string, displayUrl string, display string, name string, version IKEPolicyVersion, created NullableTime, lastUpdated NullableTime, ) *IKEPolicy`
 
 NewIKEPolicy instantiates a new IKEPolicy object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +78,26 @@ and a boolean to check if the value has been set.
 `func (o *IKEPolicy) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *IKEPolicy) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *IKEPolicy) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *IKEPolicy) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -190,20 +212,20 @@ HasMode returns a boolean if a field has been set.
 
 ### GetProposals
 
-`func (o *IKEPolicy) GetProposals() []IKEProposal`
+`func (o *IKEPolicy) GetProposals() []BriefIKEProposal`
 
 GetProposals returns the Proposals field if non-nil, zero value otherwise.
 
 ### GetProposalsOk
 
-`func (o *IKEPolicy) GetProposalsOk() (*[]IKEProposal, bool)`
+`func (o *IKEPolicy) GetProposalsOk() (*[]BriefIKEProposal, bool)`
 
 GetProposalsOk returns a tuple with the Proposals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProposals
 
-`func (o *IKEPolicy) SetProposals(v []IKEProposal)`
+`func (o *IKEPolicy) SetProposals(v []BriefIKEProposal)`
 
 SetProposals sets Proposals field to given value.
 
@@ -238,6 +260,41 @@ SetPresharedKey sets PresharedKey field to given value.
 
 HasPresharedKey returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *IKEPolicy) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *IKEPolicy) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *IKEPolicy) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *IKEPolicy) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *IKEPolicy) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *IKEPolicy) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *IKEPolicy) GetComments() string`

@@ -1,0 +1,766 @@
+# BulkCustomFieldRequest
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Id** | **int32** |  | 
+**ObjectTypes** | **[]string** |  | 
+**Type** | [**BulkCustomFieldRequestType**](BulkCustomFieldRequestType.md) |  | 
+**RelatedObjectType** | Pointer to **NullableString** |  | [optional] 
+**Name** | **string** | Internal field name | 
+**Label** | Pointer to **string** | Name of the field as displayed to users (if not provided, &#39;the field&#39;s name will be used) | [optional] 
+**GroupName** | Pointer to **string** | Custom fields within the same group will be displayed together | [optional] 
+**Description** | Pointer to **string** |  | [optional] 
+**Required** | Pointer to **bool** | This field is required when creating new objects or editing an existing object. | [optional] 
+**Unique** | Pointer to **bool** | The value of this field must be unique for the assigned object | [optional] 
+**SearchWeight** | Pointer to **int32** | Weighting for search. Lower values are considered more important. Fields with a search weight of zero will be ignored. | [optional] 
+**FilterLogic** | Pointer to [**BulkCustomFieldRequestFilterLogic**](BulkCustomFieldRequestFilterLogic.md) |  | [optional] 
+**UiVisible** | Pointer to [**BulkCustomFieldRequestUiVisible**](BulkCustomFieldRequestUiVisible.md) |  | [optional] 
+**UiEditable** | Pointer to [**BulkCustomFieldRequestUiEditable**](BulkCustomFieldRequestUiEditable.md) |  | [optional] 
+**IsCloneable** | Pointer to **bool** | Replicate this value when cloning objects | [optional] 
+**NullsFirst** | Pointer to **bool** | Sort null values before non-null values when ordering by this field | [optional] 
+**Default** | Pointer to **interface{}** | Default value for the field (must be a JSON value). Encapsulate strings with double quotes (e.g. \&quot;Foo\&quot;). | [optional] 
+**RelatedObjectFilter** | Pointer to **interface{}** | Filter the object selection choices using a query_params dict (must be a JSON value).Encapsulate strings with double quotes (e.g. \&quot;Foo\&quot;). | [optional] 
+**Weight** | Pointer to **int32** | Fields with higher weights appear lower in a form. | [optional] 
+**ValidationMinimum** | Pointer to **NullableFloat64** | Minimum allowed value (for numeric fields) | [optional] 
+**ValidationMaximum** | Pointer to **NullableFloat64** | Maximum allowed value (for numeric fields) | [optional] 
+**ValidationRegex** | Pointer to **string** | Regular expression to enforce on text field values. Use ^ and $ to force matching of entire string. For example, &lt;code&gt;^[A-Z]{3}$&lt;/code&gt; will limit values to exactly three uppercase letters. | [optional] 
+**ValidationSchema** | Pointer to **interface{}** | A JSON schema definition for validating the custom field value | [optional] 
+**ChoiceSet** | Pointer to [**NullableBulkCustomFieldRequestChoiceSet**](BulkCustomFieldRequestChoiceSet.md) |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
+
+## Methods
+
+### NewBulkCustomFieldRequest
+
+`func NewBulkCustomFieldRequest(id int32, objectTypes []string, type_ BulkCustomFieldRequestType, name string, ) *BulkCustomFieldRequest`
+
+NewBulkCustomFieldRequest instantiates a new BulkCustomFieldRequest object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewBulkCustomFieldRequestWithDefaults
+
+`func NewBulkCustomFieldRequestWithDefaults() *BulkCustomFieldRequest`
+
+NewBulkCustomFieldRequestWithDefaults instantiates a new BulkCustomFieldRequest object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetId
+
+`func (o *BulkCustomFieldRequest) GetId() int32`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *BulkCustomFieldRequest) GetIdOk() (*int32, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetId
+
+`func (o *BulkCustomFieldRequest) SetId(v int32)`
+
+SetId sets Id field to given value.
+
+
+### GetObjectTypes
+
+`func (o *BulkCustomFieldRequest) GetObjectTypes() []string`
+
+GetObjectTypes returns the ObjectTypes field if non-nil, zero value otherwise.
+
+### GetObjectTypesOk
+
+`func (o *BulkCustomFieldRequest) GetObjectTypesOk() (*[]string, bool)`
+
+GetObjectTypesOk returns a tuple with the ObjectTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObjectTypes
+
+`func (o *BulkCustomFieldRequest) SetObjectTypes(v []string)`
+
+SetObjectTypes sets ObjectTypes field to given value.
+
+
+### GetType
+
+`func (o *BulkCustomFieldRequest) GetType() BulkCustomFieldRequestType`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *BulkCustomFieldRequest) GetTypeOk() (*BulkCustomFieldRequestType, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *BulkCustomFieldRequest) SetType(v BulkCustomFieldRequestType)`
+
+SetType sets Type field to given value.
+
+
+### GetRelatedObjectType
+
+`func (o *BulkCustomFieldRequest) GetRelatedObjectType() string`
+
+GetRelatedObjectType returns the RelatedObjectType field if non-nil, zero value otherwise.
+
+### GetRelatedObjectTypeOk
+
+`func (o *BulkCustomFieldRequest) GetRelatedObjectTypeOk() (*string, bool)`
+
+GetRelatedObjectTypeOk returns a tuple with the RelatedObjectType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelatedObjectType
+
+`func (o *BulkCustomFieldRequest) SetRelatedObjectType(v string)`
+
+SetRelatedObjectType sets RelatedObjectType field to given value.
+
+### HasRelatedObjectType
+
+`func (o *BulkCustomFieldRequest) HasRelatedObjectType() bool`
+
+HasRelatedObjectType returns a boolean if a field has been set.
+
+### SetRelatedObjectTypeNil
+
+`func (o *BulkCustomFieldRequest) SetRelatedObjectTypeNil(b bool)`
+
+ SetRelatedObjectTypeNil sets the value for RelatedObjectType to be an explicit nil
+
+### UnsetRelatedObjectType
+`func (o *BulkCustomFieldRequest) UnsetRelatedObjectType()`
+
+UnsetRelatedObjectType ensures that no value is present for RelatedObjectType, not even an explicit nil
+### GetName
+
+`func (o *BulkCustomFieldRequest) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *BulkCustomFieldRequest) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *BulkCustomFieldRequest) SetName(v string)`
+
+SetName sets Name field to given value.
+
+
+### GetLabel
+
+`func (o *BulkCustomFieldRequest) GetLabel() string`
+
+GetLabel returns the Label field if non-nil, zero value otherwise.
+
+### GetLabelOk
+
+`func (o *BulkCustomFieldRequest) GetLabelOk() (*string, bool)`
+
+GetLabelOk returns a tuple with the Label field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLabel
+
+`func (o *BulkCustomFieldRequest) SetLabel(v string)`
+
+SetLabel sets Label field to given value.
+
+### HasLabel
+
+`func (o *BulkCustomFieldRequest) HasLabel() bool`
+
+HasLabel returns a boolean if a field has been set.
+
+### GetGroupName
+
+`func (o *BulkCustomFieldRequest) GetGroupName() string`
+
+GetGroupName returns the GroupName field if non-nil, zero value otherwise.
+
+### GetGroupNameOk
+
+`func (o *BulkCustomFieldRequest) GetGroupNameOk() (*string, bool)`
+
+GetGroupNameOk returns a tuple with the GroupName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroupName
+
+`func (o *BulkCustomFieldRequest) SetGroupName(v string)`
+
+SetGroupName sets GroupName field to given value.
+
+### HasGroupName
+
+`func (o *BulkCustomFieldRequest) HasGroupName() bool`
+
+HasGroupName returns a boolean if a field has been set.
+
+### GetDescription
+
+`func (o *BulkCustomFieldRequest) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *BulkCustomFieldRequest) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *BulkCustomFieldRequest) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *BulkCustomFieldRequest) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
+
+### GetRequired
+
+`func (o *BulkCustomFieldRequest) GetRequired() bool`
+
+GetRequired returns the Required field if non-nil, zero value otherwise.
+
+### GetRequiredOk
+
+`func (o *BulkCustomFieldRequest) GetRequiredOk() (*bool, bool)`
+
+GetRequiredOk returns a tuple with the Required field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRequired
+
+`func (o *BulkCustomFieldRequest) SetRequired(v bool)`
+
+SetRequired sets Required field to given value.
+
+### HasRequired
+
+`func (o *BulkCustomFieldRequest) HasRequired() bool`
+
+HasRequired returns a boolean if a field has been set.
+
+### GetUnique
+
+`func (o *BulkCustomFieldRequest) GetUnique() bool`
+
+GetUnique returns the Unique field if non-nil, zero value otherwise.
+
+### GetUniqueOk
+
+`func (o *BulkCustomFieldRequest) GetUniqueOk() (*bool, bool)`
+
+GetUniqueOk returns a tuple with the Unique field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUnique
+
+`func (o *BulkCustomFieldRequest) SetUnique(v bool)`
+
+SetUnique sets Unique field to given value.
+
+### HasUnique
+
+`func (o *BulkCustomFieldRequest) HasUnique() bool`
+
+HasUnique returns a boolean if a field has been set.
+
+### GetSearchWeight
+
+`func (o *BulkCustomFieldRequest) GetSearchWeight() int32`
+
+GetSearchWeight returns the SearchWeight field if non-nil, zero value otherwise.
+
+### GetSearchWeightOk
+
+`func (o *BulkCustomFieldRequest) GetSearchWeightOk() (*int32, bool)`
+
+GetSearchWeightOk returns a tuple with the SearchWeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSearchWeight
+
+`func (o *BulkCustomFieldRequest) SetSearchWeight(v int32)`
+
+SetSearchWeight sets SearchWeight field to given value.
+
+### HasSearchWeight
+
+`func (o *BulkCustomFieldRequest) HasSearchWeight() bool`
+
+HasSearchWeight returns a boolean if a field has been set.
+
+### GetFilterLogic
+
+`func (o *BulkCustomFieldRequest) GetFilterLogic() BulkCustomFieldRequestFilterLogic`
+
+GetFilterLogic returns the FilterLogic field if non-nil, zero value otherwise.
+
+### GetFilterLogicOk
+
+`func (o *BulkCustomFieldRequest) GetFilterLogicOk() (*BulkCustomFieldRequestFilterLogic, bool)`
+
+GetFilterLogicOk returns a tuple with the FilterLogic field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFilterLogic
+
+`func (o *BulkCustomFieldRequest) SetFilterLogic(v BulkCustomFieldRequestFilterLogic)`
+
+SetFilterLogic sets FilterLogic field to given value.
+
+### HasFilterLogic
+
+`func (o *BulkCustomFieldRequest) HasFilterLogic() bool`
+
+HasFilterLogic returns a boolean if a field has been set.
+
+### GetUiVisible
+
+`func (o *BulkCustomFieldRequest) GetUiVisible() BulkCustomFieldRequestUiVisible`
+
+GetUiVisible returns the UiVisible field if non-nil, zero value otherwise.
+
+### GetUiVisibleOk
+
+`func (o *BulkCustomFieldRequest) GetUiVisibleOk() (*BulkCustomFieldRequestUiVisible, bool)`
+
+GetUiVisibleOk returns a tuple with the UiVisible field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUiVisible
+
+`func (o *BulkCustomFieldRequest) SetUiVisible(v BulkCustomFieldRequestUiVisible)`
+
+SetUiVisible sets UiVisible field to given value.
+
+### HasUiVisible
+
+`func (o *BulkCustomFieldRequest) HasUiVisible() bool`
+
+HasUiVisible returns a boolean if a field has been set.
+
+### GetUiEditable
+
+`func (o *BulkCustomFieldRequest) GetUiEditable() BulkCustomFieldRequestUiEditable`
+
+GetUiEditable returns the UiEditable field if non-nil, zero value otherwise.
+
+### GetUiEditableOk
+
+`func (o *BulkCustomFieldRequest) GetUiEditableOk() (*BulkCustomFieldRequestUiEditable, bool)`
+
+GetUiEditableOk returns a tuple with the UiEditable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetUiEditable
+
+`func (o *BulkCustomFieldRequest) SetUiEditable(v BulkCustomFieldRequestUiEditable)`
+
+SetUiEditable sets UiEditable field to given value.
+
+### HasUiEditable
+
+`func (o *BulkCustomFieldRequest) HasUiEditable() bool`
+
+HasUiEditable returns a boolean if a field has been set.
+
+### GetIsCloneable
+
+`func (o *BulkCustomFieldRequest) GetIsCloneable() bool`
+
+GetIsCloneable returns the IsCloneable field if non-nil, zero value otherwise.
+
+### GetIsCloneableOk
+
+`func (o *BulkCustomFieldRequest) GetIsCloneableOk() (*bool, bool)`
+
+GetIsCloneableOk returns a tuple with the IsCloneable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsCloneable
+
+`func (o *BulkCustomFieldRequest) SetIsCloneable(v bool)`
+
+SetIsCloneable sets IsCloneable field to given value.
+
+### HasIsCloneable
+
+`func (o *BulkCustomFieldRequest) HasIsCloneable() bool`
+
+HasIsCloneable returns a boolean if a field has been set.
+
+### GetNullsFirst
+
+`func (o *BulkCustomFieldRequest) GetNullsFirst() bool`
+
+GetNullsFirst returns the NullsFirst field if non-nil, zero value otherwise.
+
+### GetNullsFirstOk
+
+`func (o *BulkCustomFieldRequest) GetNullsFirstOk() (*bool, bool)`
+
+GetNullsFirstOk returns a tuple with the NullsFirst field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNullsFirst
+
+`func (o *BulkCustomFieldRequest) SetNullsFirst(v bool)`
+
+SetNullsFirst sets NullsFirst field to given value.
+
+### HasNullsFirst
+
+`func (o *BulkCustomFieldRequest) HasNullsFirst() bool`
+
+HasNullsFirst returns a boolean if a field has been set.
+
+### GetDefault
+
+`func (o *BulkCustomFieldRequest) GetDefault() interface{}`
+
+GetDefault returns the Default field if non-nil, zero value otherwise.
+
+### GetDefaultOk
+
+`func (o *BulkCustomFieldRequest) GetDefaultOk() (*interface{}, bool)`
+
+GetDefaultOk returns a tuple with the Default field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDefault
+
+`func (o *BulkCustomFieldRequest) SetDefault(v interface{})`
+
+SetDefault sets Default field to given value.
+
+### HasDefault
+
+`func (o *BulkCustomFieldRequest) HasDefault() bool`
+
+HasDefault returns a boolean if a field has been set.
+
+### SetDefaultNil
+
+`func (o *BulkCustomFieldRequest) SetDefaultNil(b bool)`
+
+ SetDefaultNil sets the value for Default to be an explicit nil
+
+### UnsetDefault
+`func (o *BulkCustomFieldRequest) UnsetDefault()`
+
+UnsetDefault ensures that no value is present for Default, not even an explicit nil
+### GetRelatedObjectFilter
+
+`func (o *BulkCustomFieldRequest) GetRelatedObjectFilter() interface{}`
+
+GetRelatedObjectFilter returns the RelatedObjectFilter field if non-nil, zero value otherwise.
+
+### GetRelatedObjectFilterOk
+
+`func (o *BulkCustomFieldRequest) GetRelatedObjectFilterOk() (*interface{}, bool)`
+
+GetRelatedObjectFilterOk returns a tuple with the RelatedObjectFilter field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRelatedObjectFilter
+
+`func (o *BulkCustomFieldRequest) SetRelatedObjectFilter(v interface{})`
+
+SetRelatedObjectFilter sets RelatedObjectFilter field to given value.
+
+### HasRelatedObjectFilter
+
+`func (o *BulkCustomFieldRequest) HasRelatedObjectFilter() bool`
+
+HasRelatedObjectFilter returns a boolean if a field has been set.
+
+### SetRelatedObjectFilterNil
+
+`func (o *BulkCustomFieldRequest) SetRelatedObjectFilterNil(b bool)`
+
+ SetRelatedObjectFilterNil sets the value for RelatedObjectFilter to be an explicit nil
+
+### UnsetRelatedObjectFilter
+`func (o *BulkCustomFieldRequest) UnsetRelatedObjectFilter()`
+
+UnsetRelatedObjectFilter ensures that no value is present for RelatedObjectFilter, not even an explicit nil
+### GetWeight
+
+`func (o *BulkCustomFieldRequest) GetWeight() int32`
+
+GetWeight returns the Weight field if non-nil, zero value otherwise.
+
+### GetWeightOk
+
+`func (o *BulkCustomFieldRequest) GetWeightOk() (*int32, bool)`
+
+GetWeightOk returns a tuple with the Weight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeight
+
+`func (o *BulkCustomFieldRequest) SetWeight(v int32)`
+
+SetWeight sets Weight field to given value.
+
+### HasWeight
+
+`func (o *BulkCustomFieldRequest) HasWeight() bool`
+
+HasWeight returns a boolean if a field has been set.
+
+### GetValidationMinimum
+
+`func (o *BulkCustomFieldRequest) GetValidationMinimum() float64`
+
+GetValidationMinimum returns the ValidationMinimum field if non-nil, zero value otherwise.
+
+### GetValidationMinimumOk
+
+`func (o *BulkCustomFieldRequest) GetValidationMinimumOk() (*float64, bool)`
+
+GetValidationMinimumOk returns a tuple with the ValidationMinimum field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationMinimum
+
+`func (o *BulkCustomFieldRequest) SetValidationMinimum(v float64)`
+
+SetValidationMinimum sets ValidationMinimum field to given value.
+
+### HasValidationMinimum
+
+`func (o *BulkCustomFieldRequest) HasValidationMinimum() bool`
+
+HasValidationMinimum returns a boolean if a field has been set.
+
+### SetValidationMinimumNil
+
+`func (o *BulkCustomFieldRequest) SetValidationMinimumNil(b bool)`
+
+ SetValidationMinimumNil sets the value for ValidationMinimum to be an explicit nil
+
+### UnsetValidationMinimum
+`func (o *BulkCustomFieldRequest) UnsetValidationMinimum()`
+
+UnsetValidationMinimum ensures that no value is present for ValidationMinimum, not even an explicit nil
+### GetValidationMaximum
+
+`func (o *BulkCustomFieldRequest) GetValidationMaximum() float64`
+
+GetValidationMaximum returns the ValidationMaximum field if non-nil, zero value otherwise.
+
+### GetValidationMaximumOk
+
+`func (o *BulkCustomFieldRequest) GetValidationMaximumOk() (*float64, bool)`
+
+GetValidationMaximumOk returns a tuple with the ValidationMaximum field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationMaximum
+
+`func (o *BulkCustomFieldRequest) SetValidationMaximum(v float64)`
+
+SetValidationMaximum sets ValidationMaximum field to given value.
+
+### HasValidationMaximum
+
+`func (o *BulkCustomFieldRequest) HasValidationMaximum() bool`
+
+HasValidationMaximum returns a boolean if a field has been set.
+
+### SetValidationMaximumNil
+
+`func (o *BulkCustomFieldRequest) SetValidationMaximumNil(b bool)`
+
+ SetValidationMaximumNil sets the value for ValidationMaximum to be an explicit nil
+
+### UnsetValidationMaximum
+`func (o *BulkCustomFieldRequest) UnsetValidationMaximum()`
+
+UnsetValidationMaximum ensures that no value is present for ValidationMaximum, not even an explicit nil
+### GetValidationRegex
+
+`func (o *BulkCustomFieldRequest) GetValidationRegex() string`
+
+GetValidationRegex returns the ValidationRegex field if non-nil, zero value otherwise.
+
+### GetValidationRegexOk
+
+`func (o *BulkCustomFieldRequest) GetValidationRegexOk() (*string, bool)`
+
+GetValidationRegexOk returns a tuple with the ValidationRegex field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationRegex
+
+`func (o *BulkCustomFieldRequest) SetValidationRegex(v string)`
+
+SetValidationRegex sets ValidationRegex field to given value.
+
+### HasValidationRegex
+
+`func (o *BulkCustomFieldRequest) HasValidationRegex() bool`
+
+HasValidationRegex returns a boolean if a field has been set.
+
+### GetValidationSchema
+
+`func (o *BulkCustomFieldRequest) GetValidationSchema() interface{}`
+
+GetValidationSchema returns the ValidationSchema field if non-nil, zero value otherwise.
+
+### GetValidationSchemaOk
+
+`func (o *BulkCustomFieldRequest) GetValidationSchemaOk() (*interface{}, bool)`
+
+GetValidationSchemaOk returns a tuple with the ValidationSchema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValidationSchema
+
+`func (o *BulkCustomFieldRequest) SetValidationSchema(v interface{})`
+
+SetValidationSchema sets ValidationSchema field to given value.
+
+### HasValidationSchema
+
+`func (o *BulkCustomFieldRequest) HasValidationSchema() bool`
+
+HasValidationSchema returns a boolean if a field has been set.
+
+### SetValidationSchemaNil
+
+`func (o *BulkCustomFieldRequest) SetValidationSchemaNil(b bool)`
+
+ SetValidationSchemaNil sets the value for ValidationSchema to be an explicit nil
+
+### UnsetValidationSchema
+`func (o *BulkCustomFieldRequest) UnsetValidationSchema()`
+
+UnsetValidationSchema ensures that no value is present for ValidationSchema, not even an explicit nil
+### GetChoiceSet
+
+`func (o *BulkCustomFieldRequest) GetChoiceSet() BulkCustomFieldRequestChoiceSet`
+
+GetChoiceSet returns the ChoiceSet field if non-nil, zero value otherwise.
+
+### GetChoiceSetOk
+
+`func (o *BulkCustomFieldRequest) GetChoiceSetOk() (*BulkCustomFieldRequestChoiceSet, bool)`
+
+GetChoiceSetOk returns a tuple with the ChoiceSet field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChoiceSet
+
+`func (o *BulkCustomFieldRequest) SetChoiceSet(v BulkCustomFieldRequestChoiceSet)`
+
+SetChoiceSet sets ChoiceSet field to given value.
+
+### HasChoiceSet
+
+`func (o *BulkCustomFieldRequest) HasChoiceSet() bool`
+
+HasChoiceSet returns a boolean if a field has been set.
+
+### SetChoiceSetNil
+
+`func (o *BulkCustomFieldRequest) SetChoiceSetNil(b bool)`
+
+ SetChoiceSetNil sets the value for ChoiceSet to be an explicit nil
+
+### UnsetChoiceSet
+`func (o *BulkCustomFieldRequest) UnsetChoiceSet()`
+
+UnsetChoiceSet ensures that no value is present for ChoiceSet, not even an explicit nil
+### GetOwner
+
+`func (o *BulkCustomFieldRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *BulkCustomFieldRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *BulkCustomFieldRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *BulkCustomFieldRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *BulkCustomFieldRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *BulkCustomFieldRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *BulkCustomFieldRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *BulkCustomFieldRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *BulkCustomFieldRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *BulkCustomFieldRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

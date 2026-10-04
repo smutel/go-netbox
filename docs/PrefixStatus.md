@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PrefixStatusValue**](PrefixStatusValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkPrefixRequestStatus**](BulkPrefixRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**PrefixStatusLabel**](PrefixStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *PrefixStatus) GetValue() PrefixStatusValue`
+`func (o *PrefixStatus) GetValue() BulkPrefixRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *PrefixStatus) GetValueOk() (*PrefixStatusValue, bool)`
+`func (o *PrefixStatus) GetValueOk() (*BulkPrefixRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *PrefixStatus) SetValue(v PrefixStatusValue)`
+`func (o *PrefixStatus) SetValue(v BulkPrefixRequestStatus)`
 
 SetValue sets Value field to given value.
 

@@ -15,6 +15,8 @@
 
 * `PBB_EVPN` (value: `"pbb-evpn"`)
 
+* `EVPN_VPWS` (value: `"evpn-vpws"`)
+
 * `EPL` (value: `"epl"`)
 
 * `EVPL` (value: `"evpl"`)
@@ -26,6 +28,8 @@
 * `EP_TREE` (value: `"ep-tree"`)
 
 * `EVP_TREE` (value: `"evp-tree"`)
+
+* `SPB` (value: `"spb"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

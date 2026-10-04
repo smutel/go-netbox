@@ -4,14 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Site** | Pointer to [**NullableBriefSiteRequest**](BriefSiteRequest.md) |  | [optional] 
-**Group** | Pointer to [**NullableBriefVLANGroupRequest**](BriefVLANGroupRequest.md) |  | [optional] 
+**Site** | Pointer to [**NullableBulkVLANRequestSite**](BulkVLANRequestSite.md) |  | [optional] 
+**Group** | Pointer to [**NullableBulkVLANRequestGroup**](BulkVLANRequestGroup.md) |  | [optional] 
 **Vid** | **int32** | Numeric VLAN ID (1-4094) | 
 **Name** | **string** |  | 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
-**Status** | Pointer to [**IPRangeStatusValue**](IPRangeStatusValue.md) |  | [optional] 
-**Role** | Pointer to [**NullableBriefRoleRequest**](BriefRoleRequest.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**Status** | Pointer to [**BulkIPRangeRequestStatus**](BulkIPRangeRequestStatus.md) |  | [optional] 
+**Role** | Pointer to [**NullableASNRequestRole**](ASNRequestRole.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**QinqRole** | Pointer to [**NullableBulkVLANRequestQinqRole**](BulkVLANRequestQinqRole.md) |  | [optional] 
+**QinqSvlan** | Pointer to [**NullableNestedVLANRequest**](NestedVLANRequest.md) |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -37,20 +40,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSite
 
-`func (o *VLANRequest) GetSite() BriefSiteRequest`
+`func (o *VLANRequest) GetSite() BulkVLANRequestSite`
 
 GetSite returns the Site field if non-nil, zero value otherwise.
 
 ### GetSiteOk
 
-`func (o *VLANRequest) GetSiteOk() (*BriefSiteRequest, bool)`
+`func (o *VLANRequest) GetSiteOk() (*BulkVLANRequestSite, bool)`
 
 GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSite
 
-`func (o *VLANRequest) SetSite(v BriefSiteRequest)`
+`func (o *VLANRequest) SetSite(v BulkVLANRequestSite)`
 
 SetSite sets Site field to given value.
 
@@ -72,20 +75,20 @@ HasSite returns a boolean if a field has been set.
 UnsetSite ensures that no value is present for Site, not even an explicit nil
 ### GetGroup
 
-`func (o *VLANRequest) GetGroup() BriefVLANGroupRequest`
+`func (o *VLANRequest) GetGroup() BulkVLANRequestGroup`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *VLANRequest) GetGroupOk() (*BriefVLANGroupRequest, bool)`
+`func (o *VLANRequest) GetGroupOk() (*BulkVLANRequestGroup, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *VLANRequest) SetGroup(v BriefVLANGroupRequest)`
+`func (o *VLANRequest) SetGroup(v BulkVLANRequestGroup)`
 
 SetGroup sets Group field to given value.
 
@@ -147,20 +150,20 @@ SetName sets Name field to given value.
 
 ### GetTenant
 
-`func (o *VLANRequest) GetTenant() BriefTenantRequest`
+`func (o *VLANRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *VLANRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *VLANRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *VLANRequest) SetTenant(v BriefTenantRequest)`
+`func (o *VLANRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -182,20 +185,20 @@ HasTenant returns a boolean if a field has been set.
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetStatus
 
-`func (o *VLANRequest) GetStatus() IPRangeStatusValue`
+`func (o *VLANRequest) GetStatus() BulkIPRangeRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *VLANRequest) GetStatusOk() (*IPRangeStatusValue, bool)`
+`func (o *VLANRequest) GetStatusOk() (*BulkIPRangeRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *VLANRequest) SetStatus(v IPRangeStatusValue)`
+`func (o *VLANRequest) SetStatus(v BulkIPRangeRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -207,20 +210,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *VLANRequest) GetRole() BriefRoleRequest`
+`func (o *VLANRequest) GetRole() ASNRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *VLANRequest) GetRoleOk() (*BriefRoleRequest, bool)`
+`func (o *VLANRequest) GetRoleOk() (*ASNRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *VLANRequest) SetRole(v BriefRoleRequest)`
+`func (o *VLANRequest) SetRole(v ASNRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -265,6 +268,111 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetQinqRole
+
+`func (o *VLANRequest) GetQinqRole() BulkVLANRequestQinqRole`
+
+GetQinqRole returns the QinqRole field if non-nil, zero value otherwise.
+
+### GetQinqRoleOk
+
+`func (o *VLANRequest) GetQinqRoleOk() (*BulkVLANRequestQinqRole, bool)`
+
+GetQinqRoleOk returns a tuple with the QinqRole field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqRole
+
+`func (o *VLANRequest) SetQinqRole(v BulkVLANRequestQinqRole)`
+
+SetQinqRole sets QinqRole field to given value.
+
+### HasQinqRole
+
+`func (o *VLANRequest) HasQinqRole() bool`
+
+HasQinqRole returns a boolean if a field has been set.
+
+### SetQinqRoleNil
+
+`func (o *VLANRequest) SetQinqRoleNil(b bool)`
+
+ SetQinqRoleNil sets the value for QinqRole to be an explicit nil
+
+### UnsetQinqRole
+`func (o *VLANRequest) UnsetQinqRole()`
+
+UnsetQinqRole ensures that no value is present for QinqRole, not even an explicit nil
+### GetQinqSvlan
+
+`func (o *VLANRequest) GetQinqSvlan() NestedVLANRequest`
+
+GetQinqSvlan returns the QinqSvlan field if non-nil, zero value otherwise.
+
+### GetQinqSvlanOk
+
+`func (o *VLANRequest) GetQinqSvlanOk() (*NestedVLANRequest, bool)`
+
+GetQinqSvlanOk returns a tuple with the QinqSvlan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqSvlan
+
+`func (o *VLANRequest) SetQinqSvlan(v NestedVLANRequest)`
+
+SetQinqSvlan sets QinqSvlan field to given value.
+
+### HasQinqSvlan
+
+`func (o *VLANRequest) HasQinqSvlan() bool`
+
+HasQinqSvlan returns a boolean if a field has been set.
+
+### SetQinqSvlanNil
+
+`func (o *VLANRequest) SetQinqSvlanNil(b bool)`
+
+ SetQinqSvlanNil sets the value for QinqSvlan to be an explicit nil
+
+### UnsetQinqSvlan
+`func (o *VLANRequest) UnsetQinqSvlan()`
+
+UnsetQinqSvlan ensures that no value is present for QinqSvlan, not even an explicit nil
+### GetOwner
+
+`func (o *VLANRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *VLANRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *VLANRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *VLANRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *VLANRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *VLANRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *VLANRequest) GetComments() string`

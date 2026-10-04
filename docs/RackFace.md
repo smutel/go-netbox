@@ -5,6 +5,8 @@
 
 * `FRONT` (value: `"front"`)
 
+* `NULL` (value: `"null"`)
+
 * `REAR` (value: `"rear"`)
 
 

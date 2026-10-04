@@ -1,0 +1,17 @@
+# CoolingSourceFluidTypeLabel
+
+## Enum
+
+
+* `WATER` (value: `"Water"`)
+
+* `WATER_GLYCOL` (value: `"Water/glycol"`)
+
+* `DIELECTRIC` (value: `"Dielectric"`)
+
+* `REFRIGERANT` (value: `"Refrigerant"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

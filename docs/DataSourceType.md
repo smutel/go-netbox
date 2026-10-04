@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**DataSourceTypeValue**](DataSourceTypeValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkDataSourceRequestType**](BulkDataSourceRequestType.md) |  | [optional] 
 **Label** | Pointer to [**DataSourceTypeLabel**](DataSourceTypeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *DataSourceType) GetValue() DataSourceTypeValue`
+`func (o *DataSourceType) GetValue() BulkDataSourceRequestType`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *DataSourceType) GetValueOk() (*DataSourceTypeValue, bool)`
+`func (o *DataSourceType) GetValueOk() (*BulkDataSourceRequestType, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *DataSourceType) SetValue(v DataSourceTypeValue)`
+`func (o *DataSourceType) SetValue(v BulkDataSourceRequestType)`
 
 SetValue sets Value field to given value.
 

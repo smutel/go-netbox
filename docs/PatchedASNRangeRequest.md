@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **Slug** | Pointer to **string** |  | [optional] 
-**Rir** | Pointer to [**BriefRIRRequest**](BriefRIRRequest.md) |  | [optional] 
+**Rir** | Pointer to [**ASNRangeRequestRir**](ASNRangeRequestRir.md) |  | [optional] 
 **Start** | Pointer to **int64** |  | [optional] 
 **End** | Pointer to **int64** |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -85,20 +87,20 @@ HasSlug returns a boolean if a field has been set.
 
 ### GetRir
 
-`func (o *PatchedASNRangeRequest) GetRir() BriefRIRRequest`
+`func (o *PatchedASNRangeRequest) GetRir() ASNRangeRequestRir`
 
 GetRir returns the Rir field if non-nil, zero value otherwise.
 
 ### GetRirOk
 
-`func (o *PatchedASNRangeRequest) GetRirOk() (*BriefRIRRequest, bool)`
+`func (o *PatchedASNRangeRequest) GetRirOk() (*ASNRangeRequestRir, bool)`
 
 GetRirOk returns a tuple with the Rir field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRir
 
-`func (o *PatchedASNRangeRequest) SetRir(v BriefRIRRequest)`
+`func (o *PatchedASNRangeRequest) SetRir(v ASNRangeRequestRir)`
 
 SetRir sets Rir field to given value.
 
@@ -160,20 +162,20 @@ HasEnd returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *PatchedASNRangeRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedASNRangeRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedASNRangeRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedASNRangeRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedASNRangeRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedASNRangeRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -217,6 +219,66 @@ SetDescription sets Description field to given value.
 `func (o *PatchedASNRangeRequest) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *PatchedASNRangeRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedASNRangeRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedASNRangeRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedASNRangeRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedASNRangeRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedASNRangeRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *PatchedASNRangeRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *PatchedASNRangeRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *PatchedASNRangeRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *PatchedASNRangeRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetTags
 

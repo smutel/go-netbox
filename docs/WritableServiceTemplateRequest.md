@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
-**Protocol** | [**PatchedWritableServiceRequestProtocol**](PatchedWritableServiceRequestProtocol.md) |  | 
-**Ports** | **[]int32** |  | 
+**PortMappings** | Pointer to **[]string** |  | [optional] 
+**Protocol** | Pointer to [**NullableBulkServiceRequestProtocol**](BulkServiceRequestProtocol.md) |  | [optional] 
+**Ports** | Pointer to **[]int32** | Deprecated; use port_mappings. Reported only for single-protocol services. | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -16,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewWritableServiceTemplateRequest
 
-`func NewWritableServiceTemplateRequest(name string, protocol PatchedWritableServiceRequestProtocol, ports []int32, ) *WritableServiceTemplateRequest`
+`func NewWritableServiceTemplateRequest(name string, ) *WritableServiceTemplateRequest`
 
 NewWritableServiceTemplateRequest instantiates a new WritableServiceTemplateRequest object
 This constructor will assign default values to properties that have it defined,
@@ -51,26 +53,66 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
+### GetPortMappings
+
+`func (o *WritableServiceTemplateRequest) GetPortMappings() []string`
+
+GetPortMappings returns the PortMappings field if non-nil, zero value otherwise.
+
+### GetPortMappingsOk
+
+`func (o *WritableServiceTemplateRequest) GetPortMappingsOk() (*[]string, bool)`
+
+GetPortMappingsOk returns a tuple with the PortMappings field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPortMappings
+
+`func (o *WritableServiceTemplateRequest) SetPortMappings(v []string)`
+
+SetPortMappings sets PortMappings field to given value.
+
+### HasPortMappings
+
+`func (o *WritableServiceTemplateRequest) HasPortMappings() bool`
+
+HasPortMappings returns a boolean if a field has been set.
+
 ### GetProtocol
 
-`func (o *WritableServiceTemplateRequest) GetProtocol() PatchedWritableServiceRequestProtocol`
+`func (o *WritableServiceTemplateRequest) GetProtocol() BulkServiceRequestProtocol`
 
 GetProtocol returns the Protocol field if non-nil, zero value otherwise.
 
 ### GetProtocolOk
 
-`func (o *WritableServiceTemplateRequest) GetProtocolOk() (*PatchedWritableServiceRequestProtocol, bool)`
+`func (o *WritableServiceTemplateRequest) GetProtocolOk() (*BulkServiceRequestProtocol, bool)`
 
 GetProtocolOk returns a tuple with the Protocol field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetProtocol
 
-`func (o *WritableServiceTemplateRequest) SetProtocol(v PatchedWritableServiceRequestProtocol)`
+`func (o *WritableServiceTemplateRequest) SetProtocol(v BulkServiceRequestProtocol)`
 
 SetProtocol sets Protocol field to given value.
 
+### HasProtocol
 
+`func (o *WritableServiceTemplateRequest) HasProtocol() bool`
+
+HasProtocol returns a boolean if a field has been set.
+
+### SetProtocolNil
+
+`func (o *WritableServiceTemplateRequest) SetProtocolNil(b bool)`
+
+ SetProtocolNil sets the value for Protocol to be an explicit nil
+
+### UnsetProtocol
+`func (o *WritableServiceTemplateRequest) UnsetProtocol()`
+
+UnsetProtocol ensures that no value is present for Protocol, not even an explicit nil
 ### GetPorts
 
 `func (o *WritableServiceTemplateRequest) GetPorts() []int32`
@@ -90,7 +132,22 @@ and a boolean to check if the value has been set.
 
 SetPorts sets Ports field to given value.
 
+### HasPorts
 
+`func (o *WritableServiceTemplateRequest) HasPorts() bool`
+
+HasPorts returns a boolean if a field has been set.
+
+### SetPortsNil
+
+`func (o *WritableServiceTemplateRequest) SetPortsNil(b bool)`
+
+ SetPortsNil sets the value for Ports to be an explicit nil
+
+### UnsetPorts
+`func (o *WritableServiceTemplateRequest) UnsetPorts()`
+
+UnsetPorts ensures that no value is present for Ports, not even an explicit nil
 ### GetDescription
 
 `func (o *WritableServiceTemplateRequest) GetDescription() string`
@@ -116,6 +173,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WritableServiceTemplateRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableServiceTemplateRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableServiceTemplateRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableServiceTemplateRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableServiceTemplateRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableServiceTemplateRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WritableServiceTemplateRequest) GetComments() string`

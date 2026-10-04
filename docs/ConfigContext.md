@@ -6,27 +6,30 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Weight** | Pointer to **int32** |  | [optional] 
+**Profile** | Pointer to [**NullableBriefConfigContextProfile**](BriefConfigContextProfile.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **IsActive** | Pointer to **bool** |  | [optional] 
-**Regions** | Pointer to [**[]Region**](Region.md) |  | [optional] 
-**SiteGroups** | Pointer to [**[]SiteGroup**](SiteGroup.md) |  | [optional] 
-**Sites** | Pointer to [**[]Site**](Site.md) |  | [optional] 
-**Locations** | Pointer to [**[]Location**](Location.md) |  | [optional] 
-**DeviceTypes** | Pointer to [**[]DeviceType**](DeviceType.md) |  | [optional] 
-**Roles** | Pointer to [**[]DeviceRole**](DeviceRole.md) |  | [optional] 
-**Platforms** | Pointer to [**[]Platform**](Platform.md) |  | [optional] 
-**ClusterTypes** | Pointer to [**[]ClusterType**](ClusterType.md) |  | [optional] 
-**ClusterGroups** | Pointer to [**[]ClusterGroup**](ClusterGroup.md) |  | [optional] 
-**Clusters** | Pointer to [**[]Cluster**](Cluster.md) |  | [optional] 
-**TenantGroups** | Pointer to [**[]TenantGroup**](TenantGroup.md) |  | [optional] 
-**Tenants** | Pointer to [**[]Tenant**](Tenant.md) |  | [optional] 
+**Regions** | Pointer to [**[]BriefRegion**](BriefRegion.md) |  | [optional] 
+**SiteGroups** | Pointer to [**[]BriefSiteGroup**](BriefSiteGroup.md) |  | [optional] 
+**Sites** | Pointer to [**[]BriefSite**](BriefSite.md) |  | [optional] 
+**Locations** | Pointer to [**[]BriefLocation**](BriefLocation.md) |  | [optional] 
+**DeviceTypes** | Pointer to [**[]BriefDeviceType**](BriefDeviceType.md) |  | [optional] 
+**Roles** | Pointer to [**[]BriefDeviceRole**](BriefDeviceRole.md) |  | [optional] 
+**Platforms** | Pointer to [**[]BriefPlatform**](BriefPlatform.md) |  | [optional] 
+**ClusterTypes** | Pointer to [**[]BriefClusterType**](BriefClusterType.md) |  | [optional] 
+**ClusterGroups** | Pointer to [**[]BriefClusterGroup**](BriefClusterGroup.md) |  | [optional] 
+**Clusters** | Pointer to [**[]BriefCluster**](BriefCluster.md) |  | [optional] 
+**TenantGroups** | Pointer to [**[]BriefTenantGroup**](BriefTenantGroup.md) |  | [optional] 
+**Tenants** | Pointer to [**[]BriefTenant**](BriefTenant.md) |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to **[]string** |  | [optional] 
 **DataSource** | Pointer to [**BriefDataSource**](BriefDataSource.md) |  | [optional] 
 **DataPath** | **string** | Path to remote file (relative to data source root) | [readonly] 
-**DataFile** | [**BriefDataFile**](BriefDataFile.md) |  | [readonly] 
+**DataFile** | Pointer to [**NullableBriefDataFile**](BriefDataFile.md) |  | [optional] 
 **DataSynced** | **NullableTime** |  | [readonly] 
 **Data** | **interface{}** |  | 
 **Created** | **NullableTime** |  | [readonly] 
@@ -36,7 +39,7 @@ Name | Type | Description | Notes
 
 ### NewConfigContext
 
-`func NewConfigContext(id int32, url string, display string, name string, dataPath string, dataFile BriefDataFile, dataSynced NullableTime, data interface{}, created NullableTime, lastUpdated NullableTime, ) *ConfigContext`
+`func NewConfigContext(id int32, url string, displayUrl string, display string, name string, dataPath string, dataSynced NullableTime, data interface{}, created NullableTime, lastUpdated NullableTime, ) *ConfigContext`
 
 NewConfigContext instantiates a new ConfigContext object
 This constructor will assign default values to properties that have it defined,
@@ -89,6 +92,26 @@ and a boolean to check if the value has been set.
 `func (o *ConfigContext) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *ConfigContext) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *ConfigContext) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *ConfigContext) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -156,6 +179,41 @@ SetWeight sets Weight field to given value.
 
 HasWeight returns a boolean if a field has been set.
 
+### GetProfile
+
+`func (o *ConfigContext) GetProfile() BriefConfigContextProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *ConfigContext) GetProfileOk() (*BriefConfigContextProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *ConfigContext) SetProfile(v BriefConfigContextProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *ConfigContext) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
+### SetProfileNil
+
+`func (o *ConfigContext) SetProfileNil(b bool)`
+
+ SetProfileNil sets the value for Profile to be an explicit nil
+
+### UnsetProfile
+`func (o *ConfigContext) UnsetProfile()`
+
+UnsetProfile ensures that no value is present for Profile, not even an explicit nil
 ### GetDescription
 
 `func (o *ConfigContext) GetDescription() string`
@@ -208,20 +266,20 @@ HasIsActive returns a boolean if a field has been set.
 
 ### GetRegions
 
-`func (o *ConfigContext) GetRegions() []Region`
+`func (o *ConfigContext) GetRegions() []BriefRegion`
 
 GetRegions returns the Regions field if non-nil, zero value otherwise.
 
 ### GetRegionsOk
 
-`func (o *ConfigContext) GetRegionsOk() (*[]Region, bool)`
+`func (o *ConfigContext) GetRegionsOk() (*[]BriefRegion, bool)`
 
 GetRegionsOk returns a tuple with the Regions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegions
 
-`func (o *ConfigContext) SetRegions(v []Region)`
+`func (o *ConfigContext) SetRegions(v []BriefRegion)`
 
 SetRegions sets Regions field to given value.
 
@@ -233,20 +291,20 @@ HasRegions returns a boolean if a field has been set.
 
 ### GetSiteGroups
 
-`func (o *ConfigContext) GetSiteGroups() []SiteGroup`
+`func (o *ConfigContext) GetSiteGroups() []BriefSiteGroup`
 
 GetSiteGroups returns the SiteGroups field if non-nil, zero value otherwise.
 
 ### GetSiteGroupsOk
 
-`func (o *ConfigContext) GetSiteGroupsOk() (*[]SiteGroup, bool)`
+`func (o *ConfigContext) GetSiteGroupsOk() (*[]BriefSiteGroup, bool)`
 
 GetSiteGroupsOk returns a tuple with the SiteGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSiteGroups
 
-`func (o *ConfigContext) SetSiteGroups(v []SiteGroup)`
+`func (o *ConfigContext) SetSiteGroups(v []BriefSiteGroup)`
 
 SetSiteGroups sets SiteGroups field to given value.
 
@@ -258,20 +316,20 @@ HasSiteGroups returns a boolean if a field has been set.
 
 ### GetSites
 
-`func (o *ConfigContext) GetSites() []Site`
+`func (o *ConfigContext) GetSites() []BriefSite`
 
 GetSites returns the Sites field if non-nil, zero value otherwise.
 
 ### GetSitesOk
 
-`func (o *ConfigContext) GetSitesOk() (*[]Site, bool)`
+`func (o *ConfigContext) GetSitesOk() (*[]BriefSite, bool)`
 
 GetSitesOk returns a tuple with the Sites field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSites
 
-`func (o *ConfigContext) SetSites(v []Site)`
+`func (o *ConfigContext) SetSites(v []BriefSite)`
 
 SetSites sets Sites field to given value.
 
@@ -283,20 +341,20 @@ HasSites returns a boolean if a field has been set.
 
 ### GetLocations
 
-`func (o *ConfigContext) GetLocations() []Location`
+`func (o *ConfigContext) GetLocations() []BriefLocation`
 
 GetLocations returns the Locations field if non-nil, zero value otherwise.
 
 ### GetLocationsOk
 
-`func (o *ConfigContext) GetLocationsOk() (*[]Location, bool)`
+`func (o *ConfigContext) GetLocationsOk() (*[]BriefLocation, bool)`
 
 GetLocationsOk returns a tuple with the Locations field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocations
 
-`func (o *ConfigContext) SetLocations(v []Location)`
+`func (o *ConfigContext) SetLocations(v []BriefLocation)`
 
 SetLocations sets Locations field to given value.
 
@@ -308,20 +366,20 @@ HasLocations returns a boolean if a field has been set.
 
 ### GetDeviceTypes
 
-`func (o *ConfigContext) GetDeviceTypes() []DeviceType`
+`func (o *ConfigContext) GetDeviceTypes() []BriefDeviceType`
 
 GetDeviceTypes returns the DeviceTypes field if non-nil, zero value otherwise.
 
 ### GetDeviceTypesOk
 
-`func (o *ConfigContext) GetDeviceTypesOk() (*[]DeviceType, bool)`
+`func (o *ConfigContext) GetDeviceTypesOk() (*[]BriefDeviceType, bool)`
 
 GetDeviceTypesOk returns a tuple with the DeviceTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceTypes
 
-`func (o *ConfigContext) SetDeviceTypes(v []DeviceType)`
+`func (o *ConfigContext) SetDeviceTypes(v []BriefDeviceType)`
 
 SetDeviceTypes sets DeviceTypes field to given value.
 
@@ -333,20 +391,20 @@ HasDeviceTypes returns a boolean if a field has been set.
 
 ### GetRoles
 
-`func (o *ConfigContext) GetRoles() []DeviceRole`
+`func (o *ConfigContext) GetRoles() []BriefDeviceRole`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *ConfigContext) GetRolesOk() (*[]DeviceRole, bool)`
+`func (o *ConfigContext) GetRolesOk() (*[]BriefDeviceRole, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRoles
 
-`func (o *ConfigContext) SetRoles(v []DeviceRole)`
+`func (o *ConfigContext) SetRoles(v []BriefDeviceRole)`
 
 SetRoles sets Roles field to given value.
 
@@ -358,20 +416,20 @@ HasRoles returns a boolean if a field has been set.
 
 ### GetPlatforms
 
-`func (o *ConfigContext) GetPlatforms() []Platform`
+`func (o *ConfigContext) GetPlatforms() []BriefPlatform`
 
 GetPlatforms returns the Platforms field if non-nil, zero value otherwise.
 
 ### GetPlatformsOk
 
-`func (o *ConfigContext) GetPlatformsOk() (*[]Platform, bool)`
+`func (o *ConfigContext) GetPlatformsOk() (*[]BriefPlatform, bool)`
 
 GetPlatformsOk returns a tuple with the Platforms field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPlatforms
 
-`func (o *ConfigContext) SetPlatforms(v []Platform)`
+`func (o *ConfigContext) SetPlatforms(v []BriefPlatform)`
 
 SetPlatforms sets Platforms field to given value.
 
@@ -383,20 +441,20 @@ HasPlatforms returns a boolean if a field has been set.
 
 ### GetClusterTypes
 
-`func (o *ConfigContext) GetClusterTypes() []ClusterType`
+`func (o *ConfigContext) GetClusterTypes() []BriefClusterType`
 
 GetClusterTypes returns the ClusterTypes field if non-nil, zero value otherwise.
 
 ### GetClusterTypesOk
 
-`func (o *ConfigContext) GetClusterTypesOk() (*[]ClusterType, bool)`
+`func (o *ConfigContext) GetClusterTypesOk() (*[]BriefClusterType, bool)`
 
 GetClusterTypesOk returns a tuple with the ClusterTypes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClusterTypes
 
-`func (o *ConfigContext) SetClusterTypes(v []ClusterType)`
+`func (o *ConfigContext) SetClusterTypes(v []BriefClusterType)`
 
 SetClusterTypes sets ClusterTypes field to given value.
 
@@ -408,20 +466,20 @@ HasClusterTypes returns a boolean if a field has been set.
 
 ### GetClusterGroups
 
-`func (o *ConfigContext) GetClusterGroups() []ClusterGroup`
+`func (o *ConfigContext) GetClusterGroups() []BriefClusterGroup`
 
 GetClusterGroups returns the ClusterGroups field if non-nil, zero value otherwise.
 
 ### GetClusterGroupsOk
 
-`func (o *ConfigContext) GetClusterGroupsOk() (*[]ClusterGroup, bool)`
+`func (o *ConfigContext) GetClusterGroupsOk() (*[]BriefClusterGroup, bool)`
 
 GetClusterGroupsOk returns a tuple with the ClusterGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClusterGroups
 
-`func (o *ConfigContext) SetClusterGroups(v []ClusterGroup)`
+`func (o *ConfigContext) SetClusterGroups(v []BriefClusterGroup)`
 
 SetClusterGroups sets ClusterGroups field to given value.
 
@@ -433,20 +491,20 @@ HasClusterGroups returns a boolean if a field has been set.
 
 ### GetClusters
 
-`func (o *ConfigContext) GetClusters() []Cluster`
+`func (o *ConfigContext) GetClusters() []BriefCluster`
 
 GetClusters returns the Clusters field if non-nil, zero value otherwise.
 
 ### GetClustersOk
 
-`func (o *ConfigContext) GetClustersOk() (*[]Cluster, bool)`
+`func (o *ConfigContext) GetClustersOk() (*[]BriefCluster, bool)`
 
 GetClustersOk returns a tuple with the Clusters field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetClusters
 
-`func (o *ConfigContext) SetClusters(v []Cluster)`
+`func (o *ConfigContext) SetClusters(v []BriefCluster)`
 
 SetClusters sets Clusters field to given value.
 
@@ -458,20 +516,20 @@ HasClusters returns a boolean if a field has been set.
 
 ### GetTenantGroups
 
-`func (o *ConfigContext) GetTenantGroups() []TenantGroup`
+`func (o *ConfigContext) GetTenantGroups() []BriefTenantGroup`
 
 GetTenantGroups returns the TenantGroups field if non-nil, zero value otherwise.
 
 ### GetTenantGroupsOk
 
-`func (o *ConfigContext) GetTenantGroupsOk() (*[]TenantGroup, bool)`
+`func (o *ConfigContext) GetTenantGroupsOk() (*[]BriefTenantGroup, bool)`
 
 GetTenantGroupsOk returns a tuple with the TenantGroups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenantGroups
 
-`func (o *ConfigContext) SetTenantGroups(v []TenantGroup)`
+`func (o *ConfigContext) SetTenantGroups(v []BriefTenantGroup)`
 
 SetTenantGroups sets TenantGroups field to given value.
 
@@ -483,20 +541,20 @@ HasTenantGroups returns a boolean if a field has been set.
 
 ### GetTenants
 
-`func (o *ConfigContext) GetTenants() []Tenant`
+`func (o *ConfigContext) GetTenants() []BriefTenant`
 
 GetTenants returns the Tenants field if non-nil, zero value otherwise.
 
 ### GetTenantsOk
 
-`func (o *ConfigContext) GetTenantsOk() (*[]Tenant, bool)`
+`func (o *ConfigContext) GetTenantsOk() (*[]BriefTenant, bool)`
 
 GetTenantsOk returns a tuple with the Tenants field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenants
 
-`func (o *ConfigContext) SetTenants(v []Tenant)`
+`func (o *ConfigContext) SetTenants(v []BriefTenant)`
 
 SetTenants sets Tenants field to given value.
 
@@ -506,6 +564,41 @@ SetTenants sets Tenants field to given value.
 
 HasTenants returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *ConfigContext) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ConfigContext) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ConfigContext) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ConfigContext) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ConfigContext) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ConfigContext) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *ConfigContext) GetTags() []string`
@@ -595,7 +688,22 @@ and a boolean to check if the value has been set.
 
 SetDataFile sets DataFile field to given value.
 
+### HasDataFile
 
+`func (o *ConfigContext) HasDataFile() bool`
+
+HasDataFile returns a boolean if a field has been set.
+
+### SetDataFileNil
+
+`func (o *ConfigContext) SetDataFileNil(b bool)`
+
+ SetDataFileNil sets the value for DataFile to be an explicit nil
+
+### UnsetDataFile
+`func (o *ConfigContext) UnsetDataFile()`
+
+UnsetDataFile ensures that no value is present for DataFile, not even an explicit nil
 ### GetDataSynced
 
 `func (o *ConfigContext) GetDataSynced() time.Time`

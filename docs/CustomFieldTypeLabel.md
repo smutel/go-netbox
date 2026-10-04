@@ -11,7 +11,7 @@
 
 * `DECIMAL` (value: `"Decimal"`)
 
-* `BOOLEAN__TRUE_FALSE` (value: `"Boolean (true/false)"`)
+* `BOOLEAN` (value: `"Boolean"`)
 
 * `DATE` (value: `"Date"`)
 

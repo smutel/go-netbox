@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritablePowerPortTemplateRequestType**](PatchedWritablePowerPortTemplateRequestType.md) |  | [optional] 
+**Value** | Pointer to [**PowerPortTypeValue**](PowerPortTypeValue.md) |  | [optional] 
 **Label** | Pointer to [**PowerPortTypeLabel**](PowerPortTypeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *PowerPortType) GetValue() PatchedWritablePowerPortTemplateRequestType`
+`func (o *PowerPortType) GetValue() PowerPortTypeValue`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *PowerPortType) GetValueOk() (*PatchedWritablePowerPortTemplateRequestType, bool)`
+`func (o *PowerPortType) GetValueOk() (*PowerPortTypeValue, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *PowerPortType) SetValue(v PatchedWritablePowerPortTemplateRequestType)`
+`func (o *PowerPortType) SetValue(v PowerPortTypeValue)`
 
 SetValue sets Value field to given value.
 

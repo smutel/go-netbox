@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**FrontPortTypeValue**](FrontPortTypeValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkFrontPortRequestType**](BulkFrontPortRequestType.md) |  | [optional] 
 **Label** | Pointer to [**FrontPortTypeLabel**](FrontPortTypeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *FrontPortType) GetValue() FrontPortTypeValue`
+`func (o *FrontPortType) GetValue() BulkFrontPortRequestType`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *FrontPortType) GetValueOk() (*FrontPortTypeValue, bool)`
+`func (o *FrontPortType) GetValueOk() (*BulkFrontPortRequestType, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *FrontPortType) SetValue(v FrontPortTypeValue)`
+`func (o *FrontPortType) SetValue(v BulkFrontPortRequestType)`
 
 SetValue sets Value field to given value.
 

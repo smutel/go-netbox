@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**ClusterStatusValue**](ClusterStatusValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkClusterRequestStatus**](BulkClusterRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**ClusterStatusLabel**](ClusterStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *ClusterStatus) GetValue() ClusterStatusValue`
+`func (o *ClusterStatus) GetValue() BulkClusterRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *ClusterStatus) GetValueOk() (*ClusterStatusValue, bool)`
+`func (o *ClusterStatus) GetValueOk() (*BulkClusterRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *ClusterStatus) SetValue(v ClusterStatusValue)`
+`func (o *ClusterStatus) SetValue(v BulkClusterRequestStatus)`
 
 SetValue sets Value field to given value.
 

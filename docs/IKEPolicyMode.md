@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**IKEPolicyModeValue**](IKEPolicyModeValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkIKEPolicyRequestMode**](BulkIKEPolicyRequestMode.md) |  | [optional] 
 **Label** | Pointer to [**IKEPolicyModeLabel**](IKEPolicyModeLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *IKEPolicyMode) GetValue() IKEPolicyModeValue`
+`func (o *IKEPolicyMode) GetValue() BulkIKEPolicyRequestMode`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *IKEPolicyMode) GetValueOk() (*IKEPolicyModeValue, bool)`
+`func (o *IKEPolicyMode) GetValueOk() (*BulkIKEPolicyRequestMode, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *IKEPolicyMode) SetValue(v IKEPolicyModeValue)`
+`func (o *IKEPolicyMode) SetValue(v BulkIKEPolicyRequestMode)`
 
 SetValue sets Value field to given value.
 

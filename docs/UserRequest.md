@@ -8,8 +8,7 @@ Name | Type | Description | Notes
 **Password** | **string** |  | 
 **FirstName** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
-**IsStaff** | Pointer to **bool** | Designates whether the user can log into this admin site. | [optional] 
+**Email** | Pointer to [**EmailAddress**](EmailAddress.md) |  | [optional] 
 **IsActive** | Pointer to **bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [optional] 
 **DateJoined** | Pointer to **time.Time** |  | [optional] 
 **LastLogin** | Pointer to **NullableTime** |  | [optional] 
@@ -127,20 +126,20 @@ HasLastName returns a boolean if a field has been set.
 
 ### GetEmail
 
-`func (o *UserRequest) GetEmail() string`
+`func (o *UserRequest) GetEmail() EmailAddress`
 
 GetEmail returns the Email field if non-nil, zero value otherwise.
 
 ### GetEmailOk
 
-`func (o *UserRequest) GetEmailOk() (*string, bool)`
+`func (o *UserRequest) GetEmailOk() (*EmailAddress, bool)`
 
 GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmail
 
-`func (o *UserRequest) SetEmail(v string)`
+`func (o *UserRequest) SetEmail(v EmailAddress)`
 
 SetEmail sets Email field to given value.
 
@@ -149,31 +148,6 @@ SetEmail sets Email field to given value.
 `func (o *UserRequest) HasEmail() bool`
 
 HasEmail returns a boolean if a field has been set.
-
-### GetIsStaff
-
-`func (o *UserRequest) GetIsStaff() bool`
-
-GetIsStaff returns the IsStaff field if non-nil, zero value otherwise.
-
-### GetIsStaffOk
-
-`func (o *UserRequest) GetIsStaffOk() (*bool, bool)`
-
-GetIsStaffOk returns a tuple with the IsStaff field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsStaff
-
-`func (o *UserRequest) SetIsStaff(v bool)`
-
-SetIsStaff sets IsStaff field to given value.
-
-### HasIsStaff
-
-`func (o *UserRequest) HasIsStaff() bool`
-
-HasIsStaff returns a boolean if a field has been set.
 
 ### GetIsActive
 

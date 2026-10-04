@@ -6,23 +6,23 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Username** | **string** | Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. | 
 **FirstName** | Pointer to **string** |  | [optional] 
 **LastName** | Pointer to **string** |  | [optional] 
-**Email** | Pointer to **string** |  | [optional] 
-**IsStaff** | Pointer to **bool** | Designates whether the user can log into this admin site. | [optional] 
+**Email** | Pointer to [**EmailAddress**](EmailAddress.md) |  | [optional] 
 **IsActive** | Pointer to **bool** | Designates whether this user should be treated as active. Unselect this instead of deleting accounts. | [optional] 
 **DateJoined** | Pointer to **time.Time** |  | [optional] 
 **LastLogin** | Pointer to **NullableTime** |  | [optional] 
-**Groups** | Pointer to [**[]Group**](Group.md) |  | [optional] 
-**Permissions** | Pointer to [**[]ObjectPermission**](ObjectPermission.md) |  | [optional] 
+**Groups** | Pointer to [**[]BriefGroup**](BriefGroup.md) |  | [optional] 
+**Permissions** | Pointer to [**[]BriefObjectPermission**](BriefObjectPermission.md) |  | [optional] 
 
 ## Methods
 
 ### NewUser
 
-`func NewUser(id int32, url string, display string, username string, ) *User`
+`func NewUser(id int32, url string, displayUrl string, display string, username string, ) *User`
 
 NewUser instantiates a new User object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +75,26 @@ and a boolean to check if the value has been set.
 `func (o *User) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *User) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *User) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *User) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -169,20 +189,20 @@ HasLastName returns a boolean if a field has been set.
 
 ### GetEmail
 
-`func (o *User) GetEmail() string`
+`func (o *User) GetEmail() EmailAddress`
 
 GetEmail returns the Email field if non-nil, zero value otherwise.
 
 ### GetEmailOk
 
-`func (o *User) GetEmailOk() (*string, bool)`
+`func (o *User) GetEmailOk() (*EmailAddress, bool)`
 
 GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEmail
 
-`func (o *User) SetEmail(v string)`
+`func (o *User) SetEmail(v EmailAddress)`
 
 SetEmail sets Email field to given value.
 
@@ -191,31 +211,6 @@ SetEmail sets Email field to given value.
 `func (o *User) HasEmail() bool`
 
 HasEmail returns a boolean if a field has been set.
-
-### GetIsStaff
-
-`func (o *User) GetIsStaff() bool`
-
-GetIsStaff returns the IsStaff field if non-nil, zero value otherwise.
-
-### GetIsStaffOk
-
-`func (o *User) GetIsStaffOk() (*bool, bool)`
-
-GetIsStaffOk returns a tuple with the IsStaff field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsStaff
-
-`func (o *User) SetIsStaff(v bool)`
-
-SetIsStaff sets IsStaff field to given value.
-
-### HasIsStaff
-
-`func (o *User) HasIsStaff() bool`
-
-HasIsStaff returns a boolean if a field has been set.
 
 ### GetIsActive
 
@@ -304,20 +299,20 @@ HasLastLogin returns a boolean if a field has been set.
 UnsetLastLogin ensures that no value is present for LastLogin, not even an explicit nil
 ### GetGroups
 
-`func (o *User) GetGroups() []Group`
+`func (o *User) GetGroups() []BriefGroup`
 
 GetGroups returns the Groups field if non-nil, zero value otherwise.
 
 ### GetGroupsOk
 
-`func (o *User) GetGroupsOk() (*[]Group, bool)`
+`func (o *User) GetGroupsOk() (*[]BriefGroup, bool)`
 
 GetGroupsOk returns a tuple with the Groups field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroups
 
-`func (o *User) SetGroups(v []Group)`
+`func (o *User) SetGroups(v []BriefGroup)`
 
 SetGroups sets Groups field to given value.
 
@@ -329,20 +324,20 @@ HasGroups returns a boolean if a field has been set.
 
 ### GetPermissions
 
-`func (o *User) GetPermissions() []ObjectPermission`
+`func (o *User) GetPermissions() []BriefObjectPermission`
 
 GetPermissions returns the Permissions field if non-nil, zero value otherwise.
 
 ### GetPermissionsOk
 
-`func (o *User) GetPermissionsOk() (*[]ObjectPermission, bool)`
+`func (o *User) GetPermissionsOk() (*[]BriefObjectPermission, bool)`
 
 GetPermissionsOk returns a tuple with the Permissions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPermissions
 
-`func (o *User) SetPermissions(v []ObjectPermission)`
+`func (o *User) SetPermissions(v []BriefObjectPermission)`
 
 SetPermissions sets Permissions field to given value.
 

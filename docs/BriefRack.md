@@ -9,13 +9,12 @@ Name | Type | Description | Notes
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**DeviceCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefRack
 
-`func NewBriefRack(id int32, url string, display string, name string, deviceCount int64, ) *BriefRack`
+`func NewBriefRack(id int32, url string, display string, name string, ) *BriefRack`
 
 NewBriefRack instantiates a new BriefRack object
 This constructor will assign default values to properties that have it defined,
@@ -134,26 +133,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefRack) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetDeviceCount
-
-`func (o *BriefRack) GetDeviceCount() int64`
-
-GetDeviceCount returns the DeviceCount field if non-nil, zero value otherwise.
-
-### GetDeviceCountOk
-
-`func (o *BriefRack) GetDeviceCountOk() (*int64, bool)`
-
-GetDeviceCountOk returns a tuple with the DeviceCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeviceCount
-
-`func (o *BriefRack) SetDeviceCount(v int64)`
-
-SetDeviceCount sets DeviceCount field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

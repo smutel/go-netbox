@@ -4,12 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
+**Module** | Pointer to [**NullableBulkConsolePortRequestModule**](BulkConsolePortRequestModule.md) |  | [optional] 
 **Name** | **string** |  | 
-**InstalledModule** | Pointer to [**NullableBriefModuleRequest**](BriefModuleRequest.md) |  | [optional] 
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Position** | Pointer to **string** | Identifier to reference when renaming installed components | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**ModuleBayTypes** | Pointer to **[]int32** |  | [optional] 
+**InstalledModule** | Pointer to [**NullableBulkConsolePortRequestModule**](BulkConsolePortRequestModule.md) |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -17,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewModuleBayRequest
 
-`func NewModuleBayRequest(device BriefDeviceRequest, name string, ) *ModuleBayRequest`
+`func NewModuleBayRequest(device BriefCoolingIntakeRequestDevice, name string, ) *ModuleBayRequest`
 
 NewModuleBayRequest instantiates a new ModuleBayRequest object
 This constructor will assign default values to properties that have it defined,
@@ -34,24 +38,59 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *ModuleBayRequest) GetDevice() BriefDeviceRequest`
+`func (o *ModuleBayRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *ModuleBayRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *ModuleBayRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *ModuleBayRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *ModuleBayRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
 
+### GetModule
+
+`func (o *ModuleBayRequest) GetModule() BulkConsolePortRequestModule`
+
+GetModule returns the Module field if non-nil, zero value otherwise.
+
+### GetModuleOk
+
+`func (o *ModuleBayRequest) GetModuleOk() (*BulkConsolePortRequestModule, bool)`
+
+GetModuleOk returns a tuple with the Module field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModule
+
+`func (o *ModuleBayRequest) SetModule(v BulkConsolePortRequestModule)`
+
+SetModule sets Module field to given value.
+
+### HasModule
+
+`func (o *ModuleBayRequest) HasModule() bool`
+
+HasModule returns a boolean if a field has been set.
+
+### SetModuleNil
+
+`func (o *ModuleBayRequest) SetModuleNil(b bool)`
+
+ SetModuleNil sets the value for Module to be an explicit nil
+
+### UnsetModule
+`func (o *ModuleBayRequest) UnsetModule()`
+
+UnsetModule ensures that no value is present for Module, not even an explicit nil
 ### GetName
 
 `func (o *ModuleBayRequest) GetName() string`
@@ -72,41 +111,6 @@ and a boolean to check if the value has been set.
 SetName sets Name field to given value.
 
 
-### GetInstalledModule
-
-`func (o *ModuleBayRequest) GetInstalledModule() BriefModuleRequest`
-
-GetInstalledModule returns the InstalledModule field if non-nil, zero value otherwise.
-
-### GetInstalledModuleOk
-
-`func (o *ModuleBayRequest) GetInstalledModuleOk() (*BriefModuleRequest, bool)`
-
-GetInstalledModuleOk returns a tuple with the InstalledModule field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInstalledModule
-
-`func (o *ModuleBayRequest) SetInstalledModule(v BriefModuleRequest)`
-
-SetInstalledModule sets InstalledModule field to given value.
-
-### HasInstalledModule
-
-`func (o *ModuleBayRequest) HasInstalledModule() bool`
-
-HasInstalledModule returns a boolean if a field has been set.
-
-### SetInstalledModuleNil
-
-`func (o *ModuleBayRequest) SetInstalledModuleNil(b bool)`
-
- SetInstalledModuleNil sets the value for InstalledModule to be an explicit nil
-
-### UnsetInstalledModule
-`func (o *ModuleBayRequest) UnsetInstalledModule()`
-
-UnsetInstalledModule ensures that no value is present for InstalledModule, not even an explicit nil
 ### GetLabel
 
 `func (o *ModuleBayRequest) GetLabel() string`
@@ -157,6 +161,31 @@ SetPosition sets Position field to given value.
 
 HasPosition returns a boolean if a field has been set.
 
+### GetEnabled
+
+`func (o *ModuleBayRequest) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *ModuleBayRequest) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *ModuleBayRequest) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *ModuleBayRequest) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
+
 ### GetDescription
 
 `func (o *ModuleBayRequest) GetDescription() string`
@@ -182,6 +211,101 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetModuleBayTypes
+
+`func (o *ModuleBayRequest) GetModuleBayTypes() []int32`
+
+GetModuleBayTypes returns the ModuleBayTypes field if non-nil, zero value otherwise.
+
+### GetModuleBayTypesOk
+
+`func (o *ModuleBayRequest) GetModuleBayTypesOk() (*[]int32, bool)`
+
+GetModuleBayTypesOk returns a tuple with the ModuleBayTypes field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleBayTypes
+
+`func (o *ModuleBayRequest) SetModuleBayTypes(v []int32)`
+
+SetModuleBayTypes sets ModuleBayTypes field to given value.
+
+### HasModuleBayTypes
+
+`func (o *ModuleBayRequest) HasModuleBayTypes() bool`
+
+HasModuleBayTypes returns a boolean if a field has been set.
+
+### GetInstalledModule
+
+`func (o *ModuleBayRequest) GetInstalledModule() BulkConsolePortRequestModule`
+
+GetInstalledModule returns the InstalledModule field if non-nil, zero value otherwise.
+
+### GetInstalledModuleOk
+
+`func (o *ModuleBayRequest) GetInstalledModuleOk() (*BulkConsolePortRequestModule, bool)`
+
+GetInstalledModuleOk returns a tuple with the InstalledModule field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInstalledModule
+
+`func (o *ModuleBayRequest) SetInstalledModule(v BulkConsolePortRequestModule)`
+
+SetInstalledModule sets InstalledModule field to given value.
+
+### HasInstalledModule
+
+`func (o *ModuleBayRequest) HasInstalledModule() bool`
+
+HasInstalledModule returns a boolean if a field has been set.
+
+### SetInstalledModuleNil
+
+`func (o *ModuleBayRequest) SetInstalledModuleNil(b bool)`
+
+ SetInstalledModuleNil sets the value for InstalledModule to be an explicit nil
+
+### UnsetInstalledModule
+`func (o *ModuleBayRequest) UnsetInstalledModule()`
+
+UnsetInstalledModule ensures that no value is present for InstalledModule, not even an explicit nil
+### GetOwner
+
+`func (o *ModuleBayRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ModuleBayRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ModuleBayRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ModuleBayRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ModuleBayRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ModuleBayRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *ModuleBayRequest) GetTags() []NestedTagRequest`

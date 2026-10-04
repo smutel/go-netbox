@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Cid** | **string** | Unique circuit ID | 
 **Provider** | [**BriefProvider**](BriefProvider.md) |  | 
@@ -17,19 +18,23 @@ Name | Type | Description | Notes
 **TerminationDate** | Pointer to **NullableString** |  | [optional] 
 **CommitRate** | Pointer to **NullableInt32** | Committed rate | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Distance** | Pointer to **NullableFloat64** |  | [optional] 
+**DistanceUnit** | Pointer to [**NullableCircuitDistanceUnit**](CircuitDistanceUnit.md) |  | [optional] 
 **TerminationA** | [**NullableCircuitCircuitTermination**](CircuitCircuitTermination.md) |  | [readonly] 
 **TerminationZ** | [**NullableCircuitCircuitTermination**](CircuitCircuitTermination.md) |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
+**Assignments** | Pointer to [**[]BriefCircuitGroupAssignmentSerializer**](BriefCircuitGroupAssignmentSerializer.md) |  | [optional] 
 
 ## Methods
 
 ### NewCircuit
 
-`func NewCircuit(id int32, url string, display string, cid string, provider BriefProvider, type_ BriefCircuitType, terminationA NullableCircuitCircuitTermination, terminationZ NullableCircuitCircuitTermination, created NullableTime, lastUpdated NullableTime, ) *Circuit`
+`func NewCircuit(id int32, url string, displayUrl string, display string, cid string, provider BriefProvider, type_ BriefCircuitType, terminationA NullableCircuitCircuitTermination, terminationZ NullableCircuitCircuitTermination, created NullableTime, lastUpdated NullableTime, ) *Circuit`
 
 NewCircuit instantiates a new Circuit object
 This constructor will assign default values to properties that have it defined,
@@ -82,6 +87,26 @@ and a boolean to check if the value has been set.
 `func (o *Circuit) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Circuit) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Circuit) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Circuit) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -389,6 +414,76 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetDistance
+
+`func (o *Circuit) GetDistance() float64`
+
+GetDistance returns the Distance field if non-nil, zero value otherwise.
+
+### GetDistanceOk
+
+`func (o *Circuit) GetDistanceOk() (*float64, bool)`
+
+GetDistanceOk returns a tuple with the Distance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistance
+
+`func (o *Circuit) SetDistance(v float64)`
+
+SetDistance sets Distance field to given value.
+
+### HasDistance
+
+`func (o *Circuit) HasDistance() bool`
+
+HasDistance returns a boolean if a field has been set.
+
+### SetDistanceNil
+
+`func (o *Circuit) SetDistanceNil(b bool)`
+
+ SetDistanceNil sets the value for Distance to be an explicit nil
+
+### UnsetDistance
+`func (o *Circuit) UnsetDistance()`
+
+UnsetDistance ensures that no value is present for Distance, not even an explicit nil
+### GetDistanceUnit
+
+`func (o *Circuit) GetDistanceUnit() CircuitDistanceUnit`
+
+GetDistanceUnit returns the DistanceUnit field if non-nil, zero value otherwise.
+
+### GetDistanceUnitOk
+
+`func (o *Circuit) GetDistanceUnitOk() (*CircuitDistanceUnit, bool)`
+
+GetDistanceUnitOk returns a tuple with the DistanceUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistanceUnit
+
+`func (o *Circuit) SetDistanceUnit(v CircuitDistanceUnit)`
+
+SetDistanceUnit sets DistanceUnit field to given value.
+
+### HasDistanceUnit
+
+`func (o *Circuit) HasDistanceUnit() bool`
+
+HasDistanceUnit returns a boolean if a field has been set.
+
+### SetDistanceUnitNil
+
+`func (o *Circuit) SetDistanceUnitNil(b bool)`
+
+ SetDistanceUnitNil sets the value for DistanceUnit to be an explicit nil
+
+### UnsetDistanceUnit
+`func (o *Circuit) UnsetDistanceUnit()`
+
+UnsetDistanceUnit ensures that no value is present for DistanceUnit, not even an explicit nil
 ### GetTerminationA
 
 `func (o *Circuit) GetTerminationA() CircuitCircuitTermination`
@@ -449,6 +544,41 @@ SetTerminationZ sets TerminationZ field to given value.
 `func (o *Circuit) UnsetTerminationZ()`
 
 UnsetTerminationZ ensures that no value is present for TerminationZ, not even an explicit nil
+### GetOwner
+
+`func (o *Circuit) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Circuit) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Circuit) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Circuit) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Circuit) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Circuit) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *Circuit) GetComments() string`
@@ -584,6 +714,31 @@ SetLastUpdated sets LastUpdated field to given value.
 `func (o *Circuit) UnsetLastUpdated()`
 
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+### GetAssignments
+
+`func (o *Circuit) GetAssignments() []BriefCircuitGroupAssignmentSerializer`
+
+GetAssignments returns the Assignments field if non-nil, zero value otherwise.
+
+### GetAssignmentsOk
+
+`func (o *Circuit) GetAssignmentsOk() (*[]BriefCircuitGroupAssignmentSerializer, bool)`
+
+GetAssignmentsOk returns a tuple with the Assignments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAssignments
+
+`func (o *Circuit) SetAssignments(v []BriefCircuitGroupAssignmentSerializer)`
+
+SetAssignments sets Assignments field to given value.
+
+### HasAssignments
+
+`func (o *Circuit) HasAssignments() bool`
+
+HasAssignments returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

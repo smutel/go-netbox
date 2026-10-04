@@ -6,10 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Full name of the site | 
 **Slug** | **string** |  | 
-**Status** | Pointer to [**LocationStatusValue**](LocationStatusValue.md) |  | [optional] 
-**Region** | Pointer to [**NullableBriefRegionRequest**](BriefRegionRequest.md) |  | [optional] 
-**Group** | Pointer to [**NullableBriefSiteGroupRequest**](BriefSiteGroupRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
+**Status** | Pointer to [**BulkLocationRequestStatus**](BulkLocationRequestStatus.md) |  | [optional] 
+**Region** | Pointer to [**NullableBulkSiteRequestRegion**](BulkSiteRequestRegion.md) |  | [optional] 
+**Group** | Pointer to [**NullableBulkSiteRequestGroup**](BulkSiteRequestGroup.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
 **Facility** | Pointer to **string** | Local facility ID or description | [optional] 
 **TimeZone** | Pointer to **NullableString** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **ShippingAddress** | Pointer to **string** | If different from the physical address | [optional] 
 **Latitude** | Pointer to **NullableFloat64** | GPS coordinate in decimal format (xx.yyyyyy) | [optional] 
 **Longitude** | Pointer to **NullableFloat64** | GPS coordinate in decimal format (xx.yyyyyy) | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Asns** | Pointer to **[]int32** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
@@ -83,20 +84,20 @@ SetSlug sets Slug field to given value.
 
 ### GetStatus
 
-`func (o *WritableSiteRequest) GetStatus() LocationStatusValue`
+`func (o *WritableSiteRequest) GetStatus() BulkLocationRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WritableSiteRequest) GetStatusOk() (*LocationStatusValue, bool)`
+`func (o *WritableSiteRequest) GetStatusOk() (*BulkLocationRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WritableSiteRequest) SetStatus(v LocationStatusValue)`
+`func (o *WritableSiteRequest) SetStatus(v BulkLocationRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -108,20 +109,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetRegion
 
-`func (o *WritableSiteRequest) GetRegion() BriefRegionRequest`
+`func (o *WritableSiteRequest) GetRegion() BulkSiteRequestRegion`
 
 GetRegion returns the Region field if non-nil, zero value otherwise.
 
 ### GetRegionOk
 
-`func (o *WritableSiteRequest) GetRegionOk() (*BriefRegionRequest, bool)`
+`func (o *WritableSiteRequest) GetRegionOk() (*BulkSiteRequestRegion, bool)`
 
 GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRegion
 
-`func (o *WritableSiteRequest) SetRegion(v BriefRegionRequest)`
+`func (o *WritableSiteRequest) SetRegion(v BulkSiteRequestRegion)`
 
 SetRegion sets Region field to given value.
 
@@ -143,20 +144,20 @@ HasRegion returns a boolean if a field has been set.
 UnsetRegion ensures that no value is present for Region, not even an explicit nil
 ### GetGroup
 
-`func (o *WritableSiteRequest) GetGroup() BriefSiteGroupRequest`
+`func (o *WritableSiteRequest) GetGroup() BulkSiteRequestGroup`
 
 GetGroup returns the Group field if non-nil, zero value otherwise.
 
 ### GetGroupOk
 
-`func (o *WritableSiteRequest) GetGroupOk() (*BriefSiteGroupRequest, bool)`
+`func (o *WritableSiteRequest) GetGroupOk() (*BulkSiteRequestGroup, bool)`
 
 GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGroup
 
-`func (o *WritableSiteRequest) SetGroup(v BriefSiteGroupRequest)`
+`func (o *WritableSiteRequest) SetGroup(v BulkSiteRequestGroup)`
 
 SetGroup sets Group field to given value.
 
@@ -178,20 +179,20 @@ HasGroup returns a boolean if a field has been set.
 UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetTenant
 
-`func (o *WritableSiteRequest) GetTenant() BriefTenantRequest`
+`func (o *WritableSiteRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *WritableSiteRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *WritableSiteRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *WritableSiteRequest) SetTenant(v BriefTenantRequest)`
+`func (o *WritableSiteRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -416,6 +417,41 @@ HasLongitude returns a boolean if a field has been set.
 `func (o *WritableSiteRequest) UnsetLongitude()`
 
 UnsetLongitude ensures that no value is present for Longitude, not even an explicit nil
+### GetOwner
+
+`func (o *WritableSiteRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableSiteRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableSiteRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableSiteRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableSiteRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableSiteRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WritableSiteRequest) GetComments() string`

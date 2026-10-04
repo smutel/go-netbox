@@ -7,15 +7,17 @@ Name | Type | Description | Notes
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
+**Profile** | Pointer to [**NullableBriefModuleTypeProfile**](BriefModuleTypeProfile.md) |  | [optional] 
 **Manufacturer** | [**BriefManufacturer**](BriefManufacturer.md) |  | 
 **Model** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
+**ModuleCount** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefModuleType
 
-`func NewBriefModuleType(id int32, url string, display string, manufacturer BriefManufacturer, model string, ) *BriefModuleType`
+`func NewBriefModuleType(id int32, url string, display string, manufacturer BriefManufacturer, model string, moduleCount int32, ) *BriefModuleType`
 
 NewBriefModuleType instantiates a new BriefModuleType object
 This constructor will assign default values to properties that have it defined,
@@ -90,6 +92,41 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
+### GetProfile
+
+`func (o *BriefModuleType) GetProfile() BriefModuleTypeProfile`
+
+GetProfile returns the Profile field if non-nil, zero value otherwise.
+
+### GetProfileOk
+
+`func (o *BriefModuleType) GetProfileOk() (*BriefModuleTypeProfile, bool)`
+
+GetProfileOk returns a tuple with the Profile field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProfile
+
+`func (o *BriefModuleType) SetProfile(v BriefModuleTypeProfile)`
+
+SetProfile sets Profile field to given value.
+
+### HasProfile
+
+`func (o *BriefModuleType) HasProfile() bool`
+
+HasProfile returns a boolean if a field has been set.
+
+### SetProfileNil
+
+`func (o *BriefModuleType) SetProfileNil(b bool)`
+
+ SetProfileNil sets the value for Profile to be an explicit nil
+
+### UnsetProfile
+`func (o *BriefModuleType) UnsetProfile()`
+
+UnsetProfile ensures that no value is present for Profile, not even an explicit nil
 ### GetManufacturer
 
 `func (o *BriefModuleType) GetManufacturer() BriefManufacturer`
@@ -154,6 +191,26 @@ SetDescription sets Description field to given value.
 `func (o *BriefModuleType) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetModuleCount
+
+`func (o *BriefModuleType) GetModuleCount() int32`
+
+GetModuleCount returns the ModuleCount field if non-nil, zero value otherwise.
+
+### GetModuleCountOk
+
+`func (o *BriefModuleType) GetModuleCountOk() (*int32, bool)`
+
+GetModuleCountOk returns a tuple with the ModuleCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetModuleCount
+
+`func (o *BriefModuleType) SetModuleCount(v int32)`
+
+SetModuleCount sets ModuleCount field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

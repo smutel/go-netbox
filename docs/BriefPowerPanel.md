@@ -9,13 +9,12 @@ Name | Type | Description | Notes
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**PowerfeedCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefPowerPanel
 
-`func NewBriefPowerPanel(id int32, url string, display string, name string, powerfeedCount int64, ) *BriefPowerPanel`
+`func NewBriefPowerPanel(id int32, url string, display string, name string, ) *BriefPowerPanel`
 
 NewBriefPowerPanel instantiates a new BriefPowerPanel object
 This constructor will assign default values to properties that have it defined,
@@ -134,26 +133,6 @@ SetDescription sets Description field to given value.
 `func (o *BriefPowerPanel) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
-
-### GetPowerfeedCount
-
-`func (o *BriefPowerPanel) GetPowerfeedCount() int64`
-
-GetPowerfeedCount returns the PowerfeedCount field if non-nil, zero value otherwise.
-
-### GetPowerfeedCountOk
-
-`func (o *BriefPowerPanel) GetPowerfeedCountOk() (*int64, bool)`
-
-GetPowerfeedCountOk returns a tuple with the PowerfeedCount field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPowerfeedCount
-
-`func (o *BriefPowerPanel) SetPowerfeedCount(v int64)`
-
-SetPowerfeedCount sets PowerfeedCount field to given value.
-
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

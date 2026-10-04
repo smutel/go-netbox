@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**IKEProposalAuthenticationAlgorithmValue**](IKEProposalAuthenticationAlgorithmValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkIKEProposalRequestAuthenticationAlgorithm**](BulkIKEProposalRequestAuthenticationAlgorithm.md) |  | [optional] 
 **Label** | Pointer to [**IKEProposalAuthenticationAlgorithmLabel**](IKEProposalAuthenticationAlgorithmLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *IKEProposalAuthenticationAlgorithm) GetValue() IKEProposalAuthenticationAlgorithmValue`
+`func (o *IKEProposalAuthenticationAlgorithm) GetValue() BulkIKEProposalRequestAuthenticationAlgorithm`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *IKEProposalAuthenticationAlgorithm) GetValueOk() (*IKEProposalAuthenticationAlgorithmValue, bool)`
+`func (o *IKEProposalAuthenticationAlgorithm) GetValueOk() (*BulkIKEProposalRequestAuthenticationAlgorithm, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *IKEProposalAuthenticationAlgorithm) SetValue(v IKEProposalAuthenticationAlgorithmValue)`
+`func (o *IKEProposalAuthenticationAlgorithm) SetValue(v BulkIKEProposalRequestAuthenticationAlgorithm)`
 
 SetValue sets Value field to given value.
 

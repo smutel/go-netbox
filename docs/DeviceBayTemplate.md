@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **DeviceType** | [**BriefDeviceType**](BriefDeviceType.md) |  | 
 **Name** | **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | 
 **Label** | Pointer to **string** | Physical label | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
@@ -157,6 +158,31 @@ SetLabel sets Label field to given value.
 `func (o *DeviceBayTemplate) HasLabel() bool`
 
 HasLabel returns a boolean if a field has been set.
+
+### GetEnabled
+
+`func (o *DeviceBayTemplate) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *DeviceBayTemplate) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *DeviceBayTemplate) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *DeviceBayTemplate) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetDescription
 

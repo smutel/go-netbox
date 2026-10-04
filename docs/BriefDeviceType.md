@@ -11,13 +11,13 @@ Name | Type | Description | Notes
 **Model** | **string** |  | 
 **Slug** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**DeviceCount** | **int64** |  | [readonly] 
+**DeviceCount** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewBriefDeviceType
 
-`func NewBriefDeviceType(id int32, url string, display string, manufacturer BriefManufacturer, model string, slug string, deviceCount int64, ) *BriefDeviceType`
+`func NewBriefDeviceType(id int32, url string, display string, manufacturer BriefManufacturer, model string, slug string, deviceCount int32, ) *BriefDeviceType`
 
 NewBriefDeviceType instantiates a new BriefDeviceType object
 This constructor will assign default values to properties that have it defined,
@@ -179,20 +179,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetDeviceCount
 
-`func (o *BriefDeviceType) GetDeviceCount() int64`
+`func (o *BriefDeviceType) GetDeviceCount() int32`
 
 GetDeviceCount returns the DeviceCount field if non-nil, zero value otherwise.
 
 ### GetDeviceCountOk
 
-`func (o *BriefDeviceType) GetDeviceCountOk() (*int64, bool)`
+`func (o *BriefDeviceType) GetDeviceCountOk() (*int32, bool)`
 
 GetDeviceCountOk returns a tuple with the DeviceCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceCount
 
-`func (o *BriefDeviceType) SetDeviceCount(v int64)`
+`func (o *BriefDeviceType) SetDeviceCount(v int32)`
 
 SetDeviceCount sets DeviceCount field to given value.
 

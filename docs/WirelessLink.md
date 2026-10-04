@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **InterfaceA** | [**BriefInterface**](BriefInterface.md) |  | 
 **InterfaceB** | [**BriefInterface**](BriefInterface.md) |  | 
@@ -15,7 +16,10 @@ Name | Type | Description | Notes
 **AuthType** | Pointer to [**WirelessLANAuthType**](WirelessLANAuthType.md) |  | [optional] 
 **AuthCipher** | Pointer to [**WirelessLANAuthCipher**](WirelessLANAuthCipher.md) |  | [optional] 
 **AuthPsk** | Pointer to **string** |  | [optional] 
+**Distance** | Pointer to **NullableFloat64** |  | [optional] 
+**DistanceUnit** | Pointer to [**NullableCircuitDistanceUnit**](CircuitDistanceUnit.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -26,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewWirelessLink
 
-`func NewWirelessLink(id int32, url string, display string, interfaceA BriefInterface, interfaceB BriefInterface, created NullableTime, lastUpdated NullableTime, ) *WirelessLink`
+`func NewWirelessLink(id int32, url string, displayUrl string, display string, interfaceA BriefInterface, interfaceB BriefInterface, created NullableTime, lastUpdated NullableTime, ) *WirelessLink`
 
 NewWirelessLink instantiates a new WirelessLink object
 This constructor will assign default values to properties that have it defined,
@@ -79,6 +83,26 @@ and a boolean to check if the value has been set.
 `func (o *WirelessLink) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *WirelessLink) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *WirelessLink) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *WirelessLink) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -301,6 +325,76 @@ SetAuthPsk sets AuthPsk field to given value.
 
 HasAuthPsk returns a boolean if a field has been set.
 
+### GetDistance
+
+`func (o *WirelessLink) GetDistance() float64`
+
+GetDistance returns the Distance field if non-nil, zero value otherwise.
+
+### GetDistanceOk
+
+`func (o *WirelessLink) GetDistanceOk() (*float64, bool)`
+
+GetDistanceOk returns a tuple with the Distance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistance
+
+`func (o *WirelessLink) SetDistance(v float64)`
+
+SetDistance sets Distance field to given value.
+
+### HasDistance
+
+`func (o *WirelessLink) HasDistance() bool`
+
+HasDistance returns a boolean if a field has been set.
+
+### SetDistanceNil
+
+`func (o *WirelessLink) SetDistanceNil(b bool)`
+
+ SetDistanceNil sets the value for Distance to be an explicit nil
+
+### UnsetDistance
+`func (o *WirelessLink) UnsetDistance()`
+
+UnsetDistance ensures that no value is present for Distance, not even an explicit nil
+### GetDistanceUnit
+
+`func (o *WirelessLink) GetDistanceUnit() CircuitDistanceUnit`
+
+GetDistanceUnit returns the DistanceUnit field if non-nil, zero value otherwise.
+
+### GetDistanceUnitOk
+
+`func (o *WirelessLink) GetDistanceUnitOk() (*CircuitDistanceUnit, bool)`
+
+GetDistanceUnitOk returns a tuple with the DistanceUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistanceUnit
+
+`func (o *WirelessLink) SetDistanceUnit(v CircuitDistanceUnit)`
+
+SetDistanceUnit sets DistanceUnit field to given value.
+
+### HasDistanceUnit
+
+`func (o *WirelessLink) HasDistanceUnit() bool`
+
+HasDistanceUnit returns a boolean if a field has been set.
+
+### SetDistanceUnitNil
+
+`func (o *WirelessLink) SetDistanceUnitNil(b bool)`
+
+ SetDistanceUnitNil sets the value for DistanceUnit to be an explicit nil
+
+### UnsetDistanceUnit
+`func (o *WirelessLink) UnsetDistanceUnit()`
+
+UnsetDistanceUnit ensures that no value is present for DistanceUnit, not even an explicit nil
 ### GetDescription
 
 `func (o *WirelessLink) GetDescription() string`
@@ -326,6 +420,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WirelessLink) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WirelessLink) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WirelessLink) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WirelessLink) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WirelessLink) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WirelessLink) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WirelessLink) GetComments() string`

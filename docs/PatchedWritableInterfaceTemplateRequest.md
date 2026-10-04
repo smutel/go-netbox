@@ -4,18 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceType** | Pointer to [**NullableBriefDeviceTypeRequest**](BriefDeviceTypeRequest.md) |  | [optional] 
-**ModuleType** | Pointer to [**NullableBriefModuleTypeRequest**](BriefModuleTypeRequest.md) |  | [optional] 
+**DeviceType** | Pointer to [**NullableBulkConsolePortTemplateRequestDeviceType**](BulkConsolePortTemplateRequestDeviceType.md) |  | [optional] 
+**ModuleType** | Pointer to [**NullableBulkConsolePortTemplateRequestModuleType**](BulkConsolePortTemplateRequestModuleType.md) |  | [optional] 
 **Name** | Pointer to **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | [optional] 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | Pointer to [**InterfaceTypeValue**](InterfaceTypeValue.md) |  | [optional] 
+**Type** | Pointer to [**BulkInterfaceRequestType**](BulkInterfaceRequestType.md) |  | [optional] 
+**Channels** | Pointer to **NullableInt32** | The number of channels into which this interface is channelized | [optional] 
+**ChannelId** | Pointer to **NullableInt32** | The channel on the parent interface to which this subinterface is bound | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **MgmtOnly** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Parent** | Pointer to **NullableInt32** |  | [optional] 
 **Bridge** | Pointer to **NullableInt32** |  | [optional] 
-**PoeMode** | Pointer to [**InterfacePoeModeValue**](InterfacePoeModeValue.md) |  | [optional] 
-**PoeType** | Pointer to [**InterfacePoeTypeValue**](InterfacePoeTypeValue.md) |  | [optional] 
-**RfRole** | Pointer to [**WirelessRole**](WirelessRole.md) |  | [optional] 
+**PoeMode** | Pointer to [**NullableBulkInterfaceTemplateRequestPoeMode**](BulkInterfaceTemplateRequestPoeMode.md) |  | [optional] 
+**PoeType** | Pointer to [**NullableBulkInterfaceTemplateRequestPoeType**](BulkInterfaceTemplateRequestPoeType.md) |  | [optional] 
+**RfRole** | Pointer to [**NullableWirelessRole**](WirelessRole.md) |  | [optional] 
 
 ## Methods
 
@@ -38,20 +41,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeviceType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetDeviceType() BriefDeviceTypeRequest`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetDeviceType() BulkConsolePortTemplateRequestDeviceType`
 
 GetDeviceType returns the DeviceType field if non-nil, zero value otherwise.
 
 ### GetDeviceTypeOk
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetDeviceTypeOk() (*BriefDeviceTypeRequest, bool)`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetDeviceTypeOk() (*BulkConsolePortTemplateRequestDeviceType, bool)`
 
 GetDeviceTypeOk returns a tuple with the DeviceType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest)`
+`func (o *PatchedWritableInterfaceTemplateRequest) SetDeviceType(v BulkConsolePortTemplateRequestDeviceType)`
 
 SetDeviceType sets DeviceType field to given value.
 
@@ -73,20 +76,20 @@ HasDeviceType returns a boolean if a field has been set.
 UnsetDeviceType ensures that no value is present for DeviceType, not even an explicit nil
 ### GetModuleType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetModuleType() BriefModuleTypeRequest`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetModuleType() BulkConsolePortTemplateRequestModuleType`
 
 GetModuleType returns the ModuleType field if non-nil, zero value otherwise.
 
 ### GetModuleTypeOk
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetModuleTypeOk() (*BriefModuleTypeRequest, bool)`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetModuleTypeOk() (*BulkConsolePortTemplateRequestModuleType, bool)`
 
 GetModuleTypeOk returns a tuple with the ModuleType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModuleType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) SetModuleType(v BriefModuleTypeRequest)`
+`func (o *PatchedWritableInterfaceTemplateRequest) SetModuleType(v BulkConsolePortTemplateRequestModuleType)`
 
 SetModuleType sets ModuleType field to given value.
 
@@ -158,20 +161,20 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetType() InterfaceTypeValue`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetType() BulkInterfaceRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetTypeOk() (*InterfaceTypeValue, bool)`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetTypeOk() (*BulkInterfaceRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) SetType(v InterfaceTypeValue)`
+`func (o *PatchedWritableInterfaceTemplateRequest) SetType(v BulkInterfaceRequestType)`
 
 SetType sets Type field to given value.
 
@@ -181,6 +184,76 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
+### GetChannels
+
+`func (o *PatchedWritableInterfaceTemplateRequest) GetChannels() int32`
+
+GetChannels returns the Channels field if non-nil, zero value otherwise.
+
+### GetChannelsOk
+
+`func (o *PatchedWritableInterfaceTemplateRequest) GetChannelsOk() (*int32, bool)`
+
+GetChannelsOk returns a tuple with the Channels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannels
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetChannels(v int32)`
+
+SetChannels sets Channels field to given value.
+
+### HasChannels
+
+`func (o *PatchedWritableInterfaceTemplateRequest) HasChannels() bool`
+
+HasChannels returns a boolean if a field has been set.
+
+### SetChannelsNil
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetChannelsNil(b bool)`
+
+ SetChannelsNil sets the value for Channels to be an explicit nil
+
+### UnsetChannels
+`func (o *PatchedWritableInterfaceTemplateRequest) UnsetChannels()`
+
+UnsetChannels ensures that no value is present for Channels, not even an explicit nil
+### GetChannelId
+
+`func (o *PatchedWritableInterfaceTemplateRequest) GetChannelId() int32`
+
+GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
+
+### GetChannelIdOk
+
+`func (o *PatchedWritableInterfaceTemplateRequest) GetChannelIdOk() (*int32, bool)`
+
+GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannelId
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetChannelId(v int32)`
+
+SetChannelId sets ChannelId field to given value.
+
+### HasChannelId
+
+`func (o *PatchedWritableInterfaceTemplateRequest) HasChannelId() bool`
+
+HasChannelId returns a boolean if a field has been set.
+
+### SetChannelIdNil
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *PatchedWritableInterfaceTemplateRequest) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetEnabled
 
 `func (o *PatchedWritableInterfaceTemplateRequest) GetEnabled() bool`
@@ -256,6 +329,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetParent
+
+`func (o *PatchedWritableInterfaceTemplateRequest) GetParent() int32`
+
+GetParent returns the Parent field if non-nil, zero value otherwise.
+
+### GetParentOk
+
+`func (o *PatchedWritableInterfaceTemplateRequest) GetParentOk() (*int32, bool)`
+
+GetParentOk returns a tuple with the Parent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetParent
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetParent(v int32)`
+
+SetParent sets Parent field to given value.
+
+### HasParent
+
+`func (o *PatchedWritableInterfaceTemplateRequest) HasParent() bool`
+
+HasParent returns a boolean if a field has been set.
+
+### SetParentNil
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetParentNil(b bool)`
+
+ SetParentNil sets the value for Parent to be an explicit nil
+
+### UnsetParent
+`func (o *PatchedWritableInterfaceTemplateRequest) UnsetParent()`
+
+UnsetParent ensures that no value is present for Parent, not even an explicit nil
 ### GetBridge
 
 `func (o *PatchedWritableInterfaceTemplateRequest) GetBridge() int32`
@@ -293,20 +401,20 @@ HasBridge returns a boolean if a field has been set.
 UnsetBridge ensures that no value is present for Bridge, not even an explicit nil
 ### GetPoeMode
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeMode() InterfacePoeModeValue`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeMode() BulkInterfaceTemplateRequestPoeMode`
 
 GetPoeMode returns the PoeMode field if non-nil, zero value otherwise.
 
 ### GetPoeModeOk
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeModeOk() (*InterfacePoeModeValue, bool)`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeModeOk() (*BulkInterfaceTemplateRequestPoeMode, bool)`
 
 GetPoeModeOk returns a tuple with the PoeMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoeMode
 
-`func (o *PatchedWritableInterfaceTemplateRequest) SetPoeMode(v InterfacePoeModeValue)`
+`func (o *PatchedWritableInterfaceTemplateRequest) SetPoeMode(v BulkInterfaceTemplateRequestPoeMode)`
 
 SetPoeMode sets PoeMode field to given value.
 
@@ -316,22 +424,32 @@ SetPoeMode sets PoeMode field to given value.
 
 HasPoeMode returns a boolean if a field has been set.
 
+### SetPoeModeNil
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetPoeModeNil(b bool)`
+
+ SetPoeModeNil sets the value for PoeMode to be an explicit nil
+
+### UnsetPoeMode
+`func (o *PatchedWritableInterfaceTemplateRequest) UnsetPoeMode()`
+
+UnsetPoeMode ensures that no value is present for PoeMode, not even an explicit nil
 ### GetPoeType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeType() InterfacePoeTypeValue`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeType() BulkInterfaceTemplateRequestPoeType`
 
 GetPoeType returns the PoeType field if non-nil, zero value otherwise.
 
 ### GetPoeTypeOk
 
-`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeTypeOk() (*InterfacePoeTypeValue, bool)`
+`func (o *PatchedWritableInterfaceTemplateRequest) GetPoeTypeOk() (*BulkInterfaceTemplateRequestPoeType, bool)`
 
 GetPoeTypeOk returns a tuple with the PoeType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoeType
 
-`func (o *PatchedWritableInterfaceTemplateRequest) SetPoeType(v InterfacePoeTypeValue)`
+`func (o *PatchedWritableInterfaceTemplateRequest) SetPoeType(v BulkInterfaceTemplateRequestPoeType)`
 
 SetPoeType sets PoeType field to given value.
 
@@ -341,6 +459,16 @@ SetPoeType sets PoeType field to given value.
 
 HasPoeType returns a boolean if a field has been set.
 
+### SetPoeTypeNil
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetPoeTypeNil(b bool)`
+
+ SetPoeTypeNil sets the value for PoeType to be an explicit nil
+
+### UnsetPoeType
+`func (o *PatchedWritableInterfaceTemplateRequest) UnsetPoeType()`
+
+UnsetPoeType ensures that no value is present for PoeType, not even an explicit nil
 ### GetRfRole
 
 `func (o *PatchedWritableInterfaceTemplateRequest) GetRfRole() WirelessRole`
@@ -366,6 +494,16 @@ SetRfRole sets RfRole field to given value.
 
 HasRfRole returns a boolean if a field has been set.
 
+### SetRfRoleNil
+
+`func (o *PatchedWritableInterfaceTemplateRequest) SetRfRoleNil(b bool)`
+
+ SetRfRoleNil sets the value for RfRole to be an explicit nil
+
+### UnsetRfRole
+`func (o *PatchedWritableInterfaceTemplateRequest) UnsetRfRole()`
+
+UnsetRfRole ensures that no value is present for RfRole, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

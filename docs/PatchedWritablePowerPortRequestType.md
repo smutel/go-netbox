@@ -11,6 +11,8 @@
 
 * `IEC_60320_C16` (value: `"iec-60320-c16"`)
 
+* `IEC_60320_C18` (value: `"iec-60320-c18"`)
+
 * `IEC_60320_C20` (value: `"iec-60320-c20"`)
 
 * `IEC_60320_C22` (value: `"iec-60320-c22"`)
@@ -125,6 +127,8 @@
 
 * `NEMA_L21_30P` (value: `"nema-l21-30p"`)
 
+* `NEMA_L22_20P` (value: `"nema-l22-20p"`)
+
 * `NEMA_L22_30P` (value: `"nema-l22-30p"`)
 
 * `CS6361C` (value: `"cs6361c"`)
@@ -188,6 +192,8 @@
 * `MOLEX_MICRO_FIT_1X2` (value: `"molex-micro-fit-1x2"`)
 
 * `MOLEX_MICRO_FIT_2X2` (value: `"molex-micro-fit-2x2"`)
+
+* `MOLEX_MICRO_FIT_2X3` (value: `"molex-micro-fit-2x3"`)
 
 * `MOLEX_MICRO_FIT_2X4` (value: `"molex-micro-fit-2x4"`)
 

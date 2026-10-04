@@ -6,26 +6,33 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** |  | [optional] 
 **FacilityId** | Pointer to **NullableString** |  | [optional] 
-**Site** | Pointer to [**BriefSiteRequest**](BriefSiteRequest.md) |  | [optional] 
-**Location** | Pointer to [**NullableBriefLocationRequest**](BriefLocationRequest.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
-**Status** | Pointer to [**PatchedWritableRackRequestStatus**](PatchedWritableRackRequestStatus.md) |  | [optional] 
-**Role** | Pointer to [**NullableBriefRackRoleRequest**](BriefRackRoleRequest.md) |  | [optional] 
+**Site** | Pointer to [**BulkCoolingSourceRequestSite**](BulkCoolingSourceRequestSite.md) |  | [optional] 
+**Location** | Pointer to [**NullableBulkCoolingSourceRequestLocation**](BulkCoolingSourceRequestLocation.md) |  | [optional] 
+**Group** | Pointer to [**NullableBulkRackRequestGroup**](BulkRackRequestGroup.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**Status** | Pointer to [**BulkRackRequestStatus**](BulkRackRequestStatus.md) |  | [optional] 
+**Role** | Pointer to [**NullableBulkRackRequestRole**](BulkRackRequestRole.md) |  | [optional] 
 **Serial** | Pointer to **string** |  | [optional] 
 **AssetTag** | Pointer to **NullableString** | A unique tag used to identify this rack | [optional] 
-**Type** | Pointer to [**PatchedWritableRackRequestType**](PatchedWritableRackRequestType.md) |  | [optional] 
+**RackType** | Pointer to [**NullableBulkRackRequestRackType**](BulkRackRequestRackType.md) |  | [optional] 
+**FormFactor** | Pointer to [**NullableBulkRackRequestFormFactor**](BulkRackRequestFormFactor.md) |  | [optional] 
 **Width** | Pointer to [**PatchedWritableRackRequestWidth**](PatchedWritableRackRequestWidth.md) |  | [optional] 
 **UHeight** | Pointer to **int32** | Height in rack units | [optional] 
 **StartingUnit** | Pointer to **int32** | Starting unit for rack | [optional] 
 **Weight** | Pointer to **NullableFloat64** |  | [optional] 
 **MaxWeight** | Pointer to **NullableInt32** | Maximum load capacity for the rack | [optional] 
-**WeightUnit** | Pointer to [**DeviceTypeWeightUnitValue**](DeviceTypeWeightUnitValue.md) |  | [optional] 
+**WeightUnit** | Pointer to [**NullableBulkDeviceTypeRequestWeightUnit**](BulkDeviceTypeRequestWeightUnit.md) |  | [optional] 
 **DescUnits** | Pointer to **bool** | Units are numbered top-to-bottom | [optional] 
 **OuterWidth** | Pointer to **NullableInt32** | Outer dimension of rack (width) | [optional] 
+**OuterHeight** | Pointer to **NullableInt32** | Outer dimension of rack (height) | [optional] 
 **OuterDepth** | Pointer to **NullableInt32** | Outer dimension of rack (depth) | [optional] 
-**OuterUnit** | Pointer to [**PatchedWritableRackRequestOuterUnit**](PatchedWritableRackRequestOuterUnit.md) |  | [optional] 
+**OuterUnit** | Pointer to [**NullableBulkRackRequestOuterUnit**](BulkRackRequestOuterUnit.md) |  | [optional] 
 **MountingDepth** | Pointer to **NullableInt32** | Maximum depth of a mounted device, in millimeters. For four-post racks, this is the distance between the front and rear rails. | [optional] 
+**Airflow** | Pointer to [**NullablePatchedWritableRackRequestAirflow**](PatchedWritableRackRequestAirflow.md) |  | [optional] 
+**CoolingCapability** | Pointer to [**NullableBulkRackRequestCoolingCapability**](BulkRackRequestCoolingCapability.md) |  | [optional] 
+**CoolingCapacity** | Pointer to **NullableFloat64** | Cooling capacity (kW) | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -111,20 +118,20 @@ HasFacilityId returns a boolean if a field has been set.
 UnsetFacilityId ensures that no value is present for FacilityId, not even an explicit nil
 ### GetSite
 
-`func (o *PatchedWritableRackRequest) GetSite() BriefSiteRequest`
+`func (o *PatchedWritableRackRequest) GetSite() BulkCoolingSourceRequestSite`
 
 GetSite returns the Site field if non-nil, zero value otherwise.
 
 ### GetSiteOk
 
-`func (o *PatchedWritableRackRequest) GetSiteOk() (*BriefSiteRequest, bool)`
+`func (o *PatchedWritableRackRequest) GetSiteOk() (*BulkCoolingSourceRequestSite, bool)`
 
 GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSite
 
-`func (o *PatchedWritableRackRequest) SetSite(v BriefSiteRequest)`
+`func (o *PatchedWritableRackRequest) SetSite(v BulkCoolingSourceRequestSite)`
 
 SetSite sets Site field to given value.
 
@@ -136,20 +143,20 @@ HasSite returns a boolean if a field has been set.
 
 ### GetLocation
 
-`func (o *PatchedWritableRackRequest) GetLocation() BriefLocationRequest`
+`func (o *PatchedWritableRackRequest) GetLocation() BulkCoolingSourceRequestLocation`
 
 GetLocation returns the Location field if non-nil, zero value otherwise.
 
 ### GetLocationOk
 
-`func (o *PatchedWritableRackRequest) GetLocationOk() (*BriefLocationRequest, bool)`
+`func (o *PatchedWritableRackRequest) GetLocationOk() (*BulkCoolingSourceRequestLocation, bool)`
 
 GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocation
 
-`func (o *PatchedWritableRackRequest) SetLocation(v BriefLocationRequest)`
+`func (o *PatchedWritableRackRequest) SetLocation(v BulkCoolingSourceRequestLocation)`
 
 SetLocation sets Location field to given value.
 
@@ -169,22 +176,57 @@ HasLocation returns a boolean if a field has been set.
 `func (o *PatchedWritableRackRequest) UnsetLocation()`
 
 UnsetLocation ensures that no value is present for Location, not even an explicit nil
+### GetGroup
+
+`func (o *PatchedWritableRackRequest) GetGroup() BulkRackRequestGroup`
+
+GetGroup returns the Group field if non-nil, zero value otherwise.
+
+### GetGroupOk
+
+`func (o *PatchedWritableRackRequest) GetGroupOk() (*BulkRackRequestGroup, bool)`
+
+GetGroupOk returns a tuple with the Group field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGroup
+
+`func (o *PatchedWritableRackRequest) SetGroup(v BulkRackRequestGroup)`
+
+SetGroup sets Group field to given value.
+
+### HasGroup
+
+`func (o *PatchedWritableRackRequest) HasGroup() bool`
+
+HasGroup returns a boolean if a field has been set.
+
+### SetGroupNil
+
+`func (o *PatchedWritableRackRequest) SetGroupNil(b bool)`
+
+ SetGroupNil sets the value for Group to be an explicit nil
+
+### UnsetGroup
+`func (o *PatchedWritableRackRequest) UnsetGroup()`
+
+UnsetGroup ensures that no value is present for Group, not even an explicit nil
 ### GetTenant
 
-`func (o *PatchedWritableRackRequest) GetTenant() BriefTenantRequest`
+`func (o *PatchedWritableRackRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *PatchedWritableRackRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *PatchedWritableRackRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *PatchedWritableRackRequest) SetTenant(v BriefTenantRequest)`
+`func (o *PatchedWritableRackRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -206,20 +248,20 @@ HasTenant returns a boolean if a field has been set.
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetStatus
 
-`func (o *PatchedWritableRackRequest) GetStatus() PatchedWritableRackRequestStatus`
+`func (o *PatchedWritableRackRequest) GetStatus() BulkRackRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *PatchedWritableRackRequest) GetStatusOk() (*PatchedWritableRackRequestStatus, bool)`
+`func (o *PatchedWritableRackRequest) GetStatusOk() (*BulkRackRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *PatchedWritableRackRequest) SetStatus(v PatchedWritableRackRequestStatus)`
+`func (o *PatchedWritableRackRequest) SetStatus(v BulkRackRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -231,20 +273,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *PatchedWritableRackRequest) GetRole() BriefRackRoleRequest`
+`func (o *PatchedWritableRackRequest) GetRole() BulkRackRequestRole`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *PatchedWritableRackRequest) GetRoleOk() (*BriefRackRoleRequest, bool)`
+`func (o *PatchedWritableRackRequest) GetRoleOk() (*BulkRackRequestRole, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *PatchedWritableRackRequest) SetRole(v BriefRackRoleRequest)`
+`func (o *PatchedWritableRackRequest) SetRole(v BulkRackRequestRole)`
 
 SetRole sets Role field to given value.
 
@@ -324,31 +366,76 @@ HasAssetTag returns a boolean if a field has been set.
 `func (o *PatchedWritableRackRequest) UnsetAssetTag()`
 
 UnsetAssetTag ensures that no value is present for AssetTag, not even an explicit nil
-### GetType
+### GetRackType
 
-`func (o *PatchedWritableRackRequest) GetType() PatchedWritableRackRequestType`
+`func (o *PatchedWritableRackRequest) GetRackType() BulkRackRequestRackType`
 
-GetType returns the Type field if non-nil, zero value otherwise.
+GetRackType returns the RackType field if non-nil, zero value otherwise.
 
-### GetTypeOk
+### GetRackTypeOk
 
-`func (o *PatchedWritableRackRequest) GetTypeOk() (*PatchedWritableRackRequestType, bool)`
+`func (o *PatchedWritableRackRequest) GetRackTypeOk() (*BulkRackRequestRackType, bool)`
 
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+GetRackTypeOk returns a tuple with the RackType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetType
+### SetRackType
 
-`func (o *PatchedWritableRackRequest) SetType(v PatchedWritableRackRequestType)`
+`func (o *PatchedWritableRackRequest) SetRackType(v BulkRackRequestRackType)`
 
-SetType sets Type field to given value.
+SetRackType sets RackType field to given value.
 
-### HasType
+### HasRackType
 
-`func (o *PatchedWritableRackRequest) HasType() bool`
+`func (o *PatchedWritableRackRequest) HasRackType() bool`
 
-HasType returns a boolean if a field has been set.
+HasRackType returns a boolean if a field has been set.
 
+### SetRackTypeNil
+
+`func (o *PatchedWritableRackRequest) SetRackTypeNil(b bool)`
+
+ SetRackTypeNil sets the value for RackType to be an explicit nil
+
+### UnsetRackType
+`func (o *PatchedWritableRackRequest) UnsetRackType()`
+
+UnsetRackType ensures that no value is present for RackType, not even an explicit nil
+### GetFormFactor
+
+`func (o *PatchedWritableRackRequest) GetFormFactor() BulkRackRequestFormFactor`
+
+GetFormFactor returns the FormFactor field if non-nil, zero value otherwise.
+
+### GetFormFactorOk
+
+`func (o *PatchedWritableRackRequest) GetFormFactorOk() (*BulkRackRequestFormFactor, bool)`
+
+GetFormFactorOk returns a tuple with the FormFactor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFormFactor
+
+`func (o *PatchedWritableRackRequest) SetFormFactor(v BulkRackRequestFormFactor)`
+
+SetFormFactor sets FormFactor field to given value.
+
+### HasFormFactor
+
+`func (o *PatchedWritableRackRequest) HasFormFactor() bool`
+
+HasFormFactor returns a boolean if a field has been set.
+
+### SetFormFactorNil
+
+`func (o *PatchedWritableRackRequest) SetFormFactorNil(b bool)`
+
+ SetFormFactorNil sets the value for FormFactor to be an explicit nil
+
+### UnsetFormFactor
+`func (o *PatchedWritableRackRequest) UnsetFormFactor()`
+
+UnsetFormFactor ensures that no value is present for FormFactor, not even an explicit nil
 ### GetWidth
 
 `func (o *PatchedWritableRackRequest) GetWidth() PatchedWritableRackRequestWidth`
@@ -496,20 +583,20 @@ HasMaxWeight returns a boolean if a field has been set.
 UnsetMaxWeight ensures that no value is present for MaxWeight, not even an explicit nil
 ### GetWeightUnit
 
-`func (o *PatchedWritableRackRequest) GetWeightUnit() DeviceTypeWeightUnitValue`
+`func (o *PatchedWritableRackRequest) GetWeightUnit() BulkDeviceTypeRequestWeightUnit`
 
 GetWeightUnit returns the WeightUnit field if non-nil, zero value otherwise.
 
 ### GetWeightUnitOk
 
-`func (o *PatchedWritableRackRequest) GetWeightUnitOk() (*DeviceTypeWeightUnitValue, bool)`
+`func (o *PatchedWritableRackRequest) GetWeightUnitOk() (*BulkDeviceTypeRequestWeightUnit, bool)`
 
 GetWeightUnitOk returns a tuple with the WeightUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetWeightUnit
 
-`func (o *PatchedWritableRackRequest) SetWeightUnit(v DeviceTypeWeightUnitValue)`
+`func (o *PatchedWritableRackRequest) SetWeightUnit(v BulkDeviceTypeRequestWeightUnit)`
 
 SetWeightUnit sets WeightUnit field to given value.
 
@@ -519,6 +606,16 @@ SetWeightUnit sets WeightUnit field to given value.
 
 HasWeightUnit returns a boolean if a field has been set.
 
+### SetWeightUnitNil
+
+`func (o *PatchedWritableRackRequest) SetWeightUnitNil(b bool)`
+
+ SetWeightUnitNil sets the value for WeightUnit to be an explicit nil
+
+### UnsetWeightUnit
+`func (o *PatchedWritableRackRequest) UnsetWeightUnit()`
+
+UnsetWeightUnit ensures that no value is present for WeightUnit, not even an explicit nil
 ### GetDescUnits
 
 `func (o *PatchedWritableRackRequest) GetDescUnits() bool`
@@ -579,6 +676,41 @@ HasOuterWidth returns a boolean if a field has been set.
 `func (o *PatchedWritableRackRequest) UnsetOuterWidth()`
 
 UnsetOuterWidth ensures that no value is present for OuterWidth, not even an explicit nil
+### GetOuterHeight
+
+`func (o *PatchedWritableRackRequest) GetOuterHeight() int32`
+
+GetOuterHeight returns the OuterHeight field if non-nil, zero value otherwise.
+
+### GetOuterHeightOk
+
+`func (o *PatchedWritableRackRequest) GetOuterHeightOk() (*int32, bool)`
+
+GetOuterHeightOk returns a tuple with the OuterHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOuterHeight
+
+`func (o *PatchedWritableRackRequest) SetOuterHeight(v int32)`
+
+SetOuterHeight sets OuterHeight field to given value.
+
+### HasOuterHeight
+
+`func (o *PatchedWritableRackRequest) HasOuterHeight() bool`
+
+HasOuterHeight returns a boolean if a field has been set.
+
+### SetOuterHeightNil
+
+`func (o *PatchedWritableRackRequest) SetOuterHeightNil(b bool)`
+
+ SetOuterHeightNil sets the value for OuterHeight to be an explicit nil
+
+### UnsetOuterHeight
+`func (o *PatchedWritableRackRequest) UnsetOuterHeight()`
+
+UnsetOuterHeight ensures that no value is present for OuterHeight, not even an explicit nil
 ### GetOuterDepth
 
 `func (o *PatchedWritableRackRequest) GetOuterDepth() int32`
@@ -616,20 +748,20 @@ HasOuterDepth returns a boolean if a field has been set.
 UnsetOuterDepth ensures that no value is present for OuterDepth, not even an explicit nil
 ### GetOuterUnit
 
-`func (o *PatchedWritableRackRequest) GetOuterUnit() PatchedWritableRackRequestOuterUnit`
+`func (o *PatchedWritableRackRequest) GetOuterUnit() BulkRackRequestOuterUnit`
 
 GetOuterUnit returns the OuterUnit field if non-nil, zero value otherwise.
 
 ### GetOuterUnitOk
 
-`func (o *PatchedWritableRackRequest) GetOuterUnitOk() (*PatchedWritableRackRequestOuterUnit, bool)`
+`func (o *PatchedWritableRackRequest) GetOuterUnitOk() (*BulkRackRequestOuterUnit, bool)`
 
 GetOuterUnitOk returns a tuple with the OuterUnit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOuterUnit
 
-`func (o *PatchedWritableRackRequest) SetOuterUnit(v PatchedWritableRackRequestOuterUnit)`
+`func (o *PatchedWritableRackRequest) SetOuterUnit(v BulkRackRequestOuterUnit)`
 
 SetOuterUnit sets OuterUnit field to given value.
 
@@ -639,6 +771,16 @@ SetOuterUnit sets OuterUnit field to given value.
 
 HasOuterUnit returns a boolean if a field has been set.
 
+### SetOuterUnitNil
+
+`func (o *PatchedWritableRackRequest) SetOuterUnitNil(b bool)`
+
+ SetOuterUnitNil sets the value for OuterUnit to be an explicit nil
+
+### UnsetOuterUnit
+`func (o *PatchedWritableRackRequest) UnsetOuterUnit()`
+
+UnsetOuterUnit ensures that no value is present for OuterUnit, not even an explicit nil
 ### GetMountingDepth
 
 `func (o *PatchedWritableRackRequest) GetMountingDepth() int32`
@@ -674,6 +816,111 @@ HasMountingDepth returns a boolean if a field has been set.
 `func (o *PatchedWritableRackRequest) UnsetMountingDepth()`
 
 UnsetMountingDepth ensures that no value is present for MountingDepth, not even an explicit nil
+### GetAirflow
+
+`func (o *PatchedWritableRackRequest) GetAirflow() PatchedWritableRackRequestAirflow`
+
+GetAirflow returns the Airflow field if non-nil, zero value otherwise.
+
+### GetAirflowOk
+
+`func (o *PatchedWritableRackRequest) GetAirflowOk() (*PatchedWritableRackRequestAirflow, bool)`
+
+GetAirflowOk returns a tuple with the Airflow field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAirflow
+
+`func (o *PatchedWritableRackRequest) SetAirflow(v PatchedWritableRackRequestAirflow)`
+
+SetAirflow sets Airflow field to given value.
+
+### HasAirflow
+
+`func (o *PatchedWritableRackRequest) HasAirflow() bool`
+
+HasAirflow returns a boolean if a field has been set.
+
+### SetAirflowNil
+
+`func (o *PatchedWritableRackRequest) SetAirflowNil(b bool)`
+
+ SetAirflowNil sets the value for Airflow to be an explicit nil
+
+### UnsetAirflow
+`func (o *PatchedWritableRackRequest) UnsetAirflow()`
+
+UnsetAirflow ensures that no value is present for Airflow, not even an explicit nil
+### GetCoolingCapability
+
+`func (o *PatchedWritableRackRequest) GetCoolingCapability() BulkRackRequestCoolingCapability`
+
+GetCoolingCapability returns the CoolingCapability field if non-nil, zero value otherwise.
+
+### GetCoolingCapabilityOk
+
+`func (o *PatchedWritableRackRequest) GetCoolingCapabilityOk() (*BulkRackRequestCoolingCapability, bool)`
+
+GetCoolingCapabilityOk returns a tuple with the CoolingCapability field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingCapability
+
+`func (o *PatchedWritableRackRequest) SetCoolingCapability(v BulkRackRequestCoolingCapability)`
+
+SetCoolingCapability sets CoolingCapability field to given value.
+
+### HasCoolingCapability
+
+`func (o *PatchedWritableRackRequest) HasCoolingCapability() bool`
+
+HasCoolingCapability returns a boolean if a field has been set.
+
+### SetCoolingCapabilityNil
+
+`func (o *PatchedWritableRackRequest) SetCoolingCapabilityNil(b bool)`
+
+ SetCoolingCapabilityNil sets the value for CoolingCapability to be an explicit nil
+
+### UnsetCoolingCapability
+`func (o *PatchedWritableRackRequest) UnsetCoolingCapability()`
+
+UnsetCoolingCapability ensures that no value is present for CoolingCapability, not even an explicit nil
+### GetCoolingCapacity
+
+`func (o *PatchedWritableRackRequest) GetCoolingCapacity() float64`
+
+GetCoolingCapacity returns the CoolingCapacity field if non-nil, zero value otherwise.
+
+### GetCoolingCapacityOk
+
+`func (o *PatchedWritableRackRequest) GetCoolingCapacityOk() (*float64, bool)`
+
+GetCoolingCapacityOk returns a tuple with the CoolingCapacity field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCoolingCapacity
+
+`func (o *PatchedWritableRackRequest) SetCoolingCapacity(v float64)`
+
+SetCoolingCapacity sets CoolingCapacity field to given value.
+
+### HasCoolingCapacity
+
+`func (o *PatchedWritableRackRequest) HasCoolingCapacity() bool`
+
+HasCoolingCapacity returns a boolean if a field has been set.
+
+### SetCoolingCapacityNil
+
+`func (o *PatchedWritableRackRequest) SetCoolingCapacityNil(b bool)`
+
+ SetCoolingCapacityNil sets the value for CoolingCapacity to be an explicit nil
+
+### UnsetCoolingCapacity
+`func (o *PatchedWritableRackRequest) UnsetCoolingCapacity()`
+
+UnsetCoolingCapacity ensures that no value is present for CoolingCapacity, not even an explicit nil
 ### GetDescription
 
 `func (o *PatchedWritableRackRequest) GetDescription() string`
@@ -699,6 +946,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableRackRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableRackRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableRackRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableRackRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableRackRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableRackRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableRackRequest) GetComments() string`

@@ -15,6 +15,8 @@
 
 * `PBB_EVPN` (value: `"PBB EVPN"`)
 
+* `EVPN_VPWS` (value: `"EVPN VPWS"`)
+
 * `EPL` (value: `"EPL"`)
 
 * `EVPL` (value: `"EVPL"`)
@@ -26,6 +28,8 @@
 * `ETHERNET_PRIVATE_TREE` (value: `"Ethernet Private Tree"`)
 
 * `ETHERNET_VIRTUAL_PRIVATE_TREE` (value: `"Ethernet Virtual Private Tree"`)
+
+* `SPB` (value: `"SPB"`)
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

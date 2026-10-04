@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**LocationStatusValue**](LocationStatusValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkLocationRequestStatus**](BulkLocationRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**LocationStatusLabel**](LocationStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *LocationStatus) GetValue() LocationStatusValue`
+`func (o *LocationStatus) GetValue() BulkLocationRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *LocationStatus) GetValueOk() (*LocationStatusValue, bool)`
+`func (o *LocationStatus) GetValueOk() (*BulkLocationRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *LocationStatus) SetValue(v LocationStatusValue)`
+`func (o *LocationStatus) SetValue(v BulkLocationRequestStatus)`
 
 SetValue sets Value field to given value.
 

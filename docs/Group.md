@@ -6,17 +6,18 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**Permissions** | Pointer to [**[]ObjectPermission**](ObjectPermission.md) |  | [optional] 
+**Permissions** | Pointer to [**[]BriefObjectPermission**](BriefObjectPermission.md) |  | [optional] 
 **UserCount** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewGroup
 
-`func NewGroup(id int32, url string, display string, name string, userCount int32, ) *Group`
+`func NewGroup(id int32, url string, displayUrl string, display string, name string, userCount int32, ) *Group`
 
 NewGroup instantiates a new Group object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +70,26 @@ and a boolean to check if the value has been set.
 `func (o *Group) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Group) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Group) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Group) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -138,20 +159,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetPermissions
 
-`func (o *Group) GetPermissions() []ObjectPermission`
+`func (o *Group) GetPermissions() []BriefObjectPermission`
 
 GetPermissions returns the Permissions field if non-nil, zero value otherwise.
 
 ### GetPermissionsOk
 
-`func (o *Group) GetPermissionsOk() (*[]ObjectPermission, bool)`
+`func (o *Group) GetPermissionsOk() (*[]BriefObjectPermission, bool)`
 
 GetPermissionsOk returns a tuple with the Permissions field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPermissions
 
-`func (o *Group) SetPermissions(v []ObjectPermission)`
+`func (o *Group) SetPermissions(v []BriefObjectPermission)`
 
 SetPermissions sets Permissions field to given value.
 

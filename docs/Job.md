@@ -6,9 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **ObjectType** | **string** |  | [readonly] 
 **ObjectId** | Pointer to **NullableInt64** |  | [optional] 
+**Object** | **interface{}** |  | [readonly] 
 **Name** | **string** |  | 
 **Status** | [**BriefJobStatus**](BriefJobStatus.md) |  | 
 **Created** | **time.Time** |  | [readonly] 
@@ -16,16 +18,20 @@ Name | Type | Description | Notes
 **Interval** | Pointer to **NullableInt32** | Recurrence interval (in minutes) | [optional] 
 **Started** | Pointer to **NullableTime** |  | [optional] 
 **Completed** | Pointer to **NullableTime** |  | [optional] 
+**ExecutionTime** | **NullableString** |  | [readonly] 
 **User** | [**BriefUser**](BriefUser.md) |  | [readonly] 
 **Data** | Pointer to **interface{}** |  | [optional] 
 **Error** | **string** |  | [readonly] 
 **JobId** | **string** |  | 
+**QueueName** | Pointer to **string** | Name of the queue in which this job was enqueued | [optional] 
+**Notifications** | [**JobNotifications**](JobNotifications.md) |  | 
+**LogEntries** | Pointer to **[]interface{}** |  | [optional] 
 
 ## Methods
 
 ### NewJob
 
-`func NewJob(id int32, url string, display string, objectType string, name string, status BriefJobStatus, created time.Time, user BriefUser, error_ string, jobId string, ) *Job`
+`func NewJob(id int32, url string, displayUrl string, display string, objectType string, object interface{}, name string, status BriefJobStatus, created time.Time, executionTime NullableString, user BriefUser, error_ string, jobId string, notifications JobNotifications, ) *Job`
 
 NewJob instantiates a new Job object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +84,26 @@ and a boolean to check if the value has been set.
 `func (o *Job) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Job) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Job) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Job) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -155,6 +181,36 @@ HasObjectId returns a boolean if a field has been set.
 `func (o *Job) UnsetObjectId()`
 
 UnsetObjectId ensures that no value is present for ObjectId, not even an explicit nil
+### GetObject
+
+`func (o *Job) GetObject() interface{}`
+
+GetObject returns the Object field if non-nil, zero value otherwise.
+
+### GetObjectOk
+
+`func (o *Job) GetObjectOk() (*interface{}, bool)`
+
+GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetObject
+
+`func (o *Job) SetObject(v interface{})`
+
+SetObject sets Object field to given value.
+
+
+### SetObjectNil
+
+`func (o *Job) SetObjectNil(b bool)`
+
+ SetObjectNil sets the value for Object to be an explicit nil
+
+### UnsetObject
+`func (o *Job) UnsetObject()`
+
+UnsetObject ensures that no value is present for Object, not even an explicit nil
 ### GetName
 
 `func (o *Job) GetName() string`
@@ -355,6 +411,36 @@ HasCompleted returns a boolean if a field has been set.
 `func (o *Job) UnsetCompleted()`
 
 UnsetCompleted ensures that no value is present for Completed, not even an explicit nil
+### GetExecutionTime
+
+`func (o *Job) GetExecutionTime() string`
+
+GetExecutionTime returns the ExecutionTime field if non-nil, zero value otherwise.
+
+### GetExecutionTimeOk
+
+`func (o *Job) GetExecutionTimeOk() (*string, bool)`
+
+GetExecutionTimeOk returns a tuple with the ExecutionTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExecutionTime
+
+`func (o *Job) SetExecutionTime(v string)`
+
+SetExecutionTime sets ExecutionTime field to given value.
+
+
+### SetExecutionTimeNil
+
+`func (o *Job) SetExecutionTimeNil(b bool)`
+
+ SetExecutionTimeNil sets the value for ExecutionTime to be an explicit nil
+
+### UnsetExecutionTime
+`func (o *Job) UnsetExecutionTime()`
+
+UnsetExecutionTime ensures that no value is present for ExecutionTime, not even an explicit nil
 ### GetUser
 
 `func (o *Job) GetUser() BriefUser`
@@ -449,6 +535,76 @@ and a boolean to check if the value has been set.
 
 SetJobId sets JobId field to given value.
 
+
+### GetQueueName
+
+`func (o *Job) GetQueueName() string`
+
+GetQueueName returns the QueueName field if non-nil, zero value otherwise.
+
+### GetQueueNameOk
+
+`func (o *Job) GetQueueNameOk() (*string, bool)`
+
+GetQueueNameOk returns a tuple with the QueueName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQueueName
+
+`func (o *Job) SetQueueName(v string)`
+
+SetQueueName sets QueueName field to given value.
+
+### HasQueueName
+
+`func (o *Job) HasQueueName() bool`
+
+HasQueueName returns a boolean if a field has been set.
+
+### GetNotifications
+
+`func (o *Job) GetNotifications() JobNotifications`
+
+GetNotifications returns the Notifications field if non-nil, zero value otherwise.
+
+### GetNotificationsOk
+
+`func (o *Job) GetNotificationsOk() (*JobNotifications, bool)`
+
+GetNotificationsOk returns a tuple with the Notifications field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotifications
+
+`func (o *Job) SetNotifications(v JobNotifications)`
+
+SetNotifications sets Notifications field to given value.
+
+
+### GetLogEntries
+
+`func (o *Job) GetLogEntries() []interface{}`
+
+GetLogEntries returns the LogEntries field if non-nil, zero value otherwise.
+
+### GetLogEntriesOk
+
+`func (o *Job) GetLogEntriesOk() (*[]interface{}, bool)`
+
+GetLogEntriesOk returns a tuple with the LogEntries field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLogEntries
+
+`func (o *Job) SetLogEntries(v []interface{})`
+
+SetLogEntries sets LogEntries field to given value.
+
+### HasLogEntries
+
+`func (o *Job) HasLogEntries() bool`
+
+HasLogEntries returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

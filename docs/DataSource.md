@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Type** | [**DataSourceType**](DataSourceType.md) |  | 
@@ -13,19 +14,23 @@ Name | Type | Description | Notes
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Status** | [**DataSourceStatus**](DataSourceStatus.md) |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**Comments** | Pointer to **string** |  | [optional] 
+**SyncInterval** | Pointer to [**NullableBulkDataSourceRequestSyncInterval**](BulkDataSourceRequestSyncInterval.md) |  | [optional] 
 **Parameters** | Pointer to **interface{}** |  | [optional] 
-**IgnoreRules** | Pointer to **string** | Patterns (one per line) matching files to ignore when syncing | [optional] 
+**IgnoreRules** | Pointer to **string** | Patterns (one per line) matching files or paths to ignore when syncing | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
+**Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
+**LastSynced** | **NullableTime** |  | [readonly] 
 **FileCount** | **int64** |  | [readonly] 
 
 ## Methods
 
 ### NewDataSource
 
-`func NewDataSource(id int32, url string, display string, name string, type_ DataSourceType, sourceUrl string, status DataSourceStatus, created NullableTime, lastUpdated NullableTime, fileCount int64, ) *DataSource`
+`func NewDataSource(id int32, url string, displayUrl string, display string, name string, type_ DataSourceType, sourceUrl string, status DataSourceStatus, created NullableTime, lastUpdated NullableTime, lastSynced NullableTime, fileCount int64, ) *DataSource`
 
 NewDataSource instantiates a new DataSource object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +83,26 @@ and a boolean to check if the value has been set.
 `func (o *DataSource) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *DataSource) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *DataSource) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *DataSource) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -230,31 +255,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### GetComments
+### GetSyncInterval
 
-`func (o *DataSource) GetComments() string`
+`func (o *DataSource) GetSyncInterval() BulkDataSourceRequestSyncInterval`
 
-GetComments returns the Comments field if non-nil, zero value otherwise.
+GetSyncInterval returns the SyncInterval field if non-nil, zero value otherwise.
 
-### GetCommentsOk
+### GetSyncIntervalOk
 
-`func (o *DataSource) GetCommentsOk() (*string, bool)`
+`func (o *DataSource) GetSyncIntervalOk() (*BulkDataSourceRequestSyncInterval, bool)`
 
-GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+GetSyncIntervalOk returns a tuple with the SyncInterval field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetComments
+### SetSyncInterval
 
-`func (o *DataSource) SetComments(v string)`
+`func (o *DataSource) SetSyncInterval(v BulkDataSourceRequestSyncInterval)`
 
-SetComments sets Comments field to given value.
+SetSyncInterval sets SyncInterval field to given value.
 
-### HasComments
+### HasSyncInterval
 
-`func (o *DataSource) HasComments() bool`
+`func (o *DataSource) HasSyncInterval() bool`
 
-HasComments returns a boolean if a field has been set.
+HasSyncInterval returns a boolean if a field has been set.
 
+### SetSyncIntervalNil
+
+`func (o *DataSource) SetSyncIntervalNil(b bool)`
+
+ SetSyncIntervalNil sets the value for SyncInterval to be an explicit nil
+
+### UnsetSyncInterval
+`func (o *DataSource) UnsetSyncInterval()`
+
+UnsetSyncInterval ensures that no value is present for SyncInterval, not even an explicit nil
 ### GetParameters
 
 `func (o *DataSource) GetParameters() interface{}`
@@ -314,6 +349,91 @@ SetIgnoreRules sets IgnoreRules field to given value.
 `func (o *DataSource) HasIgnoreRules() bool`
 
 HasIgnoreRules returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *DataSource) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *DataSource) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *DataSource) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *DataSource) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *DataSource) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *DataSource) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *DataSource) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *DataSource) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *DataSource) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *DataSource) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *DataSource) GetTags() []NestedTag`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *DataSource) GetTagsOk() (*[]NestedTag, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *DataSource) SetTags(v []NestedTag)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *DataSource) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 ### GetCustomFields
 
@@ -400,6 +520,36 @@ SetLastUpdated sets LastUpdated field to given value.
 `func (o *DataSource) UnsetLastUpdated()`
 
 UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+### GetLastSynced
+
+`func (o *DataSource) GetLastSynced() time.Time`
+
+GetLastSynced returns the LastSynced field if non-nil, zero value otherwise.
+
+### GetLastSyncedOk
+
+`func (o *DataSource) GetLastSyncedOk() (*time.Time, bool)`
+
+GetLastSyncedOk returns a tuple with the LastSynced field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastSynced
+
+`func (o *DataSource) SetLastSynced(v time.Time)`
+
+SetLastSynced sets LastSynced field to given value.
+
+
+### SetLastSyncedNil
+
+`func (o *DataSource) SetLastSyncedNil(b bool)`
+
+ SetLastSyncedNil sets the value for LastSynced to be an explicit nil
+
+### UnsetLastSynced
+`func (o *DataSource) UnsetLastSynced()`
+
+UnsetLastSynced ensures that no value is present for LastSynced, not even an explicit nil
 ### GetFileCount
 
 `func (o *DataSource) GetFileCount() int64`

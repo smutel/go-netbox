@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceType** | Pointer to [**NullableBriefDeviceTypeRequest**](BriefDeviceTypeRequest.md) |  | [optional] 
-**ModuleType** | Pointer to [**NullableBriefModuleTypeRequest**](BriefModuleTypeRequest.md) |  | [optional] 
+**DeviceType** | Pointer to [**NullableBulkConsolePortTemplateRequestDeviceType**](BulkConsolePortTemplateRequestDeviceType.md) |  | [optional] 
+**ModuleType** | Pointer to [**NullableBulkConsolePortTemplateRequestModuleType**](BulkConsolePortTemplateRequestModuleType.md) |  | [optional] 
 **Name** | **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | Pointer to [**NullablePowerOutletRequestType**](PowerOutletRequestType.md) |  | [optional] 
-**PowerPort** | Pointer to [**NullableBriefPowerPortTemplateRequest**](BriefPowerPortTemplateRequest.md) |  | [optional] 
-**FeedLeg** | Pointer to [**NullablePowerOutletRequestFeedLeg**](PowerOutletRequestFeedLeg.md) |  | [optional] 
+**Type** | Pointer to [**NullableBulkPowerOutletRequestType**](BulkPowerOutletRequestType.md) |  | [optional] 
+**Color** | Pointer to [**BriefModuleBayTypeColor**](BriefModuleBayTypeColor.md) |  | [optional] 
+**PowerPort** | Pointer to [**NullableBulkPowerOutletTemplateRequestPowerPort**](BulkPowerOutletTemplateRequestPowerPort.md) |  | [optional] 
+**FeedLeg** | Pointer to [**NullableBulkPowerOutletRequestFeedLeg**](BulkPowerOutletRequestFeedLeg.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -34,20 +35,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeviceType
 
-`func (o *PowerOutletTemplateRequest) GetDeviceType() BriefDeviceTypeRequest`
+`func (o *PowerOutletTemplateRequest) GetDeviceType() BulkConsolePortTemplateRequestDeviceType`
 
 GetDeviceType returns the DeviceType field if non-nil, zero value otherwise.
 
 ### GetDeviceTypeOk
 
-`func (o *PowerOutletTemplateRequest) GetDeviceTypeOk() (*BriefDeviceTypeRequest, bool)`
+`func (o *PowerOutletTemplateRequest) GetDeviceTypeOk() (*BulkConsolePortTemplateRequestDeviceType, bool)`
 
 GetDeviceTypeOk returns a tuple with the DeviceType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceType
 
-`func (o *PowerOutletTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest)`
+`func (o *PowerOutletTemplateRequest) SetDeviceType(v BulkConsolePortTemplateRequestDeviceType)`
 
 SetDeviceType sets DeviceType field to given value.
 
@@ -69,20 +70,20 @@ HasDeviceType returns a boolean if a field has been set.
 UnsetDeviceType ensures that no value is present for DeviceType, not even an explicit nil
 ### GetModuleType
 
-`func (o *PowerOutletTemplateRequest) GetModuleType() BriefModuleTypeRequest`
+`func (o *PowerOutletTemplateRequest) GetModuleType() BulkConsolePortTemplateRequestModuleType`
 
 GetModuleType returns the ModuleType field if non-nil, zero value otherwise.
 
 ### GetModuleTypeOk
 
-`func (o *PowerOutletTemplateRequest) GetModuleTypeOk() (*BriefModuleTypeRequest, bool)`
+`func (o *PowerOutletTemplateRequest) GetModuleTypeOk() (*BulkConsolePortTemplateRequestModuleType, bool)`
 
 GetModuleTypeOk returns a tuple with the ModuleType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModuleType
 
-`func (o *PowerOutletTemplateRequest) SetModuleType(v BriefModuleTypeRequest)`
+`func (o *PowerOutletTemplateRequest) SetModuleType(v BulkConsolePortTemplateRequestModuleType)`
 
 SetModuleType sets ModuleType field to given value.
 
@@ -149,20 +150,20 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *PowerOutletTemplateRequest) GetType() PowerOutletRequestType`
+`func (o *PowerOutletTemplateRequest) GetType() BulkPowerOutletRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PowerOutletTemplateRequest) GetTypeOk() (*PowerOutletRequestType, bool)`
+`func (o *PowerOutletTemplateRequest) GetTypeOk() (*BulkPowerOutletRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PowerOutletTemplateRequest) SetType(v PowerOutletRequestType)`
+`func (o *PowerOutletTemplateRequest) SetType(v BulkPowerOutletRequestType)`
 
 SetType sets Type field to given value.
 
@@ -182,22 +183,47 @@ HasType returns a boolean if a field has been set.
 `func (o *PowerOutletTemplateRequest) UnsetType()`
 
 UnsetType ensures that no value is present for Type, not even an explicit nil
+### GetColor
+
+`func (o *PowerOutletTemplateRequest) GetColor() BriefModuleBayTypeColor`
+
+GetColor returns the Color field if non-nil, zero value otherwise.
+
+### GetColorOk
+
+`func (o *PowerOutletTemplateRequest) GetColorOk() (*BriefModuleBayTypeColor, bool)`
+
+GetColorOk returns a tuple with the Color field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetColor
+
+`func (o *PowerOutletTemplateRequest) SetColor(v BriefModuleBayTypeColor)`
+
+SetColor sets Color field to given value.
+
+### HasColor
+
+`func (o *PowerOutletTemplateRequest) HasColor() bool`
+
+HasColor returns a boolean if a field has been set.
+
 ### GetPowerPort
 
-`func (o *PowerOutletTemplateRequest) GetPowerPort() BriefPowerPortTemplateRequest`
+`func (o *PowerOutletTemplateRequest) GetPowerPort() BulkPowerOutletTemplateRequestPowerPort`
 
 GetPowerPort returns the PowerPort field if non-nil, zero value otherwise.
 
 ### GetPowerPortOk
 
-`func (o *PowerOutletTemplateRequest) GetPowerPortOk() (*BriefPowerPortTemplateRequest, bool)`
+`func (o *PowerOutletTemplateRequest) GetPowerPortOk() (*BulkPowerOutletTemplateRequestPowerPort, bool)`
 
 GetPowerPortOk returns a tuple with the PowerPort field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPowerPort
 
-`func (o *PowerOutletTemplateRequest) SetPowerPort(v BriefPowerPortTemplateRequest)`
+`func (o *PowerOutletTemplateRequest) SetPowerPort(v BulkPowerOutletTemplateRequestPowerPort)`
 
 SetPowerPort sets PowerPort field to given value.
 
@@ -219,20 +245,20 @@ HasPowerPort returns a boolean if a field has been set.
 UnsetPowerPort ensures that no value is present for PowerPort, not even an explicit nil
 ### GetFeedLeg
 
-`func (o *PowerOutletTemplateRequest) GetFeedLeg() PowerOutletRequestFeedLeg`
+`func (o *PowerOutletTemplateRequest) GetFeedLeg() BulkPowerOutletRequestFeedLeg`
 
 GetFeedLeg returns the FeedLeg field if non-nil, zero value otherwise.
 
 ### GetFeedLegOk
 
-`func (o *PowerOutletTemplateRequest) GetFeedLegOk() (*PowerOutletRequestFeedLeg, bool)`
+`func (o *PowerOutletTemplateRequest) GetFeedLegOk() (*BulkPowerOutletRequestFeedLeg, bool)`
 
 GetFeedLegOk returns a tuple with the FeedLeg field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFeedLeg
 
-`func (o *PowerOutletTemplateRequest) SetFeedLeg(v PowerOutletRequestFeedLeg)`
+`func (o *PowerOutletTemplateRequest) SetFeedLeg(v BulkPowerOutletRequestFeedLeg)`
 
 SetFeedLeg sets FeedLeg field to given value.
 

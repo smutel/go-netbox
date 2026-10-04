@@ -4,10 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Site** | [**BriefSiteRequest**](BriefSiteRequest.md) |  | 
-**Location** | Pointer to [**NullableBriefLocationRequest**](BriefLocationRequest.md) |  | [optional] 
+**Site** | [**BulkCoolingSourceRequestSite**](BulkCoolingSourceRequestSite.md) |  | 
+**Location** | Pointer to [**NullableBulkCoolingSourceRequestLocation**](BulkCoolingSourceRequestLocation.md) |  | [optional] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -16,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewPowerPanelRequest
 
-`func NewPowerPanelRequest(site BriefSiteRequest, name string, ) *PowerPanelRequest`
+`func NewPowerPanelRequest(site BulkCoolingSourceRequestSite, name string, ) *PowerPanelRequest`
 
 NewPowerPanelRequest instantiates a new PowerPanelRequest object
 This constructor will assign default values to properties that have it defined,
@@ -33,40 +34,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetSite
 
-`func (o *PowerPanelRequest) GetSite() BriefSiteRequest`
+`func (o *PowerPanelRequest) GetSite() BulkCoolingSourceRequestSite`
 
 GetSite returns the Site field if non-nil, zero value otherwise.
 
 ### GetSiteOk
 
-`func (o *PowerPanelRequest) GetSiteOk() (*BriefSiteRequest, bool)`
+`func (o *PowerPanelRequest) GetSiteOk() (*BulkCoolingSourceRequestSite, bool)`
 
 GetSiteOk returns a tuple with the Site field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSite
 
-`func (o *PowerPanelRequest) SetSite(v BriefSiteRequest)`
+`func (o *PowerPanelRequest) SetSite(v BulkCoolingSourceRequestSite)`
 
 SetSite sets Site field to given value.
 
 
 ### GetLocation
 
-`func (o *PowerPanelRequest) GetLocation() BriefLocationRequest`
+`func (o *PowerPanelRequest) GetLocation() BulkCoolingSourceRequestLocation`
 
 GetLocation returns the Location field if non-nil, zero value otherwise.
 
 ### GetLocationOk
 
-`func (o *PowerPanelRequest) GetLocationOk() (*BriefLocationRequest, bool)`
+`func (o *PowerPanelRequest) GetLocationOk() (*BulkCoolingSourceRequestLocation, bool)`
 
 GetLocationOk returns a tuple with the Location field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocation
 
-`func (o *PowerPanelRequest) SetLocation(v BriefLocationRequest)`
+`func (o *PowerPanelRequest) SetLocation(v BulkCoolingSourceRequestLocation)`
 
 SetLocation sets Location field to given value.
 
@@ -131,6 +132,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PowerPanelRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PowerPanelRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PowerPanelRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PowerPanelRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PowerPanelRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PowerPanelRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PowerPanelRequest) GetComments() string`

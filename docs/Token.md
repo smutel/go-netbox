@@ -6,20 +6,25 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
+**Version** | Pointer to [**BulkTokenRequestVersion**](BulkTokenRequestVersion.md) |  | [optional] 
+**Key** | **NullableString** | v2 token identification key | [readonly] 
 **User** | [**BriefUser**](BriefUser.md) |  | 
+**Description** | Pointer to **string** |  | [optional] 
 **Created** | **time.Time** |  | [readonly] 
 **Expires** | Pointer to **NullableTime** |  | [optional] 
 **LastUsed** | Pointer to **NullableTime** |  | [optional] 
-**Key** | Pointer to **string** |  | [optional] 
-**WriteEnabled** | Pointer to **bool** | Permit create/update/delete operations using this key | [optional] 
-**Description** | Pointer to **string** |  | [optional] 
+**Enabled** | Pointer to **bool** | Disable to temporarily revoke this token without deleting it. | [optional] 
+**WriteEnabled** | Pointer to **bool** | Permit create/update/delete operations using this token | [optional] 
+**PepperId** | Pointer to **NullableInt32** | ID of the cryptographic pepper used to hash the token (v2 only) | [optional] 
+**Token** | **string** |  | [readonly] 
 
 ## Methods
 
 ### NewToken
 
-`func NewToken(id int32, url string, display string, user BriefUser, created time.Time, ) *Token`
+`func NewToken(id int32, url string, displayUrl string, display string, key NullableString, user BriefUser, created time.Time, token string, ) *Token`
 
 NewToken instantiates a new Token object
 This constructor will assign default values to properties that have it defined,
@@ -74,6 +79,26 @@ and a boolean to check if the value has been set.
 SetUrl sets Url field to given value.
 
 
+### GetDisplayUrl
+
+`func (o *Token) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Token) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Token) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
+
+
 ### GetDisplay
 
 `func (o *Token) GetDisplay() string`
@@ -94,6 +119,61 @@ and a boolean to check if the value has been set.
 SetDisplay sets Display field to given value.
 
 
+### GetVersion
+
+`func (o *Token) GetVersion() BulkTokenRequestVersion`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *Token) GetVersionOk() (*BulkTokenRequestVersion, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *Token) SetVersion(v BulkTokenRequestVersion)`
+
+SetVersion sets Version field to given value.
+
+### HasVersion
+
+`func (o *Token) HasVersion() bool`
+
+HasVersion returns a boolean if a field has been set.
+
+### GetKey
+
+`func (o *Token) GetKey() string`
+
+GetKey returns the Key field if non-nil, zero value otherwise.
+
+### GetKeyOk
+
+`func (o *Token) GetKeyOk() (*string, bool)`
+
+GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetKey
+
+`func (o *Token) SetKey(v string)`
+
+SetKey sets Key field to given value.
+
+
+### SetKeyNil
+
+`func (o *Token) SetKeyNil(b bool)`
+
+ SetKeyNil sets the value for Key to be an explicit nil
+
+### UnsetKey
+`func (o *Token) UnsetKey()`
+
+UnsetKey ensures that no value is present for Key, not even an explicit nil
 ### GetUser
 
 `func (o *Token) GetUser() BriefUser`
@@ -113,6 +193,31 @@ and a boolean to check if the value has been set.
 
 SetUser sets User field to given value.
 
+
+### GetDescription
+
+`func (o *Token) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *Token) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *Token) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *Token) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetCreated
 
@@ -204,30 +309,30 @@ HasLastUsed returns a boolean if a field has been set.
 `func (o *Token) UnsetLastUsed()`
 
 UnsetLastUsed ensures that no value is present for LastUsed, not even an explicit nil
-### GetKey
+### GetEnabled
 
-`func (o *Token) GetKey() string`
+`func (o *Token) GetEnabled() bool`
 
-GetKey returns the Key field if non-nil, zero value otherwise.
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
 
-### GetKeyOk
+### GetEnabledOk
 
-`func (o *Token) GetKeyOk() (*string, bool)`
+`func (o *Token) GetEnabledOk() (*bool, bool)`
 
-GetKeyOk returns a tuple with the Key field if it's non-nil, zero value otherwise
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetKey
+### SetEnabled
 
-`func (o *Token) SetKey(v string)`
+`func (o *Token) SetEnabled(v bool)`
 
-SetKey sets Key field to given value.
+SetEnabled sets Enabled field to given value.
 
-### HasKey
+### HasEnabled
 
-`func (o *Token) HasKey() bool`
+`func (o *Token) HasEnabled() bool`
 
-HasKey returns a boolean if a field has been set.
+HasEnabled returns a boolean if a field has been set.
 
 ### GetWriteEnabled
 
@@ -254,30 +359,60 @@ SetWriteEnabled sets WriteEnabled field to given value.
 
 HasWriteEnabled returns a boolean if a field has been set.
 
-### GetDescription
+### GetPepperId
 
-`func (o *Token) GetDescription() string`
+`func (o *Token) GetPepperId() int32`
 
-GetDescription returns the Description field if non-nil, zero value otherwise.
+GetPepperId returns the PepperId field if non-nil, zero value otherwise.
 
-### GetDescriptionOk
+### GetPepperIdOk
 
-`func (o *Token) GetDescriptionOk() (*string, bool)`
+`func (o *Token) GetPepperIdOk() (*int32, bool)`
 
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+GetPepperIdOk returns a tuple with the PepperId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDescription
+### SetPepperId
 
-`func (o *Token) SetDescription(v string)`
+`func (o *Token) SetPepperId(v int32)`
 
-SetDescription sets Description field to given value.
+SetPepperId sets PepperId field to given value.
 
-### HasDescription
+### HasPepperId
 
-`func (o *Token) HasDescription() bool`
+`func (o *Token) HasPepperId() bool`
 
-HasDescription returns a boolean if a field has been set.
+HasPepperId returns a boolean if a field has been set.
+
+### SetPepperIdNil
+
+`func (o *Token) SetPepperIdNil(b bool)`
+
+ SetPepperIdNil sets the value for PepperId to be an explicit nil
+
+### UnsetPepperId
+`func (o *Token) UnsetPepperId()`
+
+UnsetPepperId ensures that no value is present for PepperId, not even an explicit nil
+### GetToken
+
+`func (o *Token) GetToken() string`
+
+GetToken returns the Token field if non-nil, zero value otherwise.
+
+### GetTokenOk
+
+`func (o *Token) GetTokenOk() (*string, bool)`
+
+GetTokenOk returns a tuple with the Token field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetToken
+
+`func (o *Token) SetToken(v string)`
+
+SetToken sets Token field to given value.
+
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**CircuitStatusValue**](CircuitStatusValue.md) |  | [optional] 
+**Value** | Pointer to [**BulkCircuitRequestStatus**](BulkCircuitRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**CircuitStatusLabel**](CircuitStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *CircuitStatus) GetValue() CircuitStatusValue`
+`func (o *CircuitStatus) GetValue() BulkCircuitRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *CircuitStatus) GetValueOk() (*CircuitStatusValue, bool)`
+`func (o *CircuitStatus) GetValueOk() (*BulkCircuitRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *CircuitStatus) SetValue(v CircuitStatusValue)`
+`func (o *CircuitStatus) SetValue(v BulkCircuitRequestStatus)`
 
 SetValue sets Value field to given value.
 

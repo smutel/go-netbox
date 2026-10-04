@@ -9,6 +9,8 @@
 
 * `LB` (value: `"lb"`)
 
+* `NULL` (value: `"null"`)
+
 * `OZ` (value: `"oz"`)
 
 

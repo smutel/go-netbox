@@ -7,9 +7,10 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **Version** | Pointer to [**PatchedWritableIKEPolicyRequestVersion**](PatchedWritableIKEPolicyRequestVersion.md) |  | [optional] 
-**Mode** | Pointer to [**PatchedWritableIKEPolicyRequestMode**](PatchedWritableIKEPolicyRequestMode.md) |  | [optional] 
+**Mode** | Pointer to [**NullablePatchedWritableIKEPolicyRequestMode**](PatchedWritableIKEPolicyRequestMode.md) |  | [optional] 
 **Proposals** | Pointer to **[]int32** |  | [optional] 
 **PresharedKey** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -133,6 +134,16 @@ SetMode sets Mode field to given value.
 
 HasMode returns a boolean if a field has been set.
 
+### SetModeNil
+
+`func (o *PatchedWritableIKEPolicyRequest) SetModeNil(b bool)`
+
+ SetModeNil sets the value for Mode to be an explicit nil
+
+### UnsetMode
+`func (o *PatchedWritableIKEPolicyRequest) UnsetMode()`
+
+UnsetMode ensures that no value is present for Mode, not even an explicit nil
 ### GetProposals
 
 `func (o *PatchedWritableIKEPolicyRequest) GetProposals() []int32`
@@ -183,6 +194,41 @@ SetPresharedKey sets PresharedKey field to given value.
 
 HasPresharedKey returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PatchedWritableIKEPolicyRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PatchedWritableIKEPolicyRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PatchedWritableIKEPolicyRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PatchedWritableIKEPolicyRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PatchedWritableIKEPolicyRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PatchedWritableIKEPolicyRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *PatchedWritableIKEPolicyRequest) GetComments() string`

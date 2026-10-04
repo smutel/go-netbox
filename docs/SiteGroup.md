@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
@@ -16,13 +17,16 @@ Name | Type | Description | Notes
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 **SiteCount** | **int32** |  | [readonly] [default to 0]
+**PrefixCount** | **int64** |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
 **Depth** | **int32** |  | [readonly] 
 
 ## Methods
 
 ### NewSiteGroup
 
-`func NewSiteGroup(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, siteCount int32, depth int32, ) *SiteGroup`
+`func NewSiteGroup(id int32, url string, displayUrl string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, siteCount int32, prefixCount int64, depth int32, ) *SiteGroup`
 
 NewSiteGroup instantiates a new SiteGroup object
 This constructor will assign default values to properties that have it defined,
@@ -75,6 +79,26 @@ and a boolean to check if the value has been set.
 `func (o *SiteGroup) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *SiteGroup) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *SiteGroup) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *SiteGroup) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -326,6 +350,86 @@ and a boolean to check if the value has been set.
 
 SetSiteCount sets SiteCount field to given value.
 
+
+### GetPrefixCount
+
+`func (o *SiteGroup) GetPrefixCount() int64`
+
+GetPrefixCount returns the PrefixCount field if non-nil, zero value otherwise.
+
+### GetPrefixCountOk
+
+`func (o *SiteGroup) GetPrefixCountOk() (*int64, bool)`
+
+GetPrefixCountOk returns a tuple with the PrefixCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrefixCount
+
+`func (o *SiteGroup) SetPrefixCount(v int64)`
+
+SetPrefixCount sets PrefixCount field to given value.
+
+
+### GetOwner
+
+`func (o *SiteGroup) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *SiteGroup) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *SiteGroup) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *SiteGroup) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *SiteGroup) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *SiteGroup) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *SiteGroup) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *SiteGroup) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *SiteGroup) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *SiteGroup) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
 
 ### GetDepth
 

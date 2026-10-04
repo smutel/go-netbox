@@ -6,11 +6,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Asn** | **int64** | 16- or 32-bit autonomous system number | 
 **Rir** | Pointer to [**NullableBriefRIR**](BriefRIR.md) |  | [optional] 
+**Role** | Pointer to [**NullableBriefRole**](BriefRole.md) |  | [optional] 
 **Tenant** | Pointer to [**NullableBriefTenant**](BriefTenant.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -18,12 +21,13 @@ Name | Type | Description | Notes
 **LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **SiteCount** | Pointer to **int64** |  | [optional] [readonly] 
 **ProviderCount** | Pointer to **int64** |  | [optional] [readonly] 
+**Sites** | Pointer to [**[]ASNSite**](ASNSite.md) |  | [optional] 
 
 ## Methods
 
 ### NewASN
 
-`func NewASN(id int32, url string, display string, asn int64, ) *ASN`
+`func NewASN(id int32, url string, displayUrl string, display string, asn int64, ) *ASN`
 
 NewASN instantiates a new ASN object
 This constructor will assign default values to properties that have it defined,
@@ -76,6 +80,26 @@ and a boolean to check if the value has been set.
 `func (o *ASN) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *ASN) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *ASN) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *ASN) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -153,6 +177,41 @@ HasRir returns a boolean if a field has been set.
 `func (o *ASN) UnsetRir()`
 
 UnsetRir ensures that no value is present for Rir, not even an explicit nil
+### GetRole
+
+`func (o *ASN) GetRole() BriefRole`
+
+GetRole returns the Role field if non-nil, zero value otherwise.
+
+### GetRoleOk
+
+`func (o *ASN) GetRoleOk() (*BriefRole, bool)`
+
+GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRole
+
+`func (o *ASN) SetRole(v BriefRole)`
+
+SetRole sets Role field to given value.
+
+### HasRole
+
+`func (o *ASN) HasRole() bool`
+
+HasRole returns a boolean if a field has been set.
+
+### SetRoleNil
+
+`func (o *ASN) SetRoleNil(b bool)`
+
+ SetRoleNil sets the value for Role to be an explicit nil
+
+### UnsetRole
+`func (o *ASN) UnsetRole()`
+
+UnsetRole ensures that no value is present for Role, not even an explicit nil
 ### GetTenant
 
 `func (o *ASN) GetTenant() BriefTenant`
@@ -213,6 +272,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *ASN) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ASN) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ASN) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ASN) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ASN) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ASN) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *ASN) GetComments() string`
@@ -407,6 +501,31 @@ SetProviderCount sets ProviderCount field to given value.
 `func (o *ASN) HasProviderCount() bool`
 
 HasProviderCount returns a boolean if a field has been set.
+
+### GetSites
+
+`func (o *ASN) GetSites() []ASNSite`
+
+GetSites returns the Sites field if non-nil, zero value otherwise.
+
+### GetSitesOk
+
+`func (o *ASN) GetSitesOk() (*[]ASNSite, bool)`
+
+GetSitesOk returns a tuple with the Sites field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSites
+
+`func (o *ASN) SetSites(v []ASNSite)`
+
+SetSites sets Sites field to given value.
+
+### HasSites
+
+`func (o *ASN) HasSites() bool`
+
+HasSites returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

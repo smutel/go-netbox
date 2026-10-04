@@ -6,18 +6,21 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**PayloadUrl** | **string** | This URL will be called using the HTTP method defined when the webhook is called. Jinja2 template processing is supported with the same context as the request body. | 
-**HttpMethod** | Pointer to [**PatchedWebhookRequestHttpMethod**](PatchedWebhookRequestHttpMethod.md) |  | [optional] 
+**PayloadUrl** | **string** | This URL will be called using the HTTP method defined when the webhook is called. Must be http:// or https://. Jinja2 template processing is supported (with the same context as the request body) for part or all of the URL. | 
+**HttpMethod** | Pointer to [**BulkWebhookRequestHttpMethod**](BulkWebhookRequestHttpMethod.md) |  | [optional] 
 **HttpContentType** | Pointer to **string** | The complete list of official content types is available &lt;a href&#x3D;\&quot;https://www.iana.org/assignments/media-types/media-types.xhtml\&quot;&gt;here&lt;/a&gt;. | [optional] 
-**AdditionalHeaders** | Pointer to **string** | User-supplied HTTP headers to be sent with the request in addition to the HTTP content type. Headers should be defined in the format &lt;code&gt;Name: Value&lt;/code&gt;. Jinja2 template processing is supported with the same context as the request body (below). | [optional] 
-**BodyTemplate** | Pointer to **string** | Jinja2 template for a custom request body. If blank, a JSON object representing the change will be included. Available context data includes: &lt;code&gt;event&lt;/code&gt;, &lt;code&gt;model&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;username&lt;/code&gt;, &lt;code&gt;request_id&lt;/code&gt;, and &lt;code&gt;data&lt;/code&gt;. | [optional] 
+**AdditionalHeaders** | Pointer to **string** | User-supplied HTTP headers to be sent with the request in addition to the HTTP content type. Headers should be defined in the format &lt;code&gt;Name: Value&lt;/code&gt;. Jinja2 template processing is supported with the same context as the request body (below). When interpolating untrusted data (such as object attributes) into a header value, apply the &lt;code&gt;header_safe&lt;/code&gt; filter to guard against HTTP header injection, e.g. &lt;code&gt;X-Object: {{ data.name | header_safe }}&lt;/code&gt;. | [optional] 
+**BodyTemplate** | Pointer to **string** | Jinja2 template for a custom request body. If blank, a JSON object representing the change will be included. Available context data includes: &lt;code&gt;event&lt;/code&gt;, &lt;code&gt;model&lt;/code&gt;, &lt;code&gt;timestamp&lt;/code&gt;, &lt;code&gt;request&lt;/code&gt;, and &lt;code&gt;data&lt;/code&gt;. | [optional] 
 **Secret** | Pointer to **string** | When provided, the request will include a &lt;code&gt;X-Hook-Signature&lt;/code&gt; header containing a HMAC hex digest of the payload body using the secret as the key. The secret is not transmitted in the request. | [optional] 
 **SslVerification** | Pointer to **bool** | Enable SSL certificate verification. Disable with caution! | [optional] 
 **CaFilePath** | Pointer to **NullableString** | The specific CA certificate file to use for SSL verification. Leave blank to use the system defaults. | [optional] 
+**Timeout** | Pointer to **NullableInt32** | The maximum time (in seconds) to wait for a response before failing the request. Leave blank to use the system default (60 seconds). | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
@@ -26,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewWebhook
 
-`func NewWebhook(id int32, url string, display string, name string, payloadUrl string, created NullableTime, lastUpdated NullableTime, ) *Webhook`
+`func NewWebhook(id int32, url string, displayUrl string, display string, name string, payloadUrl string, created NullableTime, lastUpdated NullableTime, ) *Webhook`
 
 NewWebhook instantiates a new Webhook object
 This constructor will assign default values to properties that have it defined,
@@ -79,6 +82,26 @@ and a boolean to check if the value has been set.
 `func (o *Webhook) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Webhook) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Webhook) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Webhook) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -168,20 +191,20 @@ SetPayloadUrl sets PayloadUrl field to given value.
 
 ### GetHttpMethod
 
-`func (o *Webhook) GetHttpMethod() PatchedWebhookRequestHttpMethod`
+`func (o *Webhook) GetHttpMethod() BulkWebhookRequestHttpMethod`
 
 GetHttpMethod returns the HttpMethod field if non-nil, zero value otherwise.
 
 ### GetHttpMethodOk
 
-`func (o *Webhook) GetHttpMethodOk() (*PatchedWebhookRequestHttpMethod, bool)`
+`func (o *Webhook) GetHttpMethodOk() (*BulkWebhookRequestHttpMethod, bool)`
 
 GetHttpMethodOk returns a tuple with the HttpMethod field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetHttpMethod
 
-`func (o *Webhook) SetHttpMethod(v PatchedWebhookRequestHttpMethod)`
+`func (o *Webhook) SetHttpMethod(v BulkWebhookRequestHttpMethod)`
 
 SetHttpMethod sets HttpMethod field to given value.
 
@@ -351,6 +374,41 @@ HasCaFilePath returns a boolean if a field has been set.
 `func (o *Webhook) UnsetCaFilePath()`
 
 UnsetCaFilePath ensures that no value is present for CaFilePath, not even an explicit nil
+### GetTimeout
+
+`func (o *Webhook) GetTimeout() int32`
+
+GetTimeout returns the Timeout field if non-nil, zero value otherwise.
+
+### GetTimeoutOk
+
+`func (o *Webhook) GetTimeoutOk() (*int32, bool)`
+
+GetTimeoutOk returns a tuple with the Timeout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTimeout
+
+`func (o *Webhook) SetTimeout(v int32)`
+
+SetTimeout sets Timeout field to given value.
+
+### HasTimeout
+
+`func (o *Webhook) HasTimeout() bool`
+
+HasTimeout returns a boolean if a field has been set.
+
+### SetTimeoutNil
+
+`func (o *Webhook) SetTimeoutNil(b bool)`
+
+ SetTimeoutNil sets the value for Timeout to be an explicit nil
+
+### UnsetTimeout
+`func (o *Webhook) UnsetTimeout()`
+
+UnsetTimeout ensures that no value is present for Timeout, not even an explicit nil
 ### GetCustomFields
 
 `func (o *Webhook) GetCustomFields() map[string]interface{}`
@@ -376,6 +434,41 @@ SetCustomFields sets CustomFields field to given value.
 
 HasCustomFields returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *Webhook) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *Webhook) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *Webhook) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *Webhook) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *Webhook) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Webhook) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *Webhook) GetTags() []NestedTag`

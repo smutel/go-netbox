@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritableTunnelTerminationRequestRole**](PatchedWritableTunnelTerminationRequestRole.md) |  | [optional] 
+**Value** | Pointer to [**BulkTunnelTerminationRequestRole**](BulkTunnelTerminationRequestRole.md) |  | [optional] 
 **Label** | Pointer to [**TunnelTerminationRoleLabel**](TunnelTerminationRoleLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *TunnelTerminationRole) GetValue() PatchedWritableTunnelTerminationRequestRole`
+`func (o *TunnelTerminationRole) GetValue() BulkTunnelTerminationRequestRole`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *TunnelTerminationRole) GetValueOk() (*PatchedWritableTunnelTerminationRequestRole, bool)`
+`func (o *TunnelTerminationRole) GetValueOk() (*BulkTunnelTerminationRequestRole, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *TunnelTerminationRole) SetValue(v PatchedWritableTunnelTerminationRequestRole)`
+`func (o *TunnelTerminationRole) SetValue(v BulkTunnelTerminationRequestRole)`
 
 SetValue sets Value field to given value.
 

@@ -4,15 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
-**Module** | Pointer to [**NullableBriefModuleRequest**](BriefModuleRequest.md) |  | [optional] 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
+**Module** | Pointer to [**NullableBulkConsolePortRequestModule**](BulkConsolePortRequestModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | Pointer to [**NullablePowerPortRequestType**](PowerPortRequestType.md) |  | [optional] 
+**Type** | Pointer to [**NullableBulkPowerPortRequestType**](BulkPowerPortRequestType.md) |  | [optional] 
 **MaximumDraw** | Pointer to **NullableInt32** | Maximum power draw (watts) | [optional] 
 **AllocatedDraw** | Pointer to **NullableInt32** | Allocated power draw (watts) | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewPowerPortRequest
 
-`func NewPowerPortRequest(device BriefDeviceRequest, name string, ) *PowerPortRequest`
+`func NewPowerPortRequest(device BriefCoolingIntakeRequestDevice, name string, ) *PowerPortRequest`
 
 NewPowerPortRequest instantiates a new PowerPortRequest object
 This constructor will assign default values to properties that have it defined,
@@ -37,40 +38,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *PowerPortRequest) GetDevice() BriefDeviceRequest`
+`func (o *PowerPortRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *PowerPortRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *PowerPortRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *PowerPortRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *PowerPortRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
 
 ### GetModule
 
-`func (o *PowerPortRequest) GetModule() BriefModuleRequest`
+`func (o *PowerPortRequest) GetModule() BulkConsolePortRequestModule`
 
 GetModule returns the Module field if non-nil, zero value otherwise.
 
 ### GetModuleOk
 
-`func (o *PowerPortRequest) GetModuleOk() (*BriefModuleRequest, bool)`
+`func (o *PowerPortRequest) GetModuleOk() (*BulkConsolePortRequestModule, bool)`
 
 GetModuleOk returns a tuple with the Module field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModule
 
-`func (o *PowerPortRequest) SetModule(v BriefModuleRequest)`
+`func (o *PowerPortRequest) SetModule(v BulkConsolePortRequestModule)`
 
 SetModule sets Module field to given value.
 
@@ -137,20 +138,20 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *PowerPortRequest) GetType() PowerPortRequestType`
+`func (o *PowerPortRequest) GetType() BulkPowerPortRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *PowerPortRequest) GetTypeOk() (*PowerPortRequestType, bool)`
+`func (o *PowerPortRequest) GetTypeOk() (*BulkPowerPortRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *PowerPortRequest) SetType(v PowerPortRequestType)`
+`func (o *PowerPortRequest) SetType(v BulkPowerPortRequestType)`
 
 SetType sets Type field to given value.
 
@@ -290,6 +291,41 @@ SetMarkConnected sets MarkConnected field to given value.
 
 HasMarkConnected returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *PowerPortRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *PowerPortRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *PowerPortRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *PowerPortRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *PowerPortRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *PowerPortRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *PowerPortRequest) GetTags() []NestedTagRequest`

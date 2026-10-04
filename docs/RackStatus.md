@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritableRackRequestStatus**](PatchedWritableRackRequestStatus.md) |  | [optional] 
+**Value** | Pointer to [**BulkRackRequestStatus**](BulkRackRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**RackStatusLabel**](RackStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *RackStatus) GetValue() PatchedWritableRackRequestStatus`
+`func (o *RackStatus) GetValue() BulkRackRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *RackStatus) GetValueOk() (*PatchedWritableRackRequestStatus, bool)`
+`func (o *RackStatus) GetValueOk() (*BulkRackRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *RackStatus) SetValue(v PatchedWritableRackRequestStatus)`
+`func (o *RackStatus) SetValue(v BulkRackRequestStatus)`
 
 SetValue sets Value field to given value.
 

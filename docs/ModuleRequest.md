@@ -4,22 +4,25 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
 **ModuleBay** | [**NestedModuleBayRequest**](NestedModuleBayRequest.md) |  | 
-**ModuleType** | [**BriefModuleTypeRequest**](BriefModuleTypeRequest.md) |  | 
-**Status** | Pointer to [**ModuleStatusValue**](ModuleStatusValue.md) |  | [optional] 
+**ModuleType** | [**BulkModuleRequestModuleType**](BulkModuleRequestModuleType.md) |  | 
+**Status** | Pointer to [**BulkInventoryItemRequestStatus**](BulkInventoryItemRequestStatus.md) |  | [optional] 
 **Serial** | Pointer to **string** |  | [optional] 
 **AssetTag** | Pointer to **NullableString** | A unique tag used to identify this device | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
+**ReplicateComponents** | Pointer to **bool** | Automatically populate components associated with this module type (default: true) | [optional] [default to true]
+**AdoptComponents** | Pointer to **bool** | Adopt already existing components | [optional] [default to false]
 
 ## Methods
 
 ### NewModuleRequest
 
-`func NewModuleRequest(device BriefDeviceRequest, moduleBay NestedModuleBayRequest, moduleType BriefModuleTypeRequest, ) *ModuleRequest`
+`func NewModuleRequest(device BriefCoolingIntakeRequestDevice, moduleBay NestedModuleBayRequest, moduleType BulkModuleRequestModuleType, ) *ModuleRequest`
 
 NewModuleRequest instantiates a new ModuleRequest object
 This constructor will assign default values to properties that have it defined,
@@ -36,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *ModuleRequest) GetDevice() BriefDeviceRequest`
+`func (o *ModuleRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *ModuleRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *ModuleRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *ModuleRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *ModuleRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
@@ -76,40 +79,40 @@ SetModuleBay sets ModuleBay field to given value.
 
 ### GetModuleType
 
-`func (o *ModuleRequest) GetModuleType() BriefModuleTypeRequest`
+`func (o *ModuleRequest) GetModuleType() BulkModuleRequestModuleType`
 
 GetModuleType returns the ModuleType field if non-nil, zero value otherwise.
 
 ### GetModuleTypeOk
 
-`func (o *ModuleRequest) GetModuleTypeOk() (*BriefModuleTypeRequest, bool)`
+`func (o *ModuleRequest) GetModuleTypeOk() (*BulkModuleRequestModuleType, bool)`
 
 GetModuleTypeOk returns a tuple with the ModuleType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModuleType
 
-`func (o *ModuleRequest) SetModuleType(v BriefModuleTypeRequest)`
+`func (o *ModuleRequest) SetModuleType(v BulkModuleRequestModuleType)`
 
 SetModuleType sets ModuleType field to given value.
 
 
 ### GetStatus
 
-`func (o *ModuleRequest) GetStatus() ModuleStatusValue`
+`func (o *ModuleRequest) GetStatus() BulkInventoryItemRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *ModuleRequest) GetStatusOk() (*ModuleStatusValue, bool)`
+`func (o *ModuleRequest) GetStatusOk() (*BulkInventoryItemRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *ModuleRequest) SetStatus(v ModuleStatusValue)`
+`func (o *ModuleRequest) SetStatus(v BulkInventoryItemRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -204,6 +207,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *ModuleRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ModuleRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ModuleRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ModuleRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ModuleRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ModuleRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *ModuleRequest) GetComments() string`
@@ -278,6 +316,56 @@ SetCustomFields sets CustomFields field to given value.
 `func (o *ModuleRequest) HasCustomFields() bool`
 
 HasCustomFields returns a boolean if a field has been set.
+
+### GetReplicateComponents
+
+`func (o *ModuleRequest) GetReplicateComponents() bool`
+
+GetReplicateComponents returns the ReplicateComponents field if non-nil, zero value otherwise.
+
+### GetReplicateComponentsOk
+
+`func (o *ModuleRequest) GetReplicateComponentsOk() (*bool, bool)`
+
+GetReplicateComponentsOk returns a tuple with the ReplicateComponents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReplicateComponents
+
+`func (o *ModuleRequest) SetReplicateComponents(v bool)`
+
+SetReplicateComponents sets ReplicateComponents field to given value.
+
+### HasReplicateComponents
+
+`func (o *ModuleRequest) HasReplicateComponents() bool`
+
+HasReplicateComponents returns a boolean if a field has been set.
+
+### GetAdoptComponents
+
+`func (o *ModuleRequest) GetAdoptComponents() bool`
+
+GetAdoptComponents returns the AdoptComponents field if non-nil, zero value otherwise.
+
+### GetAdoptComponentsOk
+
+`func (o *ModuleRequest) GetAdoptComponentsOk() (*bool, bool)`
+
+GetAdoptComponentsOk returns a tuple with the AdoptComponents field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAdoptComponents
+
+`func (o *ModuleRequest) SetAdoptComponents(v bool)`
+
+SetAdoptComponents sets AdoptComponents field to given value.
+
+### HasAdoptComponents
+
+`func (o *ModuleRequest) HasAdoptComponents() bool`
+
+HasAdoptComponents returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

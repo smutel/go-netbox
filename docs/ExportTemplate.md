@@ -6,18 +6,23 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **ObjectTypes** | **[]string** |  | 
 **Name** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
-**TemplateCode** | **string** | Jinja2 template code. The list of objects being exported is passed as a context variable named &lt;code&gt;queryset&lt;/code&gt;. | 
+**EnvironmentParams** | Pointer to **interface{}** | Any &lt;a href&#x3D;\&quot;https://jinja.palletsprojects.com/en/stable/api/#jinja2.Environment\&quot;&gt;additional parameters&lt;/a&gt; to pass when constructing the Jinja environment | [optional] 
+**TemplateCode** | **string** | Jinja template code. | 
 **MimeType** | Pointer to **string** | Defaults to &lt;code&gt;text/plain; charset&#x3D;utf-8&lt;/code&gt; | [optional] 
+**FileName** | Pointer to **string** | Filename to give to the rendered export file | [optional] 
 **FileExtension** | Pointer to **string** | Extension to append to the rendered filename | [optional] 
 **AsAttachment** | Pointer to **bool** | Download file as attachment | [optional] 
 **DataSource** | Pointer to [**BriefDataSource**](BriefDataSource.md) |  | [optional] 
 **DataPath** | **string** | Path to remote file (relative to data source root) | [readonly] 
-**DataFile** | [**BriefDataFile**](BriefDataFile.md) |  | [readonly] 
+**DataFile** | Pointer to [**NullableBriefDataFile**](BriefDataFile.md) |  | [optional] 
+**AutoSyncEnabled** | Pointer to **bool** | Enable automatic synchronization of data when the data file is updated | [optional] 
 **DataSynced** | **NullableTime** |  | [readonly] 
+**Owner** | Pointer to [**NullableBriefOwner**](BriefOwner.md) |  | [optional] 
 **Created** | **NullableTime** |  | [readonly] 
 **LastUpdated** | **NullableTime** |  | [readonly] 
 
@@ -25,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewExportTemplate
 
-`func NewExportTemplate(id int32, url string, display string, objectTypes []string, name string, templateCode string, dataPath string, dataFile BriefDataFile, dataSynced NullableTime, created NullableTime, lastUpdated NullableTime, ) *ExportTemplate`
+`func NewExportTemplate(id int32, url string, displayUrl string, display string, objectTypes []string, name string, templateCode string, dataPath string, dataSynced NullableTime, created NullableTime, lastUpdated NullableTime, ) *ExportTemplate`
 
 NewExportTemplate instantiates a new ExportTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -78,6 +83,26 @@ and a boolean to check if the value has been set.
 `func (o *ExportTemplate) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *ExportTemplate) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *ExportTemplate) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *ExportTemplate) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -165,6 +190,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetEnvironmentParams
+
+`func (o *ExportTemplate) GetEnvironmentParams() interface{}`
+
+GetEnvironmentParams returns the EnvironmentParams field if non-nil, zero value otherwise.
+
+### GetEnvironmentParamsOk
+
+`func (o *ExportTemplate) GetEnvironmentParamsOk() (*interface{}, bool)`
+
+GetEnvironmentParamsOk returns a tuple with the EnvironmentParams field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnvironmentParams
+
+`func (o *ExportTemplate) SetEnvironmentParams(v interface{})`
+
+SetEnvironmentParams sets EnvironmentParams field to given value.
+
+### HasEnvironmentParams
+
+`func (o *ExportTemplate) HasEnvironmentParams() bool`
+
+HasEnvironmentParams returns a boolean if a field has been set.
+
+### SetEnvironmentParamsNil
+
+`func (o *ExportTemplate) SetEnvironmentParamsNil(b bool)`
+
+ SetEnvironmentParamsNil sets the value for EnvironmentParams to be an explicit nil
+
+### UnsetEnvironmentParams
+`func (o *ExportTemplate) UnsetEnvironmentParams()`
+
+UnsetEnvironmentParams ensures that no value is present for EnvironmentParams, not even an explicit nil
 ### GetTemplateCode
 
 `func (o *ExportTemplate) GetTemplateCode() string`
@@ -209,6 +269,31 @@ SetMimeType sets MimeType field to given value.
 `func (o *ExportTemplate) HasMimeType() bool`
 
 HasMimeType returns a boolean if a field has been set.
+
+### GetFileName
+
+`func (o *ExportTemplate) GetFileName() string`
+
+GetFileName returns the FileName field if non-nil, zero value otherwise.
+
+### GetFileNameOk
+
+`func (o *ExportTemplate) GetFileNameOk() (*string, bool)`
+
+GetFileNameOk returns a tuple with the FileName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFileName
+
+`func (o *ExportTemplate) SetFileName(v string)`
+
+SetFileName sets FileName field to given value.
+
+### HasFileName
+
+`func (o *ExportTemplate) HasFileName() bool`
+
+HasFileName returns a boolean if a field has been set.
 
 ### GetFileExtension
 
@@ -324,6 +409,46 @@ and a boolean to check if the value has been set.
 
 SetDataFile sets DataFile field to given value.
 
+### HasDataFile
+
+`func (o *ExportTemplate) HasDataFile() bool`
+
+HasDataFile returns a boolean if a field has been set.
+
+### SetDataFileNil
+
+`func (o *ExportTemplate) SetDataFileNil(b bool)`
+
+ SetDataFileNil sets the value for DataFile to be an explicit nil
+
+### UnsetDataFile
+`func (o *ExportTemplate) UnsetDataFile()`
+
+UnsetDataFile ensures that no value is present for DataFile, not even an explicit nil
+### GetAutoSyncEnabled
+
+`func (o *ExportTemplate) GetAutoSyncEnabled() bool`
+
+GetAutoSyncEnabled returns the AutoSyncEnabled field if non-nil, zero value otherwise.
+
+### GetAutoSyncEnabledOk
+
+`func (o *ExportTemplate) GetAutoSyncEnabledOk() (*bool, bool)`
+
+GetAutoSyncEnabledOk returns a tuple with the AutoSyncEnabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAutoSyncEnabled
+
+`func (o *ExportTemplate) SetAutoSyncEnabled(v bool)`
+
+SetAutoSyncEnabled sets AutoSyncEnabled field to given value.
+
+### HasAutoSyncEnabled
+
+`func (o *ExportTemplate) HasAutoSyncEnabled() bool`
+
+HasAutoSyncEnabled returns a boolean if a field has been set.
 
 ### GetDataSynced
 
@@ -355,6 +480,41 @@ SetDataSynced sets DataSynced field to given value.
 `func (o *ExportTemplate) UnsetDataSynced()`
 
 UnsetDataSynced ensures that no value is present for DataSynced, not even an explicit nil
+### GetOwner
+
+`func (o *ExportTemplate) GetOwner() BriefOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *ExportTemplate) GetOwnerOk() (*BriefOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *ExportTemplate) SetOwner(v BriefOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *ExportTemplate) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *ExportTemplate) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *ExportTemplate) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetCreated
 
 `func (o *ExportTemplate) GetCreated() time.Time`

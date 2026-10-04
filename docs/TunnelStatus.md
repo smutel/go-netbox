@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | Pointer to [**PatchedWritableTunnelRequestStatus**](PatchedWritableTunnelRequestStatus.md) |  | [optional] 
+**Value** | Pointer to [**BulkTunnelRequestStatus**](BulkTunnelRequestStatus.md) |  | [optional] 
 **Label** | Pointer to [**TunnelStatusLabel**](TunnelStatusLabel.md) |  | [optional] 
 
 ## Methods
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetValue
 
-`func (o *TunnelStatus) GetValue() PatchedWritableTunnelRequestStatus`
+`func (o *TunnelStatus) GetValue() BulkTunnelRequestStatus`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *TunnelStatus) GetValueOk() (*PatchedWritableTunnelRequestStatus, bool)`
+`func (o *TunnelStatus) GetValueOk() (*BulkTunnelRequestStatus, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *TunnelStatus) SetValue(v PatchedWritableTunnelRequestStatus)`
+`func (o *TunnelStatus) SetValue(v BulkTunnelRequestStatus)`
 
 SetValue sets Value field to given value.
 

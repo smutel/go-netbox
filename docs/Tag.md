@@ -6,11 +6,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
+**DisplayUrl** | **string** |  | [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
 **Color** | Pointer to **string** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Weight** | Pointer to **int32** |  | [optional] 
 **ObjectTypes** | Pointer to **[]string** |  | [optional] 
 **TaggedItems** | **int64** |  | [readonly] 
 **Created** | **NullableTime** |  | [readonly] 
@@ -20,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewTag
 
-`func NewTag(id int32, url string, display string, name string, slug string, taggedItems int64, created NullableTime, lastUpdated NullableTime, ) *Tag`
+`func NewTag(id int32, url string, displayUrl string, display string, name string, slug string, taggedItems int64, created NullableTime, lastUpdated NullableTime, ) *Tag`
 
 NewTag instantiates a new Tag object
 This constructor will assign default values to properties that have it defined,
@@ -73,6 +75,26 @@ and a boolean to check if the value has been set.
 `func (o *Tag) SetUrl(v string)`
 
 SetUrl sets Url field to given value.
+
+
+### GetDisplayUrl
+
+`func (o *Tag) GetDisplayUrl() string`
+
+GetDisplayUrl returns the DisplayUrl field if non-nil, zero value otherwise.
+
+### GetDisplayUrlOk
+
+`func (o *Tag) GetDisplayUrlOk() (*string, bool)`
+
+GetDisplayUrlOk returns a tuple with the DisplayUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisplayUrl
+
+`func (o *Tag) SetDisplayUrl(v string)`
+
+SetDisplayUrl sets DisplayUrl field to given value.
 
 
 ### GetDisplay
@@ -184,6 +206,31 @@ SetDescription sets Description field to given value.
 `func (o *Tag) HasDescription() bool`
 
 HasDescription returns a boolean if a field has been set.
+
+### GetWeight
+
+`func (o *Tag) GetWeight() int32`
+
+GetWeight returns the Weight field if non-nil, zero value otherwise.
+
+### GetWeightOk
+
+`func (o *Tag) GetWeightOk() (*int32, bool)`
+
+GetWeightOk returns a tuple with the Weight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeight
+
+`func (o *Tag) SetWeight(v int32)`
+
+SetWeight sets Weight field to given value.
+
+### HasWeight
+
+`func (o *Tag) HasWeight() bool`
+
+HasWeight returns a boolean if a field has been set.
 
 ### GetObjectTypes
 

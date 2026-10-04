@@ -4,15 +4,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InterfaceA** | [**BriefInterfaceRequest**](BriefInterfaceRequest.md) |  | 
-**InterfaceB** | [**BriefInterfaceRequest**](BriefInterfaceRequest.md) |  | 
+**InterfaceA** | [**BulkVirtualCircuitTerminationRequestInterface**](BulkVirtualCircuitTerminationRequestInterface.md) |  | 
+**InterfaceB** | [**BulkVirtualCircuitTerminationRequestInterface**](BulkVirtualCircuitTerminationRequestInterface.md) |  | 
 **Ssid** | Pointer to **string** |  | [optional] 
-**Status** | Pointer to [**CableStatusValue**](CableStatusValue.md) |  | [optional] 
-**Tenant** | Pointer to [**NullableBriefTenantRequest**](BriefTenantRequest.md) |  | [optional] 
-**AuthType** | Pointer to [**WirelessLANAuthTypeValue**](WirelessLANAuthTypeValue.md) |  | [optional] 
-**AuthCipher** | Pointer to [**WirelessLANAuthCipherValue**](WirelessLANAuthCipherValue.md) |  | [optional] 
+**Status** | Pointer to [**BulkCableRequestStatus**](BulkCableRequestStatus.md) |  | [optional] 
+**Tenant** | Pointer to [**NullableASNRangeRequestTenant**](ASNRangeRequestTenant.md) |  | [optional] 
+**AuthType** | Pointer to [**BulkWirelessLANRequestAuthType**](BulkWirelessLANRequestAuthType.md) |  | [optional] 
+**AuthCipher** | Pointer to [**BulkWirelessLANRequestAuthCipher**](BulkWirelessLANRequestAuthCipher.md) |  | [optional] 
 **AuthPsk** | Pointer to **string** |  | [optional] 
+**Distance** | Pointer to **NullableFloat64** |  | [optional] 
+**DistanceUnit** | Pointer to [**NullableBulkCircuitRequestDistanceUnit**](BulkCircuitRequestDistanceUnit.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -21,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewWirelessLinkRequest
 
-`func NewWirelessLinkRequest(interfaceA BriefInterfaceRequest, interfaceB BriefInterfaceRequest, ) *WirelessLinkRequest`
+`func NewWirelessLinkRequest(interfaceA BulkVirtualCircuitTerminationRequestInterface, interfaceB BulkVirtualCircuitTerminationRequestInterface, ) *WirelessLinkRequest`
 
 NewWirelessLinkRequest instantiates a new WirelessLinkRequest object
 This constructor will assign default values to properties that have it defined,
@@ -38,40 +41,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetInterfaceA
 
-`func (o *WirelessLinkRequest) GetInterfaceA() BriefInterfaceRequest`
+`func (o *WirelessLinkRequest) GetInterfaceA() BulkVirtualCircuitTerminationRequestInterface`
 
 GetInterfaceA returns the InterfaceA field if non-nil, zero value otherwise.
 
 ### GetInterfaceAOk
 
-`func (o *WirelessLinkRequest) GetInterfaceAOk() (*BriefInterfaceRequest, bool)`
+`func (o *WirelessLinkRequest) GetInterfaceAOk() (*BulkVirtualCircuitTerminationRequestInterface, bool)`
 
 GetInterfaceAOk returns a tuple with the InterfaceA field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInterfaceA
 
-`func (o *WirelessLinkRequest) SetInterfaceA(v BriefInterfaceRequest)`
+`func (o *WirelessLinkRequest) SetInterfaceA(v BulkVirtualCircuitTerminationRequestInterface)`
 
 SetInterfaceA sets InterfaceA field to given value.
 
 
 ### GetInterfaceB
 
-`func (o *WirelessLinkRequest) GetInterfaceB() BriefInterfaceRequest`
+`func (o *WirelessLinkRequest) GetInterfaceB() BulkVirtualCircuitTerminationRequestInterface`
 
 GetInterfaceB returns the InterfaceB field if non-nil, zero value otherwise.
 
 ### GetInterfaceBOk
 
-`func (o *WirelessLinkRequest) GetInterfaceBOk() (*BriefInterfaceRequest, bool)`
+`func (o *WirelessLinkRequest) GetInterfaceBOk() (*BulkVirtualCircuitTerminationRequestInterface, bool)`
 
 GetInterfaceBOk returns a tuple with the InterfaceB field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetInterfaceB
 
-`func (o *WirelessLinkRequest) SetInterfaceB(v BriefInterfaceRequest)`
+`func (o *WirelessLinkRequest) SetInterfaceB(v BulkVirtualCircuitTerminationRequestInterface)`
 
 SetInterfaceB sets InterfaceB field to given value.
 
@@ -103,20 +106,20 @@ HasSsid returns a boolean if a field has been set.
 
 ### GetStatus
 
-`func (o *WirelessLinkRequest) GetStatus() CableStatusValue`
+`func (o *WirelessLinkRequest) GetStatus() BulkCableRequestStatus`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *WirelessLinkRequest) GetStatusOk() (*CableStatusValue, bool)`
+`func (o *WirelessLinkRequest) GetStatusOk() (*BulkCableRequestStatus, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *WirelessLinkRequest) SetStatus(v CableStatusValue)`
+`func (o *WirelessLinkRequest) SetStatus(v BulkCableRequestStatus)`
 
 SetStatus sets Status field to given value.
 
@@ -128,20 +131,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetTenant
 
-`func (o *WirelessLinkRequest) GetTenant() BriefTenantRequest`
+`func (o *WirelessLinkRequest) GetTenant() ASNRangeRequestTenant`
 
 GetTenant returns the Tenant field if non-nil, zero value otherwise.
 
 ### GetTenantOk
 
-`func (o *WirelessLinkRequest) GetTenantOk() (*BriefTenantRequest, bool)`
+`func (o *WirelessLinkRequest) GetTenantOk() (*ASNRangeRequestTenant, bool)`
 
 GetTenantOk returns a tuple with the Tenant field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTenant
 
-`func (o *WirelessLinkRequest) SetTenant(v BriefTenantRequest)`
+`func (o *WirelessLinkRequest) SetTenant(v ASNRangeRequestTenant)`
 
 SetTenant sets Tenant field to given value.
 
@@ -163,20 +166,20 @@ HasTenant returns a boolean if a field has been set.
 UnsetTenant ensures that no value is present for Tenant, not even an explicit nil
 ### GetAuthType
 
-`func (o *WirelessLinkRequest) GetAuthType() WirelessLANAuthTypeValue`
+`func (o *WirelessLinkRequest) GetAuthType() BulkWirelessLANRequestAuthType`
 
 GetAuthType returns the AuthType field if non-nil, zero value otherwise.
 
 ### GetAuthTypeOk
 
-`func (o *WirelessLinkRequest) GetAuthTypeOk() (*WirelessLANAuthTypeValue, bool)`
+`func (o *WirelessLinkRequest) GetAuthTypeOk() (*BulkWirelessLANRequestAuthType, bool)`
 
 GetAuthTypeOk returns a tuple with the AuthType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthType
 
-`func (o *WirelessLinkRequest) SetAuthType(v WirelessLANAuthTypeValue)`
+`func (o *WirelessLinkRequest) SetAuthType(v BulkWirelessLANRequestAuthType)`
 
 SetAuthType sets AuthType field to given value.
 
@@ -188,20 +191,20 @@ HasAuthType returns a boolean if a field has been set.
 
 ### GetAuthCipher
 
-`func (o *WirelessLinkRequest) GetAuthCipher() WirelessLANAuthCipherValue`
+`func (o *WirelessLinkRequest) GetAuthCipher() BulkWirelessLANRequestAuthCipher`
 
 GetAuthCipher returns the AuthCipher field if non-nil, zero value otherwise.
 
 ### GetAuthCipherOk
 
-`func (o *WirelessLinkRequest) GetAuthCipherOk() (*WirelessLANAuthCipherValue, bool)`
+`func (o *WirelessLinkRequest) GetAuthCipherOk() (*BulkWirelessLANRequestAuthCipher, bool)`
 
 GetAuthCipherOk returns a tuple with the AuthCipher field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAuthCipher
 
-`func (o *WirelessLinkRequest) SetAuthCipher(v WirelessLANAuthCipherValue)`
+`func (o *WirelessLinkRequest) SetAuthCipher(v BulkWirelessLANRequestAuthCipher)`
 
 SetAuthCipher sets AuthCipher field to given value.
 
@@ -236,6 +239,76 @@ SetAuthPsk sets AuthPsk field to given value.
 
 HasAuthPsk returns a boolean if a field has been set.
 
+### GetDistance
+
+`func (o *WirelessLinkRequest) GetDistance() float64`
+
+GetDistance returns the Distance field if non-nil, zero value otherwise.
+
+### GetDistanceOk
+
+`func (o *WirelessLinkRequest) GetDistanceOk() (*float64, bool)`
+
+GetDistanceOk returns a tuple with the Distance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistance
+
+`func (o *WirelessLinkRequest) SetDistance(v float64)`
+
+SetDistance sets Distance field to given value.
+
+### HasDistance
+
+`func (o *WirelessLinkRequest) HasDistance() bool`
+
+HasDistance returns a boolean if a field has been set.
+
+### SetDistanceNil
+
+`func (o *WirelessLinkRequest) SetDistanceNil(b bool)`
+
+ SetDistanceNil sets the value for Distance to be an explicit nil
+
+### UnsetDistance
+`func (o *WirelessLinkRequest) UnsetDistance()`
+
+UnsetDistance ensures that no value is present for Distance, not even an explicit nil
+### GetDistanceUnit
+
+`func (o *WirelessLinkRequest) GetDistanceUnit() BulkCircuitRequestDistanceUnit`
+
+GetDistanceUnit returns the DistanceUnit field if non-nil, zero value otherwise.
+
+### GetDistanceUnitOk
+
+`func (o *WirelessLinkRequest) GetDistanceUnitOk() (*BulkCircuitRequestDistanceUnit, bool)`
+
+GetDistanceUnitOk returns a tuple with the DistanceUnit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDistanceUnit
+
+`func (o *WirelessLinkRequest) SetDistanceUnit(v BulkCircuitRequestDistanceUnit)`
+
+SetDistanceUnit sets DistanceUnit field to given value.
+
+### HasDistanceUnit
+
+`func (o *WirelessLinkRequest) HasDistanceUnit() bool`
+
+HasDistanceUnit returns a boolean if a field has been set.
+
+### SetDistanceUnitNil
+
+`func (o *WirelessLinkRequest) SetDistanceUnitNil(b bool)`
+
+ SetDistanceUnitNil sets the value for DistanceUnit to be an explicit nil
+
+### UnsetDistanceUnit
+`func (o *WirelessLinkRequest) UnsetDistanceUnit()`
+
+UnsetDistanceUnit ensures that no value is present for DistanceUnit, not even an explicit nil
 ### GetDescription
 
 `func (o *WirelessLinkRequest) GetDescription() string`
@@ -261,6 +334,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
+### GetOwner
+
+`func (o *WirelessLinkRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WirelessLinkRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WirelessLinkRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WirelessLinkRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WirelessLinkRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WirelessLinkRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetComments
 
 `func (o *WirelessLinkRequest) GetComments() string`

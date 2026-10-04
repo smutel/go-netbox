@@ -4,36 +4,42 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Device** | [**BriefDeviceRequest**](BriefDeviceRequest.md) |  | 
+**Device** | [**BriefCoolingIntakeRequestDevice**](BriefCoolingIntakeRequestDevice.md) |  | 
 **Vdcs** | Pointer to **[]int32** |  | [optional] 
-**Module** | Pointer to [**NullableBriefModuleRequest**](BriefModuleRequest.md) |  | [optional] 
+**Module** | Pointer to [**NullableBulkConsolePortRequestModule**](BulkConsolePortRequestModule.md) |  | [optional] 
 **Name** | **string** |  | 
 **Label** | Pointer to **string** | Physical label | [optional] 
-**Type** | [**InterfaceTypeValue**](InterfaceTypeValue.md) |  | 
+**Type** | [**BulkInterfaceRequestType**](BulkInterfaceRequestType.md) |  | 
+**Channels** | Pointer to **NullableInt32** | The number of channels into which this interface is channelized | [optional] 
+**ChannelId** | Pointer to **NullableInt32** | The channel on the parent interface to which this subinterface is bound | [optional] 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Parent** | Pointer to [**NullableNestedInterfaceRequest**](NestedInterfaceRequest.md) |  | [optional] 
 **Bridge** | Pointer to [**NullableNestedInterfaceRequest**](NestedInterfaceRequest.md) |  | [optional] 
 **Lag** | Pointer to [**NullableNestedInterfaceRequest**](NestedInterfaceRequest.md) |  | [optional] 
 **Mtu** | Pointer to **NullableInt32** |  | [optional] 
 **MacAddress** | Pointer to **NullableString** |  | [optional] 
-**Speed** | Pointer to **NullableInt32** |  | [optional] 
-**Duplex** | Pointer to [**NullableInterfaceRequestDuplex**](InterfaceRequestDuplex.md) |  | [optional] 
+**PrimaryMacAddress** | Pointer to [**NullableBulkInterfaceRequestPrimaryMacAddress**](BulkInterfaceRequestPrimaryMacAddress.md) |  | [optional] 
+**Speed** | Pointer to **NullableInt64** |  | [optional] 
+**Duplex** | Pointer to [**NullableBulkInterfaceRequestDuplex**](BulkInterfaceRequestDuplex.md) |  | [optional] 
 **Wwn** | Pointer to **NullableString** |  | [optional] 
 **MgmtOnly** | Pointer to **bool** | This interface is used only for out-of-band management | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Mode** | Pointer to [**InterfaceModeValue**](InterfaceModeValue.md) |  | [optional] 
-**RfRole** | Pointer to [**InterfaceRfRoleValue**](InterfaceRfRoleValue.md) |  | [optional] 
-**RfChannel** | Pointer to [**InterfaceRfChannelValue**](InterfaceRfChannelValue.md) |  | [optional] 
-**PoeMode** | Pointer to [**InterfacePoeModeValue**](InterfacePoeModeValue.md) |  | [optional] 
-**PoeType** | Pointer to [**InterfacePoeTypeValue**](InterfacePoeTypeValue.md) |  | [optional] 
+**Mode** | Pointer to [**BulkInterfaceRequestMode**](BulkInterfaceRequestMode.md) |  | [optional] 
+**RfRole** | Pointer to [**BulkInterfaceRequestRfRole**](BulkInterfaceRequestRfRole.md) |  | [optional] 
+**RfChannel** | Pointer to [**BulkInterfaceRequestRfChannel**](BulkInterfaceRequestRfChannel.md) |  | [optional] 
+**PoeMode** | Pointer to [**BulkInterfaceRequestPoeMode**](BulkInterfaceRequestPoeMode.md) |  | [optional] 
+**PoeType** | Pointer to [**BulkInterfaceRequestPoeType**](BulkInterfaceRequestPoeType.md) |  | [optional] 
 **RfChannelFrequency** | Pointer to **NullableFloat64** | Populated by selected channel (if set) | [optional] 
 **RfChannelWidth** | Pointer to **NullableFloat64** | Populated by selected channel (if set) | [optional] 
 **TxPower** | Pointer to **NullableInt32** |  | [optional] 
-**UntaggedVlan** | Pointer to [**NullableBriefVLANRequest**](BriefVLANRequest.md) |  | [optional] 
+**UntaggedVlan** | Pointer to [**NullableBulkInterfaceRequestUntaggedVlan**](BulkInterfaceRequestUntaggedVlan.md) |  | [optional] 
 **TaggedVlans** | Pointer to **[]int32** |  | [optional] 
+**QinqSvlan** | Pointer to [**NullableBulkInterfaceRequestUntaggedVlan**](BulkInterfaceRequestUntaggedVlan.md) |  | [optional] 
+**VlanTranslationPolicy** | Pointer to [**NullableBulkInterfaceRequestVlanTranslationPolicy**](BulkInterfaceRequestVlanTranslationPolicy.md) |  | [optional] 
 **MarkConnected** | Pointer to **bool** | Treat as if a cable is connected | [optional] 
 **WirelessLans** | Pointer to **[]int32** |  | [optional] 
-**Vrf** | Pointer to [**NullableBriefVRFRequest**](BriefVRFRequest.md) |  | [optional] 
+**Vrf** | Pointer to [**NullableBulkIPAddressRequestVrf**](BulkIPAddressRequestVrf.md) |  | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
@@ -41,7 +47,7 @@ Name | Type | Description | Notes
 
 ### NewInterfaceRequest
 
-`func NewInterfaceRequest(device BriefDeviceRequest, name string, type_ InterfaceTypeValue, ) *InterfaceRequest`
+`func NewInterfaceRequest(device BriefCoolingIntakeRequestDevice, name string, type_ BulkInterfaceRequestType, ) *InterfaceRequest`
 
 NewInterfaceRequest instantiates a new InterfaceRequest object
 This constructor will assign default values to properties that have it defined,
@@ -58,20 +64,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDevice
 
-`func (o *InterfaceRequest) GetDevice() BriefDeviceRequest`
+`func (o *InterfaceRequest) GetDevice() BriefCoolingIntakeRequestDevice`
 
 GetDevice returns the Device field if non-nil, zero value otherwise.
 
 ### GetDeviceOk
 
-`func (o *InterfaceRequest) GetDeviceOk() (*BriefDeviceRequest, bool)`
+`func (o *InterfaceRequest) GetDeviceOk() (*BriefCoolingIntakeRequestDevice, bool)`
 
 GetDeviceOk returns a tuple with the Device field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDevice
 
-`func (o *InterfaceRequest) SetDevice(v BriefDeviceRequest)`
+`func (o *InterfaceRequest) SetDevice(v BriefCoolingIntakeRequestDevice)`
 
 SetDevice sets Device field to given value.
 
@@ -103,20 +109,20 @@ HasVdcs returns a boolean if a field has been set.
 
 ### GetModule
 
-`func (o *InterfaceRequest) GetModule() BriefModuleRequest`
+`func (o *InterfaceRequest) GetModule() BulkConsolePortRequestModule`
 
 GetModule returns the Module field if non-nil, zero value otherwise.
 
 ### GetModuleOk
 
-`func (o *InterfaceRequest) GetModuleOk() (*BriefModuleRequest, bool)`
+`func (o *InterfaceRequest) GetModuleOk() (*BulkConsolePortRequestModule, bool)`
 
 GetModuleOk returns a tuple with the Module field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModule
 
-`func (o *InterfaceRequest) SetModule(v BriefModuleRequest)`
+`func (o *InterfaceRequest) SetModule(v BulkConsolePortRequestModule)`
 
 SetModule sets Module field to given value.
 
@@ -183,24 +189,94 @@ HasLabel returns a boolean if a field has been set.
 
 ### GetType
 
-`func (o *InterfaceRequest) GetType() InterfaceTypeValue`
+`func (o *InterfaceRequest) GetType() BulkInterfaceRequestType`
 
 GetType returns the Type field if non-nil, zero value otherwise.
 
 ### GetTypeOk
 
-`func (o *InterfaceRequest) GetTypeOk() (*InterfaceTypeValue, bool)`
+`func (o *InterfaceRequest) GetTypeOk() (*BulkInterfaceRequestType, bool)`
 
 GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetType
 
-`func (o *InterfaceRequest) SetType(v InterfaceTypeValue)`
+`func (o *InterfaceRequest) SetType(v BulkInterfaceRequestType)`
 
 SetType sets Type field to given value.
 
 
+### GetChannels
+
+`func (o *InterfaceRequest) GetChannels() int32`
+
+GetChannels returns the Channels field if non-nil, zero value otherwise.
+
+### GetChannelsOk
+
+`func (o *InterfaceRequest) GetChannelsOk() (*int32, bool)`
+
+GetChannelsOk returns a tuple with the Channels field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannels
+
+`func (o *InterfaceRequest) SetChannels(v int32)`
+
+SetChannels sets Channels field to given value.
+
+### HasChannels
+
+`func (o *InterfaceRequest) HasChannels() bool`
+
+HasChannels returns a boolean if a field has been set.
+
+### SetChannelsNil
+
+`func (o *InterfaceRequest) SetChannelsNil(b bool)`
+
+ SetChannelsNil sets the value for Channels to be an explicit nil
+
+### UnsetChannels
+`func (o *InterfaceRequest) UnsetChannels()`
+
+UnsetChannels ensures that no value is present for Channels, not even an explicit nil
+### GetChannelId
+
+`func (o *InterfaceRequest) GetChannelId() int32`
+
+GetChannelId returns the ChannelId field if non-nil, zero value otherwise.
+
+### GetChannelIdOk
+
+`func (o *InterfaceRequest) GetChannelIdOk() (*int32, bool)`
+
+GetChannelIdOk returns a tuple with the ChannelId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetChannelId
+
+`func (o *InterfaceRequest) SetChannelId(v int32)`
+
+SetChannelId sets ChannelId field to given value.
+
+### HasChannelId
+
+`func (o *InterfaceRequest) HasChannelId() bool`
+
+HasChannelId returns a boolean if a field has been set.
+
+### SetChannelIdNil
+
+`func (o *InterfaceRequest) SetChannelIdNil(b bool)`
+
+ SetChannelIdNil sets the value for ChannelId to be an explicit nil
+
+### UnsetChannelId
+`func (o *InterfaceRequest) UnsetChannelId()`
+
+UnsetChannelId ensures that no value is present for ChannelId, not even an explicit nil
 ### GetEnabled
 
 `func (o *InterfaceRequest) GetEnabled() bool`
@@ -401,22 +477,57 @@ HasMacAddress returns a boolean if a field has been set.
 `func (o *InterfaceRequest) UnsetMacAddress()`
 
 UnsetMacAddress ensures that no value is present for MacAddress, not even an explicit nil
+### GetPrimaryMacAddress
+
+`func (o *InterfaceRequest) GetPrimaryMacAddress() BulkInterfaceRequestPrimaryMacAddress`
+
+GetPrimaryMacAddress returns the PrimaryMacAddress field if non-nil, zero value otherwise.
+
+### GetPrimaryMacAddressOk
+
+`func (o *InterfaceRequest) GetPrimaryMacAddressOk() (*BulkInterfaceRequestPrimaryMacAddress, bool)`
+
+GetPrimaryMacAddressOk returns a tuple with the PrimaryMacAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrimaryMacAddress
+
+`func (o *InterfaceRequest) SetPrimaryMacAddress(v BulkInterfaceRequestPrimaryMacAddress)`
+
+SetPrimaryMacAddress sets PrimaryMacAddress field to given value.
+
+### HasPrimaryMacAddress
+
+`func (o *InterfaceRequest) HasPrimaryMacAddress() bool`
+
+HasPrimaryMacAddress returns a boolean if a field has been set.
+
+### SetPrimaryMacAddressNil
+
+`func (o *InterfaceRequest) SetPrimaryMacAddressNil(b bool)`
+
+ SetPrimaryMacAddressNil sets the value for PrimaryMacAddress to be an explicit nil
+
+### UnsetPrimaryMacAddress
+`func (o *InterfaceRequest) UnsetPrimaryMacAddress()`
+
+UnsetPrimaryMacAddress ensures that no value is present for PrimaryMacAddress, not even an explicit nil
 ### GetSpeed
 
-`func (o *InterfaceRequest) GetSpeed() int32`
+`func (o *InterfaceRequest) GetSpeed() int64`
 
 GetSpeed returns the Speed field if non-nil, zero value otherwise.
 
 ### GetSpeedOk
 
-`func (o *InterfaceRequest) GetSpeedOk() (*int32, bool)`
+`func (o *InterfaceRequest) GetSpeedOk() (*int64, bool)`
 
 GetSpeedOk returns a tuple with the Speed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpeed
 
-`func (o *InterfaceRequest) SetSpeed(v int32)`
+`func (o *InterfaceRequest) SetSpeed(v int64)`
 
 SetSpeed sets Speed field to given value.
 
@@ -438,20 +549,20 @@ HasSpeed returns a boolean if a field has been set.
 UnsetSpeed ensures that no value is present for Speed, not even an explicit nil
 ### GetDuplex
 
-`func (o *InterfaceRequest) GetDuplex() InterfaceRequestDuplex`
+`func (o *InterfaceRequest) GetDuplex() BulkInterfaceRequestDuplex`
 
 GetDuplex returns the Duplex field if non-nil, zero value otherwise.
 
 ### GetDuplexOk
 
-`func (o *InterfaceRequest) GetDuplexOk() (*InterfaceRequestDuplex, bool)`
+`func (o *InterfaceRequest) GetDuplexOk() (*BulkInterfaceRequestDuplex, bool)`
 
 GetDuplexOk returns a tuple with the Duplex field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDuplex
 
-`func (o *InterfaceRequest) SetDuplex(v InterfaceRequestDuplex)`
+`func (o *InterfaceRequest) SetDuplex(v BulkInterfaceRequestDuplex)`
 
 SetDuplex sets Duplex field to given value.
 
@@ -558,20 +669,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetMode
 
-`func (o *InterfaceRequest) GetMode() InterfaceModeValue`
+`func (o *InterfaceRequest) GetMode() BulkInterfaceRequestMode`
 
 GetMode returns the Mode field if non-nil, zero value otherwise.
 
 ### GetModeOk
 
-`func (o *InterfaceRequest) GetModeOk() (*InterfaceModeValue, bool)`
+`func (o *InterfaceRequest) GetModeOk() (*BulkInterfaceRequestMode, bool)`
 
 GetModeOk returns a tuple with the Mode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMode
 
-`func (o *InterfaceRequest) SetMode(v InterfaceModeValue)`
+`func (o *InterfaceRequest) SetMode(v BulkInterfaceRequestMode)`
 
 SetMode sets Mode field to given value.
 
@@ -583,20 +694,20 @@ HasMode returns a boolean if a field has been set.
 
 ### GetRfRole
 
-`func (o *InterfaceRequest) GetRfRole() InterfaceRfRoleValue`
+`func (o *InterfaceRequest) GetRfRole() BulkInterfaceRequestRfRole`
 
 GetRfRole returns the RfRole field if non-nil, zero value otherwise.
 
 ### GetRfRoleOk
 
-`func (o *InterfaceRequest) GetRfRoleOk() (*InterfaceRfRoleValue, bool)`
+`func (o *InterfaceRequest) GetRfRoleOk() (*BulkInterfaceRequestRfRole, bool)`
 
 GetRfRoleOk returns a tuple with the RfRole field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRfRole
 
-`func (o *InterfaceRequest) SetRfRole(v InterfaceRfRoleValue)`
+`func (o *InterfaceRequest) SetRfRole(v BulkInterfaceRequestRfRole)`
 
 SetRfRole sets RfRole field to given value.
 
@@ -608,20 +719,20 @@ HasRfRole returns a boolean if a field has been set.
 
 ### GetRfChannel
 
-`func (o *InterfaceRequest) GetRfChannel() InterfaceRfChannelValue`
+`func (o *InterfaceRequest) GetRfChannel() BulkInterfaceRequestRfChannel`
 
 GetRfChannel returns the RfChannel field if non-nil, zero value otherwise.
 
 ### GetRfChannelOk
 
-`func (o *InterfaceRequest) GetRfChannelOk() (*InterfaceRfChannelValue, bool)`
+`func (o *InterfaceRequest) GetRfChannelOk() (*BulkInterfaceRequestRfChannel, bool)`
 
 GetRfChannelOk returns a tuple with the RfChannel field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRfChannel
 
-`func (o *InterfaceRequest) SetRfChannel(v InterfaceRfChannelValue)`
+`func (o *InterfaceRequest) SetRfChannel(v BulkInterfaceRequestRfChannel)`
 
 SetRfChannel sets RfChannel field to given value.
 
@@ -633,20 +744,20 @@ HasRfChannel returns a boolean if a field has been set.
 
 ### GetPoeMode
 
-`func (o *InterfaceRequest) GetPoeMode() InterfacePoeModeValue`
+`func (o *InterfaceRequest) GetPoeMode() BulkInterfaceRequestPoeMode`
 
 GetPoeMode returns the PoeMode field if non-nil, zero value otherwise.
 
 ### GetPoeModeOk
 
-`func (o *InterfaceRequest) GetPoeModeOk() (*InterfacePoeModeValue, bool)`
+`func (o *InterfaceRequest) GetPoeModeOk() (*BulkInterfaceRequestPoeMode, bool)`
 
 GetPoeModeOk returns a tuple with the PoeMode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoeMode
 
-`func (o *InterfaceRequest) SetPoeMode(v InterfacePoeModeValue)`
+`func (o *InterfaceRequest) SetPoeMode(v BulkInterfaceRequestPoeMode)`
 
 SetPoeMode sets PoeMode field to given value.
 
@@ -658,20 +769,20 @@ HasPoeMode returns a boolean if a field has been set.
 
 ### GetPoeType
 
-`func (o *InterfaceRequest) GetPoeType() InterfacePoeTypeValue`
+`func (o *InterfaceRequest) GetPoeType() BulkInterfaceRequestPoeType`
 
 GetPoeType returns the PoeType field if non-nil, zero value otherwise.
 
 ### GetPoeTypeOk
 
-`func (o *InterfaceRequest) GetPoeTypeOk() (*InterfacePoeTypeValue, bool)`
+`func (o *InterfaceRequest) GetPoeTypeOk() (*BulkInterfaceRequestPoeType, bool)`
 
 GetPoeTypeOk returns a tuple with the PoeType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPoeType
 
-`func (o *InterfaceRequest) SetPoeType(v InterfacePoeTypeValue)`
+`func (o *InterfaceRequest) SetPoeType(v BulkInterfaceRequestPoeType)`
 
 SetPoeType sets PoeType field to given value.
 
@@ -788,20 +899,20 @@ HasTxPower returns a boolean if a field has been set.
 UnsetTxPower ensures that no value is present for TxPower, not even an explicit nil
 ### GetUntaggedVlan
 
-`func (o *InterfaceRequest) GetUntaggedVlan() BriefVLANRequest`
+`func (o *InterfaceRequest) GetUntaggedVlan() BulkInterfaceRequestUntaggedVlan`
 
 GetUntaggedVlan returns the UntaggedVlan field if non-nil, zero value otherwise.
 
 ### GetUntaggedVlanOk
 
-`func (o *InterfaceRequest) GetUntaggedVlanOk() (*BriefVLANRequest, bool)`
+`func (o *InterfaceRequest) GetUntaggedVlanOk() (*BulkInterfaceRequestUntaggedVlan, bool)`
 
 GetUntaggedVlanOk returns a tuple with the UntaggedVlan field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUntaggedVlan
 
-`func (o *InterfaceRequest) SetUntaggedVlan(v BriefVLANRequest)`
+`func (o *InterfaceRequest) SetUntaggedVlan(v BulkInterfaceRequestUntaggedVlan)`
 
 SetUntaggedVlan sets UntaggedVlan field to given value.
 
@@ -846,6 +957,76 @@ SetTaggedVlans sets TaggedVlans field to given value.
 
 HasTaggedVlans returns a boolean if a field has been set.
 
+### GetQinqSvlan
+
+`func (o *InterfaceRequest) GetQinqSvlan() BulkInterfaceRequestUntaggedVlan`
+
+GetQinqSvlan returns the QinqSvlan field if non-nil, zero value otherwise.
+
+### GetQinqSvlanOk
+
+`func (o *InterfaceRequest) GetQinqSvlanOk() (*BulkInterfaceRequestUntaggedVlan, bool)`
+
+GetQinqSvlanOk returns a tuple with the QinqSvlan field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetQinqSvlan
+
+`func (o *InterfaceRequest) SetQinqSvlan(v BulkInterfaceRequestUntaggedVlan)`
+
+SetQinqSvlan sets QinqSvlan field to given value.
+
+### HasQinqSvlan
+
+`func (o *InterfaceRequest) HasQinqSvlan() bool`
+
+HasQinqSvlan returns a boolean if a field has been set.
+
+### SetQinqSvlanNil
+
+`func (o *InterfaceRequest) SetQinqSvlanNil(b bool)`
+
+ SetQinqSvlanNil sets the value for QinqSvlan to be an explicit nil
+
+### UnsetQinqSvlan
+`func (o *InterfaceRequest) UnsetQinqSvlan()`
+
+UnsetQinqSvlan ensures that no value is present for QinqSvlan, not even an explicit nil
+### GetVlanTranslationPolicy
+
+`func (o *InterfaceRequest) GetVlanTranslationPolicy() BulkInterfaceRequestVlanTranslationPolicy`
+
+GetVlanTranslationPolicy returns the VlanTranslationPolicy field if non-nil, zero value otherwise.
+
+### GetVlanTranslationPolicyOk
+
+`func (o *InterfaceRequest) GetVlanTranslationPolicyOk() (*BulkInterfaceRequestVlanTranslationPolicy, bool)`
+
+GetVlanTranslationPolicyOk returns a tuple with the VlanTranslationPolicy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVlanTranslationPolicy
+
+`func (o *InterfaceRequest) SetVlanTranslationPolicy(v BulkInterfaceRequestVlanTranslationPolicy)`
+
+SetVlanTranslationPolicy sets VlanTranslationPolicy field to given value.
+
+### HasVlanTranslationPolicy
+
+`func (o *InterfaceRequest) HasVlanTranslationPolicy() bool`
+
+HasVlanTranslationPolicy returns a boolean if a field has been set.
+
+### SetVlanTranslationPolicyNil
+
+`func (o *InterfaceRequest) SetVlanTranslationPolicyNil(b bool)`
+
+ SetVlanTranslationPolicyNil sets the value for VlanTranslationPolicy to be an explicit nil
+
+### UnsetVlanTranslationPolicy
+`func (o *InterfaceRequest) UnsetVlanTranslationPolicy()`
+
+UnsetVlanTranslationPolicy ensures that no value is present for VlanTranslationPolicy, not even an explicit nil
 ### GetMarkConnected
 
 `func (o *InterfaceRequest) GetMarkConnected() bool`
@@ -898,20 +1079,20 @@ HasWirelessLans returns a boolean if a field has been set.
 
 ### GetVrf
 
-`func (o *InterfaceRequest) GetVrf() BriefVRFRequest`
+`func (o *InterfaceRequest) GetVrf() BulkIPAddressRequestVrf`
 
 GetVrf returns the Vrf field if non-nil, zero value otherwise.
 
 ### GetVrfOk
 
-`func (o *InterfaceRequest) GetVrfOk() (*BriefVRFRequest, bool)`
+`func (o *InterfaceRequest) GetVrfOk() (*BulkIPAddressRequestVrf, bool)`
 
 GetVrfOk returns a tuple with the Vrf field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVrf
 
-`func (o *InterfaceRequest) SetVrf(v BriefVRFRequest)`
+`func (o *InterfaceRequest) SetVrf(v BulkIPAddressRequestVrf)`
 
 SetVrf sets Vrf field to given value.
 
@@ -931,6 +1112,41 @@ HasVrf returns a boolean if a field has been set.
 `func (o *InterfaceRequest) UnsetVrf()`
 
 UnsetVrf ensures that no value is present for Vrf, not even an explicit nil
+### GetOwner
+
+`func (o *InterfaceRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *InterfaceRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *InterfaceRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *InterfaceRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *InterfaceRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *InterfaceRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetTags
 
 `func (o *InterfaceRequest) GetTags() []NestedTagRequest`

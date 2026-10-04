@@ -9,9 +9,12 @@ Name | Type | Description | Notes
 **SourceUrl** | **string** |  | 
 **Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Comments** | Pointer to **string** |  | [optional] 
+**SyncInterval** | Pointer to [**NullableBulkDataSourceRequestSyncInterval**](BulkDataSourceRequestSyncInterval.md) |  | [optional] 
 **Parameters** | Pointer to **interface{}** |  | [optional] 
-**IgnoreRules** | Pointer to **string** | Patterns (one per line) matching files to ignore when syncing | [optional] 
+**IgnoreRules** | Pointer to **string** | Patterns (one per line) matching files or paths to ignore when syncing | [optional] 
+**Owner** | Pointer to [**NullableASNRangeRequestOwner**](ASNRangeRequestOwner.md) |  | [optional] 
+**Comments** | Pointer to **string** |  | [optional] 
+**Tags** | Pointer to [**[]NestedTagRequest**](NestedTagRequest.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
 
 ## Methods
@@ -143,31 +146,41 @@ SetDescription sets Description field to given value.
 
 HasDescription returns a boolean if a field has been set.
 
-### GetComments
+### GetSyncInterval
 
-`func (o *WritableDataSourceRequest) GetComments() string`
+`func (o *WritableDataSourceRequest) GetSyncInterval() BulkDataSourceRequestSyncInterval`
 
-GetComments returns the Comments field if non-nil, zero value otherwise.
+GetSyncInterval returns the SyncInterval field if non-nil, zero value otherwise.
 
-### GetCommentsOk
+### GetSyncIntervalOk
 
-`func (o *WritableDataSourceRequest) GetCommentsOk() (*string, bool)`
+`func (o *WritableDataSourceRequest) GetSyncIntervalOk() (*BulkDataSourceRequestSyncInterval, bool)`
 
-GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+GetSyncIntervalOk returns a tuple with the SyncInterval field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetComments
+### SetSyncInterval
 
-`func (o *WritableDataSourceRequest) SetComments(v string)`
+`func (o *WritableDataSourceRequest) SetSyncInterval(v BulkDataSourceRequestSyncInterval)`
 
-SetComments sets Comments field to given value.
+SetSyncInterval sets SyncInterval field to given value.
 
-### HasComments
+### HasSyncInterval
 
-`func (o *WritableDataSourceRequest) HasComments() bool`
+`func (o *WritableDataSourceRequest) HasSyncInterval() bool`
 
-HasComments returns a boolean if a field has been set.
+HasSyncInterval returns a boolean if a field has been set.
 
+### SetSyncIntervalNil
+
+`func (o *WritableDataSourceRequest) SetSyncIntervalNil(b bool)`
+
+ SetSyncIntervalNil sets the value for SyncInterval to be an explicit nil
+
+### UnsetSyncInterval
+`func (o *WritableDataSourceRequest) UnsetSyncInterval()`
+
+UnsetSyncInterval ensures that no value is present for SyncInterval, not even an explicit nil
 ### GetParameters
 
 `func (o *WritableDataSourceRequest) GetParameters() interface{}`
@@ -227,6 +240,91 @@ SetIgnoreRules sets IgnoreRules field to given value.
 `func (o *WritableDataSourceRequest) HasIgnoreRules() bool`
 
 HasIgnoreRules returns a boolean if a field has been set.
+
+### GetOwner
+
+`func (o *WritableDataSourceRequest) GetOwner() ASNRangeRequestOwner`
+
+GetOwner returns the Owner field if non-nil, zero value otherwise.
+
+### GetOwnerOk
+
+`func (o *WritableDataSourceRequest) GetOwnerOk() (*ASNRangeRequestOwner, bool)`
+
+GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwner
+
+`func (o *WritableDataSourceRequest) SetOwner(v ASNRangeRequestOwner)`
+
+SetOwner sets Owner field to given value.
+
+### HasOwner
+
+`func (o *WritableDataSourceRequest) HasOwner() bool`
+
+HasOwner returns a boolean if a field has been set.
+
+### SetOwnerNil
+
+`func (o *WritableDataSourceRequest) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *WritableDataSourceRequest) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
+### GetComments
+
+`func (o *WritableDataSourceRequest) GetComments() string`
+
+GetComments returns the Comments field if non-nil, zero value otherwise.
+
+### GetCommentsOk
+
+`func (o *WritableDataSourceRequest) GetCommentsOk() (*string, bool)`
+
+GetCommentsOk returns a tuple with the Comments field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetComments
+
+`func (o *WritableDataSourceRequest) SetComments(v string)`
+
+SetComments sets Comments field to given value.
+
+### HasComments
+
+`func (o *WritableDataSourceRequest) HasComments() bool`
+
+HasComments returns a boolean if a field has been set.
+
+### GetTags
+
+`func (o *WritableDataSourceRequest) GetTags() []NestedTagRequest`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *WritableDataSourceRequest) GetTagsOk() (*[]NestedTagRequest, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTags
+
+`func (o *WritableDataSourceRequest) SetTags(v []NestedTagRequest)`
+
+SetTags sets Tags field to given value.
+
+### HasTags
+
+`func (o *WritableDataSourceRequest) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
 
 ### GetCustomFields
 

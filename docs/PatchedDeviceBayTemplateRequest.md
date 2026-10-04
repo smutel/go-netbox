@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeviceType** | Pointer to [**BriefDeviceTypeRequest**](BriefDeviceTypeRequest.md) |  | [optional] 
+**DeviceType** | Pointer to [**BulkDeviceBayTemplateRequestDeviceType**](BulkDeviceBayTemplateRequestDeviceType.md) |  | [optional] 
 **Name** | Pointer to **string** | {module} is accepted as a substitution for the module bay position when attached to a module type. | [optional] 
 **Label** | Pointer to **string** | Physical label | [optional] 
+**Enabled** | Pointer to **bool** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
 
 ## Methods
@@ -30,20 +31,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDeviceType
 
-`func (o *PatchedDeviceBayTemplateRequest) GetDeviceType() BriefDeviceTypeRequest`
+`func (o *PatchedDeviceBayTemplateRequest) GetDeviceType() BulkDeviceBayTemplateRequestDeviceType`
 
 GetDeviceType returns the DeviceType field if non-nil, zero value otherwise.
 
 ### GetDeviceTypeOk
 
-`func (o *PatchedDeviceBayTemplateRequest) GetDeviceTypeOk() (*BriefDeviceTypeRequest, bool)`
+`func (o *PatchedDeviceBayTemplateRequest) GetDeviceTypeOk() (*BulkDeviceBayTemplateRequestDeviceType, bool)`
 
 GetDeviceTypeOk returns a tuple with the DeviceType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeviceType
 
-`func (o *PatchedDeviceBayTemplateRequest) SetDeviceType(v BriefDeviceTypeRequest)`
+`func (o *PatchedDeviceBayTemplateRequest) SetDeviceType(v BulkDeviceBayTemplateRequestDeviceType)`
 
 SetDeviceType sets DeviceType field to given value.
 
@@ -102,6 +103,31 @@ SetLabel sets Label field to given value.
 `func (o *PatchedDeviceBayTemplateRequest) HasLabel() bool`
 
 HasLabel returns a boolean if a field has been set.
+
+### GetEnabled
+
+`func (o *PatchedDeviceBayTemplateRequest) GetEnabled() bool`
+
+GetEnabled returns the Enabled field if non-nil, zero value otherwise.
+
+### GetEnabledOk
+
+`func (o *PatchedDeviceBayTemplateRequest) GetEnabledOk() (*bool, bool)`
+
+GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnabled
+
+`func (o *PatchedDeviceBayTemplateRequest) SetEnabled(v bool)`
+
+SetEnabled sets Enabled field to given value.
+
+### HasEnabled
+
+`func (o *PatchedDeviceBayTemplateRequest) HasEnabled() bool`
+
+HasEnabled returns a boolean if a field has been set.
 
 ### GetDescription
 
